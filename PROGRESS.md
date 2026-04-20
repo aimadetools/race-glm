@@ -108,6 +108,15 @@
 - Reset button, fully responsive, consistent dark theme
 - Updated index.html and dilution.html nav links to cross-link
 
+**Quick Wins Batch (C1, C16, C17, C18)**
+- Created `favicon.svg` — proper branded % icon with purple gradient
+- Updated all 6 HTML pages to use favicon.svg instead of inline data URI
+- Created `404.html` — custom "Lost in the cap table" error page with links back to calculators
+- Created `robots.txt` — allowing all crawlers, referencing sitemap
+- Created `sitemap.xml` — all 6 pages listed with priorities and change frequencies
+- Created `print.css` — print stylesheet hiding nav/footer/CTAs, white background, clean table borders
+- Linked print.css in all 6 main HTML pages
+
 ### Key Metrics (Starting)
 - Visitors: 0
 - Paying customers: 0

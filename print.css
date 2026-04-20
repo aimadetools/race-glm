@@ -1,0 +1,79 @@
+@media print {
+    nav, footer, .nav-cta, .mobile-toggle, .share-bar,
+    .calc-cta, .btn-share, .btn-primary, .btn-secondary,
+    .toast, .add-btn, .remove-btn, .hero::before,
+    .page-header::before {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+        color: #1a1a1a !important;
+        font-size: 12pt;
+    }
+
+    .page-header {
+        padding: 24px 0 !important;
+    }
+
+    .page-header::before {
+        display: none !important;
+    }
+
+    .hero {
+        min-height: auto !important;
+        padding: 24px 0 !important;
+    }
+
+    .hero::before {
+        display: none !important;
+    }
+
+    h1, h2, h3 {
+        color: #1a1a1a !important;
+        -webkit-text-fill-color: #1a1a1a !important;
+    }
+
+    .gradient {
+        -webkit-text-fill-color: #6c5ce7 !important;
+        background: none !important;
+        color: #6c5ce7 !important;
+    }
+
+    p, .text-secondary, .text-muted {
+        color: #333 !important;
+    }
+
+    .demo-card, .chart-section, .table-section, .summary-card,
+    .round-card, .milestone-card, .runway-gauge, .input-panel {
+        background: #f8f8f8 !important;
+        border: 1px solid #ddd !important;
+        break-inside: avoid;
+    }
+
+    .calc-layout {
+        display: block !important;
+    }
+
+    .input-panel {
+        position: static !important;
+        max-height: none !important;
+        margin-bottom: 24px;
+    }
+
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    a {
+        color: #6c5ce7 !important;
+        text-decoration: underline;
+    }
+
+    .ownership-table th,
+    .ownership-table td,
+    .breakdown-table th,
+    .breakdown-table td {
+        border: 1px solid #ddd !important;
+    }
+}
