@@ -69,7 +69,7 @@
 
 ### Next Steps (Day 2)
 - [x] Implement full Equity Dilution Calculator (multi-round, interactive, charts)
-- [ ] Implement Runway Calculator
+- [x] Implement Runway Calculator
 - [ ] Set up Stripe Payment Links
 - [ ] Write first SEO blog post: "How Equity Dilution Works"
 - [ ] Launch on Hacker News "Show HN"
@@ -93,6 +93,20 @@
 - Consistent dark theme with site-wide CSS variables
 - Updated `index.html`: hero CTA, nav link, feature card, footer CTA all link to dilution.html
 - Cross-linked navigation between pages
+
+**Runway Calculator — Full Implementation**
+- Built `runway.html` — complete startup runway calculator
+- Inputs: cash in bank, expected funding, monthly expenses, monthly revenue, revenue growth %/mo, expense growth %/mo, one-time expenses
+- Month-by-month projection up to 60 months with compounding growth
+- Circular gauge visualization showing runway health (green/orange/red)
+- Line chart with cash balance, net burn, and monthly revenue over time (dual Y-axis)
+- Summary cards: months of runway, current net burn, runway end date, breakeven month
+- Milestone cards: fundraise deadline (6mo before runway ends), projected revenue at month 12, total cash burned
+- Monthly breakdown table with revenue, expenses, net burn, cash balance
+- Status messages: Healthy / Caution / Warning / Critical based on runway length
+- Share link generation via URL-encoded state (base64)
+- Reset button, fully responsive, consistent dark theme
+- Updated index.html and dilution.html nav links to cross-link
 
 ### Key Metrics (Starting)
 - Visitors: 0

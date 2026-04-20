@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Runway Calculator — FounderMath</title>
+    <meta name="description" content="Free startup runway calculator. Enter your cash balance, monthly burn rate, and revenue growth to see exactly how many months of runway you have left.">
+    <meta name="keywords" content="startup runway calculator, burn rate calculator, months of runway, gross burn net burn, runway calculation">
+    <meta property="og:title" content="Startup Runway Calculator — FounderMath">
+    <meta property="og:description" content="Calculate how many months of runway your startup has left. Factor in revenue growth, burn rate, and one-time expenses.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%</text></svg>">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #8888a0;
+            --text-muted: #555570;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links {
+            display: flex; align-items: center; gap: 32px; list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding: 120px 24px 48px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .page-header::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%);
+            animation: heroGlow 15s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-5%, 5%) scale(1.1); }
+        }
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem); font-weight: 800;
+            letter-spacing: -0.03em; position: relative; margin-bottom: 12px;
+        }
+        .page-header h1 .gradient {
+            background: linear-gradient(135deg, var(--accent-light), var(--green));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .page-header p {
+            color: var(--text-secondary); font-size: 1.1rem;
+            max-width: 600px; margin: 0 auto; position: relative;
+        }
+
+        /* CALCULATOR LAYOUT */
+        .calc-layout {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px 80px;
+            display: grid; grid-template-columns: 380px 1fr; gap: 32px; align-items: start;
+        }
+
+        /* INPUT PANEL */
+        .input-panel {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; padding: 24px;
+            position: sticky; top: 88px; max-height: calc(100vh - 104px); overflow-y: auto;
+        }
+        .input-panel::-webkit-scrollbar { width: 4px; }
+        .input-panel::-webkit-scrollbar-track { background: transparent; }
+        .input-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+        .panel-section { margin-bottom: 28px; }
+        .panel-section:last-child { margin-bottom: 0; }
+
+        .panel-section-title {
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.1em; color: var(--accent-light); margin-bottom: 16px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+        .input-group label {
+            display: block; font-size: 0.8rem; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;
+        }
+        .input-group input, .input-group select {
+            width: 100%; background: var(--bg-input); border: 1px solid var(--border);
+            color: var(--text-primary); padding: 10px 14px; border-radius: 8px;
+            font-size: 0.9rem; font-family: var(--font-mono); transition: border-color 0.2s;
+        }
+        .input-group input:focus, .input-group select:focus {
+            outline: none; border-color: var(--accent);
+        }
+        .input-group .hint {
+            font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;
+        }
+
+        .input-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+        }
+
+        .separator {
+            border: none; border-top: 1px solid var(--border); margin: 20px 0;
+        }
+
+        /* Share buttons */
+        .share-bar { display: flex; gap: 8px; margin-top: 8px; }
+        .btn-share {
+            flex: 1; background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 10px; border-radius: 8px;
+            font-size: 0.85rem; font-weight: 600; cursor: pointer;
+            transition: all 0.2s; font-family: var(--font-sans);
+        }
+        .btn-share:hover { border-color: var(--accent); color: var(--text-primary); }
+        .btn-share.copied { border-color: var(--green); color: var(--green); }
+
+        /* RESULTS PANEL */
+        .results-panel { min-width: 0; }
+
+        /* Summary cards */
+        .summary-cards {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px;
+        }
+        .summary-card {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px; text-align: center;
+        }
+        .summary-card .metric-value {
+            font-family: var(--font-mono); font-size: 1.6rem; font-weight: 800;
+        }
+        .summary-card .metric-label {
+            font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;
+            letter-spacing: 0.05em; margin-top: 4px;
+        }
+
+        /* Runway gauge */
+        .runway-gauge {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; padding: 32px; margin-bottom: 32px; text-align: center;
+        }
+        .runway-gauge h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .runway-gauge .gauge-subtitle {
+            font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;
+        }
+        .gauge-visual {
+            position: relative; width: 200px; height: 200px; margin: 0 auto 20px;
+        }
+        .gauge-visual svg { width: 200px; height: 200px; transform: rotate(-90deg); }
+        .gauge-bg { fill: none; stroke: var(--bg-card); stroke-width: 16; }
+        .gauge-fill {
+            fill: none; stroke-width: 16; stroke-linecap: round;
+            transition: stroke-dashoffset 0.8s ease, stroke 0.3s;
+        }
+        .gauge-center {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .gauge-center .months {
+            font-family: var(--font-mono); font-size: 3rem; font-weight: 800; line-height: 1;
+        }
+        .gauge-center .unit {
+            font-size: 0.85rem; color: var(--text-muted);
+        }
+        .runway-status {
+            font-size: 0.9rem; font-weight: 600; margin-top: 8px;
+        }
+
+        /* Chart section */
+        .chart-section {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; padding: 32px; margin-bottom: 32px;
+        }
+        .chart-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .chart-section .chart-subtitle {
+            font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;
+        }
+        .chart-container { position: relative; height: 350px; }
+        .chart-container canvas { width: 100% !important; height: 100% !important; }
+
+        /* Monthly breakdown table */
+        .table-section {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; padding: 32px; overflow-x: auto;
+        }
+        .table-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .table-section .table-subtitle {
+            font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;
+        }
+        .breakdown-table {
+            width: 100%; border-collapse: collapse; font-size: 0.85rem;
+        }
+        .breakdown-table th {
+            text-align: right; padding: 10px 12px; border-bottom: 1px solid var(--border);
+            color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;
+            letter-spacing: 0.05em; font-weight: 600;
+        }
+        .breakdown-table th:first-child { text-align: left; }
+        .breakdown-table td {
+            padding: 10px 12px; border-bottom: 1px solid rgba(42, 42, 64, 0.3);
+            text-align: right; font-family: var(--font-mono);
+        }
+        .breakdown-table td:first-child {
+            text-align: left; font-family: var(--font-sans); font-weight: 600;
+        }
+        .breakdown-table tr:hover td { background: rgba(108, 92, 231, 0.05); }
+        .breakdown-table .zero-row td { color: var(--red); opacity: 0.7; }
+        .breakdown-table .negative td { color: var(--red); }
+
+        /* Milestone markers */
+        .milestones {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px;
+        }
+        .milestone-card {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px;
+        }
+        .milestone-card .ms-label {
+            font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;
+            letter-spacing: 0.05em; margin-bottom: 8px;
+        }
+        .milestone-card .ms-value {
+            font-family: var(--font-mono); font-size: 1.2rem; font-weight: 700;
+        }
+        .milestone-card .ms-note {
+            font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;
+        }
+
+        /* CTA */
+        .calc-cta {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            border-radius: 16px; padding: 32px; text-align: center; margin-top: 32px;
+        }
+        .calc-cta h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .calc-cta p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 20px; }
+        .calc-cta .btn-white {
+            background: white; color: var(--accent); padding: 12px 28px; border-radius: 8px;
+            font-weight: 700; text-decoration: none; transition: transform 0.2s; display: inline-block;
+        }
+        .calc-cta .btn-white:hover { transform: translateY(-2px); }
+
+        /* FOOTER */
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        /* TOAST */
+        .toast {
+            position: fixed; bottom: 24px; left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--green); color: white; padding: 12px 24px;
+            border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+            transition: transform 0.3s ease; z-index: 1000;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        /* RESPONSIVE */
+        @media (max-width: 960px) {
+            .calc-layout { grid-template-columns: 1fr; }
+            .input-panel { position: static; max-height: none; }
+            .summary-cards { grid-template-columns: repeat(2, 1fr); }
+            .milestones { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0; background: var(--bg-primary);
+                border-bottom: 1px solid var(--border); padding: 24px; gap: 16px;
+            }
+            .mobile-toggle { display: block; }
+            .summary-cards { grid-template-columns: 1fr 1fr; }
+            .input-row { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .chart-container { height: 260px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution Calc</a></li>
+                <li><a href="runway.html">Runway Calc</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html" class="nav-cta">Start Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Startup <span class="gradient">Runway</span> Calculator</h1>
+        <p>Know exactly how many months of runway you have left. Factor in revenue growth, burn rate changes, and one-time expenses.</p>
+    </div>
+
+    <!-- Calculator Layout -->
+    <div class="calc-layout">
+        <!-- Left: Inputs -->
+        <div class="input-panel">
+            <div class="panel-section">
+                <div class="panel-section-title">Cash Position</div>
+                <div class="input-group">
+                    <label>Cash in Bank ($)</label>
+                    <input type="number" id="cashInBank" value="500000" min="0" step="10000" oninput="recalculate()">
+                    <div class="hint">Total cash and cash equivalents</div>
+                </div>
+                <div class="input-group">
+                    <label>Expected Funding ($)</label>
+                    <input type="number" id="expectedFunding" value="0" min="0" step="10000" oninput="recalculate()">
+                    <div class="hint">Firm commitments or expected bridge rounds</div>
+                </div>
+            </div>
+
+            <hr class="separator">
+
+            <div class="panel-section">
+                <div class="panel-section-title">Monthly Burn Rate</div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Monthly Expenses ($)</label>
+                        <input type="number" id="monthlyExpenses" value="40000" min="0" step="1000" oninput="recalculate()">
+                    </div>
+                    <div class="input-group">
+                        <label>Monthly Revenue ($)</label>
+                        <input type="number" id="monthlyRevenue" value="10000" min="0" step="1000" oninput="recalculate()">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Net Monthly Burn</label>
+                    <input type="text" id="netBurn" readonly style="color:var(--text-muted);cursor:default;">
+                </div>
+            </div>
+
+            <hr class="separator">
+
+            <div class="panel-section">
+                <div class="panel-section-title">Growth & Adjustments</div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Revenue Growth (%/mo)</label>
+                        <input type="number" id="revenueGrowth" value="8" min="0" max="100" step="1" oninput="recalculate()">
+                        <div class="hint">Monthly compounding</div>
+                    </div>
+                    <div class="input-group">
+                        <label>Expense Growth (%/mo)</label>
+                        <input type="number" id="expenseGrowth" value="2" min="0" max="100" step="1" oninput="recalculate()">
+                        <div class="hint">Hiring, scaling costs</div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>One-Time Expenses ($)</label>
+                    <input type="number" id="oneTimeExpenses" value="0" min="0" step="1000" oninput="recalculate()">
+                    <div class="hint">Planned purchases, legal fees, etc.</div>
+                </div>
+                <div class="input-group">
+                    <label>When? (Month #)</label>
+                    <input type="number" id="oneTimeMonth" value="3" min="1" max="60" step="1" oninput="recalculate()">
+                    <div class="hint">Which month the one-time expense hits</div>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <div class="panel-section-title">Share</div>
+                <div class="share-bar">
+                    <button class="btn-share" id="shareBtn" onclick="copyShareLink()">Copy Share Link</button>
+                    <button class="btn-share" onclick="resetCalculator()">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Results -->
+        <div class="results-panel">
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="metric-value" id="sumRunway" style="color:var(--green)">—</div>
+                    <div class="metric-label">Months of Runway</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="sumNetBurn" style="color:var(--orange)">—</div>
+                    <div class="metric-label">Current Net Burn</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="sumRunDate" style="color:var(--blue)">—</div>
+                    <div class="metric-label">Runway Ends</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="sumBreakeven" style="color:var(--accent-light)">—</div>
+                    <div class="metric-label">Breakeven Month</div>
+                </div>
+            </div>
+
+            <!-- Runway Gauge -->
+            <div class="runway-gauge">
+                <h3>Runway Status</h3>
+                <p class="gauge-subtitle">Visual indicator of your runway health</p>
+                <div class="gauge-visual">
+                    <svg viewBox="0 0 200 200">
+                        <circle class="gauge-bg" cx="100" cy="100" r="85"></circle>
+                        <circle class="gauge-fill" id="gaugeFill" cx="100" cy="100" r="85"
+                            stroke-dasharray="534" stroke-dashoffset="534"></circle>
+                    </svg>
+                    <div class="gauge-center">
+                        <div class="months" id="gaugeMonths">—</div>
+                        <div class="unit">months</div>
+                    </div>
+                </div>
+                <div class="runway-status" id="runwayStatus">—</div>
+            </div>
+
+            <!-- Chart -->
+            <div class="chart-section">
+                <h3>Cash Balance Over Time</h3>
+                <p class="chart-subtitle">Watch your cash balance change month by month as revenue grows and expenses evolve.</p>
+                <div class="chart-container">
+                    <canvas id="runwayChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Milestones -->
+            <div class="milestones" id="milestoneCards">
+                <div class="milestone-card">
+                    <div class="ms-label">Fundraise Deadline</div>
+                    <div class="ms-value" id="msDeadline">—</div>
+                    <div class="ms-note">Start raising 6 months before runway ends</div>
+                </div>
+                <div class="milestone-card">
+                    <div class="ms-label">Revenue at Month 12</div>
+                    <div class="ms-value" id="msRev12">—</div>
+                    <div class="ms-note">Projected monthly revenue</div>
+                </div>
+                <div class="milestone-card">
+                    <div class="ms-label">Total Cash Burned</div>
+                    <div class="ms-value" id="msTotalBurn">—</div>
+                    <div class="ms-note">Cumulative net burn over runway</div>
+                </div>
+            </div>
+
+            <!-- Monthly Breakdown -->
+            <div class="table-section">
+                <h3>Monthly Breakdown</h3>
+                <p class="table-subtitle">Month-by-month cash flow projection with growth factored in.</p>
+                <div style="overflow-x:auto;">
+                    <table class="breakdown-table" id="breakdownTable"></table>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="calc-cta">
+                <h3>Want to save scenarios and export this to PDF?</h3>
+                <p>FounderMath Pro lets you save unlimited runway scenarios, compare them side-by-side, and export charts to PDF or PNG.</p>
+                <a href="pricing.html" class="btn-white">Upgrade to Pro — $19/mo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="mailto:hello@foundermath.com">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">Link copied to clipboard!</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+    // ============================================================
+    // STATE & DEFAULTS
+    // ============================================================
+    const DEFAULTS = {
+        cashInBank: 500000,
+        expectedFunding: 0,
+        monthlyExpenses: 40000,
+        monthlyRevenue: 10000,
+        revenueGrowth: 8,
+        expenseGrowth: 2,
+        oneTimeExpenses: 0,
+        oneTimeMonth: 3
+    };
+
+    function getState() {
+        return {
+            cashInBank: gv('cashInBank'),
+            expectedFunding: gv('expectedFunding'),
+            monthlyExpenses: gv('monthlyExpenses'),
+            monthlyRevenue: gv('monthlyRevenue'),
+            revenueGrowth: gv('revenueGrowth'),
+            expenseGrowth: gv('expenseGrowth'),
+            oneTimeExpenses: gv('oneTimeExpenses'),
+            oneTimeMonth: gv('oneTimeMonth')
+        };
+    }
+
+    function gv(id) {
+        return parseFloat(document.getElementById(id).value) || 0;
+    }
+
+    // ============================================================
+    // URL STATE
+    // ============================================================
+    function loadFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        const encoded = params.get('s');
+        if (!encoded) return;
+        try {
+            const parsed = JSON.parse(atob(encoded));
+            Object.keys(DEFAULTS).forEach(key => {
+                if (parsed[key] !== undefined) {
+                    document.getElementById(key).value = parsed[key];
+                }
+            });
+        } catch (e) { /* ignore */ }
+    }
+
+    function encodeStateToURL() {
+        const s = getState();
+        return window.location.origin + window.location.pathname + '?s=' + btoa(JSON.stringify(s));
+    }
+
+    // ============================================================
+    // CALCULATION ENGINE
+    // ============================================================
+    function calculate() {
+        const s = getState();
+        const netBurn = s.monthlyExpenses - s.monthlyRevenue;
+        const revGrowth = s.revenueGrowth / 100;
+        const expGrowth = s.expenseGrowth / 100;
+
+        // Project month by month
+        const months = [];
+        let cash = s.cashInBank + s.expectedFunding;
+        let rev = s.monthlyRevenue;
+        let exp = s.monthlyExpenses;
+        let runwayMonth = -1;
+        let breakevenMonth = -1;
+
+        const MAX_MONTHS = 60;
+
+        for (let m = 1; m <= MAX_MONTHS; m++) {
+            const burn = exp - rev;
+            let oneTime = 0;
+            if (m === s.oneTimeMonth) oneTime = s.oneTimeExpenses;
+            const cashEnd = cash - burn - oneTime;
+
+            if (cashEnd <= 0 && runwayMonth === -1) {
+                runwayMonth = m;
+            }
+            if (burn <= 0 && breakevenMonth === -1 && m > 1) {
+                breakevenMonth = m;
+            }
+
+            months.push({
+                month: m,
+                revenue: rev,
+                expenses: exp,
+                netBurn: burn,
+                oneTime: oneTime,
+                cashStart: cash,
+                cashEnd: Math.max(0, cashEnd),
+                cashEndRaw: cashEnd
+            });
+
+            cash = Math.max(0, cashEnd);
+            if (cash <= 0) break;
+
+            // Grow revenue and expenses for next month
+            rev = rev * (1 + revGrowth);
+            exp = exp * (1 + expGrowth);
+        }
+
+        // If never ran out
+        if (runwayMonth === -1) runwayMonth = months.length;
+
+        // If never broke even
+        // Check final month
+        if (breakevenMonth === -1 && months.length > 0) {
+            const last = months[months.length - 1];
+            if (last.netBurn <= 0) breakevenMonth = months.length;
+        }
+
+        return { months, runwayMonth, netBurn, breakevenMonth };
+    }
+
+    // ============================================================
+    // RENDERING
+    // ============================================================
+    let chart = null;
+
+    function recalculate() {
+        const s = getState();
+        const { months, runwayMonth, netBurn, breakevenMonth } = calculate();
+
+        // Update net burn display
+        document.getElementById('netBurn').value = formatCurrency(netBurn) + '/mo';
+
+        // Summary cards
+        document.getElementById('sumRunway').textContent = runwayMonth;
+        document.getElementById('sumRunway').style.color = runwayMonth >= 18 ? 'var(--green)' : runwayMonth >= 12 ? 'var(--orange)' : 'var(--red)';
+        document.getElementById('sumNetBurn').textContent = formatCurrency(netBurn);
+
+        // Runway end date
+        const endDate = new Date();
+        endDate.setMonth(endDate.getMonth() + runwayMonth);
+        document.getElementById('sumRunDate').textContent = endDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+
+        // Breakeven
+        document.getElementById('sumBreakeven').textContent = breakevenMonth > 0 ? 'Month ' + breakevenMonth : 'N/A';
+
+        // Gauge
+        const maxGaugeMonths = 36;
+        const gaugePct = Math.min(runwayMonth / maxGaugeMonths, 1);
+        const circumference = 2 * Math.PI * 85; // ~534
+        const offset = circumference * (1 - gaugePct);
+        const gaugeFill = document.getElementById('gaugeFill');
+        gaugeFill.style.strokeDashoffset = offset;
+        gaugeFill.style.stroke = runwayMonth >= 18 ? 'var(--green)' : runwayMonth >= 12 ? 'var(--orange)' : 'var(--red)';
+        document.getElementById('gaugeMonths').textContent = runwayMonth;
+        document.getElementById('gaugeMonths').style.color = runwayMonth >= 18 ? 'var(--green)' : runwayMonth >= 12 ? 'var(--orange)' : 'var(--red)';
+
+        // Status text
+        const status = document.getElementById('runwayStatus');
+        if (runwayMonth >= 18) {
+            status.textContent = 'Healthy — you have time to build and raise';
+            status.style.color = 'var(--green)';
+        } else if (runwayMonth >= 12) {
+            status.textContent = 'Caution — start planning your next raise';
+            status.style.color = 'var(--orange)';
+        } else if (runwayMonth >= 6) {
+            status.textContent = 'Warning — begin fundraising now';
+            status.style.color = 'var(--red)';
+        } else {
+            status.textContent = 'Critical — extend runway immediately';
+            status.style.color = 'var(--red)';
+        }
+
+        // Milestones
+        const deadlineDate = new Date();
+        deadlineDate.setMonth(deadlineDate.getMonth() + Math.max(runwayMonth - 6, 0));
+        document.getElementById('msDeadline').textContent = deadlineDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+
+        if (months.length >= 12) {
+            document.getElementById('msRev12').textContent = formatCurrency(months[11].revenue) + '/mo';
+        } else {
+            document.getElementById('msRev12').textContent = '—';
+        }
+
+        const totalBurned = months.reduce((sum, m) => sum + m.netBurn + m.oneTime, 0);
+        document.getElementById('msTotalBurn').textContent = formatCurrency(totalBurned);
+
+        // Chart
+        renderChart(months);
+
+        // Table
+        renderTable(months);
+    }
+
+    function renderChart(months) {
+        const ctx = document.getElementById('runwayChart').getContext('2d');
+        const labels = months.map(m => 'Month ' + m.month);
+        const cashData = months.map(m => m.cashEndRaw);
+        const burnData = months.map(m => m.netBurn + m.oneTime);
+        const revData = months.map(m => m.revenue);
+
+        if (chart) chart.destroy();
+
+        chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels,
+                datasets: [
+                    {
+                        label: 'Cash Balance',
+                        data: cashData,
+                        borderColor: '#6c5ce7',
+                        backgroundColor: 'rgba(108, 92, 231, 0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 0,
+                        pointHoverRadius: 5,
+                        borderWidth: 2,
+                        yAxisID: 'y',
+                    },
+                    {
+                        label: 'Net Burn',
+                        data: burnData,
+                        borderColor: '#ff6b6b',
+                        backgroundColor: 'rgba(255, 107, 107, 0.05)',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 0,
+                        pointHoverRadius: 5,
+                        borderWidth: 2,
+                        yAxisID: 'y1',
+                    },
+                    {
+                        label: 'Monthly Revenue',
+                        data: revData,
+                        borderColor: '#00b894',
+                        backgroundColor: 'rgba(0, 184, 148, 0.05)',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 0,
+                        pointHoverRadius: 5,
+                        borderWidth: 2,
+                        yAxisID: 'y1',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#8888a0', padding: 16, usePointStyle: true,
+                            pointStyle: 'line', font: { size: 12 }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(ctx) {
+                                return ctx.dataset.label + ': ' + formatCurrency(ctx.parsed.y);
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#8888a0', font: { size: 11 }, maxRotation: 45 },
+                        grid: { display: false }
+                    },
+                    y: {
+                        position: 'left',
+                        ticks: {
+                            color: '#8888a0',
+                            callback: v => formatCompact(v),
+                            font: { size: 11 }
+                        },
+                        grid: { color: 'rgba(42, 42, 64, 0.5)' }
+                    },
+                    y1: {
+                        position: 'right',
+                        ticks: {
+                            color: '#8888a0',
+                            callback: v => formatCompact(v),
+                            font: { size: 11 }
+                        },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    }
+
+    function renderTable(months) {
+        const table = document.getElementById('breakdownTable');
+        let html = '<thead><tr><th>Month</th><th>Revenue</th><th>Expenses</th><th>One-Time</th><th>Net Burn</th><th>Cash End</th></tr></thead><tbody>';
+
+        months.forEach(m => {
+            const isZero = m.cashEnd <= 0;
+            const cls = isZero ? ' class="zero-row"' : '';
+            html += `<tr${cls}>
+                <td>Month ${m.month}</td>
+                <td style="color:var(--green)">${formatCurrency(m.revenue)}</td>
+                <td style="color:var(--red)">${formatCurrency(m.expenses)}</td>
+                <td>${m.oneTime > 0 ? formatCurrency(m.oneTime) : '—'}</td>
+                <td class="${m.netBurn > 0 ? 'negative' : ''}" style="${m.netBurn <= 0 ? 'color:var(--green)' : ''}">${formatCurrency(m.netBurn)}</td>
+                <td style="color:${m.cashEnd > 0 ? 'var(--text-primary)' : 'var(--red)'}">${formatCurrency(m.cashEnd)}</td>
+            </tr>`;
+        });
+
+        html += '</tbody>';
+        table.innerHTML = html;
+    }
+
+    // ============================================================
+    // SHARE
+    // ============================================================
+    function copyShareLink() {
+        const url = encodeStateToURL();
+        navigator.clipboard.writeText(url).then(() => {
+            const btn = document.getElementById('shareBtn');
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            showToast('Link copied to clipboard!');
+            setTimeout(() => { btn.textContent = 'Copy Share Link'; btn.classList.remove('copied'); }, 2000);
+        }).catch(() => { prompt('Copy this link:', url); });
+    }
+
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function resetCalculator() {
+        Object.keys(DEFAULTS).forEach(key => {
+            document.getElementById(key).value = DEFAULTS[key];
+        });
+        recalculate();
+    }
+
+    // ============================================================
+    // HELPERS
+    // ============================================================
+    function formatCurrency(n) {
+        if (Math.abs(n) >= 1000000) return '$' + (n / 1000000).toFixed(2) + 'M';
+        if (Math.abs(n) >= 1000) return '$' + (n / 1000).toFixed(1) + 'K';
+        return '$' + n.toFixed(0);
+    }
+
+    function formatCompact(n) {
+        if (Math.abs(n) >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
+        if (Math.abs(n) >= 1000) return '$' + (n / 1000).toFixed(0) + 'K';
+        return '$' + n.toFixed(0);
+    }
+
+    // ============================================================
+    // INIT
+    // ============================================================
+    loadFromURL();
+    recalculate();
+    </script>
+</body>
+</html>
