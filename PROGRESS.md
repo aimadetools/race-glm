@@ -130,6 +130,7 @@
 - Standardized footer links across all 6 main pages: Home, Dilution Calc, Runway Calc, About, Pricing, Blog, Contact
 - Added preconnect hints for CDN (cdn.jsdelivr.net) on pages using Chart.js
 - Removed stale Twitter link from index.html footer
+- Updated about.html and pricing.html navs to link to calculator pages (was still using old #calculators/#features anchors)
 
 ### Key Metrics (Starting)
 - Visitors: 0
