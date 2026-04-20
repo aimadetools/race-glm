@@ -32,11 +32,12 @@
             --orange: #ffa502;
             --blue: #54a0ff;
             --text-primary: #f0f0f5;
-            --text-secondary: #8888a0;
-            --text-muted: #555570;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
             --border: #2a2a40;
             --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -78,16 +79,19 @@
             color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;
         }
         .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
         .nav-cta {
             background: var(--accent) !important; color: white !important;
             padding: 8px 20px; border-radius: 8px; font-weight: 600;
             transition: transform 0.2s, box-shadow 0.2s !important;
         }
         .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .nav-cta:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
         .mobile-toggle {
             display: none; background: none; border: none; color: var(--text-primary);
-            font-size: 1.5rem; cursor: pointer;
+            font-size: 1.5rem; cursor: pointer; padding: 8px;
         }
+        .mobile-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
 
         /* PAGE HEADER */
         .page-header {
@@ -157,6 +161,10 @@
         .input-group input:focus, .input-group select:focus {
             outline: none; border-color: var(--accent);
         }
+        .input-group input:focus-visible, .input-group select:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
         .input-group .hint {
             font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;
         }
@@ -178,6 +186,10 @@
             transition: all 0.2s; font-family: var(--font-sans);
         }
         .btn-share:hover { border-color: var(--accent); color: var(--text-primary); }
+        .btn-share:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
         .btn-share.copied { border-color: var(--green); color: var(--green); }
 
         /* RESULTS PANEL */
@@ -303,6 +315,7 @@
             font-weight: 700; text-decoration: none; transition: transform 0.2s; display: inline-block;
         }
         .calc-cta .btn-white:hover { transform: translateY(-2px); }
+        .calc-cta .btn-white:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
 
         /* FOOTER */
         footer { padding: 48px 24px; border-top: 1px solid var(--border); }
@@ -317,6 +330,7 @@
             color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s;
         }
         .footer-links a:hover { color: var(--text-primary); }
+        .footer-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
 
         /* TOAST */
         .toast {
@@ -327,6 +341,32 @@
             transition: transform 0.3s ease; z-index: 1000;
         }
         .toast.show { transform: translateX(-50%) translateY(0); }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: more) {
+            :root {
+                --border: #ffffff;
+                --text-secondary: #e0e0e0;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
 
         /* RESPONSIVE */
         @media (max-width: 960px) {
@@ -351,32 +391,35 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
         <div class="nav-inner">
-            <a href="/" class="logo">
-                <div class="logo-icon">%</div>
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
                 FounderMath
             </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="dilution.html">Dilution Calc</a></li>
-                <li><a href="runway.html">Runway Calc</a></li>
-                <li><a href="safe.html">SAFE Calc</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="pricing.html" class="nav-cta">Start Free</a></li>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="dilution.html" role="menuitem">Dilution Calc</a></li>
+                <li role="none"><a href="runway.html" role="menuitem">Runway Calc</a></li>
+                <li role="none"><a href="safe.html" role="menuitem">SAFE Calc</a></li>
+                <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+                <li role="none"><a href="about.html" role="menuitem">About</a></li>
+                <li role="none"><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
             </ul>
-            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <div class="page-header">
+    <header class="page-header">
         <h1>Startup <span class="gradient">Runway</span> Calculator</h1>
         <p>Know exactly how many months of runway you have left. Factor in revenue growth, burn rate changes, and one-time expenses.</p>
-    </div>
+    </header>
 
-    <!-- Calculator Layout -->
+    <!-- Main Content -->
+    <main id="main-content" class="calc-layout">
     <div class="calc-layout">
         <!-- Left: Inputs -->
         <div class="input-panel">
@@ -452,7 +495,7 @@
         </div>
 
         <!-- Right: Results -->
-        <div class="results-panel">
+        <div class="results-panel" role="region" aria-label="Calculator results">
             <!-- Summary Cards -->
             <div class="summary-cards">
                 <div class="summary-card">
@@ -474,8 +517,8 @@
             </div>
 
             <!-- Runway Gauge -->
-            <div class="runway-gauge">
-                <h3>Runway Status</h3>
+            <section class="runway-gauge" aria-labelledby="gaugeTitle">
+                <h3 id="gaugeTitle">Runway Status</h3>
                 <p class="gauge-subtitle">Visual indicator of your runway health</p>
                 <div class="gauge-visual">
                     <svg viewBox="0 0 200 200">
@@ -492,13 +535,13 @@
             </div>
 
             <!-- Chart -->
-            <div class="chart-section">
-                <h3>Cash Balance Over Time</h3>
+            <section class="chart-section" aria-labelledby="chartTitle">
+                <h3 id="chartTitle">Cash Balance Over Time</h3>
                 <p class="chart-subtitle">Watch your cash balance change month by month as revenue grows and expenses evolve.</p>
                 <div class="chart-container">
-                    <canvas id="runwayChart"></canvas>
+                    <canvas id="runwayChart" role="img" aria-label="Line chart showing cash balance, net burn, and monthly revenue over time"></canvas>
                 </div>
-            </div>
+            </section>
 
             <!-- Milestones -->
             <div class="milestones" id="milestoneCards">
@@ -520,22 +563,22 @@
             </div>
 
             <!-- Monthly Breakdown -->
-            <div class="table-section">
-                <h3>Monthly Breakdown</h3>
+            <section class="table-section" aria-labelledby="tableTitle">
+                <h3 id="tableTitle">Monthly Breakdown</h3>
                 <p class="table-subtitle">Month-by-month cash flow projection with growth factored in.</p>
                 <div style="overflow-x:auto;">
-                    <table class="breakdown-table" id="breakdownTable"></table>
+                    <table class="breakdown-table" id="breakdownTable" role="table" aria-describedby="tableTitle"></table>
                 </div>
-            </div>
+            </section>
 
             <!-- CTA -->
-            <div class="calc-cta">
+            <div class="calc-cta" role="complementary" aria-label="FounderMath Pro upgrade offer">
                 <h3>Want to save scenarios and export this to PDF?</h3>
                 <p>FounderMath Pro lets you save unlimited runway scenarios, compare them side-by-side, and export charts to PDF or PNG.</p>
                 <a href="pricing.html" class="btn-white">Upgrade to Pro — $19/mo</a>
             </div>
         </div>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -554,7 +597,7 @@
     </footer>
 
     <!-- Toast -->
-    <div class="toast" id="toast">Link copied to clipboard!</div>
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Link copied to clipboard!</div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script>
@@ -911,6 +954,32 @@
         if (Math.abs(n) >= 1000) return '$' + (n / 1000).toFixed(0) + 'K';
         return '$' + n.toFixed(0);
     }
+
+    // ============================================================
+    // MOBILE MENU TOGGLE FOR ACCESSIBILITY
+    // ============================================================
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const toggle = document.getElementById('mobileToggle');
+        navLinks.classList.toggle('open');
+        const isOpen = navLinks.classList.contains('open');
+        toggle.setAttribute('aria-expanded', isOpen.toString());
+    }
+
+    // ============================================================
+    // KEYBOARD NAVIGATION
+    // ============================================================
+    document.addEventListener('keydown', function(e) {
+        // Close mobile menu on Escape
+        if (e.key === 'Escape') {
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                document.getElementById('mobileToggle').focus();
+            }
+        }
+    });
 
     // ============================================================
     // INIT

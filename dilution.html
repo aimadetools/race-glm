@@ -34,11 +34,12 @@
             --pink: #ff6b9d;
             --yellow: #feca57;
             --text-primary: #f0f0f5;
-            --text-secondary: #8888a0;
-            --text-muted: #555570;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
             --border: #2a2a40;
             --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -105,6 +106,7 @@
             transition: color 0.2s;
         }
         .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
         .nav-cta {
             background: var(--accent) !important;
             color: white !important;
@@ -117,6 +119,7 @@
             transform: translateY(-1px);
             box-shadow: 0 4px 20px var(--accent-glow);
         }
+        .nav-cta:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
         .mobile-toggle {
             display: none;
             background: none;
@@ -124,7 +127,9 @@
             color: var(--text-primary);
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 8px;
         }
+        .mobile-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
 
         /* --- PAGE HEADER --- */
         .page-header {
@@ -226,6 +231,10 @@
             border-color: var(--accent);
             color: var(--text-primary);
         }
+        .panel-section-title .add-btn:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
 
         /* Founder input row */
         .founder-row {
@@ -249,6 +258,10 @@
             outline: none;
             border-color: var(--accent);
         }
+        .founder-row input:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
         .founder-row input[type="number"] {
             font-family: var(--font-mono);
             text-align: right;
@@ -263,6 +276,11 @@
             transition: color 0.2s;
         }
         .founder-row .remove-btn:hover { color: var(--red); }
+        .founder-row .remove-btn:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+            color: var(--red);
+        }
 
         /* Round card */
         .round-card {
@@ -292,6 +310,10 @@
             outline: none;
             border-color: var(--accent);
         }
+        .round-card-header .round-name:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
         .round-card-header .remove-btn {
             background: none;
             border: none;
@@ -299,8 +321,14 @@
             font-size: 1rem;
             cursor: pointer;
             transition: color 0.2s;
+            padding: 4px;
         }
         .round-card-header .remove-btn:hover { color: var(--red); }
+        .round-card-header .remove-btn:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+            color: var(--red);
+        }
 
         .round-inputs {
             display: grid;
@@ -331,6 +359,10 @@
         .round-input-group input:focus {
             outline: none;
             border-color: var(--accent);
+        }
+        .round-input-group input:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
         }
 
         /* Split warning */
@@ -368,6 +400,10 @@
         .btn-share:hover {
             border-color: var(--accent);
             color: var(--text-primary);
+        }
+        .btn-share:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
         }
         .btn-share.copied {
             border-color: var(--green);
@@ -470,6 +506,10 @@
             border-bottom: 1px solid rgba(42, 42, 64, 0.3);
             white-space: nowrap;
         }
+        .ownership-table a:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
         .ownership-table tr:hover td {
             background: rgba(108, 92, 231, 0.05);
         }
@@ -541,6 +581,10 @@
         .calc-cta .btn-white:hover {
             transform: translateY(-2px);
         }
+        .calc-cta .btn-white:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 4px;
+        }
 
         /* --- FOOTER --- */
         footer {
@@ -572,6 +616,10 @@
             transition: color 0.2s;
         }
         .footer-links a:hover { color: var(--text-primary); }
+        .footer-links a:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 4px;
+        }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 960px) {
@@ -626,69 +674,107 @@
         .toast.show {
             transform: translateX(-50%) translateY(0);
         }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: more) {
+            :root {
+                --border: #ffffff;
+                --text-secondary: #e0e0e0;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
         <div class="nav-inner">
-            <a href="/" class="logo">
-                <div class="logo-icon">%</div>
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
                 FounderMath
             </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="dilution.html">Dilution Calc</a></li>
-                <li><a href="runway.html">Runway Calc</a></li>
-                <li><a href="safe.html">SAFE Calc</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="pricing.html" class="nav-cta">Start Free</a></li>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="dilution.html" role="menuitem">Dilution Calc</a></li>
+                <li role="none"><a href="runway.html" role="menuitem">Runway Calc</a></li>
+                <li role="none"><a href="safe.html" role="menuitem">SAFE Calc</a></li>
+                <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+                <li role="none"><a href="about.html" role="menuitem">About</a></li>
+                <li role="none"><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
             </ul>
-            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <div class="page-header">
+    <header class="page-header">
         <h1>Equity <span class="gradient">Dilution</span> Calculator</h1>
         <p>See exactly how your ownership changes across every funding round. Add founders, model rounds, and share with cofounders.</p>
-    </div>
+    </header>
 
-    <!-- Calculator Layout -->
+    <!-- Main Content -->
+    <main id="main-content" class="calc-layout">
     <div class="calc-layout">
         <!-- Left: Inputs -->
         <div class="input-panel">
             <!-- Founders Section -->
             <div class="panel-section">
-                <div class="panel-section-title">
-                    <span>Founders</span>
-                    <button class="add-btn" onclick="addFounder()" id="addFounderBtn">+ Add Founder</button>
+                <div class="panel-section">
+                    <div class="panel-section-title">
+                        <span id="foundersLabel">Founders</span>
+                        <button class="add-btn" onclick="addFounder()" id="addFounderBtn" aria-controls="foundersContainer">+ Add Founder</button>
+                    </div>
+                    <div id="foundersContainer" role="group" aria-labelledby="foundersLabel"></div>
+                    <div class="split-warning" id="splitWarning" role="alert" aria-live="polite">Founder percentages must total 100%.</div>
                 </div>
-                <div id="foundersContainer"></div>
-                <div class="split-warning" id="splitWarning">Founder percentages must total 100%.</div>
             </div>
 
             <!-- Rounds Section -->
             <div class="panel-section">
                 <div class="panel-section-title">
-                    <span>Funding Rounds</span>
-                    <button class="add-btn" onclick="addRound()" id="addRoundBtn">+ Add Round</button>
+                    <span id="roundsLabel">Funding Rounds</span>
+                    <button class="add-btn" onclick="addRound()" id="addRoundBtn" aria-controls="roundsContainer">+ Add Round</button>
                 </div>
-                <div id="roundsContainer"></div>
+                <div id="roundsContainer" role="group" aria-labelledby="roundsLabel"></div>
             </div>
 
             <!-- Share Section -->
             <div class="panel-section">
                 <div class="panel-section-title"><span>Share</span></div>
                 <div class="share-bar">
-                    <button class="btn-share" id="shareBtn" onclick="copyShareLink()">Copy Share Link</button>
-                    <button class="btn-share" onclick="resetCalculator()">Reset</button>
+                    <button class="btn-share" id="shareBtn" onclick="copyShareLink()" aria-describedby="toast">Copy Share Link</button>
+                    <button class="btn-share" onclick="resetCalculator()">Reset calculator to defaults</button>
                 </div>
             </div>
         </div>
 
         <!-- Right: Results -->
-        <div class="results-panel">
+        <div class="results-panel" role="region" aria-label="Calculator results">
             <!-- Summary Cards -->
             <div class="summary-cards">
                 <div class="summary-card">
@@ -710,32 +796,32 @@
             </div>
 
             <!-- Stacked Bar Chart -->
-            <div class="chart-section">
-                <h3>Ownership Across Rounds</h3>
+            <section class="chart-section" aria-labelledby="chartTitle">
+                <h3 id="chartTitle">Ownership Across Rounds</h3>
                 <p class="chart-subtitle">See how each stakeholder's equity evolves after every round.</p>
                 <div class="chart-container">
-                    <canvas id="dilutionChart"></canvas>
+                    <canvas id="dilutionChart" role="img" aria-label="Bar chart showing ownership percentages across funding rounds"></canvas>
                 </div>
-            </div>
+            </section>
 
             <!-- Ownership Table -->
-            <div class="table-section">
-                <h3>Detailed Cap Table</h3>
+            <section class="table-section" aria-labelledby="tableTitle">
+                <h3 id="tableTitle">Detailed Cap Table</h3>
                 <p class="table-subtitle">Full breakdown of ownership, shares, and valuations at each stage.</p>
                 <div style="overflow-x:auto;">
-                    <table class="ownership-table" id="ownershipTable">
+                    <table class="ownership-table" id="ownershipTable" role="table" aria-describedby="tableTitle">
                     </table>
                 </div>
-            </div>
+            </section>
 
             <!-- Pro CTA -->
-            <div class="calc-cta">
+            <div class="calc-cta" role="complementary" aria-label="FounderMath Pro upgrade offer">
                 <h3>Want to save scenarios and compare side-by-side?</h3>
                 <p>FounderMath Pro lets you save unlimited scenarios, export to PDF, and compare rounds side-by-side.</p>
                 <a href="pricing.html" class="btn-white">Upgrade to Pro — $19/mo</a>
             </div>
         </div>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -754,7 +840,7 @@
     </footer>
 
     <!-- Toast -->
-    <div class="toast" id="toast">Link copied to clipboard!</div>
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Link copied to clipboard!</div>
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -814,11 +900,11 @@
             const row = document.createElement('div');
             row.className = 'founder-row';
             row.innerHTML = `
-                <input type="text" value="${escHtml(f.name)}" placeholder="Name"
+                <input type="text" value="${escHtml(f.name)}" placeholder="Name" aria-label="Founder ${i + 1} name"
                     oninput="state.founders[${i}].name=this.value; recalculate()">
-                <input type="number" value="${f.pct}" min="0" max="100" step="1"
+                <input type="number" value="${f.pct}" min="0" max="100" step="1" aria-label="Founder ${i + 1} ownership percentage"
                     oninput="state.founders[${i}].pct=parseFloat(this.value)||0; recalculate()">
-                <button class="remove-btn" onclick="removeFounder(${i})" title="Remove">&times;</button>
+                <button class="remove-btn" onclick="removeFounder(${i})" aria-label="Remove ${escHtml(f.name)}" title="Remove">&times;</button>
             `;
             container.appendChild(row);
         });
@@ -832,31 +918,32 @@
         state.rounds.forEach((r, i) => {
             const card = document.createElement('div');
             card.className = 'round-card';
+            const roundId = `round-${i}`;
             card.innerHTML = `
                 <div class="round-card-header">
-                    <input type="text" class="round-name" value="${escHtml(r.name)}"
+                    <input type="text" class="round-name" value="${escHtml(r.name)}" aria-label="${escHtml(r.name)} round name"
                         oninput="state.rounds[${i}].name=this.value; recalculate()">
-                    <button class="remove-btn" onclick="removeRound(${i})" title="Remove round">&times;</button>
+                    <button class="remove-btn" onclick="removeRound(${i})" aria-label="Remove ${escHtml(r.name)} round" title="Remove round">&times;</button>
                 </div>
-                <div class="round-inputs">
+                <div class="round-inputs" role="group" aria-label="${escHtml(r.name)} round details">
                     <div class="round-input-group">
-                        <label>Pre-Money ($M)</label>
-                        <input type="number" value="${r.preMoney}" min="0" step="0.5"
+                        <label for="${roundId}-premoney">Pre-Money ($M)</label>
+                        <input type="number" id="${roundId}-premoney" value="${r.preMoney}" min="0" step="0.5" aria-label="Pre-money valuation in millions"
                             oninput="state.rounds[${i}].preMoney=parseFloat(this.value)||0; recalculate()">
                     </div>
                     <div class="round-input-group">
-                        <label>Investment ($M)</label>
-                        <input type="number" value="${r.investment}" min="0" step="0.5"
+                        <label for="${roundId}-investment">Investment ($M)</label>
+                        <input type="number" id="${roundId}-investment" value="${r.investment}" min="0" step="0.5" aria-label="Investment amount in millions"
                             oninput="state.rounds[${i}].investment=parseFloat(this.value)||0; recalculate()">
                     </div>
                     <div class="round-input-group">
-                        <label>Option Pool %</label>
-                        <input type="number" value="${r.optionPool}" min="0" max="50" step="1"
+                        <label for="${roundId}-optionpool">Option Pool %</label>
+                        <input type="number" id="${roundId}-optionpool" value="${r.optionPool}" min="0" max="50" step="1" aria-label="Option pool percentage"
                             oninput="state.rounds[${i}].optionPool=parseFloat(this.value)||0; recalculate()">
                     </div>
                     <div class="round-input-group">
-                        <label>Post-Money ($M)</label>
-                        <input type="text" value="$${(r.preMoney + r.investment).toFixed(1)}M" readonly
+                        <label for="${roundId}-postmoney">Post-Money ($M)</label>
+                        <input type="text" id="${roundId}-postmoney" value="$${(r.preMoney + r.investment).toFixed(1)}M" readonly aria-readonly="true"
                             style="color:var(--text-muted); cursor:default;">
                     </div>
                 </div>
@@ -1132,14 +1219,14 @@
         });
 
         // Header: Stage labels
-        let html = '<thead><tr><th>Stakeholder</th>';
+        let html = '<thead><tr><th scope="col">Stakeholder</th>';
         stages.forEach(stage => {
-            html += `<th>${escHtml(stage.label)}</th>`;
+            html += `<th scope="col">${escHtml(stage.label)}</th>`;
         });
         html += '</tr></thead><tbody>';
 
         // Valuation row
-        html += '<tr class="valuation-row"><td>Pre-Money Valuation</td>';
+        html += '<tr class="valuation-row"><th scope="row">Pre-Money Valuation</th>';
         stages.forEach(stage => {
             if (stage.preMoney > 0) {
                 html += `<td style="font-family:var(--font-mono)">$${formatVal(stage.preMoney)}M</td>`;
@@ -1150,7 +1237,7 @@
         html += '</tr>';
 
         // Post-money row
-        html += '<tr class="valuation-row"><td>Post-Money Valuation</td>';
+        html += '<tr class="valuation-row"><th scope="row">Post-Money Valuation</th>';
         stages.forEach(stage => {
             if (stage.postMoney > 0) {
                 html += `<td style="font-family:var(--font-mono)">$${formatVal(stage.postMoney)}M</td>`;
@@ -1167,7 +1254,7 @@
             const color = COLORS[sh.colorIndex % COLORS.length];
 
             html += '<tr>';
-            html += `<td><div class="name-cell"><span class="color-dot" style="background:${color}"></span>${escHtml(name)}</div></td>`;
+            html += `<th scope="row"><div class="name-cell"><span class="color-dot" style="background:${color}" aria-hidden="true"></span>${escHtml(name)}</div></th>`;
             stages.forEach(stage => {
                 const s = stage.stakeholders.find(st => st.name === name);
                 if (s) {
@@ -1243,6 +1330,17 @@
     }
 
     // ============================================================
+    // MOBILE MENU TOGGLE FOR ACCESSIBILITY
+    // ============================================================
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const toggle = document.getElementById('mobileToggle');
+        navLinks.classList.toggle('open');
+        const isOpen = navLinks.classList.contains('open');
+        toggle.setAttribute('aria-expanded', isOpen.toString());
+    }
+
+    // ============================================================
     // HELPERS
     // ============================================================
     function escHtml(str) {
@@ -1255,6 +1353,21 @@
         if (n >= 1000) return (n / 1000).toFixed(1) + 'B';
         return n.toFixed(1);
     }
+
+    // ============================================================
+    // KEYBOARD NAVIGATION
+    // ============================================================
+    document.addEventListener('keydown', function(e) {
+        // Close mobile menu on Escape
+        if (e.key === 'Escape') {
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                document.getElementById('mobileToggle').focus();
+            }
+        }
+    });
 
     // ============================================================
     // INIT

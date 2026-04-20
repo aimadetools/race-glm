@@ -34,11 +34,12 @@
             --pink: #ff6b9d;
             --yellow: #feca57;
             --text-primary: #f0f0f5;
-            --text-secondary: #8888a0;
-            --text-muted: #555570;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
             --border: #2a2a40;
             --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -52,8 +53,11 @@
         .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
         .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
         .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
-        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .nav-cta:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; padding: 8px; }
+        .mobile-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
 
         /* PAGE HEADER */
         .page-header { padding: 120px 24px 48px; text-align: center; position: relative; overflow: hidden; }
@@ -76,6 +80,7 @@
         .panel-section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-light); margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; }
         .add-btn { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); font-size: 0.7rem; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
         .add-btn:hover { border-color: var(--accent); color: var(--text-primary); }
+        .add-btn:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
 
         .input-group { margin-bottom: 16px; }
         .input-group label { display: block; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
@@ -93,16 +98,19 @@
         .safe-card-header .safe-label { font-weight: 700; font-size: 0.9rem; color: var(--text-primary); }
         .safe-card-header .remove-btn { background: none; border: none; color: var(--text-muted); font-size: 1rem; cursor: pointer; transition: color 0.2s; }
         .safe-card-header .remove-btn:hover { color: var(--red); }
+        .safe-card-header .remove-btn:focus-visible { outline: var(--focus-outline); outline-offset: 2px; color: var(--red); }
         .safe-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
         .safe-input-group { display: flex; flex-direction: column; gap: 4px; }
         .safe-input-group label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
         .safe-input-group input, .safe-input-group select { background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary); padding: 6px 10px; border-radius: 6px; font-size: 0.85rem; font-family: var(--font-mono); transition: border-color 0.2s; }
         .safe-input-group input:focus, .safe-input-group select:focus { outline: none; border-color: var(--accent); }
+        .safe-input-group input:focus-visible, .safe-input-group select:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
         .safe-input-group select { font-family: var(--font-sans); }
 
         .share-bar { display: flex; gap: 8px; margin-top: 8px; }
         .btn-share { flex: 1; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: var(--font-sans); }
         .btn-share:hover { border-color: var(--accent); color: var(--text-primary); }
+        .btn-share:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
         .btn-share.copied { border-color: var(--green); color: var(--green); }
 
         /* RESULTS PANEL */
@@ -139,6 +147,7 @@
         .calc-cta p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 20px; }
         .calc-cta .btn-white { background: white; color: var(--accent); padding: 12px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: transform 0.2s; display: inline-block; }
         .calc-cta .btn-white:hover { transform: translateY(-2px); }
+        .calc-cta .btn-white:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
 
         /* FOOTER */
         footer { padding: 48px 24px; border-top: 1px solid var(--border); }
@@ -147,8 +156,35 @@
         .footer-links { display: flex; gap: 24px; list-style: none; }
         .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
         .footer-links a:hover { color: var(--text-primary); }
+        .footer-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
         .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--green); color: white; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: transform 0.3s ease; z-index: 1000; }
         .toast.show { transform: translateX(-50%) translateY(0); }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: more) {
+            :root {
+                --border: #ffffff;
+                --text-secondary: #e0e0e0;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
 
         @media (max-width: 960px) { .calc-layout { grid-template-columns: 1fr; } .input-panel { position: static; max-height: none; } .summary-cards { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 600px) {
@@ -222,7 +258,7 @@
             </div>
         </div>
 
-        <div class="results-panel">
+        <div class="results-panel" role="region" aria-label="Calculator results">
             <!-- Summary -->
             <div class="summary-cards">
                 <div class="summary-card">
@@ -246,31 +282,31 @@
             </div>
 
             <!-- Waterfall Chart -->
-            <div class="chart-section">
-                <h3>SAFE Conversion Waterfall</h3>
+            <section class="chart-section" aria-labelledby="chartTitle">
+                <h3 id="chartTitle">SAFE Conversion Waterfall</h3>
                 <p class="chart-subtitle">See how each SAFE converts and the ownership each investor receives.</p>
                 <div class="chart-container">
-                    <canvas id="safeChart"></canvas>
+                    <canvas id="safeChart" role="img" aria-label="Bar chart showing SAFE investment amounts and ownership percentages"></canvas>
                 </div>
-            </div>
+            </section>
 
             <!-- Conversion Table -->
-            <div class="table-section">
-                <h3>Conversion Details</h3>
+            <section class="table-section" aria-labelledby="tableTitle">
+                <h3 id="tableTitle">Conversion Details</h3>
                 <p class="table-subtitle">Each SAFE note's conversion price, share count, and resulting ownership.</p>
                 <div style="overflow-x:auto;">
-                    <table class="conv-table" id="convTable"></table>
+                    <table class="conv-table" id="convTable" role="table" aria-describedby="tableTitle"></table>
                 </div>
-            </div>
+            </section>
 
             <!-- CTA -->
-            <div class="calc-cta">
+            <div class="calc-cta" role="complementary" aria-label="FounderMath Pro upgrade offer">
                 <h3>Want to model multiple rounds with SAFEs?</h3>
                 <p>FounderMath Pro includes multi-round simulation with SAFE conversion waterfalls, side-by-side comparison, and PDF export.</p>
                 <a href="pricing.html" class="btn-white">Upgrade to Pro — $19/mo</a>
             </div>
         </div>
-    </div>
+    </main>
 
     <footer>
         <div class="footer-inner">
@@ -286,7 +322,7 @@
         </div>
     </footer>
 
-    <div class="toast" id="toast">Link copied to clipboard!</div>
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Link copied to clipboard!</div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script>
@@ -645,6 +681,32 @@
         if (n >= 1e3) return (n / 1e3).toFixed(1) + 'K';
         return n.toFixed(0);
     }
+
+    // ============================================================
+    // MOBILE MENU TOGGLE FOR ACCESSIBILITY
+    // ============================================================
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const toggle = document.getElementById('mobileToggle');
+        navLinks.classList.toggle('open');
+        const isOpen = navLinks.classList.contains('open');
+        toggle.setAttribute('aria-expanded', isOpen.toString());
+    }
+
+    // ============================================================
+    // KEYBOARD NAVIGATION
+    // ============================================================
+    document.addEventListener('keydown', function(e) {
+        // Close mobile menu on Escape
+        if (e.key === 'Escape') {
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                document.getElementById('mobileToggle').focus();
+            }
+        }
+    });
 
     // ============================================================
     // INIT
