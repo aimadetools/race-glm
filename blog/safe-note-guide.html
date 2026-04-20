@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAFE Note Conversion: The Complete Guide for Startup Founders — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Learn how Y Combinator SAFE notes convert at a priced round. Understand cap, discount, MFN, and multi-SAFE waterfall calculations with real examples.">
+    <meta name="keywords" content="SAFE note calculator, SAFE conversion, YC SAFE, cap table SAFE, post-money SAFE, pre-money SAFE, safe note conversion">
+    <meta property="og:title" content="SAFE Note Conversion: The Complete Guide for Startup Founders">
+    <meta property="og:description" content="Learn how Y Combinator SAFE notes convert at a priced round with interactive examples and clear calculations.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/safe-note-guide.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #8888a0;
+            --text-muted: #555570;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+
+        /* ARTICLE LAYOUT */
+        .article-layout {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        /* Article header */
+        .article-header {
+            margin-bottom: 48px;
+        }
+        .article-meta {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted);
+        }
+        .article-meta .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+        .article-title {
+            font-size: 2.2rem; font-weight: 800; line-height: 1.2;
+            margin-bottom: 20px; color: var(--text-primary);
+        }
+        .article-excerpt {
+            font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7;
+        }
+
+        /* Table of contents */
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 48px;
+        }
+        .toc h3 {
+            font-size: 0.9rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 16px;
+        }
+        .toc ul { list-style: none; }
+        .toc li { margin-bottom: 8px; }
+        .toc a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.95rem; transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent); }
+
+        /* Article content */
+        .article-content h2 {
+            font-size: 1.6rem; font-weight: 700; margin: 48px 0 20px;
+            color: var(--text-primary); padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-content h3 {
+            font-size: 1.3rem; font-weight: 600; margin: 32px 0 16px;
+            color: var(--text-primary);
+        }
+        .article-content p {
+            margin-bottom: 20px; font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 20px; padding-left: 24px;
+        }
+        .article-content li {
+            margin-bottom: 12px; color: var(--text-secondary);
+        }
+        .article-content strong { color: var(--text-primary); }
+
+        /* Callout boxes */
+        .callout {
+            background: var(--bg-card);
+            border-left: 3px solid var(--accent);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .callout.warning {
+            border-left-color: var(--orange);
+        }
+        .callout.success {
+            border-left-color: var(--green);
+        }
+        .callout p { margin-bottom: 0; font-size: 0.95rem; }
+
+        /* Tables */
+        .data-table {
+            width: 100%; border-collapse: collapse;
+            margin: 24px 0; font-size: 0.9rem;
+        }
+        .data-table th, .data-table td {
+            padding: 12px 16px; text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-table th {
+            font-weight: 600; color: var(--text-primary);
+            background: var(--bg-card);
+        }
+        .data-table td { color: var(--text-secondary); }
+        .data-table tr:last-child td { border-bottom: none; }
+
+        /* Formula blocks */
+        .formula {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--accent-light);
+            overflow-x: auto;
+        }
+
+        /* CTA box */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(0, 184, 148, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 48px 0;
+            text-align: center;
+        }
+        .cta-box h3 { font-size: 1.4rem; margin-bottom: 12px; color: var(--text-primary); }
+        .cta-box p { margin-bottom: 24px; color: var(--text-secondary); }
+        .btn-cta {
+            display: inline-block; background: var(--accent); color: white;
+            padding: 12px 32px; border-radius: 8px; text-decoration: none;
+            font-weight: 600; transition: all 0.3s;
+        }
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9rem; margin-bottom: 24px;
+        }
+        .back-link:hover { color: var(--text-primary); }
+
+        /* Footer */
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0; background: var(--bg-primary);
+                border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100;
+            }
+            .mobile-toggle { display: block; }
+            .article-title { font-size: 1.7rem; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links">
+                <li><a href="dilution.html">Dilution Calc</a></li>
+                <li><a href="safe.html">SAFE Calc</a></li>
+                <li><a href="runway.html">Runway Calc</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="safe.html" class="nav-cta">Try Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <div class="article-layout">
+        <a href="blog.html" class="back-link">← Back to Blog</a>
+
+        <article class="article-content">
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="tag">SAFE Notes</span>
+                    <span>12 min read</span>
+                </div>
+                <h1 class="article-title">SAFE Note Conversion: The Complete Guide for Startup Founders</h1>
+                <p class="article-excerpt">Understand exactly how Y Combinator SAFE notes convert at a priced round. Learn the 4 SAFE types, see real calculations, and model your own conversion.</p>
+            </header>
+
+            <nav class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#what-is-a-safe">What Is a SAFE Note?</a></li>
+                    <li><a href="#the-4-yc-safe-types">The 4 YC SAFE Types</a></li>
+                    <li><a href="#conversion-basics">Conversion Basics: How SAFEs Convert</a></li>
+                    <li><a href="#safe-with-cap">SAFE with Valuation Cap</a></li>
+                    <li><a href="#safe-with-discount">SAFE with Discount</a></li>
+                    <li><a href="#safe-with-cap-and-discount">SAFE with Both Cap and Discount</a></li>
+                    <li><a href="#mfn-safe">The MFN SAFE</a></li>
+                    <li><a href="#multi-safe-example">Multiple SAFEs: The Waterfall</a></li>
+                    <li><a href="#common-mistakes">Common Mistakes to Avoid</a></li>
+                    <li><a href="#calculate-your-safes">Calculate Your SAFE Conversion</a></li>
+                </ul>
+            </nav>
+
+            <h2 id="what-is-a-safe">What Is a SAFE Note?</h2>
+
+            <p>A SAFE (Simple Agreement for Future Equity) is an investment instrument created by Y Combinator in 2013. It's designed to be a simple alternative to convertible notes — no interest, no maturity date, and no need to figure out valuation at the time of investment.</p>
+
+            <div class="callout success">
+                <p><strong>Key Point:</strong> A SAFE is NOT equity — it's a promise to give investors equity when you raise a future priced round (typically a Series A or seed equity round).</p>
+            </div>
+
+            <p>When that priced round happens, the SAFE "converts" into shares. The question is: <em>at what price per share</em>? That's where things get interesting (and sometimes confusing).</p>
+
+            <h2 id="the-4-yc-safe-types">The 4 YC SAFE Types</h2>
+
+            <p>YC offers four standard SAFE templates. The key difference between them is <strong>how the conversion price is calculated</strong>:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>SAFE Type</th>
+                        <th>Conversion Price</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cap Only</strong></td>
+                        <td>Cap / Pre-Money Valuation</td>
+                        <td>Founders confident in future valuation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Discount Only</strong></td>
+                        <td>Priced Round Price × (1 - Discount)</td>
+                        <td>When cap is hard to determine</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cap + Discount</strong></td>
+                        <td>Lower of Cap or Discount price</td>
+                        <td>Most common — investor protection</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MFN (Most Favored Nation)</strong></td>
+                        <td>Best terms from any future SAFE</td>
+                        <td>Early investors who want flexibility</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="conversion-basics">Conversion Basics: How SAFEs Convert</h2>
+
+            <p>Before diving into each type, let's establish the fundamental formula:</p>
+
+            <div class="formula">
+                Conversion Price = SAFE Investment Amount / Shares Issued to SAFE Holder
+            </div>
+
+            <p>The <em>Shares Issued</em> is what varies by SAFE type. Once we have the conversion price, we can calculate ownership:</p>
+
+            <div class="formula">
+                SAFE Ownership % = (SAFE Investment / Post-Money Valuation) × 100
+            </div>
+
+            <h2 id="safe-with-cap">SAFE with Valuation Cap</h2>
+
+            <p>A valuation cap is the maximum price per share the SAFE investor will pay. If your company does better than expected, the cap protects the investor. If it does worse, the investor shares in the downside.</p>
+
+            <div class="callout">
+                <p><strong>Example:</strong> You raise a $1M SAFE with a $10M cap. Later, you raise a priced round at a $20M pre-money valuation.</p>
+            </div>
+
+            <h3>Conversion Price Calculation:</h3>
+
+            <p>With a cap-only SAFE, the conversion price is:</p>
+
+            <div class="formula">
+                Conversion Price = Cap / Pre-Money Valuation
+            </div>
+
+            <p>Wait — that's not quite right. Let's be more precise. The conversion price per share is:</p>
+
+            <div class="formula">
+                Conversion Price = (Cap / Pre-Money Valuation) × Priced Round Price Per Share
+            </div>
+
+            <p>In practice, we usually calculate shares directly:</p>
+
+            <div class="formula">
+                SAFE Shares = (SAFE Investment / Cap) × Pre-Money Shares
+            </div>
+
+            <h3>Real Numbers:</h3>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SAFE Investment</td>
+                        <td>$1,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>SAFE Cap</td>
+                        <td>$10,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>Priced Round Pre-Money</td>
+                        <td>$20,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>Pre-Money Shares</td>
+                        <td>10,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>SAFE Shares Issued</td>
+                        <td><strong>1,000,000</strong></td>
+                    </tr>
+                    <tr>
+                        <td>SAFE Ownership</td>
+                        <td><strong>4.76%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout success">
+                <p><strong>Why this works:</strong> The SAFE investor effectively bought 10% of the company at a $10M valuation (their cap), even though the company is now worth $20M. Their ownership is diluted by the new money coming in.</p>
+            </div>
+
+            <h2 id="safe-with-discount">SAFE with Discount</h2>
+
+            <p>A discount SAFE gives investors a percentage discount on the priced round price. The most common discount is 20%.</p>
+
+            <div class="formula">
+                Conversion Price = Priced Round Price Per Share × (1 - Discount %)
+            </div>
+
+            <div class="callout">
+                <p><strong>Example:</strong> You raise a $500K SAFE with a 20% discount. Later, you raise at $2/share.</p>
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SAFE Investment</td>
+                        <td>$500,000</td>
+                    </tr>
+                    <tr>
+                        <td>Discount</td>
+                        <td>20%</td>
+                    </tr>
+                    <tr>
+                        <td>Priced Round Price</td>
+                        <td>$2.00/share</td>
+                    </tr>
+                    <tr>
+                        <td>SAFE Conversion Price</td>
+                        <td>$1.60/share</td>
+                    </tr>
+                    <tr>
+                        <td>SAFE Shares</td>
+                        <td><strong>312,500</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="safe-with-cap-and-discount">SAFE with Both Cap and Discount</h2>
+
+            <p>This is the <em>most common</em> SAFE type. It gives investors the <strong>lower</strong> of two conversion prices — either the cap price or the discounted price. Investors get the best of both worlds.</p>
+
+            <div class="formula">
+                Conversion Price = min(Cap Price, Discount Price)
+            </div>
+
+            <div class="callout">
+                <p><strong>Example:</strong> You raise a $1M SAFE with a $10M cap AND 20% discount. Priced round is at $20M pre-money.</p>
+            </div>
+
+            <h3>Calculate Both, Take the Lower:</h3>
+
+            <p><strong>Cap Price Calculation:</strong><br>
+            At $10M cap, the SAFE would buy 10% of the pre-money.</p>
+
+            <p><strong>Discount Price Calculation:</strong><br>
+            20% discount on the priced round price.</p>
+
+            <p><strong>The winner?</strong> In this case, the <strong>cap</strong> wins (gives the investor a better deal).</p>
+
+            <div class="callout warning">
+                <p><strong>Watch out:</strong> Sometimes the discount wins! If your priced round is close to the cap, the 20% discount might actually be better for the investor than the cap. Always calculate both.</p>
+            </div>
+
+            <h2 id="mfn-safe">The MFN SAFE</h2>
+
+            <p>MFN stands for "Most Favored Nation." This SAFE is simple: it says "whatever the best terms are for any future SAFE investor, I get those too."</p>
+
+            <div class="callout">
+                <p><strong>Example:</strong> Angel Alice invests $100K via MFN SAFE. Two months later, Angel Bob invests $200K with a $10M cap + 20% discount. Alice's SAFE now has those same terms.</p>
+            </div>
+
+            <p>MFN SAFEs are typically used by early investors who want to get in quickly but don't want to negotiate terms yet.</p>
+
+            <h2 id="multi-safe-example">Multiple SAFEs: The Waterfall</h2>
+
+            <p>Most startups have multiple SAFEs. When conversion happens, all SAFEs convert using the <strong>same methodology</strong> — but the order matters for some calculations (like option pool allocation).</p>
+
+            <div class="callout warning">
+                <p><strong>Important:</strong> All SAFEs convert based on the <strong>pre-money valuation</strong> of the priced round. The new investment money doesn't dilute SAFEs — SAFEs dilute each other and founders.</p>
+            </div>
+
+            <h3>Example: 3 SAFEs Converting</h3>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>SAFE</th>
+                        <th>Amount</th>
+                        <th>Terms</th>
+                        <th>Shares</th>
+                        <th>Ownership</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Safe #1</td>
+                        <td>$500K</td>
+                        <td>$8M Cap</td>
+                        <td>625,000</td>
+                        <td>2.38%</td>
+                    </tr>
+                    <tr>
+                        <td>Safe #2</td>
+                        <td>$750K</td>
+                        <td>$10M Cap</td>
+                        <td>750,000</td>
+                        <td>2.86%</td>
+                    </tr>
+                    <tr>
+                        <td>Safe #3</td>
+                        <td>$1M</td>
+                        <td>20% Discount</td>
+                        <td>625,000</td>
+                        <td>2.38%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TOTAL</strong></td>
+                        <td><strong>$2.25M</strong></td>
+                        <td></td>
+                        <td><strong>2,000,000</strong></td>
+                        <td><strong>7.61%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><em>Assumes 10M pre-money shares, priced round at $20M pre-money, $2/share.</em></p>
+
+            <h2 id="common-mistakes">Common Mistakes to Avoid</h2>
+
+            <ol>
+                <li><strong>Confusing pre-money vs post-money cap:</strong> In 2018, YC introduced a "post-money" SAFE. The math is different. Know which version you have!</li>
+                <li><strong>Forgetting option pools:</strong> Option pools typically come out of the pre-money, diluting both founders AND SAFEs.</li>
+                <li><strong>Assuming MFN is free:</strong> MFN SAFEs can become expensive if you later offer generous terms to other investors.</li>
+                <li><strong>Not modeling the waterfall:</strong> When you have multiple SAFEs with different terms, calculate each one separately.</li>
+            </ol>
+
+            <div class="cta-box">
+                <h3>Model Your SAFE Conversion</h3>
+                <p>Use our free SAFE Note Calculator to see exactly how your SAFEs will convert at your next round. Supports all 4 YC SAFE types and multiple SAFEs.</p>
+                <a href="/safe.html" class="btn-cta">Try SAFE Calculator →</a>
+            </div>
+
+            <h2 id="calculate-your-safes">Calculate Your SAFE Conversion</h2>
+
+            <p>Understanding SAFE conversion is crucial for both founders and investors. The math can get complex quickly, especially with multiple SAFEs and different terms.</p>
+
+            <p>Use <a href="/safe.html">FounderMath's SAFE Calculator</a> to:</p>
+            <ul>
+                <li>Model all 4 YC SAFE types</li>
+                <li>Handle multiple SAFEs in one round</li>
+                <li>See the conversion waterfall</li>
+                <li>Calculate exact ownership percentages</li>
+                <li>Generate shareable scenarios</li>
+            </ul>
+
+            <div class="callout">
+                <p><strong>Pro tip:</strong> Before you sign a SAFE, run the numbers. A $1M difference in cap might not seem like much now, but it could mean 2-3% more dilution at your Series A.</p>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="dilution.html">Dilution Calc</a></li>
+                <li><a href="safe.html">SAFE Calc</a></li>
+                <li><a href="runway.html">Runway Calc</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

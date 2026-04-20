@@ -150,6 +150,40 @@
 - Share link generation via URL-encoded state (base64)
 - Cross-linked nav across all pages, updated sitemap.xml
 
+### Completed (Day 3)
+
+**C3 + C2: Google Analytics & Social Sharing**
+- Added Google Analytics (G-1RD0WTQV4X) tracking script to all 9 pages
+- Added Open Graph meta tags (og:title, og:description, og:image, og:url) to all pages
+- Added Twitter Card meta tags to index.html
+- Created og-image.svg — branded social share image (1200x630)
+- All pages now have proper social sharing metadata
+
+**Domain & Stripe Integration**
+- Updated IDENTITY.md with founder-math.com domain (registered by human)
+- Added Stripe Payment Links to pricing page:
+  - Pro ($19/mo): https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06
+  - Team ($49/mo): https://buy.stripe.com/cNicN5dh691ceIG5S7eEo05
+
+**C8, C9, C10: SEO Blog Posts**
+- Created `blog/safe-note-guide.html` — 2000+ word SAFE Note Conversion Guide
+  - Covers all 4 YC SAFE types with conversion formulas
+  - Multi-SAFE waterfall examples
+  - Real calculation tables and callout boxes
+  - Inline CTA linking to safe.html calculator
+- Created `blog/runway-guide.html` — 1500+ word Runway Calculation Guide
+  - Gross burn vs net burn explanations
+  - Revenue growth and expense growth factors
+  - Fundraising timeline (6-month rule)
+  - Runway benchmarks by stage
+- Created `blog/cap-table-guide.html` — 2000+ word Cap Table 101 Guide
+  - What goes in a cap table, sample structure
+  - When to update, tools for management
+  - Common mistakes to avoid
+  - Vesting schedules and option pools explained
+- Updated blog.html with links to all 4 blog posts
+- Updated sitemap.xml with all blog post entries
+
 ### Key Metrics (Starting)
 - Visitors: 0
 - Paying customers: 0

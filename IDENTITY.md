@@ -4,7 +4,7 @@
 
 **Name:** FounderMath
 **Tagline:** "The startup calculator suite founders actually need."
-**Domain:** foundermath.com (backup: founder-math.com, foundermath.io)
+**Domain:** founder-math.com ✅ (registered & pointed to Vercel)
 **One-liner:** Interactive equity, dilution, runway, and SAFE note calculators for startup founders — because the only thing worse than dilution is not understanding it.
 
 ---

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cap Table 101 for Founders: A Beginner's Complete Guide — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Learn what a cap table is, what goes in it, how to manage it, and common mistakes to avoid. The complete guide for startup founders.">
+    <meta name="keywords" content="cap table, capitalization table, startup cap table, how to manage cap table, cap table mistakes, founder equity, investor equity">
+    <meta property="og:title" content="Cap Table 101 for Founders: A Beginner's Complete Guide">
+    <meta property="og:description" content="Everything you need to know about startup cap tables. What they are, what goes in them, and how to manage them correctly.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/cap-table-guide.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #8888a0;
+            --text-muted: #555570;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+
+        /* ARTICLE LAYOUT */
+        .article-layout {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        /* Article header */
+        .article-header {
+            margin-bottom: 48px;
+        }
+        .article-meta {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted);
+        }
+        .article-meta .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+        .article-title {
+            font-size: 2.2rem; font-weight: 800; line-height: 1.2;
+            margin-bottom: 20px; color: var(--text-primary);
+        }
+        .article-excerpt {
+            font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7;
+        }
+
+        /* Table of contents */
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 48px;
+        }
+        .toc h3 {
+            font-size: 0.9rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 16px;
+        }
+        .toc ul { list-style: none; }
+        .toc li { margin-bottom: 8px; }
+        .toc a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.95rem; transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent); }
+
+        /* Article content */
+        .article-content h2 {
+            font-size: 1.6rem; font-weight: 700; margin: 48px 0 20px;
+            color: var(--text-primary); padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-content h3 {
+            font-size: 1.3rem; font-weight: 600; margin: 32px 0 16px;
+            color: var(--text-primary);
+        }
+        .article-content p {
+            margin-bottom: 20px; font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 20px; padding-left: 24px;
+        }
+        .article-content li {
+            margin-bottom: 12px; color: var(--text-secondary);
+        }
+        .article-content strong { color: var(--text-primary); }
+
+        /* Callout boxes */
+        .callout {
+            background: var(--bg-card);
+            border-left: 3px solid var(--accent);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .callout.warning {
+            border-left-color: var(--orange);
+        }
+        .callout.success {
+            border-left-color: var(--green);
+        }
+        .callout p { margin-bottom: 0; font-size: 0.95rem; }
+
+        /* Tables */
+        .data-table {
+            width: 100%; border-collapse: collapse;
+            margin: 24px 0; font-size: 0.9rem;
+        }
+        .data-table th, .data-table td {
+            padding: 12px 16px; text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-table th {
+            font-weight: 600; color: var(--text-primary);
+            background: var(--bg-card);
+        }
+        .data-table td { color: var(--text-secondary); }
+        .data-table tr:last-child td { border-bottom: none; }
+
+        /* CTA box */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(0, 184, 148, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 48px 0;
+            text-align: center;
+        }
+        .cta-box h3 { font-size: 1.4rem; margin-bottom: 12px; color: var(--text-primary); }
+        .cta-box p { margin-bottom: 24px; color: var(--text-secondary); }
+        .btn-cta {
+            display: inline-block; background: var(--accent); color: white;
+            padding: 12px 32px; border-radius: 8px; text-decoration: none;
+            font-weight: 600; transition: all 0.3s;
+        }
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9rem; margin-bottom: 24px;
+        }
+        .back-link:hover { color: var(--text-primary); }
+
+        /* Footer */
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0; background: var(--bg-primary);
+                border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100;
+            }
+            .mobile-toggle { display: block; }
+            .article-title { font-size: 1.7rem; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links">
+                <li><a href="dilution.html">Dilution Calc</a></li>
+                <li><a href="safe.html">SAFE Calc</a></li>
+                <li><a href="runway.html">Runway Calc</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="dilution.html" class="nav-cta">Try Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <div class="article-layout">
+        <a href="blog.html" class="back-link">← Back to Blog</a>
+
+        <article class="article-content">
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="tag">Cap Table</span>
+                    <span>12 min read</span>
+                </div>
+                <h1 class="article-title">Cap Table 101 for Founders: A Beginner's Complete Guide</h1>
+                <p class="article-excerpt">Everything you need to know about startup cap tables. What they are, what goes in them, how to keep them accurate, and the common mistakes that can cost you.</p>
+            </header>
+
+            <nav class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#what-is-a-cap-table">What Is a Cap Table?</a></li>
+                    <li><a href="#what-goes-in-a-cap-table">What Goes in a Cap Table?</a></li>
+                    <li><a href="#sample-cap-table">Sample Cap Table Structure</a></li>
+                    <li><a href="#when-to-update">When to Update Your Cap Table</a></li>
+                    <li><a href="#tools-for-cap-tables">Tools for Managing Cap Tables</a></li>
+                    <li><a href="#common-mistakes">Common Cap Table Mistakes</a></li>
+                    <li><a href="#vesting-schedules">Understanding Vesting Schedules</a></li>
+                    <li><a href="#option-pools">The Option Pool</a></li>
+                    <li><a href="#preparing-for-fundraising">Preparing for Fundraising</a></li>
+                </ul>
+            </nav>
+
+            <h2 id="what-is-a-cap-table">What Is a Cap Table?</h2>
+
+            <p>A cap table (short for "capitalization table") is a spreadsheet that shows who owns what percentage of your company. It lists every shareholder, how many shares they hold, what type of shares they have, and their ownership percentage.</p>
+
+            <div class="callout success">
+                <p><strong>Simple definition:</strong> A cap table is the official record of who owns your startup. It's your ownership bible.</p>
+            </div>
+
+            <p>Every startup needs a cap table from day one. Even if it's just you and a cofounder with 50/50 split — document it. Things get complicated quickly, and an accurate cap table prevents disputes, confusion, and expensive legal problems down the road.</p>
+
+            <h2 id="what-goes-in-a-cap-table">What Goes in a Cap Table?</h2>
+
+            <p>A good cap table tracks these key elements:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Shareholder Name</strong></td>
+                        <td>Person or entity owning shares (founders, investors, employees)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Share Class</strong></td>
+                        <td>Common stock (founders, employees) or Preferred stock (investors)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Number of Shares</strong></td>
+                        <td>Actual shares held</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Price Per Share</strong></td>
+                        <td>What they paid per share (for issued shares)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ownership %</strong></td>
+                        <td>Calculated based on fully-diluted shares</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vesting Info</strong></td>
+                        <td>Vesting schedule, cliff, unvested shares (for founders/employees)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="sample-cap-table">Sample Cap Table Structure</h2>
+
+            <p>Here's what a typical early-stage cap table looks like:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Shareholder</th>
+                        <th>Type</th>
+                        <th>Shares</th>
+                        <th>% Ownership</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alex (Founder)</td>
+                        <td>Common</td>
+                        <td>4,000,000</td>
+                        <td>40%</td>
+                    </tr>
+                    <tr>
+                        <td>Sam (Founder)</td>
+                        <td>Common</td>
+                        <td>4,000,000</td>
+                        <td>40%</td>
+                    </tr>
+                    <tr>
+                        <td>Seed Round Investors</td>
+                        <td>Preferred</td>
+                        <td>1,000,000</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>Option Pool (unissued)</td>
+                        <td>Common</td>
+                        <td>1,000,000</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TOTAL</strong></td>
+                        <td></td>
+                        <td><strong>10,000,000</strong></td>
+                        <td><strong>100%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout warning">
+                <p><strong>Important:</strong> The "unissued" option pool counts toward fully-diluted ownership. This means founders and investors are diluted by the pool even if those shares haven't been granted yet.</p>
+            </div>
+
+            <h2 id="when-to-update">When to Update Your Cap Table</h2>
+
+            <p>Update your cap table whenever ownership changes:</p>
+
+            <ul>
+                <li><strong>When you issue new shares</strong> — fundraising rounds, new hires</li>
+                <li><strong>When shares vest</strong> — monthly vesting events</li>
+                <li><strong>When options are exercised</strong> — employees converting options to stock</li>
+                <li><strong>When SAFEs convert</strong> — at a priced round</li>
+                <li><strong>When someone leaves</strong> — buybacks, cancellations, forfeitures</li>
+                <li><strong>When you create/expand option pool</strong> — before fundraising rounds</li>
+            </ul>
+
+            <div class="callout success">
+                <p><strong>Best practice:</strong> Review and update your cap table monthly. Even if nothing changed, verify it's accurate. Errors compound over time.</p>
+            </div>
+
+            <h2 id="tools-for-cap-tables">Tools for Managing Cap Tables</h2>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Tool</th>
+                        <th>Best For</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Excel / Google Sheets</strong></td>
+                        <td>Very early stage (pre-seed, just founders)</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Carta</strong></td>
+                        <td>Seed to Series A+ with employees/investors</td>
+                        <td>Free tier, then paid</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pulley</strong></td>
+                        <td>Seed to Series A, simpler than Carta</td>
+                        <td>Free tier, then paid</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FounderMath</strong></td>
+                        <td>Modeling dilution, planning rounds</td>
+                        <td>Free</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout">
+                <p><strong>Pro tip:</strong> Start with a spreadsheet. When you raise your seed round or hire your first employee, migrate to a dedicated cap table platform like Pulley or Carta.</p>
+            </div>
+
+            <h2 id="common-mistakes">Common Cap Table Mistakes</h2>
+
+            <p>These mistakes can be expensive:</p>
+
+            <ol>
+                <li><strong>Not tracking vesting properly</strong> — A founder leaves after 8 months with 50% "vested" because you never tracked their 4-year vesting with 1-year cliff.</li>
+                <li><strong>Forgetting about the option pool</strong> — You tell investors you own 80%, but with a 20% option pool you really own 64%.</li>
+                <li><strong>Mixing issued and unissued shares</strong> — Counting unissued options in ownership calculations but forgetting they dilute everyone.</li>
+                <li><strong>Not updating SAFEs</strong> — SAFEs convert at priced rounds, and if you don't update your cap table, your ownership numbers will be wrong.</li>
+                <li><strong>Multiple versions</strong> — Having "the real cap table" in Excel, "another version" in Google Sheets, and "what we told investors" in your head. ONE source of truth.</li>
+            </ol>
+
+            <div class="callout warning">
+                <p><strong>Cost of mistakes:</strong> A cap table error discovered during due diligence can delay your funding round by weeks or months. Investors will ask for corrections, which means legal fees and renegotiated terms.</p>
+            </div>
+
+            <h2 id="vesting-schedules">Understanding Vesting Schedules</h2>
+
+            <p>Most founder and employee equity vests over 4 years with a 1-year cliff. This means:</p>
+
+            <ul>
+                <li><strong>Cliff (Year 1):</strong> Nothing vests until 12 months. At the cliff, 25% vests all at once.</li>
+                <li><strong>Years 2-4:</strong> Remaining 75% vests monthly (1/48th per month or 2.083% per month).</li>
+            </ul>
+
+            <div class="callout">
+                <p><strong>Why vesting matters:</strong> If a founder quits after 6 months, they walk away with 0% (didn't hit the cliff). After 18 months, they keep 37.5% (25% at cliff + 12 months of monthly vesting).</p>
+            </div>
+
+            <p>Your cap table should track:</p>
+            <ul>
+                <li>Total shares granted</li>
+                <li>Shares currently vested</li>
+                <li>Shares unvested</li>
+                <li>Monthly vesting schedule</li>
+            </ul>
+
+            <h2 id="option-pools">The Option Pool</h2>
+
+            <p>The option pool is shares set aside for future employees and advisors. It's typically 10-20% of the company, created before seed or Series A rounds.</p>
+
+            <div class="callout warning">
+                <p><strong>Negotiation point:</strong> Investors often want the option pool to come out of the pre-money (diluting founders). Negotiate for it to come out of the post-money (diluting everyone, including new investors).</p>
+            </div>
+
+            <p>Your cap table should show:</p>
+            <ul>
+                <li>Total pool size (authorized)</li>
+                <li>Granted options (issued to employees)</li>
+                <li>Available options (remaining in pool)</li>
+            </ul>
+
+            <h2 id="preparing-for-fundraising">Preparing for Fundraising</h2>
+
+            <p>Before you talk to investors, prepare your cap table:</p>
+
+            <ol>
+                <li><strong>Clean up errors</strong> — Verify all numbers, cross-check with legal documents</li>
+                <li><strong>Update SAFEs</strong> — Show them converting at expected terms</li>
+                <li><strong>Create option pool</strong> — Determine size before negotiations</li>
+                <li><strong>Run scenarios</strong> — Model different valuations and investment amounts</li>
+                <li><strong>Export a clean version</strong> — No scratch calculations, just the facts</li>
+            </ol>
+
+            <div class="cta-box">
+                <h3>Model Your Dilution</h3>
+                <p>Use our free Equity Dilution Calculator to see how your ownership changes across funding rounds. Plan your cap table before you fundraise.</p>
+                <a href="/dilution.html" class="btn-cta">Try Dilution Calculator →</a>
+            </div>
+
+            <h3>Key Takeaways</h3>
+
+            <ol>
+                <li><strong>Start early</strong> — Create a cap table on day one, even with just founders.</li>
+                <li><strong>Keep one source of truth</strong> — One master document, no versions.</li>
+                <li><strong>Update monthly</strong> — Vesting, grants, exercises — track everything.</li>
+                <li><strong>Understand fully-diluted</strong> — Include option pool in all calculations.</li>
+                <li><strong>Use tools</strong> — Spreadsheets work early, then graduate to Carta/Pulley.</li>
+                <li><strong>Clean up before fundraising</strong> — Fix errors before investors find them.</li>
+            </ol>
+
+            <div class="callout success">
+                <p><strong>Final tip:</strong> Your cap table is more than a spreadsheet — it's your company's ownership record. Treat it with the care it deserves. Review it quarterly, update it monthly, and never let it get out of sync with reality.</p>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="dilution.html">Dilution Calc</a></li>
+                <li><a href="safe.html">SAFE Calc</a></li>
+                <li><a href="runway.html">Runway Calc</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

@@ -10,13 +10,13 @@
 - Generate favicon-32x32.png and favicon-16x16.png
 - Add `<link>` tags to all HTML files
 
-### C2: Add Meta Tags for Social Sharing
+### C2: Add Meta Tags for Social Sharing ✅ DONE
 - Add Open Graph tags (og:image, og:description) to all pages
 - Create a share card image (1200x630) with FounderMath branding
 - Add Twitter Card meta tags
 - Test with Facebook Debugger and Twitter Card Validator
 
-### C3: Add Google Analytics Script
+### C3: Add Google Analytics Script ✅ DONE
 - Add GA4 tracking snippet to all pages
 - Set up event tracking for: calculator interactions, pricing page visits, CTA clicks
 - Create dashboard with key metrics
@@ -40,26 +40,26 @@
 
 ## Content Tasks
 
-### C7: Write Blog Post — "How Equity Dilution Works"
+### C7: Write Blog Post — "How Equity Dilution Works" ✅ DONE
 - 2000+ word guide on equity dilution
 - Include interactive calculator embed
 - Cover: pre-money vs post-money, dilution per round, option pool shuffle
 - Add internal links to dilution calculator
 - SEO keywords: "equity dilution", "how dilution works", "startup equity"
 
-### C8: Write Blog Post — "SAFE Note Conversion Guide"
+### C8: Write Blog Post — "SAFE Note Conversion Guide" ✅ DONE
 - 2000+ word guide on SAFE note mechanics
 - Cover all 4 YC SAFE types with examples
 - Include calculator embed
 - SEO keywords: "SAFE note calculator", "SAFE conversion", "YC SAFE"
 
-### C9: Write Blog Post — "How to Calculate Startup Runway"
+### C9: Write Blog Post — "How to Calculate Startup Runway" ✅ DONE
 - 1500+ word guide on runway calculation
 - Cover: gross burn vs net burn, revenue growth, fundraising timeline
 - Include calculator embed
 - SEO keywords: "runway calculator", "startup runway", "burn rate"
 
-### C10: Write Blog Post — "Cap Table 101 for Founders"
+### C10: Write Blog Post — "Cap Table 101 for Founders" ✅ DONE
 - 2000+ word beginner's guide to cap tables
 - Cover: what goes in a cap table, common mistakes, when to update
 - Include calculator embed
@@ -102,12 +102,12 @@
 - Show calculator results and charts clearly
 - Add page header with FounderMath branding
 
-### C17: 404 Page
+### C17: 404 Page ✅ DONE
 - Create custom 404.html with on-brand messaging
 - Include links back to main pages
 - Add fun "lost in the cap table" theme
 
-### C18: robots.txt and sitemap.xml
+### C18: robots.txt and sitemap.xml ✅ DONE
 - Create robots.txt allowing all crawlers
 - Generate sitemap.xml with all pages
 - Submit to Google Search Console
