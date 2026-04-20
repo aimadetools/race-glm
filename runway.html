@@ -168,6 +168,20 @@
         .input-group .hint {
             font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;
         }
+        .error-message {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            color: var(--red);
+            margin-bottom: 12px;
+            display: none;
+        }
+        .error-message.visible { display: block; }
+        .input-error {
+            border-color: var(--red) !important;
+        }
 
         .input-row {
             display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
@@ -493,6 +507,7 @@
                 </div>
             </div>
         </div>
+        <div class="error-message" id="inputError" role="alert" aria-live="polite"></div>
 
         <!-- Right: Results -->
         <div class="results-panel" role="region" aria-label="Calculator results">
@@ -655,6 +670,39 @@
     }
 
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, fieldName) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(fieldName);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.';
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, fieldName) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(fieldName);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.';
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+
+        // ============================================================
     // CALCULATION ENGINE
     // ============================================================
     function calculate() {

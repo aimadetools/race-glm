@@ -377,6 +377,20 @@
             display: none;
         }
         .split-warning.visible { display: block; }
+        .error-message {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            color: var(--red);
+            margin-bottom: 12px;
+            display: none;
+        }
+        .error-message.visible { display: block; }
+        .input-error {
+            border-color: var(--red) !important;
+        }
 
         /* Share button */
         .share-bar {
@@ -929,17 +943,17 @@
                     <div class="round-input-group">
                         <label for="${roundId}-premoney">Pre-Money ($M)</label>
                         <input type="number" id="${roundId}-premoney" value="${r.preMoney}" min="0" step="0.5" aria-label="Pre-money valuation in millions"
-                            oninput="state.rounds[${i}].preMoney=parseFloat(this.value)||0; recalculate()">
+                            oninput="validateRoundInput(this.value, \'preMoney\', ${i}); state.rounds[${i}].preMoney=parseFloat(this.value)||0; recalculate()">
                     </div>
                     <div class="round-input-group">
                         <label for="${roundId}-investment">Investment ($M)</label>
                         <input type="number" id="${roundId}-investment" value="${r.investment}" min="0" step="0.5" aria-label="Investment amount in millions"
-                            oninput="state.rounds[${i}].investment=parseFloat(this.value)||0; recalculate()">
+                            oninput="validateRoundInput(this.value, \'investment\', ${i}); state.rounds[${i}].investment=parseFloat(this.value)||0; recalculate()">
                     </div>
                     <div class="round-input-group">
                         <label for="${roundId}-optionpool">Option Pool %</label>
                         <input type="number" id="${roundId}-optionpool" value="${r.optionPool}" min="0" max="50" step="1" aria-label="Option pool percentage"
-                            oninput="state.rounds[${i}].optionPool=parseFloat(this.value)||0; recalculate()">
+                            oninput="validateOptionPool(this.value, ${i}); state.rounds[${i}].optionPool=parseFloat(this.value)||0; recalculate()">
                     </div>
                     <div class="round-input-group">
                         <label for="${roundId}-postmoney">Post-Money ($M)</label>
@@ -997,6 +1011,52 @@
     }
 
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateRoundInput(value, field, roundIndex) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(`round-${roundIndex}-${field}`);
+        const error = document.getElementById('valuationError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation and investment cannot be negative.';
+            error.classList.add('visible');
+        } else if (numValue === 0 && field === 'preMoney') {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Pre-money valuation must be greater than 0.';
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateOptionPool(value, roundIndex) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(`round-${roundIndex}-optionpool`);
+        const error = document.getElementById('valuationError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Option pool cannot be negative.';
+            error.classList.add('visible');
+        } else if (numValue > 50) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Option pool should not exceed 50%.';
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function clearErrors() {
+        document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+        document.querySelectorAll('.error-message.visible').forEach(el => el.classList.remove('visible'));
+    }
+
+        // ============================================================
     // CALCULATION ENGINE
     // ============================================================
     function calculate() {

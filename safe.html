@@ -227,11 +227,11 @@
                 <div class="input-row">
                     <div class="input-group">
                         <label>Pre-Money ($M)</label>
-                        <input type="number" id="preMoney" value="20" min="0" step="0.5" oninput="recalculate()">
+                        <input type="number" id="preMoney" value="20" min="0" step="0.5" oninput=\"validateMonetaryInput(this.value, 'preMoney'); recalculate()\">
                     </div>
                     <div class="input-group">
                         <label>Price Per Share ($)</label>
-                        <input type="number" id="pricePerShare" value="10" min="0.01" step="0.5" oninput="recalculate()">
+                        <input type="number" id="pricePerShare" value="10" min="0.01" step="0.5" oninput=\"validateMonetaryInput(this.value, 'pricePerShare'); recalculate()\">
                         <div class="hint">Used for conversion</div>
                     </div>
                 </div>
@@ -327,7 +327,103 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script>
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    // ============================================================
     // DATA MODEL
+    // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
     // ============================================================
     const SAFE_TYPES = ['Cap + Discount', 'Cap Only', 'Discount Only', 'MFN'];
     const SAFE_COLORS = ['#6c5ce7', '#00b894', '#ff6b6b', '#ffa502', '#54a0ff', '#ff6b9d'];
@@ -344,7 +440,103 @@
     };
 
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    // ============================================================
     // URL STATE
+    // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
     // ============================================================
     function loadFromURL() {
         const params = new URLSearchParams(window.location.search);
@@ -361,7 +553,103 @@
     }
 
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    // ============================================================
     // RENDER INPUTS
+    // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
     // ============================================================
     function renderSAFEs() {
         const container = document.getElementById('safesContainer');
@@ -377,8 +665,8 @@
                 <div class="safe-inputs">
                     <div class="safe-input-group">
                         <label>Investment ($)</label>
-                        <input type="number" value="${safe.amount}" min="0" step="10000"
-                            oninput="state.safes[${i}].amount=parseFloat(this.value)||0; recalculate()">
+                        <input type="number" id="safe-${i}-amount" value="${safe.amount}" min="0" step="10000"
+                            oninput="validateMonetaryInput(this.value, 'safe-${i}-amount'); state.safes[${i}].amount=parseFloat(this.value)||0; recalculate()">
                     </div>
                     <div class="safe-input-group">
                         <label>SAFE Type</label>
@@ -388,32 +676,19 @@
                     </div>
                     <div class="safe-input-group">
                         <label>Valuation Cap ($M)</label>
-                        <input type="number" value="${safe.cap}" min="0" step="0.5"
-                            oninput="state.safes[${i}].cap=parseFloat(this.value)||0; recalculate()">
+                        <input type="number" id="safe-${i}-cap" value="${safe.cap}" min="0" step="0.5"
+                            oninput="validateCapInput(this.value, 'safe-${i}-cap'); state.safes[${i}].cap=parseFloat(this.value)||0; recalculate()">
                     </div>
                     <div class="safe-input-group">
                         <label>Discount (%)</label>
-                        <input type="number" value="${safe.discount}" min="0" max="100" step="5"
-                            oninput="state.safes[${i}].discount=parseFloat(this.value)||0; recalculate()">
+                        <input type="number" id="safe-${i}-discount" value="${safe.discount}" min="0" max="100" step="5"
+                            oninput="validatePercentageInput(this.value, 'safe-${i}-discount'); state.safes[${i}].discount=parseFloat(this.value)||0; recalculate()">
                     </div>
                 </div>
             `;
             container.appendChild(card);
         });
         document.getElementById('addSafeBtn').style.display = state.safes.length >= 6 ? 'none' : '';
-    }
-
-    function addSAFE() {
-        if (state.safes.length >= 6) return;
-        state.safes.push({
-            name: `SAFE ${state.safes.length + 1}`,
-            amount: 250000,
-            cap: 10,
-            discount: 20,
-            type: 'Cap + Discount'
-        });
-        renderSAFEs();
-        recalculate();
     }
 
     function removeSAFE(i) {
@@ -435,7 +710,103 @@
     }
 
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    // ============================================================
     // CALCULATION ENGINE
+    // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
     // ============================================================
     function calculate() {
         const preMoney = state.preMoney * 1e6; // Convert $M to $
@@ -506,7 +877,103 @@
     }
 
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    // ============================================================
     // CHART
+    // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
     // ============================================================
     let chart = null;
 
@@ -581,7 +1048,103 @@
     }
 
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    // ============================================================
     // TABLE
+    // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
     // ============================================================
     function renderTable(results) {
         const table = document.getElementById('convTable');
@@ -619,7 +1182,103 @@
     }
 
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    // ============================================================
     // SUMMARY
+    // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
     // ============================================================
     function renderSummary(data) {
         document.getElementById('sumTotalDilution').textContent = data.totalDilution.toFixed(1) + '%';
@@ -629,7 +1288,103 @@
     }
 
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    // ============================================================
     // MAIN RECALCULATE
+    // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
     // ============================================================
     function recalculate() {
         state.preMoney = parseFloat(document.getElementById('preMoney').value) || 0;
@@ -641,7 +1396,103 @@
     }
 
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    // ============================================================
     // SHARE
+    // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
     // ============================================================
     function copyShareLink() {
         const url = encodeStateToURL();
@@ -662,7 +1513,103 @@
     }
 
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    // ============================================================
     // HELPERS
+    // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
     // ============================================================
     function escHtml(str) { const d = document.createElement('div'); d.textContent = str; return d.innerHTML; }
     function formatCurrency(n) {
@@ -683,7 +1630,103 @@
     }
 
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    // ============================================================
     // MOBILE MENU TOGGLE FOR ACCESSIBILITY
+    // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
     // ============================================================
     function toggleMobileMenu() {
         const navLinks = document.getElementById('navLinks');
@@ -694,7 +1737,103 @@
     }
 
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    // ============================================================
     // KEYBOARD NAVIGATION
+    // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
     // ============================================================
     document.addEventListener('keydown', function(e) {
         // Close mobile menu on Escape
@@ -709,7 +1848,103 @@
     });
 
     // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    // ============================================================
     // INIT
+    // ============================================================
+    // INPUT VALIDATION
+    // ============================================================
+    function validateMonetaryInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Value cannot be negative.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validatePercentageInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue < 0 || numValue > 100) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Percentage must be between 0 and 100%.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
+    function validateCapInput(value, inputId) {
+        const numValue = parseFloat(value);
+        const input = document.getElementById(inputId);
+        const error = document.getElementById('inputError');
+        
+        if (numValue <= 0) {
+            if (input) input.classList.add('input-error');
+            error.textContent = 'Valuation cap must be greater than 0.'
+            error.classList.add('visible');
+        } else {
+            if (input) input.classList.remove('input-error');
+            error.classList.remove('visible');
+        }
+    }
+    
     // ============================================================
     loadFromURL();
     renderSAFEs();
