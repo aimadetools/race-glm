@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Equity Dilution Works: A Visual Guide for Startup Founders — FounderMath</title>
+    <meta name="description" content="Learn how equity dilution works across funding rounds. Understand pre-money vs post-money valuation, option pools, and how your ownership changes with each round.">
+    <meta name="keywords" content="equity dilution, how dilution works, startup equity, pre-money valuation, post-money valuation, option pool, founder dilution, funding rounds">
+    <meta property="og:title" content="How Equity Dilution Works: A Visual Guide for Founders">
+    <meta property="og:description" content="Understand how your startup equity dilutes across funding rounds with interactive examples and clear explanations.">
+    <meta property="og:type" content="article">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #8888a0;
+            --text-muted: #555570;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+
+        /* ARTICLE LAYOUT */
+        .article-layout {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        /* Article header */
+        .article-header {
+            margin-bottom: 48px;
+        }
+        .article-meta {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted);
+        }
+        .article-meta .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+        .article-header .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 48px;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+        }
+        .toc ol {
+            padding-left: 20px;
+            counter-reset: toc;
+        }
+        .toc li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent-light); }
+
+        /* Article body */
+        .article-body h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+        .article-body h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+        .article-body p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        .article-body ul, .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 24px;
+        }
+        .article-body li {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        /* Callout boxes */
+        .callout {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .callout.tip {
+            border-left: 4px solid var(--green);
+        }
+        .callout.warning {
+            border-left: 4px solid var(--orange);
+        }
+        .callout.calc {
+            border-left: 4px solid var(--accent);
+        }
+        .callout strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        /* Example table */
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.9rem;
+        }
+        .example-table th {
+            text-align: left;
+            padding: 10px 14px;
+            background: var(--bg-card);
+            border-bottom: 2px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .example-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(42, 42, 64, 0.3);
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+        }
+        .example-table tr:hover td {
+            background: rgba(108, 92, 231, 0.05);
+        }
+        .example-table .highlight {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+        .example-table .negative {
+            color: var(--red);
+        }
+
+        /* Formula blocks */
+        .formula {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            color: var(--accent-light);
+            text-align: center;
+        }
+
+        /* CTA inline */
+        .inline-cta {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.15), rgba(0, 184, 148, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 28px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .inline-cta h3 {
+            font-size: 1.15rem;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+        .inline-cta p {
+            margin-bottom: 16px;
+        }
+        .inline-cta a {
+            background: var(--accent);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .inline-cta a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        /* Footer */
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0; background: var(--bg-primary);
+                border-bottom: 1px solid var(--border); padding: 24px; gap: 16px;
+            }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .article-meta { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution Calc</a></li>
+                <li><a href="runway.html">Runway Calc</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="pricing.html" class="nav-cta">Start Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <article class="article-layout">
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="tag">Equity</span>
+                <span>April 2026</span>
+                <span>12 min read</span>
+            </div>
+            <h1>How Equity Dilution Works: A Visual Guide for Founders</h1>
+            <p class="subtitle">You start with 100%. After raising money, you won't. Here's exactly how dilution works across each funding round, with real numbers and an interactive calculator.</p>
+        </header>
+
+        <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#what-is-dilution">What Is Equity Dilution?</a></li>
+                <li><a href="#pre-vs-post">Pre-Money vs Post-Money Valuation</a></li>
+                <li><a href="#how-each-round">How Dilution Happens at Each Round</a></li>
+                <li><a href="#option-pool">The Option Pool Shuffle</a></li>
+                <li><a href="#real-example">A Real Example: 3 Founders, 3 Rounds</a></li>
+                <li><a href="#anti-dilution">Anti-Dilution and Pro-Rata Rights</a></li>
+                <li><a href="#calculate">Calculate Your Own Dilution</a></li>
+                <li><a href="#key-takeaways">Key Takeaways</a></li>
+            </ol>
+        </nav>
+
+        <div class="article-body">
+            <h2 id="what-is-dilution">What Is Equity Dilution?</h2>
+            <p>Equity dilution is the reduction in your ownership percentage that happens when your company issues new shares to investors, employees, or other stakeholders. It's not a loss of value &mdash; it's a trade. You're giving up a slice of the pie so the whole pie gets bigger.</p>
+            <p>Here's the critical insight: <strong>your percentage goes down, but your dollar value usually goes up</strong>. If you own 100% of a company worth $1M, and after raising money you own 75% of a company worth $4M, you went from $1M to $3M in value. You own less of the pie, but the pie is much bigger.</p>
+            <p>Every founder who raises outside capital experiences dilution. Understanding it isn't optional &mdash; it's the difference between negotiating from a position of knowledge and getting taken advantage of.</p>
+
+            <div class="callout tip">
+                <strong>Why this matters</strong>
+                Founders who don't understand dilution often make one of two mistakes: they're so afraid of dilution that they don't raise when they should, or they give away too much because they don't know what "normal" looks like. This guide fixes both.
+            </div>
+
+            <h2 id="pre-vs-post">Pre-Money vs Post-Money Valuation</h2>
+            <p>Before we can talk about how dilution works, you need to understand the two valuations that matter in every round:</p>
+
+            <h3>Pre-Money Valuation</h3>
+            <p>This is what your company is worth <em>before</em> the new money comes in. If investors say "we'll invest $2M at an $8M pre-money," they're saying your company is worth $8M before their check.</p>
+
+            <h3>Post-Money Valuation</h3>
+            <p>This is your company's value <em>after</em> the investment. It's simply:</p>
+            <div class="formula">Post-Money = Pre-Money + Investment</div>
+            <p>In the example above: $8M pre + $2M investment = $10M post-money.</p>
+
+            <h3>How much does the investor get?</h3>
+            <div class="formula">Investor Ownership = Investment &divide; Post-Money Valuation</div>
+            <p>$2M &divide; $10M = 20%. The investor gets 20% of the company.</p>
+            <p>And here's the key: <strong>everyone else gets diluted by that same 20%</strong>. If you owned 50% before, you now own 50% &times; (1 &minus; 20%) = 40%.</p>
+
+            <div class="callout warning">
+                <strong>Common mistake: confusing pre-money and post-money</strong>
+                If an investor says "I want 20% for $2M," that means they're talking about post-money. The pre-money is $8M, post-money is $10M. But if they say "$2M at a $10M pre-money," the post-money is $12M, and they only get 16.7%. The wording matters enormously.
+            </div>
+
+            <h2 id="how-each-round">How Dilution Happens at Each Round</h2>
+            <p>Dilution is cumulative. Each round dilutes everyone who came before, including previous investors. Here's what typical dilution looks like across the standard funding stages:</p>
+
+            <table class="example-table">
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Typical Dilution</th>
+                        <th>Who Gets Diluted</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight">Pre-Seed</td>
+                        <td>10-25%</td>
+                        <td>Founders</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Seed</td>
+                        <td>15-25%</td>
+                        <td>Founders, Pre-Seed investors</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Series A</td>
+                        <td>15-30%</td>
+                        <td>Everyone before</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Series B</td>
+                        <td>10-20%</td>
+                        <td>Everyone before</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Series C+</td>
+                        <td>5-15%</td>
+                        <td>Everyone before</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>After a typical journey through Seed and Series A, founders often end up owning 40-60% combined. After Series B, that might be 30-50%. The specifics depend on how much you raise, at what valuation, and whether option pools are involved.</p>
+
+            <h2 id="option-pool">The Option Pool Shuffle</h2>
+            <p>There's one more wrinkle that catches many founders off guard: <strong>the option pool</strong>.</p>
+            <p>Investors typically require an unallocated option pool (for future employee equity grants) to be created <em>before</em> they invest. The pool usually needs to be 10-20% of the post-money cap table. And here's the painful part: <strong>the option pool comes out of the founders' ownership</strong>.</p>
+            <p>Let's say you're raising a seed round:</p>
+            <ul>
+                <li>Pre-money valuation: $10M</li>
+                <li>Investment: $2.5M</li>
+                <li>Investors want a 15% option pool created pre-money</li>
+            </ul>
+
+            <div class="callout warning">
+                <strong>What "pre-money pool" really means</strong>
+                The option pool is created before the investment, which means it's included in the pre-money valuation. The pool dilutes existing shareholders (the founders), not the new investor. This is why it's sometimes called the "option pool shuffle" &mdash; it shifts more dilution onto founders.
+            </div>
+
+            <p>So the full calculation becomes:</p>
+            <ol>
+                <li>Create a 15% option pool (post-money)</li>
+                <li>Investor puts in $2.5M for their share</li>
+                <li>Founders absorb both the pool dilution and the investor dilution</li>
+            </ol>
+            <p>End result: If you started with 100%, after a typical seed round with 20% investor ownership and a 15% option pool, you'd own about 68%. And that's just one round.</p>
+
+            <h2 id="real-example">A Real Example: 3 Founders, 3 Rounds</h2>
+            <p>Let's walk through a realistic scenario to make this concrete. Three cofounders start a company with equal shares:</p>
+
+            <table class="example-table">
+                <thead>
+                    <tr>
+                        <th>Stakeholder</th>
+                        <th>Starting</th>
+                        <th>After Seed</th>
+                        <th>After Series A</th>
+                        <th>After Series B</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight">Founder A</td>
+                        <td>33.3%</td>
+                        <td>24.0%</td>
+                        <td>18.0%</td>
+                        <td>14.4%</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Founder B</td>
+                        <td>33.3%</td>
+                        <td>24.0%</td>
+                        <td>18.0%</td>
+                        <td>14.4%</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Founder C</td>
+                        <td>33.4%</td>
+                        <td>24.0%</td>
+                        <td>18.0%</td>
+                        <td>14.4%</td>
+                    </tr>
+                    <tr>
+                        <td>Seed Investor</td>
+                        <td>&mdash;</td>
+                        <td>20.0%</td>
+                        <td>15.0%</td>
+                        <td>12.0%</td>
+                    </tr>
+                    <tr>
+                        <td>Option Pool</td>
+                        <td>&mdash;</td>
+                        <td>8.0%</td>
+                        <td>10.0%</td>
+                        <td>8.0%</td>
+                    </tr>
+                    <tr>
+                        <td>Series A Investor</td>
+                        <td>&mdash;</td>
+                        <td>&mdash;</td>
+                        <td>21.0%</td>
+                        <td>16.8%</td>
+                    </tr>
+                    <tr>
+                        <td>Series B Investor</td>
+                        <td>&mdash;</td>
+                        <td>&mdash;</td>
+                        <td>&mdash;</td>
+                        <td>20.0%</td>
+                    </tr>
+                    <tr style="border-top: 2px solid var(--border);">
+                        <td class="highlight">Founders Total</td>
+                        <td class="highlight">100%</td>
+                        <td class="highlight">72.0%</td>
+                        <td class="highlight">54.0%</td>
+                        <td class="highlight">43.2%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>After three rounds, the three founders together own 43.2%, down from 100%. Each individual founder went from 33% to about 14.4%.</p>
+            <p>But here's the part people often miss: <strong>at Series B, the company is likely worth $100M+</strong>. So 14.4% of $100M = $14.4M. Not bad for a founder who started with nothing on paper.</p>
+
+            <div class="callout tip">
+                <strong>The right way to think about dilution</strong>
+                Always think in dollars, not percentages. Would you rather own 100% of a $1M company ($1M) or 14% of a $100M company ($14M)? Dilution is the price of growth. The goal isn't to avoid it &mdash; it's to make sure each round of dilution comes with enough growth to make it worthwhile.
+            </div>
+
+            <h2 id="anti-dilution">Anti-Dilution and Pro-Rata Rights</h2>
+            <p>Not all dilution is equal. Some investors have protections built into their terms:</p>
+
+            <h3>Anti-Dilution Protection</h3>
+            <p>If a later round happens at a lower valuation than an earlier round (a "down round"), investors with anti-dilution protection get additional shares to compensate. There are two main types:</p>
+            <ul>
+                <li><strong>Full ratchet:</strong> The investor's price per share is adjusted down to the new, lower price. Aggressive and founder-unfriendly.</li>
+                <li><strong>Broad-based weighted average:</strong> The adjustment considers how many shares are involved. More common and more balanced.</li>
+            </ul>
+            <p>Most modern term sheets use broad-based weighted average. Full ratchet is rare but worth watching for.</p>
+
+            <h3>Pro-Rata Rights</h3>
+            <p>Pro-rata rights give investors the option to maintain their ownership percentage in future rounds. If an investor owns 20% after a seed round, they have the right to buy enough shares in Series A to stay at 20%.</p>
+            <p>This doesn't directly dilute founders more &mdash; the pro-rata investment is new money &mdash; but it means that investor can maintain a large stake over time, making room for fewer new investors in future rounds.</p>
+
+            <h2 id="calculate">Calculate Your Own Dilution</h2>
+            <p>Reading about dilution is one thing. Seeing your own numbers play out is another. Use our free Equity Dilution Calculator to model your exact situation:</p>
+
+            <div class="inline-cta">
+                <h3>Try the Equity Dilution Calculator</h3>
+                <p>Add your cofounders, model up to 5 funding rounds with valuations and option pools, and see exactly what happens to your ownership &mdash; for free.</p>
+                <a href="dilution.html">Open the Calculator</a>
+            </div>
+
+            <h2 id="key-takeaways">Key Takeaways</h2>
+            <ol>
+                <li><strong>Dilution is normal.</strong> Every founder who raises money gets diluted. The question is whether the trade is worth it.</li>
+                <li><strong>Think in dollars, not percentages.</strong> A smaller slice of a much bigger pie is usually worth more.</li>
+                <li><strong>Watch the option pool.</strong> It can add 5-15% extra dilution per round that founders absorb.</li>
+                <li><strong>Understand pre-money vs post-money.</strong> Getting these confused can cost you millions in negotiation.</li>
+                <li><strong>Model before you negotiate.</strong> Use a dilution calculator to see exactly what a proposed term sheet means for your ownership.</li>
+                <li><strong>Typical founder ownership after Series A:</strong> 40-60% combined. After Series B: 30-50%. These are benchmarks, not rules.</li>
+                <li><strong>Anti-dilution and pro-rata matter.</strong> Know what protections your investors have before signing.</li>
+            </ol>
+
+            <div class="callout calc">
+                <strong>Related calculators</strong>
+                <ul style="margin-bottom:0;">
+                    <li><a href="dilution.html" style="color:var(--accent-light)">Equity Dilution Calculator</a> &mdash; model your dilution across up to 5 rounds</li>
+                    <li><a href="runway.html" style="color:var(--accent-light)">Runway Calculator</a> &mdash; see how many months of cash you have left</li>
+                </ul>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="mailto:hello@foundermath.com">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

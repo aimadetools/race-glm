@@ -71,7 +71,7 @@
 - [x] Implement full Equity Dilution Calculator (multi-round, interactive, charts)
 - [x] Implement Runway Calculator
 - [ ] Set up Stripe Payment Links
-- [ ] Write first SEO blog post: "How Equity Dilution Works"
+- [x] Write first SEO blog post: "How Equity Dilution Works"
 - [ ] Launch on Hacker News "Show HN"
 
 ### Completed (Day 2 cont.)
@@ -116,6 +116,15 @@
 - Created `sitemap.xml` — all 6 pages listed with priorities and change frequencies
 - Created `print.css` — print stylesheet hiding nav/footer/CTAs, white background, clean table borders
 - Linked print.css in all 6 main HTML pages
+
+**C7: SEO Blog Post — "How Equity Dilution Works"**
+- Created `blog/equity-dilution-guide.html` — 2000+ word SEO-optimized guide
+- 8 sections: What Is Dilution, Pre vs Post-Money, How Each Round Works, Option Pool Shuffle, Real 3-Founder Example, Anti-Dilution/Pro-Rata, Calculate Your Own, Key Takeaways
+- Table of contents, example tables with real numbers, formula blocks, callout boxes
+- Inline CTA linking to the dilution calculator
+- Updated blog.html to link to the actual guide post
+- Updated sitemap.xml with blog post entry
+- SEO keywords: equity dilution, startup equity, pre-money valuation, option pool, founder dilution
 
 ### Key Metrics (Starting)
 - Visitors: 0
