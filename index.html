@@ -666,6 +666,17 @@
             width: 100% !important;
             height: 100% !important;
         }
+
+        /* --- SCROLL ANIMATIONS --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -998,6 +1009,21 @@
         }
 
         updateDemo();
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.features, .how-it-works, .pricing, .cta, .demo-section').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>

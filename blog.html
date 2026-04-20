@@ -157,8 +157,14 @@
 
         @media (max-width: 600px) {
             .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0; background: var(--bg-primary);
+                border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100;
+            }
             .mobile-toggle { display: block; }
             .newsletter-form { flex-direction: column; }
+            .footer-inner { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -176,7 +182,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="pricing.html" class="nav-cta">Start Free</a></li>
             </ul>
-            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex'" aria-label="Menu">☰</button>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
         </div>
     </nav>
 

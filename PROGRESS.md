@@ -132,6 +132,12 @@
 - Removed stale Twitter link from index.html footer
 - Updated about.html and pricing.html navs to link to calculator pages (was still using old #calculators/#features anchors)
 
+**C4 + C11: Mobile Nav Polish & Scroll Animations**
+- Fixed mobile hamburger menu on about.html, pricing.html, blog.html — now uses classList toggle with overlay
+- Added backdrop overlay that closes menu when tapped
+- Added IntersectionObserver-based fade-in animations on index.html sections (features, how-it-works, pricing, CTA, demo)
+- CSS transition: opacity + translateY for smooth reveal effect
+
 ### Key Metrics (Starting)
 - Visitors: 0
 - Paying customers: 0

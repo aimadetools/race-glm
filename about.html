@@ -170,10 +170,22 @@
         }
         .footer-links a:hover { color: var(--text-primary); }
 
+        .nav-overlay {
+            display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+            background: rgba(10, 10, 15, 0.6); z-index: 99;
+        }
+        .nav-overlay.open { display: block; }
+
         @media (max-width: 600px) {
             .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0; background: var(--bg-primary);
+                border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100;
+            }
             .mobile-toggle { display: block; }
             .values-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -192,9 +204,10 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="pricing.html" class="nav-cta">Start Free</a></li>
             </ul>
-            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex'" aria-label="Menu">☰</button>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open');document.querySelector('.nav-overlay').classList.toggle('open')" aria-label="Menu">&#9776;</button>
         </div>
     </nav>
+    <div class="nav-overlay" onclick="document.querySelector('.nav-links').classList.remove('open');this.classList.remove('open')"></div>
 
     <div class="page-header">
         <h1>About FounderMath</h1>
