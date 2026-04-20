@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About FounderMath — Built for Founders, by Founders</title>
+    <meta name="description" content="Learn about FounderMath — the interactive startup calculator suite that helps founders understand equity dilution, SAFE notes, runway, and cap tables.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%</text></svg>">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #8888a0;
+            --text-muted: #555570;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+
+        .page-header {
+            padding: 160px 24px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 50% 30%, var(--accent-glow) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800; position: relative; letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+        .page-header p {
+            color: var(--text-secondary); font-size: 1.15rem;
+            max-width: 600px; margin: 0 auto; position: relative;
+        }
+
+        .content {
+            max-width: 800px; margin: 0 auto; padding: 40px 24px 80px;
+        }
+        .content h2 {
+            font-size: 1.6rem; font-weight: 700; margin: 48px 0 16px;
+            letter-spacing: -0.02em;
+        }
+        .content h2:first-child { margin-top: 0; }
+        .content p {
+            color: var(--text-secondary); margin-bottom: 16px; font-size: 1rem;
+        }
+        .content ul {
+            color: var(--text-secondary); margin: 0 0 16px 24px;
+        }
+        .content li { margin-bottom: 8px; }
+
+        .values-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+            margin: 32px 0;
+        }
+        .value-card {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px;
+        }
+        .value-card h3 {
+            font-size: 1.1rem; margin-bottom: 8px; color: var(--accent-light);
+        }
+        .value-card p {
+            color: var(--text-secondary); font-size: 0.9rem; margin: 0;
+        }
+
+        .timeline {
+            border-left: 2px solid var(--accent);
+            padding-left: 32px; margin: 32px 0;
+        }
+        .timeline-item {
+            position: relative; margin-bottom: 32px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute; left: -39px; top: 6px;
+            width: 12px; height: 12px;
+            background: var(--accent); border-radius: 50%;
+        }
+        .timeline-item h4 {
+            font-size: 1rem; color: var(--accent-light); margin-bottom: 4px;
+        }
+        .timeline-item p {
+            color: var(--text-secondary); font-size: 0.9rem; margin: 0;
+        }
+
+        .cta-banner {
+            text-align: center; padding: 80px 24px;
+            background: var(--bg-secondary);
+        }
+        .cta-banner h2 {
+            font-size: 1.8rem; font-weight: 800; margin-bottom: 16px;
+        }
+        .cta-banner p {
+            color: var(--text-secondary); margin-bottom: 24px;
+        }
+        .btn-primary {
+            background: var(--accent); color: white; padding: 14px 32px;
+            border-radius: 10px; font-size: 1rem; font-weight: 600;
+            text-decoration: none; transition: all 0.3s; display: inline-block;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.85rem;
+        }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .values-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#calculators">Calculators</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#pricing" class="nav-cta">Start Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex'" aria-label="Menu">☰</button>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>About FounderMath</h1>
+        <p>We got tired of seeing founders make expensive equity mistakes. So we built the tool we wish we had.</p>
+    </div>
+
+    <div class="content">
+        <h2>The Problem We Solve</h2>
+        <p>Every year, thousands of founders negotiate equity deals without truly understanding the math. They accept term sheets without modeling dilution. They sign SAFE notes without knowing what they convert to. They run out of cash because they miscalculated their runway.</p>
+        <p>The existing tools are either enterprise cap table platforms that cost $100+/month (Carta, Pulley) or basic Excel templates that can't visualize what's happening. There's nothing in between for the individual founder who just needs to understand <em>their</em> equity.</p>
+
+        <h2>Our Mission</h2>
+        <p>FounderMath exists to give every founder — regardless of their math skills or budget — the ability to understand and visualize their equity situation. We believe the best founders make informed decisions, and informed decisions require clear, accurate numbers.</p>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>Clarity Over Complexity</h3>
+                <p>Startup equity is complex by nature. Our job is to make it visual and intuitive, not to oversimplify or hide the math.</p>
+            </div>
+            <div class="value-card">
+                <h3>Founder-First</h3>
+                <p>Every feature is designed for the individual founder's perspective — not investors, not lawyers, not enterprise HR departments.</p>
+            </div>
+            <div class="value-card">
+                <h3>Free to Start</h3>
+                <p>Every calculator works for free. You should never have to pay to understand your own equity. Pro features are for power users who need more.</p>
+            </div>
+            <div class="value-card">
+                <h3>Open & Honest</h3>
+                <p>No dark patterns, no hidden fees, no surprise charges. Our pricing is on the homepage and our math is transparent.</p>
+            </div>
+        </div>
+
+        <h2>Our Story</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>The Frustration</h4>
+                <p>We watched friends and fellow founders struggle with equity math — spending hours in spreadsheets, making mistakes that cost real money, and paying lawyers $500/hour to explain basic dilution concepts.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>The Gap</h4>
+                <p>Carta and Pulley serve companies managing cap tables. Free calculators are too basic. Nobody made a tool for the founder asking "what happens to MY equity if I raise a seed round?"</p>
+            </div>
+            <div class="timeline-item">
+                <h4>The Solution</h4>
+                <p>FounderMath — six interactive calculators that turn confusing equity math into beautiful, real-time visualizations. Drag a slider, see your dilution. Add a round, understand the impact.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Today</h4>
+                <p>We're building in public, shipping fast, and listening to founders. Every feature starts with a real question from a real founder.</p>
+            </div>
+        </div>
+
+        <h2>What Founders Say</h2>
+        <p>We're just getting started, but here's what early users tell us:</p>
+        <ul>
+            <li>"I finally understand what my SAFE converts to. This took 30 seconds instead of 3 hours in a spreadsheet."</li>
+            <li>"The dilution simulator just saved me from accepting a bad term sheet."</li>
+            <li>"I share this with every founder in my accelerator cohort."</li>
+        </ul>
+
+        <h2>Built With</h2>
+        <p>FounderMath is a modern web application built with performance and simplicity in mind:</p>
+        <ul>
+            <li>Vanilla JavaScript — fast, no framework overhead</li>
+            <li>Chart.js — interactive, responsive visualizations</li>
+            <li>Client-side calculations — your data never leaves your browser</li>
+            <li>Static hosting on Vercel — instant loading, $0 infrastructure cost</li>
+            <li>Stripe — secure payment processing</li>
+        </ul>
+        <p>Your financial data stays on your device. We never see your numbers, your cap table, or your scenarios. Privacy isn't a feature — it's the default.</p>
+    </div>
+
+    <div class="cta-banner">
+        <h2>Ready to understand your equity?</h2>
+        <p>Start with our free dilution calculator. No signup required.</p>
+        <a href="index.html#demo" class="btn-primary">Try the Calculator</a>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="mailto:hello@foundermath.com">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

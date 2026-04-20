@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — FounderMath</title>
+    <meta name="description" content="Learn about startup equity, dilution, SAFE notes, runway calculations, and cap tables. Practical guides for founders from FounderMath.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%</text></svg>">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #8888a0;
+            --text-muted: #555570;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+
+        .page-header {
+            padding: 160px 24px 60px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 50% 30%, var(--accent-glow) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;
+            position: relative; letter-spacing: -0.03em; margin-bottom: 16px;
+        }
+        .page-header p {
+            color: var(--text-secondary); font-size: 1.15rem;
+            max-width: 600px; margin: 0 auto; position: relative;
+        }
+
+        .blog-grid {
+            max-width: 900px; margin: 0 auto; padding: 40px 24px 80px;
+            display: grid; gap: 24px;
+        }
+        .blog-card {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; padding: 32px; transition: all 0.3s;
+            display: block; text-decoration: none; color: inherit;
+        }
+        .blog-card:hover {
+            border-color: var(--accent); transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        .blog-meta {
+            display: flex; align-items: center; gap: 12px;
+            margin-bottom: 16px;
+        }
+        .blog-tag {
+            background: var(--bg-card); padding: 4px 12px; border-radius: 6px;
+            font-size: 0.75rem; color: var(--accent-light); font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .blog-date {
+            font-size: 0.8rem; color: var(--text-muted);
+        }
+        .blog-card h2 {
+            font-size: 1.3rem; font-weight: 700; margin-bottom: 10px;
+            letter-spacing: -0.01em;
+        }
+        .blog-card p {
+            color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .blog-read-more {
+            color: var(--accent-light); font-size: 0.85rem; font-weight: 600;
+        }
+
+        .newsletter {
+            max-width: 600px; margin: 0 auto; padding: 60px 24px 80px; text-align: center;
+        }
+        .newsletter h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; }
+        .newsletter p { color: var(--text-secondary); margin-bottom: 24px; }
+        .newsletter-form {
+            display: flex; gap: 12px; max-width: 440px; margin: 0 auto;
+        }
+        .newsletter-form input {
+            flex: 1; padding: 12px 16px; background: var(--bg-card);
+            border: 1px solid var(--border); border-radius: 10px;
+            color: var(--text-primary); font-size: 0.9rem; outline: none;
+        }
+        .newsletter-form input:focus { border-color: var(--accent); }
+        .newsletter-form input::placeholder { color: var(--text-muted); }
+        .btn-primary {
+            background: var(--accent); color: white; padding: 12px 24px;
+            border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+            text-decoration: none; border: none; cursor: pointer; transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .newsletter-form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#calculators">Calculators</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#pricing" class="nav-cta">Start Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex'" aria-label="Menu">☰</button>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>The FounderMath Blog</h1>
+        <p>Practical guides to startup equity, dilution, SAFE notes, and runway. Written for founders who want to understand the math.</p>
+    </div>
+
+    <div class="blog-grid">
+        <a href="#" class="blog-card">
+            <div class="blog-meta">
+                <span class="blog-tag">Equity</span>
+                <span class="blog-date">April 2026</span>
+            </div>
+            <h2>How Equity Dilution Works Across Funding Rounds: A Visual Guide</h2>
+            <p>A step-by-step walkthrough of how founder ownership changes from pre-seed through Series B. We model three cofounders starting at 33% each and show exactly what happens at each round. Includes interactive calculator.</p>
+            <span class="blog-read-more">Read the guide →</span>
+        </a>
+
+        <a href="#" class="blog-card">
+            <div class="blog-meta">
+                <span class="blog-tag">SAFE Notes</span>
+                <span class="blog-date">April 2026</span>
+            </div>
+            <h2>SAFE Note Conversion Explained: Cap vs. Discount vs. MFN</h2>
+            <p>The Y Combinator SAFE is the most common early-stage investment instrument — but most founders don't understand how it converts. We break down the three SAFE variants and show you exactly what your SAFE is worth at conversion.</p>
+            <span class="blog-read-more">Read the guide →</span>
+        </a>
+
+        <a href="#" class="blog-card">
+            <div class="blog-meta">
+                <span class="blog-tag">Runway</span>
+                <span class="blog-date">April 2026</span>
+            </div>
+            <h2>Runway Calculation: How Many Months Until You Need to Raise Again?</h2>
+            <p>Runway is the most critical number for any startup. We explain how to calculate it correctly — including revenue growth, variable burn, and the mistake most founders make when counting their runway.</p>
+            <span class="blog-read-more">Read the guide →</span>
+        </a>
+
+        <a href="#" class="blog-card">
+            <div class="blog-meta">
+                <span class="blog-tag">Cap Table</span>
+                <span class="blog-date">Coming Soon</span>
+            </div>
+            <h2>Building Your First Cap Table: A Founder's Guide</h2>
+            <p>Your cap table is the financial DNA of your company. We walk through building a cap table from scratch — adding founders, investors, option pools, and SAFEs — and explain what each row means.</p>
+            <span class="blog-read-more">Coming soon →</span>
+        </a>
+
+        <a href="#" class="blog-card">
+            <div class="blog-meta">
+                <span class="blog-tag">Unit Economics</span>
+                <span class="blog-date">Coming Soon</span>
+            </div>
+            <h2>CAC vs. LTV: Are Your Unit Economics Working?</h2>
+            <p>Investors want to see healthy unit economics before writing a check. We explain Customer Acquisition Cost, Lifetime Value, and the ratios that signal a healthy (or broken) business model.</p>
+            <span class="blog-read-more">Coming soon →</span>
+        </a>
+    </div>
+
+    <div class="newsletter">
+        <h2>Get weekly equity insights</h2>
+        <p>Join 500+ founders who get our weekly breakdown of startup math concepts, real-world equity scenarios, and calculator tips. No spam, ever.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing! We\'ll be in touch.');">
+            <input type="email" placeholder="you@company.com" required>
+            <button type="submit" class="btn-primary">Subscribe</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="mailto:hello@foundermath.com">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
