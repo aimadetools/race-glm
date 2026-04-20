@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equity Dilution Calculator — FounderMath</title>
+    <meta name="description" content="Free interactive equity dilution calculator for startup founders. See how your ownership changes across pre-seed, seed, Series A, B, and C funding rounds.">
+    <meta name="keywords" content="equity dilution calculator, startup equity dilution, funding round dilution, pre-money post-money valuation, founder ownership">
+    <meta property="og:title" content="Equity Dilution Calculator — FounderMath">
+    <meta property="og:description" content="Visualize how your startup equity dilutes across multiple funding rounds. Free and interactive.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%</text></svg>">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --pink: #ff6b9d;
+            --yellow: #feca57;
+            --text-primary: #f0f0f5;
+            --text-secondary: #8888a0;
+            --text-muted: #555570;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAV --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: white;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            background: var(--accent) !important;
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- PAGE HEADER --- */
+        .page-header {
+            padding: 120px 24px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%);
+            animation: heroGlow 15s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-5%, 5%) scale(1.1); }
+        }
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            position: relative;
+            margin-bottom: 12px;
+        }
+        .page-header h1 .gradient {
+            background: linear-gradient(135deg, var(--accent-light), var(--green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* --- CALCULATOR LAYOUT --- */
+        .calc-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* --- INPUT PANEL --- */
+        .input-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            position: sticky;
+            top: 88px;
+            max-height: calc(100vh - 104px);
+            overflow-y: auto;
+        }
+        .input-panel::-webkit-scrollbar { width: 4px; }
+        .input-panel::-webkit-scrollbar-track { background: transparent; }
+        .input-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+        .panel-section {
+            margin-bottom: 28px;
+        }
+        .panel-section:last-child { margin-bottom: 0; }
+
+        .panel-section-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .panel-section-title .add-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .panel-section-title .add-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        /* Founder input row */
+        .founder-row {
+            display: grid;
+            grid-template-columns: 1fr 70px 32px;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .founder-row input {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-family: var(--font-sans);
+            transition: border-color 0.2s;
+        }
+        .founder-row input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .founder-row input[type="number"] {
+            font-family: var(--font-mono);
+            text-align: right;
+        }
+        .founder-row .remove-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 4px;
+            transition: color 0.2s;
+        }
+        .founder-row .remove-btn:hover { color: var(--red); }
+
+        /* Round card */
+        .round-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        .round-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .round-card-header .round-name {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: var(--font-sans);
+        }
+        .round-card-header .round-name:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .round-card-header .remove-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .round-card-header .remove-btn:hover { color: var(--red); }
+
+        .round-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .round-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .round-input-group label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .round-input-group input {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+            transition: border-color 0.2s;
+        }
+        .round-input-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* Split warning */
+        .split-warning {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            color: var(--red);
+            margin-bottom: 12px;
+            display: none;
+        }
+        .split-warning.visible { display: block; }
+
+        /* Share button */
+        .share-bar {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .btn-share {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font-sans);
+        }
+        .btn-share:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .btn-share.copied {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        /* --- RESULTS PANEL --- */
+        .results-panel {
+            min-width: 0;
+        }
+
+        /* Summary cards */
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .summary-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .summary-card .metric-value {
+            font-family: var(--font-mono);
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+        .summary-card .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 4px;
+        }
+
+        /* Chart container */
+        .chart-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+        .chart-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        .chart-section .chart-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        .chart-container {
+            position: relative;
+            height: 380px;
+        }
+        .chart-container canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* Ownership table */
+        .table-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            overflow-x: auto;
+        }
+        .table-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        .table-section .table-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        .ownership-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        .ownership-table th {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .ownership-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(42, 42, 64, 0.3);
+            white-space: nowrap;
+        }
+        .ownership-table tr:hover td {
+            background: rgba(108, 92, 231, 0.05);
+        }
+        .ownership-table .name-cell {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        .color-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .ownership-table .pct {
+            font-family: var(--font-mono);
+            font-weight: 700;
+        }
+        .ownership-table .shares {
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+        }
+        .ownership-table .valuation-row td {
+            background: var(--bg-card);
+            font-weight: 700;
+            color: var(--accent-light);
+        }
+        .ownership-table .stage-header td {
+            background: var(--bg-card);
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            padding-top: 16px;
+        }
+        .ownership-table .dilution-row td {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.8rem;
+        }
+
+        /* CTA Banner */
+        .calc-cta {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            margin-top: 32px;
+        }
+        .calc-cta h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .calc-cta p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        .calc-cta .btn-white {
+            background: white;
+            color: var(--accent);
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+        .calc-cta .btn-white:hover {
+            transform: translateY(-2px);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 48px 24px;
+            border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        .footer-left p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 960px) {
+            .calc-layout {
+                grid-template-columns: 1fr;
+            }
+            .input-panel {
+                position: static;
+                max-height: none;
+            }
+            .summary-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                border-bottom: 1px solid var(--border);
+                padding: 24px;
+                gap: 16px;
+            }
+            .mobile-toggle { display: block; }
+            .summary-cards { grid-template-columns: 1fr 1fr; }
+            .round-inputs { grid-template-columns: 1fr; }
+            .founder-row { grid-template-columns: 1fr 60px 28px; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .chart-container { height: 280px; }
+        }
+
+        /* Tooltip for share */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--green);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution Calculator</a></li>
+                <li><a href="index.html#features">All Calculators</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html" class="nav-cta">Start Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Equity <span class="gradient">Dilution</span> Calculator</h1>
+        <p>See exactly how your ownership changes across every funding round. Add founders, model rounds, and share with cofounders.</p>
+    </div>
+
+    <!-- Calculator Layout -->
+    <div class="calc-layout">
+        <!-- Left: Inputs -->
+        <div class="input-panel">
+            <!-- Founders Section -->
+            <div class="panel-section">
+                <div class="panel-section-title">
+                    <span>Founders</span>
+                    <button class="add-btn" onclick="addFounder()" id="addFounderBtn">+ Add Founder</button>
+                </div>
+                <div id="foundersContainer"></div>
+                <div class="split-warning" id="splitWarning">Founder percentages must total 100%.</div>
+            </div>
+
+            <!-- Rounds Section -->
+            <div class="panel-section">
+                <div class="panel-section-title">
+                    <span>Funding Rounds</span>
+                    <button class="add-btn" onclick="addRound()" id="addRoundBtn">+ Add Round</button>
+                </div>
+                <div id="roundsContainer"></div>
+            </div>
+
+            <!-- Share Section -->
+            <div class="panel-section">
+                <div class="panel-section-title"><span>Share</span></div>
+                <div class="share-bar">
+                    <button class="btn-share" id="shareBtn" onclick="copyShareLink()">Copy Share Link</button>
+                    <button class="btn-share" onclick="resetCalculator()">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Results -->
+        <div class="results-panel">
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="metric-value" id="summaryStarting" style="color:var(--accent-light)">—</div>
+                    <div class="metric-label">Your Starting %</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="summaryFinal" style="color:var(--green)">—</div>
+                    <div class="metric-label">Your Final %</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="summaryDilution" style="color:var(--orange)">—</div>
+                    <div class="metric-label">Total Dilution</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="summaryPostMoney" style="color:var(--blue)">—</div>
+                    <div class="metric-label">Final Post-Money</div>
+                </div>
+            </div>
+
+            <!-- Stacked Bar Chart -->
+            <div class="chart-section">
+                <h3>Ownership Across Rounds</h3>
+                <p class="chart-subtitle">See how each stakeholder's equity evolves after every round.</p>
+                <div class="chart-container">
+                    <canvas id="dilutionChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Ownership Table -->
+            <div class="table-section">
+                <h3>Detailed Cap Table</h3>
+                <p class="table-subtitle">Full breakdown of ownership, shares, and valuations at each stage.</p>
+                <div style="overflow-x:auto;">
+                    <table class="ownership-table" id="ownershipTable">
+                    </table>
+                </div>
+            </div>
+
+            <!-- Pro CTA -->
+            <div class="calc-cta">
+                <h3>Want to save scenarios and compare side-by-side?</h3>
+                <p>FounderMath Pro lets you save unlimited scenarios, export to PDF, and compare rounds side-by-side.</p>
+                <a href="pricing.html" class="btn-white">Upgrade to Pro — $19/mo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="mailto:hello@foundermath.com">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">Link copied to clipboard!</div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+    // ============================================================
+    // DATA MODEL
+    // ============================================================
+    const COLORS = [
+        '#6c5ce7', '#00b894', '#ff6b6b', '#ffa502', '#54a0ff',
+        '#ff6b9d', '#feca57', '#a29bfe', '#0984e3', '#fd79a8'
+    ];
+
+    const DEFAULT_ROUNDS = [
+        { name: 'Pre-Seed', preMoney: 4, investment: 1, optionPool: 10 },
+        { name: 'Seed', preMoney: 12, investment: 3, optionPool: 10 },
+        { name: 'Series A', preMoney: 40, investment: 15, optionPool: 5 },
+    ];
+
+    let state = {
+        founders: [
+            { name: 'You', pct: 60 },
+            { name: 'Co-founder', pct: 40 }
+        ],
+        rounds: JSON.parse(JSON.stringify(DEFAULT_ROUNDS))
+    };
+
+    // ============================================================
+    // URL STATE (share links)
+    // ============================================================
+    function loadFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        const encoded = params.get('s');
+        if (!encoded) return false;
+        try {
+            const json = atob(encoded);
+            const parsed = JSON.parse(json);
+            if (parsed.founders && parsed.rounds) {
+                state = parsed;
+                return true;
+            }
+        } catch (e) { /* ignore bad params */ }
+        return false;
+    }
+
+    function encodeStateToURL() {
+        const json = JSON.stringify(state);
+        return window.location.origin + window.location.pathname + '?s=' + btoa(json);
+    }
+
+    // ============================================================
+    // RENDER INPUTS
+    // ============================================================
+    function renderFounders() {
+        const container = document.getElementById('foundersContainer');
+        container.innerHTML = '';
+        state.founders.forEach((f, i) => {
+            const row = document.createElement('div');
+            row.className = 'founder-row';
+            row.innerHTML = `
+                <input type="text" value="${escHtml(f.name)}" placeholder="Name"
+                    oninput="state.founders[${i}].name=this.value; recalculate()">
+                <input type="number" value="${f.pct}" min="0" max="100" step="1"
+                    oninput="state.founders[${i}].pct=parseFloat(this.value)||0; recalculate()">
+                <button class="remove-btn" onclick="removeFounder(${i})" title="Remove">&times;</button>
+            `;
+            container.appendChild(row);
+        });
+        // Update add button visibility
+        document.getElementById('addFounderBtn').style.display = state.founders.length >= 5 ? 'none' : '';
+    }
+
+    function renderRounds() {
+        const container = document.getElementById('roundsContainer');
+        container.innerHTML = '';
+        state.rounds.forEach((r, i) => {
+            const card = document.createElement('div');
+            card.className = 'round-card';
+            card.innerHTML = `
+                <div class="round-card-header">
+                    <input type="text" class="round-name" value="${escHtml(r.name)}"
+                        oninput="state.rounds[${i}].name=this.value; recalculate()">
+                    <button class="remove-btn" onclick="removeRound(${i})" title="Remove round">&times;</button>
+                </div>
+                <div class="round-inputs">
+                    <div class="round-input-group">
+                        <label>Pre-Money ($M)</label>
+                        <input type="number" value="${r.preMoney}" min="0" step="0.5"
+                            oninput="state.rounds[${i}].preMoney=parseFloat(this.value)||0; recalculate()">
+                    </div>
+                    <div class="round-input-group">
+                        <label>Investment ($M)</label>
+                        <input type="number" value="${r.investment}" min="0" step="0.5"
+                            oninput="state.rounds[${i}].investment=parseFloat(this.value)||0; recalculate()">
+                    </div>
+                    <div class="round-input-group">
+                        <label>Option Pool %</label>
+                        <input type="number" value="${r.optionPool}" min="0" max="50" step="1"
+                            oninput="state.rounds[${i}].optionPool=parseFloat(this.value)||0; recalculate()">
+                    </div>
+                    <div class="round-input-group">
+                        <label>Post-Money ($M)</label>
+                        <input type="text" value="$${(r.preMoney + r.investment).toFixed(1)}M" readonly
+                            style="color:var(--text-muted); cursor:default;">
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        document.getElementById('addRoundBtn').style.display = state.rounds.length >= 5 ? 'none' : '';
+    }
+
+    function addFounder() {
+        if (state.founders.length >= 5) return;
+        const n = state.founders.length + 1;
+        state.founders.push({ name: `Founder ${n}`, pct: 0 });
+        renderFounders();
+        recalculate();
+    }
+
+    function removeFounder(i) {
+        if (state.founders.length <= 1) return;
+        state.founders.splice(i, 1);
+        renderFounders();
+        recalculate();
+    }
+
+    function addRound() {
+        if (state.rounds.length >= 5) return;
+        const names = ['Pre-Seed', 'Seed', 'Series A', 'Series B', 'Series C'];
+        const name = names[state.rounds.length] || `Round ${state.rounds.length + 1}`;
+        state.rounds.push({ name, preMoney: 20, investment: 5, optionPool: 5 });
+        renderRounds();
+        recalculate();
+    }
+
+    function removeRound(i) {
+        state.rounds.splice(i, 1);
+        renderRounds();
+        recalculate();
+    }
+
+    function resetCalculator() {
+        state = {
+            founders: [
+                { name: 'You', pct: 60 },
+                { name: 'Co-founder', pct: 40 }
+            ],
+            rounds: JSON.parse(JSON.stringify(DEFAULT_ROUNDS))
+        };
+        renderFounders();
+        renderRounds();
+        recalculate();
+    }
+
+    // ============================================================
+    // CALCULATION ENGINE
+    // ============================================================
+    function calculate() {
+        const totalFounderPct = state.founders.reduce((s, f) => s + f.pct, 0);
+        const founderSplitValid = Math.abs(totalFounderPct - 100) < 0.5;
+
+        // Show/hide warning
+        const warning = document.getElementById('splitWarning');
+        if (!founderSplitValid) {
+            warning.classList.add('visible');
+        } else {
+            warning.classList.remove('visible');
+        }
+
+        // If invalid, still calculate but normalize
+        const normalizeFactor = founderSplitValid ? 1 : (100 / Math.max(totalFounderPct, 0.01));
+
+        // Build stakeholder list for tracking
+        const stakeholders = [];
+        state.founders.forEach((f, i) => {
+            stakeholders.push({
+                name: f.name,
+                type: 'founder',
+                colorIndex: i,
+                ownership: f.pct * normalizeFactor,
+                shares: f.pct * normalizeFactor * 100 // arbitrary share units
+            });
+        });
+
+        // Track stages
+        const stages = [];
+        stages.push({
+            label: 'Founding',
+            stakeholders: stakeholders.map(s => ({ ...s })),
+            preMoney: 0,
+            postMoney: 0,
+            totalShares: stakeholders.reduce((s, st) => s + st.shares, 0)
+        });
+
+        // Process each round
+        state.rounds.forEach((round, roundIndex) => {
+            const preMoney = round.preMoney;
+            const investment = round.investment;
+            const optionPoolPct = round.optionPool;
+            const postMoney = preMoney + investment;
+
+            if (postMoney <= 0) return;
+
+            // Calculate new investor ownership
+            const investorPct = (investment / postMoney) * 100;
+            // Option pool comes out of post-money
+            const poolPct = optionPoolPct;
+            // Dilution factor for existing holders
+            const existingPct = 100 - investorPct - poolPct;
+            const dilutionFactor = existingPct / 100;
+
+            // Previous stage total shares
+            const prevTotalShares = stages[stages.length - 1].totalShares;
+
+            // New shares issued: investor + option pool
+            // investorPct of post-money = investor shares
+            // poolPct of post-money = pool shares
+            const investorShares = (investorPct / 100) * (prevTotalShares / (dilutionFactor || 0.001));
+            const poolShares = (poolPct / 100) * (prevTotalShares / (dilutionFactor || 0.001));
+
+            const newStakeholders = [];
+
+            // Dilute existing
+            stages[stages.length - 1].stakeholders.forEach(s => {
+                const newShares = s.shares * dilutionFactor;
+                const newOwnership = (newShares / (prevTotalShares + investorShares + poolShares)) * 100;
+                newStakeholders.push({
+                    ...s,
+                    shares: newShares,
+                    ownership: newOwnership
+                });
+            });
+
+            // Add investor
+            const investorColorIndex = state.founders.length + roundIndex;
+            newStakeholders.push({
+                name: `${round.name} Investor`,
+                type: 'investor',
+                colorIndex: investorColorIndex,
+                shares: investorShares,
+                ownership: investorPct
+            });
+
+            // Add option pool if > 0
+            if (poolPct > 0) {
+                newStakeholders.push({
+                    name: 'Option Pool',
+                    type: 'pool',
+                    colorIndex: 9,
+                    shares: poolShares,
+                    ownership: poolPct
+                });
+            }
+
+            const totalShares = newStakeholders.reduce((s, st) => s + st.shares, 0);
+
+            stages.push({
+                label: `After ${round.name}`,
+                stakeholders: newStakeholders,
+                preMoney: preMoney,
+                postMoney: postMoney,
+                totalShares: totalShares
+            });
+        });
+
+        return { stages, founderSplitValid };
+    }
+
+    // ============================================================
+    // CHART
+    // ============================================================
+    let chart = null;
+
+    function renderChart(stages) {
+        const ctx = document.getElementById('dilutionChart').getContext('2d');
+
+        // Collect all unique stakeholder names across stages
+        const allNames = [];
+        const nameSet = new Set();
+        stages.forEach(stage => {
+            stage.stakeholders.forEach(s => {
+                if (!nameSet.has(s.name)) {
+                    nameSet.add(s.name);
+                    allNames.push(s.name);
+                }
+            });
+        });
+
+        // Build datasets (stacked bar)
+        const labels = stages.map(s => s.label);
+        const datasets = allNames.map((name, di) => {
+            const data = stages.map(stage => {
+                const s = stage.stakeholders.find(st => st.name === name);
+                return s ? Math.round(s.ownership * 100) / 100 : 0;
+            });
+            // Find color
+            const firstAppearance = stages.find(stage => stage.stakeholders.find(st => st.name === name));
+            const stakeholder = firstAppearance.stakeholders.find(st => st.name === name);
+            const color = COLORS[stakeholder.colorIndex % COLORS.length];
+
+            return {
+                label: name,
+                data: data,
+                backgroundColor: color + 'cc',
+                borderColor: color,
+                borderWidth: 1,
+                borderRadius: 4,
+            };
+        });
+
+        if (chart) chart.destroy();
+
+        chart = new Chart(ctx, {
+            type: 'bar',
+            data: { labels, datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#8888a0',
+                            padding: 16,
+                            usePointStyle: true,
+                            pointStyle: 'rectRounded',
+                            font: { size: 12 }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(ctx) {
+                                return ctx.dataset.label + ': ' + ctx.parsed.y.toFixed(1) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        ticks: { color: '#8888a0', font: { size: 11 } },
+                        grid: { display: false }
+                    },
+                    y: {
+                        stacked: true,
+                        max: 100,
+                        ticks: {
+                            color: '#8888a0',
+                            callback: v => v + '%',
+                            font: { size: 11 }
+                        },
+                        grid: { color: 'rgba(42, 42, 64, 0.5)' }
+                    }
+                }
+            }
+        });
+    }
+
+    // ============================================================
+    // TABLE
+    // ============================================================
+    function renderTable(stages) {
+        const table = document.getElementById('ownershipTable');
+
+        // Collect all unique stakeholder names
+        const allNames = [];
+        const nameSet = new Set();
+        stages.forEach(stage => {
+            stage.stakeholders.forEach(s => {
+                if (!nameSet.has(s.name)) {
+                    nameSet.add(s.name);
+                    allNames.push(s.name);
+                }
+            });
+        });
+
+        // Header: Stage labels
+        let html = '<thead><tr><th>Stakeholder</th>';
+        stages.forEach(stage => {
+            html += `<th>${escHtml(stage.label)}</th>`;
+        });
+        html += '</tr></thead><tbody>';
+
+        // Valuation row
+        html += '<tr class="valuation-row"><td>Pre-Money Valuation</td>';
+        stages.forEach(stage => {
+            if (stage.preMoney > 0) {
+                html += `<td style="font-family:var(--font-mono)">$${formatVal(stage.preMoney)}M</td>`;
+            } else {
+                html += '<td>—</td>';
+            }
+        });
+        html += '</tr>';
+
+        // Post-money row
+        html += '<tr class="valuation-row"><td>Post-Money Valuation</td>';
+        stages.forEach(stage => {
+            if (stage.postMoney > 0) {
+                html += `<td style="font-family:var(--font-mono)">$${formatVal(stage.postMoney)}M</td>`;
+            } else {
+                html += '<td>—</td>';
+            }
+        });
+        html += '</tr>';
+
+        // Stakeholder rows
+        allNames.forEach(name => {
+            const firstStage = stages.find(s => s.stakeholders.find(st => st.name === name));
+            const sh = firstStage.stakeholders.find(st => st.name === name);
+            const color = COLORS[sh.colorIndex % COLORS.length];
+
+            html += '<tr>';
+            html += `<td><div class="name-cell"><span class="color-dot" style="background:${color}"></span>${escHtml(name)}</div></td>`;
+            stages.forEach(stage => {
+                const s = stage.stakeholders.find(st => st.name === name);
+                if (s) {
+                    html += `<td class="pct">${s.ownership.toFixed(1)}%</td>`;
+                } else {
+                    html += '<td class="pct" style="color:var(--text-muted)">—</td>';
+                }
+            });
+            html += '</tr>';
+        });
+
+        html += '</tbody>';
+        table.innerHTML = html;
+    }
+
+    // ============================================================
+    // SUMMARY CARDS
+    // ============================================================
+    function renderSummary(stages) {
+        if (stages.length === 0) return;
+
+        const firstStage = stages[0];
+        const lastStage = stages[stages.length - 1];
+
+        // "Your" ownership = first founder
+        const yourName = state.founders[0]?.name || 'You';
+        const startingPct = firstStage.stakeholders.find(s => s.name === yourName)?.ownership || 0;
+        const finalPct = lastStage.stakeholders.find(s => s.name === yourName)?.ownership || 0;
+        const dilution = startingPct - finalPct;
+        const finalPostMoney = lastStage.postMoney;
+
+        document.getElementById('summaryStarting').textContent = startingPct.toFixed(1) + '%';
+        document.getElementById('summaryFinal').textContent = finalPct.toFixed(1) + '%';
+        document.getElementById('summaryDilution').textContent = '-' + dilution.toFixed(1) + '%';
+        document.getElementById('summaryPostMoney').textContent = finalPostMoney > 0 ? '$' + formatVal(finalPostMoney) + 'M' : '—';
+    }
+
+    // ============================================================
+    // MAIN RECALCULATE
+    // ============================================================
+    function recalculate() {
+        const { stages } = calculate();
+        renderChart(stages);
+        renderTable(stages);
+        renderSummary(stages);
+    }
+
+    // ============================================================
+    // SHARE
+    // ============================================================
+    function copyShareLink() {
+        const url = encodeStateToURL();
+        navigator.clipboard.writeText(url).then(() => {
+            const btn = document.getElementById('shareBtn');
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            showToast('Link copied to clipboard!');
+            setTimeout(() => {
+                btn.textContent = 'Copy Share Link';
+                btn.classList.remove('copied');
+            }, 2000);
+        }).catch(() => {
+            // Fallback
+            prompt('Copy this link:', url);
+        });
+    }
+
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // ============================================================
+    // HELPERS
+    // ============================================================
+    function escHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    function formatVal(n) {
+        if (n >= 1000) return (n / 1000).toFixed(1) + 'B';
+        return n.toFixed(1);
+    }
+
+    // ============================================================
+    // INIT
+    // ============================================================
+    loadFromURL();
+    renderFounders();
+    renderRounds();
+    recalculate();
+    </script>
+</body>
+</html>

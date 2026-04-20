@@ -68,11 +68,31 @@
 - Remaining: ~$80 for marketing experiments
 
 ### Next Steps (Day 2)
-- [ ] Implement full Equity Dilution Calculator (multi-round, interactive, charts)
+- [x] Implement full Equity Dilution Calculator (multi-round, interactive, charts)
 - [ ] Implement Runway Calculator
 - [ ] Set up Stripe Payment Links
 - [ ] Write first SEO blog post: "How Equity Dilution Works"
 - [ ] Launch on Hacker News "Show HN"
+
+### Completed (Day 2 cont.)
+
+**P1: Equity Dilution Calculator — Full Implementation**
+- Built `dilution.html` — a complete, standalone equity dilution calculator
+- Multi-round model: up to 5 funding rounds (Pre-Seed, Seed, Series A/B/C)
+- Configurable founders: up to 5 founders with name + percentage split
+- Per-round inputs: name, pre-money valuation ($M), investment ($M), option pool %
+- Auto-calculated post-money valuation per round
+- Proper dilution math: investor %, option pool carve-out, proportional dilution of existing holders
+- Stacked bar chart (Chart.js) showing ownership evolution across all stages
+- Detailed cap table with valuations, ownership % per stakeholder at each stage
+- Summary cards: your starting %, final %, total dilution, final post-money
+- Share link generation: URL-encoded state via base64 (copy-to-clipboard)
+- Reset button to return to defaults
+- Validation: split warning when founders don't total 100%
+- Fully responsive (mobile sidebar collapses, sticky panel on desktop)
+- Consistent dark theme with site-wide CSS variables
+- Updated `index.html`: hero CTA, nav link, feature card, footer CTA all link to dilution.html
+- Cross-linked navigation between pages
 
 ### Key Metrics (Starting)
 - Visitors: 0
