@@ -72,7 +72,7 @@
 - Animate feature cards on scroll
 - Add subtle parallax to hero section
 
-### C12: Dark/Light Mode Toggle
+### C12: Dark/Light Mode Toggle ✅ DONE
 - Add CSS custom property-based theming
 - Implement toggle button in navbar
 - Persist preference in localStorage

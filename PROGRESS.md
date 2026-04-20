@@ -223,6 +223,13 @@
 - Clear error states when valid input entered
 - Unique IDs for dynamic inputs in SAFE calculator
 
+**C12: Dark/Light Mode Toggle — Full Implementation**
+- Added CSS variables for light theme
+- Added theme toggle button in navigation with sun/moon icons
+- Theme preference saved to localStorage
+- Theme loaded on page load
+- Smooth transitions between themes
+- Default to dark mode (startup aesthetic)
 ### Key Metrics (Starting)
 - Visitors: 0
 - Paying customers: 0
