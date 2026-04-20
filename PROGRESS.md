@@ -138,6 +138,18 @@
 - Added IntersectionObserver-based fade-in animations on index.html sections (features, how-it-works, pricing, CTA, demo)
 - CSS transition: opacity + translateY for smooth reveal effect
 
+**P2: SAFE Note Calculator — Full Implementation**
+- Built `safe.html` — complete SAFE note conversion calculator
+- Supports all 4 YC SAFE types: Cap + Discount, Cap Only, Discount Only, MFN
+- Up to 6 SAFE notes with individual amounts, caps, discounts, and types
+- Calculates: conversion price, shares issued, ownership %, effective valuation for each SAFE
+- MFN SAFE correctly uses the lowest conversion price from other SAFEs
+- Bar chart (Chart.js) showing investment amount and ownership % per SAFE (dual Y-axis)
+- Detailed conversion table with per-SAFE breakdown and totals row
+- Summary cards: total SAFE dilution, total shares created, effective post-money
+- Share link generation via URL-encoded state (base64)
+- Cross-linked nav across all pages, updated sitemap.xml
+
 ### Key Metrics (Starting)
 - Visitors: 0
 - Paying customers: 0

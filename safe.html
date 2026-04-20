@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAFE Note Calculator — FounderMath</title>
+    <meta name="description" content="Free SAFE note conversion calculator. Model how YC SAFE notes convert at a priced round — cap, discount, MFN, and multi-SAFE waterfall.">
+    <meta name="keywords" content="SAFE note calculator, SAFE conversion, YC SAFE, cap table SAFE, post-money SAFE, pre-money SAFE, safe note conversion">
+    <meta property="og:title" content="SAFE Note Calculator — FounderMath">
+    <meta property="og:description" content="Calculate how your SAFE notes convert at a priced round. Supports cap, discount, MFN, and multiple SAFEs.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --pink: #ff6b9d;
+            --yellow: #feca57;
+            --text-primary: #f0f0f5;
+            --text-secondary: #8888a0;
+            --text-muted: #555570;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        /* PAGE HEADER */
+        .page-header { padding: 120px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+        .page-header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%); animation: heroGlow 15s ease-in-out infinite alternate; pointer-events: none; }
+        @keyframes heroGlow { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-5%, 5%) scale(1.1); } }
+        .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 12px; }
+        .page-header h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; position: relative; }
+
+        /* CALC LAYOUT */
+        .calc-layout { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 380px 1fr; gap: 32px; align-items: start; }
+
+        /* INPUT PANEL */
+        .input-panel { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 24px; position: sticky; top: 88px; max-height: calc(100vh - 104px); overflow-y: auto; }
+        .input-panel::-webkit-scrollbar { width: 4px; }
+        .input-panel::-webkit-scrollbar-track { background: transparent; }
+        .input-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        .panel-section { margin-bottom: 28px; }
+        .panel-section:last-child { margin-bottom: 0; }
+        .panel-section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-light); margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; }
+        .add-btn { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); font-size: 0.7rem; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+        .add-btn:hover { border-color: var(--accent); color: var(--text-primary); }
+
+        .input-group { margin-bottom: 16px; }
+        .input-group label { display: block; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+        .input-group input, .input-group select { width: 100%; background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary); padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; font-family: var(--font-mono); transition: border-color 0.2s; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: var(--accent); }
+        .input-group select { font-family: var(--font-sans); cursor: pointer; }
+        .input-group select option { background: var(--bg-card); color: var(--text-primary); }
+        .input-group .hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .separator { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+        /* SAFE card */
+        .safe-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+        .safe-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .safe-card-header .safe-label { font-weight: 700; font-size: 0.9rem; color: var(--text-primary); }
+        .safe-card-header .remove-btn { background: none; border: none; color: var(--text-muted); font-size: 1rem; cursor: pointer; transition: color 0.2s; }
+        .safe-card-header .remove-btn:hover { color: var(--red); }
+        .safe-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .safe-input-group { display: flex; flex-direction: column; gap: 4px; }
+        .safe-input-group label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .safe-input-group input, .safe-input-group select { background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary); padding: 6px 10px; border-radius: 6px; font-size: 0.85rem; font-family: var(--font-mono); transition: border-color 0.2s; }
+        .safe-input-group input:focus, .safe-input-group select:focus { outline: none; border-color: var(--accent); }
+        .safe-input-group select { font-family: var(--font-sans); }
+
+        .share-bar { display: flex; gap: 8px; margin-top: 8px; }
+        .btn-share { flex: 1; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: var(--font-sans); }
+        .btn-share:hover { border-color: var(--accent); color: var(--text-primary); }
+        .btn-share.copied { border-color: var(--green); color: var(--green); }
+
+        /* RESULTS PANEL */
+        .results-panel { min-width: 0; }
+        .summary-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+        .summary-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+        .summary-card .metric-value { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 800; }
+        .summary-card .metric-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+        .chart-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .chart-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .chart-section .chart-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+        .chart-container { position: relative; height: 350px; }
+        .chart-container canvas { width: 100% !important; height: 100% !important; }
+
+        .table-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; overflow-x: auto; }
+        .table-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .table-section .table-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+        .conv-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .conv-table th { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+        .conv-table td { padding: 10px 12px; border-bottom: 1px solid rgba(42, 42, 64, 0.3); font-family: var(--font-mono); }
+        .conv-table tr:hover td { background: rgba(108, 92, 231, 0.05); }
+        .conv-table .label-cell { font-family: var(--font-sans); font-weight: 600; }
+        .conv-table .total-row td { background: var(--bg-card); font-weight: 700; border-top: 2px solid var(--border); }
+
+        /* Explanation callout */
+        .callout { background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 20px; margin-bottom: 32px; }
+        .callout h4 { font-size: 0.95rem; margin-bottom: 8px; }
+        .callout p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; }
+
+        /* CTA */
+        .calc-cta { background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 16px; padding: 32px; text-align: center; margin-top: 32px; }
+        .calc-cta h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .calc-cta p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 20px; }
+        .calc-cta .btn-white { background: white; color: var(--accent); padding: 12px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: transform 0.2s; display: inline-block; }
+        .calc-cta .btn-white:hover { transform: translateY(-2px); }
+
+        /* FOOTER */
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--green); color: white; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: transform 0.3s ease; z-index: 1000; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        @media (max-width: 960px) { .calc-layout { grid-template-columns: 1fr; } .input-panel { position: static; max-height: none; } .summary-cards { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            .summary-cards { grid-template-columns: 1fr; }
+            .safe-inputs { grid-template-columns: 1fr; }
+            .input-row { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .chart-container { height: 260px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo"><div class="logo-icon">%</div>FounderMath</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution Calc</a></li>
+                <li><a href="runway.html">Runway Calc</a></li>
+                <li><a href="safe.html">SAFE Calc</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="pricing.html" class="nav-cta">Start Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>SAFE Note <span class="gradient">Converter</span></h1>
+        <p>Model how your SAFE notes convert at a priced round. See the cap, discount, and ownership for each SAFE investor.</p>
+    </div>
+
+    <div class="calc-layout">
+        <div class="input-panel">
+            <!-- Priced Round Inputs -->
+            <div class="panel-section">
+                <div class="panel-section-title"><span>Priced Round</span></div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Pre-Money ($M)</label>
+                        <input type="number" id="preMoney" value="20" min="0" step="0.5" oninput="recalculate()">
+                    </div>
+                    <div class="input-group">
+                        <label>Price Per Share ($)</label>
+                        <input type="number" id="pricePerShare" value="10" min="0.01" step="0.5" oninput="recalculate()">
+                        <div class="hint">Used for conversion</div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="separator">
+
+            <!-- SAFE Notes -->
+            <div class="panel-section">
+                <div class="panel-section-title">
+                    <span>SAFE Notes</span>
+                    <button class="add-btn" onclick="addSAFE()" id="addSafeBtn">+ Add SAFE</button>
+                </div>
+                <div id="safesContainer"></div>
+            </div>
+
+            <!-- Share -->
+            <div class="panel-section">
+                <div class="panel-section-title"><span>Share</span></div>
+                <div class="share-bar">
+                    <button class="btn-share" id="shareBtn" onclick="copyShareLink()">Copy Share Link</button>
+                    <button class="btn-share" onclick="resetCalculator()">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-panel">
+            <!-- Summary -->
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="metric-value" id="sumTotalDilution" style="color:var(--orange)">—</div>
+                    <div class="metric-label">Total SAFE Dilution</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="sumTotalShares" style="color:var(--accent-light)">—</div>
+                    <div class="metric-label">SAFE Shares Created</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="sumPostMoney" style="color:var(--green)">—</div>
+                    <div class="metric-label">Effective Post-Money</div>
+                </div>
+            </div>
+
+            <!-- Callout -->
+            <div class="callout" id="conversionCallout">
+                <h4>How SAFE Conversion Works</h4>
+                <p>When a priced round happens, SAFEs convert at the lower of (a) the valuation cap divided by the company's valuation, or (b) the discount applied to the price per share. This gives SAFE investors a better price than the round investors, rewarding them for their earlier risk.</p>
+            </div>
+
+            <!-- Waterfall Chart -->
+            <div class="chart-section">
+                <h3>SAFE Conversion Waterfall</h3>
+                <p class="chart-subtitle">See how each SAFE converts and the ownership each investor receives.</p>
+                <div class="chart-container">
+                    <canvas id="safeChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Conversion Table -->
+            <div class="table-section">
+                <h3>Conversion Details</h3>
+                <p class="table-subtitle">Each SAFE note's conversion price, share count, and resulting ownership.</p>
+                <div style="overflow-x:auto;">
+                    <table class="conv-table" id="convTable"></table>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="calc-cta">
+                <h3>Want to model multiple rounds with SAFEs?</h3>
+                <p>FounderMath Pro includes multi-round simulation with SAFE conversion waterfalls, side-by-side comparison, and PDF export.</p>
+                <a href="pricing.html" class="btn-white">Upgrade to Pro — $19/mo</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left"><p>&copy; 2026 FounderMath. Built for founders, by founders.</p></div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dilution.html">Dilution Calc</a></li>
+                <li><a href="runway.html">Runway Calc</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="mailto:hello@foundermath.com">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast">Link copied to clipboard!</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+    // ============================================================
+    // DATA MODEL
+    // ============================================================
+    const SAFE_TYPES = ['Cap + Discount', 'Cap Only', 'Discount Only', 'MFN'];
+    const SAFE_COLORS = ['#6c5ce7', '#00b894', '#ff6b6b', '#ffa502', '#54a0ff', '#ff6b9d'];
+
+    const DEFAULT_SAFES = [
+        { name: 'Angel SAFE 1', amount: 250000, cap: 5, discount: 20, type: 'Cap + Discount' },
+        { name: 'Angel SAFE 2', amount: 500000, cap: 8, discount: 0, type: 'Cap Only' },
+    ];
+
+    let state = {
+        preMoney: 20,
+        pricePerShare: 10,
+        safes: JSON.parse(JSON.stringify(DEFAULT_SAFES))
+    };
+
+    // ============================================================
+    // URL STATE
+    // ============================================================
+    function loadFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        const encoded = params.get('s');
+        if (!encoded) return;
+        try {
+            const parsed = JSON.parse(atob(encoded));
+            if (parsed.safes) { state = parsed; }
+        } catch (e) {}
+    }
+
+    function encodeStateToURL() {
+        return window.location.origin + window.location.pathname + '?s=' + btoa(JSON.stringify(state));
+    }
+
+    // ============================================================
+    // RENDER INPUTS
+    // ============================================================
+    function renderSAFEs() {
+        const container = document.getElementById('safesContainer');
+        container.innerHTML = '';
+        state.safes.forEach((safe, i) => {
+            const card = document.createElement('div');
+            card.className = 'safe-card';
+            card.innerHTML = `
+                <div class="safe-card-header">
+                    <span class="safe-label">${escHtml(safe.name)}</span>
+                    <button class="remove-btn" onclick="removeSAFE(${i})" title="Remove">&times;</button>
+                </div>
+                <div class="safe-inputs">
+                    <div class="safe-input-group">
+                        <label>Investment ($)</label>
+                        <input type="number" value="${safe.amount}" min="0" step="10000"
+                            oninput="state.safes[${i}].amount=parseFloat(this.value)||0; recalculate()">
+                    </div>
+                    <div class="safe-input-group">
+                        <label>SAFE Type</label>
+                        <select onchange="state.safes[${i}].type=this.value; renderSAFEs(); recalculate()">
+                            ${SAFE_TYPES.map(t => `<option value="${t}" ${t === safe.type ? 'selected' : ''}>${t}</option>`).join('')}
+                        </select>
+                    </div>
+                    <div class="safe-input-group">
+                        <label>Valuation Cap ($M)</label>
+                        <input type="number" value="${safe.cap}" min="0" step="0.5"
+                            oninput="state.safes[${i}].cap=parseFloat(this.value)||0; recalculate()">
+                    </div>
+                    <div class="safe-input-group">
+                        <label>Discount (%)</label>
+                        <input type="number" value="${safe.discount}" min="0" max="100" step="5"
+                            oninput="state.safes[${i}].discount=parseFloat(this.value)||0; recalculate()">
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        document.getElementById('addSafeBtn').style.display = state.safes.length >= 6 ? 'none' : '';
+    }
+
+    function addSAFE() {
+        if (state.safes.length >= 6) return;
+        state.safes.push({
+            name: `SAFE ${state.safes.length + 1}`,
+            amount: 250000,
+            cap: 10,
+            discount: 20,
+            type: 'Cap + Discount'
+        });
+        renderSAFEs();
+        recalculate();
+    }
+
+    function removeSAFE(i) {
+        state.safes.splice(i, 1);
+        renderSAFEs();
+        recalculate();
+    }
+
+    function resetCalculator() {
+        state = {
+            preMoney: 20,
+            pricePerShare: 10,
+            safes: JSON.parse(JSON.stringify(DEFAULT_SAFES))
+        };
+        document.getElementById('preMoney').value = state.preMoney;
+        document.getElementById('pricePerShare').value = state.pricePerShare;
+        renderSAFEs();
+        recalculate();
+    }
+
+    // ============================================================
+    // CALCULATION ENGINE
+    // ============================================================
+    function calculate() {
+        const preMoney = state.preMoney * 1e6; // Convert $M to $
+        const pps = Math.max(state.pricePerShare, 0.01);
+        const preMoneyShares = preMoney / pps;
+
+        const results = [];
+
+        state.safes.forEach((safe, i) => {
+            const amount = safe.amount;
+            let conversionPrice = pps; // Default: no discount
+
+            if (safe.type === 'Cap + Discount') {
+                // Conversion price = min(cap price, discounted price)
+                const capPrice = (safe.cap * 1e6) / preMoneyShares;
+                const discPrice = pps * (1 - safe.discount / 100);
+                conversionPrice = Math.min(capPrice, discPrice);
+            } else if (safe.type === 'Cap Only') {
+                const capPrice = (safe.cap * 1e6) / preMoneyShares;
+                conversionPrice = capPrice;
+            } else if (safe.type === 'Discount Only') {
+                conversionPrice = pps * (1 - safe.discount / 100);
+            } else if (safe.type === 'MFN') {
+                // MFN: uses the most favorable terms of other SAFEs
+                // Simplified: uses the lowest conversion price of any other SAFE
+                let bestPrice = pps;
+                state.safes.forEach((other, j) => {
+                    if (j === i) return;
+                    let otherPrice = pps;
+                    if (other.type === 'Cap + Discount') {
+                        const cp = (other.cap * 1e6) / preMoneyShares;
+                        const dp = pps * (1 - other.discount / 100);
+                        otherPrice = Math.min(cp, dp);
+                    } else if (other.type === 'Cap Only') {
+                        otherPrice = (other.cap * 1e6) / preMoneyShares;
+                    } else if (other.type === 'Discount Only') {
+                        otherPrice = pps * (1 - other.discount / 100);
+                    }
+                    bestPrice = Math.min(bestPrice, otherPrice);
+                });
+                conversionPrice = bestPrice;
+            }
+
+            // Floor the conversion price
+            conversionPrice = Math.max(conversionPrice, 0.001);
+
+            const shares = amount / conversionPrice;
+            const ownershipPct = shares / (preMoneyShares + shares) * 100;
+            const effectiveValuation = amount / (ownershipPct / 100);
+
+            results.push({
+                name: safe.name || `SAFE ${i + 1}`,
+                type: safe.type,
+                amount: amount,
+                conversionPrice: conversionPrice,
+                shares: shares,
+                ownershipPct: ownershipPct,
+                effectiveValuation: effectiveValuation,
+                colorIndex: i
+            });
+        });
+
+        // Calculate totals
+        const totalSAFEShares = results.reduce((s, r) => s + r.shares, 0);
+        const totalDilution = totalSAFEShares / (preMoneyShares + totalSAFEShares) * 100;
+
+        return { results, preMoneyShares, totalSAFEShares, totalDilution, preMoney: state.preMoney };
+    }
+
+    // ============================================================
+    // CHART
+    // ============================================================
+    let chart = null;
+
+    function renderChart(results) {
+        const ctx = document.getElementById('safeChart').getContext('2d');
+
+        const labels = results.map(r => r.name);
+        const amounts = results.map(r => r.amount);
+        const ownerships = results.map(r => r.ownershipPct);
+        const colors = results.map((r, i) => SAFE_COLORS[i % SAFE_COLORS.length]);
+
+        if (chart) chart.destroy();
+
+        chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [
+                    {
+                        label: 'Investment ($)',
+                        data: amounts,
+                        backgroundColor: colors.map(c => c + 'cc'),
+                        borderColor: colors,
+                        borderWidth: 2,
+                        borderRadius: 8,
+                        yAxisID: 'y',
+                    },
+                    {
+                        label: 'Ownership %',
+                        data: ownerships,
+                        backgroundColor: colors.map(c => c + '66'),
+                        borderColor: colors,
+                        borderWidth: 2,
+                        borderRadius: 8,
+                        yAxisID: 'y1',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#8888a0', padding: 16, usePointStyle: true, pointStyle: 'rectRounded', font: { size: 12 } }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(ctx) {
+                                if (ctx.datasetIndex === 0) return 'Investment: ' + formatCurrency(ctx.parsed.y);
+                                return 'Ownership: ' + ctx.parsed.y.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { ticks: { color: '#8888a0' }, grid: { display: false } },
+                    y: {
+                        position: 'left',
+                        ticks: { color: '#8888a0', callback: v => formatCompact(v) },
+                        grid: { color: 'rgba(42, 42, 64, 0.5)' }
+                    },
+                    y1: {
+                        position: 'right',
+                        ticks: { color: '#8888a0', callback: v => v.toFixed(1) + '%' },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    }
+
+    // ============================================================
+    // TABLE
+    // ============================================================
+    function renderTable(results) {
+        const table = document.getElementById('convTable');
+        let html = `<thead><tr>
+            <th>SAFE</th><th>Type</th><th>Investment</th>
+            <th>Conv. Price</th><th>Shares</th><th>Ownership</th><th>Eff. Valuation</th>
+        </tr></thead><tbody>`;
+
+        results.forEach((r, i) => {
+            const color = SAFE_COLORS[i % SAFE_COLORS.length];
+            html += `<tr>
+                <td class="label-cell"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${color};margin-right:8px;vertical-align:middle;"></span>${escHtml(r.name)}</td>
+                <td>${escHtml(r.type)}</td>
+                <td>${formatCurrency(r.amount)}</td>
+                <td>$${r.conversionPrice.toFixed(4)}</td>
+                <td>${formatNumber(r.shares)}</td>
+                <td style="color:${color};font-weight:700">${r.ownershipPct.toFixed(2)}%</td>
+                <td>${formatCompact(r.effectiveValuation)}</td>
+            </tr>`;
+        });
+
+        // Total row
+        const totalAmount = results.reduce((s, r) => s + r.amount, 0);
+        const totalShares = results.reduce((s, r) => s + r.shares, 0);
+        const totalOwnership = results.reduce((s, r) => s + r.ownershipPct, 0);
+        html += `<tr class="total-row">
+            <td class="label-cell">Total SAFEs</td><td></td>
+            <td>${formatCurrency(totalAmount)}</td><td></td>
+            <td>${formatNumber(totalShares)}</td>
+            <td style="font-weight:700">${totalOwnership.toFixed(2)}%</td><td></td>
+        </tr>`;
+
+        html += '</tbody>';
+        table.innerHTML = html;
+    }
+
+    // ============================================================
+    // SUMMARY
+    // ============================================================
+    function renderSummary(data) {
+        document.getElementById('sumTotalDilution').textContent = data.totalDilution.toFixed(1) + '%';
+        document.getElementById('sumTotalShares').textContent = formatNumber(data.totalSAFEShares);
+        const effectivePostMoney = (data.preMoney * 1e6) / (1 - data.totalDilution / 100);
+        document.getElementById('sumPostMoney').textContent = formatCompact(effectivePostMoney);
+    }
+
+    // ============================================================
+    // MAIN RECALCULATE
+    // ============================================================
+    function recalculate() {
+        state.preMoney = parseFloat(document.getElementById('preMoney').value) || 0;
+        state.pricePerShare = parseFloat(document.getElementById('pricePerShare').value) || 0.01;
+        const data = calculate();
+        renderChart(data.results);
+        renderTable(data.results);
+        renderSummary(data);
+    }
+
+    // ============================================================
+    // SHARE
+    // ============================================================
+    function copyShareLink() {
+        const url = encodeStateToURL();
+        navigator.clipboard.writeText(url).then(() => {
+            const btn = document.getElementById('shareBtn');
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            showToast('Link copied to clipboard!');
+            setTimeout(() => { btn.textContent = 'Copy Share Link'; btn.classList.remove('copied'); }, 2000);
+        }).catch(() => { prompt('Copy this link:', url); });
+    }
+
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // ============================================================
+    // HELPERS
+    // ============================================================
+    function escHtml(str) { const d = document.createElement('div'); d.textContent = str; return d.innerHTML; }
+    function formatCurrency(n) {
+        if (n >= 1e6) return '$' + (n / 1e6).toFixed(2) + 'M';
+        if (n >= 1e3) return '$' + (n / 1e3).toFixed(1) + 'K';
+        return '$' + n.toFixed(0);
+    }
+    function formatCompact(n) {
+        if (n >= 1e9) return '$' + (n / 1e9).toFixed(1) + 'B';
+        if (n >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
+        if (n >= 1e3) return '$' + (n / 1e3).toFixed(0) + 'K';
+        return '$' + n.toFixed(0);
+    }
+    function formatNumber(n) {
+        if (n >= 1e6) return (n / 1e6).toFixed(2) + 'M';
+        if (n >= 1e3) return (n / 1e3).toFixed(1) + 'K';
+        return n.toFixed(0);
+    }
+
+    // ============================================================
+    // INIT
+    // ============================================================
+    loadFromURL();
+    renderSAFEs();
+    recalculate();
+    </script>
+</body>
+</html>
