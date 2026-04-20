@@ -118,7 +118,7 @@
 - Add keyboard navigation for calculators
 - Test with screen reader
 
-### C20: Error Handling for Calculators
+### C20: Error Handling for Calculators ✅ DONE
 - Add input validation (no negative numbers, percentages 0-100)
 - Show helpful error messages inline
 - Handle edge cases gracefully (divide by zero, etc.)

@@ -213,6 +213,16 @@
 - Updated all calculator input fields with proper label associations
 - Updated all navigation links with proper ARIA roles
 
+**C20: Error Handling for Calculators — Full Implementation**
+- Added input validation to dilution calculator
+- Added input validation to runway calculator
+- Added input validation to SAFE calculator
+- Validation types: monetary (>= 0), percentages (0-100%), caps (> 0)
+- Error message containers with role="alert" and aria-live="polite"
+- Visual feedback with red border on invalid inputs
+- Clear error states when valid input entered
+- Unique IDs for dynamic inputs in SAFE calculator
+
 ### Key Metrics (Starting)
 - Visitors: 0
 - Paying customers: 0
