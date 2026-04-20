@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAC vs LTV: The Unit Economics Guide for Startup Founders — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Learn how to calculate CAC, LTV, and the LTV:CAC ratio. Understand what healthy unit economics look like and how to optimize them for growth.">
+    <meta name="keywords" content="CAC, LTV, unit economics, customer acquisition cost, lifetime value, SaaS metrics, startup metrics">
+    <meta property="og:title" content="CAC vs LTV: The Unit Economics Guide for Startup Founders">
+    <meta property="og:description" content="Master CAC, LTV, and the LTV:CAC ratio. Learn what healthy unit economics look like and how investors evaluate them.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/cac-ltv-guide.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #8888a0;
+            --text-muted: #555570;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+
+        /* ARTICLE LAYOUT */
+        .article-layout {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        /* Article header */
+        .article-header {
+            margin-bottom: 48px;
+        }
+        .article-meta {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted);
+        }
+        .article-meta .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+        .article-title {
+            font-size: 2.2rem; font-weight: 800; line-height: 1.2;
+            margin-bottom: 20px; color: var(--text-primary);
+        }
+        .article-excerpt {
+            font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7;
+        }
+
+        /* Table of contents */
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 48px;
+        }
+        .toc h3 {
+            font-size: 0.9rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 16px;
+        }
+        .toc ul { list-style: none; }
+        .toc li { margin-bottom: 8px; }
+        .toc a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.95rem; transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent); }
+
+        /* Article content */
+        .article-content h2 {
+            font-size: 1.6rem; font-weight: 700; margin: 48px 0 20px;
+            color: var(--text-primary); padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-content h3 {
+            font-size: 1.3rem; font-weight: 600; margin: 32px 0 16px;
+            color: var(--text-primary);
+        }
+        .article-content p {
+            margin-bottom: 20px; font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 20px; padding-left: 24px;
+        }
+        .article-content li {
+            margin-bottom: 12px; color: var(--text-secondary);
+        }
+        .article-content strong { color: var(--text-primary); }
+
+        /* Callout boxes */
+        .callout {
+            background: var(--bg-card);
+            border-left: 3px solid var(--accent);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .callout.warning {
+            border-left-color: var(--orange);
+        }
+        .callout.success {
+            border-left-color: var(--green);
+        }
+        .callout.danger {
+            border-left-color: var(--red);
+        }
+        .callout p { margin-bottom: 0; font-size: 0.95rem; }
+
+        /* Tables */
+        .data-table {
+            width: 100%; border-collapse: collapse;
+            margin: 24px 0; font-size: 0.9rem;
+        }
+        .data-table th, .data-table td {
+            padding: 12px 16px; text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-table th {
+            font-weight: 600; color: var(--text-primary);
+            background: var(--bg-card);
+        }
+        .data-table td { color: var(--text-secondary); }
+        .data-table tr:last-child td { border-bottom: none; }
+
+        /* Formula blocks */
+        .formula {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--accent-light);
+            overflow-x: auto;
+        }
+
+        /* Ratio boxes */
+        .ratio-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            text-align: center;
+        }
+        .ratio-box .ratio {
+            font-size: 3rem;
+            font-weight: 800;
+            font-family: var(--font-mono);
+        }
+        .ratio-box.good .ratio { color: var(--green); }
+        .ratio-box.danger .ratio { color: var(--red); }
+        .ratio-box.warning .ratio { color: var(--orange); }
+        .ratio-box .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 8px;
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9rem; margin-bottom: 24px;
+        }
+        .back-link:hover { color: var(--text-primary); }
+
+        /* Footer */
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0; background: var(--bg-primary);
+                border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100;
+            }
+            .mobile-toggle { display: block; }
+            .article-title { font-size: 1.7rem; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links">
+                <li><a href="dilution.html">Dilution Calc</a></li>
+                <li><a href="safe.html">SAFE Calc</a></li>
+                <li><a href="runway.html">Runway Calc</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="pricing.html" class="nav-cta">Start Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <div class="article-layout">
+        <a href="blog.html" class="back-link">← Back to Blog</a>
+
+        <article class="article-content">
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="tag">Unit Economics</span>
+                    <span>15 min read</span>
+                </div>
+                <h1 class="article-title">CAC vs LTV: The Unit Economics Guide for Startup Founders</h1>
+                <p class="article-excerpt">Investors want to see healthy unit economics before writing a check. Learn how to calculate CAC, LTV, and the LTV:CAC ratio — and what the numbers actually mean.</p>
+            </header>
+
+            <nav class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#what-are-unit-economics">What Are Unit Economics?</a></li>
+                    <li><a href="#calculating-cac">Calculating CAC (Customer Acquisition Cost)</a></li>
+                    <li><a href="#calculating-ltv">Calculating LTV (Lifetime Value)</a></li>
+                    <li><a href="#ltv-cac-ratio">The LTV:CAC Ratio</a></li>
+                    <li><a href="#payback-period">CAC Payback Period</a></li>
+                    <li><a href="#examples">Real-World Examples</a></li>
+                    <li><a href="#optimizing">Optimizing Your Unit Economics</a></li>
+                    <li><a href="#investor-benchmarks">What Investors Look For</a></li>
+                </ul>
+            </nav>
+
+            <h2 id="what-are-unit-economics">What Are Unit Economics?</h2>
+
+            <p>Unit economics measure the profitability of a single customer. Instead of looking at your company as a whole, you zoom in: <em>For each dollar we spend acquiring a customer, how much do we get back?</em></p>
+
+            <p>This is the fundamental question of startup sustainability. If your unit economics are broken, no amount of growth funding can fix the problem — you'll just lose money faster at scale.</p>
+
+            <div class="callout success">
+                <p><strong>Key insight:</strong> Good unit economics mean each customer pays back more than they cost to acquire. Bad unit economics mean every new customer is a net loss.</p>
+            </div>
+
+            <h2 id="calculating-cac">Calculating CAC (Customer Acquisition Cost)</h2>
+
+            <p>CAC is the total cost to acquire one new customer. This includes all sales and marketing expenses.</p>
+
+            <div class="formula">
+                CAC = (Sales + Marketing Costs) ÷ Number of New Customers
+            </div>
+
+            <h3>What to Include:</h3>
+            <ul>
+                <li><strong>Ad spend:</strong> Google Ads, Facebook, LinkedIn, etc.</li>
+                <li><strong>Content marketing:</strong> Blog posts, videos, SEO tools</li>
+                <li><strong>Events & conferences:</strong> Booth costs, travel, sponsorships</li>
+                <li><strong>Marketing team salaries:</strong> Pro-rata portion for the period</li>
+                <li><strong>Sales team salaries:</strong> Pro-rata portion for the period</li>
+                <li><strong>Commissions:</strong> Sales commissions for new deals</li>
+                <li><strong>Tools & software:</strong> CRM, marketing automation, analytics</li>
+            </ul>
+
+            <div class="callout warning">
+                <p><strong>Common mistake:</strong> Only counting ad spend and forgetting team salaries. A $50k/month marketing team acquiring 100 customers has an effective CAC impact of $500/customer before you spend a dollar on ads.</p>
+            </div>
+
+            <h3>Example CAC Calculation:</h3>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Monthly Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Google Ads</td>
+                        <td>$15,000</td>
+                    </tr>
+                    <tr>
+                        <td>Content & SEO</td>
+                        <td>$8,000</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing team (2 FTE)</td>
+                        <td>$25,000</td>
+                    </tr>
+                    <tr>
+                        <td>Sales team (2 FTE)</td>
+                        <td>$30,000</td>
+                    </tr>
+                    <tr>
+                        <td>Tools & software</td>
+                        <td>$2,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Sales & Marketing</strong></td>
+                        <td><strong>$80,000</strong></td>
+                    </tr>
+                    <tr>
+                        <td>New customers acquired</td>
+                        <td>200</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CAC</strong></td>
+                        <td><strong>$400</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="calculating-ltv">Calculating LTV (Lifetime Value)</h2>
+
+            <p>LTV is the total revenue you expect from a customer over their entire relationship with your company.</p>
+
+            <div class="formula">
+                LTV = (ARPU × Gross Margin %) ÷ Churn Rate
+            </div>
+
+            <p>Where:
+            <ul>
+                <li><strong>ARPU:</strong> Average Revenue Per User (monthly or annual)</li>
+                <li><strong>Gross Margin %:</strong> (Revenue - COGS) ÷ Revenue</li>
+                <li><strong>Churn Rate:</strong> Monthly or annual customer churn percentage</li>
+            </ul>
+
+            <h3>Example LTV Calculation:</h3>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monthly ARPU</td>
+                        <td>$100</td>
+                    </tr>
+                    <tr>
+                        <td>Annual ARPU</td>
+                        <td>$1,200</td>
+                    </tr>
+                    <tr>
+                        <td>Gross Margin</td>
+                        <td>80%</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Churn Rate</td>
+                        <td>2%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LTV</strong></td>
+                        <td><strong>$4,800</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><em>Calculation: ($100 × 0.80) ÷ 0.02 = $4,800</em></p>
+
+            <div class="callout warning">
+                <p><strong>Important:</strong> Always use gross margin, not revenue. If you have high COGS (customer support, hosting, payment processing), your effective LTV is much lower than your revenue suggests.</p>
+            </div>
+
+            <h2 id="ltv-cac-ratio">The LTV:CAC Ratio</h2>
+
+            <p>This is the magic number investors care about. It tells you how much value each customer brings relative to what they cost.</p>
+
+            <div class="formula">
+                LTV:CAC Ratio = LTV ÷ CAC
+            </div>
+
+            <h3>What the Ratio Means:</h3>
+
+            <div class="ratio-box good">
+                <div class="ratio">3:1+</div>
+                <div class="label">Excellent — Investors love this</div>
+            </div>
+
+            <div class="ratio-box good">
+                <div class="ratio">3:1</div>
+                <div class="label">Healthy — The industry standard benchmark</div>
+            </div>
+
+            <div class="ratio-box warning">
+                <div class="ratio">2:1</div>
+                <div class="label">Acceptable for early-stage, but needs improvement</div>
+            </div>
+
+            <div class="ratio-box danger">
+                <div class="ratio">1:1</div>
+                <div class="label">Broken — You lose money on every customer</div>
+            </div>
+
+            <div class="callout success">
+                <p><strong>Why 3:1?</strong> At 3:1, you recoup your acquisition cost in about 12-18 months (depending on your payback period). This leaves room for profit, reinvestment, and growth. Below 3:1, your payback period is too long, and growth becomes prohibitively expensive.</p>
+            </div>
+
+            <h2 id="payback-period">CAC Payback Period</h2>
+
+            <p>The payback period is how long it takes to recover your CAC from a customer's revenue.</p>
+
+            <div class="formula">
+                Payback Period (months) = CAC ÷ (ARPU × Gross Margin %)
+            </div>
+
+            <div class="callout">
+                <p><strong>Example:</strong> If CAC = $400, ARPU = $100, and Gross Margin = 80%:</p>
+                <p>Payback Period = $400 ÷ ($100 × 0.80) = 5 months</p>
+            </div>
+
+            <h3>Payback Period Benchmarks:</h3>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Payback Period</th>
+                        <th>Assessment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&lt; 6 months</td>
+                        <td>Excellent — Fast growth possible</td>
+                    </tr>
+                    <tr>
+                        <td>6-12 months</td>
+                        <td>Good — Sustainable growth</td>
+                    </tr>
+                    <tr>
+                        <td>12-18 months</td>
+                        <td>Acceptable — Growth capital needed</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; 18 months</td>
+                        <td>Problematic — Unit economics need work</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="examples">Real-World Examples</h2>
+
+            <h3>Company A: Healthy Unit Economics</h3>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CAC</td>
+                        <td>$500</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly ARPU</td>
+                        <td>$100</td>
+                    </tr>
+                    <tr>
+                        <td>Gross Margin</td>
+                        <td>85%</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Churn</td>
+                        <td>1.5%</td>
+                    </tr>
+                    <tr>
+                        <td>LTV</td>
+                        <td>$5,667</td>
+                    </tr>
+                    <tr>
+                        <td>LTV:CAC</td>
+                        <td><strong>11.3:1</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Payback Period</td>
+                        <td><strong>5.9 months</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout success">
+                <p>This company can grow aggressively. Every $1 spent on acquisition returns $11.33 over the customer's lifetime.</p>
+            </div>
+
+            <h3>Company B: Broken Unit Economics</h3>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CAC</td>
+                        <td>$1,200</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly ARPU</td>
+                        <td>$75</td>
+                    </tr>
+                    <tr>
+                        <td>Gross Margin</td>
+                        <td>60%</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Churn</td>
+                        <td>5%</td>
+                    </tr>
+                    <tr>
+                        <td>LTV</td>
+                        <td>$900</td>
+                    </tr>
+                    <tr>
+                        <td>LTV:CAC</td>
+                        <td><strong>0.75:1</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Payback Period</td>
+                        <td><strong>26.7 months</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout danger">
+                <p>This company is losing money on every customer. High CAC, low ARPU, poor margins, and high churn combine for unsustainable economics.</p>
+            </div>
+
+            <h2 id="optimizing">Optimizing Your Unit Economics</h2>
+
+            <h3>To Improve LTV:</h3>
+            <ul>
+                <li><strong>Increase ARPU:</strong> Upsell, cross-sell, pricing optimization, add premium tiers</li>
+                <li><strong>Reduce Churn:</strong> Improve onboarding, add features that increase stickiness, better customer success</li>
+                <li><strong>Increase Gross Margin:</strong> Reduce COGS, optimize hosting, negotiate better vendor rates</li>
+            </ul>
+
+            <h3>To Reduce CAC:</h3>
+            <ul>
+                <li><strong>Improve conversion rates:</strong> Better landing pages, optimized funnels, A/B testing</li>
+                <li><strong>Increase organic acquisition:</strong> SEO, content marketing, word-of-mouth, referrals</li>
+                <li><strong>Optimize ad spend:</strong> Better targeting, creative testing, campaign optimization</li>
+                <li><strong>Improve sales efficiency:</strong> Better lead qualification, shorter sales cycles, higher close rates</li>
+            </ul>
+
+            <h2 id="investor-benchmarks">What Investors Look For</h2>
+
+            <p>When evaluating your unit economics, investors want to see:</p>
+
+            <ol>
+                <li><strong>LTV:CAC ≥ 3:1</strong> — Minimum threshold for Series A+</li>
+                <li><strong>PAYBACK ≤ 12 months</strong> — Faster is better, shows efficiency</li>
+                <li><strong>Improving trends</strong> — Metrics getting better over time</li>
+                <li><strong>Segmentation</strong> — Different metrics for different customer types (show you understand your business)</li>
+                <li><strong>Cohort analysis</strong> — LTV retention by cohort (are later cohorts more valuable?)</li>
+            </ol>
+
+            <div class="callout">
+                <p><strong>Early-stage note:</strong> Pre-product-market-fit, investors may tolerate LTV:CAC of 2:1 or even lower. But you need a clear plan to improve it, and you should be tracking it religiously.</p>
+            </div>
+
+            <h3>Key Takeaways</h3>
+
+            <ol>
+                <li><strong>Unit economics are non-negotiable</strong> — Broken economics can't be fixed with more money.</li>
+                <li><strong>Calculate correctly</strong> — Include all costs in CAC, use gross margin in LTV.</li>
+                <li><strong>Aim for 3:1 LTV:CAC</strong> — This is the minimum healthy benchmark.</li>
+                <li><strong>Track payback period</strong> — Aim for under 12 months.</li>
+                <li><strong>Optimize continuously</strong> — Small improvements compound over time.</li>
+                <li><strong>Segment your data</strong> — Different customers have different economics.</li>
+            </ol>
+
+            <div class="callout success">
+                <p><strong>Final tip:</strong> Calculate your unit economics monthly. Create a simple dashboard. Share it with your team. When everyone understands CAC and LTV, better decisions happen naturally — from marketing spend to product pricing.</p>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="dilution.html">Dilution Calc</a></li>
+                <li><a href="safe.html">SAFE Calc</a></li>
+                <li><a href="runway.html">Runway Calc</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
