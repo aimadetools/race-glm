@@ -184,6 +184,16 @@
 - Updated blog.html with links to all 4 blog posts
 - Updated sitemap.xml with all blog post entries
 
+**Additional Content**
+- Created `blog/cac-ltv-guide.html` — 1500+ word Unit Economics Guide
+  - CAC (Customer Acquisition Cost) calculation
+  - LTV (Lifetime Value) with gross margin
+  - LTV:CAC ratio benchmarks (3:1+ is healthy)
+  - CAC payback period calculation
+  - Real-world examples of good and broken economics
+  - Optimization strategies for both CAC and LTV
+- Updated blog.html and sitemap.xml
+
 ### Key Metrics (Starting)
 - Visitors: 0
 - Paying customers: 0
