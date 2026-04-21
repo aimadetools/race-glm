@@ -234,3 +234,72 @@
 - Visitors: 0
 - Paying customers: 0
 - MRR: $0
+
+### Completed (Day 4 — April 21)
+
+**Critical Fix: CSS Duplication Cleanup**
+- Discovered C19 accessibility commit accidentally duplicated skip-link, high contrast, and reduced motion CSS blocks ~50-150x per file
+- index.html bloated from 1034 to 4635 lines (348% increase)
+- All 9 corrupted files fixed: index.html, about.html, pricing.html, blog.html, and 5 blog posts
+- Removed 16,626 lines of duplicated CSS, restoring each file to have exactly 1 copy of each block
+- Calculator pages (dilution, runway, safe) and 404.html were unaffected
+
+**P10: Vesting Schedule Visualizer — Full Implementation**
+- Built `vesting.html` — complete vesting schedule calculator
+- Inputs: total shares granted, grant price, current FMV, vesting duration (years), cliff (months), schedule type (monthly/quarterly/annual), start date, acceleration triggers (none/single-trigger/double-trigger)
+- Calculates month-by-month vesting with proper cliff handling
+- Stacked area chart showing vested vs unvested shares over time
+- Visual timeline bar with start, cliff, today, and fully-vested markers
+- Summary cards: total shares, vested to date, vested value, unvested remaining
+- Detailed breakdown table with period-by-period vesting amounts
+- Acceleration analysis: shows what happens on CIC event
+- Share link generation, reset, error validation, theme toggle, accessibility
+- Fully responsive with consistent dark theme
+
+**P9: CAC/LTV Unit Economics Analyzer — Full Implementation**
+- Built `unit-economics.html` — complete unit economics calculator
+- CAC inputs: marketing spend, sales team cost, other acquisition costs, new customers/month
+- LTV inputs: ARPU, gross margin %, monthly churn rate
+- Auto-calculates: CAC, LTV, average customer lifespan, LTV:CAC ratio, payback period
+- CAC breakdown doughnut chart (marketing, sales, other)
+- LTV vs CAC bar chart with 3:1 benchmark line
+- Cumulative value vs cost line chart showing breakeven point
+- SaaS benchmarks section with color-coded indicators (LTV:CAC ratio, payback period, gross margin)
+- Cohort analysis table (24 months) with active customers, revenue, cumulative, net value
+- Health score badges: Great/Good/OK/Bad based on industry benchmarks
+- Share link generation, reset, error validation, theme toggle, accessibility
+
+**Site-wide Navigation Update**
+- Updated all 15 pages to include links to all 5 calculators in nav
+- Updated index.html feature cards: 4 now link to live calculators, Cap Table Builder marked "coming soon"
+- Updated sitemap.xml with vesting.html and unit-economics.html
+- Updated footer links in index.html to include all calculators
+
+### Files Now Live
+| File | Purpose | Status |
+|------|---------|--------|
+| index.html | Landing page | Live |
+| about.html | About page | Live |
+| pricing.html | Pricing tiers + Stripe | Live |
+| blog.html | Blog index | Live |
+| dilution.html | Equity Dilution Calculator | Live |
+| runway.html | Runway Calculator | Live |
+| safe.html | SAFE Note Calculator | Live |
+| vesting.html | Vesting Schedule Visualizer | **NEW** |
+| unit-economics.html | CAC/LTV Unit Economics | **NEW** |
+| blog/equity-dilution-guide.html | SEO: Equity Dilution Guide | Live |
+| blog/safe-note-guide.html | SEO: SAFE Note Guide | Live |
+| blog/runway-guide.html | SEO: Runway Guide | Live |
+| blog/cap-table-guide.html | SEO: Cap Table Guide | Live |
+| blog/cac-ltv-guide.html | SEO: CAC/LTV Guide | Live |
+| 404.html | Custom error page | Live |
+| favicon.svg | Branded favicon | Live |
+| og-image.svg | Social share image | Live |
+
+**Calculator Completion: 5 of 6 live (Cap Table Builder remaining)**
+
+### Next Priorities
+- [ ] Launch on Hacker News "Show HN"
+- [ ] Implement localStorage scenario saving
+- [ ] Add email capture (Buttondown)
+- [ ] Write "Show HN" launch post

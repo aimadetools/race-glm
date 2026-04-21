@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAC/LTV Unit Economics Calculator — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Free CAC and LTV calculator for SaaS startups. Analyze your unit economics, customer acquisition cost, lifetime value, and payback period with interactive charts and benchmarks.">
+    <meta name="keywords" content="CAC LTV calculator, unit economics, customer acquisition cost, lifetime value, SaaS metrics, LTV CAC ratio, payback period">
+    <meta property="og:title" content="CAC/LTV Unit Economics Calculator — FounderMath">
+    <meta property="og:description" content="Analyze your SaaS unit economics. Calculate CAC, LTV, LTV:CAC ratio, and payback period with interactive charts.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/unit-economics.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --pink: #ff6b9d;
+            --yellow: #feca57;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-links a.active { color: var(--accent-light); font-weight: 600; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer; padding: 8px;
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding: 120px 24px 48px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .page-header::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%);
+            animation: heroGlow 15s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-5%, 5%) scale(1.1); }
+        }
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem); font-weight: 800;
+            letter-spacing: -0.03em; position: relative; margin-bottom: 12px;
+        }
+        .page-header h1 .gradient {
+            background: linear-gradient(135deg, var(--accent-light), var(--green));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .page-header p {
+            color: var(--text-secondary); font-size: 1.1rem;
+            max-width: 600px; margin: 0 auto; position: relative;
+        }
+
+        /* LAYOUT */
+        .calc-layout {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px 80px;
+            display: grid; grid-template-columns: 380px 1fr; gap: 32px; align-items: start;
+        }
+
+        .input-panel {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; padding: 24px;
+            position: sticky; top: 88px; max-height: calc(100vh - 104px); overflow-y: auto;
+        }
+        .input-panel::-webkit-scrollbar { width: 4px; }
+        .input-panel::-webkit-scrollbar-track { background: transparent; }
+        .input-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+        .panel-section { margin-bottom: 28px; }
+        .panel-section:last-child { margin-bottom: 0; }
+        .panel-section-title {
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.1em; color: var(--accent-light); margin-bottom: 16px;
+        }
+
+        /* Saved locally indicator */
+        .save-indicator {
+            display: flex; align-items: center; gap: 6px;
+            font-size: 0.7rem; color: var(--text-muted);
+            padding: 8px 12px; background: var(--bg-card); border-radius: 8px;
+            margin-bottom: 20px; border: 1px solid var(--border);
+        }
+        .save-indicator-icon {
+            width: 12px; height: 12px; color: var(--green);
+        }
+
+        .input-group { margin-bottom: 16px; }
+        .input-group label {
+            display: block; font-size: 0.8rem; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;
+        }
+        .input-group input, .input-group select {
+            width: 100%; background: var(--bg-input); border: 1px solid var(--border);
+            color: var(--text-primary); padding: 10px 14px; border-radius: 8px;
+            font-size: 0.9rem; font-family: var(--font-mono); transition: border-color 0.2s;
+        }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: var(--accent); }
+        .input-group input:focus-visible, .input-group select:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+        .input-group .hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+        .input-group .computed {
+            font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700;
+            color: var(--accent-light); padding: 8px 0;
+        }
+
+        .error-message {
+            background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 8px; padding: 8px 12px; font-size: 0.8rem; color: var(--red);
+            margin-bottom: 12px; display: none;
+        }
+        .error-message.visible { display: block; }
+        .input-error { border-color: var(--red) !important; }
+
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .separator { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+        .share-bar { display: flex; gap: 8px; margin-top: 8px; }
+        .btn-share {
+            flex: 1; background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 10px; border-radius: 8px;
+            font-size: 0.85rem; font-weight: 600; cursor: pointer;
+            transition: all 0.2s; font-family: var(--font-sans);
+        }
+        .btn-share:hover { border-color: var(--accent); color: var(--text-primary); }
+        .btn-share:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+        .btn-share.copied { border-color: var(--green); color: var(--green); }
+
+        /* Scenarios UI */
+        .scenario-controls { display: flex; gap: 8px; margin-bottom: 12px; }
+        .scenario-select {
+            flex: 1; background: var(--bg-input); border: 1px solid var(--border);
+            color: var(--text-primary); padding: 10px 14px; border-radius: 8px;
+            font-size: 0.85rem; font-family: var(--font-sans); cursor: pointer;
+        }
+        .scenario-select:focus { outline: none; border-color: var(--accent); }
+        .scenario-select:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+        .scenario-select option { background: var(--bg-card); color: var(--text-primary); }
+        .scenario-btn {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 10px 14px; border-radius: 8px;
+            font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s;
+        }
+        .scenario-btn:hover { border-color: var(--accent); color: var(--text-primary); }
+        .scenario-btn:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+        .scenario-btn.save { background: var(--accent); border-color: var(--accent); color: white; }
+        .scenario-btn.save:hover { background: var(--accent-light); border-color: var(--accent-light); }
+        .scenario-btn.delete { color: var(--red); }
+        .scenario-btn.delete:hover { border-color: var(--red); color: var(--red); }
+        .scenario-input {
+            width: 100%; background: var(--bg-input); border: 1px solid var(--border);
+            color: var(--text-primary); padding: 10px 14px; border-radius: 8px;
+            font-size: 0.85rem; margin-bottom: 12px; display: none;
+        }
+        .scenario-input.show { display: block; }
+
+        .results-panel { min-width: 0; }
+
+        .summary-cards {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px;
+        }
+        .summary-card {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px; text-align: center;
+        }
+        .summary-card .metric-value {
+            font-family: var(--font-mono); font-size: 1.6rem; font-weight: 800;
+        }
+        .summary-card .metric-label {
+            font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;
+            letter-spacing: 0.05em; margin-top: 4px;
+        }
+        .summary-card .metric-badge {
+            display: inline-block; font-size: 0.7rem; font-weight: 700;
+            padding: 2px 8px; border-radius: 4px; margin-top: 6px; text-transform: uppercase;
+        }
+        .badge-good { background: rgba(0,184,148,0.15); color: var(--green); }
+        .badge-ok { background: rgba(255,165,2,0.15); color: var(--orange); }
+        .badge-bad { background: rgba(255,107,107,0.15); color: var(--red); }
+
+        .charts-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px;
+        }
+        .chart-section {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; padding: 24px;
+        }
+        .chart-section h3 { font-size: 1.05rem; margin-bottom: 4px; }
+        .chart-section .chart-subtitle {
+            font-size: 0.8rem; color: var(--text-muted); margin-bottom: 16px;
+        }
+        .chart-container { position: relative; height: 280px; }
+        .chart-container canvas { width: 100% !important; height: 100% !important; }
+
+        .chart-section.full-width {
+            grid-column: 1 / -1;
+        }
+        .chart-section.full-width .chart-container { height: 320px; }
+
+        /* Benchmarks */
+        .benchmarks {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; padding: 32px; margin-bottom: 32px;
+        }
+        .benchmarks h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .benchmarks .subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+        .benchmark-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .benchmark-item {
+            background: var(--bg-card); border-radius: 12px; padding: 20px; text-align: center;
+        }
+        .benchmark-item .bm-label {
+            font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;
+            letter-spacing: 0.05em; margin-bottom: 12px;
+        }
+        .benchmark-bar {
+            height: 8px; background: var(--bg-primary); border-radius: 4px;
+            position: relative; margin-bottom: 12px; overflow: hidden;
+        }
+        .benchmark-fill {
+            height: 100%; border-radius: 4px; transition: width 0.5s ease, background 0.3s;
+        }
+        .benchmark-item .bm-value {
+            font-family: var(--font-mono); font-size: 1.3rem; font-weight: 700;
+        }
+        .benchmark-item .bm-range {
+            font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;
+        }
+
+        .table-section {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; padding: 32px; overflow-x: auto;
+        }
+        .table-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .table-section .table-subtitle {
+            font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;
+        }
+        .breakdown-table {
+            width: 100%; border-collapse: collapse; font-size: 0.85rem;
+        }
+        .breakdown-table th {
+            text-align: right; padding: 10px 12px; border-bottom: 1px solid var(--border);
+            color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;
+            letter-spacing: 0.05em; font-weight: 600;
+        }
+        .breakdown-table th:first-child { text-align: left; }
+        .breakdown-table td {
+            padding: 10px 12px; border-bottom: 1px solid rgba(42, 42, 64, 0.3);
+            text-align: right; font-family: var(--font-mono);
+        }
+        .breakdown-table td:first-child { text-align: left; font-family: var(--font-sans); font-weight: 600; }
+        .breakdown-table tr:hover td { background: rgba(108, 92, 231, 0.05); }
+        .breakdown-table .breakeven-row td { background: rgba(0, 184, 148, 0.1); color: var(--green); font-weight: 600; }
+
+        .calc-cta {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            border-radius: 16px; padding: 32px; text-align: center; margin-top: 32px;
+        }
+        .calc-cta h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .calc-cta p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 20px; }
+        .calc-cta .btn-white {
+            background: white; color: var(--accent); padding: 12px 28px; border-radius: 8px;
+            font-weight: 700; text-decoration: none; transition: transform 0.2s; display: inline-block;
+        }
+        .calc-cta .btn-white:hover { transform: translateY(-2px); }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        .toast {
+            position: fixed; bottom: 24px; left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--green); color: white; padding: 12px 24px;
+            border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+            transition: transform 0.3s ease; z-index: 1000;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 8px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; width: 36px; height: 36px;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+        .theme-toggle .sun-icon, .theme-toggle .moon-icon { width: 18px; height: 18px; }
+        .theme-toggle .sun-icon { display: none; }
+        .theme-toggle .moon-icon { display: block; }
+        body[data-theme="light"] .theme-toggle .sun-icon { display: block; }
+        body[data-theme="light"] .theme-toggle .moon-icon { display: none; }
+
+        body[data-theme="light"] {
+            --bg-primary: #ffffff; --bg-secondary: #f8f9fa; --bg-card: #f0f0f5;
+            --bg-card-hover: #e8e8ed; --bg-input: #f0f0f5;
+            --text-primary: #1a1a2e; --text-secondary: #555570; --text-muted: #888;
+            --border: #e0e0e5;
+        }
+
+        @media (max-width: 960px) {
+            .calc-layout { grid-template-columns: 1fr; }
+            .input-panel { position: static; max-height: none; }
+            .summary-cards { grid-template-columns: repeat(2, 1fr); }
+            .charts-grid { grid-template-columns: 1fr; }
+            .benchmark-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0; background: var(--bg-primary);
+                border-bottom: 1px solid var(--border); padding: 24px; gap: 16px;
+            }
+            .mobile-toggle { display: block; }
+            .summary-cards { grid-template-columns: 1fr 1fr; }
+            .input-row { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .chart-container { height: 220px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="dilution.html" role="menuitem">Dilution Calc</a></li>
+                <li role="none"><a href="runway.html" role="menuitem">Runway Calc</a></li>
+                <li role="none"><a href="safe.html" role="menuitem">SAFE Calc</a></li>
+                <li role="none"><a href="vesting.html" role="menuitem">Vesting Calc</a></li>
+                <li role="none"><a href="unit-economics.html" class="active" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+                <li role="none"><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l-1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l-1.42-1.42"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>CAC/LTV <span class="gradient">Unit Economics</span></h1>
+        <p>Are your unit economics healthy? Calculate your Customer Acquisition Cost, Lifetime Value, and payback period with SaaS benchmarks.</p>
+    </header>
+
+    <main id="main-content" class="calc-layout">
+        <div class="input-panel">
+            <div class="save-indicator" aria-live="polite">
+                <svg class="save-indicator-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                    <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                    <polyline points="7 3 7 8 15 8"></polyline>
+                </svg>
+                <span>Saved locally</span>
+            </div>
+            <div class="panel-section">
+                <div class="panel-section-title">Customer Acquisition Cost (CAC)</div>
+                <div class="input-group">
+                    <label for="marketingSpend">Marketing Spend / Month ($)</label>
+                    <input type="number" id="marketingSpend" value="5000" min="0" step="500" oninput="recalculate()">
+                </div>
+                <div class="input-group">
+                    <label for="salesCost">Sales Team Cost / Month ($)</label>
+                    <input type="number" id="salesCost" value="8000" min="0" step="500" oninput="recalculate()">
+                </div>
+                <div class="input-group">
+                    <label for="otherAcqCost">Other Acquisition Costs ($)</label>
+                    <input type="number" id="otherAcqCost" value="1000" min="0" step="100" oninput="recalculate()">
+                    <div class="hint">Tools, agency fees, etc.</div>
+                </div>
+                <div class="input-group">
+                    <label for="newCustomers">New Customers / Month</label>
+                    <input type="number" id="newCustomers" value="20" min="1" step="1" oninput="recalculate()">
+                </div>
+                <div class="input-group">
+                    <label>Your CAC</label>
+                    <div class="computed" id="cacDisplay">—</div>
+                </div>
+            </div>
+
+            <hr class="separator">
+
+            <div class="panel-section">
+                <div class="panel-section-title">Lifetime Value (LTV)</div>
+                <div class="input-group">
+                    <label for="arpu">ARPU / Month ($)</label>
+                    <input type="number" id="arpu" value="99" min="0" step="5" oninput="recalculate()">
+                    <div class="hint">Average Revenue Per User per month</div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="grossMargin">Gross Margin (%)</label>
+                        <input type="number" id="grossMargin" value="75" min="0" max="100" step="1" oninput="recalculate()">
+                    </div>
+                    <div class="input-group">
+                        <label for="churnRate">Monthly Churn (%)</label>
+                        <input type="number" id="churnRate" value="5" min="0.1" max="100" step="0.5" oninput="recalculate()">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Avg. Customer Lifespan</label>
+                    <div class="computed" id="lifespanDisplay">—</div>
+                </div>
+                <div class="input-group">
+                    <label>Your LTV</label>
+                    <div class="computed" id="ltvDisplay">—</div>
+                </div>
+            </div>
+
+            <div class="error-message" id="inputError" role="alert" aria-live="polite"></div>
+
+            <div class="panel-section">
+                <div class="panel-section-title">Saved Scenarios</div>
+                <input type="text" id="scenarioName" class="scenario-input" placeholder="Enter scenario name...">
+                <div class="scenario-controls">
+                    <select id="scenarioSelect" class="scenario-select" onchange="loadScenario(this.value)" aria-label="Load saved scenario">
+                        <option value="">-- Load Scenario --</option>
+                    </select>
+                    <button class="scenario-btn save" onclick="showSaveScenario()" aria-label="Save current inputs as scenario">Save</button>
+                    <button class="scenario-btn delete" id="deleteScenarioBtn" onclick="deleteScenario()" aria-label="Delete selected scenario" style="display:none;">Delete</button>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <div class="panel-section-title">Share</div>
+                <div class="share-bar">
+                    <button class="btn-share" id="shareBtn" onclick="copyShareLink()">Copy Share Link</button>
+                    <button class="btn-share" onclick="resetCalculator()">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-panel" role="region" aria-label="Calculator results">
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="metric-value" id="sumCAC" style="color:var(--red)">—</div>
+                    <div class="metric-label">CAC</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="sumLTV" style="color:var(--green)">—</div>
+                    <div class="metric-label">LTV</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="sumRatio" style="color:var(--accent-light)">—</div>
+                    <div class="metric-label">LTV:CAC Ratio</div>
+                    <div class="metric-badge" id="ratioBadge">—</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="sumPayback" style="color:var(--blue)">—</div>
+                    <div class="metric-label">Payback Period</div>
+                    <div class="metric-badge" id="paybackBadge">—</div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="charts-grid">
+                <section class="chart-section" aria-labelledby="doughnutTitle">
+                    <h3 id="doughnutTitle">CAC Breakdown</h3>
+                    <p class="chart-subtitle">Where your acquisition spend goes</p>
+                    <div class="chart-container">
+                        <canvas id="cacBreakdownChart" role="img" aria-label="Doughnut chart showing CAC breakdown"></canvas>
+                    </div>
+                </section>
+                <section class="chart-section" aria-labelledby="barTitle">
+                    <h3 id="barTitle">LTV vs CAC</h3>
+                    <p class="chart-subtitle">With 3:1 benchmark line</p>
+                    <div class="chart-container">
+                        <canvas id="ltvCacChart" role="img" aria-label="Bar chart comparing LTV and CAC"></canvas>
+                    </div>
+                </section>
+                <section class="chart-section full-width" aria-labelledby="cumulTitle">
+                    <h3 id="cumulTitle">Cumulative Value vs Cost per Customer</h3>
+                    <p class="chart-subtitle">Watch customer value accumulate vs acquisition cost. Breakeven happens when the green line crosses the red.</p>
+                    <div class="chart-container">
+                        <canvas id="cumulativeChart" role="img" aria-label="Line chart showing cumulative customer value versus cost"></canvas>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Benchmarks -->
+            <section class="benchmarks" aria-labelledby="benchTitle">
+                <h3 id="benchTitle">SaaS Benchmarks</h3>
+                <p class="subtitle">How your unit economics compare to industry standards</p>
+                <div class="benchmark-grid">
+                    <div class="benchmark-item">
+                        <div class="bm-label">LTV:CAC Ratio</div>
+                        <div class="benchmark-bar"><div class="benchmark-fill" id="benchRatio"></div></div>
+                        <div class="bm-value" id="benchRatioVal">—</div>
+                        <div class="bm-range">Bad &lt;1:1 | OK 1-3:1 | Good 3-5:1 | Great 5:1+</div>
+                    </div>
+                    <div class="benchmark-item">
+                        <div class="bm-label">CAC Payback</div>
+                        <div class="benchmark-bar"><div class="benchmark-fill" id="benchPayback"></div></div>
+                        <div class="bm-value" id="benchPaybackVal">—</div>
+                        <div class="bm-range">Great &lt;6mo | Good &lt;12mo | OK 12-18mo | Bad 18mo+</div>
+                    </div>
+                    <div class="benchmark-item">
+                        <div class="bm-label">Gross Margin</div>
+                        <div class="benchmark-bar"><div class="benchmark-fill" id="benchMargin"></div></div>
+                        <div class="bm-value" id="benchMarginVal">—</div>
+                        <div class="bm-range">Bad &lt;50% | OK 50-70% | Good 70-80% | Great 80%+</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Monthly Breakdown -->
+            <section class="table-section" aria-labelledby="tableTitle">
+                <h3 id="tableTitle">Cohort Value Breakdown</h3>
+                <p class="table-subtitle">Month-by-month cumulative value and cost for a customer cohort.</p>
+                <div style="overflow-x:auto;">
+                    <table class="breakdown-table" id="breakdownTable" role="table" aria-describedby="tableTitle"></table>
+                </div>
+            </section>
+
+            <div class="calc-cta" role="complementary" aria-label="FounderMath Pro upgrade offer">
+                <h3>Want to model different scenarios side by side?</h3>
+                <p>FounderMath Pro lets you save scenarios, compare unit economics across cohorts, and export to PDF.</p>
+                <a href="pricing.html" class="btn-white">Upgrade to Pro — $19/mo</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left"><p>&copy; 2026 FounderMath. Built for founders, by founders.</p></div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="mailto:hello@foundermath.com">Contact</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l-1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l-1.42-1.42"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Link copied to clipboard!</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+    const DEFAULTS = {
+        marketingSpend: 5000, salesCost: 8000, otherAcqCost: 1000, newCustomers: 20,
+        arpu: 99, grossMargin: 75, churnRate: 5
+    };
+
+    function gv(id) { return document.getElementById(id).value; }
+    function gn(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+    function getState() {
+        return {
+            marketingSpend: gn('marketingSpend'), salesCost: gn('salesCost'),
+            otherAcqCost: gn('otherAcqCost'), newCustomers: gn('newCustomers'),
+            arpu: gn('arpu'), grossMargin: gn('grossMargin'), churnRate: gn('churnRate')
+        };
+    }
+
+    function loadFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        const encoded = params.get('s');
+        if (!encoded) return;
+        try {
+            const parsed = JSON.parse(atob(encoded));
+            Object.keys(DEFAULTS).forEach(key => {
+                if (parsed[key] !== undefined) document.getElementById(key).value = parsed[key];
+            });
+        } catch(e) {}
+    }
+
+    function encodeStateToURL() {
+        return window.location.origin + window.location.pathname + '?s=' + btoa(JSON.stringify(getState()));
+    }
+
+    function validate() {
+        const err = document.getElementById('inputError');
+        const churn = gn('churnRate');
+        if (churn <= 0 || churn > 100) {
+            document.getElementById('churnRate').classList.add('input-error');
+            err.textContent = 'Churn rate must be between 0.1% and 100%';
+            err.classList.add('visible');
+            return false;
+        }
+        if (gn('newCustomers') < 1) {
+            document.getElementById('newCustomers').classList.add('input-error');
+            err.textContent = 'Must have at least 1 new customer';
+            err.classList.add('visible');
+            return false;
+        }
+        document.querySelectorAll('.input-error').forEach(e => e.classList.remove('input-error'));
+        err.classList.remove('visible');
+        return true;
+    }
+
+    function calculate() {
+        const s = getState();
+        const totalAcqCost = s.marketingSpend + s.salesCost + s.otherAcqCost;
+        const cac = totalAcqCost / s.newCustomers;
+        const margin = s.grossMargin / 100;
+        const churn = s.churnRate / 100;
+        const lifespan = churn > 0 ? 1 / churn : 999; // months
+        const ltv = s.arpu * margin * lifespan;
+        const ratio = cac > 0 ? ltv / cac : 0;
+        const monthlyContribution = s.arpu * margin;
+        const payback = monthlyContribution > 0 ? cac / monthlyContribution : 999;
+
+        // Cohort analysis (24 months)
+        const cohort = [];
+        let cumulativeRevenue = 0;
+        let activeCustomers = s.newCustomers;
+        let breakevenMonth = -1;
+
+        for (let m = 1; m <= 24; m++) {
+            const monthRevenue = activeCustomers * s.arpu * margin;
+            cumulativeRevenue += monthRevenue;
+            const netValue = cumulativeRevenue - cac;
+
+            if (netValue >= 0 && breakevenMonth === -1) breakevenMonth = m;
+
+            cohort.push({
+                month: m,
+                activeCustomers: Math.round(activeCustomers),
+                monthlyRevenue: monthRevenue,
+                cumulativeRevenue: cumulativeRevenue,
+                netValue: netValue,
+                isBreakeven: m === breakevenMonth
+            });
+
+            activeCustomers *= (1 - churn);
+        }
+
+        return { cac, ltv, ratio, payback, lifespan, monthlyContribution, totalAcqCost,
+                 marketingSpend: s.marketingSpend, salesCost: s.salesCost, otherAcqCost: s.otherAcqCost,
+                 grossMargin: s.grossMargin, cohort, breakevenMonth, churn };
+    }
+
+    let chart1 = null, chart2 = null, chart3 = null;
+
+    function recalculate() {
+        if (!validate()) return;
+        const r = calculate();
+
+        // Input displays
+        document.getElementById('cacDisplay').textContent = '$' + r.cac.toFixed(0);
+        document.getElementById('lifespanDisplay').textContent = r.lifespan < 999 ? r.lifespan.toFixed(1) + ' months' : '∞';
+        document.getElementById('ltvDisplay').textContent = '$' + r.ltv.toFixed(0);
+
+        // Summary cards
+        document.getElementById('sumCAC').textContent = '$' + r.cac.toFixed(0);
+        document.getElementById('sumLTV').textContent = '$' + r.ltv.toFixed(0);
+        document.getElementById('sumRatio').textContent = r.ratio.toFixed(1) + ':1';
+        document.getElementById('sumPayback').textContent = r.payback < 999 ? r.payback.toFixed(1) + ' mo' : 'N/A';
+
+        // Ratio badge
+        const ratioBadge = document.getElementById('ratioBadge');
+        if (r.ratio >= 5) { ratioBadge.textContent = 'Great'; ratioBadge.className = 'metric-badge badge-good'; }
+        else if (r.ratio >= 3) { ratioBadge.textContent = 'Good'; ratioBadge.className = 'metric-badge badge-good'; }
+        else if (r.ratio >= 1) { ratioBadge.textContent = 'OK'; ratioBadge.className = 'metric-badge badge-ok'; }
+        else { ratioBadge.textContent = 'Bad'; ratioBadge.className = 'metric-badge badge-bad'; }
+
+        // Payback badge
+        const paybackBadge = document.getElementById('paybackBadge');
+        if (r.payback < 6) { paybackBadge.textContent = 'Great'; paybackBadge.className = 'metric-badge badge-good'; }
+        else if (r.payback < 12) { paybackBadge.textContent = 'Good'; paybackBadge.className = 'metric-badge badge-good'; }
+        else if (r.payback < 18) { paybackBadge.textContent = 'OK'; paybackBadge.className = 'metric-badge badge-ok'; }
+        else { paybackBadge.textContent = 'Bad'; paybackBadge.className = 'metric-badge badge-bad'; }
+
+        // Benchmarks
+        updateBenchmark('benchRatio', Math.min(r.ratio / 6, 1), r.ratio.toFixed(1) + ':1', r.ratio >= 3 ? 'var(--green)' : r.ratio >= 1 ? 'var(--orange)' : 'var(--red)');
+        updateBenchmark('benchPayback', Math.min(r.payback / 24, 1), r.payback < 999 ? r.payback.toFixed(1) + ' mo' : 'N/A', r.payback < 12 ? 'var(--green)' : r.payback < 18 ? 'var(--orange)' : 'var(--red)');
+        updateBenchmark('benchMargin', r.grossMargin / 100, r.grossMargin.toFixed(0) + '%', r.grossMargin >= 70 ? 'var(--green)' : r.grossMargin >= 50 ? 'var(--orange)' : 'var(--red)');
+
+        // Charts
+        renderCharts(r);
+        renderTable(r);
+
+        // Save state to localStorage
+        try { localStorage.setItem('foundermath_unitecon_state', JSON.stringify(getState())); } catch(e) {}
+    }
+
+    function updateBenchmark(id, pct, value, color) {
+        const fill = document.getElementById(id);
+        fill.style.width = (pct * 100) + '%';
+        fill.style.background = color;
+        document.getElementById(id + 'Val').textContent = value;
+        document.getElementById(id + 'Val').style.color = color;
+    }
+
+    function renderCharts(r) {
+        // CAC Breakdown Doughnut
+        const ctx1 = document.getElementById('cacBreakdownChart').getContext('2d');
+        if (chart1) chart1.destroy();
+        chart1 = new Chart(ctx1, {
+            type: 'doughnut',
+            data: {
+                labels: ['Marketing', 'Sales Team', 'Other'],
+                datasets: [{
+                    data: [r.marketingSpend, r.salesCost, r.otherAcqCost],
+                    backgroundColor: ['#6c5ce7', '#00b894', '#ffa502'],
+                    borderWidth: 0,
+                    hoverOffset: 8
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false, cutout: '65%',
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: '#a0a0b5', padding: 12, font: { size: 11 } } },
+                    tooltip: { callbacks: { label: ctx => ctx.label + ': $' + ctx.parsed.toLocaleString() } }
+                }
+            }
+        });
+
+        // LTV vs CAC Bar
+        const ctx2 = document.getElementById('ltvCacChart').getContext('2d');
+        if (chart2) chart2.destroy();
+        chart2 = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['CAC', 'LTV', '3x CAC (Target)'],
+                datasets: [{
+                    data: [r.cac, r.ltv, r.cac * 3],
+                    backgroundColor: ['#ff6b6b', '#00b894', 'rgba(108, 92, 231, 0.3)'],
+                    borderColor: ['#ff6b6b', '#00b894', '#6c5ce7'],
+                    borderWidth: 2,
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { label: ctx => '$' + ctx.parsed.y.toFixed(0) } }
+                },
+                scales: {
+                    x: { ticks: { color: '#a0a0b5' }, grid: { display: false } },
+                    y: { ticks: { color: '#a0a0b5', callback: v => '$' + v }, grid: { color: 'rgba(42,42,64,0.5)' } }
+                }
+            }
+        });
+
+        // Cumulative chart
+        const ctx3 = document.getElementById('cumulativeChart').getContext('2d');
+        if (chart3) chart3.destroy();
+        chart3 = new Chart(ctx3, {
+            type: 'line',
+            data: {
+                labels: r.cohort.map(c => 'Month ' + c.month),
+                datasets: [
+                    {
+                        label: 'Cumulative Revenue (per customer)',
+                        data: r.cohort.map(c => c.cumulativeRevenue),
+                        borderColor: '#00b894', backgroundColor: 'rgba(0,184,148,0.1)',
+                        fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 5, borderWidth: 2.5
+                    },
+                    {
+                        label: 'CAC (Acquisition Cost)',
+                        data: r.cohort.map(() => r.cac),
+                        borderColor: '#ff6b6b', backgroundColor: 'rgba(255,107,107,0.05)',
+                        fill: true, tension: 0, pointRadius: 0, borderWidth: 2, borderDash: [8, 4]
+                    }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: '#a0a0b5', padding: 16, usePointStyle: true, pointStyle: 'line' } },
+                    tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': $' + ctx.parsed.y.toFixed(0) } }
+                },
+                scales: {
+                    x: { ticks: { color: '#a0a0b5', font: { size: 10 }, maxTicksLimit: 12 }, grid: { display: false } },
+                    y: { ticks: { color: '#a0a0b5', callback: v => '$' + v }, grid: { color: 'rgba(42,42,64,0.5)' } }
+                }
+            }
+        });
+    }
+
+    function renderTable(r) {
+        const table = document.getElementById('breakdownTable');
+        let html = '<thead><tr><th>Month</th><th>Active Customers</th><th>Monthly Revenue</th><th>Cumulative Revenue</th><th>Net Value</th></tr></thead><tbody>';
+
+        r.cohort.forEach(c => {
+            const cls = c.isBreakeven ? ' class="breakeven-row"' : '';
+            html += `<tr${cls}>
+                <td>Month ${c.month}</td>
+                <td>${c.activeCustomers.toLocaleString()}</td>
+                <td style="color:var(--green)">$${c.monthlyRevenue.toFixed(0)}</td>
+                <td>$${c.cumulativeRevenue.toFixed(0)}</td>
+                <td style="color:${c.netValue >= 0 ? 'var(--green)' : 'var(--red)'}">$${c.netValue.toFixed(0)}</td>
+            </tr>`;
+        });
+
+        html += '</tbody>';
+        table.innerHTML = html;
+    }
+
+    function copyShareLink() {
+        const url = encodeStateToURL();
+        navigator.clipboard.writeText(url).then(() => {
+            const btn = document.getElementById('shareBtn');
+            btn.textContent = 'Copied!'; btn.classList.add('copied');
+            showToast('Link copied!');
+            setTimeout(() => { btn.textContent = 'Copy Share Link'; btn.classList.remove('copied'); }, 2000);
+        }).catch(() => prompt('Copy this link:', url));
+    }
+
+    function showToast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg; t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    function resetCalculator() {
+        Object.keys(DEFAULTS).forEach(k => document.getElementById(k).value = DEFAULTS[k]);
+        recalculate();
+    }
+
+    // ============================================================
+    // SCENARIO SAVING
+    // ============================================================
+    function showSaveScenario() {
+        const input = document.getElementById('scenarioName');
+        input.classList.toggle('show');
+        if (input.classList.contains('show')) {
+            input.focus();
+            input.addEventListener('keydown', function onEnter(e) {
+                if (e.key === 'Enter') {
+                    saveScenario();
+                    input.removeEventListener('keydown', onEnter);
+                }
+            });
+        }
+    }
+
+    function saveScenario() {
+        const input = document.getElementById('scenarioName');
+        const name = input.value.trim();
+        if (!name) {
+            showToast('Please enter a scenario name');
+            return;
+        }
+
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_unitecon_scenarios') || '[]');
+        const existingIndex = scenarios.findIndex(s => s.name === name);
+        const scenarioData = {
+            name: name,
+            state: getState(),
+            savedAt: new Date().toISOString()
+        };
+
+        if (existingIndex >= 0) {
+            scenarios[existingIndex] = scenarioData;
+        } else {
+            scenarios.push(scenarioData);
+        }
+
+        localStorage.setItem('foundermath_unitecon_scenarios', JSON.stringify(scenarios));
+        input.value = '';
+        input.classList.remove('show');
+        updateScenarioSelect();
+        showToast('Scenario saved!');
+    }
+
+    function loadScenario(name) {
+        if (!name) return;
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_unitecon_scenarios') || '[]');
+        const scenario = scenarios.find(s => s.name === name);
+        if (scenario) {
+            const savedState = scenario.state;
+            Object.keys(savedState).forEach(key => {
+                const el = document.getElementById(key);
+                if (el) el.value = savedState[key];
+            });
+            recalculate();
+            document.getElementById('deleteScenarioBtn').style.display = 'block';
+            showToast('Scenario loaded!');
+        }
+    }
+
+    function deleteScenario() {
+        const select = document.getElementById('scenarioSelect');
+        const name = select.value;
+        if (!name) return;
+
+        if (!confirm(`Delete scenario "${name}"?`)) return;
+
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_unitecon_scenarios') || '[]');
+        const filtered = scenarios.filter(s => s.name !== name);
+        localStorage.setItem('foundermath_unitecon_scenarios', JSON.stringify(filtered));
+        select.value = '';
+        document.getElementById('deleteScenarioBtn').style.display = 'none';
+        updateScenarioSelect();
+        showToast('Scenario deleted!');
+    }
+
+    function updateScenarioSelect() {
+        const select = document.getElementById('scenarioSelect');
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_unitecon_scenarios') || '[]');
+        const currentValue = select.value;
+
+        select.innerHTML = '<option value="">-- Load Scenario --</option>';
+        scenarios.forEach(s => {
+            const option = document.createElement('option');
+            option.value = s.name;
+            option.textContent = s.name;
+            select.appendChild(option);
+        });
+
+        select.value = currentValue;
+        const deleteBtn = document.getElementById('deleteScenarioBtn');
+        if (deleteBtn) {
+            deleteBtn.style.display = currentValue ? 'block' : 'none';
+        }
+    }
+
+    function toggleMobileMenu() {
+        const nl = document.getElementById('navLinks');
+        nl.classList.toggle('open');
+        document.getElementById('mobileToggle').setAttribute('aria-expanded', nl.classList.contains('open'));
+    }
+
+    function toggleTheme() {
+        const b = document.body;
+        const t = (b.getAttribute('data-theme') || 'dark') === 'dark' ? 'light' : 'dark';
+        b.setAttribute('data-theme', t);
+        localStorage.setItem('theme', t);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.body.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            const nl = document.getElementById('navLinks');
+            if (nl.classList.contains('open')) {
+                nl.classList.remove('open');
+                document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                document.getElementById('mobileToggle').focus();
+            }
+        }
+    });
+
+    // Restore from localStorage (before URL override)
+    try {
+        const saved = localStorage.getItem("foundermath_unitecon_state");
+        if (saved && !new URLSearchParams(window.location.search).get('s')) {
+            const parsed = JSON.parse(saved);
+            Object.keys(parsed).forEach(key => {
+                const el = document.getElementById(key);
+                if (el) el.value = parsed[key];
+            });
+        }
+    } catch(e) {}
+
+    loadFromURL();
+    recalculate();
+    updateScenarioSelect();
+    </script>
+</body>
+</html>

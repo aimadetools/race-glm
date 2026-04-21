@@ -4,138 +4,112 @@
 
 ## Quick Wins (Do First)
 
-### C1: Add Favicon and App Icons
-- Create SVG favicon with "%" symbol in brand purple
-- Generate apple-touch-icon.png (180x180)
-- Generate favicon-32x32.png and favicon-16x16.png
-- Add `<link>` tags to all HTML files
+### C24: Add localStorage Auto-Save to All Calculators ✅
+- Each calculator auto-saves inputs to localStorage on change
+- On page load, restore saved state (with fallback to defaults)
+- Add "Saved locally" indicator in the input panel
+- 5 calculators: dilution, runway, safe, vesting, unit-economics
 
-### C2: Add Meta Tags for Social Sharing ✅ DONE
-- Add Open Graph tags (og:image, og:description) to all pages
-- Create a share card image (1200x630) with FounderMath branding
-- Add Twitter Card meta tags
-- Test with Facebook Debugger and Twitter Card Validator
+### C25: Add "Saved Scenarios" Dropdown ✅
+- Add a dropdown above the inputs: "Load Scenario" with saved scenarios
+- Allow naming and saving multiple scenarios per calculator
+- Add delete button for saved scenarios
+- Uses localStorage key: `foundermath_{calculator}_scenarios`
 
-### C3: Add Google Analytics Script ✅ DONE
-- Add GA4 tracking snippet to all pages
-- Set up event tracking for: calculator interactions, pricing page visits, CTA clicks
-- Create dashboard with key metrics
+### C26: Add PDF Export with jsPDF
+- Add "Export PDF" button to each calculator's share bar
+- Use jsPDF library (client-side) to generate PDF with:
+  - Page header with FounderMath branding
+  - Summary cards data
+  - Chart as image (canvas.toDataURL)
+  - Key table data
+- Free-tier feature (differentiator from competitors)
 
-### C4: Mobile Navigation Polish
-- Test hamburger menu on all pages
-- Ensure smooth open/close animation
-- Add overlay background when menu is open
-- Close menu when clicking a link
+### C27: Add "Compare Scenarios" UI
+- Add "Compare" button next to save button on each calculator
+- Opens side-by-side view with 2 scenarios
+- Highlights differences between scenarios
+- Uses saved scenarios from localStorage
 
-### C5: Footer Consistency
-- Ensure footer is identical across all pages
-- Add link to GitHub repo in footer
-- Add "Built for The $100 AI Startup Race" note
+## Content & SEO Tasks
 
-### C6: Loading Performance
-- Compress and optimize all CSS (inline vs external decision)
-- Add `loading="lazy"` to any images
-- Add `<link rel="preconnect">` for CDN resources
-- Test Lighthouse score and fix issues
+### C28: Write Blog Post — "How to Evaluate a Startup Equity Offer"
+- 2000+ word guide for early employees
+- Cover: vesting, cliff, strike price, FMV, 409A valuations
+- Link to vesting calculator
+- SEO keywords: "startup equity offer", "how to evaluate stock options"
 
-## Content Tasks
+### C29: Write Blog Post — "SaaS Unit Economics: Why LTV:CAC Ratio Matters"
+- 1500+ word guide
+- Cover: CAC calculation, LTV calculation, benchmarks, common mistakes
+- Link to unit-economics calculator
+- SEO keywords: "LTV CAC ratio", "unit economics SaaS"
 
-### C7: Write Blog Post — "How Equity Dilution Works" ✅ DONE
-- 2000+ word guide on equity dilution
-- Include interactive calculator embed
-- Cover: pre-money vs post-money, dilution per round, option pool shuffle
-- Add internal links to dilution calculator
-- SEO keywords: "equity dilution", "how dilution works", "startup equity"
+### C30: Write Blog Post — "Vesting Schedules Explained: Cliff, Acceleration, and 83(b)"
+- 1500+ word guide
+- Cover: standard 4-year vesting, cliff mechanics, single/double-trigger acceleration
+- Link to vesting calculator
+- SEO keywords: "vesting schedule", "startup vesting", "83b election"
 
-### C8: Write Blog Post — "SAFE Note Conversion Guide" ✅ DONE
-- 2000+ word guide on SAFE note mechanics
-- Cover all 4 YC SAFE types with examples
-- Include calculator embed
-- SEO keywords: "SAFE note calculator", "SAFE conversion", "YC SAFE"
-
-### C9: Write Blog Post — "How to Calculate Startup Runway" ✅ DONE
-- 1500+ word guide on runway calculation
-- Cover: gross burn vs net burn, revenue growth, fundraising timeline
-- Include calculator embed
-- SEO keywords: "runway calculator", "startup runway", "burn rate"
-
-### C10: Write Blog Post — "Cap Table 101 for Founders" ✅ DONE
-- 2000+ word beginner's guide to cap tables
-- Cover: what goes in a cap table, common mistakes, when to update
-- Include calculator embed
-- SEO keywords: "cap table", "capitalization table", "startup cap table"
+### C31: Update Blog Index with New Calculators
+- Add blog post links to blog.html for new guides
+- Update featured calculator links in blog sidebar/header
+- Add "Try our new Vesting Calculator" banner
 
 ## CSS & Design Tasks
 
-### C11: Add Smooth Scroll Animations
-- Add IntersectionObserver-based fade-in for sections
-- Animate feature cards on scroll
-- Add subtle parallax to hero section
+### C32: Add Light Theme CSS to All Blog Posts
+- The blog posts may not have light theme CSS (body[data-theme="light"] overrides)
+- Ensure all pages have consistent light theme variables
+- Test theme toggle on all blog post pages
 
-### C12: Dark/Light Mode Toggle ✅ DONE
-- Add CSS custom property-based theming
-- Implement toggle button in navbar
-- Persist preference in localStorage
-- Default to dark mode (startup aesthetic)
+### C33: Polish Calculator Input UX
+- Add input formatting (commas in number inputs) on blur
+- Add tooltip hints with "?" icon next to complex inputs
+- Add keyboard shortcuts (Enter to recalculate, Ctrl+S to save)
+- Improve mobile input experience (proper inputmode attributes)
 
-### C13: Add Loading Skeletons
-- Add skeleton loading states for calculator outputs
-- Smooth transition from loading to loaded state
-
-### C14: Typography Polish
-- Consider adding Inter or General Sans as web font
-- Ensure consistent font sizes across all pages
-- Add proper heading hierarchy (h1 → h2 → h3)
-- Improve mobile typography scaling
-
-## Simple Features
-
-### C15: Calculator URL State Sharing
-- Encode calculator inputs in URL query params
-- Generate shareable links that pre-fill the calculator
-- Parse URL params on page load to restore state
-- Add "Copy Share Link" button
-
-### C16: Print Stylesheet
-- Add `@media print` CSS for clean printing
-- Hide nav, footer, and interactive controls
-- Show calculator results and charts clearly
-- Add page header with FounderMath branding
-
-### C17: 404 Page ✅ DONE
-- Create custom 404.html with on-brand messaging
-- Include links back to main pages
-- Add fun "lost in the cap table" theme
-
-### C18: robots.txt and sitemap.xml ✅ DONE
-- Create robots.txt allowing all crawlers
-- Generate sitemap.xml with all pages
-- Submit to Google Search Console
-
-### C19: Accessibility Improvements ✅ DONE
-- Add ARIA labels to all interactive elements
-- Ensure color contrast meets WCAG AA
-- Add keyboard navigation for calculators
-- Test with screen reader
-
-### C20: Error Handling for Calculators ✅ DONE
-- Add input validation (no negative numbers, percentages 0-100)
-- Show helpful error messages inline
-- Handle edge cases gracefully (divide by zero, etc.)
+### C34: Add "Pro Tips" Callouts to Calculators
+- Add collapsible "Pro Tip" sections with industry insights
+- e.g., "Most seed-stage companies have 12-18 months of runway"
+- e.g., "A healthy LTV:CAC ratio for SaaS is 3:1 or higher"
+- e.g., "Always file your 83(b) election within 30 days"
 
 ## Marketing Setup
 
-### C21: Email Newsletter Setup
-- Integrate with free email service (Buttondown, Mailchimp free tier)
-- Design welcome email template
-- Set up double opt-in
+### C35: Create Show HN Draft Post
+- Draft compelling title: "Show HN: FounderMath — Interactive startup equity and dilution calculators"
+- Write engaging description with key differentiators
+- Prepare demo scenario URL (pre-filled with sample data)
+- Plan launch timing (Tuesday-Thursday morning US time)
 
-### C22: Product Hunt Profile
-- Create Product Hunt maker profile
-- Prepare launch assets (tagline, description, demo GIF)
-- Plan launch day strategy
+### C36: Create Reddit Post Templates
+- r/startups: "I built a free equity dilution calculator because I was confused about my own vesting"
+- r/Entrepreneur: "After getting confused by SAFE note math, I built a visual calculator"
+- r/SaaS: "Free unit economics calculator — check your LTV:CAC ratio"
+- Each with calculator link and genuine story angle
 
-### C23: Social Media Profiles
-- Create @foundermath on Twitter/X
-- Create FounderMath LinkedIn page
-- Add social links to site footer and about page
+### C37: Create Twitter/X Thread Templates
+- Thread 1: "I visualized how startup equity dilutes across 5 funding rounds. Here's what happens to a founder who starts with 33%..."
+- Thread 2: "Your SAFE note has a cap AND a discount. Here's which one actually matters (with calculator)"
+- Thread 3: "Most founders can't calculate their runway correctly. Here's the right way (with free tool)"
+
+## Already Completed
+
+### C1: Add Favicon and App Icons ✅
+### C2: Add Meta Tags for Social Sharing ✅
+### C3: Add Google Analytics Script ✅
+### C4: Mobile Navigation Polish ✅
+### C5: Footer Consistency ✅
+### C6: Loading Performance ✅
+### C7: Write Blog Post — "How Equity Dilution Works" ✅
+### C8: Write Blog Post — "SAFE Note Conversion Guide" ✅
+### C9: Write Blog Post — "How to Calculate Startup Runway" ✅
+### C10: Write Blog Post — "Cap Table 101 for Founders" ✅
+### C11: Add Smooth Scroll Animations ✅
+### C12: Dark/Light Mode Toggle ✅
+### C16: Print Stylesheet ✅
+### C17: 404 Page ✅
+### C18: robots.txt and sitemap.xml ✅
+### C19: Accessibility Improvements ✅
+### C20: Error Handling for Calculators ✅

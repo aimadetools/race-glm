@@ -236,6 +236,25 @@
             outline-offset: 2px;
         }
 
+        /* Saved locally indicator */
+        .save-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            padding: 8px 12px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+        .save-indicator-icon {
+            width: 12px;
+            height: 12px;
+            color: var(--green);
+        }
+
         /* Founder input row */
         .founder-row {
             display: grid;
@@ -422,6 +441,85 @@
         .btn-share.copied {
             border-color: var(--green);
             color: var(--green);
+        }
+
+        /* Scenarios UI */
+        .scenario-controls {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .scenario-select {
+            flex: 1;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-family: var(--font-sans);
+            cursor: pointer;
+        }
+        .scenario-select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .scenario-select:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
+        .scenario-select option {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .scenario-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .scenario-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .scenario-btn:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
+        .scenario-btn.save {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+        .scenario-btn.save:hover {
+            background: var(--accent-light);
+            border-color: var(--accent-light);
+        }
+        .scenario-btn.delete {
+            color: var(--red);
+        }
+        .scenario-btn.delete:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+        .scenario-input {
+            width: 100%;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            display: none;
+        }
+        .scenario-input.show {
+            display: block;
         }
 
         /* --- RESULTS PANEL --- */
@@ -769,6 +867,8 @@
                 <li role="none"><a href="dilution.html" role="menuitem">Dilution Calc</a></li>
                 <li role="none"><a href="runway.html" role="menuitem">Runway Calc</a></li>
                 <li role="none"><a href="safe.html" role="menuitem">SAFE Calc</a></li>
+                <li role="none"><a href="vesting.html" role="menuitem">Vesting Calc</a></li>
+                <li role="none"><a href="unit-economics.html" role="menuitem">Unit Econ</a></li>
                 <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
                 <li role="none"><a href="about.html" role="menuitem">About</a></li>
                 <li role="none"><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
@@ -788,6 +888,14 @@
     <div class="calc-layout">
         <!-- Left: Inputs -->
         <div class="input-panel">
+            <div class="save-indicator" aria-live="polite">
+                <svg class="save-indicator-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                    <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                    <polyline points="7 3 7 8 15 8"></polyline>
+                </svg>
+                <span>Saved locally</span>
+            </div>
             <!-- Founders Section -->
             <div class="panel-section">
                 <div class="panel-section">
@@ -809,11 +917,25 @@
                 <div id="roundsContainer" role="group" aria-labelledby="roundsLabel"></div>
             </div>
 
+            <!-- Scenarios Section -->
+            <div class="panel-section">
+                <div class="panel-section-title"><span>Saved Scenarios</span></div>
+                <input type="text" id="scenarioName" class="scenario-input" placeholder="Enter scenario name...">
+                <div class="scenario-controls">
+                    <select id="scenarioSelect" class="scenario-select" onchange="loadScenario(this.value)" aria-label="Load saved scenario">
+                        <option value="">-- Load Scenario --</option>
+                    </select>
+                    <button class="scenario-btn save" onclick="showSaveScenario()" aria-label="Save current inputs as scenario">Save</button>
+                    <button class="scenario-btn delete" id="deleteScenarioBtn" onclick="deleteScenario()" aria-label="Delete selected scenario" style="display:none;">Delete</button>
+                </div>
+            </div>
+
             <!-- Share Section -->
             <div class="panel-section">
                 <div class="panel-section-title"><span>Share</span></div>
                 <div class="share-bar">
                     <button class="btn-share" id="shareBtn" onclick="copyShareLink()" aria-describedby="toast">Copy Share Link</button>
+                    <button class="btn-share" onclick="exportPDF()" aria-label="Export results as PDF">Export PDF</button>
                     <button class="btn-share" onclick="resetCalculator()">Reset calculator to defaults</button>
                 </div>
             </div>
@@ -890,6 +1012,8 @@
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- jsPDF -->
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
     <script>
     // ============================================================
     // DATA MODEL
@@ -1040,6 +1164,102 @@
         renderFounders();
         renderRounds();
         recalculate();
+    }
+
+    // ============================================================
+    // SCENARIO SAVING
+    // ============================================================
+    function showSaveScenario() {
+        const input = document.getElementById('scenarioName');
+        input.classList.toggle('show');
+        if (input.classList.contains('show')) {
+            input.focus();
+            input.addEventListener('keydown', function onEnter(e) {
+                if (e.key === 'Enter') {
+                    saveScenario();
+                    input.removeEventListener('keydown', onEnter);
+                }
+            });
+        }
+    }
+
+    function saveScenario() {
+        const input = document.getElementById('scenarioName');
+        const name = input.value.trim();
+        if (!name) {
+            showToast('Please enter a scenario name');
+            return;
+        }
+
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_dilution_scenarios') || '[]');
+        const existingIndex = scenarios.findIndex(s => s.name === name);
+        const scenarioData = {
+            name: name,
+            state: state,
+            savedAt: new Date().toISOString()
+        };
+
+        if (existingIndex >= 0) {
+            scenarios[existingIndex] = scenarioData;
+        } else {
+            scenarios.push(scenarioData);
+        }
+
+        localStorage.setItem('foundermath_dilution_scenarios', JSON.stringify(scenarios));
+        input.value = '';
+        input.classList.remove('show');
+        updateScenarioSelect();
+        showToast('Scenario saved!');
+    }
+
+    function loadScenario(name) {
+        if (!name) return;
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_dilution_scenarios') || '[]');
+        const scenario = scenarios.find(s => s.name === name);
+        if (scenario) {
+            state = scenario.state;
+            renderFounders();
+            renderRounds();
+            recalculate();
+            document.getElementById('deleteScenarioBtn').style.display = 'block';
+            showToast('Scenario loaded!');
+        }
+    }
+
+    function deleteScenario() {
+        const select = document.getElementById('scenarioSelect');
+        const name = select.value;
+        if (!name) return;
+
+        if (!confirm(`Delete scenario "${name}"?`)) return;
+
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_dilution_scenarios') || '[]');
+        const filtered = scenarios.filter(s => s.name !== name);
+        localStorage.setItem('foundermath_dilution_scenarios', JSON.stringify(filtered));
+        select.value = '';
+        document.getElementById('deleteScenarioBtn').style.display = 'none';
+        updateScenarioSelect();
+        showToast('Scenario deleted!');
+    }
+
+    function updateScenarioSelect() {
+        const select = document.getElementById('scenarioSelect');
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_dilution_scenarios') || '[]');
+        const currentValue = select.value;
+
+        select.innerHTML = '<option value="">-- Load Scenario --</option>';
+        scenarios.forEach(s => {
+            const option = document.createElement('option');
+            option.value = s.name;
+            option.textContent = s.name;
+            select.appendChild(option);
+        });
+
+        select.value = currentValue;
+        const deleteBtn = document.getElementById('deleteScenarioBtn') || document.querySelector('.scenario-btn.delete');
+        if (deleteBtn) {
+            deleteBtn.style.display = currentValue ? 'block' : 'none';
+        }
     }
 
     // ============================================================
@@ -1389,6 +1609,9 @@
     // ============================================================
     function recalculate() {
         const { stages } = calculate();
+        // Save state to localStorage
+        try { localStorage.setItem('foundermath_dilution_state', JSON.stringify(getState())); } catch(e) {}
+
         renderChart(stages);
         renderTable(stages);
         renderSummary(stages);
@@ -1419,6 +1642,93 @@
         toast.textContent = msg;
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // ============================================================
+    // PDF EXPORT
+    // ============================================================
+    function exportPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Header
+        doc.setFillColor(108, 92, 231); // Purple brand color
+        doc.rect(0, 0, 210, 30, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(20);
+        doc.setFont('helvetica', 'bold');
+        doc.text('FounderMath', 20, 20);
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'normal');
+        doc.text('Equity Dilution Calculator', 20, 28);
+
+        // Summary section
+        doc.setTextColor(0, 0, 0);
+        doc.setFontSize(16);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Summary', 20, 50);
+
+        const yourName = state.founders[0]?.name || 'You';
+        const summaryStarting = document.getElementById('summaryStarting').textContent;
+        const summaryFinal = document.getElementById('summaryFinal').textContent;
+        const summaryDilution = document.getElementById('summaryDilution').textContent;
+        const summaryPostMoney = document.getElementById('summaryPostMoney').textContent;
+
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'normal');
+        doc.text(`${yourName} - Starting: ${summaryStarting}`, 20, 62);
+        doc.text(`${yourName} - Final: ${summaryFinal}`, 20, 72);
+        doc.text(`Total Dilution: ${summaryDilution}`, 20, 82);
+        doc.text(`Final Post-Money: ${summaryPostMoney}`, 20, 92);
+
+        // Chart as image
+        const chartCanvas = document.getElementById('dilutionChart');
+        if (chartCanvas) {
+            try {
+                const chartImg = chartCanvas.toDataURL('image/png', 1.0);
+                doc.addImage(chartImg, 'PNG', 20, 105, 170, 100);
+            } catch(e) { console.error('Chart capture failed:', e); }
+        }
+
+        // New page for table
+        doc.addPage();
+        doc.setFillColor(108, 92, 231);
+        doc.rect(0, 0, 210, 30, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(20);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Ownership Breakdown', 20, 20);
+
+        // Simple table data
+        doc.setTextColor(0, 0, 0);
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'normal');
+        let yPos = 50;
+
+        // Get table data
+        const table = document.getElementById('ownershipTable');
+        if (table) {
+            const rows = table.querySelectorAll('tr');
+            rows.forEach((row, index) => {
+                if (index > 0) { // Skip header row for simplicity
+                    const cells = row.querySelectorAll('th, td');
+                    const text = Array.from(cells).map(cell => cell.textContent).join(' | ');
+                    if (text.trim() && yPos < 270) {
+                        doc.text(text.substring(0, 100), 20, yPos);
+                        yPos += 10;
+                    }
+                }
+            });
+        }
+
+        // Footer
+        doc.setFontSize(9);
+        doc.setTextColor(128, 128, 128);
+        doc.text('Generated by FounderMath.com', 20, 285);
+        doc.text(new Date().toLocaleDateString(), 170, 285);
+
+        doc.save('foundermath-dilution.pdf');
+        showToast('PDF downloaded!');
     }
 
     // ============================================================
@@ -1481,10 +1791,22 @@
     // ============================================================
     // INIT
     // ============================================================
+    // Restore from localStorage (before URL override)
+    try {
+        const saved = localStorage.getItem("foundermath_dilution_state");
+        if (saved && !new URLSearchParams(window.location.search).get('s')) {
+            const parsed = JSON.parse(saved);
+            Object.keys(parsed).forEach(key => {
+                const el = document.getElementById(key);
+                if (el) el.value = parsed[key];
+            });
+        }
+    } catch(e) {}
     loadFromURL();
     renderFounders();
     renderRounds();
     recalculate();
+    updateScenarioSelect();
     </script>
 </body>
 </html>

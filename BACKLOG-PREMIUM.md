@@ -2,31 +2,14 @@
 
 *These tasks need careful planning, architecture decisions, or complex logic.*
 
-## Critical Path (Revenue)
+## Critical Path (Revenue & Launch)
 
-### P1: Equity Dilution Calculator — Full Implementation
-- Design multi-round dilution model (pre-seed → seed → Series A → B → C)
-- Implement pre-money/post-money valuation calculations
-- Build interactive sliders for round size, valuation, option pool
-- Handle edge cases: anti-dilution, pro-rata, convertible notes converting
-- Chart.js visualization: stacked area chart showing ownership % over time
-- Add "share with cofounders" link generation (URL-encoded state)
-- **Why premium:** Complex financial math with multiple edge cases, needs to be exactly right
-
-### P2: SAFE Note Calculator — Full Implementation
-- Support all 4 YC SAFE types: Cap + Discount, Cap only, Discount only, MFN
-- Calculate conversion at priced round (conversion price, share count, % ownership)
-- Visual waterfall chart showing how SAFEs stack in a round
-- Model multiple SAFEs with different caps/discounts in same round
-- Edge case: SAFEs with post-money vs pre-money safe terminology
-- **Why premium:** Must exactly match YC SAFE legal framework
-
-### P3: Pricing & Payment Integration Architecture
-- Evaluate Stripe Payment Links vs Stripe Checkout vs Stripe Billing
-- Design upgrade flow: free user → Pro (how to identify users, handle sessions)
-- Plan subscription management: cancellation, downgrade, payment failure
-- Design annual vs monthly billing toggle with proper pricing display
-- **Why premium:** Payment architecture affects all future features
+### P3: Launch Preparation & Strategy
+- Write compelling "Show HN" post with interactive demo angle
+- Plan launch day checklist (HN, Reddit, Twitter/X, Indie Hackers)
+- Prepare social media assets and messaging
+- Write email outreach templates for early adopters
+- **Why premium:** Launch strategy shapes first impression and early traction
 
 ### P4: Cap Table Builder — Architecture & Data Model
 - Design data model for: founders, investors, option pool, SAFEs, priced rounds
@@ -37,19 +20,19 @@
 
 ### P5: Pro Feature Gating System
 - Design auth strategy: email magic link vs OAuth vs simple password
-- Implement save/load scenarios for authenticated users
+- Implement save/load scenarios for authenticated users (localStorage base + Pro sync)
 - Build scenario comparison UI (side-by-side, diff highlighting)
-- PDF export: design template with charts + summary tables
+- PDF export: design template with charts + summary tables using jsPDF
 - **Why premium:** Security + UX decisions that affect trust
 
 ## High Priority (Growth)
 
-### P6: SEO Content Strategy & Execution
-- Research target keywords: "equity dilution calculator", "SAFE note calculator", "runway calculator"
-- Write 3 long-form SEO guides (2000+ words each) with embedded calculators
-- Implement blog post template with table of contents, code examples
-- Plan internal linking strategy between calculators and guides
-- **Why premium:** SEO strategy affects site architecture and content quality
+### P6: Email Capture & Newsletter Integration
+- Integrate Buttondown (free tier: 1000 subscribers) for email capture
+- Design inline email capture forms on calculator pages
+- Create welcome email sequence (3 emails: intro, calculator tips, Pro upgrade nudge)
+- Set up email popup/exit-intent for free tier users
+- **Why premium:** Email list is primary conversion channel
 
 ### P7: Competitive Analysis & Positioning
 - Deep-dive into Carta, Pulley, Slicing Pie, Holloway features and pricing
@@ -67,25 +50,12 @@
 
 ## Medium Priority
 
-### P9: CAC/LTV Analyzer with Cohort Analysis
-- Build cohort-based LTV calculator with churn modeling
-- Implement SaaS-specific metrics: MRR, ARR, ARPU, churn rate
-- Visualize payback period and unit economics over time
-- **Why premium:** Statistical modeling with cohort math
-
-### P10: Vesting Schedule Visualizer
-- Model 4-year vesting with 1-year cliff
-- Support acceleration triggers (single-trigger, double-trigger)
-- Handle early exercise options and 83(b) election timing
-- Visual timeline chart with milestone markers
-- **Why premium:** Legal/financial intersection with tax implications
-
 ### P11: Data Persistence & Sync Architecture
-- Evaluate Supabase vs Firebase vs custom API for Pro user data
-- Design data schema for saved scenarios
-- Implement sync across devices (save on one, access on another)
-- Handle offline → online conflict resolution
-- **Why premium:** Backend architecture decision with reliability requirements
+- Design localStorage schema for saved scenarios across all 5 calculators
+- Implement auto-save (debounced) so users don't lose work
+- Build scenario list UI with load/delete functionality
+- Plan sync architecture for Pro users (Supabase vs custom API)
+- **Why premium:** Data architecture with reliability requirements
 
 ### P12: Accelerator Partnership Strategy
 - Research top 20 accelerators (YC, Techstars, 500, etc.)
@@ -94,22 +64,15 @@
 - Plan co-branded landing pages for each accelerator
 - **Why premium:** Business development strategy
 
-## Future
-
 ### P13: Exit/Waterfall Analysis Calculator
 - Model exit scenarios at different valuations
 - Show who gets what in a waterfall (preferred, common, options)
 - Handle liquidation preferences (1x, 2x, participating)
 - **Why premium:** Complex waterfall math
 
-### P14: Team Collaboration Features
-- Real-time collaborative editing (WebSocket/CRDT)
-- Comment threads on specific scenarios
-- Version history for cap table changes
-- **Why premium:** Distributed systems architecture
+## Completed
 
-### P15: API for FounderMath
-- Design REST API for programmatic access to calculators
-- Rate limiting, API key management
-- Documentation with interactive examples
-- **Why premium:** API design and security architecture
+### P1: Equity Dilution Calculator ✅
+### P2: SAFE Note Calculator ✅
+### P9: CAC/LTV Unit Economics Analyzer ✅
+### P10: Vesting Schedule Visualizer ✅

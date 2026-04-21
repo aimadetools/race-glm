@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startup Runway Calculator — FounderMath</title>
+    <title>Vesting Schedule Visualizer — FounderMath</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
-    <meta name="description" content="Free startup runway calculator. Enter your cash balance, monthly burn rate, and revenue growth to see exactly how many months of runway you have left.">
-    <meta name="keywords" content="startup runway calculator, burn rate calculator, months of runway, gross burn net burn, runway calculation">
-    <meta property="og:title" content="Startup Runway Calculator — FounderMath">
-    <meta property="og:description" content="Calculate how many months of runway your startup has left. Factor in revenue growth, burn rate, and one-time expenses.">
+    <meta name="description" content="Free interactive vesting schedule calculator for startup founders. Visualize your equity vesting timeline, cliff period, and acceleration triggers with detailed charts and breakdowns.">
+    <meta name="keywords" content="vesting schedule calculator, equity vesting, startup vesting, cliff period, acceleration triggers, 83b election">
+    <meta property="og:title" content="Vesting Schedule Visualizer — FounderMath">
+    <meta property="og:description" content="Visualize your equity vesting timeline with cliff periods and acceleration triggers. Free and interactive.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://founder-math.com/og-image.svg">
-    <meta property="og:url" content="https://founder-math.com/runway.html">
+    <meta property="og:url" content="https://founder-math.com/vesting.html">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="print.css" media="print">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -38,6 +38,32 @@
             --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
             --focus-outline: 2px solid var(--accent-light);
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: more) {
+            :root {
+                --border: #ffffff;
+                --text-secondary: #e0e0e0;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -80,13 +106,13 @@
         }
         .nav-links a:hover { color: var(--text-primary); }
         .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-links a.active { color: var(--accent-light); font-weight: 600; }
         .nav-cta {
             background: var(--accent) !important; color: white !important;
             padding: 8px 20px; border-radius: 8px; font-weight: 600;
             transition: transform 0.2s, box-shadow 0.2s !important;
         }
         .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
-        .nav-cta:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
         .mobile-toggle {
             display: none; background: none; border: none; color: var(--text-primary);
             font-size: 1.5rem; cursor: pointer; padding: 8px;
@@ -140,7 +166,6 @@
 
         .panel-section { margin-bottom: 28px; }
         .panel-section:last-child { margin-bottom: 0; }
-
         .panel-section-title {
             font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
             letter-spacing: 0.1em; color: var(--accent-light); margin-bottom: 16px;
@@ -157,9 +182,7 @@
             width: 12px; height: 12px; color: var(--green);
         }
 
-        .input-group {
-            margin-bottom: 16px;
-        }
+        .input-group { margin-bottom: 16px; }
         .input-group label {
             display: block; font-size: 0.8rem; color: var(--text-muted);
             text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;
@@ -169,40 +192,23 @@
             color: var(--text-primary); padding: 10px 14px; border-radius: 8px;
             font-size: 0.9rem; font-family: var(--font-mono); transition: border-color 0.2s;
         }
-        .input-group input:focus, .input-group select:focus {
-            outline: none; border-color: var(--accent);
-        }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: var(--accent); }
         .input-group input:focus-visible, .input-group select:focus-visible {
-            outline: var(--focus-outline);
-            outline-offset: 2px;
+            outline: var(--focus-outline); outline-offset: 2px;
         }
-        .input-group .hint {
-            font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;
-        }
+        .input-group .hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
         .error-message {
-            background: rgba(255, 107, 107, 0.1);
-            border: 1px solid rgba(255, 107, 107, 0.3);
-            border-radius: 8px;
-            padding: 8px 12px;
-            font-size: 0.8rem;
-            color: var(--red);
-            margin-bottom: 12px;
-            display: none;
+            background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 8px; padding: 8px 12px; font-size: 0.8rem; color: var(--red);
+            margin-bottom: 12px; display: none;
         }
         .error-message.visible { display: block; }
-        .input-error {
-            border-color: var(--red) !important;
-        }
+        .input-error { border-color: var(--red) !important; }
 
-        .input-row {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-        }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .separator { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
 
-        .separator {
-            border: none; border-top: 1px solid var(--border); margin: 20px 0;
-        }
-
-        /* Share buttons */
         .share-bar { display: flex; gap: 8px; margin-top: 8px; }
         .btn-share {
             flex: 1; background: var(--bg-card); border: 1px solid var(--border);
@@ -211,10 +217,7 @@
             transition: all 0.2s; font-family: var(--font-sans);
         }
         .btn-share:hover { border-color: var(--accent); color: var(--text-primary); }
-        .btn-share:focus-visible {
-            outline: var(--focus-outline);
-            outline-offset: 2px;
-        }
+        .btn-share:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
         .btn-share.copied { border-color: var(--green); color: var(--green); }
 
         /* Scenarios UI */
@@ -248,7 +251,6 @@
         /* RESULTS PANEL */
         .results-panel { min-width: 0; }
 
-        /* Summary cards */
         .summary-cards {
             display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px;
         }
@@ -264,39 +266,6 @@
             letter-spacing: 0.05em; margin-top: 4px;
         }
 
-        /* Runway gauge */
-        .runway-gauge {
-            background: var(--bg-secondary); border: 1px solid var(--border);
-            border-radius: 16px; padding: 32px; margin-bottom: 32px; text-align: center;
-        }
-        .runway-gauge h3 { font-size: 1.1rem; margin-bottom: 4px; }
-        .runway-gauge .gauge-subtitle {
-            font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;
-        }
-        .gauge-visual {
-            position: relative; width: 200px; height: 200px; margin: 0 auto 20px;
-        }
-        .gauge-visual svg { width: 200px; height: 200px; transform: rotate(-90deg); }
-        .gauge-bg { fill: none; stroke: var(--bg-card); stroke-width: 16; }
-        .gauge-fill {
-            fill: none; stroke-width: 16; stroke-linecap: round;
-            transition: stroke-dashoffset 0.8s ease, stroke 0.3s;
-        }
-        .gauge-center {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            text-align: center;
-        }
-        .gauge-center .months {
-            font-family: var(--font-mono); font-size: 3rem; font-weight: 800; line-height: 1;
-        }
-        .gauge-center .unit {
-            font-size: 0.85rem; color: var(--text-muted);
-        }
-        .runway-status {
-            font-size: 0.9rem; font-weight: 600; margin-top: 8px;
-        }
-
-        /* Chart section */
         .chart-section {
             background: var(--bg-secondary); border: 1px solid var(--border);
             border-radius: 16px; padding: 32px; margin-bottom: 32px;
@@ -308,7 +277,44 @@
         .chart-container { position: relative; height: 350px; }
         .chart-container canvas { width: 100% !important; height: 100% !important; }
 
-        /* Monthly breakdown table */
+        /* Timeline section */
+        .timeline-section {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; padding: 32px; margin-bottom: 32px;
+        }
+        .timeline-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .timeline-section .chart-subtitle {
+            font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;
+        }
+        .timeline-bar {
+            position: relative; height: 60px; background: var(--bg-card);
+            border-radius: 8px; overflow: hidden; margin-bottom: 16px;
+        }
+        .timeline-fill {
+            position: absolute; top: 0; left: 0; height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--green));
+            border-radius: 8px; transition: width 0.5s ease;
+        }
+        .timeline-markers { position: relative; height: 40px; margin-bottom: 16px; }
+        .timeline-marker {
+            position: absolute; top: 0; text-align: center; transform: translateX(-50%);
+        }
+        .timeline-marker .marker-dot {
+            width: 12px; height: 12px; border-radius: 50%; margin: 0 auto 4px;
+        }
+        .timeline-marker .marker-label {
+            font-size: 0.7rem; color: var(--text-muted); white-space: nowrap;
+        }
+        .timeline-legend {
+            display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+        }
+        .timeline-legend span {
+            display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--text-secondary);
+        }
+        .legend-dot {
+            width: 10px; height: 10px; border-radius: 50%; display: inline-block;
+        }
+
         .table-section {
             background: var(--bg-secondary); border: 1px solid var(--border);
             border-radius: 16px; padding: 32px; overflow-x: auto;
@@ -334,27 +340,8 @@
             text-align: left; font-family: var(--font-sans); font-weight: 600;
         }
         .breakdown-table tr:hover td { background: rgba(108, 92, 231, 0.05); }
-        .breakdown-table .zero-row td { color: var(--red); opacity: 0.7; }
-        .breakdown-table .negative td { color: var(--red); }
-
-        /* Milestone markers */
-        .milestones {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px;
-        }
-        .milestone-card {
-            background: var(--bg-secondary); border: 1px solid var(--border);
-            border-radius: 12px; padding: 20px;
-        }
-        .milestone-card .ms-label {
-            font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;
-            letter-spacing: 0.05em; margin-bottom: 8px;
-        }
-        .milestone-card .ms-value {
-            font-family: var(--font-mono); font-size: 1.2rem; font-weight: 700;
-        }
-        .milestone-card .ms-note {
-            font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;
-        }
+        .breakdown-table .cliff-row td { background: rgba(255, 165, 2, 0.08); color: var(--orange); }
+        .breakdown-table .today-row td { background: rgba(108, 92, 231, 0.1); font-weight: 600; }
 
         /* CTA */
         .calc-cta {
@@ -395,30 +382,27 @@
         }
         .toast.show { transform: translateX(-50%) translateY(0); }
 
-        /* Skip link for accessibility */
-        .skip-link {
-            position: absolute; top: -40px; left: 0;
-            background: var(--accent); color: white;
-            padding: 8px 16px; text-decoration: none; z-index: 1001;
-            transition: top 0.3s;
+        /* Theme toggle */
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 8px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; width: 36px; height: 36px;
         }
-        .skip-link:focus { top: 0; }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+        .theme-toggle .sun-icon, .theme-toggle .moon-icon { width: 18px; height: 18px; }
+        .theme-toggle .sun-icon { display: none; }
+        .theme-toggle .moon-icon { display: block; }
+        body[data-theme="light"] .theme-toggle .sun-icon { display: block; }
+        body[data-theme="light"] .theme-toggle .moon-icon { display: none; }
 
-        /* High contrast mode support */
-        @media (prefers-contrast: more) {
-            :root {
-                --border: #ffffff;
-                --text-secondary: #e0e0e0;
-            }
-        }
-
-        /* Reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+        /* Light theme */
+        body[data-theme="light"] {
+            --bg-primary: #ffffff; --bg-secondary: #f8f9fa; --bg-card: #f0f0f5;
+            --bg-card-hover: #e8e8ed; --bg-input: #f0f0f5;
+            --text-primary: #1a1a2e; --text-secondary: #555570; --text-muted: #888;
+            --border: #e0e0e5;
         }
 
         /* RESPONSIVE */
@@ -426,7 +410,6 @@
             .calc-layout { grid-template-columns: 1fr; }
             .input-panel { position: static; max-height: none; }
             .summary-cards { grid-template-columns: repeat(2, 1fr); }
-            .milestones { grid-template-columns: 1fr; }
         }
         @media (max-width: 600px) {
             .nav-links { display: none; }
@@ -441,44 +424,11 @@
             .footer-inner { flex-direction: column; text-align: center; }
             .chart-container { height: 260px; }
         }
-        /* Theme toggle button */
-        .theme-toggle {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            padding: 8px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-            width: 36px;
-            height: 36px;
-        }
-        .theme-toggle:hover {
-            border-color: var(--accent);
-            color: var(--text-primary);
-        }
-        .theme-toggle:focus-visible {
-            outline: var(--focus-outline);
-            outline-offset: 2px;
-        }
-        .theme-toggle .sun-icon, .theme-toggle .moon-icon {
-            width: 18px;
-            height: 18px;
-        }
-        .theme-toggle .sun-icon { display: none; }
-        .theme-toggle .moon-icon { display: block; }
-        body[data-theme="light"] .theme-toggle .sun-icon { display: block; }
-        body[data-theme="light"] .theme-toggle .moon-icon { display: none; }
-
     </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Navigation -->
     <nav role="navigation" aria-label="Main navigation">
         <div class="nav-inner">
             <a href="/" class="logo" aria-label="FounderMath home">
@@ -489,25 +439,22 @@
                 <li role="none"><a href="dilution.html" role="menuitem">Dilution Calc</a></li>
                 <li role="none"><a href="runway.html" role="menuitem">Runway Calc</a></li>
                 <li role="none"><a href="safe.html" role="menuitem">SAFE Calc</a></li>
-                <li role="none"><a href="vesting.html" role="menuitem">Vesting Calc</a></li>
-                <li role="none"><a href="unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="vesting.html" class="active" role="menuitem">Vesting Calc</a></li>
                 <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
                 <li role="none"><a href="about.html" role="menuitem">About</a></li>
                 <li role="none"><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
-            <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l-1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l-1.42-1.42"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 1 11.21 3 7 7 0 0 1 0-14zm0 0A9 9 0 0 0 0 11.21-3 7 7 0 0 0 0 14z"/></svg></button></li></ul>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l-1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l-1.42-1.42"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></li>
+            </ul>
             <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
         </div>
     </nav>
 
-    <!-- Page Header -->
     <header class="page-header">
-        <h1>Startup <span class="gradient">Runway</span> Calculator</h1>
-        <p>Know exactly how many months of runway you have left. Factor in revenue growth, burn rate changes, and one-time expenses.</p>
+        <h1>Vesting Schedule <span class="gradient">Visualizer</span></h1>
+        <p>Visualize your equity vesting timeline. See exactly when your shares vest, the cliff period, and what happens with acceleration triggers.</p>
     </header>
 
-    <!-- Main Content -->
     <main id="main-content" class="calc-layout">
-    <div class="calc-layout">
         <!-- Left: Inputs -->
         <div class="input-panel">
             <div class="save-indicator" aria-live="polite">
@@ -519,66 +466,69 @@
                 <span>Saved locally</span>
             </div>
             <div class="panel-section">
-                <div class="panel-section-title">Cash Position</div>
+                <div class="panel-section-title">Equity Grant</div>
                 <div class="input-group">
-                    <label>Cash in Bank ($)</label>
-                    <input type="number" id="cashInBank" value="500000" min="0" step="10000" oninput="recalculate()">
-                    <div class="hint">Total cash and cash equivalents</div>
+                    <label for="totalShares">Total Shares Granted</label>
+                    <input type="number" id="totalShares" value="48000" min="1" step="1000" oninput="recalculate()">
+                    <div class="hint">Number of options or shares</div>
                 </div>
-                <div class="input-group">
-                    <label>Expected Funding ($)</label>
-                    <input type="number" id="expectedFunding" value="0" min="0" step="10000" oninput="recalculate()">
-                    <div class="hint">Firm commitments or expected bridge rounds</div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="grantPrice">Grant Price ($/share)</label>
+                        <input type="number" id="grantPrice" value="0.50" min="0" step="0.01" oninput="recalculate()">
+                    </div>
+                    <div class="input-group">
+                        <label for="currentFMV">Current FMV ($/share)</label>
+                        <input type="number" id="currentFMV" value="5.00" min="0" step="0.01" oninput="recalculate()">
+                    </div>
                 </div>
             </div>
 
             <hr class="separator">
 
             <div class="panel-section">
-                <div class="panel-section-title">Monthly Burn Rate</div>
+                <div class="panel-section-title">Vesting Terms</div>
                 <div class="input-row">
                     <div class="input-group">
-                        <label>Monthly Expenses ($)</label>
-                        <input type="number" id="monthlyExpenses" value="40000" min="0" step="1000" oninput="recalculate()">
+                        <label for="vestingYears">Vesting (years)</label>
+                        <input type="number" id="vestingYears" value="4" min="1" max="10" step="1" oninput="recalculate()">
                     </div>
                     <div class="input-group">
-                        <label>Monthly Revenue ($)</label>
-                        <input type="number" id="monthlyRevenue" value="10000" min="0" step="1000" oninput="recalculate()">
+                        <label for="cliffMonths">Cliff (months)</label>
+                        <input type="number" id="cliffMonths" value="12" min="0" max="48" step="1" oninput="recalculate()">
                     </div>
                 </div>
                 <div class="input-group">
-                    <label>Net Monthly Burn</label>
-                    <input type="text" id="netBurn" readonly style="color:var(--text-muted);cursor:default;">
+                    <label for="scheduleType">Vesting Schedule</label>
+                    <select id="scheduleType" onchange="recalculate()">
+                        <option value="monthly">Monthly</option>
+                        <option value="quarterly">Quarterly</option>
+                        <option value="annual">Annual</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" id="startDate" oninput="recalculate()">
+                    <div class="hint">When the vesting period begins</div>
                 </div>
             </div>
 
             <hr class="separator">
 
             <div class="panel-section">
-                <div class="panel-section-title">Growth & Adjustments</div>
-                <div class="input-row">
-                    <div class="input-group">
-                        <label>Revenue Growth (%/mo)</label>
-                        <input type="number" id="revenueGrowth" value="8" min="0" max="100" step="1" oninput="recalculate()">
-                        <div class="hint">Monthly compounding</div>
-                    </div>
-                    <div class="input-group">
-                        <label>Expense Growth (%/mo)</label>
-                        <input type="number" id="expenseGrowth" value="2" min="0" max="100" step="1" oninput="recalculate()">
-                        <div class="hint">Hiring, scaling costs</div>
-                    </div>
-                </div>
+                <div class="panel-section-title">Acceleration</div>
                 <div class="input-group">
-                    <label>One-Time Expenses ($)</label>
-                    <input type="number" id="oneTimeExpenses" value="0" min="0" step="1000" oninput="recalculate()">
-                    <div class="hint">Planned purchases, legal fees, etc.</div>
-                </div>
-                <div class="input-group">
-                    <label>When? (Month #)</label>
-                    <input type="number" id="oneTimeMonth" value="3" min="1" max="60" step="1" oninput="recalculate()">
-                    <div class="hint">Which month the one-time expense hits</div>
+                    <label for="accelType">Acceleration Trigger</label>
+                    <select id="accelType" onchange="recalculate()">
+                        <option value="none">None (Standard)</option>
+                        <option value="single">Single-Trigger (CIC)</option>
+                        <option value="double">Double-Trigger (CIC + Termination)</option>
+                    </select>
+                    <div class="hint">What accelerates vesting on exit</div>
                 </div>
             </div>
+
+            <div class="error-message" id="inputError" role="alert" aria-live="polite"></div>
 
             <div class="panel-section">
                 <div class="panel-section-title">Saved Scenarios</div>
@@ -596,85 +546,61 @@
                 <div class="panel-section-title">Share</div>
                 <div class="share-bar">
                     <button class="btn-share" id="shareBtn" onclick="copyShareLink()">Copy Share Link</button>
-                    <button class="btn-share" onclick="exportPDF()" aria-label="Export results as PDF">Export PDF</button>
                     <button class="btn-share" onclick="resetCalculator()">Reset</button>
                 </div>
             </div>
         </div>
-        <div class="error-message" id="inputError" role="alert" aria-live="polite"></div>
 
         <!-- Right: Results -->
         <div class="results-panel" role="region" aria-label="Calculator results">
-            <!-- Summary Cards -->
             <div class="summary-cards">
                 <div class="summary-card">
-                    <div class="metric-value" id="sumRunway" style="color:var(--green)">—</div>
-                    <div class="metric-label">Months of Runway</div>
+                    <div class="metric-value" id="sumTotal" style="color:var(--accent-light)">—</div>
+                    <div class="metric-label">Total Shares</div>
                 </div>
                 <div class="summary-card">
-                    <div class="metric-value" id="sumNetBurn" style="color:var(--orange)">—</div>
-                    <div class="metric-label">Current Net Burn</div>
+                    <div class="metric-value" id="sumVested" style="color:var(--green)">—</div>
+                    <div class="metric-label">Vested to Date</div>
                 </div>
                 <div class="summary-card">
-                    <div class="metric-value" id="sumRunDate" style="color:var(--blue)">—</div>
-                    <div class="metric-label">Runway Ends</div>
+                    <div class="metric-value" id="sumValue" style="color:var(--blue)">—</div>
+                    <div class="metric-label">Vested Value</div>
                 </div>
                 <div class="summary-card">
-                    <div class="metric-value" id="sumBreakeven" style="color:var(--accent-light)">—</div>
-                    <div class="metric-label">Breakeven Month</div>
+                    <div class="metric-value" id="sumRemaining" style="color:var(--orange)">—</div>
+                    <div class="metric-label">Unvested Remaining</div>
                 </div>
-            </div>
-
-            <!-- Runway Gauge -->
-            <section class="runway-gauge" aria-labelledby="gaugeTitle">
-                <h3 id="gaugeTitle">Runway Status</h3>
-                <p class="gauge-subtitle">Visual indicator of your runway health</p>
-                <div class="gauge-visual">
-                    <svg viewBox="0 0 200 200">
-                        <circle class="gauge-bg" cx="100" cy="100" r="85"></circle>
-                        <circle class="gauge-fill" id="gaugeFill" cx="100" cy="100" r="85"
-                            stroke-dasharray="534" stroke-dashoffset="534"></circle>
-                    </svg>
-                    <div class="gauge-center">
-                        <div class="months" id="gaugeMonths">—</div>
-                        <div class="unit">months</div>
-                    </div>
-                </div>
-                <div class="runway-status" id="runwayStatus">—</div>
             </div>
 
             <!-- Chart -->
             <section class="chart-section" aria-labelledby="chartTitle">
-                <h3 id="chartTitle">Cash Balance Over Time</h3>
-                <p class="chart-subtitle">Watch your cash balance change month by month as revenue grows and expenses evolve.</p>
+                <h3 id="chartTitle">Vesting Timeline</h3>
+                <p class="chart-subtitle">Track your shares as they vest over time. The cliff marks when the first batch vests.</p>
                 <div class="chart-container">
-                    <canvas id="runwayChart" role="img" aria-label="Line chart showing cash balance, net burn, and monthly revenue over time"></canvas>
+                    <canvas id="vestingChart" role="img" aria-label="Stacked area chart showing vested and unvested shares over time"></canvas>
                 </div>
             </section>
 
-            <!-- Milestones -->
-            <div class="milestones" id="milestoneCards">
-                <div class="milestone-card">
-                    <div class="ms-label">Fundraise Deadline</div>
-                    <div class="ms-value" id="msDeadline">—</div>
-                    <div class="ms-note">Start raising 6 months before runway ends</div>
+            <!-- Visual Timeline -->
+            <section class="timeline-section" aria-labelledby="timelineTitle">
+                <h3 id="timelineTitle">Vesting Progress</h3>
+                <p class="chart-subtitle">Visual timeline of your vesting milestones.</p>
+                <div class="timeline-bar">
+                    <div class="timeline-fill" id="timelineFill" style="width: 0%"></div>
                 </div>
-                <div class="milestone-card">
-                    <div class="ms-label">Revenue at Month 12</div>
-                    <div class="ms-value" id="msRev12">—</div>
-                    <div class="ms-note">Projected monthly revenue</div>
+                <div class="timeline-markers" id="timelineMarkers"></div>
+                <div class="timeline-legend">
+                    <span><span class="legend-dot" style="background:var(--accent)"></span> Vested</span>
+                    <span><span class="legend-dot" style="background:var(--bg-card)"></span> Unvested</span>
+                    <span><span class="legend-dot" style="background:var(--orange)"></span> Cliff</span>
+                    <span><span class="legend-dot" style="background:var(--green)"></span> Fully Vested</span>
                 </div>
-                <div class="milestone-card">
-                    <div class="ms-label">Total Cash Burned</div>
-                    <div class="ms-value" id="msTotalBurn">—</div>
-                    <div class="ms-note">Cumulative net burn over runway</div>
-                </div>
-            </div>
+            </section>
 
             <!-- Monthly Breakdown -->
             <section class="table-section" aria-labelledby="tableTitle">
-                <h3 id="tableTitle">Monthly Breakdown</h3>
-                <p class="table-subtitle">Month-by-month cash flow projection with growth factored in.</p>
+                <h3 id="tableTitle">Vesting Schedule Breakdown</h3>
+                <p class="table-subtitle">Period-by-period breakdown of shares vesting and cumulative totals.</p>
                 <div style="overflow-x:auto;">
                     <table class="breakdown-table" id="breakdownTable" role="table" aria-describedby="tableTitle"></table>
                 </div>
@@ -682,14 +608,13 @@
 
             <!-- CTA -->
             <div class="calc-cta" role="complementary" aria-label="FounderMath Pro upgrade offer">
-                <h3>Want to save scenarios and export this to PDF?</h3>
-                <p>FounderMath Pro lets you save unlimited runway scenarios, compare them side-by-side, and export charts to PDF or PNG.</p>
+                <h3>Want to model multiple offers side by side?</h3>
+                <p>FounderMath Pro lets you compare equity offers, model acceleration scenarios, and export vesting schedules to PDF.</p>
                 <a href="pricing.html" class="btn-white">Upgrade to Pro — $19/mo</a>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-inner">
             <div class="footer-left">
@@ -701,45 +626,43 @@
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="mailto:hello@foundermath.com">Contact</a></li>
-            <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l-1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l-1.42-1.42"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 1 11.21 3 7 7 0 0 1 0-14zm0 0A9 9 0 0 0 0 11.21-3 7 7 0 0 0 0 14z"/></svg></button></li></ul>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l-1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l-1.42-1.42"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></li>
+            </ul>
         </div>
     </footer>
 
-    <!-- Toast -->
     <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Link copied to clipboard!</div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
     <script>
     // ============================================================
-    // STATE & DEFAULTS
+    // DEFAULTS
     // ============================================================
     const DEFAULTS = {
-        cashInBank: 500000,
-        expectedFunding: 0,
-        monthlyExpenses: 40000,
-        monthlyRevenue: 10000,
-        revenueGrowth: 8,
-        expenseGrowth: 2,
-        oneTimeExpenses: 0,
-        oneTimeMonth: 3
+        totalShares: 48000,
+        grantPrice: 0.50,
+        currentFMV: 5.00,
+        vestingYears: 4,
+        cliffMonths: 12,
+        scheduleType: 'monthly',
+        startDate: '',
+        accelType: 'none'
     };
+
+    function gv(id) { return document.getElementById(id).value; }
+    function gn(id) { return parseFloat(document.getElementById(id).value) || 0; }
 
     function getState() {
         return {
-            cashInBank: gv('cashInBank'),
-            expectedFunding: gv('expectedFunding'),
-            monthlyExpenses: gv('monthlyExpenses'),
-            monthlyRevenue: gv('monthlyRevenue'),
-            revenueGrowth: gv('revenueGrowth'),
-            expenseGrowth: gv('expenseGrowth'),
-            oneTimeExpenses: gv('oneTimeExpenses'),
-            oneTimeMonth: gv('oneTimeMonth')
+            totalShares: gn('totalShares'),
+            grantPrice: gn('grantPrice'),
+            currentFMV: gn('currentFMV'),
+            vestingYears: gn('vestingYears'),
+            cliffMonths: gn('cliffMonths'),
+            scheduleType: gv('scheduleType'),
+            startDate: gv('startDate'),
+            accelType: gv('accelType')
         };
-    }
-
-    function gv(id) {
-        return parseFloat(document.getElementById(id).value) || 0;
     }
 
     // ============================================================
@@ -751,114 +674,197 @@
         if (!encoded) return;
         try {
             const parsed = JSON.parse(atob(encoded));
-            Object.keys(DEFAULTS).forEach(key => {
-                if (parsed[key] !== undefined) {
-                    document.getElementById(key).value = parsed[key];
-                }
+            ['totalShares','grantPrice','currentFMV','vestingYears','cliffMonths','scheduleType','startDate','accelType'].forEach(key => {
+                if (parsed[key] !== undefined) document.getElementById(key).value = parsed[key];
             });
         } catch (e) { /* ignore */ }
     }
 
     function encodeStateToURL() {
-        const s = getState();
-        return window.location.origin + window.location.pathname + '?s=' + btoa(JSON.stringify(s));
+        return window.location.origin + window.location.pathname + '?s=' + btoa(JSON.stringify(getState()));
     }
 
     // ============================================================
-    // INPUT VALIDATION
+    // VALIDATION
     // ============================================================
-    function validateMonetaryInput(value, fieldName) {
-        const numValue = parseFloat(value);
-        const input = document.getElementById(fieldName);
-        const error = document.getElementById('inputError');
-        
-        if (numValue < 0) {
-            if (input) input.classList.add('input-error');
-            error.textContent = 'Value cannot be negative.';
-            error.classList.add('visible');
-        } else {
-            if (input) input.classList.remove('input-error');
-            error.classList.remove('visible');
+    function validateInput(id, min, max, label) {
+        const val = gn(id);
+        const el = document.getElementById(id);
+        const err = document.getElementById('inputError');
+        if (val < min || val > max) {
+            el.classList.add('input-error');
+            err.textContent = label + ' must be between ' + min + ' and ' + max;
+            err.classList.add('visible');
+            return false;
         }
-    }
-    
-    function validatePercentageInput(value, fieldName) {
-        const numValue = parseFloat(value);
-        const input = document.getElementById(fieldName);
-        const error = document.getElementById('inputError');
-        
-        if (numValue < 0 || numValue > 100) {
-            if (input) input.classList.add('input-error');
-            error.textContent = 'Percentage must be between 0 and 100%.';
-            error.classList.add('visible');
-        } else {
-            if (input) input.classList.remove('input-error');
-            error.classList.remove('visible');
-        }
+        el.classList.remove('input-error');
+        err.classList.remove('visible');
+        return true;
     }
 
-        // ============================================================
-    // CALCULATION ENGINE
+    // ============================================================
+    // CALCULATION
     // ============================================================
     function calculate() {
         const s = getState();
-        const netBurn = s.monthlyExpenses - s.monthlyRevenue;
-        const revGrowth = s.revenueGrowth / 100;
-        const expGrowth = s.expenseGrowth / 100;
+        const totalMonths = s.vestingYears * 12;
+        const cliffM = Math.min(s.cliffMonths, totalMonths);
+        const totalShares = s.totalShares;
+        const grantPrice = s.grantPrice;
+        const fmv = s.currentFMV;
+        const spread = fmv - grantPrice;
 
-        // Project month by month
-        const months = [];
-        let cash = s.cashInBank + s.expectedFunding;
-        let rev = s.monthlyRevenue;
-        let exp = s.monthlyExpenses;
-        let runwayMonth = -1;
-        let breakevenMonth = -1;
+        // Determine vesting periods
+        let periodMonths = 1; // monthly
+        if (s.scheduleType === 'quarterly') periodMonths = 3;
+        if (s.scheduleType === 'annual') periodMonths = 12;
 
-        const MAX_MONTHS = 60;
+        const periods = [];
+        let sharesVested = 0;
 
-        for (let m = 1; m <= MAX_MONTHS; m++) {
-            const burn = exp - rev;
-            let oneTime = 0;
-            if (m === s.oneTimeMonth) oneTime = s.oneTimeExpenses;
-            const cashEnd = cash - burn - oneTime;
+        // Shares that vest at cliff
+        const cliffShares = totalShares * (cliffM / totalMonths);
 
-            if (cashEnd <= 0 && runwayMonth === -1) {
-                runwayMonth = m;
-            }
-            if (burn <= 0 && breakevenMonth === -1 && m > 1) {
-                breakevenMonth = m;
-            }
+        // Shares per post-cliff period
+        const postCliffShares = totalShares - cliffShares;
+        const postCliffPeriods = Math.ceil((totalMonths - cliffM) / periodMonths);
+        const sharesPerPeriod = postCliffPeriods > 0 ? postCliffShares / postCliffPeriods : 0;
 
-            months.push({
-                month: m,
-                revenue: rev,
-                expenses: exp,
-                netBurn: burn,
-                oneTime: oneTime,
-                cashStart: cash,
-                cashEnd: Math.max(0, cashEnd),
-                cashEndRaw: cashEnd
-            });
-
-            cash = Math.max(0, cashEnd);
-            if (cash <= 0) break;
-
-            // Grow revenue and expenses for next month
-            rev = rev * (1 + revGrowth);
-            exp = exp * (1 + expGrowth);
+        // Calculate start date
+        let start = s.startDate ? new Date(s.startDate + 'T00:00:00') : new Date();
+        if (!s.startDate) {
+            start.setMonth(start.getMonth() - 6); // default: started 6 months ago for demo
         }
 
-        // If never ran out
-        if (runwayMonth === -1) runwayMonth = months.length;
+        const today = new Date();
 
-        // If never broke even
-        // Check final month
-        if (breakevenMonth === -1 && months.length > 0) {
-            const last = months[months.length - 1];
-            if (last.netBurn <= 0) breakevenMonth = months.length;
+        // Build period-by-period vesting
+        let cumulativeVested = 0;
+        let month = 0;
+
+        // Before cliff: nothing vests
+        for (month = 1; month <= cliffM; month++) {
+            const periodDate = new Date(start);
+            periodDate.setMonth(periodDate.getMonth() + month);
+            const isPast = periodDate <= today;
+
+            if (month === cliffM) {
+                // Cliff vesting event
+                cumulativeVested += cliffShares;
+                periods.push({
+                    month: month,
+                    date: periodDate,
+                    label: 'Month ' + month + ' (Cliff)',
+                    sharesVesting: cliffShares,
+                    cumulativeVested: cumulativeVested,
+                    pctVested: (cumulativeVested / totalShares) * 100,
+                    value: cumulativeVested * spread,
+                    isCliff: true,
+                    isPast: isPast
+                });
+            } else {
+                periods.push({
+                    month: month,
+                    date: periodDate,
+                    label: 'Month ' + month,
+                    sharesVesting: 0,
+                    cumulativeVested: cumulativeVested,
+                    pctVested: (cumulativeVested / totalShares) * 100,
+                    value: cumulativeVested * spread,
+                    isCliff: false,
+                    isPast: isPast
+                });
+            }
         }
 
-        return { months, runwayMonth, netBurn, breakevenMonth };
+        // After cliff: periodic vesting
+        let nextVestMonth = cliffM + periodMonths;
+        let periodCount = 0;
+
+        for (month = cliffM + 1; month <= totalMonths; month++) {
+            const periodDate = new Date(start);
+            periodDate.setMonth(periodDate.getMonth() + month);
+            const isPast = periodDate <= today;
+
+            if (month === nextVestMonth) {
+                periodCount++;
+                let vesting = sharesPerPeriod;
+                // Last period gets rounding
+                if (periodCount === postCliffPeriods) {
+                    vesting = totalShares - cumulativeVested;
+                }
+                cumulativeVested += vesting;
+
+                periods.push({
+                    month: month,
+                    date: periodDate,
+                    label: 'Month ' + month,
+                    sharesVesting: vesting,
+                    cumulativeVested: cumulativeVested,
+                    pctVested: Math.min((cumulativeVested / totalShares) * 100, 100),
+                    value: cumulativeVested * spread,
+                    isCliff: false,
+                    isPast: isPast
+                });
+                nextVestMonth += periodMonths;
+            } else if (s.scheduleType === 'monthly') {
+                // For monthly, every month vests after cliff
+                periodCount++;
+                let vesting = sharesPerPeriod;
+                if (periodCount === postCliffPeriods) {
+                    vesting = totalShares - cumulativeVested;
+                }
+                cumulativeVested += vesting;
+
+                periods.push({
+                    month: month,
+                    date: periodDate,
+                    label: 'Month ' + month,
+                    sharesVesting: vesting,
+                    cumulativeVested: cumulativeVested,
+                    pctVested: Math.min((cumulativeVested / totalShares) * 100, 100),
+                    value: cumulativeVested * spread,
+                    isCliff: false,
+                    isPast: isPast
+                });
+            }
+        }
+
+        // Current vested amount
+        const monthsElapsed = Math.floor((today - start) / (1000 * 60 * 60 * 24 * 30.44));
+        let currentlyVested = 0;
+        for (const p of periods) {
+            if (p.isPast) currentlyVested = p.cumulativeVested;
+        }
+
+        const unvested = totalShares - currentlyVested;
+        const monthsUntilFull = Math.max(0, totalMonths - monthsElapsed);
+
+        // Acceleration analysis
+        let accelVested = 0;
+        if (s.accelType === 'single') {
+            accelVested = totalShares; // all shares vest immediately on CIC
+        } else if (s.accelType === 'double') {
+            // Only unvested shares vest on CIC + termination within 12 months
+            accelVested = currentlyVested + unvested; // effectively all
+        }
+
+        return {
+            periods,
+            totalShares,
+            currentlyVested,
+            unvested,
+            monthsUntilFull,
+            monthsElapsed,
+            totalMonths,
+            spread,
+            fmv,
+            grantPrice,
+            accelType: s.accelType,
+            accelVested,
+            start,
+            cliffM
+        };
     }
 
     // ============================================================
@@ -867,82 +873,75 @@
     let chart = null;
 
     function recalculate() {
-        const s = getState();
-        const { months, runwayMonth, netBurn, breakevenMonth } = calculate();
+        validateInput('totalShares', 1, 100000000, 'Total shares');
+        validateInput('vestingYears', 1, 10, 'Vesting years');
+        validateInput('cliffMonths', 0, 120, 'Cliff months');
 
-        // Update net burn display
-        document.getElementById('netBurn').value = formatCurrency(netBurn) + '/mo';
+        const r = calculate();
 
         // Summary cards
-        document.getElementById('sumRunway').textContent = runwayMonth;
-        document.getElementById('sumRunway').style.color = runwayMonth >= 18 ? 'var(--green)' : runwayMonth >= 12 ? 'var(--orange)' : 'var(--red)';
-        document.getElementById('sumNetBurn').textContent = formatCurrency(netBurn);
+        document.getElementById('sumTotal').textContent = formatNumber(r.totalShares);
+        document.getElementById('sumVested').textContent = formatNumber(Math.round(r.currentlyVested));
+        document.getElementById('sumValue').textContent = formatCurrency(r.currentlyVested * r.spread);
+        document.getElementById('sumRemaining').textContent = formatNumber(Math.round(r.unvested));
 
-        // Runway end date
-        const endDate = new Date();
-        endDate.setMonth(endDate.getMonth() + runwayMonth);
-        document.getElementById('sumRunDate').textContent = endDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+        // Timeline progress
+        const progressPct = Math.min((r.currentlyVested / r.totalShares) * 100, 100);
+        document.getElementById('timelineFill').style.width = progressPct + '%';
 
-        // Breakeven
-        document.getElementById('sumBreakeven').textContent = breakevenMonth > 0 ? 'Month ' + breakevenMonth : 'N/A';
-
-        // Gauge
-        const maxGaugeMonths = 36;
-        const gaugePct = Math.min(runwayMonth / maxGaugeMonths, 1);
-        const circumference = 2 * Math.PI * 85; // ~534
-        const offset = circumference * (1 - gaugePct);
-        const gaugeFill = document.getElementById('gaugeFill');
-        gaugeFill.style.strokeDashoffset = offset;
-        gaugeFill.style.stroke = runwayMonth >= 18 ? 'var(--green)' : runwayMonth >= 12 ? 'var(--orange)' : 'var(--red)';
-        document.getElementById('gaugeMonths').textContent = runwayMonth;
-        document.getElementById('gaugeMonths').style.color = runwayMonth >= 18 ? 'var(--green)' : runwayMonth >= 12 ? 'var(--orange)' : 'var(--red)';
-
-        // Status text
-        const status = document.getElementById('runwayStatus');
-        if (runwayMonth >= 18) {
-            status.textContent = 'Healthy — you have time to build and raise';
-            status.style.color = 'var(--green)';
-        } else if (runwayMonth >= 12) {
-            status.textContent = 'Caution — start planning your next raise';
-            status.style.color = 'var(--orange)';
-        } else if (runwayMonth >= 6) {
-            status.textContent = 'Warning — begin fundraising now';
-            status.style.color = 'var(--red)';
-        } else {
-            status.textContent = 'Critical — extend runway immediately';
-            status.style.color = 'var(--red)';
-        }
-
-        // Milestones
-        const deadlineDate = new Date();
-        deadlineDate.setMonth(deadlineDate.getMonth() + Math.max(runwayMonth - 6, 0));
-        document.getElementById('msDeadline').textContent = deadlineDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-
-        if (months.length >= 12) {
-            document.getElementById('msRev12').textContent = formatCurrency(months[11].revenue) + '/mo';
-        } else {
-            document.getElementById('msRev12').textContent = '—';
-        }
-
-        const totalBurned = months.reduce((sum, m) => sum + m.netBurn + m.oneTime, 0);
-        document.getElementById('msTotalBurn').textContent = formatCurrency(totalBurned);
+        // Timeline markers
+        renderTimelineMarkers(r);
 
         // Chart
-        renderChart(months);
+        renderChart(r);
 
         // Table
-        renderTable(months);
+        renderTable(r);
 
         // Save state to localStorage
-        try { localStorage.setItem('foundermath_runway_state', JSON.stringify(getState())); } catch(e) {}
+        try { localStorage.setItem('foundermath_vesting_state', JSON.stringify(getState())); } catch(e) {}
     }
 
-    function renderChart(months) {
-        const ctx = document.getElementById('runwayChart').getContext('2d');
-        const labels = months.map(m => 'Month ' + m.month);
-        const cashData = months.map(m => m.cashEndRaw);
-        const burnData = months.map(m => m.netBurn + m.oneTime);
-        const revData = months.map(m => m.revenue);
+    function renderTimelineMarkers(r) {
+        const container = document.getElementById('timelineMarkers');
+        let html = '';
+
+        // Start marker
+        html += `<div class="timeline-marker" style="left: 0%">
+            <div class="marker-dot" style="background:var(--accent)"></div>
+            <div class="marker-label">Start</div>
+        </div>`;
+
+        // Cliff marker
+        const cliffPct = (r.cliffM / r.totalMonths) * 100;
+        html += `<div class="timeline-marker" style="left: ${cliffPct}%">
+            <div class="marker-dot" style="background:var(--orange)"></div>
+            <div class="marker-label">Cliff (${r.cliffM}mo)</div>
+        </div>`;
+
+        // Today marker
+        const todayPct = Math.min((r.monthsElapsed / r.totalMonths) * 100, 100);
+        if (todayPct > 0 && todayPct < 100) {
+            html += `<div class="timeline-marker" style="left: ${todayPct}%">
+                <div class="marker-dot" style="background:var(--blue)"></div>
+                <div class="marker-label">Today</div>
+            </div>`;
+        }
+
+        // Full vest marker
+        html += `<div class="timeline-marker" style="left: 100%">
+            <div class="marker-dot" style="background:var(--green)"></div>
+            <div class="marker-label">Fully Vested</div>
+        </div>`;
+
+        container.innerHTML = html;
+    }
+
+    function renderChart(r) {
+        const ctx = document.getElementById('vestingChart').getContext('2d');
+        const labels = r.periods.map(p => p.label);
+        const vestedData = r.periods.map(p => p.cumulativeVested);
+        const unvestedData = r.periods.map(p => r.totalShares - p.cumulativeVested);
 
         if (chart) chart.destroy();
 
@@ -952,40 +951,26 @@
                 labels,
                 datasets: [
                     {
-                        label: 'Cash Balance',
-                        data: cashData,
+                        label: 'Vested Shares',
+                        data: vestedData,
                         borderColor: '#6c5ce7',
-                        backgroundColor: 'rgba(108, 92, 231, 0.1)',
+                        backgroundColor: 'rgba(108, 92, 231, 0.15)',
                         fill: true,
-                        tension: 0.3,
+                        tension: 0.1,
                         pointRadius: 0,
                         pointHoverRadius: 5,
-                        borderWidth: 2,
-                        yAxisID: 'y',
+                        borderWidth: 2.5,
                     },
                     {
-                        label: 'Net Burn',
-                        data: burnData,
+                        label: 'Unvested Shares',
+                        data: unvestedData,
                         borderColor: '#ff6b6b',
-                        backgroundColor: 'rgba(255, 107, 107, 0.05)',
+                        backgroundColor: 'rgba(255, 107, 107, 0.08)',
                         fill: true,
-                        tension: 0.3,
+                        tension: 0.1,
                         pointRadius: 0,
                         pointHoverRadius: 5,
                         borderWidth: 2,
-                        yAxisID: 'y1',
-                    },
-                    {
-                        label: 'Monthly Revenue',
-                        data: revData,
-                        borderColor: '#00b894',
-                        backgroundColor: 'rgba(0, 184, 148, 0.05)',
-                        fill: true,
-                        tension: 0.3,
-                        pointRadius: 0,
-                        pointHoverRadius: 5,
-                        borderWidth: 2,
-                        yAxisID: 'y1',
                     }
                 ]
             },
@@ -996,63 +981,63 @@
                 plugins: {
                     legend: {
                         position: 'bottom',
-                        labels: {
-                            color: '#8888a0', padding: 16, usePointStyle: true,
-                            pointStyle: 'line', font: { size: 12 }
-                        }
+                        labels: { color: '#a0a0b5', padding: 16, usePointStyle: true, pointStyle: 'line', font: { size: 12 } }
                     },
                     tooltip: {
                         callbacks: {
                             label: function(ctx) {
-                                return ctx.dataset.label + ': ' + formatCurrency(ctx.parsed.y);
+                                return ctx.dataset.label + ': ' + formatNumber(Math.round(ctx.parsed.y)) + ' shares';
                             }
                         }
                     }
                 },
                 scales: {
                     x: {
-                        ticks: { color: '#8888a0', font: { size: 11 }, maxRotation: 45 },
+                        ticks: { color: '#a0a0b5', font: { size: 10 }, maxRotation: 45, maxTicksLimit: 12 },
                         grid: { display: false }
                     },
                     y: {
-                        position: 'left',
                         ticks: {
-                            color: '#8888a0',
+                            color: '#a0a0b5',
                             callback: v => formatCompact(v),
                             font: { size: 11 }
                         },
                         grid: { color: 'rgba(42, 42, 64, 0.5)' }
-                    },
-                    y1: {
-                        position: 'right',
-                        ticks: {
-                            color: '#8888a0',
-                            callback: v => formatCompact(v),
-                            font: { size: 11 }
-                        },
-                        grid: { display: false }
                     }
                 }
             }
         });
     }
 
-    function renderTable(months) {
+    function renderTable(r) {
         const table = document.getElementById('breakdownTable');
-        let html = '<thead><tr><th>Month</th><th>Revenue</th><th>Expenses</th><th>One-Time</th><th>Net Burn</th><th>Cash End</th></tr></thead><tbody>';
+        let html = '<thead><tr><th>Period</th><th>Date</th><th>Shares Vesting</th><th>Cumulative Vested</th><th>% Vested</th><th>Vested Value</th></tr></thead><tbody>';
 
-        months.forEach(m => {
-            const isZero = m.cashEnd <= 0;
-            const cls = isZero ? ' class="zero-row"' : '';
+        r.periods.forEach(p => {
+            let cls = '';
+            if (p.isCliff) cls = ' class="cliff-row"';
+            const dateStr = p.date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
             html += `<tr${cls}>
-                <td>Month ${m.month}</td>
-                <td style="color:var(--green)">${formatCurrency(m.revenue)}</td>
-                <td style="color:var(--red)">${formatCurrency(m.expenses)}</td>
-                <td>${m.oneTime > 0 ? formatCurrency(m.oneTime) : '—'}</td>
-                <td class="${m.netBurn > 0 ? 'negative' : ''}" style="${m.netBurn <= 0 ? 'color:var(--green)' : ''}">${formatCurrency(m.netBurn)}</td>
-                <td style="color:${m.cashEnd > 0 ? 'var(--text-primary)' : 'var(--red)'}">${formatCurrency(m.cashEnd)}</td>
+                <td>${p.label}</td>
+                <td style="font-family:var(--font-sans)">${dateStr}</td>
+                <td style="color:var(--green)">${p.sharesVesting > 0 ? formatNumber(Math.round(p.sharesVesting)) : '—'}</td>
+                <td>${formatNumber(Math.round(p.cumulativeVested))}</td>
+                <td>${p.pctVested.toFixed(1)}%</td>
+                <td style="color:${p.value > 0 ? 'var(--blue)' : 'var(--text-muted)'}">${p.value > 0 ? formatCurrency(p.value) : '—'}</td>
             </tr>`;
         });
+
+        // Add acceleration row if applicable
+        if (r.accelType !== 'none') {
+            html += `<tr style="background:rgba(0,184,148,0.08)">
+                <td style="color:var(--green)">${r.accelType === 'single' ? 'Single-Trigger CIC' : 'Double-Trigger CIC'}</td>
+                <td style="font-family:var(--font-sans)">On Exit Event</td>
+                <td style="color:var(--green)">${formatNumber(Math.round(r.unvested))}</td>
+                <td style="color:var(--green)">${formatNumber(r.totalShares)}</td>
+                <td style="color:var(--green)">100%</td>
+                <td style="color:var(--green)">${formatCurrency(r.totalShares * r.spread)}</td>
+            </tr>`;
+        }
 
         html += '</tbody>';
         table.innerHTML = html;
@@ -1079,93 +1064,15 @@
         setTimeout(() => toast.classList.remove('show'), 2500);
     }
 
-    // ============================================================
-    // PDF EXPORT
-    // ============================================================
-    function exportPDF() {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-
-        // Header
-        doc.setFillColor(108, 92, 231);
-        doc.rect(0, 0, 210, 30, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(20);
-        doc.setFont('helvetica', 'bold');
-        doc.text('FounderMath', 20, 20);
-        doc.setFontSize(12);
-        doc.setFont('helvetica', 'normal');
-        doc.text('Runway Calculator', 20, 28);
-
-        // Summary section
-        doc.setTextColor(0, 0, 0);
-        doc.setFontSize(16);
-        doc.setFont('helvetica', 'bold');
-        doc.text('Summary', 20, 50);
-
-        const monthsOfRunway = document.getElementById('sumMonthsRunway').textContent;
-        const currentNetBurn = document.getElementById('sumNetBurn').textContent;
-        const runwayEndDate = document.getElementById('sumRunwayEnd').textContent;
-        const breakevenMonth = document.getElementById('sumBreakeven').textContent;
-
-        doc.setFontSize(11);
-        doc.setFont('helvetica', 'normal');
-        doc.text(`Months of Runway: ${monthsOfRunway}`, 20, 62);
-        doc.text(`Current Net Burn: ${currentNetBurn}`, 20, 72);
-        doc.text(`Runway Ends: ${runwayEndDate}`, 20, 82);
-        doc.text(`Breakeven: ${breakevenMonth}`, 20, 92);
-
-        // Chart as image
-        const chartCanvas = document.getElementById('runwayChart');
-        if (chartCanvas) {
-            try {
-                const chartImg = chartCanvas.toDataURL('image/png', 1.0);
-                doc.addImage(chartImg, 'PNG', 20, 105, 170, 100);
-            } catch(e) { console.error('Chart capture failed:', e); }
-        }
-
-        // New page for table
-        doc.addPage();
-        doc.setFillColor(108, 92, 231);
-        doc.rect(0, 0, 210, 30, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(20);
-        doc.setFont('helvetica', 'bold');
-        doc.text('Monthly Breakdown', 20, 20);
-
-        // Table data
-        doc.setTextColor(0, 0, 0);
-        doc.setFontSize(10);
-        doc.setFont('helvetica', 'normal');
-        let yPos = 50;
-
-        const table = document.getElementById('monthlyTable');
-        if (table) {
-            const rows = table.querySelectorAll('tr');
-            rows.forEach((row, index) => {
-                const cells = row.querySelectorAll('th, td');
-                const text = Array.from(cells).map(cell => cell.textContent).join(' | ');
-                if (text.trim() && yPos < 270) {
-                    doc.text(text.substring(0, 110), 20, yPos);
-                    yPos += 10;
-                }
-            });
-        }
-
-        // Footer
-        doc.setFontSize(9);
-        doc.setTextColor(128, 128, 128);
-        doc.text('Generated by FounderMath.com', 20, 285);
-        doc.text(new Date().toLocaleDateString(), 170, 285);
-
-        doc.save('foundermath-runway.pdf');
-        showToast('PDF downloaded!');
-    }
-
     function resetCalculator() {
-        Object.keys(DEFAULTS).forEach(key => {
-            document.getElementById(key).value = DEFAULTS[key];
-        });
+        document.getElementById('totalShares').value = DEFAULTS.totalShares;
+        document.getElementById('grantPrice').value = DEFAULTS.grantPrice;
+        document.getElementById('currentFMV').value = DEFAULTS.currentFMV;
+        document.getElementById('vestingYears').value = DEFAULTS.vestingYears;
+        document.getElementById('cliffMonths').value = DEFAULTS.cliffMonths;
+        document.getElementById('scheduleType').value = DEFAULTS.scheduleType;
+        document.getElementById('startDate').value = '';
+        document.getElementById('accelType').value = DEFAULTS.accelType;
         recalculate();
     }
 
@@ -1194,7 +1101,7 @@
             return;
         }
 
-        const scenarios = JSON.parse(localStorage.getItem('foundermath_runway_scenarios') || '[]');
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_vesting_scenarios') || '[]');
         const existingIndex = scenarios.findIndex(s => s.name === name);
         const scenarioData = {
             name: name,
@@ -1208,7 +1115,7 @@
             scenarios.push(scenarioData);
         }
 
-        localStorage.setItem('foundermath_runway_scenarios', JSON.stringify(scenarios));
+        localStorage.setItem('foundermath_vesting_scenarios', JSON.stringify(scenarios));
         input.value = '';
         input.classList.remove('show');
         updateScenarioSelect();
@@ -1217,14 +1124,18 @@
 
     function loadScenario(name) {
         if (!name) return;
-        const scenarios = JSON.parse(localStorage.getItem('foundermath_runway_scenarios') || '[]');
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_vesting_scenarios') || '[]');
         const scenario = scenarios.find(s => s.name === name);
         if (scenario) {
-            const state = scenario.state;
-            Object.keys(state).forEach(key => {
-                const el = document.getElementById(key);
-                if (el) el.value = state[key];
-            });
+            const savedState = scenario.state;
+            document.getElementById('totalShares').value = savedState.totalShares;
+            document.getElementById('grantPrice').value = savedState.grantPrice;
+            document.getElementById('currentFMV').value = savedState.currentFMV;
+            document.getElementById('vestingYears').value = savedState.vestingYears;
+            document.getElementById('cliffMonths').value = savedState.cliffMonths;
+            document.getElementById('scheduleType').value = savedState.scheduleType;
+            document.getElementById('startDate').value = savedState.startDate || '';
+            document.getElementById('accelType').value = savedState.accelType;
             recalculate();
             document.getElementById('deleteScenarioBtn').style.display = 'block';
             showToast('Scenario loaded!');
@@ -1238,9 +1149,9 @@
 
         if (!confirm(`Delete scenario "${name}"?`)) return;
 
-        const scenarios = JSON.parse(localStorage.getItem('foundermath_runway_scenarios') || '[]');
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_vesting_scenarios') || '[]');
         const filtered = scenarios.filter(s => s.name !== name);
-        localStorage.setItem('foundermath_runway_scenarios', JSON.stringify(filtered));
+        localStorage.setItem('foundermath_vesting_scenarios', JSON.stringify(filtered));
         select.value = '';
         document.getElementById('deleteScenarioBtn').style.display = 'none';
         updateScenarioSelect();
@@ -1249,7 +1160,7 @@
 
     function updateScenarioSelect() {
         const select = document.getElementById('scenarioSelect');
-        const scenarios = JSON.parse(localStorage.getItem('foundermath_runway_scenarios') || '[]');
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_vesting_scenarios') || '[]');
         const currentValue = select.value;
 
         select.innerHTML = '<option value="">-- Load Scenario --</option>';
@@ -1273,17 +1184,21 @@
     function formatCurrency(n) {
         if (Math.abs(n) >= 1000000) return '$' + (n / 1000000).toFixed(2) + 'M';
         if (Math.abs(n) >= 1000) return '$' + (n / 1000).toFixed(1) + 'K';
-        return '$' + n.toFixed(0);
+        return '$' + n.toFixed(2);
+    }
+
+    function formatNumber(n) {
+        return n.toLocaleString('en-US');
     }
 
     function formatCompact(n) {
-        if (Math.abs(n) >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
-        if (Math.abs(n) >= 1000) return '$' + (n / 1000).toFixed(0) + 'K';
-        return '$' + n.toFixed(0);
+        if (Math.abs(n) >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+        if (Math.abs(n) >= 1000) return (n / 1000).toFixed(0) + 'K';
+        return n.toFixed(0);
     }
 
     // ============================================================
-    // MOBILE MENU TOGGLE FOR ACCESSIBILITY
+    // MOBILE MENU & THEME & KEYBOARD
     // ============================================================
     function toggleMobileMenu() {
         const navLinks = document.getElementById('navLinks');
@@ -1293,10 +1208,6 @@
         toggle.setAttribute('aria-expanded', isOpen.toString());
     }
 
-    // ============================================================
-    // ============================================================
-    // THEME TOGGLE
-    // ============================================================
     function toggleTheme() {
         const body = document.body;
         const currentTheme = body.getAttribute('data-theme') || 'dark';
@@ -1304,17 +1215,13 @@
         body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
     }
-    
-    // Load saved theme on page load
+
     document.addEventListener('DOMContentLoaded', function() {
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.body.setAttribute('data-theme', savedTheme);
     });
 
-    // KEYBOARD NAVIGATION
-    // ============================================================
     document.addEventListener('keydown', function(e) {
-        // Close mobile menu on Escape
         if (e.key === 'Escape') {
             const navLinks = document.getElementById('navLinks');
             if (navLinks.classList.contains('open')) {
@@ -1330,7 +1237,7 @@
     // ============================================================
     // Restore from localStorage (before URL override)
     try {
-        const saved = localStorage.getItem("foundermath_runway_state");
+        const saved = localStorage.getItem("foundermath_vesting_state");
         if (saved && !new URLSearchParams(window.location.search).get('s')) {
             const parsed = JSON.parse(saved);
             Object.keys(parsed).forEach(key => {
