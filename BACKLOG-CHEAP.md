@@ -16,7 +16,7 @@
 - Add delete button for saved scenarios
 - Uses localStorage key: `foundermath_{calculator}_scenarios`
 
-### C26: Add PDF Export with jsPDF
+### C26: Add PDF Export with jsPDF ✅
 - Add "Export PDF" button to each calculator's share bar
 - Use jsPDF library (client-side) to generate PDF with:
   - Page header with FounderMath branding
@@ -33,7 +33,7 @@
 
 ## Content & SEO Tasks
 
-### C28: Write Blog Post — "How to Evaluate a Startup Equity Offer"
+### C28: Write Blog Post — "How to Evaluate a Startup Equity Offer" ✅
 - 2000+ word guide for early employees
 - Cover: vesting, cliff, strike price, FMV, 409A valuations
 - Link to vesting calculator

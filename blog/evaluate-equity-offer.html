@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Evaluate a Startup Equity Offer: A Complete Guide for Early Employees — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Learn how to evaluate a startup equity offer. Understand vesting schedules, cliff periods, strike price, FMV, 409A valuations, and calculate what your equity is really worth.">
+    <meta name="keywords" content="startup equity offer, how to evaluate stock options, vesting schedule, cliff period, strike price, FMV, 409A valuation, employee equity">
+    <meta property="og:title" content="How to Evaluate a Startup Equity Offer: A Complete Guide">
+    <meta property="og:description" content="Don't sign your equity offer until you understand the details. Learn what your startup equity is really worth.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/evaluate-equity-offer.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links {
+            display: flex; align-items: center; gap: 32px; list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.cta {
+            background: var(--accent); color: white; padding: 8px 16px;
+            border-radius: 8px; font-weight: 600; transition: all 0.2s;
+        }
+        .nav-links a.cta:hover {
+            background: var(--accent-light); transform: translateY(-1px);
+        }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); cursor: pointer; }
+
+        /* Light Theme */
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.15);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.15);
+            --red: #e74c3c;
+            --orange: #f39c12;
+            --blue: #3498db;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-muted: #b2bec3;
+            --border: #dfe6e9;
+        }
+        body[data-theme="light"] .logo-icon {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+        }
+        body[data-theme="light"] .article-title {
+            background: -webkit-linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+                background: var(--bg-primary); flex-direction: column;
+                padding: 48px; gap: 24px; transform: translateX(100%);
+                transition: transform 0.3s;
+            }
+            .nav-links.open { transform: translateX(0); }
+            .mobile-toggle { display: block; }
+        }
+
+        /* Article */
+        .article-container {
+            max-width: 740px; margin: 120px auto 60px; padding: 0 24px;
+        }
+        .article-header { margin-bottom: 48px; }
+        .article-meta {
+            display: flex; gap: 16px; align-items: center; margin-bottom: 16px;
+        }
+        .article-meta span {
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 4px 12px; border-radius: 20px; font-size: 0.75rem;
+            color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .article-title {
+            font-size: 2.5rem; font-weight: 800; line-height: 1.1;
+            margin-bottom: 20px; letter-spacing: -0.03em;
+        }
+        .article-title .gradient {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .article-excerpt {
+            font-size: 1.2rem; color: var(--text-secondary); line-height: 1.6;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px; margin-bottom: 48px;
+        }
+        .toc h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 16px; }
+        .toc ul { list-style: none; }
+        .toc li { margin-bottom: 8px; }
+        .toc a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent-light); }
+
+        /* Article body */
+        .article-body h2 {
+            font-size: 1.6rem; font-weight: 800; margin-top: 48px; margin-bottom: 16px;
+            letter-spacing: -0.02em; padding-top: 16px; border-top: 1px solid var(--border);
+        }
+        .article-body h3 {
+            font-size: 1.2rem; font-weight: 700; margin-top: 32px; margin-bottom: 12px;
+        }
+        .article-body p { margin-bottom: 20px; color: var(--text-secondary); font-size: 1.05rem; }
+        .article-body ul, .article-body ol { margin-bottom: 20px; padding-left: 24px; }
+        .article-body li { margin-bottom: 8px; color: var(--text-secondary); font-size: 1.05rem; }
+
+        /* Callout boxes */
+        .callout {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px; margin: 28px 0;
+        }
+        .callout.tip { border-left: 4px solid var(--green); }
+        .callout.warning { border-left: 4px solid var(--orange); }
+        .callout.calc { border-left: 4px solid var(--accent); }
+        .callout strong { display: block; margin-bottom: 8px; color: var(--text-primary); }
+
+        /* Example table */
+        .example-table {
+            width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.9rem;
+        }
+        .example-table th {
+            text-align: left; padding: 10px 14px; background: var(--bg-card);
+            border-bottom: 2px solid var(--border); color: var(--text-muted);
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .example-table td {
+            padding: 10px 14px; border-bottom: 1px solid rgba(42, 42, 64, 0.3);
+            font-family: var(--font-mono); color: var(--text-secondary);
+        }
+        .example-table tr:hover td { background: rgba(108, 92, 231, 0.05); }
+        .example-table .highlight { color: var(--text-primary); font-weight: 700; }
+        .example-table .negative { color: var(--red); }
+
+        /* Formula blocks */
+        .formula {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 8px; padding: 16px 20px; margin: 20px 0;
+            font-family: var(--font-mono); font-size: 1rem; color: var(--accent-light);
+            text-align: center;
+        }
+
+        /* CTA inline */
+        .inline-cta {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.15), rgba(0, 184, 148, 0.1));
+            border: 1px solid var(--accent); border-radius: 12px; padding: 28px;
+            margin: 40px 0; text-align: center;
+        }
+        .inline-cta h3 { font-size: 1.15rem; margin-top: 0; margin-bottom: 8px; }
+        .inline-cta p { margin-bottom: 16px; }
+        .inline-cta a {
+            background: var(--accent); color: white; padding: 10px 24px;
+            border-radius: 8px; font-weight: 600; text-decoration: none;
+            display: inline-block; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .inline-cta a:hover {
+            transform: translateY(-2px); box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        /* Footer */
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto; display: flex;
+            justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--text-primary); }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="vesting.html">Vesting</a></li>
+                <li><a href="unit-economics.html">Unit Economics</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="pricing.html" class="cta">Get Pro</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article class="article-container">
+        <header class="article-header">
+            <div class="article-meta">
+                <span>Equity Guide</span>
+                <span>12 min read</span>
+            </div>
+            <h1 class="article-title">How to Evaluate a <span class="gradient">Startup Equity Offer</span></h1>
+            <p class="article-excerpt">Don't sign your equity offer until you understand the vesting, cliff, strike price, and what your shares might actually be worth.</p>
+        </header>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#understanding-the-basics">Understanding the Basics: What You're Being Offered</a></li>
+                <li><a href="#vesting-schedules">Vesting Schedules: When You Actually Own Your Shares</a></li>
+                <li><a href="#the-cliff-period">The Cliff Period: Why Your First Year Matters</a></li>
+                <li><a href="#strike-price-vs-fmv">Strike Price vs. FMV: Understanding Your Equity Value</a></li>
+                <li><a href="#409a-valuations">409A Valuations: What They Mean for You</a></li>
+                <li><a href="#calculating-your-equity-value">Calculating Your Equity's Potential Value</a></li>
+                <li><a href="#red-flags">Red Flags to Watch For</a></li>
+                <li><a href="#key-takeaways">Key Takeaways</a></li>
+            </ul>
+        </div>
+
+        <div class="article-body">
+            <h2 id="understanding-the-basics">Understanding the Basics: What You're Being Offered</h2>
+
+            <p>When a startup offers you equity, you're typically receiving <strong>stock options</strong> — the right to purchase company shares at a fixed price in the future, rather than owning shares outright. This distinction matters significantly for your potential returns and tax implications.</p>
+
+            <div class="callout tip">
+                <strong>Key Difference</strong>
+                <p>Stock options give you the right to buy shares at a predetermined "strike price." If the company's value increases, you can buy shares below their market value. Restricted Stock Units (RSUs) grant you shares directly, but these are less common at early-stage startups.</p>
+            </div>
+
+            <p>The two most common types of options are:</p>
+
+            <ul>
+                <li><strong>Incentive Stock Options (ISOs)</strong>: Tax-advantaged options that qualify for special tax treatment if you meet holding period requirements. You don't pay taxes when you exercise them (up to $100,000 per year), only when you sell.</li>
+                <li><strong>Non-Qualified Stock Options (NSOs)</strong>: Taxed as ordinary income when you exercise them, based on the difference between strike price and current fair market value (FMV). No annual limit.</li>
+            </ul>
+
+            <h2 id="vesting-schedules">Vesting Schedules: When You Actually Own Your Shares</h2>
+
+            <p>Vesting determines when you earn the right to your equity. A standard vesting schedule is <strong>4 years with a 1-year cliff</strong>, meaning:</p>
+
+            <ul>
+                <li>You earn 0% of your equity during your first year (the cliff)</li>
+                <li>After 12 months, you "vest" into 25% of your total grant all at once</li>
+                <li>The remaining 75% vests monthly over the next 3 years (approximately 2.08% per month)</li>
+            </ul>
+
+            <div class="callout calc">
+                <strong>Try the Vesting Calculator</strong>
+                <p>Use our <a href="vesting.html">Vesting Schedule Visualizer</a> to see exactly when your shares vest and what they might be worth at different exit valuations.</p>
+            </div>
+
+            <p>Why does vesting exist? It protects the company by ensuring employees stay long enough to contribute meaningfully. It also aligns incentives — you're motivated to help the company grow over time.</p>
+
+            <h3>Alternative Vesting Schedules</h3>
+
+            <p>Some companies offer different arrangements:</p>
+
+            <ul>
+                <li><strong>Back-loaded vesting</strong>: More equity vests in later years (e.g., 10-20-30-40% split). This rewards long-term retention but means you earn less early on.</li>
+                <li><strong>Immediate vesting for co-founders</strong>: Early team members might negotiate accelerated vesting schedules.</li>
+                <li><strong>Performance-based vesting</strong>: Additional equity grants tied to specific milestones (revenue targets, product launches, etc.).</li>
+            </ul>
+
+            <h2 id="the-cliff-period">The Cliff Period: Why Your First Year Matters</h2>
+
+            <p>The <strong>cliff</strong> is a critical concept in startup equity. During your first year, you vest nothing. If you leave before completing 12 months, you walk away with 0% of your equity grant.</p>
+
+            <div class="callout warning">
+                <strong>Cliff Warning</strong>
+                <p>If you're considering a startup job and think you might leave within a year, understand that your equity offer essentially doesn't exist until month 13. Negotiate other compensation accordingly.</p>
+            </div>
+
+            <p>The cliff protects the company from hiring employees who leave quickly after onboarding. It also gives you a clear trial period — if the role isn't a good fit within the first year, you can leave without leaving unvested equity on the table.</p>
+
+            <h2 id="strike-price-vs-fmv">Strike Price vs. FMV: Understanding Your Equity Value</h2>
+
+            <p>The <strong>strike price</strong> (or exercise price) is what you'll pay per share when you exercise your options. This is typically set at the current <strong>Fair Market Value (FMV)</strong> of the company's stock at the time of grant.</p>
+
+            <div class="formula">
+                Potential Profit Per Share = Exit Price - Strike Price
+            </div>
+
+            <p>For example:</p>
+
+            <table class="example-table">
+                <tr><th>Scenario</th><th>Strike Price</th><th>Exit Price</th><th>Profit Per Share</th></tr>
+                <tr><td>Early hire</td><td>$0.10</td><td>$10.00</td><td class="highlight">$9.90</td></tr>
+                <tr><td>Later hire</td><td>$2.50</td><td>$10.00</td><td class="highlight">$7.50</td></tr>
+                <tr><td>Flat growth</td><td>$5.00</td><td>$4.00</td><td class="negative">-$1.00 (underwater)</td></tr>
+            </table>
+
+            <p>The lower your strike price, the more upside you have. This is why joining early — when the company's valuation is low — can be financially rewarding if the startup succeeds.</p>
+
+            <h2 id="409a-valuations">409A Valuations: What They Mean for You</h2>
+
+            <p>A <strong>409A valuation</strong> is an independent appraisal of a startup's fair market value, required by the IRS for private companies issuing stock options. This valuation determines your strike price.</p>
+
+            <div class="callout tip">
+                <strong>409A vs. Preferred Price</strong>
+                <p>Investors pay the "preferred" price (which includes liquidation preference), but your strike price is based on the "common" stock price, which is typically 10-30% lower. This difference works in your favor.</p>
+            </div>
+
+            <p>Startups must update their 409A valuation every 12 months or after a "material event" like a major funding round. Each new valuation may increase your strike price for new option grants, but existing grants keep their original strike price.</p>
+
+            <h3>The 83(b) Election</h3>
+
+            <p>If you receive actual stock (not options) or early-exercise options, you have 30 days to file an 83(b) election with the IRS. This lets you pay taxes on the full grant value upfront (based on current FMV) rather than as it vests.</p>
+
+            <div class="callout warning">
+                <strong>83(b) Deadline</strong>
+                <p>You have exactly 30 days from your grant date to file an 83(b) election. Missing this deadline means you'll pay taxes as your equity vests, which could be much more expensive if the company's value increases.</p>
+            </div>
+
+            <h2 id="calculating-your-equity-value">Calculating Your Equity's Potential Value</h2>
+
+            <p>Let's walk through a realistic example. You're offered:</p>
+
+            <ul>
+                <li>50,000 stock options</li>
+                <li>$0.50 strike price</li>
+                <li>4-year vesting with 1-year cliff</li>
+            </ul>
+
+            <p>Here's what your equity might be worth at different exit scenarios:</p>
+
+            <table class="example-table">
+                <tr><th>Exit Valuation</th><th>Fully Diluted Shares</th><th>Price Per Share</th><th>Your Equity Value</th></tr>
+                <tr><td>$50M</td><td>10M</td><td>$5.00</td><td>$225,000</td></tr>
+                <tr><td>$100M</td><td>10M</td><td>$10.00</td><td>$475,000</td></tr>
+                <tr><td>$500M</td><td>10M</td><td>$50.00</td><td>$2,475,000</td></tr>
+                <tr><td>$1B</td><td>10M</td><td>$100.00</td><td>$4,975,000</td></tr>
+            </table>
+
+            <p>These calculations assume you stay for the full 4-year vesting period. If you leave earlier, your value scales down based on your vesting percentage.</p>
+
+            <div class="callout calc">
+                <strong>Model Your Equity</strong>
+                <p>Use our <a href="dilution.html">Equity Dilution Calculator</a> to model how your ownership might change through funding rounds and understand your final ownership percentage.</p>
+            </div>
+
+            <h2 id="red-flags">Red Flags to Watch For</h2>
+
+            <p>When evaluating an equity offer, watch for these warning signs:</p>
+
+            <ul>
+                <li><strong>Unusually long vesting</strong>: Anything beyond 5 years should raise questions.</li>
+                <li><strong>No acceleration clause</strong>: Ask what happens to your unvested equity if the company is acquired.</li>
+                <li><strong>Unclear cap table</strong>: If the company won't share how many shares are outstanding, you can't calculate your actual ownership percentage.</li>
+                <li><strong>High strike price relative to stage</strong>: A seed-stage company with a $5+ strike price suggests an aggressive 409A valuation.</li>
+                <li><strong>Lack of exercise window extension</strong>: Standard is 90 days post-employment to exercise vested options. Some companies offer longer windows.</li>
+            </ul>
+
+            <h2 id="key-takeaways">Key Takeaways</h2>
+
+            <ul>
+                <li><strong>Understand what you're getting</strong>: Options vs. RSUs, ISOs vs. NSOs — know the difference.</li>
+                <li><strong>Check the vesting schedule</strong>: Standard is 4 years with 1-year cliff. Anything unusual should be negotiated.</li>
+                <li><strong>Know your strike price</strong>: Lower is better. Compare it to the preferred price investors paid.</li>
+                <li><strong>Ask about the 409A</strong>: When was it last updated? What was the valuation?</li>
+                <li><strong>Understand the cap table</strong>: Fully diluted share count determines your actual ownership percentage.</li>
+                <li><strong>Consider the 83(b) election</strong>: If eligible, consult a tax professional within 30 days.</li>
+                <li><strong>Factor in exercise costs</strong>: You'll need cash to exercise options before you can sell shares.</li>
+            </ul>
+
+            <div class="inline-cta">
+                <h3>Calculate Your Vesting Schedule</h3>
+                <p>See exactly when your shares vest and what they might be worth at different exit valuations.</p>
+                <a href="vesting.html">Try the Vesting Calculator →</a>
+            </div>
+
+            <p>Remember, startup equity is a high-risk, high-reward proposition. Most startups don't achieve billion-dollar exits, but when they do, early employees can see life-changing returns. Understanding the mechanics of your equity offer helps you make informed decisions and negotiate effectively.</p>
+        </div>
+    </article>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for startup founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.querySelector('.mobile-toggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.querySelector('.mobile-toggle').setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

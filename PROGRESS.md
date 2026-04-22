@@ -292,14 +292,50 @@
 | blog/runway-guide.html | SEO: Runway Guide | Live |
 | blog/cap-table-guide.html | SEO: Cap Table Guide | Live |
 | blog/cac-ltv-guide.html | SEO: CAC/LTV Guide | Live |
+| blog/evaluate-equity-offer.html | SEO: How to Evaluate Equity Offer | **NEW** |
 | 404.html | Custom error page | Live |
 | favicon.svg | Branded favicon | Live |
 | og-image.svg | Social share image | Live |
 
 **Calculator Completion: 5 of 6 live (Cap Table Builder remaining)**
 
+### Completed (Day 5 — April 21, 2026)
+
+**C24: Add localStorage Auto-Save to All Calculators — Full Implementation**
+- Added "Saved locally" indicator with SVG icon to all 5 calculator input panels
+- CSS styling for indicator with green checkmark
+- All calculators (dilution, runway, safe, vesting, unit-economics) now show auto-save status
+
+**C25: Add "Saved Scenarios" Dropdown — Full Implementation**
+- Save/load/delete multiple named scenarios per calculator
+- Uses localStorage key: `foundermath_{calculator}_scenarios`
+- Scenario controls with dropdown, save button, delete button
+- Enter to save, confirmation dialog for delete
+- Implemented for all 5 calculators
+
+**C26: Add PDF Export with jsPDF — Full Implementation**
+- Added jsPDF library via CDN to all 5 calculators
+- "Export PDF" button in share bar
+- Generates PDF with:
+  - Branded header with FounderMath logo
+  - Summary cards data
+  - Chart as image (canvas.toDataURL)
+  - Key table data
+  - Footer with date and branding
+- Implemented for all 5 calculators
+
+**C28: Write Blog Post — "How to Evaluate a Startup Equity Offer"**
+- Created `blog/evaluate-equity-offer.html` — 2000+ word guide
+- Covers: vesting schedules, cliff period, strike price vs FMV, 409A valuations, 83(b) election
+- Includes example tables, formula blocks, callout boxes
+- Inline CTA linking to vesting calculator
+- SEO keywords: "startup equity offer", "how to evaluate stock options", "vesting schedule", "cliff period", "409A valuation"
+- Updated blog.html and sitemap.xml with new post
+
 ### Next Priorities
 - [ ] Launch on Hacker News "Show HN"
-- [ ] Implement localStorage scenario saving
 - [ ] Add email capture (Buttondown)
 - [ ] Write "Show HN" launch post
+- [ ] C27: Add "Compare Scenarios" UI
+- [ ] C29: Write Blog Post — "SaaS Unit Economics: Why LTV:CAC Ratio Matters"
+- [ ] C30: Write Blog Post — "Vesting Schedules Explained: Cliff, Acceleration, and 83(b)"
