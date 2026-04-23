@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to FounderMath Pro! — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .success-card {
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 48px 32px;
+        }
+        .success-icon {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            animation: scaleIn 0.5s ease;
+        }
+        @keyframes scaleIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        h1 { font-size: 1.75rem; margin-bottom: 12px; }
+        .subtitle { color: var(--text-secondary); font-size: 1rem; margin-bottom: 32px; line-height: 1.6; }
+        .features {
+            text-align: left;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 28px;
+        }
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+        }
+        .feature svg { flex-shrink: 0; }
+        .feature span { color: var(--text-primary); font-size: 0.9rem; }
+        .cta {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: opacity 0.2s;
+        }
+        .cta:hover { opacity: 0.9; }
+        .note { color: var(--text-muted); font-size: 0.8rem; margin-top: 16px; }
+    </style>
+</head>
+<body>
+    <div class="success-card">
+        <div class="success-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+            </svg>
+        </div>
+        <h1>Welcome to Pro!</h1>
+        <p class="subtitle">Your FounderMath Pro subscription is now active. All premium features have been unlocked across every calculator.</p>
+        <div class="features">
+            <div class="feature">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Save unlimited scenarios</span>
+            </div>
+            <div class="feature">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Export charts as PDF</span>
+            </div>
+            <div class="feature">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Compare scenarios side-by-side</span>
+            </div>
+            <div class="feature">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Multi-round dilution simulation</span>
+            </div>
+        </div>
+        <a href="dilution.html" class="cta">Start Calculating</a>
+        <p class="note">Your Pro status is saved in this browser. Questions? hello@founder-math.com</p>
+    </div>
+    <script>
+        // Activate Pro on this page
+        localStorage.setItem('foundermath_pro', 'true');
+        if (typeof gtag === 'function') {
+            gtag('event', 'purchase', { value: 19, currency: 'USD', items: [{ item_name: 'Pro Monthly' }] });
+        }
+    </script>
+</body>
+</html>

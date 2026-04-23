@@ -207,6 +207,14 @@
         .separator { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
 
         .share-bar { display: flex; gap: 8px; margin-top: 8px; }
+        .pro-tip-toggle { background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 0; display: flex; align-items: center; gap: 8px; }
+        .pro-tip-toggle:hover { color: var(--text-primary); }
+        .pro-tip-icon { transition: transform 0.2s; }
+        .pro-tip-toggle[aria-expanded="true"] .pro-tip-icon { transform: rotate(45deg); }
+        .pro-tip-content { display: none; margin-top: 16px; }
+        .pro-tip-content.show { display: block; }
+        .pro-tip-item { background: var(--bg-secondary); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px; margin-bottom: 12px; color: var(--text-secondary); font-size: 0.9rem; }
+        .pro-tip-item strong { color: var(--text-primary); display: block; margin-bottom: 4px; }
         .btn-share {
             flex: 1; background: var(--bg-card); border: 1px solid var(--border);
             color: var(--text-secondary); padding: 10px; border-radius: 8px;
@@ -238,6 +246,8 @@
         .scenario-btn.save:hover { background: var(--accent-light); border-color: var(--accent-light); }
         .scenario-btn.delete { color: var(--red); }
         .scenario-btn.delete:hover { border-color: var(--red); color: var(--red); }
+        .scenario-btn.compare { background: linear-gradient(135deg, var(--accent), #8e7bf5); color: white; }
+        .scenario-btn.compare:hover { background: linear-gradient(135deg, #8e7bf5, var(--accent-light)); transform: translateY(-1px); }
         .scenario-input {
             width: 100%; background: var(--bg-input); border: 1px solid var(--border);
             color: var(--text-primary); padding: 10px 14px; border-radius: 8px;
@@ -418,6 +428,7 @@
             .chart-container { height: 220px; }
         }
     </style>
+    <script src="pro-gating.js"></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -520,8 +531,25 @@
                     <select id="scenarioSelect" class="scenario-select" onchange="loadScenario(this.value)" aria-label="Load saved scenario">
                         <option value="">-- Load Scenario --</option>
                     </select>
-                    <button class="scenario-btn save" onclick="showSaveScenario()" aria-label="Save current inputs as scenario">Save</button>
+                    <button class="scenario-btn save" onclick="FounderMathPro.requirePro('Save Scenarios', showSaveScenario)" aria-label="Save current inputs as scenario">Save</button>
+                    <button class="scenario-btn compare" onclick="FounderMathPro.requirePro('Compare Scenarios', openCompareModal)" aria-label="Compare two scenarios side-by-side">Compare</button>
                     <button class="scenario-btn delete" id="deleteScenarioBtn" onclick="deleteScenario()" aria-label="Delete selected scenario" style="display:none;">Delete</button>
+                </div>
+            </div>
+
+            <!-- Pro Tips -->
+            <div class="panel-section">
+                <div class="panel-section-title">
+                    <span>Pro Tips</span>
+                    <button class="pro-tip-toggle" onclick="toggleProTips()" aria-label="Toggle pro tips" aria-expanded="false">
+                        <svg class="pro-tip-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9a4 4 0 1 1 0 8 8 0 0 1-1-8zM12 3a4 4 0 0 0-8 8 4 0 0 0 8z"/><path d="M12 15v6m-3-3h6m-6 0h6m-3 3h6M9 21h6"/></svg>
+                    </button>
+                </div>
+                <div class="pro-tip-content" id="proTipContent">
+                    <div class="pro-tip-item"><strong>LTV:CAC Ratio:</strong> A ratio of 3:1 or higher is healthy for SaaS. Below 2:1 means you're losing money on each customer.</div>
+                    <div class="pro-tip-item"><strong>Payback Period:</strong> Under 12 months is ideal. Above 18 months means you're tying up cash too long.</div>
+                    <div class="pro-tip-item"><strong>Gross Margin Matters:</strong> Use gross margin, not revenue. High revenue with low margins has poor LTV.</div>
+                    <div class="pro-tip-item"><strong>CAC by Cohort:</strong> Your first customers usually cost more to acquire than later ones. Track CAC by acquisition channel.</div>
                 </div>
             </div>
 
@@ -529,7 +557,7 @@
                 <div class="panel-section-title">Share</div>
                 <div class="share-bar">
                     <button class="btn-share" id="shareBtn" onclick="copyShareLink()">Copy Share Link</button>
-                    <button class="btn-share" onclick="exportPDF()" aria-label="Export results as PDF">Export PDF</button>
+                    <button class="btn-share" onclick="FounderMathPro.requirePro('Export PDF', exportPDF)" aria-label="Export results as PDF">Export PDF</button>
                     <button class="btn-share" onclick="resetCalculator()">Reset</button>
                 </div>
             </div>
@@ -623,6 +651,8 @@
                 <a href="pricing.html" class="btn-white">Upgrade to Pro — $19/mo</a>
             </div>
         </div>
+
+        <div id="email-capture-economics"></div>
     </main>
 
     <footer>
@@ -1041,9 +1071,35 @@
             scenarios.push(scenarioData);
         }
 
-        localStorage.setItem('foundermath_unitecon_scenarios', JSON.stringify(scenarios));
+        localStorage.setItem('foundermath_unit-economics_scenarios', JSON.stringify(scenarios));
         input.value = '';
         input.classList.remove('show');
+
+    function toggleProTips() {
+        const content = document.getElementById('proTipContent');
+        const toggle = document.querySelector('.pro-tip-toggle');
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !isExpanded);
+        content.classList.toggle('show', !isExpanded);
+    }
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && e.target.tagName === 'INPUT') {
+            e.preventDefault();
+            recalculate();
+        }
+        if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+            e.preventDefault();
+            showSaveScenario();
+            setTimeout(() => {
+                const input = document.getElementById('scenarioName');
+                if (input && input.classList.contains('show')) {
+                    saveScenario();
+                }
+            }, 100);
+        }
+    });
         updateScenarioSelect();
         showToast('Scenario saved!');
     }
@@ -1143,6 +1199,116 @@
     loadFromURL();
     recalculate();
     updateScenarioSelect();
+    FounderMathPro.renderEmailCapture('email-capture-economics', 'unit-economics');
+    </script>
+
+    <div id="compareModal" class="compare-modal" role="dialog" aria-modal="true" aria-labelledby="compareModalTitle">
+        <div class="compare-modal-content">
+            <div class="compare-modal-header">
+                <h2 id="compareModalTitle">Compare Scenarios</h2>
+                <button class="compare-modal-close" onclick="closeCompareModal()" aria-label="Close comparison">&times;</button>
+            </div>
+            <div class="compare-modal-body">
+                <div class="compare-scenario-selectors">
+                    <div class="compare-selector">
+                        <label for="compareScenario1">Scenario A:</label>
+                        <select id="compareScenario1" class="compare-select" onchange="updateComparison()">
+                            <option value="">Select scenario...</option>
+                        </select>
+                    </div>
+                    <div class="compare-selector">
+                        <label for="compareScenario2">Scenario B:</label>
+                        <select id="compareScenario2" class="compare-select" onchange="updateComparison()">
+                            <option value="">Select scenario...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="compare-results" id="compareResults">
+                    <p class="compare-placeholder">Select two scenarios to compare</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="compare-modal-overlay" id="compareModalOverlay" onclick="closeCompareModal()"></div>
+
+    <style>
+        .compare-modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1000; align-items: center; justify-content: center; }
+        .compare-modal.show { display: flex; }
+        .compare-modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 999; }
+        .compare-modal-overlay.show { display: block; }
+        .compare-modal-content { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; width: 90%; max-width: 700px; max-height: 80vh; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        .compare-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 24px; border-bottom: 1px solid var(--border); }
+        .compare-modal-header h2 { font-size: 1.3rem; font-weight: 700; margin: 0; }
+        .compare-modal-close { background: none; border: none; color: var(--text-secondary); font-size: 1.5rem; cursor: pointer; padding: 8px; line-height: 1; }
+        .compare-modal-close:hover { color: var(--text-primary); }
+        .compare-modal-body { padding: 24px; overflow-y: auto; max-height: calc(80vh - 80px); }
+        .compare-scenario-selectors { display: flex; gap: 24px; margin-bottom: 24px; }
+        .compare-selector { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+        .compare-selector label { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
+        .compare-select { padding: 12px 16px; background: var(--bg-input); border: 1px solid var(--border); border-radius: 10px; color: var(--text-primary); font-size: 0.95rem; cursor: pointer; }
+        .compare-select:focus { outline: var(--focus-outline); outline-offset: 2px; border-color: var(--accent); }
+        .compare-placeholder { text-align: center; color: var(--text-muted); padding: 40px 20px; font-style: italic; }
+        .compare-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .compare-table th { text-align: left; padding: 12px 16px; background: var(--bg-secondary); border-bottom: 2px solid var(--border); color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text-secondary); font-family: var(--font-mono); }
+        @media (max-width: 600px) { .compare-scenario-selectors { flex-direction: column; } }
+    </style>
+
+    <script>
+        function openCompareModal() {
+            const scenarios = JSON.parse(localStorage.getItem('foundermath_unit-economics_scenarios') || '[]');
+            const select1 = document.getElementById('compareScenario1');
+            const select2 = document.getElementById('compareScenario2');
+            select1.innerHTML = '<option value="">Select scenario...</option>';
+            select2.innerHTML = '<option value="">Select scenario...</option>';
+            scenarios.forEach(s => { select1.innerHTML += `<option value="${s.name}">${s.name}</option>`;
+                select2.innerHTML += `<option value="${s.name}">${s.name}</option>`;
+            });
+            document.getElementById('compareModal').classList.add('show');
+            document.getElementById('compareModalOverlay').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeCompareModal() {
+            document.getElementById('compareModal').classList.remove('show');
+            document.getElementById('compareModalOverlay').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        function updateComparison() {
+            const scenario1Name = document.getElementById('compareScenario1').value;
+            const scenario2Name = document.getElementById('compareScenario2').value;
+            const resultsDiv = document.getElementById('compareResults');
+            if (!scenario1Name || !scenario2Name) {
+                resultsDiv.innerHTML = '<p class="compare-placeholder">Select two scenarios to compare</p>';
+                return;
+            }
+            const scenarios = JSON.parse(localStorage.getItem('foundermath_unit-economics_scenarios') || '[]');
+            const s1 = scenarios.find(s => s.name === scenario1Name);
+            const s2 = scenarios.find(s => s.name === scenario2Name);
+            if (!s1 || !s2) return;
+            const st1 = s1.state;
+            const st2 = s2.state;
+            const cac1 = (st1.marketingSpend + st1.salesTeamCost + st1.otherAcquisitionCosts) / (st1.newCustomers || 1);
+            const cac2 = (st2.marketingSpend + st2.salesTeamCost + st2.otherAcquisitionCosts) / (st2.newCustomers || 1);
+            const ltv1 = (st1.arpu * (st1.grossMargin/100)) / (st1.monthlyChurn/100);
+            const ltv2 = (st2.arpu * (st2.grossMargin/100)) / (st2.monthlyChurn/100);
+            const ratio1 = ltv1 / cac1;
+            const ratio2 = ltv2 / cac2;
+            const formatM = (v) => '$' + v.toFixed(0);
+            const formatPct = (v) => v.toFixed(1) + '%';
+            const formatRatio = (v) => v.toFixed(1) + ':1';
+            const diff = (a,b) => b - a;
+            let html = `<table class="compare-table">
+                <thead><tr><th>Metric</th><th>${scenario1Name}</th><th>${scenario2Name}</th><th>Difference</th></tr></thead>
+                <tbody>
+                    <tr><td>CAC</td><td>${formatM(cac1)}</td><td>${formatM(cac2)}</td><td>${formatM(diff(cac1,cac2))}</td></tr>
+                    <tr><td>LTV</td><td>${formatM(ltv1)}</td><td>${formatM(ltv2)}</td><td>${formatM(diff(ltv1,ltv2))}</td></tr>
+                    <tr><td>LTV:CAC Ratio</td><td>${formatRatio(ratio1)}</td><td>${formatRatio(ratio2)}</td><td>${formatRatio(diff(ratio1,ratio2))}</td></tr>
+                    <tr><td>Payback Period</td><td>${cac1/(st1.arpu*(st1.grossMargin/100)).toFixed(1)} mo</td><td>${cac2/(st2.arpu*(st2.grossMargin/100)).toFixed(1)} mo</td><td>${((cac2/(st2.arpu*(st2.grossMargin/100))) - (cac1/(st1.arpu*(st1.grossMargin/100)))).toFixed(1)} mo</td></tr>
+                </tbody>
+            </table>`;
+            resultsDiv.innerHTML = html;
+        }
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeCompareModal(); });
     </script>
 </body>
 </html>

@@ -6,49 +6,36 @@
     <title>About FounderMath — Built for Founders, by Founders</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
-    // ============================================================
-    // MOBILE MENU TOGGLE FOR ACCESSIBILITY
-    // ============================================================
-    function toggleMobileMenu() {
-        const navLinks = document.getElementById('navLinks');
-        const toggle = document.getElementById('mobileToggle');
-        navLinks.classList.toggle('open');
-        const isOpen = navLinks.classList.contains('open');
-        toggle.setAttribute('aria-expanded', isOpen.toString());
-    }
-
-    // ============================================================
-    // ============================================================
-    // THEME TOGGLE
-    // ============================================================
-    function toggleTheme() {
-        const body = document.body;
-        const currentTheme = body.getAttribute('data-theme') || 'dark';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-    }
-    
-    // Load saved theme on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.body.setAttribute('data-theme', savedTheme);
-    });
-
-    // KEYBOARD NAVIGATION
-    // ============================================================
-    document.addEventListener('keydown', function(e) {
-        // Close mobile menu on Escape
-        if (e.key === 'Escape') {
+    <script>
+        function toggleMobileMenu() {
             const navLinks = document.getElementById('navLinks');
-            if (navLinks.classList.contains('open')) {
-                navLinks.classList.remove('open');
-                document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
-                document.getElementById('mobileToggle').focus();
-            }
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
         }
-    });
-
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', savedTheme);
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
     <meta name="description" content="Learn about FounderMath — the interactive startup calculator suite that helps founders understand equity dilution, SAFE notes, runway, and cap tables.">
     <meta property="og:title" content="About FounderMath — Built for Founders, by Founders">
     <meta property="og:description" content="Learn about FounderMath — the interactive startup calculator suite that helps founders understand equity dilution, SAFE notes, runway, and cap tables.">

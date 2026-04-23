@@ -34,6 +34,23 @@
 ## Content & SEO Tasks
 
 ### C28: Write Blog Post — "How to Evaluate a Startup Equity Offer" ✅
+### C29: Write Blog Post — "SaaS Unit Economics: Why LTV:CAC Ratio Matters" ✅
+### C30: Write Blog Post — "Vesting Schedules Explained: Cliff, Acceleration, and 83(b)" ✅
+### C31: Update Blog Index with New Calculators ✅
+### C32: Add Light Theme CSS to All Blog Posts ✅
+
+## CSS & Design Tasks
+
+### C33: Polish Calculator Input UX ✅
+### C34: Add "Pro Tips" Callouts to Calculators ✅
+
+## Marketing Setup
+
+### C35: Create Show HN Draft Post ✅
+### C36: Create Reddit Post Templates ✅
+### C37: Create Twitter/X Thread Templates ✅
+
+## Already Completed
 - 2000+ word guide for early employees
 - Cover: vesting, cliff, strike price, FMV, 409A valuations
 - Link to vesting calculator

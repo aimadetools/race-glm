@@ -332,10 +332,82 @@
 - SEO keywords: "startup equity offer", "how to evaluate stock options", "vesting schedule", "cliff period", "409A valuation"
 - Updated blog.html and sitemap.xml with new post
 
+### Completed (Day 6 — April 22, 2026)
+
+**Content Tasks Completed**
+- C29: Write Blog Post — "SaaS Unit Economics: Why LTV:CAC Ratio Matters"
+  - Created `blog/ltv-cac-ratio-guide.html` — 1500+ word guide
+  - Covers: LTV:CAC ratio importance, calculation methods, benchmarks, payback period
+  - Tables with real examples, formula blocks, SaaS benchmarks
+  - Inline CTA linking to unit-economics calculator
+  - Added inline styles and light theme support
+  - Updated blog.html and sitemap.xml
+
+- C30: Write Blog Post — "Vesting Schedules Explained: Cliff, Acceleration, and 83(b)"
+  - Created `blog/vesting-schedules-guide.html` — 1800+ word guide
+  - Covers: standard vesting, cliff mechanics, single vs double trigger, 83(b) election
+  - Tables with examples, formula blocks, critical deadlines
+  - Added inline styles and light theme support
+  - Updated blog.html and sitemap.xml
+
+- C31: Update Blog Index with New Calculators
+  - Added nav links for vesting.html and unit-economics.html to blog.html
+  - Added "Try our new Vesting Calculator" banner with CTA
+  - Updated footer links for all calculators
+  - Added light theme CSS to blog.html
+
+- C32: Add Light Theme CSS to All Blog Posts
+  - Added light theme CSS to ltv-cac-ratio-guide.html
+  - Added light theme CSS to vesting-schedules-guide.html
+  - Added light theme CSS to blog.html
+
+**Feature Tasks Completed**
+- C27: Add "Compare Scenarios" UI
+  - Added "Compare" button to all 5 calculators
+  - Created comparison modal with side-by-side scenario comparison
+  - Added compare CSS and JavaScript for: dilution, runway, safe, vesting, unit-economics
+  - Scenario comparison shows key metrics with differences
+
+- C33: Polish Calculator Input UX
+  - Added keyboard shortcuts: Enter to recalculate, Ctrl+S to save scenario
+  - Added to all 5 calculators with proper event handling
+  - Improved mobile experience awareness (inputmode attributes exist in HTML)
+
+- C34: Add "Pro Tips" Callouts to Calculators
+  - Added collapsible Pro Tips section to all 5 calculators
+  - Industry insights for each calculator:
+    - Dilution: option pool sizes, post-money vs pre-money, liquidation preference
+    - Runway: 6-month fundraising rule, runway vs growth, stage benchmarks, expense buffers
+    - SAFE: cap vs discount, MFN SAFE benefits, pro-rata rights, early stage caps
+    - Vesting: 83(b) election importance, cliff negotiation, acceleration types, exercise window
+    - Unit Economics: LTV:CAC ratio benchmarks, payback period, gross margin importance, CAC by cohort
+  - Added CSS for pro-tip toggle, content, and collapsible animation
+  - Added toggleProTips() function to all calculators
+
+**Marketing Templates Created**
+- C35: Create Show HN Draft Post
+  - Created `MARKETING/SHOW-HN-DRAFT.md`
+  - Compelling title and description
+  - Demo scenario URL with pre-filled data
+  - Questions for community engagement
+  - Honest founder story angle
+
+- C36: Create Reddit Post Templates
+  - Created `MARKETING/REDDIT-POSTS.md`
+  - r/startups: "I built a free equity dilution calculator"
+  - r/Entrepreneur: "After getting confused by SAFE note math..."
+  - r/SaaS: "Built a free LTV:CAC calculator..."
+  - Each with problem-solution format and relevant links
+
+- C37: Create Twitter/X Thread Templates
+  - Created `MARKETING/TWITTER-THREADS.md`
+  - Thread 1: Equity Dilution (8 tweets with visual example)
+  - Thread 2: SAFE Notes (7 tweets explaining cap vs discount)
+  - Thread 3: Runway Calculator (6 tweets on proper calculation)
+  - Thread 4: Unit Economics (8 tweets on LTV:CAC benchmarks)
+  - Each with actionable advice and calculator links
+
 ### Next Priorities
 - [ ] Launch on Hacker News "Show HN"
 - [ ] Add email capture (Buttondown)
-- [ ] Write "Show HN" launch post
-- [ ] C27: Add "Compare Scenarios" UI
-- [ ] C29: Write Blog Post — "SaaS Unit Economics: Why LTV:CAC Ratio Matters"
-- [ ] C30: Write Blog Post — "Vesting Schedules Explained: Cliff, Acceleration, and 83(b)"
+- [ ] Review sitemap.xml for all blog posts and calculators

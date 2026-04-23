@@ -71,3 +71,109 @@ no changes added to commit (use "git add" and/or "git commit -a")
 =============================================
 Logged run: glm week0 block0
 Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-04-21 10:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 1 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== premium Run 1 at Tue Apr 21 10:30:05 AM UTC 2026 ===
+=== Run 1 finished at Tue Apr 21 11:05:05 AM UTC 2026, exit=137 ===
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/session-20260421-103005.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+=============================================
+  Session complete
+  Runs: 1
+  Duration: 35 minutes
+  Files changed: 9
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-04-21 16:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 1 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== cheap Run 1 at Tue Apr 21 04:30:04 PM UTC 2026 ===
+=== Run 1 finished at Tue Apr 21 05:05:04 PM UTC 2026, exit=137 ===
+[main 4c4356b] BACKLOG-CHEAP.md,dilution.html,runway.html,safe.html,unit-economics.html [skip ci]
+ 6 files changed, 1033 insertions(+), 2 deletions(-)
+[main 337307c] glm cheap session end
+ 15 files changed, 3408 insertions(+), 280 deletions(-)
+ create mode 100644 unit-economics.html
+ create mode 100644 vesting.html
+
+=============================================
+  Session complete
+  Runs: 1
+  Duration: 35 minutes
+  Files changed: 15
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-04-22 10:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 1 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== premium Run 1 at Wed Apr 22 10:30:04 AM UTC 2026 ===
+=== Run 1 finished at Wed Apr 22 11:05:04 AM UTC 2026, exit=137 ===
+On branch main
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/runs.jsonl
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/session-20260421-103005.log
+	logs/session-20260421-163004.log
+	logs/session-20260422-103004.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[main 89016ab] glm premium session end
+ 9 files changed, 804 insertions(+), 3 deletions(-)
+ create mode 100644 blog/evaluate-equity-offer.html
+
+=============================================
+  Session complete
+  Runs: 1
+  Duration: 35 minutes
+  Files changed: 9
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-04-22 16:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 1 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== cheap Run 1 at Wed Apr 22 04:30:05 PM UTC 2026 ===

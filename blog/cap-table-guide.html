@@ -6,31 +6,33 @@
     <title>Cap Table 101 for Founders: A Beginner's Complete Guide — FounderMath</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
-    // ============================================================
-    // MOBILE MENU TOGGLE FOR ACCESSIBILITY
-    // ============================================================
-    function toggleMobileMenu() {
-        const navLinks = document.getElementById('navLinks');
-        const toggle = document.getElementById('mobileToggle');
-        navLinks.classList.toggle('open');
-        const isOpen = navLinks.classList.contains('open');
-        toggle.setAttribute('aria-expanded', isOpen.toString());
-    }
-
-    // ============================================================
-    // KEYBOARD NAVIGATION
-    // ============================================================
-    document.addEventListener('keydown', function(e) {
-        // Close mobile menu on Escape
-        if (e.key === 'Escape') {
+    <script>
+        // ============================================================
+        // MOBILE MENU TOGGLE FOR ACCESSIBILITY
+        // ============================================================
+        function toggleMobileMenu() {
             const navLinks = document.getElementById('navLinks');
-            if (navLinks.classList.contains('open')) {
-                navLinks.classList.remove('open');
-                document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
-                document.getElementById('mobileToggle').focus();
-            }
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
         }
-    });
+
+        // ============================================================
+        // KEYBOARD NAVIGATION
+        // ============================================================
+        document.addEventListener('keydown', function(e) {
+            // Close mobile menu on Escape
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
 
     <meta name="description" content="Learn what a cap table is, what goes in it, how to manage it, and common mistakes to avoid. The complete guide for startup founders.">
     <meta name="keywords" content="cap table, capitalization table, startup cap table, how to manage cap table, cap table mistakes, founder equity, investor equity">
@@ -39,8 +41,8 @@
     <meta property="og:type" content="article">
     <meta property="og:image" content="https://founder-math.com/og-image.svg">
     <meta property="og:url" content="https://founder-math.com/blog/cap-table-guide.html">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
     <style>
         :root {
             --bg-primary: #0a0a0f;

@@ -1,77 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://foundermath.com/</loc>
+    <loc>https://founder-math.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://foundermath.com/dilution.html</loc>
+    <loc>https://founder-math.com/dilution.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://foundermath.com/runway.html</loc>
+    <loc>https://founder-math.com/runway.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://foundermath.com/safe.html</loc>
+    <loc>https://founder-math.com/safe.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://foundermath.com/vesting.html</loc>
+    <loc>https://founder-math.com/vesting.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://foundermath.com/unit-economics.html</loc>
+    <loc>https://founder-math.com/unit-economics.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://foundermath.com/pricing.html</loc>
+    <loc>https://founder-math.com/pricing.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://foundermath.com/about.html</loc>
+    <loc>https://founder-math.com/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://foundermath.com/blog.html</loc>
+    <loc>https://founder-math.com/blog.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://foundermath.com/blog/equity-dilution-guide.html</loc>
+    <loc>https://founder-math.com/blog/equity-dilution-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://foundermath.com/blog/safe-note-guide.html</loc>
+    <loc>https://founder-math.com/blog/safe-note-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://foundermath.com/blog/runway-guide.html</loc>
+    <loc>https://founder-math.com/blog/runway-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://foundermath.com/blog/cap-table-guide.html</loc>
+    <loc>https://founder-math.com/blog/cap-table-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://foundermath.com/blog/cac-ltv-guide.html</loc>
+    <loc>https://founder-math.com/blog/cac-ltv-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://foundermath.com/blog/evaluate-equity-offer.html</loc>
+    <loc>https://founder-math.com/blog/evaluate-equity-offer.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://founder-math.com/blog/vesting-schedules-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://founder-math.com/blog/ltv-cac-ratio-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

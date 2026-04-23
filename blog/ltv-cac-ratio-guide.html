@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Unit Economics: Why LTV:CAC Ratio Matters | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+    </script>
+    <meta name="description" content="Learn why LTV:CAC ratio is the most important metric in SaaS. Calculate your unit economics, understand benchmarks, and avoid common mistakes that kill startups.">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta property="og:title" content="SaaS Unit Economics: Why LTV:CAC Ratio Matters | FounderMath">
+    <meta property="og:description" content="Learn why LTV:CAC ratio is the most important metric in SaaS. Calculate your unit economics with our free calculator.">
+    <meta property="og:image" content="/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/ltv-cac-ratio-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.15);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.15);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-muted: #b2bec3;
+            --border: #dfe6e9;
+        }
+
+        .article-layout { max-width: 820px; margin: 0 auto; padding: 120px 24px 80px; }
+        .article-header { margin-bottom: 48px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted); }
+        .article-meta .tag { background: var(--bg-card); border: 1px solid var(--border); padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; color: var(--accent-light); font-weight: 600; }
+        .article-header h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 16px; }
+        .article-body h2 { font-size: 1.6rem; font-weight: 800; margin-top: 48px; margin-bottom: 16px; letter-spacing: -0.02em; padding-top: 16px; border-top: 1px solid var(--border); }
+        .article-body h3 { font-size: 1.2rem; font-weight: 700; margin-top: 32px; margin-bottom: 12px; }
+        .article-body p { margin-bottom: 20px; color: var(--text-secondary); font-size: 1.05rem; }
+        .article-body ul, .article-body ol { margin-bottom: 20px; padding-left: 24px; }
+        .article-body li { margin-bottom: 8px; color: var(--text-secondary); font-size: 1.05rem; }
+        .article-body ul li strong { color: var(--text-primary); }
+
+        .callout { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 28px 0; }
+        .callout.tip { border-left: 4px solid var(--green); }
+        .callout.warning { border-left: 4px solid var(--orange); }
+        .callout.calc { border-left: 4px solid var(--accent); }
+        .callout strong { display: block; margin-bottom: 8px; color: var(--text-primary); }
+
+        table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.9rem; }
+        th { text-align: left; padding: 10px 14px; background: var(--bg-card); border-bottom: 2px solid var(--border); color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        td { padding: 10px 14px; border-bottom: 1px solid rgba(42, 42, 64, 0.3); font-family: var(--font-mono); color: var(--text-secondary); }
+        tr:hover td { background: rgba(108, 92, 231, 0.05); }
+
+        .formula { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin: 20px 0; font-family: var(--font-mono); font-size: 1rem; color: var(--accent-light); text-align: center; }
+        .inline-cta { background: linear-gradient(135deg, rgba(108, 92, 231, 0.15), rgba(0, 184, 148, 0.1)); border: 1px solid var(--accent); border-radius: 12px; padding: 28px; margin: 40px 0; text-align: center; display: block; text-decoration: none; color: inherit; }
+        .inline-cta:hover { box-shadow: 0 4px 20px var(--accent-glow); }
+
+        .cta-button { background: var(--accent); color: white; padding: 12px 24px; border-radius: 10px; font-weight: 600; text-decoration: none; display: inline-block; transition: transform 0.2s; border: none; cursor: pointer; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        .theme-toggle { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 8px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        .theme-toggle .sun-icon, .theme-toggle .moon-icon { width: 18px; height: 18px; }
+        .theme-toggle .sun-icon { display: none; }
+        .theme-toggle .moon-icon { display: block; }
+        body[data-theme="light"] .theme-toggle .sun-icon { display: block; }
+        body[data-theme="light"] .theme-toggle .moon-icon { display: none; }
+
+        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
+        .related-posts a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .article-meta { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="../dilution.html" role="menuitem">Dilution Calc</a></li>
+                <li role="none"><a href="../runway.html" role="menuitem">Runway Calc</a></li>
+                <li role="none"><a href="../safe.html" role="menuitem">SAFE Calc</a></li>
+                <li role="none"><a href="../vesting.html" role="menuitem">Vesting Calc</a></li>
+                <li role="none"><a href="../unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../pricing.html" class="nav-cta">Start Free</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l-1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l-1.42-1.42"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <article class="article-layout">
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="tag">SaaS Metrics</span>
+                <span>April 22, 2026</span>
+                <span>12 min read</span>
+            </div>
+            <h1>SaaS Unit Economics: Why LTV:CAC Ratio Matters</h1>
+        </header>
+
+        <div class="article-body">
+            <p class="lead">Your LTV:CAC ratio tells investors whether your SaaS business is sustainable or just burning cash. Here's how to calculate it, what benchmarks to aim for, and what it really means for your growth.</p>
+
+            <a href="/unit-economics.html" class="inline-cta">
+                <strong>Calculate Your LTV:CAC Ratio Now →</strong>
+            </a>
+
+            <h2>What is LTV:CAC Ratio?</h2>
+
+            <p>LTV:CAC ratio compares the <strong>Lifetime Value (LTV)</strong> of a customer against the <strong>Customer Acquisition Cost (CAC)</strong>. It answers a simple question: for every dollar you spend acquiring a customer, how much do you get back?</p>
+
+            <div class="callout formula">
+                <strong>LTV:CAC Ratio = Customer Lifetime Value ÷ Customer Acquisition Cost</strong>
+            </div>
+
+            <p>A ratio of 3:1 means you earn $3 back for every $1 spent on acquisition. This is considered healthy for most SaaS businesses.</p>
+
+            <h2>Why It's the Most Important SaaS Metric</h2>
+
+            <p>Revenue growth alone doesn't tell you if your business model works. You can grow revenue by spending more on marketing, but if each new customer costs more than they're worth, you'll eventually run out of money.</p>
+
+            <p>LTV:CAC ratio captures the fundamental economics of your business:</p>
+
+            <ul>
+                <li><strong>Below 1:1</strong> — You're losing money on every customer. This is not sustainable.</li>
+                <li><strong>1:1 to 2:1</strong> — You're barely covering acquisition costs. No room for profit, reinvestment, or mistakes.</li>
+                <li><strong>3:1 or higher</strong> — Healthy. You can reinvest in growth, cover operating costs, and still have margin for profit.</li>
+                <li><strong>Above 5:1</strong> — You might be underinvesting in growth. Could you spend more on acquisition without hurting economics?</li>
+            </ul>
+
+            <h2>How to Calculate LTV</h2>
+
+            <p>Lifetime Value is the total revenue you expect from a customer over their entire relationship with your company, minus the cost to serve them.</p>
+
+            <div class="callout formula">
+                <strong>LTV = (ARPU × Gross Margin) ÷ Monthly Churn Rate</strong>
+            </div>
+
+            <p>Where:</p>
+            <ul>
+                <li><strong>ARPU</strong> = Average Revenue Per User (monthly)</li>
+                <li><strong>Gross Margin</strong> = The percentage of revenue left after direct costs (hosting, support, payment processing)</li>
+                <li><strong>Churn Rate</strong> = The percentage of customers who cancel each month</li>
+            </ul>
+
+            <div class="example">
+                <h4>Example Calculation</h4>
+                <table>
+                    <tr><th>Metric</th><th>Value</th></tr>
+                    <tr><td>ARPU (Monthly)</td><td>$100</td></tr>
+                    <tr><td>Gross Margin</td><td>80% (0.80)</td></tr>
+                    <tr><td>Monthly Churn</td><td>5% (0.05)</td></tr>
+                    <tr><td><strong>LTV</strong></td><td><strong>($100 × 0.80) ÷ 0.05 = $1,600</strong></td></tr>
+                </table>
+            </div>
+
+            <p>The average customer stays for 20 months (1 ÷ 5% churn) and contributes $80 of gross margin each month, so their lifetime value is $1,600.</p>
+
+            <h2>How to Calculate CAC</h2>
+
+            <p>CAC includes all costs to acquire a new customer. This is more than just ad spend—you need to account for all sales and marketing expenses.</p>
+
+            <div class="callout formula">
+                <strong>CAC = Total Sales & Marketing Costs ÷ New Customers Acquired</strong>
+            </div>
+
+            <p>Your CAC calculation should include:</p>
+
+            <ul>
+                <li><strong>Marketing spend</strong> — Ads, content, conferences, tools</li>
+                <li><strong>Sales team costs</strong> — Salaries, commissions, training</li>
+                <li><strong>Other acquisition costs</strong> — Agency fees, affiliate payouts, referral rewards</li>
+            </ul>
+
+            <div class="example">
+                <h4>Example Calculation</h4>
+                <table>
+                    <tr><th>Cost Category</th><th>Monthly Spend</th></tr>
+                    <tr><td>Marketing (Ads, content, tools)</td><td>$15,000</td></tr>
+                    <tr><td>Sales team (2 SDRs)</td><td>$10,000</td></tr>
+                    <tr><td>Other acquisition costs</td><td>$2,000</td></tr>
+                    <tr><td><strong>Total Acquisition Costs</strong></td><td><strong>$27,000</strong></td></tr>
+                    <tr><td>New customers/month</td><td>50</td></tr>
+                    <tr><td><strong>CAC</strong></td><td><strong>$27,000 ÷ 50 = $540</strong></td></tr>
+                </table>
+            </div>
+
+            <h2>LTV:CAC Benchmarks by Stage</h2>
+
+            <p>The right LTV:CAC ratio depends on your growth stage:</p>
+
+            <table>
+                <tr><th>Stage</th><th>Target LTV:CAC</th><th>Why</th></tr>
+                <tr><td>Seed/Pre-Seed</td><td>2:1 to 3:1</td><td>Growth over efficiency. You're still finding product-market fit.</td></tr>
+                <tr><td>Series A</td><td>3:1</td><td>Product-market fit established. Balance growth with unit economics.</td></tr>
+                <tr><td>Series B+</td><td>3:1 to 4:1</td><td>Scale with efficiency. Investors want sustainable growth.</td></tr>
+                <tr><td>Public/Profitable</td><td>4:1+</td><td>Market demands profitable growth. Margins matter more.</td></tr>
+            </table>
+
+            <h2>The CAC Payback Period</h2>
+
+            <p>LTV:CAC ratio doesn't tell you <em>when</em> you recover your acquisition cost. That's where the CAC payback period comes in.</p>
+
+            <div class="callout formula">
+                <strong>CAC Payback Period = CAC ÷ (ARPU × Gross Margin)</strong>
+            </div>
+
+            <p>Using our example:</p>
+
+            <div class="example">
+                <table>
+                    <tr><th>Metric</th><th>Value</th></tr>
+                    <tr><td>CAC</td><td>$540</td></tr>
+                    <tr><td>ARPU (Monthly)</td><td>$100</td></tr>
+                    <tr><td>Gross Margin</td><td>80% (0.80)</td></tr>
+                    <tr><td>Monthly Contribution</td><td>$100 × 0.80 = $80</td></tr>
+                    <tr><td><strong>Payback Period</strong></td><td><strong>$540 ÷ $80 = 6.75 months</strong></td></tr>
+                </table>
+            </div>
+
+            <p>A payback period under 12 months is generally considered healthy. Below 6 months is excellent. Above 18 months means you're tying up cash for too long.</p>
+
+            <div class="callout warning">
+                <strong>Why Payback Period Matters:</strong> Even with a good LTV:CAC ratio, a long payback period means you need more working capital to grow. You're essentially lending money to customers while you wait for them to pay it back through subscription revenue.
+            </div>
+
+            <h2>Common LTV:CAC Mistakes</h2>
+
+            <h3>1. Not including all acquisition costs</h3>
+            <p>Only counting ad spend while ignoring sales salaries dramatically understates your CAC. You need to include ALL customer acquisition expenses.</p>
+
+            <h3>2. Using revenue instead of gross margin</h3>
+            <p>Revenue minus gross margin goes to servers, support, and payment processing. Using full revenue in your LTV calculation overstates your economics.</p>
+
+            <h3>3. Mixing cohorts</h3>
+            <p>LTV and CAC vary by customer segment, channel, and acquisition cohort. A blended LTV:CAC can hide problems in specific segments.</p>
+
+            <h3>4. Ignoring churn curves</h3>
+            <p>Churn is rarely linear. Early churn is often higher than later churn. Simple churn-based LTV formulas can be inaccurate if you don't account for churn curves.</p>
+
+            <h3>5. Optimizing for too high of a ratio</h3>
+            <p>An LTV:CAC of 10:1 looks great, but it usually means you're underinvesting in growth. You could be growing faster without hurting economics.</p>
+
+            <h2>How to Improve Your LTV:CAC Ratio</h2>
+
+            <h3>Increase LTV</h3>
+            <ul>
+                <li><strong>Reduce churn</strong> — Improve onboarding, product value, and customer success</li>
+                <li><strong>Increase ARPU</strong> — Add features, raise prices, encourage upsells</li>
+                <li><strong>Improve gross margin</strong> — Reduce direct costs, optimize infrastructure</li>
+            </ul>
+
+            <h3>Decrease CAC</h3>
+            <ul>
+                <li><strong>Improve conversion rates</strong> — Better landing pages, clearer value props, more demos</li>
+                <li><strong>Target higher-intent channels</strong> — Focus on channels with lower acquisition costs</li>
+                <li><strong>Optimize sales process</strong> — Shorten sales cycles, increase close rates</li>
+            </ul>
+
+            <h2>Calculate Your Own LTV:CAC Ratio</h2>
+
+            <p>Ready to understand your SaaS unit economics? Use our free LTV:CAC calculator to:</p>
+
+            <ul>
+                <li>Calculate your exact LTV and CAC</li>
+                <li>See your LTV:CAC ratio compared to SaaS benchmarks</li>
+                <li>Understand your CAC payback period</li>
+                <li>Visualize cumulative value vs. cost over 24 months</li>
+                <li>Save and compare different scenarios</li>
+            </ul>
+
+            <a href="/unit-economics.html" class="cta-button">Calculate Your LTV:CAC Ratio →</a>
+
+            <div class="callout">
+                <strong>Pro Tip:</strong> Track LTV:CAC by cohort and channel. You might find that customers from content marketing have a 4:1 ratio while paid ads only achieve 2:1. This insight can dramatically improve your marketing allocation.
+            </div>
+
+            <h2>Key Takeaways</h2>
+
+            <ul>
+                <li>LTV:CAC ratio measures whether you earn more from customers than you spend to acquire them</li>
+                <li>A ratio of 3:1 is the standard healthy benchmark for SaaS</li>
+                <li>CAC includes ALL sales and marketing costs, not just ad spend</li>
+                <li>LTV uses gross margin, not full revenue</li>
+                <li>The CAC payback period tells you how long until you recover acquisition costs</li>
+                <li>Target LTV:CAC varies by stage (2:1 at seed, 3:1+ at Series A+)</li>
+                <li>Don't optimize for too high a ratio—you might be underinvesting in growth</li>
+            </ul>
+
+            <div class="related-posts">
+                <h3>Related Posts</h3>
+                <a href="../blog/runway-guide.html">How to Calculate Your Startup's Runway →</a>
+                <a href="../blog/equity-dilution-guide.html">How Equity Dilution Works →</a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.querySelector('.theme-toggle');
+        const savedTheme = localStorage.getItem('foundermath_theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+
+        function toggleTheme() {
+            const currentTheme = document.body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('foundermath_theme', newTheme);
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

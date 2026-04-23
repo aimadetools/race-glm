@@ -6,49 +6,36 @@
     <title>Pricing — FounderMath</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
-    // ============================================================
-    // MOBILE MENU TOGGLE FOR ACCESSIBILITY
-    // ============================================================
-    function toggleMobileMenu() {
-        const navLinks = document.getElementById('navLinks');
-        const toggle = document.getElementById('mobileToggle');
-        navLinks.classList.toggle('open');
-        const isOpen = navLinks.classList.contains('open');
-        toggle.setAttribute('aria-expanded', isOpen.toString());
-    }
-
-    // ============================================================
-    // ============================================================
-    // THEME TOGGLE
-    // ============================================================
-    function toggleTheme() {
-        const body = document.body;
-        const currentTheme = body.getAttribute('data-theme') || 'dark';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-    }
-    
-    // Load saved theme on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.body.setAttribute('data-theme', savedTheme);
-    });
-
-    // KEYBOARD NAVIGATION
-    // ============================================================
-    document.addEventListener('keydown', function(e) {
-        // Close mobile menu on Escape
-        if (e.key === 'Escape') {
+    <script>
+        function toggleMobileMenu() {
             const navLinks = document.getElementById('navLinks');
-            if (navLinks.classList.contains('open')) {
-                navLinks.classList.remove('open');
-                document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
-                document.getElementById('mobileToggle').focus();
-            }
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
         }
-    });
-
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', savedTheme);
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
     <meta name="description" content="FounderMath pricing: Free startup equity calculators. Upgrade to Pro for $19/mo or Team for $49/mo for advanced features.">
     <meta property="og:title" content="Pricing — FounderMath">
     <meta property="og:description" content="FounderMath pricing: Free startup equity calculators. Upgrade to Pro for $19/mo or Team for $49/mo for advanced features.">
@@ -326,6 +313,7 @@
         body[data-theme="light"] .theme-toggle .moon-icon { display: none; }
 
     </style>
+    <script src="pro-gating.js"></script>
 </head>
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -401,7 +389,7 @@
                     <li>Multi-round simulation (up to 5)</li>
                     <li>SAFE conversion waterfall</li>
                     <li>Priority support</li>
-                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l-1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l-1.42-1.42"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 1 11.21 3 7 7 0 0 1 0-14zm0 0A9 9 0 0 0 0 11.21-3 7 7 0 0 0 0 14z"/></svg></button></li></ul>
+                </ul>
                 <a href="https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06" class="btn-primary" id="proButton">Start Pro Trial</a>
             </div>
             <div class="pricing-card">
@@ -419,7 +407,7 @@
                     <li>15+ round simulation</li>
                     <li>Priority support + onboarding</li>
                     <li>Dedicated Slack channel</li>
-                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l-1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l-1.42-1.42"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 1 11.21 3 7 7 0 0 1 0-14zm0 0A9 9 0 0 0 0 11.21-3 7 7 0 0 0 0 14z"/></svg></button></li></ul>
+                </ul>
                 <a href="https://buy.stripe.com/cNicN5dh691ceIG5S7eEo05" class="btn-secondary" id="teamButton">Start Team Trial</a>
             </div>
         </div>
@@ -534,6 +522,16 @@
             } else {
                 proEl.innerHTML = '<span class="currency">$</span>19<span class="period">/mo</span>';
                 teamEl.innerHTML = '<span class="currency">$</span>49<span class="period">/mo</span>';
+            }
+        }
+
+        // Pro user detection
+        if (window.FounderMathPro && window.FounderMathPro.isPro()) {
+            var proBtn = document.getElementById('proButton');
+            if (proBtn) {
+                proBtn.textContent = 'You\'re Pro!';
+                proBtn.href = 'dilution.html';
+                proBtn.style.background = 'linear-gradient(135deg, #00b894, #00cec9)';
             }
         }
     </script>
