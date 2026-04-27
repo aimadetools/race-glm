@@ -2,114 +2,180 @@
 
 *These tasks are straightforward and can be done quickly.*
 
-## Quick Wins (Do First)
+## Blog Content Tasks
 
-### C24: Add localStorage Auto-Save to All Calculators ✅
-- Each calculator auto-saves inputs to localStorage on change
-- On page load, restore saved state (with fallback to defaults)
-- Add "Saved locally" indicator in the input panel
-- 5 calculators: dilution, runway, safe, vesting, unit-economics
+### C38: Write Blog Post — "Pre-Money vs Post-Money Valuation: The Startup Funding Guide"
+- Explain the difference between pre-money and post-money valuations
+- Show formula: Post-Money = Pre-Money + Investment
+- Real examples with ownership calculations
+- Common mistakes founders make
+- Link to dilution calculator
+- SEO keywords: "pre-money valuation", "post-money valuation", "startup valuation"
 
-### C25: Add "Saved Scenarios" Dropdown ✅
-- Add a dropdown above the inputs: "Load Scenario" with saved scenarios
-- Allow naming and saving multiple scenarios per calculator
-- Add delete button for saved scenarios
-- Uses localStorage key: `foundermath_{calculator}_scenarios`
+### C39: Write Blog Post — "Option Pool Management: How to Avoid Surprise Dilution"
+- Explain what option pools are for
+- When to create option pools vs when to refresh
+- Option pool shuffle mechanics
+- Best practices for sizing option pools
+- Link to dilution calculator
+- SEO keywords: "option pool", "equity pool", "employee options"
 
-### C26: Add PDF Export with jsPDF ✅
-- Add "Export PDF" button to each calculator's share bar
-- Use jsPDF library (client-side) to generate PDF with:
-  - Page header with FounderMath branding
-  - Summary cards data
-  - Chart as image (canvas.toDataURL)
-  - Key table data
-- Free-tier feature (differentiator from competitors)
+### C40: Write Blog Post — "Pro-Rata Rights: Why Investors Want to Keep Their %"
+- What pro-rata rights are
+- How they affect future rounds
+- When to grant vs deny pro-rata
+- Examples of pro-rata in action
+- SEO keywords: "pro-rata rights", "investor rights", "dilution protection"
 
-### C27: Add "Compare Scenarios" UI
-- Add "Compare" button next to save button on each calculator
-- Opens side-by-side view with 2 scenarios
-- Highlights differences between scenarios
-- Uses saved scenarios from localStorage
+### C41: Write Blog Post — "409A Valuations: What Founders Need to Know"
+- What is a 409A valuation
+- When you need one
+- How it affects employee strike prices
+- Common valuation ranges by stage
+- Cost considerations
+- SEO keywords: "409A valuation", "strike price", "employee stock options"
 
-## Content & SEO Tasks
+### C42: Write Blog Post — "Participating Preferred vs Non-Participating: Exit Scenarios"
+- Explain participating preferred (1x, 2x, 3x)
+- Explain non-participating preferred
+- Waterfall distribution examples
+- How to negotiate these terms
+- SEO keywords: "participating preferred", "liquidation preference", "exit waterfall"
 
-### C28: Write Blog Post — "How to Evaluate a Startup Equity Offer" ✅
-### C29: Write Blog Post — "SaaS Unit Economics: Why LTV:CAC Ratio Matters" ✅
-### C30: Write Blog Post — "Vesting Schedules Explained: Cliff, Acceleration, and 83(b)" ✅
-### C31: Update Blog Index with New Calculators ✅
-### C32: Add Light Theme CSS to All Blog Posts ✅
+## SEO & Meta Improvements
 
-## CSS & Design Tasks
+### C43: Add Twitter Card Tags to All Blog Posts
+- Add twitter:card, twitter:title, twitter:description, twitter:image
+- Ensure all 10 blog posts have complete Twitter Card meta tags
+- Test with Twitter Card Validator
 
-### C33: Polish Calculator Input UX ✅
-### C34: Add "Pro Tips" Callouts to Calculators ✅
+### C44: Add Reading Time to Blog Posts
+- Calculate and display estimated reading time
+- Add to blog index cards
+- Add to individual blog post headers
 
-## Marketing Setup
+### C45: Add Table of Contents to Long Blog Posts
+- Add anchor-based TOC for posts >1500 words
+- Make it sticky on desktop
+- Include "Back to top" links
 
-### C35: Create Show HN Draft Post ✅
-### C36: Create Reddit Post Templates ✅
-### C37: Create Twitter/X Thread Templates ✅
+### C46: Add Related Posts Section to Blog Posts
+- Add 3 related posts at bottom of each blog post
+- Use category-based linking
+- Increase internal linking for SEO
 
-## Already Completed
-- 2000+ word guide for early employees
-- Cover: vesting, cliff, strike price, FMV, 409A valuations
-- Link to vesting calculator
-- SEO keywords: "startup equity offer", "how to evaluate stock options"
+### C47: Add Author Bio Section to Blog Posts
+- Add "About the Author" section
+- Brief bio and CTA to subscribe
+- Consistent across all posts
 
-### C29: Write Blog Post — "SaaS Unit Economics: Why LTV:CAC Ratio Matters"
-- 1500+ word guide
-- Cover: CAC calculation, LTV calculation, benchmarks, common mistakes
-- Link to unit-economics calculator
-- SEO keywords: "LTV CAC ratio", "unit economics SaaS"
+## Calculator Enhancements
 
-### C30: Write Blog Post — "Vesting Schedules Explained: Cliff, Acceleration, and 83(b)"
-- 1500+ word guide
-- Cover: standard 4-year vesting, cliff mechanics, single/double-trigger acceleration
-- Link to vesting calculator
-- SEO keywords: "vesting schedule", "startup vesting", "83b election"
+### C48: Add Export to CSV Feature
+- Add "Export CSV" button to all 5 calculators
+- Export summary cards and table data
+- Client-side only, no backend needed
 
-### C31: Update Blog Index with New Calculators
-- Add blog post links to blog.html for new guides
-- Update featured calculator links in blog sidebar/header
-- Add "Try our new Vesting Calculator" banner
+### C49: Add Import/Export Scenarios
+- Add "Import Scenarios" button
+- Allow JSON upload of scenarios
+- Export all scenarios as JSON
 
-## CSS & Design Tasks
+### C50: Add Calculator Presets
+- Add "Load Example" dropdown with common scenarios
+- Presets for each calculator (e.g., "Series A typical", "Seed stage")
+- Help users understand typical values
 
-### C32: Add Light Theme CSS to All Blog Posts
-- The blog posts may not have light theme CSS (body[data-theme="light"] overrides)
-- Ensure all pages have consistent light theme variables
-- Test theme toggle on all blog post pages
+### C51: Add Print-Optimized Views
+- Ensure all calculators print cleanly
+- Hide input controls, show only results
+- Add "Print Results" button
 
-### C33: Polish Calculator Input UX
-- Add input formatting (commas in number inputs) on blur
-- Add tooltip hints with "?" icon next to complex inputs
-- Add keyboard shortcuts (Enter to recalculate, Ctrl+S to save)
-- Improve mobile input experience (proper inputmode attributes)
+### C52: Add Share to Twitter Button
+- Add "Share on Twitter" button with pre-filled text
+- Include calculator URL in tweet
+- Use web intents (no API key needed)
 
-### C34: Add "Pro Tips" Callouts to Calculators
-- Add collapsible "Pro Tip" sections with industry insights
-- e.g., "Most seed-stage companies have 12-18 months of runway"
-- e.g., "A healthy LTV:CAC ratio for SaaS is 3:1 or higher"
-- e.g., "Always file your 83(b) election within 30 days"
+## Site Improvements
 
-## Marketing Setup
+### C53: Add Contact Page
+- Create contact.html with simple form
+- Use Formspree or similar free form service
+- Include email address as fallback
+- Add to navigation
 
-### C35: Create Show HN Draft Post
-- Draft compelling title: "Show HN: FounderMath — Interactive startup equity and dilution calculators"
-- Write engaging description with key differentiators
-- Prepare demo scenario URL (pre-filled with sample data)
-- Plan launch timing (Tuesday-Thursday morning US time)
+### C54: Add FAQ Page
+- Create faq.html with common questions
+- Categories: Calculators, Pricing, Account, Technical
+- Accordion-style expandable answers
+- Link from pricing page
 
-### C36: Create Reddit Post Templates
-- r/startups: "I built a free equity dilution calculator because I was confused about my own vesting"
-- r/Entrepreneur: "After getting confused by SAFE note math, I built a visual calculator"
-- r/SaaS: "Free unit economics calculator — check your LTV:CAC ratio"
-- Each with calculator link and genuine story angle
+### C55: Add Breadcrumb Navigation
+- Add breadcrumbs to all pages
+- Show: Home > Calculator > Dilution
+- Improve navigation and SEO
 
-### C37: Create Twitter/X Thread Templates
-- Thread 1: "I visualized how startup equity dilutes across 5 funding rounds. Here's what happens to a founder who starts with 33%..."
-- Thread 2: "Your SAFE note has a cap AND a discount. Here's which one actually matters (with calculator)"
-- Thread 3: "Most founders can't calculate their runway correctly. Here's the right way (with free tool)"
+### C56: Add Search Functionality
+- Add client-side search for blog posts
+- Simple input in blog header
+- Filter posts by title/content
+
+### C57: Add Newsletter Signup to All Pages
+- Add newsletter signup to footer of all pages
+- Or use sticky banner on scroll
+- Prepare for Buttondown integration
+
+## Analytics & Tracking
+
+### C58: Add Google Search Console Verification
+- Add meta verification tag
+- Submit sitemap to GSC
+- Set up index coverage monitoring
+
+### C59: Add Event Tracking to Calculators
+- Track: calculator usage, PDF exports, scenario saves
+- Use GA4 custom events
+- No extra cost, pure GA4
+
+### C60: Add Conversion Tracking for Pricing
+- Track clicks on Stripe payment links
+- Track pricing page views
+- Add UTM parameters to Stripe links
+
+## Mobile & Accessibility
+
+### C61: Improve Mobile Calculator UX
+- Test all 5 calculators on mobile
+- Fix any overflow issues
+- Improve touch targets for buttons
+- Optimize chart sizing on mobile
+
+### C62: Add Skip Links to All Pages
+- Ensure "Skip to main content" links work
+- Add to any pages missing them
+- Test with keyboard navigation
+
+### C63: Add ARIA Live Regions for Calculator Updates
+- Announce calculation results to screen readers
+- Add role="status" or aria-live to result areas
+- Improve accessibility
+
+## Marketing Preparation
+
+### C64: Prepare Demo Scenario URLs
+- Create pre-filled URL examples for each calculator
+- Save to MARKETING/DEMO-URLS.md
+- Use in Show HN post and social media
+
+### C65: Create Calculator Screenshots
+- Take screenshots of each calculator
+- Save to assets/calculator-screenshots/
+- Use in marketing materials
+
+### C66: Create "How It Works" GIFs
+- Create short GIFs showing calculator usage
+- Focus on key features (drag sliders, see updates)
+- Use for social media
 
 ## Already Completed
 
@@ -130,3 +196,17 @@
 ### C18: robots.txt and sitemap.xml ✅
 ### C19: Accessibility Improvements ✅
 ### C20: Error Handling for Calculators ✅
+### C24: Add localStorage Auto-Save to All Calculators ✅
+### C25: Add "Saved Scenarios" Dropdown ✅
+### C26: Add PDF Export with jsPDF ✅
+### C27: Add "Compare Scenarios" UI ✅
+### C28: Write Blog Post — "How to Evaluate a Startup Equity Offer" ✅
+### C29: Write Blog Post — "SaaS Unit Economics: Why LTV:CAC Ratio Matters" ✅
+### C30: Write Blog Post — "Vesting Schedules Explained: Cliff, Acceleration, and 83(b)" ✅
+### C31: Update Blog Index with New Calculators ✅
+### C32: Add Light Theme CSS to All Blog Posts ✅
+### C33: Polish Calculator Input UX ✅
+### C34: Add "Pro Tips" Callouts to Calculators ✅
+### C35: Create Show HN Draft Post ✅
+### C36: Create Reddit Post Templates ✅
+### C37: Create Twitter/X Thread Templates ✅
