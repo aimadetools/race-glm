@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Money vs Post-Money Valuation: The Startup Funding Guide — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+        function toggleTheme() {
+            const body = document.body;
+            const current = body.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const saved = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', saved);
+        });
+    </script>
+    <meta name="description" content="Learn the difference between pre-money and post-money valuations in startup funding. Includes formulas, real examples, and common mistakes founders make.">
+    <meta name="keywords" content="pre-money valuation, post-money valuation, startup valuation, funding rounds, equity dilution, founder ownership">
+    <meta property="og:title" content="Pre-Money vs Post-Money Valuation: The Startup Funding Guide">
+    <meta property="og:description" content="Understanding pre-money vs post-money valuation is crucial for founders. Learn the formula, see real examples, and avoid common mistakes.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/pre-money-post-money-valuation-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pre-Money vs Post-Money Valuation: The Startup Funding Guide">
+    <meta name="twitter:description" content="Understanding pre-money vs post-money valuation is crucial for founders. Learn the formula, see real examples, and avoid common mistakes.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Pre-Money vs Post-Money Valuation: The Startup Funding Guide",
+        "url": "https://founder-math.com/blog/pre-money-post-money-valuation-guide.html",
+        "description": "Learn the difference between pre-money and post-money valuations in startup funding. Includes formulas, real examples, and common mistakes founders make.",
+        "datePublished": "2026-04-27",
+        "dateModified": "2026-04-27",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/pre-money-post-money-valuation-guide.html"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); width: 40px; height: 40px;
+            border-radius: 8px; cursor: pointer; display: flex;
+            align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover { color: var(--text-primary); border-color: var(--accent); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.15);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.15);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-muted: #b2bec3;
+            --border: #dfe6e9;
+        }
+        .article-layout {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+        .article-header { margin-bottom: 48px; }
+        .article-meta {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted);
+        }
+        .article-meta .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+        .article-header .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .toc {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 48px;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+        }
+        .toc ol { padding-left: 20px; }
+        .toc li { margin-bottom: 6px; font-size: 0.9rem; }
+        .toc a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .toc a:hover { color: var(--accent-light); }
+        .article-body h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            padding-top: 16px;
+        }
+        .article-body h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        .article-body p { margin-bottom: 20px; color: var(--text-secondary); }
+        .article-body a {
+            color: var(--accent-light);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .article-body a:hover { border-bottom-color: var(--accent-light); }
+        .article-body ul, .article-body ol { margin-bottom: 20px; padding-left: 24px; color: var(--text-secondary); }
+        .article-body li { margin-bottom: 8px; }
+        .formula-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 16px 20px;
+            margin: 24px 0;
+            border-radius: 8px;
+        }
+        .formula-box code {
+            font-family: var(--font-mono);
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            background: transparent;
+            padding: 0;
+        }
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .example-table th, .example-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .example-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .example-table tr:last-child td { border-bottom: none; }
+        .example-table td { color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.9rem; }
+        .example-table .highlight { color: var(--green); font-weight: 600; }
+        .example-table .warning { color: var(--orange); font-weight: 600; }
+        .callout {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+        .callout.success { border-left: 4px solid var(--green); }
+        .callout.warning { border-left: 4px solid var(--orange); }
+        .callout.error { border-left: 4px solid var(--red); }
+        .callout h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .callout.success h4 { color: var(--green); }
+        .callout.warning h4 { color: var(--orange); }
+        .callout.error h4 { color: var(--red); }
+        .callout p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(0, 184, 148, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .cta-box h3 { margin-top: 0; color: var(--accent-light); }
+        .cta-box p { margin-bottom: 16px; }
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .author-bio {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+        }
+        .author-bio h4 { font-size: 0.95rem; text-transform: uppercase; color: var(--accent-light); margin-bottom: 12px; }
+        .author-bio p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute; top: 64px; left: 0; right: 0;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 24px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-links.open { display: flex; }
+            .nav-cta { text-align: center; padding: 12px 20px; }
+            .mobile-toggle { display: block; }
+            .theme-toggle { display: none; }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../index.html" class="logo" aria-label="FounderMath Home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                <span>FounderMath</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../pricing.html" class="nav-cta">Pricing</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-label="Toggle mobile menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main id="main-content" class="article-layout">
+        <article>
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="tag">Funding</span>
+                    <span>April 27, 2026</span>
+                    <span>8 min read</span>
+                </div>
+                <h1>Pre-Money vs Post-Money Valuation: The Startup Funding Guide</h1>
+                <p class="subtitle">Understanding the difference between pre-money and post-money valuation is crucial for founders. Get the formula, see real examples, and avoid costly mistakes.</p>
+            </header>
+            <div class="toc">
+                <h2>Table of Contents</h2>
+                <ol>
+                    <li><a href="#what-is-pre-money-valuation">What is Pre-Money Valuation?</a></li>
+                    <li><a href="#what-is-post-money-valuation">What is Post-Money Valuation?</a></li>
+                    <li><a href="#the-valuation-formula">The Valuation Formula</a></li>
+                    <li><a href="#calculating-your-ownership">Calculating Your Ownership</a></li>
+                    <li><a href="#real-world-example-series-a">Real-World Example: Series A</a></li>
+                    <li><a href="#common-mistakes-founders-make">Common Mistakes Founders Make</a></li>
+                    <li><a href="#key-takeaways">Key Takeaways</a></li>
+                </ol>
+            </div>
+            <div class="article-body">
+                <h2 id="what-is-pre-money-valuation">What is Pre-Money Valuation?</h2>
+                <p>Pre-money valuation is the value of your company <strong>before</strong> receiving any new investment. It represents what investors think your company is worth based on its current assets, traction, team, and future potential.</p>
+                <p>Think of it as the price tag on your startup before the cash infusion. If an investor offers you $2M on a $8M pre-money valuation, they're saying: "Your company is worth $8M right now, and I'll give you $2M for 20% ownership."</p>
+                <div class="callout success">
+                    <h4>Key Insight</h4>
+                    <p>Pre-money valuation is what you negotiate. Post-money valuation is just the math that follows.</p>
+                </div>
+                <h2 id="what-is-post-money-valuation">What is Post-Money Valuation?</h2>
+                <p>Post-money valuation is the value of your company <strong>after</strong> the new investment is added. It's simply the pre-money valuation plus the amount of money being raised.</p>
+                <p>Using the example above: $8M pre-money + $2M investment = $10M post-money valuation. This number determines what percentage of the company the new investors receive.</p>
+                <h2 id="the-valuation-formula">The Valuation Formula</h2>
+                <p>The relationship between these two valuations is straightforward:</p>
+                <div class="formula-box">
+                    <code>Post-Money Valuation = Pre-Money Valuation + Investment Amount</code>
+                </div>
+                <p>From this, you can calculate the ownership percentage the investor receives:</p>
+                <div class="formula-box">
+                    <code>Investor Ownership % = Investment Amount ÷ Post-Money Valuation</code>
+                </div>
+                <p>Or, using only pre-money:</p>
+                <div class="formula-box">
+                    <code>Investor Ownership % = Investment Amount ÷ (Pre-Money Valuation + Investment Amount)</code>
+                </div>
+                <h2 id="calculating-your-ownership">Calculating Your Ownership</h2>
+                <p>After an investment round, your ownership percentage changes. Here's how to calculate what you'll own:</p>
+                <div class="formula-box">
+                    <code>Your New Ownership % = Your Current Ownership % × (Pre-Money Valuation ÷ Post-Money Valuation)</code>
+                </div>
+                <p>This is where many founders get surprised. If you own 100% of your company and raise $2M on an $8M pre-money valuation, you don't own 80%—you own less. The investor gets 20%, and you get diluted proportionally.</p>
+                <h2 id="real-world-example-series-a">Real-World Example: Series A</h2>
+                <p>Let's walk through a realistic Series A scenario to see how this plays out.</p>
+                <table class="example-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pre-Money Valuation</td>
+                            <td>$15,000,000</td>
+                        </tr>
+                        <tr>
+                            <td>Investment Amount</td>
+                            <td>$5,000,000</td>
+                        </tr>
+                        <tr>
+                            <td>Post-Money Valuation</td>
+                            <td class="highlight">$20,000,000</td>
+                        </tr>
+                        <tr>
+                            <td>Investor Ownership</td>
+                            <td>25%</td>
+                        </tr>
+                        <tr>
+                            <td>Founders' Starting Ownership</td>
+                            <td>75%</td>
+                        </tr>
+                        <tr>
+                            <td>Founders' New Ownership</td>
+                            <td class="highlight">56.25%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Here's the math: The founders started with 75% ownership (25% went to early investors and employees). After the Series A, they own <strong>75% × ($15M ÷ $20M) = 56.25%</strong>.</p>
+                <p>The investor gets 25%, and the remaining 18.75% is dilution that affects all existing shareholders proportionally.</p>
+                <div class="callout warning">
+                    <h4>Watch Out for Option Pools</h4>
+                    <p>Many investors will negotiate that the option pool is created <em>before</em> their investment. This means the pre-money valuation includes the option pool, and you get diluted twice—once for the pool and once for the investor. This is called the "option pool shuffle."</p>
+                </div>
+                <h2 id="common-mistakes-founders-make">Common Mistakes Founders Make</h2>
+                <h3>1. Focusing Only on Pre-Money</h3>
+                <p>Founders often celebrate a high pre-money valuation without considering other terms. A $20M pre-money with terrible liquidation preferences, anti-dilution clauses, and board control might be worse than a $15M pre-money with clean terms.</p>
+                <h3>2. Confusing Pre-Money and Post-Money</h3>
+                <p>It sounds basic, but in the heat of negotiations, founders sometimes mix these up. If you think you're getting a $10M pre-money when it's actually $10M post-money, that's a massive difference in your ownership.</p>
+                <h3>3. Forgetting About Dilution</h3>
+                <p>Raising money dilutes your ownership. Each round reduces your percentage. Founders who don't plan for this across multiple rounds can end up with surprisingly little ownership by Series C or D.</p>
+                <h3>4. Ignoring the Option Pool Impact</h3>
+                <p>As mentioned above, the option pool can significantly impact your effective valuation. A $10M pre-money with a 20% unallocated option pool is effectively an $8M pre-money from your perspective.</p>
+                <div class="cta-box">
+                    <h3>Plan Your Dilution Across Rounds</h3>
+                    <p>Use our <a href="../dilution.html">Equity Dilution Calculator</a> to model multiple funding rounds and see exactly how your ownership changes over time.</p>
+                    <a href="../dilution.html" class="cta-btn">Try the Calculator</a>
+                </div>
+                <h2 id="key-takeaways">Key Takeaways</h2>
+                <ul>
+                    <li><strong>Pre-money</strong> is your company's value before investment; <strong>post-money</strong> is after investment.</li>
+                    <li>Post-money = Pre-money + Investment amount.</li>
+                    <li>Investor ownership = Investment ÷ Post-money valuation.</li>
+                    <li>Your ownership dilutes proportionally in every round.</li>
+                    <li>Watch for option pools—they can effectively lower your pre-money valuation.</li>
+                    <li>Don't focus solely on valuation; consider all deal terms.</li>
+                    <li>Model multiple rounds ahead to understand your long-term ownership trajectory.</li>
+                </ul>
+                <div class="callout success">
+                    <h4>Pro Tip</h4>
+                    <p>When negotiating, focus on the post-money valuation and what percentage you'll own after the round. That's the number that actually matters for your future wealth and control.</p>
+                </div>
+            </div>
+            <div class="author-bio">
+                <h4>About FounderMath</h4>
+                <p>FounderMath provides free, powerful calculators for startup founders. From equity dilution to runway to SAFE notes, we help you make informed decisions about your startup's finances.</p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>409A Valuations: What Founders Need to Know — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+        function toggleTheme() {
+            const body = document.body;
+            const current = body.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const saved = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', saved);
+        });
+    </script>
+    <meta name="description" content="Learn what a 409A valuation is, when you need one, how it affects employee strike prices, common valuation ranges by stage, and cost considerations.">
+    <meta name="keywords" content="409A valuation, strike price, employee stock options, startup valuation, ISO, NSO, equity compensation, tax compliance">
+    <meta property="og:title" content="409A Valuations: What Founders Need to Know">
+    <meta property="og:description" content="Understanding 409A valuations is crucial for issuing stock options. Learn when you need one, how it affects strike prices, and what to expect.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/409a-valuation-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="409A Valuations: What Founders Need to Know">
+    <meta name="twitter:description" content="Understanding 409A valuations is crucial for issuing stock options. Learn when you need one, how it affects strike prices, and what to expect.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "409A Valuations: What Founders Need to Know",
+        "url": "https://founder-math.com/blog/409a-valuation-guide.html",
+        "description": "Learn what a 409A valuation is, when you need one, how it affects employee strike prices, common valuation ranges by stage, and cost considerations.",
+        "datePublished": "2026-04-27",
+        "dateModified": "2026-04-27",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/409a-valuation-guide.html"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); width: 40px; height: 40px;
+            border-radius: 8px; cursor: pointer; display: flex;
+            align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover { color: var(--text-primary); border-color: var(--accent); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.15);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.15);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-muted: #b2bec3;
+            --border: #dfe6e9;
+        }
+        .article-layout {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+        .article-header { margin-bottom: 48px; }
+        .article-meta {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted);
+        }
+        .article-meta .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+        .article-header .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .toc {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 48px;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+        }
+        .toc ol { padding-left: 20px; }
+        .toc li { margin-bottom: 6px; font-size: 0.9rem; }
+        .toc a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .toc a:hover { color: var(--accent-light); }
+        .article-body h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            padding-top: 16px;
+        }
+        .article-body h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        .article-body p { margin-bottom: 20px; color: var(--text-secondary); }
+        .article-body a {
+            color: var(--accent-light);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .article-body a:hover { border-bottom-color: var(--accent-light); }
+        .article-body ul, .article-body ol { margin-bottom: 20px; padding-left: 24px; color: var(--text-secondary); }
+        .article-body li { margin-bottom: 8px; }
+        .formula-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 16px 20px;
+            margin: 24px 0;
+            border-radius: 8px;
+        }
+        .formula-box code {
+            font-family: var(--font-mono);
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            background: transparent;
+            padding: 0;
+        }
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .example-table th, .example-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .example-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .example-table tr:last-child td { border-bottom: none; }
+        .example-table td { color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.9rem; }
+        .example-table .highlight { color: var(--green); font-weight: 600; }
+        .example-table .warning { color: var(--orange); font-weight: 600; }
+        .callout {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+        .callout.success { border-left: 4px solid var(--green); }
+        .callout.warning { border-left: 4px solid var(--orange); }
+        .callout.error { border-left: 4px solid var(--red); }
+        .callout h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .callout.success h4 { color: var(--green); }
+        .callout.warning h4 { color: var(--orange); }
+        .callout.error h4 { color: var(--red); }
+        .callout p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(0, 184, 148, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .cta-box h3 { margin-top: 0; color: var(--accent-light); }
+        .cta-box p { margin-bottom: 16px; }
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .author-bio {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+        }
+        .author-bio h4 { font-size: 0.95rem; text-transform: uppercase; color: var(--accent-light); margin-bottom: 12px; }
+        .author-bio p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute; top: 64px; left: 0; right: 0;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 24px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-links.open { display: flex; }
+            .nav-cta { text-align: center; padding: 12px 20px; }
+            .mobile-toggle { display: block; }
+            .theme-toggle { display: none; }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../index.html" class="logo" aria-label="FounderMath Home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                <span>FounderMath</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../pricing.html" class="nav-cta">Pricing</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-label="Toggle mobile menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main id="main-content" class="article-layout">
+        <article>
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="tag">Equity</span>
+                    <span>April 27, 2026</span>
+                    <span>7 min read</span>
+                </div>
+                <h1>409A Valuations: What Founders Need to Know</h1>
+                <p class="subtitle">409A valuations determine the strike price for employee stock options. Learn when you need one, how it works, and what to expect from the process.</p>
+            </header>
+            <div class="toc">
+                <h2>Table of Contents</h2>
+                <ol>
+                    <li><a href="#what-is-a-409a-valuation">What is a 409A Valuation?</a></li>
+                    <li><a href="#when-do-you-need-a-409a">When Do You Need a 409A?</a></li>
+                    <li><a href="#how-409a-affects-employees">How 409A Affects Employees</a></li>
+                    <li><a href="#409a-vs-fair-market-valuation">409A vs. Fair Market Valuation</a></li>
+                    <li><a href="#valuation-ranges-by-stage">Valuation Ranges by Stage</a></li>
+                    <li><a href="#cost-considerations">Cost Considerations</a></li>
+                    <li><a href="#key-takeaways">Key Takeaways</a></li>
+                </ol>
+            </div>
+            <div class="article-body">
+                <h2 id="what-is-a-409a-valuation">What is a 409A Valuation?</h2>
+                <p>A 409A valuation is an independent appraisal of a startup's fair market value (FMV) for the purpose of setting the strike price for employee stock options. It's named after Section 409A of the Internal Revenue Code, which governs deferred compensation.</p>
+                <p>The 409A valuation determines the price at which employees can purchase company stock. This strike price becomes the basis for calculating taxable income when employees exercise their options or sell their shares.</p>
+                <div class="callout success">
+                    <h4>Key Insight</h4>
+                    <p>The strike price must be at or above the 409A valuation. If it's set lower, employees face immediate tax consequences, and the company can face penalties.</p>
+                </div>
+                <h2 id="when-do-you-need-a-409a">When Do You Need a 409A?</h2>
+                <p>You need a 409A valuation when you plan to issue stock options to employees. Here's the typical timeline:</p>
+                <ul>
+                    <li><strong>Pre-Seed/Bootstrap:</strong> Often not required if you're only issuing options to founders</li>
+                    <li><strong>Seed:</strong> Required when issuing the first employee options (typically after hiring first non-founder employees)</li>
+                    <li><strong>Series A and beyond:</strong> Required annually, and whenever you issue new options</li>
+                </ul>
+                <p>You also need a new 409A valuation after any "material event" that significantly changes the company's value, such as:</p>
+                <ul>
+                    <li>Completing a priced financing round</li>
+                    <li>A major product launch or pivot</li>
+                    <li>Significant changes in revenue or business model</li>
+                    <li>M&A activity</li>
+                </ul>
+                <div class="callout warning">
+                    <h4>The 12-Month Rule</h4>
+                    <p>409A valuations are valid for 12 months. After that, you need a new one before issuing additional options. Plan your budget accordingly.</p>
+                </div>
+                <h2 id="how-409a-affects-employees">How 409A Affects Employees</h2>
+                <p>The 409A valuation directly impacts the value of employee equity:</p>
+                <ul>
+                    <li><strong>Lower strike price = More upside for employees</strong> — The difference between strike price and eventual exit price is their profit</li>
+                    <li><strong>Qualified Incentive Stock Options (ISOs)</strong> — Require strike price at FMV to receive favorable tax treatment</li>
+                    <li><strong>Non-Qualified Stock Options (NSOs)</strong> — Also use FMV as the baseline, but have different tax treatment</li>
+                </ul>
+                <p>When an employee exercises options, they pay the strike price to acquire shares. The difference between the current FMV and strike price is taxable income (except for ISOs held until sale).</p>
+                <div class="formula-box">
+                    <code>Employee Profit = Exit Price - Strike Price</code>
+                </div>
+                <p>A lower 409A valuation means a lower strike price, which means more profit for employees when the company succeeds.</p>
+                <h2 id="409a-vs-fair-market-valuation">409A vs. Fair Market Valuation</h2>
+                <p>The 409A valuation is <em>not</em> the same as the valuation investors pay for preferred stock. There's an important distinction:</p>
+                <table class="example-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>What It Values</th>
+                            <th>Who Gets It</th>
+                            <th>Typical Ratio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>409A Valuation</td>
+                            <td>Common stock FMV</td>
+                            <td>Employees</td>
+                            <td class="highlight">1x</td>
+                        </tr>
+                        <tr>
+                            <td>Preferred Price</td>
+                            <td>Preferred stock value</td>
+                            <td>Investors</td>
+                            <td>1.5x - 3x 409A</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>The 409A valuation is typically much lower than the preferred price because:</p>
+                <ul>
+                    <li>Common stock lacks the liquidation preference and other rights of preferred stock</li>
+                    <li>There's a "lack of marketability" discount—common shares are harder to sell</li>
+                    <li>The valuation is defensive—appraisers are conservative to avoid IRS scrutiny</li>
+                </ul>
+                <p>For example, if you raise at a $40M pre-money valuation, your 409A might come in at $15M-$25M. This is normal and expected.</p>
+                <h2 id="valuation-ranges-by-stage">Valuation Ranges by Stage</h2>
+                <p>While every company is different, here are typical 409A valuation ranges by stage:</p>
+                <table class="example-table">
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>409A Range</th>
+                            <th>Factors Considered</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pre-Seed</td>
+                            <td>$0.10 - $1.00/share</td>
+                            <td>Team, concept, market size</td>
+                        </tr>
+                        <tr>
+                            <td>Seed</td>
+                            <td>$1.00 - $5.00/share</td>
+                            <td>Traction, pilot customers, product</td>
+                        </tr>
+                        <tr>
+                            <td>Series A</td>
+                            <td>$5.00 - $15.00/share</td>
+                            <td>Revenue, growth rate, metrics</td>
+                        </tr>
+                        <tr>
+                            <td>Series B</td>
+                            <td>$15.00 - $40.00/share</td>
+                            <td>ARR, customer base, market position</td>
+                        </tr>
+                        <tr>
+                            <td>Series C+</td>
+                            <td>$40.00 - $100.00+/share</td>
+                            <td>Scale, profitability path, exit proximity</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="callout success">
+                    <h4>Valuation Methodology</h4>
+                    <p>Appraisers use multiple methods: market approach (comparable companies), income approach (discounted cash flow), and asset approach. They typically weight the market approach most heavily for early-stage startups.</p>
+                </div>
+                <h2 id="cost-considerations">Cost Considerations</h2>
+                <p>409A valuations cost money, and you'll need them regularly. Here's what to expect:</p>
+                <table class="example-table">
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>Typical Cost</th>
+                            <th>Turnaround</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Seed</td>
+                            <td>$2,000 - $5,000</td>
+                            <td>2-4 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Series A</td>
+                            <td>$5,000 - $10,000</td>
+                            <td>2-4 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Series B</td>
+                            <td>$10,000 - $20,000</td>
+                            <td>3-6 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Series C+</td>
+                            <td>$20,000+</td>
+                            <td>4-8 weeks</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Rush services are available but typically cost 50-100% more. Budget for annual valuations as part of your ongoing legal expenses.</p>
+                <div class="cta-box">
+                    <h3>Model Your Equity</h3>
+                    <p>Use our <a href="../vesting.html">Vesting Calculator</a> to model employee equity grants and understand the impact of different strike prices on potential upside.</p>
+                    <a href="../vesting.html" class="cta-btn">Try the Calculator</a>
+                </div>
+                <h2 id="key-takeaways">Key Takeaways</h2>
+                <ul>
+                    <li>409A valuations set the strike price for employee stock options</li>
+                    <li>Required when issuing options to employees, typically starting at Seed stage</li>
+                    <li>Valid for 12 months; must be renewed annually and after material events</li>
+                    <li>Lower 409A = lower strike price = more employee upside</li>
+                    <li>409A is typically 1/2 to 1/3 of the preferred price investors pay</li>
+                    <li>Costs range from $2,000 (Seed) to $20,000+ (Series C+)</li>
+                    <li>Use qualified appraisers with startup experience</li>
+                    <li>Plan budget for annual valuations as a recurring expense</li>
+                </ul>
+                <div class="callout success">
+                    <h4>Pro Tip</h4>
+                    <p>When negotiating with appraisers, provide complete, accurate financial information. A well-documented company with clean books and clear metrics typically receives a more favorable valuation than one with disorganized records.</p>
+                </div>
+            </div>
+            <div class="author-bio">
+                <h4>About FounderMath</h4>
+                <p>FounderMath provides free, powerful calculators for startup founders. From equity dilution to runway to SAFE notes, we help you make informed decisions about your startup's finances.</p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>

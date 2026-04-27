@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option Pool Management: How to Avoid Surprise Dilution — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+        function toggleTheme() {
+            const body = document.body;
+            const current = body.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const saved = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', saved);
+        });
+    </script>
+    <meta name="description" content="Learn how option pools work, when to create vs refresh them, and the option pool shuffle mechanics that can surprise founders.">
+    <meta name="keywords" content="option pool, equity pool, employee options, option pool shuffle, founder dilution, employee equity, startup hiring">
+    <meta property="og:title" content="Option Pool Management: How to Avoid Surprise Dilution">
+    <meta property="og:description" content="Understanding option pools is crucial for founders. Learn the shuffle mechanics, when to refresh, and how to size your pool correctly.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/option-pool-management-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Option Pool Management: How to Avoid Surprise Dilution">
+    <meta name="twitter:description" content="Understanding option pools is crucial for founders. Learn the shuffle mechanics, when to refresh, and how to size your pool correctly.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Option Pool Management: How to Avoid Surprise Dilution",
+        "url": "https://founder-math.com/blog/option-pool-management-guide.html",
+        "description": "Learn how option pools work, when to create vs refresh them, and the option pool shuffle mechanics that can surprise founders.",
+        "datePublished": "2026-04-27",
+        "dateModified": "2026-04-27",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/option-pool-management-guide.html"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); width: 40px; height: 40px;
+            border-radius: 8px; cursor: pointer; display: flex;
+            align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover { color: var(--text-primary); border-color: var(--accent); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.15);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.15);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-muted: #b2bec3;
+            --border: #dfe6e9;
+        }
+        .article-layout {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+        .article-header { margin-bottom: 48px; }
+        .article-meta {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted);
+        }
+        .article-meta .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+        .article-header .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .toc {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 48px;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+        }
+        .toc ol { padding-left: 20px; }
+        .toc li { margin-bottom: 6px; font-size: 0.9rem; }
+        .toc a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .toc a:hover { color: var(--accent-light); }
+        .article-body h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            padding-top: 16px;
+        }
+        .article-body h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        .article-body p { margin-bottom: 20px; color: var(--text-secondary); }
+        .article-body a {
+            color: var(--accent-light);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .article-body a:hover { border-bottom-color: var(--accent-light); }
+        .article-body ul, .article-body ol { margin-bottom: 20px; padding-left: 24px; color: var(--text-secondary); }
+        .article-body li { margin-bottom: 8px; }
+        .formula-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 16px 20px;
+            margin: 24px 0;
+            border-radius: 8px;
+        }
+        .formula-box code {
+            font-family: var(--font-mono);
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            background: transparent;
+            padding: 0;
+        }
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .example-table th, .example-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .example-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .example-table tr:last-child td { border-bottom: none; }
+        .example-table td { color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.9rem; }
+        .example-table .highlight { color: var(--green); font-weight: 600; }
+        .example-table .warning { color: var(--orange); font-weight: 600; }
+        .callout {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+        .callout.success { border-left: 4px solid var(--green); }
+        .callout.warning { border-left: 4px solid var(--orange); }
+        .callout.error { border-left: 4px solid var(--red); }
+        .callout h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .callout.success h4 { color: var(--green); }
+        .callout.warning h4 { color: var(--orange); }
+        .callout.error h4 { color: var(--red); }
+        .callout p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(0, 184, 148, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .cta-box h3 { margin-top: 0; color: var(--accent-light); }
+        .cta-box p { margin-bottom: 16px; }
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .author-bio {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+        }
+        .author-bio h4 { font-size: 0.95rem; text-transform: uppercase; color: var(--accent-light); margin-bottom: 12px; }
+        .author-bio p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute; top: 64px; left: 0; right: 0;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 24px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-links.open { display: flex; }
+            .nav-cta { text-align: center; padding: 12px 20px; }
+            .mobile-toggle { display: block; }
+            .theme-toggle { display: none; }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../index.html" class="logo" aria-label="FounderMath Home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                <span>FounderMath</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../pricing.html" class="nav-cta">Pricing</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-label="Toggle mobile menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main id="main-content" class="article-layout">
+        <article>
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="tag">Equity</span>
+                    <span>April 27, 2026</span>
+                    <span>7 min read</span>
+                </div>
+                <h1>Option Pool Management: How to Avoid Surprise Dilution</h1>
+                <p class="subtitle">Option pools are essential for hiring, but they can cause unexpected dilution. Learn the mechanics, when to create vs refresh, and best practices for sizing your pool.</p>
+            </header>
+            <div class="toc">
+                <h2>Table of Contents</h2>
+                <ol>
+                    <li><a href="#what-is-an-option-pool">What is an Option Pool?</a></li>
+                    <li><a href="#when-to-create-an-option-pool">When to Create an Option Pool</a></li>
+                    <li><a href="#the-option-pool-shuffle">The Option Pool Shuffle</a></li>
+                    <li><a href="#when-to-refresh-your-pool">When to Refresh Your Pool</a></li>
+                    <li><a href="#how-to-size-your-option-pool">How to Size Your Option Pool</a></li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                    <li><a href="#key-takeaways">Key Takeaways</a></li>
+                </ol>
+            </div>
+            <div class="article-body">
+                <h2 id="what-is-an-option-pool">What is an Option Pool?</h2>
+                <p>An option pool is a reserve of company stock set aside for future issuance to employees, advisors, and sometimes consultants. These options give recipients the right to purchase shares at a predetermined price (the strike price) after they vest.</p>
+                <p>Option pools are typically created in connection with a financing round and usually range from 10-20% of the fully-diluted capitalization. Investors want to see an option pool because it ensures you'll have the equity needed to attract talent without coming back to ask for more shares later.</p>
+                <div class="callout success">
+                    <h4>Key Insight</h4>
+                    <p>The option pool sits on your cap table as unissued shares. They don't belong to anyone yet, but they're accounted for in the fully-diluted ownership calculations.</p>
+                </div>
+                <h2 id="when-to-create-an-option-pool">When to Create an Option Pool</h2>
+                <p>Most startups create their first option pool during their first priced round (usually Seed or Series A). Here's the typical progression:</p>
+                <ul>
+                    <li><strong>Pre-Seed/Bootstrap:</strong> You might issue options directly from authorized but unissued shares without a formal pool</li>
+                    <li><strong>Seed:</strong> Investors often require a 10-15% option pool as part of the deal</li>
+                    <li><strong>Series A and beyond:</strong> Pools are typically refreshed at each round</li>
+                </ul>
+                <p>Creating a pool before you need it can be strategic—it shows investors you're thinking about team building and have a plan for future hiring.</p>
+                <h2 id="the-option-pool-shuffle">The Option Pool Shuffle</h2>
+                <p>This is where many founders get surprised. In most financing rounds, investors negotiate that the option pool is created <strong>before</strong> their investment comes in. This is called the "option pool shuffle," and it has a significant impact on your ownership.</p>
+                <p>Here's how it works:</p>
+                <table class="example-table">
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Founders</th>
+                            <th>Option Pool</th>
+                            <th>Investor</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Before Round</td>
+                            <td>100%</td>
+                            <td>0%</td>
+                            <td>0%</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>Pool Created First</td>
+                            <td class="warning">80%</td>
+                            <td class="highlight">20%</td>
+                            <td>0%</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>After $5M on $20M Pre</td>
+                            <td class="warning">64%</td>
+                            <td class="highlight">16%</td>
+                            <td>20%</td>
+                            <td>100%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>In this example, the founders started with 100%, then the 20% option pool was carved out, reducing them to 80%. Then the investor bought 20% of the <em>new</em> total, further diluting everyone by 20%. The founders end up with <strong>64%</strong>—not the 80% they might have expected.</p>
+                <div class="callout error">
+                    <h4>The Hidden Cost</h4>
+                    <p>The option pool shuffle effectively lowers your pre-money valuation. A $20M pre-money with a 20% pool is effectively a $16M pre-money from the founders' perspective.</p>
+                </div>
+                <p>Investors insist on this structure because they don't want their ownership diluted by future option grants. If the pool were created <em>after</em> their investment, they'd share the dilution with founders.</p>
+                <h2 id="when-to-refresh-your-pool">When to Refresh Your Pool</h2>
+                <p>Option pools get depleted over time as you hire and grant options. You'll need to refresh your pool when:</p>
+                <ul>
+                    <li>The remaining unallocated pool drops below 3-5% of fully-diluted</li>
+                    <li>You're planning a significant hiring push</li>
+                    <li>You're raising a new financing round</li>
+                </ul>
+                <p>Pools are typically refreshed during financing rounds, with the new pool size negotiated as part of the deal terms. Series B and C rounds often include pool refreshes of 5-10%.</p>
+                <div class="callout warning">
+                    <h4>Refresh Impact</h4>
+                    <p>When you refresh a pool, the new shares dilute all existing shareholders proportionally—except investors may negotiate that they don't share in this dilution.</p>
+                </div>
+                <h2 id="how-to-size-your-option-pool">How to Size Your Option Pool</h2>
+                <p>There's no one-size-fits-all answer, but here are guidelines by stage:</p>
+                <table class="example-table">
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>Typical Pool Size</th>
+                            <th>Usage Timeline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Seed</td>
+                            <td>10-15%</td>
+                            <td>18-24 months</td>
+                        </tr>
+                        <tr>
+                            <td>Series A</td>
+                            <td>15-20%</td>
+                            <td>18-24 months</td>
+                        </tr>
+                        <tr>
+                            <td>Series B</td>
+                            <td>10-15%</td>
+                            <td>24-36 months</td>
+                        </tr>
+                        <tr>
+                            <td>Series C+</td>
+                            <td>5-10%</td>
+                            <td>36+ months</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>When sizing your pool, consider:</p>
+                <ul>
+                    <li><strong>Hiring plan:</strong> How many hires do you anticipate in the next 18-24 months?</li>
+                    <li><strong>Role seniority:</strong> Senior hires typically get larger grants (1-3%), while individual contributors get less (0.1-0.5%)</li>
+                    <li><strong>Competitive landscape:</strong> What are competitors offering? You may need a larger pool in competitive markets</li>
+                    <li><strong>Growth stage:</strong> Early-stage startups need larger pools because they're building the initial team from scratch</li>
+                </ul>
+                <div class="cta-box">
+                    <h3>Model Your Dilution</h3>
+                    <p>Use our <a href="../dilution.html">Equity Dilution Calculator</a> to see how option pools impact your ownership across multiple funding rounds.</p>
+                    <a href="../dilution.html" class="cta-btn">Try the Calculator</a>
+                </div>
+                <h2 id="best-practices">Best Practices</h2>
+                <h3>1. Negotiate the Pool Size</h3>
+                <p>Don't just accept whatever the investor proposes. If you have a lean hiring plan, you may not need a 20% pool. 15% might be sufficient—and that's 5% less dilution for you.</p>
+                <h3>2. Understand the Shuffle Before Signing</h3>
+                <p>Always model out the full cap table impact <em>before</em> agreeing to deal terms. Know exactly what percentage you'll own after the round, including the option pool impact.</p>
+                <h3>3. Refresh Proactively</h3>
+                <p>Don't wait until your pool is empty. Plan refreshes during financing rounds when investors are already reviewing your cap table.</p>
+                <h3>4. Use Vesting</h3>
+                    <p>Make sure all option grants have appropriate vesting schedules (typically 4 years with a 1-year cliff). This protects the company if an employee leaves early.</p>
+                <h3>5. Track Grants Carefully</h3>
+                    <p>Maintain a detailed cap table that tracks all issued options, vested percentages, and remaining pool balance. This is essential for future financing rounds.</p>
+                <h2 id="key-takeaways">Key Takeaways</h2>
+                <ul>
+                    <li>Option pools are essential for hiring but cause founder dilution</li>
+                    <li>The "option pool shuffle" creates the pool <em>before</em> investor investment, diluting founders twice</li>
+                    <li>Pool sizes typically range from 10-20% depending on stage</li>
+                    <li>Refresh pools during financing rounds when you anticipate 18-24 months of hiring needs</li>
+                    <li>Negotiate pool size—it's a deal term like valuation</li>
+                    <li>Always model the full dilution impact before agreeing to terms</li>
+                    <li>Use proper vesting to protect the company</li>
+                </ul>
+                <div class="callout success">
+                    <h4>Pro Tip</h4>
+                    <p>When negotiating, ask if investors will share in the option pool dilution. If they agree to have the pool created <em>after</em> their investment (post-money pool), you both share the dilution equally. This is rare but possible in competitive deals.</p>
+                </div>
+            </div>
+            <div class="author-bio">
+                <h4>About FounderMath</h4>
+                <p>FounderMath provides free, powerful calculators for startup founders. From equity dilution to runway to SAFE notes, we help you make informed decisions about your startup's finances.</p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>

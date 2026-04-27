@@ -248,3 +248,197 @@ no changes added to commit (use "git add" and/or "git commit -a")
 =============================================
 Logged run: glm week0 block0
 Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-04-23 16:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 1 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== cheap Run 1 at Thu Apr 23 04:30:04 PM UTC 2026 ===
+=== Run 1 finished at Thu Apr 23 05:05:05 PM UTC 2026, exit=137 ===
+[main 517733d] about.html,blog.html,blog/anti-dilution-guide.html,blog/cac-ltv-guide.html,blog/cap-table-guide.html [skip ci]
+ 19 files changed, 983 insertions(+)
+ create mode 100644 blog/anti-dilution-guide.html
+ create mode 100644 blog/liquidation-preference-guide.html
+
+=============================================
+  Session complete
+  Runs: 1
+  Duration: 35 minutes
+  Files changed: 19
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-04-24 10:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 1 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== premium Run 1 at Fri Apr 24 10:30:05 AM UTC 2026 ===
+=== Run 1 finished at Fri Apr 24 10:33:41 AM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+[main 4344624] glm premium session end
+ 1 file changed, 305 insertions(+)
+ create mode 100644 blog/convertible-notes-vs-safe.html
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-04-24 16:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 1 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== cheap Run 1 at Fri Apr 24 04:30:04 PM UTC 2026 ===
+=== Run 1 finished at Fri Apr 24 04:33:32 PM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-04-25 10:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 1 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== premium Run 1 at Sat Apr 25 10:30:04 AM UTC 2026 ===
+=== Run 1 finished at Sat Apr 25 10:33:24 AM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-04-25 16:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 1 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== cheap Run 1 at Sat Apr 25 04:30:05 PM UTC 2026 ===
+=== Run 1 finished at Sat Apr 25 04:33:34 PM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-04-26 10:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 1 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== premium Run 1 at Sun Apr 26 10:30:05 AM UTC 2026 ===
+=== Run 1 finished at Sun Apr 26 10:33:35 AM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-04-26 16:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 1 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== cheap Run 1 at Sun Apr 26 04:30:04 PM UTC 2026 ===
+=== Run 1 finished at Sun Apr 26 04:33:39 PM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-04-27 10:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 1 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== premium Run 1 at Mon Apr 27 10:30:04 AM UTC 2026 ===
+=== Run 1 finished at Mon Apr 27 11:05:04 AM UTC 2026, exit=137 ===
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/runs.jsonl
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/session-20260423-163004.log
+	logs/session-20260424-103005.log
+	logs/session-20260424-163004.log
+	logs/session-20260425-103004.log
+	logs/session-20260425-163005.log
+	logs/session-20260426-103005.log
+	logs/session-20260426-163004.log
+	logs/session-20260427-103004.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+=============================================
+  Session complete
+  Runs: 1
+  Duration: 35 minutes
+  Files changed: 1
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-04-27 16:30:01 UTC
+=============================================
+[orchestrator] Updated HELP-STATUS.md for agent
+=== cheap Run 1 at Mon Apr 27 04:30:05 PM UTC 2026 ===

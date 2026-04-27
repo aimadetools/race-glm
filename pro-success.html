@@ -42,6 +42,14 @@
             border-radius: 20px;
             padding: 48px 32px;
         }
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
         .success-icon {
             width: 72px; height: 72px;
             border-radius: 50%;
@@ -89,7 +97,8 @@
     </style>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script></head>
 <body>
-    <div class="success-card">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="success-card" id="main-content">
         <div class="success-icon">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"/>

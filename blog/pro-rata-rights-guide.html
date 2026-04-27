@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro-Rata Rights: Why Investors Want to Keep Their % — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+        function toggleTheme() {
+            const body = document.body;
+            const current = body.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const saved = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', saved);
+        });
+    </script>
+    <meta name="description" content="Learn what pro-rata rights are, how they affect future funding rounds, when to grant or deny them, and see real examples of pro-rata in action.">
+    <meta name="keywords" content="pro-rata rights, investor rights, dilution protection, startup funding, venture capital, investor participation">
+    <meta property="og:title" content="Pro-Rata Rights: Why Investors Want to Keep Their %">
+    <meta property="og:description" content="Understanding pro-rata rights is crucial for founders. Learn how they affect future rounds and when to grant or deny them.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/pro-rata-rights-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pro-Rata Rights: Why Investors Want to Keep Their %">
+    <meta name="twitter:description" content="Understanding pro-rata rights is crucial for founders. Learn how they affect future rounds and when to grant or deny them.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Pro-Rata Rights: Why Investors Want to Keep Their %",
+        "url": "https://founder-math.com/blog/pro-rata-rights-guide.html",
+        "description": "Learn what pro-rata rights are, how they affect future funding rounds, when to grant or deny them, and see real examples of pro-rata in action.",
+        "datePublished": "2026-04-27",
+        "dateModified": "2026-04-27",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/pro-rata-rights-guide.html"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); width: 40px; height: 40px;
+            border-radius: 8px; cursor: pointer; display: flex;
+            align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover { color: var(--text-primary); border-color: var(--accent); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.15);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.15);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-muted: #b2bec3;
+            --border: #dfe6e9;
+        }
+        .article-layout {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+        .article-header { margin-bottom: 48px; }
+        .article-meta {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted);
+        }
+        .article-meta .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+        .article-header .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .toc {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 48px;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+        }
+        .toc ol { padding-left: 20px; }
+        .toc li { margin-bottom: 6px; font-size: 0.9rem; }
+        .toc a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .toc a:hover { color: var(--accent-light); }
+        .article-body h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            padding-top: 16px;
+        }
+        .article-body h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        .article-body p { margin-bottom: 20px; color: var(--text-secondary); }
+        .article-body a {
+            color: var(--accent-light);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .article-body a:hover { border-bottom-color: var(--accent-light); }
+        .article-body ul, .article-body ol { margin-bottom: 20px; padding-left: 24px; color: var(--text-secondary); }
+        .article-body li { margin-bottom: 8px; }
+        .formula-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 16px 20px;
+            margin: 24px 0;
+            border-radius: 8px;
+        }
+        .formula-box code {
+            font-family: var(--font-mono);
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            background: transparent;
+            padding: 0;
+        }
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .example-table th, .example-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .example-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .example-table tr:last-child td { border-bottom: none; }
+        .example-table td { color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.9rem; }
+        .example-table .highlight { color: var(--green); font-weight: 600; }
+        .example-table .warning { color: var(--orange); font-weight: 600; }
+        .callout {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+        .callout.success { border-left: 4px solid var(--green); }
+        .callout.warning { border-left: 4px solid var(--orange); }
+        .callout.error { border-left: 4px solid var(--red); }
+        .callout h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .callout.success h4 { color: var(--green); }
+        .callout.warning h4 { color: var(--orange); }
+        .callout.error h4 { color: var(--red); }
+        .callout p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(0, 184, 148, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .cta-box h3 { margin-top: 0; color: var(--accent-light); }
+        .cta-box p { margin-bottom: 16px; }
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .author-bio {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+        }
+        .author-bio h4 { font-size: 0.95rem; text-transform: uppercase; color: var(--accent-light); margin-bottom: 12px; }
+        .author-bio p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute; top: 64px; left: 0; right: 0;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 24px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-links.open { display: flex; }
+            .nav-cta { text-align: center; padding: 12px 20px; }
+            .mobile-toggle { display: block; }
+            .theme-toggle { display: none; }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../index.html" class="logo" aria-label="FounderMath Home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                <span>FounderMath</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../pricing.html" class="nav-cta">Pricing</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-label="Toggle mobile menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main id="main-content" class="article-layout">
+        <article>
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="tag">Funding</span>
+                    <span>April 27, 2026</span>
+                    <span>6 min read</span>
+                </div>
+                <h1>Pro-Rata Rights: Why Investors Want to Keep Their %</h1>
+                <p class="subtitle">Pro-rata rights allow investors to maintain their ownership percentage across funding rounds. Learn how they work, when to grant them, and the trade-offs for founders.</p>
+            </header>
+            <div class="toc">
+                <h2>Table of Contents</h2>
+                <ol>
+                    <li><a href="#what-are-pro-rata-rights">What Are Pro-Rata Rights?</a></li>
+                    <li><a href="#how-pro-rata-affects-future-rounds">How Pro-Rata Affects Future Rounds</a></li>
+                    <li><a href="#pro-rata-in-action-example">Pro-Rata in Action: An Example</a></li>
+                    <li><a href="#when-to-grant-pro-rata-rights">When to Grant Pro-Rata Rights</a></li>
+                    <li><a href="#when-to-deny-pro-rata-rights">When to Deny Pro-Rata Rights</a></li>
+                    <li><a href="#key-takeaways">Key Takeaways</a></li>
+                </ol>
+            </div>
+            <div class="article-body">
+                <h2 id="what-are-pro-rata-rights">What Are Pro-Rata Rights?</h2>
+                <p>Pro-rata rights give an investor the right—but not the obligation—to participate in future funding rounds to maintain their current ownership percentage. "Pro-rata" means "in proportion," and that's exactly what these rights do: they let investors buy enough new shares to keep their percentage the same.</p>
+                <p>For example, if an investor owns 10% of your company after the Seed round and you raise a Series A, pro-rata rights allow them to buy additional shares so they still own 10% after the Series A.</p>
+                <div class="callout success">
+                    <h4>Key Insight</h4>
+                    <p>Pro-rata rights are a protection against dilution. Without them, every investor's ownership decreases in each new round. With them, they can choose to maintain their percentage.</p>
+                </div>
+                <h2 id="how-pro-rata-affects-future-rounds">How Pro-Rata Affects Future Rounds</h2>
+                <p>When you raise a new round, investors with pro-rata rights get first dibs on maintaining their ownership. This impacts your cap table in several ways:</p>
+                <ul>
+                    <li><strong>Less room for new investors:</strong> If existing investors exercise their pro-rata rights, there's less equity available for new investors</li>
+                    <li><strong>Relationship management:</strong> You need to communicate early with pro-rata holders about their intentions</li>
+                    <li><strong>Cap table complexity:</strong> Each round becomes more complex as you balance existing and new investors</li>
+                </ul>
+                <p>Investors typically have a limited window (often 30-60 days) to exercise their pro-rata rights. If they don't, the rights may lapse for that round (though they typically continue to future rounds).</p>
+                <h2 id="pro-rata-in-action-example">Pro-Rata in Action: An Example</h2>
+                <p>Let's walk through a realistic scenario to see how pro-rata rights play out.</p>
+                <p><strong>After Seed Round:</strong></p>
+                <table class="example-table">
+                    <thead>
+                        <tr>
+                            <th>Stakeholder</th>
+                            <th>Ownership</th>
+                            <th>Pro-Rata Rights</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Founders</td>
+                            <td>70%</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Seed Investor A</td>
+                            <td>15%</td>
+                            <td class="highlight">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Seed Investor B</td>
+                            <td>10%</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Option Pool</td>
+                            <td>5%</td>
+                            <td>N/A</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>Series A: Raising $10M at $40M Pre-Money</strong></p>
+                <p>The Series A investor will get 20% ($10M ÷ $50M post-money). The remaining 80% is shared by existing stakeholders, who all get diluted proportionally—unless they exercise pro-rata rights.</p>
+                <p><strong>If Seed Investor A exercises pro-rata:</strong></p>
+                <p>Investor A owns 15% and wants to keep 15%. After the Series A investor takes 20%, there's 80% left. To maintain 15%, Investor A needs to own 18.75% of the remaining 80% (15% ÷ 80%).</p>
+                <p>They'll need to invest additional money proportional to their desired increase in ownership.</p>
+                <p><strong>Resulting Cap Table (with pro-rata exercised):</strong></p>
+                <table class="example-table">
+                    <thead>
+                        <tr>
+                            <th>Stakeholder</th>
+                            <th>After Series A</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Founders</td>
+                            <td>56%</td>
+                        </tr>
+                        <tr>
+                            <td>Seed Investor A (exercised)</td>
+                            <td class="highlight">15%</td>
+                        </tr>
+                        <tr>
+                            <td>Seed Investor B</td>
+                            <td>8%</td>
+                        </tr>
+                        <tr>
+                            <td>Series A Investor</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td>Option Pool</td>
+                            <td>1%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="callout warning">
+                    <h4>The Trade-Off</h4>
+                    <p>Notice that Seed Investor B, who didn't have pro-rata rights, got diluted from 10% to 8%. The founders got diluted from 70% to 56%. Investor A stayed at 15% because they participated in the new round.</p>
+                </div>
+                <h2 id="when-to-grant-pro-rata-rights">When to Grant Pro-Rata Rights</h2>
+                <p>Pro-rata rights are a common negotiation point. Here's when granting them makes sense:</p>
+                <h3>1. Early Strategic Investors</h3>
+                <p>If you have investors who provide significant value beyond capital—intros, advice, recruiting help—pro-rata rights can be a reasonable trade-off for their ongoing support.</p>
+                <h3>2. Competitive Rounds</h3>
+                <p>In hot rounds where multiple investors are competing, you may grant pro-rata to win over your preferred investor. The rights cost you nothing if they never exercise them.</p>
+                <h3>3. Building Investor Loyalty</h3>
+                <p>Pro-rata rights signal that you want long-term partners who'll support you across multiple rounds. This can build loyalty and commitment.</p>
+                <h3>4. Smaller Investments</h3>
+                <p>For investors writing smaller checks, pro-rata rights are less impactful on your cap table. The dilution they prevent is minimal.</p>
+                <div class="cta-box">
+                    <h3>Model Multiple Rounds</h3>
+                    <p>Use our <a href="../dilution.html">Equity Dilution Calculator</a> to see how pro-rata rights affect your ownership across multiple funding rounds.</p>
+                    <a href="../dilution.html" class="cta-btn">Try the Calculator</a>
+                </div>
+                <h2 id="when-to-deny-pro-rata-rights">When to Deny Pro-Rata Rights</h2>
+                <p>There are good reasons to push back on pro-rata requests:</p>
+                <h3>1. Preserve Flexibility</h3>
+                <p>Every investor with pro-rata rights reduces the equity available for new investors. In later rounds, you may need that space to attract lead investors or strategic partners.</p>
+                <h3>2. Avoid Over-Dilution</h3>
+                <p>If multiple early investors all exercise pro-rata, you may end up with too many small shareholders on your cap table, which can complicate future rounds and exits.</p>
+                <h3>3. Strong Market Position</h3>
+                <p>If your company is doing exceptionally well, you have leverage. You may not need to grant pro-rata to win investors.</p>
+                <h3>4. Negotiating Leverage</h3>
+                <p>You can use pro-rata rights as a concession. If an investor pushes on valuation, you might agree but deny pro-rata. Or vice versa.</p>
+                <div class="callout error">
+                    <h4>Caps and Limits</h4>
+                    <p>If you do grant pro-rata, consider adding caps. For example: "Pro-rata rights up to 50% of the round" or "Pro-rata rights through Series B only." This preserves some flexibility while giving investors meaningful protection.</p>
+                </div>
+                <h2 id="key-takeaways">Key Takeaways</h2>
+                <ul>
+                    <li>Pro-rata rights let investors maintain their ownership percentage across rounds</li>
+                    <li>They protect investors from dilution but reduce equity available for new investors</li>
+                    <li>Investors typically have 30-60 days to exercise their rights in each round</li>
+                    <li>Grant pro-rata for strategic value, competitive advantage, or smaller investments</li>
+                    <li>Deny pro-rata to preserve flexibility, avoid cap table bloat, or when you have leverage</li>
+                    <li>Consider caps or time limits on pro-rata rights as a compromise</li>
+                    <li>Model the long-term cap table impact before granting pro-rata rights</li>
+                </ul>
+                <div class="callout success">
+                    <h4>Pro Tip</h4>
+                    <p>When negotiating pro-rata rights, clarify whether they're "hard" (must be honored regardless of round size) or "soft" (subject to lead investor approval). Hard rights are more valuable to investors but more restrictive for you.</p>
+                </div>
+            </div>
+            <div class="author-bio">
+                <h4>About FounderMath</h4>
+                <p>FounderMath provides free, powerful calculators for startup founders. From equity dilution to runway to SAFE notes, we help you make informed decisions about your startup's finances.</p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>

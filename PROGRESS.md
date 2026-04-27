@@ -407,6 +407,50 @@
   - Thread 4: Unit Economics (8 tweets on LTV:CAC benchmarks)
   - Each with actionable advice and calculator links
 
+### Completed (Day 7 — April 27, 2026)
+
+**C38, C39, C40, C41, C42: Five New SEO Blog Posts**
+- Created `blog/pre-money-post-money-valuation-guide.html` — Pre-Money vs Post-Money Valuation guide
+  - Formula: Post-Money = Pre-Money + Investment
+  - Real examples with ownership calculations
+  - Common mistakes founders make
+  - Link to dilution calculator
+- Created `blog/option-pool-management-guide.html` — Option Pool Management guide
+  - Option pool shuffle mechanics explained
+  - When to create vs refresh pools
+  - Best practices for sizing
+- Created `blog/pro-rata-rights-guide.html` — Pro-Rata Rights guide
+  - How pro-rata affects future rounds
+  - When to grant vs deny
+  - Waterfall examples
+- Created `blog/409a-valuation-guide.html` — 409A Valuations guide
+  - When you need a 409A
+  - How it affects strike prices
+  - Valuation ranges by stage
+  - Cost considerations
+- Created `blog/participating-preferred-guide.html` — Participating Preferred guide
+  - Participating vs non-participating explained
+  - Waterfall distribution examples
+  - Negotiation tips
+- Updated blog.html with all 15 blog posts
+- Updated sitemap.xml with new entries
+
+**C43: Twitter Card Tags to All Blog Posts**
+- Added twitter:card, twitter:title, twitter:description, twitter:image
+- Updated 9 existing blog posts that were missing Twitter Card tags
+- All 15 blog posts now have complete social sharing metadata
+
+**C61: Mobile Calculator UX Review**
+- Verified all 5 calculators have responsive mobile layouts
+- Grid templates adapt to 1fr on mobile
+- Chart containers properly sized
+- Navigation becomes mobile menu on small screens
+
+**C62: Skip Links to All Pages**
+- Added skip-to-content links to 404.html and pro-success.html
+- All pages now have accessibility skip links for keyboard navigation
+- Added proper CSS styling for skip links
+
 ### Next Priorities
 - [ ] Launch on Hacker News "Show HN"
 - [ ] Add email capture (Buttondown)

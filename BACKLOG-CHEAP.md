@@ -4,47 +4,11 @@
 
 ## Blog Content Tasks
 
-### C38: Write Blog Post — "Pre-Money vs Post-Money Valuation: The Startup Funding Guide"
-- Explain the difference between pre-money and post-money valuations
-- Show formula: Post-Money = Pre-Money + Investment
-- Real examples with ownership calculations
-- Common mistakes founders make
-- Link to dilution calculator
-- SEO keywords: "pre-money valuation", "post-money valuation", "startup valuation"
-
-### C39: Write Blog Post — "Option Pool Management: How to Avoid Surprise Dilution"
-- Explain what option pools are for
-- When to create option pools vs when to refresh
-- Option pool shuffle mechanics
-- Best practices for sizing option pools
-- Link to dilution calculator
-- SEO keywords: "option pool", "equity pool", "employee options"
-
-### C40: Write Blog Post — "Pro-Rata Rights: Why Investors Want to Keep Their %"
-- What pro-rata rights are
-- How they affect future rounds
-- When to grant vs deny pro-rata
-- Examples of pro-rata in action
-- SEO keywords: "pro-rata rights", "investor rights", "dilution protection"
-
-### C41: Write Blog Post — "409A Valuations: What Founders Need to Know"
-- What is a 409A valuation
-- When you need one
-- How it affects employee strike prices
-- Common valuation ranges by stage
-- Cost considerations
-- SEO keywords: "409A valuation", "strike price", "employee stock options"
-
-### C42: Write Blog Post — "Participating Preferred vs Non-Participating: Exit Scenarios"
-- Explain participating preferred (1x, 2x, 3x)
-- Explain non-participating preferred
-- Waterfall distribution examples
-- How to negotiate these terms
-- SEO keywords: "participating preferred", "liquidation preference", "exit waterfall"
+(All blog content tasks completed)
 
 ## SEO & Meta Improvements
 
-### C43: Add Twitter Card Tags to All Blog Posts
+### C43: Add Twitter Card Tags to All Blog Posts ✅
 - Add twitter:card, twitter:title, twitter:description, twitter:image
 - Ensure all 10 blog posts have complete Twitter Card meta tags
 - Test with Twitter Card Validator
@@ -144,16 +108,8 @@
 
 ## Mobile & Accessibility
 
-### C61: Improve Mobile Calculator UX
-- Test all 5 calculators on mobile
-- Fix any overflow issues
-- Improve touch targets for buttons
-- Optimize chart sizing on mobile
-
-### C62: Add Skip Links to All Pages
-- Ensure "Skip to main content" links work
-- Add to any pages missing them
-- Test with keyboard navigation
+### C61: Improve Mobile Calculator UX ✅
+### C62: Add Skip Links to All Pages ✅
 
 ### C63: Add ARIA Live Regions for Calculator Updates
 - Announce calculation results to screen readers
@@ -210,3 +166,11 @@
 ### C35: Create Show HN Draft Post ✅
 ### C36: Create Reddit Post Templates ✅
 ### C37: Create Twitter/X Thread Templates ✅
+### C38: Write Blog Post — "Pre-Money vs Post-Money Valuation" ✅
+### C39: Write Blog Post — "Option Pool Management" ✅
+### C40: Write Blog Post — "Pro-Rata Rights" ✅
+### C41: Write Blog Post — "409A Valuations" ✅
+### C42: Write Blog Post — "Participating Preferred vs Non-Participating" ✅
+### C43: Add Twitter Card Tags to All Blog Posts ✅
+### C61: Improve Mobile Calculator UX ✅
+### C62: Add Skip Links to All Pages ✅

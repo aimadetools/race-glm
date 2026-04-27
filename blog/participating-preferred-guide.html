@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participating Preferred vs Non-Participating: Exit Scenarios — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+        function toggleTheme() {
+            const body = document.body;
+            const current = body.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const saved = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', saved);
+        });
+    </script>
+    <meta name="description" content="Learn the difference between participating preferred and non-participating preferred stock, see waterfall distribution examples, and understand how to negotiate these terms.">
+    <meta name="keywords" content="participating preferred, non-participating preferred, liquidation preference, exit waterfall, startup exit, venture capital terms">
+    <meta property="og:title" content="Participating Preferred vs Non-Participating: Exit Scenarios">
+    <meta property="og:description" content="Understanding participating vs non-participating preferred is crucial for exit outcomes. Learn the waterfall mechanics and negotiation tips.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/participating-preferred-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Participating Preferred vs Non-Participating: Exit Scenarios">
+    <meta name="twitter:description" content="Understanding participating vs non-participating preferred is crucial for exit outcomes. Learn the waterfall mechanics and negotiation tips.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Participating Preferred vs Non-Participating: Exit Scenarios",
+        "url": "https://founder-math.com/blog/participating-preferred-guide.html",
+        "description": "Learn the difference between participating preferred and non-participating preferred stock, see waterfall distribution examples, and understand how to negotiate these terms.",
+        "datePublished": "2026-04-27",
+        "dateModified": "2026-04-27",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/participating-preferred-guide.html"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); width: 40px; height: 40px;
+            border-radius: 8px; cursor: pointer; display: flex;
+            align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover { color: var(--text-primary); border-color: var(--accent); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.15);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.15);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-muted: #b2bec3;
+            --border: #dfe6e9;
+        }
+        .article-layout {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+        .article-header { margin-bottom: 48px; }
+        .article-meta {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted);
+        }
+        .article-meta .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+        .article-header .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .toc {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 48px;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+        }
+        .toc ol { padding-left: 20px; }
+        .toc li { margin-bottom: 6px; font-size: 0.9rem; }
+        .toc a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .toc a:hover { color: var(--accent-light); }
+        .article-body h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            padding-top: 16px;
+        }
+        .article-body h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        .article-body p { margin-bottom: 20px; color: var(--text-secondary); }
+        .article-body a {
+            color: var(--accent-light);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .article-body a:hover { border-bottom-color: var(--accent-light); }
+        .article-body ul, .article-body ol { margin-bottom: 20px; padding-left: 24px; color: var(--text-secondary); }
+        .article-body li { margin-bottom: 8px; }
+        .formula-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 16px 20px;
+            margin: 24px 0;
+            border-radius: 8px;
+        }
+        .formula-box code {
+            font-family: var(--font-mono);
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            background: transparent;
+            padding: 0;
+        }
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .example-table th, .example-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .example-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .example-table tr:last-child td { border-bottom: none; }
+        .example-table td { color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.9rem; }
+        .example-table .highlight { color: var(--green); font-weight: 600; }
+        .example-table .warning { color: var(--orange); font-weight: 600; }
+        .callout {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+        .callout.success { border-left: 4px solid var(--green); }
+        .callout.warning { border-left: 4px solid var(--orange); }
+        .callout.error { border-left: 4px solid var(--red); }
+        .callout h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .callout.success h4 { color: var(--green); }
+        .callout.warning h4 { color: var(--orange); }
+        .callout.error h4 { color: var(--red); }
+        .callout p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(0, 184, 148, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .cta-box h3 { margin-top: 0; color: var(--accent-light); }
+        .cta-box p { margin-bottom: 16px; }
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .author-bio {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+        }
+        .author-bio h4 { font-size: 0.95rem; text-transform: uppercase; color: var(--accent-light); margin-bottom: 12px; }
+        .author-bio p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute; top: 64px; left: 0; right: 0;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 24px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-links.open { display: flex; }
+            .nav-cta { text-align: center; padding: 12px 20px; }
+            .mobile-toggle { display: block; }
+            .theme-toggle { display: none; }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../index.html" class="logo" aria-label="FounderMath Home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                <span>FounderMath</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../pricing.html" class="nav-cta">Pricing</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-label="Toggle mobile menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main id="main-content" class="article-layout">
+        <article>
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="tag">Exit Strategy</span>
+                    <span>April 27, 2026</span>
+                    <span>8 min read</span>
+                </div>
+                <h1>Participating Preferred vs Non-Participating: Exit Scenarios</h1>
+                <p class="subtitle">The difference between participating and non-participating preferred can determine whether founders get millions—or nothing—at exit. Learn the waterfall mechanics and negotiation tips.</p>
+            </header>
+            <div class="toc">
+                <h2>Table of Contents</h2>
+                <ol>
+                    <li><a href="#liquidation-preference-basics">Liquidation Preference Basics</a></li>
+                    <li><a href="#non-participating-preferred">Non-Participating Preferred</a></li>
+                    <li><a href="#participating-preferred">Participating Preferred</a></li>
+                    <li><a href="#waterfall-examples">Waterfall Examples</a></li>
+                    <li><a href="#when-each-type-applies">When Each Type Applies</a></li>
+                    <li><a href="#negotiation-tips">Negotiation Tips</a></li>
+                    <li><a href="#key-takeaways">Key Takeaways</a></li>
+                </ol>
+            </div>
+            <div class="article-body">
+                <h2 id="liquidation-preference-basics">Liquidation Preference Basics</h2>
+                <p>Venture capital investors typically purchase preferred stock, which comes with a liquidation preference. This preference determines who gets paid first in an exit (acquisition, IPO, or liquidation).</p>
+                <p>The liquidation preference is usually expressed as a multiple of the original investment. Common multiples are 1x (most common), 2x (aggressive), and occasionally 3x (rare, very aggressive).</p>
+                <div class="formula-box">
+                    <code>Liquidation Preference = Investment Amount × Multiple</code>
+                </div>
+                <p>For example, an investor who puts in $5M with a 1x liquidation preference is guaranteed to receive at least $5M back before anyone else gets paid.</p>
+                <div class="callout success">
+                    <h4>Key Insight</h4>
+                    <p>The liquidation preference is a downside protection mechanism. It ensures investors recoup their investment even if the exit is at a lower valuation than they paid.</p>
+                </div>
+                <h2 id="non-participating-preferred">Non-Participating Preferred</h2>
+                <p>Non-participating preferred (also called "convertible preferred") gives investors a choice at exit:</p>
+                <ul>
+                    <li><strong>Option A:</strong> Receive their liquidation preference (e.g., 1x their investment) <em>or</em></li>
+                    <li><strong>Option B:</strong> Convert to common stock and receive their percentage ownership of the exit proceeds</li>
+                </ul>
+                <p>They choose whichever is higher. This structure is founder-friendly because once investors choose to convert, they participate alongside everyone else on a pro-rata basis.</p>
+                <p>Non-participating is the market standard for most venture investments.</p>
+                <h2 id="participating-preferred">Participating Preferred</h2>
+                <p>Participating preferred is more investor-friendly (and founder-unfriendly). It works like this:</p>
+                <ul>
+                    <li><strong>Step 1:</strong> Investors receive their liquidation preference (e.g., 1x their investment)</li>
+                    <li><strong>Step 2:</strong> They <em>also</em> convert to common and receive their percentage ownership of the remaining proceeds</li>
+                </ul>
+                <p>This is often called "double dipping"—investors get their money back first, then they also participate in the upside alongside founders and employees.</p>
+                <p>Participating preferred can be capped (e.g., "2x participating preferred with a 3x cap") meaning the investor's total return is limited, or uncapped, which is extremely aggressive.</p>
+                <div class="callout error">
+                    <h4>The Founder Risk</h4>
+                    <p>Participating preferred can dramatically reduce founder proceeds at exit. In mediocre exits, founders may receive little or nothing while investors get their full preference plus additional upside.</p>
+                </div>
+                <h2 id="waterfall-examples">Waterfall Examples</h2>
+                <p>Let's see how this plays out with concrete numbers.</p>
+                <p><strong>Scenario:</strong></p>
+                <ul>
+                    <li>Investment: $10M</li>
+                    <li>Investor ownership: 20%</li>
+                    <li>Founders + employees: 80%</li>
+                    <li>Exit price: $15M (a modest return, not a home run)</li>
+                </p>
+                <p><strong>With Non-Participating Preferred (1x):</strong></p>
+                <table class="example-table">
+                    <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Investor Gets</th>
+                            <th>Founders Get</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Take Preference</td>
+                            <td>$10M</td>
+                            <td>$5M</td>
+                        </tr>
+                        <tr>
+                            <td>Convert to Common</td>
+                            <td class="highlight">$3M (20% of $15M)</td>
+                            <td>$12M (80% of $15M)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chosen</strong></td>
+                            <td class="highlight">$3M</td>
+                            <td class="highlight">$12M</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Investor chooses to convert because $3M > the value of their preference in this scenario. Founders receive $12M.</p>
+                <p><strong>With Participating Preferred (1x, uncapped):</strong></p>
+                <table class="example-table">
+                    <thead>
+                        <tr>
+                            <th>Step</th>
+                            <th>Investor Gets</th>
+                            <th>Remaining</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1. Preference (1x)</td>
+                            <td class="highlight">$10M</td>
+                            <td>$5M</td>
+                        </tr>
+                        <tr>
+                            <td>2. Participate in remainder (20%)</td>
+                            <td class="highlight">$1M</td>
+                            <td>$4M</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Investor</strong></td>
+                            <td class="highlight">$11M</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Founders Get</strong></td>
+                            <td>—</td>
+                            <td class="warning">$4M</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>With participating preferred, the investor gets $11M ($10M preference + $1M participation) and founders get only $4M. That's a <strong>67% reduction</strong> in founder proceeds compared to non-participating.</p>
+                <h2 id="when-each-type-applies">When Each Type Applies</h2>
+                <table class="example-table">
+                    <thead>
+                        <tr>
+                            <th>Exit Multiple</th>
+                            <th>Non-Participating</th>
+                            <th>Participating (1x)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Below 1x (bad exit)</td>
+                            <td>Investor takes preference</td>
+                            <td>Investor takes preference</td>
+                        </tr>
+                        <tr>
+                            <td>1x - 1.25x (modest)</td>
+                            <td>Investor converts</td>
+                            <td>Investor takes preference + participates</td>
+                        </tr>
+                        <tr>
+                            <td>1.25x - 5x (good)</td>
+                            <td>Investor converts</td>
+                            <td>Impact diminishes but still significant</td>
+                        </tr>
+                        <tr>
+                            <td>Above 5x (great)</td>
+                            <td>Everyone wins</td>
+                            <td>Impact minimal at high multiples</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="callout warning">
+                    <h4>The Danger Zone</h4>
+                    <p>Participating preferred hurts founders most in the "modest exit" zone (1x-3x return on investment). This is where many startups actually exit—making participating preferred particularly problematic.</p>
+                </div>
+                <h2 id="negotiation-tips">Negotiation Tips</h2>
+                <h3>1. Push for Non-Participating</h3>
+                <p>Non-participating preferred is the market standard. Unless you're in an extremely weak position, you should be able to secure it.</p>
+                <h3>2. If Participating is Required, Negotiate a Cap</h3>
+                <p>Participating with a 2x or 3x cap is much better than uncapped. The cap limits how much the investor can "double dip."</p>
+                <h3>3. Negotiate on Multiple, Not Participation</h3>
+                <p>If an investor insists on participating, try to keep the liquidation preference at 1x rather than accepting 2x non-participating.</p>
+                <h3>4. Understand Your Position</h3>
+                <p>In competitive rounds, you have more leverage to demand non-participating. In tough markets or with struggling companies, you may need to concede.</p>
+                <h3>5. Model Exit Scenarios</h3>
+                <p>Before signing, model different exit scenarios to understand how the terms affect founder and employee proceeds.</p>
+                <div class="cta-box">
+                    <h3>Model Your Cap Table</h3>
+                    <p>Use our <a href="../dilution.html">Equity Dilution Calculator</a> to understand how different funding structures affect your long-term ownership and exit outcomes.</p>
+                    <a href="../dilution.html" class="cta-btn">Try the Calculator</a>
+                </div>
+                <h2 id="key-takeaways">Key Takeaways</h2>
+                <ul>
+                    <li>Liquidation preference guarantees investors recoup their investment before others</li>
+                    <li>Non-participating preferred: investor chooses between preference OR conversion (better for founders)</li>
+                    <li>Participating preferred: investor gets preference AND participates in remainder (worse for founders)</li>
+                    <li>Participating can reduce founder proceeds by 50%+ in modest exit scenarios</li>
+                    <li>Non-participating is the market standard—push for it</li>
+                    <li>If participating is required, negotiate a cap to limit the impact</li>
+                    <li>Participating hurts most in 1x-3x exit multiples (the most common exit range)</li>
+                    <li>Always model exit scenarios before signing term sheets</li>
+                </ul>
+                <div class="callout success">
+                    <h4>Pro Tip</h4>
+                    <p>When negotiating, focus on the <em>economic</em> terms first (valuation, liquidation preference, participation). You can always revisit other terms later, but economic terms are set in stone at signing.</p>
+                </div>
+            </div>
+            <div class="author-bio">
+                <h4>About FounderMath</h4>
+                <p>FounderMath provides free, powerful calculators for startup founders. From equity dilution to runway to SAFE notes, we help you make informed decisions about your startup's finances.</p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
