@@ -3,8 +3,8 @@
     const PRO_KEY = 'foundermath_pro';
     const PRO_EMAIL_KEY = 'foundermath_pro_email';
     const EMAIL_CAPTURES_KEY = 'foundermath_emails';
-    const STRIPE_PRO_LINK = 'https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06';
-    const STRIPE_TEAM_LINK = 'https://buy.stripe.com/cNicN5dh691ceIG5S7eEo05';
+    const STRIPE_PRO_LINK = 'https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06?utm_source=founder-math&utm_medium=modal&utm_campaign=pro_upgrade';
+    const STRIPE_TEAM_LINK = 'https://buy.stripe.com/cNicN5dh691ceIG5S7eEo05?utm_source=founder-math&utm_medium=modal&utm_campaign=team_upgrade';
 
     // Check if user is Pro
     function isProUser() {
@@ -36,6 +36,17 @@
         // Track feature attempt
         if (typeof gtag === 'function') {
             gtag('event', 'pro_feature_attempt', { feature: featureName });
+        }
+    }
+
+    // Track upgrade click from modal
+    function trackUpgradeClick(featureName) {
+        if (typeof gtag === 'function') {
+            gtag('event', 'pricing_click', {
+                tier: 'pro',
+                source: 'modal',
+                feature: featureName
+            });
         }
     }
 
@@ -78,7 +89,7 @@
                     '<span style="color:var(--text-primary,#f0f0f5);font-size:0.9rem;">Multi-round dilution simulation</span>' +
                 '</div>' +
             '</div>' +
-            '<a href="' + STRIPE_PRO_LINK + '" target="_blank" style="display:block;text-align:center;background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:white;text-decoration:none;padding:14px 24px;border-radius:8px;font-weight:700;font-size:1rem;margin-bottom:10px;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.9" onmouseout="this.style.opacity=1">Upgrade to Pro — $19/month</a>' +
+            '<a href="' + STRIPE_PRO_LINK + '" target="_blank" style="display:block;text-align:center;background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:white;text-decoration:none;padding:14px 24px;border-radius:8px;font-weight:700;font-size:1rem;margin-bottom:10px;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.9" onmouseout="this.style.opacity=1" onclick="window.FounderMathPro.trackUpgradeClick(\'' + featureName + '\')">Upgrade to Pro — $19/month</a>' +
             '<button id="fm-pro-maybe" style="display:block;width:100%;text-align:center;background:none;border:none;color:var(--text-muted,#666680);font-size:0.85rem;cursor:pointer;padding:8px;">Maybe later</button>';
 
         overlay.appendChild(modal);
@@ -185,6 +196,7 @@
         captureEmail: captureEmail,
         renderEmailCapture: renderEmailCapture,
         getProEmail: getProEmail,
+        trackUpgradeClick: trackUpgradeClick,
         STRIPE_PRO_LINK: STRIPE_PRO_LINK,
         STRIPE_TEAM_LINK: STRIPE_TEAM_LINK
     };

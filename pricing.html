@@ -7,6 +7,18 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
     <script>
+        // ============================================================
+        // CONVERSION TRACKING
+        // ============================================================
+        function trackPricingClick(tier) {
+            if (typeof gtag === 'function') {
+                gtag('event', 'pricing_click', {
+                    tier: tier,
+                    page_location: window.location.href
+                });
+            }
+        }
+
         function toggleMobileMenu() {
             const navLinks = document.getElementById('navLinks');
             const toggle = document.getElementById('mobileToggle');
@@ -407,7 +419,7 @@
                     <li class="disabled">Side-by-side comparison</li>
                     <li class="disabled">Multi-round simulation</li>
                 <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l-1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l-1.42-1.42"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 1 11.21 3 7 7 0 0 1 0-14zm0 0A9 9 0 0 0 0 11.21-3 7 7 0 0 0 0 14z"/></svg></button></li></ul>
-                <a href="index.html#demo" class="btn-secondary">Get Started Free</a>
+                <a href="index.html#demo" class="btn-secondary" onclick="trackPricingClick('free')">Get Started Free</a>
             </div>
             <div class="pricing-card featured">
                 <h3>Pro</h3>
@@ -427,7 +439,7 @@
                     <li>SAFE conversion waterfall</li>
                     <li>Priority support</li>
                 </ul>
-                <a href="https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06" class="btn-primary" id="proButton">Start Pro Trial</a>
+                <a href="https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06?utm_source=founder-math&utm_medium=pricing&utm_campaign=pro_trial" class="btn-primary" id="proButton" onclick="trackPricingClick('pro')">Start Pro Trial</a>
             </div>
             <div class="pricing-card">
                 <h3>Team</h3>
@@ -445,7 +457,7 @@
                     <li>Priority support + onboarding</li>
                     <li>Dedicated Slack channel</li>
                 </ul>
-                <a href="https://buy.stripe.com/cNicN5dh691ceIG5S7eEo05" class="btn-secondary" id="teamButton">Start Team Trial</a>
+                <a href="https://buy.stripe.com/cNicN5dh691ceIG5S7eEo05?utm_source=founder-math&utm_medium=pricing&utm_campaign=team_trial" class="btn-secondary" id="teamButton" onclick="trackPricingClick('team')">Start Team Trial</a>
             </div>
         </div>
     </div>
