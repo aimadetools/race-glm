@@ -604,6 +604,7 @@
                 <div class="panel-section-title">Share</div>
                 <div class="share-bar">
                     <button class="btn-share" id="shareBtn" onclick="copyShareLink()">Copy Share Link</button>
+                    <button class="btn-share" onclick="shareToTwitter()" aria-label="Share on Twitter">Share on Twitter</button>
                     <button class="btn-share" onclick="FounderMathPro.requirePro('Export PDF', exportPDF)" aria-label="Export results as PDF">Export PDF</button>
                     <button class="btn-share" onclick="resetCalculator()">Reset</button>
                 </div>
@@ -1116,6 +1117,12 @@
             showToast('Link copied to clipboard!');
             setTimeout(() => { btn.textContent = 'Copy Share Link'; btn.classList.remove('copied'); }, 2000);
         }).catch(() => { prompt('Copy this link:', url); });
+    }
+
+    function shareToTwitter() {
+        const url = encodeStateToURL();
+        const text = 'Check out my vesting schedule: ' + url + ' #startup #equity';
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
     }
 
     function showToast(msg) {

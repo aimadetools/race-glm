@@ -1029,11 +1029,22 @@
                 </div>
             </div>
 
+            <!-- Presets Section -->
+            <div class="panel-section">
+                <div class="panel-section-title"><span>Load Preset</span></div>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                    <button class="btn-share" onclick="loadPreset('seed')" style="flex:1;min-width:120px;">Seed Round</button>
+                    <button class="btn-share" onclick="loadPreset('seriesa')" style="flex:1;min-width:120px;">Series A</button>
+                    <button class="btn-share" onclick="loadPreset('multiround')" style="flex:1;min-width:120px;">Multi-Round</button>
+                </div>
+            </div>
+
             <!-- Share Section -->
             <div class="panel-section">
                 <div class="panel-section-title"><span>Share</span></div>
                 <div class="share-bar">
                     <button class="btn-share" id="shareBtn" onclick="copyShareLink()" aria-describedby="toast">Copy Share Link</button>
+                    <button class="btn-share" onclick="shareToTwitter()" aria-label="Share on Twitter">Share on Twitter</button>
                     <button class="btn-share" onclick="FounderMathPro.requirePro('Export PDF', exportPDF)" aria-label="Export results as PDF">Export PDF</button>
                     <button class="btn-share" onclick="resetCalculator()">Reset calculator to defaults</button>
                 </div>
@@ -1261,6 +1272,50 @@
             ],
             rounds: JSON.parse(JSON.stringify(DEFAULT_ROUNDS))
         };
+        renderFounders();
+        renderRounds();
+        recalculate();
+    }
+
+    function loadPreset(type) {
+        if (type === 'seed') {
+            state = {
+                founders: [
+                    { name: 'Founder 1', pct: 50 },
+                    { name: 'Founder 2', pct: 30 },
+                    { name: 'Founder 3', pct: 20 }
+                ],
+                rounds: [
+                    { name: 'Pre-Seed', preMoney: 4, investment: 1, optionPool: 10 }
+                ]
+            };
+        } else if (type === 'seriesa') {
+            state = {
+                founders: [
+                    { name: 'Founder 1', pct: 40 },
+                    { name: 'Founder 2', pct: 35 },
+                    { name: 'Founder 3', pct: 25 }
+                ],
+                rounds: [
+                    { name: 'Seed', preMoney: 8, investment: 2, optionPool: 15 },
+                    { name: 'Series A', preMoney: 30, investment: 10, optionPool: 10 }
+                ]
+            };
+        } else if (type === 'multiround') {
+            state = {
+                founders: [
+                    { name: 'Founder 1', pct: 35 },
+                    { name: 'Founder 2', pct: 33 },
+                    { name: 'Founder 3', pct: 32 }
+                ],
+                rounds: [
+                    { name: 'Pre-Seed', preMoney: 4, investment: 1, optionPool: 10 },
+                    { name: 'Seed', preMoney: 12, investment: 3, optionPool: 10 },
+                    { name: 'Series A', preMoney: 40, investment: 15, optionPool: 5 },
+                    { name: 'Series B', preMoney: 100, investment: 30, optionPool: 3 }
+                ]
+            };
+        }
         renderFounders();
         renderRounds();
         recalculate();
@@ -1735,6 +1790,12 @@
             // Fallback
             prompt('Copy this link:', url);
         });
+    }
+
+    function shareToTwitter() {
+        const url = encodeStateToURL();
+        const text = 'Check out my equity dilution scenario: ' + url + ' #startup #equity';
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
     }
 
     function showToast(msg) {

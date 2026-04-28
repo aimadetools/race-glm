@@ -651,9 +651,19 @@
             </div>
 
             <div class="panel-section">
+                <div class="panel-section-title"><span>Load Preset</span></div>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                    <button class="btn-share" onclick="loadPreset('preseed')" style="flex:1;min-width:120px;">Pre-Seed</button>
+                    <button class="btn-share" onclick="loadPreset('seed')" style="flex:1;min-width:120px;">Seed</button>
+                    <button class="btn-share" onclick="loadPreset('seriesa')" style="flex:1;min-width:120px;">Series A</button>
+                </div>
+            </div>
+
+            <div class="panel-section">
                 <div class="panel-section-title">Share</div>
                 <div class="share-bar">
                     <button class="btn-share" id="shareBtn" onclick="copyShareLink()">Copy Share Link</button>
+                    <button class="btn-share" onclick="shareToTwitter()" aria-label="Share on Twitter">Share on Twitter</button>
                     <button class="btn-share" onclick="FounderMathPro.requirePro('Export PDF', exportPDF)" aria-label="Export results as PDF">Export PDF</button>
                     <button class="btn-share" onclick="resetCalculator()">Reset</button>
                 </div>
@@ -1131,6 +1141,12 @@
         }).catch(() => { prompt('Copy this link:', url); });
     }
 
+    function shareToTwitter() {
+        const url = encodeStateToURL();
+        const text = 'Check out my startup runway calculation: ' + url + ' #startup #runway';
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+    }
+
     function showToast(msg) {
         const toast = document.getElementById('toast');
         toast.textContent = msg;
@@ -1225,6 +1241,35 @@
         Object.keys(DEFAULTS).forEach(key => {
             document.getElementById(key).value = DEFAULTS[key];
         });
+        recalculate();
+    }
+
+    function loadPreset(type) {
+        if (type === 'preseed') {
+            document.getElementById('cash').value = 500000;
+            document.getElementById('expectedFunding').value = 0;
+            document.getElementById('monthlyExpenses').value = 40000;
+            document.getElementById('monthlyRevenue').value = 2000;
+            document.getElementById('revenueGrowth').value = 0;
+            document.getElementById('expenseGrowth').value = 2;
+            document.getElementById('oneTime').value = 0;
+        } else if (type === 'seed') {
+            document.getElementById('cash').value = 2000000;
+            document.getElementById('expectedFunding').value = 0;
+            document.getElementById('monthlyExpenses').value = 150000;
+            document.getElementById('monthlyRevenue').value = 30000;
+            document.getElementById('revenueGrowth').value = 10;
+            document.getElementById('expenseGrowth').value = 5;
+            document.getElementById('oneTime').value = 0;
+        } else if (type === 'seriesa') {
+            document.getElementById('cash').value = 5000000;
+            document.getElementById('expectedFunding').value = 0;
+            document.getElementById('monthlyExpenses').value = 350000;
+            document.getElementById('monthlyRevenue').value = 200000;
+            document.getElementById('revenueGrowth').value = 8;
+            document.getElementById('expenseGrowth').value = 3;
+            document.getElementById('oneTime').value = 0;
+        }
         recalculate();
     }
 
