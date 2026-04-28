@@ -705,6 +705,29 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
     <script>
+    // ============================================================
+    // EVENT TRACKING (GA4)
+    // ============================================================
+    function trackEvent(eventName, params = {}) {
+        if (typeof gtag === 'function') {
+            gtag('event', eventName, {
+                calculator: 'unit-economics',
+                ...params
+            });
+        }
+    }
+    // Track initial page load
+    trackEvent('calculator_view', { calculator: 'unit-economics' });
+
+    // Debounced tracking for calculations
+    let calculationTrackingTimer = null;
+    function trackCalculationDebounced() {
+        if (calculationTrackingTimer) clearTimeout(calculationTrackingTimer);
+        calculationTrackingTimer = setTimeout(() => {
+            trackEvent('calculate');
+        }, 2000);
+    }
+
     const DEFAULTS = {
         marketingSpend: 5000, salesCost: 8000, otherAcqCost: 1000, newCustomers: 20,
         arpu: 99, grossMargin: 75, churnRate: 5
@@ -841,6 +864,9 @@
 
         // Save state to localStorage
         try { localStorage.setItem('foundermath_unitecon_state', JSON.stringify(getState())); } catch(e) {}
+
+        // Track calculation (debounced)
+        trackCalculationDebounced();
     }
 
     function updateBenchmark(id, pct, value, color) {
@@ -965,6 +991,7 @@
             const btn = document.getElementById('shareBtn');
             btn.textContent = 'Copied!'; btn.classList.add('copied');
             showToast('Link copied!');
+            trackEvent('copy_share_link');
             setTimeout(() => { btn.textContent = 'Copy Share Link'; btn.classList.remove('copied'); }, 2000);
         }).catch(() => prompt('Copy this link:', url));
     }
@@ -973,6 +1000,7 @@
         const url = encodeStateToURL();
         const text = 'Check out my unit economics: ' + url + ' #SaaS #unitEconomics';
         window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+        trackEvent('share_twitter');
     }
 
     function showToast(msg) {
@@ -1062,6 +1090,7 @@
 
         doc.save('foundermath-unit-economics.pdf');
         showToast('PDF downloaded!');
+        trackEvent('export_pdf');
     }
 
     function resetCalculator() {
@@ -1111,6 +1140,10 @@
         localStorage.setItem('foundermath_unit-economics_scenarios', JSON.stringify(scenarios));
         input.value = '';
         input.classList.remove('show');
+        updateScenarioSelect();
+        showToast('Scenario saved!');
+        trackEvent('save_scenario', { scenario_name: name });
+    }
 
     function toggleProTips() {
         const content = document.getElementById('proTipContent');
@@ -1154,6 +1187,7 @@
             recalculate();
             document.getElementById('deleteScenarioBtn').style.display = 'block';
             showToast('Scenario loaded!');
+            trackEvent('load_scenario', { scenario_name: name });
         }
     }
 
@@ -1171,6 +1205,7 @@
         document.getElementById('deleteScenarioBtn').style.display = 'none';
         updateScenarioSelect();
         showToast('Scenario deleted!');
+        trackEvent('delete_scenario', { scenario_name: name });
     }
 
     function updateScenarioSelect() {

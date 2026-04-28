@@ -1127,6 +1127,32 @@
     <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
     <script>
     // ============================================================
+    // EVENT TRACKING (GA4)
+    // ============================================================
+    function trackEvent(eventName, params = {}) {
+        if (typeof gtag === 'function') {
+            gtag('event', eventName, {
+                calculator: 'dilution',
+                ...params
+            });
+        }
+    }
+    // Track initial page load
+    trackEvent('calculator_view', { calculator: 'dilution' });
+
+    // Debounced tracking for calculations to avoid too many events
+    let calculationTrackingTimer = null;
+    function trackCalculationDebounced() {
+        if (calculationTrackingTimer) clearTimeout(calculationTrackingTimer);
+        calculationTrackingTimer = setTimeout(() => {
+            trackEvent('calculate', {
+                founders: state.founders.length,
+                rounds: state.rounds.length
+            });
+        }, 2000);
+    }
+
+    // ============================================================
     // DATA MODEL
     // ============================================================
     const COLORS = [
@@ -1319,6 +1345,7 @@
         renderFounders();
         renderRounds();
         recalculate();
+        trackEvent('load_preset', { preset_type: type });
     }
 
     // ============================================================
@@ -1365,6 +1392,7 @@
         input.classList.remove('show');
         updateScenarioSelect();
         showToast('Scenario saved!');
+        trackEvent('save_scenario', { scenario_name: name });
     }
 
     function loadScenario(name) {
@@ -1378,6 +1406,7 @@
             recalculate();
             document.getElementById('deleteScenarioBtn').style.display = 'block';
             showToast('Scenario loaded!');
+            trackEvent('load_scenario', { scenario_name: name });
         }
     }
 
@@ -1395,6 +1424,7 @@
         document.getElementById('deleteScenarioBtn').style.display = 'none';
         updateScenarioSelect();
         showToast('Scenario deleted!');
+        trackEvent('delete_scenario', { scenario_name: name });
     }
 
     function updateScenarioSelect() {
@@ -1770,6 +1800,9 @@
         renderChart(stages);
         renderTable(stages);
         renderSummary(stages);
+
+        // Track calculation (debounced)
+        trackCalculationDebounced();
     }
 
     // ============================================================
@@ -1782,6 +1815,7 @@
             btn.textContent = 'Copied!';
             btn.classList.add('copied');
             showToast('Link copied to clipboard!');
+            trackEvent('copy_share_link');
             setTimeout(() => {
                 btn.textContent = 'Copy Share Link';
                 btn.classList.remove('copied');
@@ -1796,6 +1830,7 @@
         const url = encodeStateToURL();
         const text = 'Check out my equity dilution scenario: ' + url + ' #startup #equity';
         window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+        trackEvent('share_twitter');
     }
 
     function showToast(msg) {
@@ -1890,6 +1925,7 @@
 
         doc.save('foundermath-dilution.pdf');
         showToast('PDF downloaded!');
+        trackEvent('export_pdf');
     }
 
     // ============================================================

@@ -781,6 +781,29 @@
     <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
     <script>
     // ============================================================
+    // EVENT TRACKING (GA4)
+    // ============================================================
+    function trackEvent(eventName, params = {}) {
+        if (typeof gtag === 'function') {
+            gtag('event', eventName, {
+                calculator: 'runway',
+                ...params
+            });
+        }
+    }
+    // Track initial page load
+    trackEvent('calculator_view', { calculator: 'runway' });
+
+    // Debounced tracking for calculations
+    let calculationTrackingTimer = null;
+    function trackCalculationDebounced() {
+        if (calculationTrackingTimer) clearTimeout(calculationTrackingTimer);
+        calculationTrackingTimer = setTimeout(() => {
+            trackEvent('calculate');
+        }, 2000);
+    }
+
+    // ============================================================
     // STATE & DEFAULTS
     // ============================================================
     const DEFAULTS = {
@@ -1004,6 +1027,9 @@
 
         // Save state to localStorage
         try { localStorage.setItem('foundermath_runway_state', JSON.stringify(getState())); } catch(e) {}
+
+        // Track calculation (debounced)
+        trackCalculationDebounced();
     }
 
     function renderChart(months) {
@@ -1137,6 +1163,7 @@
             btn.textContent = 'Copied!';
             btn.classList.add('copied');
             showToast('Link copied to clipboard!');
+            trackEvent('copy_share_link');
             setTimeout(() => { btn.textContent = 'Copy Share Link'; btn.classList.remove('copied'); }, 2000);
         }).catch(() => { prompt('Copy this link:', url); });
     }
@@ -1145,6 +1172,7 @@
         const url = encodeStateToURL();
         const text = 'Check out my startup runway calculation: ' + url + ' #startup #runway';
         window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+        trackEvent('share_twitter');
     }
 
     function showToast(msg) {
@@ -1235,6 +1263,7 @@
 
         doc.save('foundermath-runway.pdf');
         showToast('PDF downloaded!');
+        trackEvent('export_pdf');
     }
 
     function resetCalculator() {
@@ -1271,6 +1300,7 @@
             document.getElementById('oneTime').value = 0;
         }
         recalculate();
+        trackEvent('load_preset', { preset_type: type });
     }
 
     // ============================================================
@@ -1315,6 +1345,10 @@
         localStorage.setItem('foundermath_runway_scenarios', JSON.stringify(scenarios));
         input.value = '';
         input.classList.remove('show');
+        updateScenarioSelect();
+        showToast('Scenario saved!');
+        trackEvent('save_scenario', { scenario_name: name });
+    }
 
     function toggleProTips() {
         const content = document.getElementById('proTipContent');
@@ -1358,6 +1392,7 @@
             recalculate();
             document.getElementById('deleteScenarioBtn').style.display = 'block';
             showToast('Scenario loaded!');
+            trackEvent('load_scenario', { scenario_name: name });
         }
     }
 
@@ -1375,6 +1410,7 @@
         document.getElementById('deleteScenarioBtn').style.display = 'none';
         updateScenarioSelect();
         showToast('Scenario deleted!');
+        trackEvent('delete_scenario', { scenario_name: name });
     }
 
     function updateScenarioSelect() {

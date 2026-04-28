@@ -442,3 +442,104 @@ Deploy check done
 =============================================
 [orchestrator] Updated HELP-STATUS.md for agent
 === cheap Run 1 at Mon Apr 27 04:30:05 PM UTC 2026 ===
+=== Run 1 finished at Mon Apr 27 05:00:46 PM UTC 2026, exit=0 ===
+On branch main
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/session-20260427-163005.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[main 0db5b14] glm cheap session end
+ 33 files changed, 3352 insertions(+), 50 deletions(-)
+ create mode 100644 blog/409a-valuation-guide.html
+ create mode 100644 blog/option-pool-management-guide.html
+ create mode 100644 blog/participating-preferred-guide.html
+ create mode 100644 blog/pre-money-post-money-valuation-guide.html
+ create mode 100644 blog/pro-rata-rights-guide.html
+ create mode 100644 logs/session-20260423-163004.log
+ create mode 100644 logs/session-20260424-103005.log
+ create mode 100644 logs/session-20260424-163004.log
+ create mode 100644 logs/session-20260425-103004.log
+ create mode 100644 logs/session-20260425-163005.log
+ create mode 100644 logs/session-20260426-103005.log
+ create mode 100644 logs/session-20260426-163004.log
+ create mode 100644 logs/session-20260427-103004.log
+ create mode 100644 logs/session-20260427-111940.log
+ create mode 100644 logs/session-20260427-113007.log
+ create mode 100644 logs/session-20260427-163005.log
+
+=============================================
+  Session complete
+  Runs: 1
+  Duration: 30 minutes
+  Files changed: 33
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-04-28 10:30:01 UTC
+=============================================
+[orchestrator] Updated HELP-STATUS.md for agent
+=== premium Run 1 at Tue Apr 28 10:30:04 AM UTC 2026 ===
+=== Run 1 finished at Tue Apr 28 11:05:04 AM UTC 2026, exit=137 ===
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/runs.jsonl
+	modified:   logs/session-20260427-163005.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/session-20260428-103004.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/runs.jsonl
+	modified:   logs/session-20260427-163005.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/session-20260428-103004.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+/home/race/orchestrate.sh: line 919: syntax error near unexpected token `done'
+/home/race/orchestrate.sh: line 919: `done'
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-04-28 16:30:01 UTC
+=============================================
+[orchestrator] Updated HELP-STATUS.md for agent
+=== cheap Run 1 at Tue Apr 28 04:30:03 PM UTC 2026 ===
+=== Run 1 finished at Tue Apr 28 04:43:43 PM UTC 2026, exit=0 ===
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/runs.jsonl
+	modified:   logs/session-20260427-163005.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+=== cheap Run 2 at Tue Apr 28 04:43:45 PM UTC 2026 ===
