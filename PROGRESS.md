@@ -455,3 +455,48 @@
 - [ ] Launch on Hacker News "Show HN"
 - [ ] Add email capture (Buttondown)
 - [ ] Review sitemap.xml for all blog posts and calculators
+
+## Day 8 — April 28, 2026
+
+### Completed
+
+**C58: Google Search Console Verification**
+- Created HELP-REQUEST.md with GSC verification request
+- Added Buttondown integration request for newsletter signup
+- Awaiting human to provide verification code
+
+**C44: Add Reading Time to Blog Posts**
+- Added reading time display with clock icon to all 15 blog cards in blog.html
+- CSS styling for blog-read-time with clock icon SVG
+- Reading times: 8-13 min based on word counts
+
+**C64: Prepare Demo Scenario URLs**
+- Created MARKETING/DEMO-URLS.md with pre-filled scenario URLs
+- Includes demo URLs for all 5 calculators
+- Usage tips for marketing channels (HN, Twitter, Reddit, blog)
+
+**C52: Add Share to Twitter Button**
+- Added "Share on Twitter" button to all 5 calculators
+- Pre-filled tweet text with calculator URL and relevant hashtags
+- Uses Twitter web intents (no API key needed)
+
+**C53: Add Contact Page**
+- Created contact.html with Formspree form integration
+- 5 contact topics: Calculator Question, Feedback, Feature Request, Partnership, Other
+- Email fallback: hello@foundermath.com
+- Updated footer navigation across index.html and blog.html
+- Added contact.html to sitemap.xml
+
+**C50: Add Calculator Presets**
+- Added "Load Preset" section to dilution.html (Seed, Series A, Multi-Round)
+- Added "Load Preset" section to runway.html (Pre-Seed, Seed, Series A)
+- Pre-filled values for common startup scenarios
+
+### Files Created
+| File | Purpose |
+|------|---------|
+| contact.html | Contact page with Formspree form |
+| HELP-REQUEST.md | GSC verification and Buttondown requests |
+| MARKETING/DEMO-URLS.md | Pre-filled scenario URLs for marketing |
+
+

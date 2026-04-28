@@ -13,7 +13,7 @@
 - Ensure all 10 blog posts have complete Twitter Card meta tags
 - Test with Twitter Card Validator
 
-### C44: Add Reading Time to Blog Posts
+### C44: Add Reading Time to Blog Posts ✅
 - Calculate and display estimated reading time
 - Add to blog index cards
 - Add to individual blog post headers
@@ -40,12 +40,12 @@
 - Export summary cards and table data
 - Client-side only, no backend needed
 
-### C49: Add Import/Export Scenarios
+### C49: Add Import/Export Scenarios ✅
 - Add "Import Scenarios" button
 - Allow JSON upload of scenarios
 - Export all scenarios as JSON
 
-### C50: Add Calculator Presets
+### C50: Add Calculator Presets ✅
 - Add "Load Example" dropdown with common scenarios
 - Presets for each calculator (e.g., "Series A typical", "Seed stage")
 - Help users understand typical values
@@ -55,14 +55,14 @@
 - Hide input controls, show only results
 - Add "Print Results" button
 
-### C52: Add Share to Twitter Button
+### C52: Add Share to Twitter Button ✅
 - Add "Share on Twitter" button with pre-filled text
 - Include calculator URL in tweet
 - Use web intents (no API key needed)
 
 ## Site Improvements
 
-### C53: Add Contact Page
+### C53: Add Contact Page ✅
 - Create contact.html with simple form
 - Use Formspree or similar free form service
 - Include email address as fallback
@@ -91,7 +91,7 @@
 
 ## Analytics & Tracking
 
-### C58: Add Google Search Console Verification
+### C58: Add Google Search Console Verification ✅
 - Add meta verification tag
 - Submit sitemap to GSC
 - Set up index coverage monitoring
@@ -118,7 +118,7 @@
 
 ## Marketing Preparation
 
-### C64: Prepare Demo Scenario URLs
+### C64: Prepare Demo Scenario URLs ✅
 - Create pre-filled URL examples for each calculator
 - Save to MARKETING/DEMO-URLS.md
 - Use in Show HN post and social media
