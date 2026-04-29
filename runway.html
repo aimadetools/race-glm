@@ -664,7 +664,9 @@
                 <div class="share-bar">
                     <button class="btn-share" id="shareBtn" onclick="copyShareLink()">Copy Share Link</button>
                     <button class="btn-share" onclick="shareToTwitter()" aria-label="Share on Twitter">Share on Twitter</button>
+                    <button class="btn-share" onclick="exportCSV()" aria-label="Export results as CSV">Export CSV</button>
                     <button class="btn-share" onclick="FounderMathPro.requirePro('Export PDF', exportPDF)" aria-label="Export results as PDF">Export PDF</button>
+                    <button class="btn-share" onclick="window.print()" aria-label="Print results">Print Results</button>
                     <button class="btn-share" onclick="resetCalculator()">Reset</button>
                 </div>
             </div>
@@ -1275,6 +1277,58 @@
         doc.save('foundermath-runway.pdf');
         showToast('PDF downloaded!');
         trackEvent('export_pdf');
+    }
+
+    function exportCSV() {
+        const cash = parseFloat(document.getElementById('cash').value) || 0;
+        const monthlyRevenue = parseFloat(document.getElementById('monthlyRevenue').value) || 0;
+        const monthlyExpenses = parseFloat(document.getElementById('monthlyExpenses').value) || 0;
+        const oneTimeExpenses = parseFloat(document.getElementById('oneTimeExpenses').value) || 0;
+        const revenueGrowth = parseFloat(document.getElementById('revenueGrowth').value) || 0;
+
+        const netBurn = monthlyExpenses - monthlyRevenue;
+        const grossBurn = monthlyExpenses;
+        const runway = netBurn > 0 ? (cash - oneTimeExpenses) / netBurn : Infinity;
+
+        let csv = 'FounderMath Runway Calculator Export\n\n';
+        csv += 'Inputs\n';
+        csv += 'Metric,Value\n';
+        csv += `Cash Balance,$${cash.toLocaleString()}\n`;
+        csv += `Monthly Revenue,$${monthlyRevenue.toLocaleString()}\n`;
+        csv += `Monthly Expenses,$${monthlyExpenses.toLocaleString()}\n`;
+        csv += `One-Time Expenses,$${oneTimeExpenses.toLocaleString()}\n`;
+        csv += `Revenue Growth,${revenueGrowth}%\n`;
+        csv += '\n';
+
+        csv += 'Results\n';
+        csv += 'Metric,Value\n';
+        csv += `Net Burn,$${netBurn.toLocaleString()}/mo\n`;
+        csv += `Gross Burn,$${grossBurn.toLocaleString()}/mo\n`;
+        csv += `Runway,${isFinite(runway) ? runway.toFixed(1) + ' months' : 'Infinite (profitable)'}\n`;
+        csv += '\n';
+
+        csv += 'Monthly Projection\n';
+        csv += 'Month,Cash,Revenue,Expenses,Net Burn,Cash End\n';
+
+        let projCash = cash - oneTimeExpenses;
+        let projRevenue = monthlyRevenue;
+        for (let i = 1; i <= 36 && projCash > 0; i++) {
+            const projNetBurn = monthlyExpenses - projRevenue;
+            const cashEnd = projCash - projNetBurn;
+            csv += `${i},$${projCash.toLocaleString()},$${projRevenue.toLocaleString()},$${monthlyExpenses.toLocaleString()},$${projNetBurn.toLocaleString()},$${Math.max(0, cashEnd).toLocaleString()}\n`;
+            projCash = cashEnd;
+            projRevenue *= (1 + revenueGrowth / 100);
+        }
+
+        csv += `\nExported: ${new Date().toLocaleString()}\n`;
+
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'foundermath-runway.csv';
+        link.click();
+        showToast('CSV downloaded!');
+        trackEvent('export_csv');
     }
 
     function resetCalculator() {

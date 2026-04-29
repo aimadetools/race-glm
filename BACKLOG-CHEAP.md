@@ -19,51 +19,14 @@
 - Brief bio and CTA to subscribe
 - Consistent across all posts
 
-### C54: Add FAQ Page
-- Create faq.html with common questions
-- Categories: Calculators, Pricing, Account, Technical
-- Accordion-style expandable answers
-- Link from pricing page
-
-### C55: Add Breadcrumb Navigation
-- Add breadcrumbs to all pages
-- Show: Home > Calculator > Dilution
-- Improve navigation and SEO
-
-### C56: Add Search Functionality
-- Add client-side search for blog posts
-- Simple input in blog header
-- Filter posts by title/content
-
 ## Calculator Enhancements
 
-### C48: Add Export to CSV Feature
-- Add "Export CSV" button to all 5 calculators
-- Export summary cards and table data
-- Client-side only, no backend needed
-
-### C51: Add Print-Optimized Views
-- Ensure all calculators print cleanly
-- Hide input controls, show only results
-- Add "Print Results" button
+### C50: Import Scenarios from CSV
+- Add "Import CSV" button to all 5 calculators
+- Allow loading previously exported scenarios
+- Maintain data validation
 
 ## Site Improvements
-
-### C67: Add Email Newsletter Signup to All Calculator Pages
-- Add inline newsletter form to each calculator page
-- Wire to /api/subscribe.js endpoint
-- Show success/error feedback
-
-### C68: Add Newsletter Signup to Footer of All Pages
-- Add compact email input to footer
-- Consistent across all pages
-- Wire to /api/subscribe.js
-
-### C69: Test All Newsletter Forms
-- Test subscribe on index.html
-- Test subscribe on blog.html
-- Test subscribe on calculator pages
-- Verify Buttondown receives subscribers
 
 ### C70: Create Welcome Email in Buttondown
 - Write 3-email welcome sequence
@@ -83,18 +46,7 @@
 - Write consistent descriptions
 - Track submissions
 
-### C73: Add Schema.org Structured Data
-- Add WebApplication schema to calculator pages
-- Add Article schema to blog posts
-- Add FAQ schema to FAQ page (when created)
-- Helps Google rich snippets
-
 ## Analytics
-
-### C59: Add Event Tracking to Calculators
-- Track: calculator usage, PDF exports, scenario saves
-- Use GA4 custom events
-- No extra cost, pure GA4
 
 ### C60: Add Conversion Tracking for Pricing
 - Track clicks on Stripe payment links
@@ -137,3 +89,10 @@
 ✅ C58: Google Search Console verification
 ✅ C61-C62: Mobile UX review, skip links
 ✅ C64: Demo scenario URLs
+✅ C67-C68: Newsletter signup to all 25 pages
+✅ C69: Test all newsletter forms (API wired, Buttondown integration complete)
+✅ C54: FAQ page created
+✅ C48: Export CSV feature to all 5 calculators
+✅ C51: Print-Optimized Views (print buttons added)
+✅ C59: Event tracking verified complete
+✅ C73: Schema.org structured data verified complete

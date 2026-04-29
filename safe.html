@@ -404,7 +404,9 @@
                 <div class="share-bar">
                     <button class="btn-share" id="shareBtn" onclick="copyShareLink()">Copy Share Link</button>
                     <button class="btn-share" onclick="shareToTwitter()" aria-label="Share on Twitter">Share on Twitter</button>
+                    <button class="btn-share" onclick="exportCSV()" aria-label="Export results as CSV">Export CSV</button>
                     <button class="btn-share" onclick="FounderMathPro.requirePro('Export PDF', exportPDF)" aria-label="Export results as PDF">Export PDF</button>
+                    <button class="btn-share" onclick="window.print()" aria-label="Print results">Print Results</button>
                     <button class="btn-share" onclick="resetCalculator()">Reset</button>
                 </div>
             </div>
@@ -1926,6 +1928,50 @@
         doc.save('foundermath-safe.pdf');
         showToast('PDF downloaded!');
         trackEvent('export_pdf');
+    }
+
+    function exportCSV() {
+        const investment = parseFloat(document.getElementById('investment').value) || 0;
+        const valuation = parseFloat(document.getElementById('valuation').value) || 0;
+        const cap = document.getElementById('cap').value;
+        const discount = document.getElementById('discount').value;
+        const proRata = document.getElementById('proRata').checked;
+
+        const results = calculateConversion();
+        const conversionPrice = results.conversionPrice;
+        const shares = results.shares;
+        const ownership = results.ownership;
+
+        let csv = 'FounderMath SAFE Note Calculator Export\n\n';
+        csv += 'SAFE Terms\n';
+        csv += 'Parameter,Value\n';
+        csv += `Investment Amount,$${investment.toLocaleString()}\n`;
+        csv += `Valuation Cap,$${cap ? '$' + Number(cap).toLocaleString() : 'None'}\n`;
+        csv += `Discount,${discount ? discount + '%' : 'None'}\n`;
+        csv += `Pro-Rata Rights,${proRata ? 'Yes' : 'No'}\n`;
+        csv += '\n';
+
+        csv += 'Priced Round\n';
+        csv += 'Parameter,Value\n';
+        csv += `Pre-Money Valuation,$${valuation.toLocaleString()}\n`;
+        csv += `\n`;
+
+        csv += 'Conversion Results\n';
+        csv += 'Metric,Value\n';
+        csv += `Conversion Price,$${conversionPrice.toLocaleString()}\n`;
+        csv += `Shares Issued,${shares.toLocaleString()}\n`;
+        csv += `Post-Conversion Ownership,${ownership.toFixed(2)}%\n`;
+        csv += '\n';
+
+        csv += `Exported: ${new Date().toLocaleString()}\n`;
+
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'foundermath-safe.csv';
+        link.click();
+        showToast('CSV downloaded!');
+        trackEvent('export_csv');
     }
 
     // ============================================================

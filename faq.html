@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', savedTheme);
+        });
+    </script>
+    <meta name="description" content="Frequently asked questions about FounderMath calculators, pricing, and how to use our equity dilution, SAFE, and runway tools.">
+    <meta property="og:title" content="FAQ — FounderMath">
+    <meta property="og:description" content="Get answers to common questions about FounderMath calculators, pricing, and how to use our equity and funding tools.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/faq.html">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Are the calculators really free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! All 6 calculators work on the free plan with no time limit. You can calculate dilution, runway, SAFE conversions, and more without ever paying. The free plan doesn't save scenarios between sessions — upgrade to Pro for that."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What data do you collect?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Your financial data never leaves your browser. All calculations run client-side in JavaScript. We don't store your numbers, cap table, or scenarios on our servers. Pro users' saved scenarios are encrypted end-to-end."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How accurate are the calculations?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our calculators use the same formulas used by venture capitalists and startup lawyers. SAFE note calculations follow the Y Combinator SAFE framework exactly. We regularly validate our math against known examples and legal precedents."
+                }
+            }
+        ]
+    }
+    </script>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .nav-overlay { display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: rgba(10, 10, 15, 0.6); z-index: 99; }
+        .nav-overlay.open { display: block; }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0; background: var(--bg-primary);
+                border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100;
+            }
+            .mobile-toggle { display: block; }
+        }
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 8px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        .theme-toggle .sun-icon, .theme-toggle .moon-icon { width: 18px; height: 18px; }
+        .theme-toggle .sun-icon { display: none; }
+        .theme-toggle .moon-icon { display: block; }
+        body[data-theme="light"] .theme-toggle .sun-icon { display: block; }
+        body[data-theme="light"] .theme-toggle .moon-icon { display: none; }
+
+        .page-header {
+            padding: 140px 24px 60px; text-align: center;
+        }
+        .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 16px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        .faq-container {
+            max-width: 900px; margin: 0 auto 80px; padding: 0 24px;
+        }
+        .faq-category {
+            margin-bottom: 60px;
+        }
+        .faq-category h2 {
+            font-size: 1.5rem; font-weight: 700; margin-bottom: 24px;
+            padding-bottom: 12px; border-bottom: 2px solid var(--border);
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+        .faq-question {
+            width: 100%; text-align: left; background: none; border: none;
+            padding: 24px 0; font-size: 1.05rem; font-weight: 600;
+            color: var(--text-primary); cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            transition: color 0.2s;
+        }
+        .faq-question:hover { color: var(--accent); }
+        .faq-question::after {
+            content: '+'; font-size: 1.5rem; color: var(--accent);
+            transition: transform 0.3s;
+        }
+        .faq-item.open .faq-question::after {
+            content: '−'; transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+        }
+        .faq-item.open .faq-answer { max-height: 600px; }
+        .faq-answer p {
+            padding-bottom: 24px; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;
+        }
+        .faq-answer a { color: var(--accent); text-decoration: none; }
+        .faq-answer a:hover { text-decoration: underline; }
+        .faq-answer ul { padding-left: 24px; margin: 12px 0; }
+        .faq-answer li { margin-bottom: 8px; color: var(--text-secondary); }
+
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        @media (max-width: 600px) { .footer-inner { flex-direction: column; text-align: center; } }
+    </style>
+</head>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:var(--accent);color:white;padding:8px 16px;text-decoration:none;z-index:1001;transition:top 0.3s;">Skip to main content</a>
+
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="index.html" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li role="none"><a href="dilution.html" role="menuitem">Dilution Calc</a></li>
+                <li role="none"><a href="safe.html" role="menuitem">SAFE Calc</a></li>
+                <li role="none"><a href="runway.html" role="menuitem">Runway Calc</a></li>
+                <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+                <li><a href="faq.html" class="nav-cta">FAQ</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l-1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l-1.42-1.42"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 1 11.21 3 7 7 0 0 1 0-14zm0 0A9 9 0 0 0 0 11.21-3 7 7 0 0 0 0 14z"/></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open');document.querySelector('.nav-overlay').classList.toggle('open')" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+    <div class="nav-overlay" onclick="document.querySelector('.nav-links').classList.remove('open');this.classList.remove('open')"></div>
+
+    <div class="page-header" id="main-content">
+        <h1>Frequently Asked Questions</h1>
+        <p>Everything you need to know about FounderMath calculators, pricing, and how to use our tools.</p>
+    </div>
+
+    <main class="faq-container">
+        <section class="faq-category" aria-labelledby="calculators-heading">
+            <h2 id="calculators-heading">Calculators</h2>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    Are the calculators really free?
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! All 6 calculators work on the free plan with no time limit. You can calculate dilution, runway, SAFE conversions, vesting schedules, CAC/LTV, and more without ever paying. The free plan doesn't save scenarios between sessions — upgrade to <a href="pricing.html">Pro</a> for that.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    How accurate are the calculations?
+                </button>
+                <div class="faq-answer">
+                    <p>Our calculators use the same formulas used by venture capitalists and startup lawyers. SAFE note calculations follow the <a href="safe.html">Y Combinator SAFE framework</a> exactly. We regularly validate our math against known examples and legal precedents.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    What browsers are supported?
+                </button>
+                <div class="faq-answer">
+                    <p>FounderMath works on all modern browsers including Chrome, Firefox, Safari, and Edge. We recommend using the latest version for the best experience. Mobile browsers are fully supported.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    Can I use the calculators offline?
+                </button>
+                <div class="faq-answer">
+                    <p>Once the page loads, all calculations happen locally in your browser. You can disconnect from the internet and still use the calculators. However, saving scenarios and PDF export require an active connection.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-category" aria-labelledby="pricing-heading">
+            <h2 id="pricing-heading">Pricing</h2>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    What's included in the Free plan?
+                </button>
+                <div class="faq-answer">
+                    <p>The Free plan includes all 6 calculators with full functionality:</p>
+                    <ul>
+                        <li>Equity Dilution Calculator — model up to 5 funding rounds</li>
+                        <li>Runway Calculator — track burn rate and runway</li>
+                        <li>SAFE Note Calculator — convert SAFE to equity</li>
+                        <li>Vesting Calculator — visualize vesting schedules</li>
+                        <li>CAC/LTV Calculator — analyze unit economics</li>
+                        <li>Interactive charts and real-time calculations</li>
+                    </ul>
+                    <p>Free users can't save scenarios between sessions or export to PDF.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    What's included in the Pro plan ($19/mo)?
+                </button>
+                <div class="faq-answer">
+                    <p>Pro users get everything in Free, plus:</p>
+                    <ul>
+                        <li>Save unlimited scenarios (they persist across sessions)</li>
+                        <li>Side-by-side scenario comparison (2 scenarios at once)</li>
+                        <li>Multi-round dilution simulation (up to 5 rounds)</li>
+                        <li>Export charts as PNG and PDF</li>
+                        <li>SAFE conversion waterfall analysis</li>
+                        <li>Advanced CAC/LTV with cohort breakdown</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    What's included in the Team plan ($49/mo)?
+                </button>
+                <div class="faq-answer">
+                    <p>Team users get everything in Pro, plus:</p>
+                    <ul>
+                        <li>Share scenarios with up to 5 team members</li>
+                        <li>Collaborative editing — multiple people can work on the same scenario</li>
+                        <li>Embeddable charts for pitch decks</li>
+                        <li>Custom branding on exports</li>
+                        <li>15+ round dilution simulation</li>
+                        <li>Dedicated Slack channel support</li>
+                        <li>Onboarding call</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    Can I cancel my subscription anytime?
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely. No contracts, no commitments. Cancel with one click from your account page. You'll keep Pro features until the end of your billing period.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    Do you offer annual billing?
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! Annual plans offer 2 months free:</p>
+                    <ul>
+                        <li>Pro: $190/year (vs $228 monthly)</li>
+                        <li>Team: $490/year (vs $588 monthly)</li>
+                    </ul>
+                    <p>Toggle between monthly and annual pricing on our <a href="pricing.html">Pricing page</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-category" aria-labelledby="data-heading">
+            <h2 id="data-heading">Data & Privacy</h2>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    What data do you collect?
+                </button>
+                <div class="faq-answer">
+                    <p>Your financial data never leaves your browser. All calculations run client-side in JavaScript. We don't store your numbers, cap table, or scenarios on our servers.</p>
+                    <p>On the free plan, nothing is stored at all. On Pro and Team plans, saved scenarios are encrypted end-to-end. We can't see your financial data even if we wanted to.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    Is my data secure?
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. Saved scenarios on paid plans are encrypted using industry-standard encryption. We use Vercel's secure infrastructure, and all data is encrypted in transit and at rest.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    Can I export my data?
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! Pro and Team users can export scenarios as JSON or PDF. Team users can also export charts as PNG for use in presentations and pitch decks.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-category" aria-labelledby="technical-heading">
+            <h2 id="technical-heading">Technical</h2>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    Do I need to create an account?
+                </button>
+                <div class="faq-answer">
+                    <p>No account required for the free plan — just start calculating. For Pro and Team plans, you'll create an account through Stripe during checkout. Your login is managed through Stripe Customer Portal.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    What happens if I switch browsers or devices?
+                </button>
+                <div class="faq-answer">
+                    <p>Free plan scenarios are stored in your browser's localStorage and won't transfer. Pro and Team scenarios are synced across devices through your account, so you can access them from anywhere.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+                    Can I integrate FounderMath into my own tools?
+                </button>
+                <div class="faq-answer">
+                    <p>Team users can embed charts directly into pitch decks and presentations. We're working on an API for deeper integrations. Contact us if you have specific integration needs.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li role="none"><a href="dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="runway.html" role="menuitem">Runway</a></li>
+                <li role="none"><a href="safe.html" role="menuitem">SAFE</a></li>
+                <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+                <li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

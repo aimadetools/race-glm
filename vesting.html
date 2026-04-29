@@ -605,7 +605,9 @@
                 <div class="share-bar">
                     <button class="btn-share" id="shareBtn" onclick="copyShareLink()">Copy Share Link</button>
                     <button class="btn-share" onclick="shareToTwitter()" aria-label="Share on Twitter">Share on Twitter</button>
+                    <button class="btn-share" onclick="exportCSV()" aria-label="Export results as CSV">Export CSV</button>
                     <button class="btn-share" onclick="FounderMathPro.requirePro('Export PDF', exportPDF)" aria-label="Export results as PDF">Export PDF</button>
+                    <button class="btn-share" onclick="window.print()" aria-label="Print results">Print Results</button>
                     <button class="btn-share" onclick="resetCalculator()">Reset</button>
                 </div>
             </div>
@@ -1253,6 +1255,56 @@
         doc.save('foundermath-vesting.pdf');
         showToast('PDF downloaded!');
         trackEvent('export_pdf');
+    }
+
+    function exportCSV() {
+        const totalShares = parseFloat(document.getElementById('totalShares').value) || 0;
+        const grantPrice = parseFloat(document.getElementById('grantPrice').value) || 0;
+        const cliffMonths = parseInt(document.getElementById('cliffMonths').value) || 0;
+        const vestingMonths = parseInt(document.getElementById('vestingMonths').value) || 48;
+        const grantDate = document.getElementById('grantDate').value;
+
+        const schedule = calculateVesting();
+        const totalVested = schedule.vestedShares;
+        const totalUnvested = totalShares - totalVested;
+        const vestedPercentage = (totalVested / totalShares * 100).toFixed(2);
+        const unvestedPercentage = (totalUnvested / totalShares * 100).toFixed(2);
+
+        let csv = 'FounderMath Vesting Schedule Export\n\n';
+        csv += 'Grant Details\n';
+        csv += 'Parameter,Value\n';
+        csv += `Total Shares,${totalShares.toLocaleString()}\n`;
+        csv += `Grant Price,$${grantPrice.toLocaleString()}\n`;
+        csv += `Cliff,${cliffMonths} months\n`;
+        csv += `Vesting Period,${vestingMonths} months\n`;
+        csv += `Grant Date,${grantDate}\n`;
+        csv += '\n';
+
+        csv += 'Summary\n';
+        csv += 'Metric,Value\n';
+        csv += `Vested Shares,${totalVested.toLocaleString()} (${vestedPercentage}%)\n`;
+        csv += `Unvested Shares,${totalUnvested.toLocaleString()} (${unvestedPercentage}%)\n`;
+        csv += '\n';
+
+        csv += 'Monthly Breakdown\n';
+        csv += 'Month,Vested This Month,Cumulative Vested,Unvested,Vested %,Value Vested ($)\n';
+
+        schedule.months.forEach(m => {
+            const vestedPct = ((m.vested + m.cumulative) / totalShares * 100).toFixed(2);
+            const unvested = totalShares - m.cumulative;
+            const valueVested = m.cumulative * grantPrice;
+            csv += `${m.month},${m.vested.toLocaleString()},${m.cumulative.toLocaleString()},${unvested.toLocaleString()},${vestedPct}%,$${valueVested.toLocaleString()}\n`;
+        });
+
+        csv += `\nExported: ${new Date().toLocaleString()}\n`;
+
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'foundermath-vesting.csv';
+        link.click();
+        showToast('CSV downloaded!');
+        trackEvent('export_csv');
     }
 
     function resetCalculator() {

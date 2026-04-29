@@ -588,7 +588,9 @@
                 <div class="share-bar">
                     <button class="btn-share" id="shareBtn" onclick="copyShareLink()">Copy Share Link</button>
                     <button class="btn-share" onclick="shareToTwitter()" aria-label="Share on Twitter">Share on Twitter</button>
+                    <button class="btn-share" onclick="exportCSV()" aria-label="Export results as CSV">Export CSV</button>
                     <button class="btn-share" onclick="FounderMathPro.requirePro('Export PDF', exportPDF)" aria-label="Export results as PDF">Export PDF</button>
+                    <button class="btn-share" onclick="window.print()" aria-label="Print results">Print Results</button>
                     <button class="btn-share" onclick="resetCalculator()">Reset</button>
                 </div>
             </div>
@@ -1102,6 +1104,58 @@
         doc.save('foundermath-unit-economics.pdf');
         showToast('PDF downloaded!');
         trackEvent('export_pdf');
+    }
+
+    function exportCSV() {
+        const mrr = parseFloat(document.getElementById('mrr').value) || 0;
+        const cac = parseFloat(document.getElementById('cac').value) || 0;
+        const arpu = parseFloat(document.getElementById('arpu').value) || 0;
+        const churnRate = parseFloat(document.getElementById('churnRate').value) || 0;
+        const period = document.getElementById('period').value;
+
+        const results = calculateUnitEconomics();
+        const ltv = results.ltv;
+        const ltvCacRatio = results.ltvCacRatio;
+        const paybackMonths = results.paybackMonths;
+        const paybackYears = results.paybackYears;
+        const monthsToChurn = results.monthsToChurn;
+
+        let csv = 'FounderMath CAC/LTV Calculator Export\n\n';
+        csv += 'Inputs\n';
+        csv += 'Parameter,Value\n';
+        csv += `Monthly Recurring Revenue (MRR),$${mrr.toLocaleString()}\n`;
+        csv += `Customer Acquisition Cost (CAC),$${cac.toLocaleString()}\n`;
+        csv += `Average Revenue Per User (ARPU),$${arpu.toLocaleString()}\n`;
+        csv += `Monthly Churn Rate,${churnRate}%\n`;
+        csv += `Billing Period,${period === 'monthly' ? 'Monthly' : 'Annual'}\n`;
+        csv += '\n';
+
+        csv += 'Results\n';
+        csv += 'Metric,Value\n';
+        csv += `Lifetime Value (LTV),$${ltv.toLocaleString()}\n`;
+        csv += `LTV:CAC Ratio,${ltvCacRatio.toFixed(2)}\n`;
+        csv += `Payback Period,${paybackMonths.toFixed(1)} months (${paybackYears.toFixed(1)} years)\n`;
+        csv += `Expected Customer Lifetime,${monthsToChurn.toFixed(1)} months\n`;
+        csv += '\n';
+
+        csv += 'LTV:CAC Benchmarks\n';
+        csv += 'Ratio,Status,Benchmark\n';
+        csv += '< 1.0,Critical,Burns cash on every new customer\n';
+        csv += '1.0 - 2.0,Poor,Unsustainable long-term\n';
+        csv += '2.0 - 3.0,Fair,Room for improvement\n';
+        csv += '3.0 - 5.0,Good,Healthy unit economics\n';
+        csv += '> 5.0,Excellent,Very healthy, scalable\n';
+        csv += '\n';
+
+        csv += `Exported: ${new Date().toLocaleString()}\n`;
+
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'foundermath-unit-economics.csv';
+        link.click();
+        showToast('CSV downloaded!');
+        trackEvent('export_csv');
     }
 
     function resetCalculator() {
