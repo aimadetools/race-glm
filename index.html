@@ -1077,24 +1077,41 @@
     // ============================================================
     // NEWSLETTER SIGNUP
     // ============================================================
-    function handleNewsletter(e) {
+    async function handleNewsletter(e) {
         e.preventDefault();
         const email = document.getElementById('newsletterEmail').value;
         const msg = document.getElementById('newsletterMsg');
         const btn = document.getElementById('newsletterBtn');
-        // Store in localStorage as a simple lead capture
+        btn.textContent = 'Subscribing...';
+        btn.disabled = true;
         try {
-            const leads = JSON.parse(localStorage.getItem('foundermath_leads') || '[]');
-            leads.push({ email: email, date: new Date().toISOString() });
-            localStorage.setItem('foundermath_leads', JSON.stringify(leads));
-        } catch(ex) {}
-        btn.textContent = 'Subscribed!';
-        btn.style.background = 'var(--green)';
-        msg.textContent = 'Thanks! You\'ll hear from us soon with startup equity insights.';
-        msg.style.color = 'var(--green)';
+            const resp = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+            });
+            const data = await resp.json();
+            if (resp.ok) {
+                btn.textContent = 'Subscribed!';
+                btn.style.background = '#27ae60';
+                msg.textContent = 'Thanks! You\'ll get weekly startup equity insights.';
+                msg.style.color = '#27ae60';
+                // Track signup
+                if (typeof gtag === 'function') gtag('event', 'newsletter_signup', { source: 'homepage' });
+                document.getElementById('newsletterEmail').value = '';
+            } else {
+                btn.textContent = 'Get Weekly Insights';
+                msg.textContent = data.error || 'Something went wrong. Try again.';
+                msg.style.color = '#e74c3c';
+            }
+        } catch(err) {
+            btn.textContent = 'Get Weekly Insights';
+            msg.textContent = 'Network error. Please try again.';
+            msg.style.color = '#e74c3c';
+        }
         msg.style.display = 'block';
-        document.getElementById('newsletterEmail').value = '';
-        setTimeout(() => { btn.textContent = 'Get Weekly Insights'; btn.style.background = 'var(--accent)'; }, 3000);
+        btn.disabled = false;
+        setTimeout(() => { btn.textContent = 'Get Weekly Insights'; btn.style.background = 'var(--accent)'; }, 4000);
     }
 
     // ============================================================

@@ -578,10 +578,11 @@
     <div class="newsletter">
         <h2>Get weekly equity insights</h2>
         <p>Join 500+ founders who get our weekly breakdown of startup math concepts, real-world equity scenarios, and calculator tips. No spam, ever.</p>
-        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing! We\'ll be in touch.');">
-            <input type="email" placeholder="you@company.com" required>
-            <button type="submit" class="btn-primary">Subscribe</button>
+        <form class="newsletter-form" id="blogNewsletterForm" onsubmit="handleBlogNewsletter(event)">
+            <input type="email" id="blogNewsletterEmail" placeholder="you@company.com" required>
+            <button type="submit" id="blogNewsletterBtn" class="btn-primary">Subscribe</button>
         </form>
+        <p id="blogNewsletterMsg" style="margin-top:12px;font-size:0.85rem;display:none;"></p>
     </div>
 
     <footer>
@@ -603,6 +604,44 @@
         </div>
     </footer>
 </main>
+
+    <script>
+    async function handleBlogNewsletter(e) {
+        e.preventDefault();
+        const email = document.getElementById('blogNewsletterEmail').value;
+        const msg = document.getElementById('blogNewsletterMsg');
+        const btn = document.getElementById('blogNewsletterBtn');
+        btn.textContent = 'Subscribing...';
+        btn.disabled = true;
+        try {
+            const resp = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+            });
+            const data = await resp.json();
+            if (resp.ok) {
+                btn.textContent = 'Subscribed!';
+                btn.style.background = '#27ae60';
+                msg.textContent = 'Thanks! You\'ll get weekly startup equity insights.';
+                msg.style.color = '#27ae60';
+                if (typeof gtag === 'function') gtag('event', 'newsletter_signup', { source: 'blog' });
+                document.getElementById('blogNewsletterEmail').value = '';
+            } else {
+                btn.textContent = 'Subscribe';
+                msg.textContent = data.error || 'Something went wrong. Try again.';
+                msg.style.color = '#e74c3c';
+            }
+        } catch(err) {
+            btn.textContent = 'Subscribe';
+            msg.textContent = 'Network error. Please try again.';
+            msg.style.color = '#e74c3c';
+        }
+        msg.style.display = 'block';
+        btn.disabled = false;
+        setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 4000);
+    }
+    </script>
 
     </body>
 </html>

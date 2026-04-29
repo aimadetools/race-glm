@@ -461,6 +461,17 @@
         <div id="email-capture-safe"></div>
     </main>
 
+    <!-- Newsletter -->
+    <section style="max-width:700px;margin:40px auto;padding:32px 24px;text-align:center;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
+        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:8px;">Get weekly founder insights</h3>
+        <p style="color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem;">Equity breakdowns, fundraising math, and calculator tips. No spam.</p>
+        <form id="newsletterForm" onsubmit="handleCalcNewsletter(event)" style="display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+            <input type="email" id="newsletterEmail" placeholder="founder@startup.com" required style="flex:1;min-width:200px;background:var(--bg-input, var(--bg-primary));border:1px solid var(--border);color:var(--text-primary);padding:10px 14px;border-radius:8px;font-size:0.85rem;">
+            <button type="submit" id="newsletterBtn" style="background:var(--accent);color:white;border:none;padding:10px 20px;border-radius:8px;font-weight:600;font-size:0.85rem;cursor:pointer;">Subscribe</button>
+        </form>
+        <p id="newsletterMsg" style="margin-top:10px;font-size:0.8rem;display:none;"></p>
+    </section>
+
     <footer>
         <div class="footer-inner">
             <div class="footer-left"><p>&copy; 2026 FounderMath. Built for founders, by founders.</p></div>
@@ -2489,5 +2500,6 @@
         }
         document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeCompareModal(); });
     </script>
+    <script>async function handleCalcNewsletter(e){e.preventDefault();const email=document.getElementById('newsletterEmail').value;const msg=document.getElementById('newsletterMsg');const btn=document.getElementById('newsletterBtn');btn.textContent='Subscribing...';btn.disabled=true;try{const resp=await fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})});const data=await resp.json();if(resp.ok){btn.textContent='Subscribed!';btn.style.background='#27ae60';msg.textContent='Thanks! Weekly insights coming your way.';msg.style.color='#27ae60';if(typeof gtag==='function')gtag('event','newsletter_signup',{source:'calculator'});document.getElementById('newsletterEmail').value='';}else{btn.textContent='Subscribe';msg.textContent=data.error||'Something went wrong.';msg.style.color='#e74c3c';}}catch(err){btn.textContent='Subscribe';msg.textContent='Network error. Try again.';msg.style.color='#e74c3c';}msg.style.display='block';btn.disabled=false;setTimeout(()=>{btn.textContent='Subscribe';btn.style.background='var(--accent)';},4000);}</script>
 </body>
 </html>
