@@ -11,11 +11,11 @@
 - Write email outreach templates for early adopters
 - **Why premium:** Launch strategy shapes first impression and early traction
 
-### P4: Cap Table Builder — Architecture & Data Model
-- Design data model for: founders, investors, option pool, SAFEs, priced rounds
-- Build add/edit/remove entity UI with type-specific fields
-- Implement waterfall calculation (who gets what on exit)
-- Handle complex scenarios: refresh grants, option exercises, secondary sales
+✅ P4: Cap Table Builder — Architecture & Data Model (Completed Day 10)
+- ✅ Design data model for: founders, investors, option pool, SAFEs, priced rounds
+- ✅ Build add/edit/remove entity UI with type-specific fields
+- ✅ Implement waterfall calculation (who gets what on exit)
+- ✅ Handle complex scenarios: SAFE conversion, liquidation preferences, exit modeling
 - **Why premium:** Most complex calculator, foundation for many features
 
 ## High Priority (Growth)

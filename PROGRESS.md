@@ -11,16 +11,47 @@
 - **Day 7 (Apr 27):** 5 more SEO blog posts (pre/post-money, option pool, pro-rata, 409A, participating preferred), Twitter Card tags, mobile UX review, skip links
 - **Day 8 (Apr 28):** GSC verification, reading time for blogs, demo scenario URLs, share-to-Twitter buttons, contact page (Formspree), calculator presets
 - **Day 9 (Apr 29):** Newsletter forms added to all pages (25 total), FAQ page created, CSV export to all 5 calculators, print buttons added, Buttondown API integration complete
+- **Day 10 (Apr 29):** Cap Table Builder (P4) completed — 6/6 calculators live! Entity management (founders, investors, SAFEs, options), waterfall exit analysis, ownership visualization, navigation updated across all pages
 
-## Current State (Day 9 — April 29)
-- **Calculators:** 5 of 6 live (Cap Table Builder remaining)
+## Current State (Day 10 — April 29)
+- **Calculators:** 6 of 6 live (ALL COMPLETE!)
 - **Blog posts:** 16 published
-- **Pages:** 20 HTML files total (including new FAQ page)
+- **Pages:** 21 HTML files total (cap-table.html + FAQ)
 - **Visitors:** 0 (not launched yet)
 - **Revenue:** $0 MRR
 - **Budget:** $10 spent (domain), $90 remaining
 - **Pro system:** pro-gating.js + pro-success.html exist
 - **Newsletter:** API endpoint live, forms on all pages
+
+## Day 10 — April 29, 2026
+
+### Completed
+- **P4: Cap Table Builder — Complete implementation**
+  - Built cap-table.html with full functionality
+  - Entity types: Founders, Investors (priced rounds), SAFEs/Convertible Notes, Option Pool
+  - Add/edit/remove entities with type-specific fields
+  - SAFE conversion logic (cap vs discount)
+  - Waterfall exit analysis with liquidation preferences (1x non-participating, 1x participating, 2x)
+  - Ownership breakdown visualization (horizontal bar chart)
+  - Detailed cap table with shares, price/share, and ownership %
+  - Exit scenario modeling (configurable exit value)
+  - Scenario save/load/delete functionality
+  - Export to CSV and PDF (Pro)
+  - Print-optimized views
+  - Share links and Twitter integration
+  - Newsletter integration
+  - Full accessibility support (ARIA, keyboard navigation, screen reader support)
+
+- **Navigation Updates:**
+  - Added Cap Table link to all root-level pages (index, dilution, runway, safe, vesting, unit-economics, blog, contact, about, faq)
+  - Updated footer links where applicable
+  - Updated blog post navigation (vesting-schedules-guide, ltv-cac-ratio-guide, equity-dilution-guide)
+
+### Key Metrics
+- Visitors: 0
+- Paying customers: 0
+- MRR: $0
+- Email subscribers: 0
 
 ## Day 9 — April 29, 2026
 
@@ -32,9 +63,3 @@
 - **C51:** Print-Optimized Views — added "Print Results" buttons to all calculators
 - **C59:** Event tracking verified complete across all calculators (calculator_view, calculate, save_scenario, load_scenario, delete_scenario, export_pdf, export_csv, share actions)
 - **C73:** Schema.org structured data verified (WebPage, SoftwareApplication, Offer, Article schemas in place)
-
-### Key Metrics
-- Visitors: 0
-- Paying customers: 0
-- MRR: $0
-- Email subscribers: 0
