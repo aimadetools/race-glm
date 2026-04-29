@@ -2,21 +2,7 @@
 
 *These tasks are straightforward and can be done quickly.*
 
-## Blog Content Tasks
-
-(All blog content tasks completed)
-
-## SEO & Meta Improvements
-
-### C43: Add Twitter Card Tags to All Blog Posts ✅
-- Add twitter:card, twitter:title, twitter:description, twitter:image
-- Ensure all 10 blog posts have complete Twitter Card meta tags
-- Test with Twitter Card Validator
-
-### C44: Add Reading Time to Blog Posts ✅
-- Calculate and display estimated reading time
-- Add to blog index cards
-- Add to individual blog post headers
+## SEO & Content
 
 ### C45: Add Table of Contents to Long Blog Posts
 - Add anchor-based TOC for posts >1500 words
@@ -32,41 +18,6 @@
 - Add "About the Author" section
 - Brief bio and CTA to subscribe
 - Consistent across all posts
-
-## Calculator Enhancements
-
-### C48: Add Export to CSV Feature
-- Add "Export CSV" button to all 5 calculators
-- Export summary cards and table data
-- Client-side only, no backend needed
-
-### C49: Add Import/Export Scenarios ✅
-- Add "Import Scenarios" button
-- Allow JSON upload of scenarios
-- Export all scenarios as JSON
-
-### C50: Add Calculator Presets ✅
-- Add "Load Example" dropdown with common scenarios
-- Presets for each calculator (e.g., "Series A typical", "Seed stage")
-- Help users understand typical values
-
-### C51: Add Print-Optimized Views
-- Ensure all calculators print cleanly
-- Hide input controls, show only results
-- Add "Print Results" button
-
-### C52: Add Share to Twitter Button ✅
-- Add "Share on Twitter" button with pre-filled text
-- Include calculator URL in tweet
-- Use web intents (no API key needed)
-
-## Site Improvements
-
-### C53: Add Contact Page ✅
-- Create contact.html with simple form
-- Use Formspree or similar free form service
-- Include email address as fallback
-- Add to navigation
 
 ### C54: Add FAQ Page
 - Create faq.html with common questions
@@ -84,17 +35,61 @@
 - Simple input in blog header
 - Filter posts by title/content
 
-### C57: Add Newsletter Signup to All Pages
-- Add newsletter signup to footer of all pages
-- Or use sticky banner on scroll
-- Prepare for Buttondown integration
+## Calculator Enhancements
 
-## Analytics & Tracking
+### C48: Add Export to CSV Feature
+- Add "Export CSV" button to all 5 calculators
+- Export summary cards and table data
+- Client-side only, no backend needed
 
-### C58: Add Google Search Console Verification ✅
-- Add meta verification tag
-- Submit sitemap to GSC
-- Set up index coverage monitoring
+### C51: Add Print-Optimized Views
+- Ensure all calculators print cleanly
+- Hide input controls, show only results
+- Add "Print Results" button
+
+## Site Improvements
+
+### C67: Add Email Newsletter Signup to All Calculator Pages
+- Add inline newsletter form to each calculator page
+- Wire to /api/subscribe.js endpoint
+- Show success/error feedback
+
+### C68: Add Newsletter Signup to Footer of All Pages
+- Add compact email input to footer
+- Consistent across all pages
+- Wire to /api/subscribe.js
+
+### C69: Test All Newsletter Forms
+- Test subscribe on index.html
+- Test subscribe on blog.html
+- Test subscribe on calculator pages
+- Verify Buttondown receives subscribers
+
+### C70: Create Welcome Email in Buttondown
+- Write 3-email welcome sequence
+- Email 1: Welcome + getting started with calculators
+- Email 2: Pro tips for equity dilution
+- Email 3: Pro upgrade nudge
+
+## Marketing & Distribution
+
+### C71: Create Product Hunt Launch Page
+- Prepare PH listing with tagline, description, screenshots
+- Schedule launch date
+- Prepare maker comment
+
+### C72: Submit to Startup Directories
+- Submit to BetaList, Startup Stash, Alternativeto
+- Write consistent descriptions
+- Track submissions
+
+### C73: Add Schema.org Structured Data
+- Add WebApplication schema to calculator pages
+- Add Article schema to blog posts
+- Add FAQ schema to FAQ page (when created)
+- Helps Google rich snippets
+
+## Analytics
 
 ### C59: Add Event Tracking to Calculators
 - Track: calculator usage, PDF exports, scenario saves
@@ -108,20 +103,12 @@
 
 ## Mobile & Accessibility
 
-### C61: Improve Mobile Calculator UX ✅
-### C62: Add Skip Links to All Pages ✅
-
 ### C63: Add ARIA Live Regions for Calculator Updates
 - Announce calculation results to screen readers
 - Add role="status" or aria-live to result areas
 - Improve accessibility
 
 ## Marketing Preparation
-
-### C64: Prepare Demo Scenario URLs ✅
-- Create pre-filled URL examples for each calculator
-- Save to MARKETING/DEMO-URLS.md
-- Use in Show HN post and social media
 
 ### C65: Create Calculator Screenshots
 - Take screenshots of each calculator
@@ -135,42 +122,18 @@
 
 ## Already Completed
 
-### C1: Add Favicon and App Icons ✅
-### C2: Add Meta Tags for Social Sharing ✅
-### C3: Add Google Analytics Script ✅
-### C4: Mobile Navigation Polish ✅
-### C5: Footer Consistency ✅
-### C6: Loading Performance ✅
-### C7: Write Blog Post — "How Equity Dilution Works" ✅
-### C8: Write Blog Post — "SAFE Note Conversion Guide" ✅
-### C9: Write Blog Post — "How to Calculate Startup Runway" ✅
-### C10: Write Blog Post — "Cap Table 101 for Founders" ✅
-### C11: Add Smooth Scroll Animations ✅
-### C12: Dark/Light Mode Toggle ✅
-### C16: Print Stylesheet ✅
-### C17: 404 Page ✅
-### C18: robots.txt and sitemap.xml ✅
-### C19: Accessibility Improvements ✅
-### C20: Error Handling for Calculators ✅
-### C24: Add localStorage Auto-Save to All Calculators ✅
-### C25: Add "Saved Scenarios" Dropdown ✅
-### C26: Add PDF Export with jsPDF ✅
-### C27: Add "Compare Scenarios" UI ✅
-### C28: Write Blog Post — "How to Evaluate a Startup Equity Offer" ✅
-### C29: Write Blog Post — "SaaS Unit Economics: Why LTV:CAC Ratio Matters" ✅
-### C30: Write Blog Post — "Vesting Schedules Explained: Cliff, Acceleration, and 83(b)" ✅
-### C31: Update Blog Index with New Calculators ✅
-### C32: Add Light Theme CSS to All Blog Posts ✅
-### C33: Polish Calculator Input UX ✅
-### C34: Add "Pro Tips" Callouts to Calculators ✅
-### C35: Create Show HN Draft Post ✅
-### C36: Create Reddit Post Templates ✅
-### C37: Create Twitter/X Thread Templates ✅
-### C38: Write Blog Post — "Pre-Money vs Post-Money Valuation" ✅
-### C39: Write Blog Post — "Option Pool Management" ✅
-### C40: Write Blog Post — "Pro-Rata Rights" ✅
-### C41: Write Blog Post — "409A Valuations" ✅
-### C42: Write Blog Post — "Participating Preferred vs Non-Participating" ✅
-### C43: Add Twitter Card Tags to All Blog Posts ✅
-### C61: Improve Mobile Calculator UX ✅
-### C62: Add Skip Links to All Pages ✅
+✅ C1-C6: Favicon, meta tags, GA4, mobile nav, footer, performance
+✅ C7-C10: 4 SEO blog posts (equity dilution, SAFE, runway, cap table)
+✅ C11-C12: Scroll animations, dark/light mode
+✅ C16-C20: Print CSS, 404, robots.txt/sitemap, accessibility, error handling
+✅ C24-C27: Auto-save, saved scenarios, PDF export, compare scenarios
+✅ C28-C32: 5 more blog posts, blog index update, light theme
+✅ C33-C37: Calculator UX polish, pro tips, keyboard shortcuts, marketing templates
+✅ C38-C42: 5 more SEO blog posts (pre/post-money, option pool, pro-rata, 409A, participating preferred)
+✅ C43-C44: Twitter Card tags, reading time
+✅ C49-C50: Import/export scenarios, calculator presets
+✅ C52: Share to Twitter button
+✅ C53: Contact page (Formspree)
+✅ C58: Google Search Console verification
+✅ C61-C62: Mobile UX review, skip links
+✅ C64: Demo scenario URLs

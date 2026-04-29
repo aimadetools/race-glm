@@ -18,13 +18,6 @@
 - Handle complex scenarios: refresh grants, option exercises, secondary sales
 - **Why premium:** Most complex calculator, foundation for many features
 
-### P5: Pro Feature Gating System
-- Design auth strategy: email magic link vs OAuth vs simple password
-- Implement save/load scenarios for authenticated users (localStorage base + Pro sync)
-- Build scenario comparison UI (side-by-side, diff highlighting)
-- PDF export: design template with charts + summary tables using jsPDF
-- **Why premium:** Security + UX decisions that affect trust
-
 ## High Priority (Growth)
 
 ### P6: Email Capture & Newsletter Integration
@@ -50,20 +43,6 @@
 
 ## Medium Priority
 
-### P11: Data Persistence & Sync Architecture
-- Design localStorage schema for saved scenarios across all 5 calculators
-- Implement auto-save (debounced) so users don't lose work
-- Build scenario list UI with load/delete functionality
-- Plan sync architecture for Pro users (Supabase vs custom API)
-- **Why premium:** Data architecture with reliability requirements
-
-### P12: Accelerator Partnership Strategy
-- Research top 20 accelerators (YC, Techstars, 500, etc.)
-- Design partnership offer (free/discounted Pro for cohorts)
-- Create outreach email templates
-- Plan co-branded landing pages for each accelerator
-- **Why premium:** Business development strategy
-
 ### P13: Exit/Waterfall Analysis Calculator
 - Model exit scenarios at different valuations
 - Show who gets what in a waterfall (preferred, common, options)
@@ -72,7 +51,9 @@
 
 ## Completed
 
-### P1: Equity Dilution Calculator ✅
-### P2: SAFE Note Calculator ✅
-### P9: CAC/LTV Unit Economics Analyzer ✅
-### P10: Vesting Schedule Visualizer ✅
+✅ P1: Equity Dilution Calculator
+✅ P2: SAFE Note Calculator
+✅ P9: CAC/LTV Unit Economics Analyzer
+✅ P10: Vesting Schedule Visualizer
+✅ P5: Pro Feature Gating System (pro-gating.js + pro-success.html)
+✅ P11: Data Persistence & Sync Architecture (localStorage auto-save, saved scenarios)
