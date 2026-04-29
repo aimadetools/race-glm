@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cap Table Builder — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    <meta name="description" content="Free interactive cap table builder for startup founders. Track ownership, model SAFEs, priced rounds, and waterfall exit distributions.">
+    <meta name="keywords" content="cap table builder, startup cap table, equity ownership, waterfall analysis, SAFE calculator, liquidation preference">
+    <meta property="og:title" content="Cap Table Builder — FounderMath">
+    <meta property="og:description" content="Build and manage your startup's cap table. Model rounds, track ownership, and analyze exit scenarios.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/cap-table.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Cap Table Builder — FounderMath",
+        "url": "https://founder-math.com/cap-table.html",
+        "description": "Free interactive cap table builder for startup founders. Track ownership, model SAFEs, priced rounds, and waterfall exit distributions.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Cap Table Builder",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "Interactive cap table builder that tracks equity ownership across founders, investors, SAFEs, and option pools with waterfall exit analysis."
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --pink: #ff6b9d;
+            --yellow: #feca57;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAV --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: white;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important;
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .nav-cta:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .mobile-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+
+        /* --- PAGE HEADER --- */
+        .page-header {
+            padding: 120px 24px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%);
+            animation: heroGlow 15s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-5%, 5%) scale(1.1); }
+        }
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            position: relative;
+            margin-bottom: 12px;
+        }
+        .page-header h1 .gradient {
+            background: linear-gradient(135deg, var(--accent-light), var(--green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* --- CALCULATOR LAYOUT --- */
+        .calc-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* --- INPUT PANEL --- */
+        .input-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            position: sticky;
+            top: 88px;
+            max-height: calc(100vh - 104px);
+            overflow-y: auto;
+        }
+        .input-panel::-webkit-scrollbar { width: 4px; }
+        .input-panel::-webkit-scrollbar-track { background: transparent; }
+        .input-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+        .panel-section {
+            margin-bottom: 28px;
+        }
+        .panel-section:last-child { margin-bottom: 0; }
+
+        .panel-section-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .panel-section-title .add-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .panel-section-title .add-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .panel-section-title .add-btn:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
+
+        .save-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            padding: 8px 12px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+        .save-indicator-icon {
+            width: 12px;
+            height: 12px;
+            color: var(--green);
+        }
+
+        /* Entity cards */
+        .entity-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        .entity-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .entity-type-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .entity-type-founder { background: rgba(108, 92, 231, 0.2); color: var(--accent-light); }
+        .entity-type-investor { background: rgba(0, 184, 148, 0.2); color: var(--green); }
+        .entity-type-safe { background: rgba(255, 165, 2, 0.2); color: var(--orange); }
+        .entity-type-option { background: rgba(84, 160, 255, 0.2); color: var(--blue); }
+        .entity-card-header .entity-name {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: var(--font-sans);
+            flex: 1;
+            margin-right: 8px;
+        }
+        .entity-card-header .entity-name:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .entity-card-header .remove-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            padding: 4px;
+        }
+        .entity-card-header .remove-btn:hover { color: var(--red); }
+        .entity-card-header .remove-btn:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+            color: var(--red);
+        }
+
+        .entity-inputs {
+            display: grid;
+            gap: 8px;
+        }
+        .entity-input-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .entity-input-full {
+            grid-column: 1 / -1;
+        }
+        .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .input-wrapper label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .input-wrapper input, .input-wrapper select {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+            transition: border-color 0.2s;
+        }
+        .input-wrapper input:focus, .input-wrapper select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .input-wrapper select {
+            font-family: var(--font-sans);
+            cursor: pointer;
+        }
+
+        /* Exit scenario section */
+        .exit-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        /* Share button */
+        .share-bar {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .pro-tip-toggle {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+        .pro-tip-toggle:hover { color: var(--text-primary); }
+        .pro-tip-icon { transition: transform 0.2s; }
+        .pro-tip-toggle[aria-expanded="true"] .pro-tip-icon { transform: rotate(45deg); }
+        .pro-tip-content {
+            display: none;
+            margin-top: 16px;
+        }
+        .pro-tip-content.show { display: block; }
+        .pro-tip-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .pro-tip-item strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 4px;
+        }
+        .btn-share {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font-sans);
+        }
+        .btn-share:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .btn-share:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
+
+        /* Scenarios */
+        .scenario-input {
+            width: 100%;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            display: none;
+        }
+        .scenario-input.show { display: block; }
+        .scenario-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .scenario-controls {
+            display: flex;
+            gap: 8px;
+        }
+        .scenario-select {
+            flex: 1;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        .scenario-btn {
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            font-family: var(--font-sans);
+        }
+        .scenario-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .scenario-btn:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
+
+        /* --- RESULTS PANEL --- */
+        .results-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        /* Summary cards */
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        .summary-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            margin-bottom: 8px;
+        }
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Charts */
+        .chart-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        .chart-section h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .chart-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .chart-container {
+            height: 300px;
+            position: relative;
+        }
+        .chart-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .chart-label {
+            width: 120px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+        .chart-bar-container {
+            flex: 1;
+            height: 32px;
+            background: var(--bg-card);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+        .chart-bar {
+            height: 100%;
+            display: flex;
+            transition: width 0.3s ease;
+        }
+        .bar-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: white;
+            transition: width 0.3s ease;
+        }
+        .chart-value {
+            width: 80px;
+            text-align: right;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex-shrink: 0;
+        }
+
+        /* Tables */
+        .table-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        .table-section h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .table-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .cap-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .cap-table th {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 2px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cap-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-primary);
+        }
+        .cap-table tr:last-child td { border-bottom: none; }
+        .cap-table .type-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .waterfall-section {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+        .waterfall-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .waterfall-row:last-child { border-bottom: none; }
+        .waterfall-name {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .waterfall-value {
+            font-family: var(--font-mono);
+            font-weight: 600;
+            color: var(--green);
+        }
+
+        /* CTA */
+        .calc-cta {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+        }
+        .calc-cta h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .calc-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .btn-white {
+            display: inline-block;
+            background: white;
+            color: var(--accent);
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 40px 24px;
+            margin-top: 80px;
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-left p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--text-primary); }
+        .footer-links a:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 4px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 960px) {
+            .calc-layout {
+                grid-template-columns: 1fr;
+            }
+            .input-panel {
+                position: static;
+                max-height: none;
+            }
+            .summary-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                border-bottom: 1px solid var(--border);
+                padding: 24px;
+                gap: 16px;
+            }
+            .mobile-toggle { display: block; }
+            .summary-cards { grid-template-columns: 1fr 1fr; }
+            .exit-inputs, .entity-input-group { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .chart-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .chart-label { width: 100%; }
+            .chart-bar-container { width: 100%; }
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--green);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Skip link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* High contrast */
+        @media (prefers-contrast: more) {
+            :root {
+                --border: #ffffff;
+                --text-secondary: #e0e0e0;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            width: 36px;
+            height: 36px;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .theme-toggle:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
+        .theme-toggle .sun-icon, .theme-toggle .moon-icon {
+            width: 18px;
+            height: 18px;
+        }
+        .theme-toggle .sun-icon { display: none; }
+        .theme-toggle .moon-icon { display: block; }
+        body[data-theme="light"] .theme-toggle .sun-icon { display: block; }
+        body[data-theme="light"] .theme-toggle .moon-icon { display: none; }
+    </style>
+    <script src="pro-gating.js"></script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script></head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="dilution.html" role="menuitem">Dilution Calc</a></li>
+                <li role="none"><a href="runway.html" role="menuitem">Runway Calc</a></li>
+                <li role="none"><a href="safe.html" role="menuitem">SAFE Calc</a></li>
+                <li role="none"><a href="vesting.html" role="menuitem">Vesting Calc</a></li>
+                <li role="none"><a href="unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="cap-table.html" role="menuitem" style="color:var(--accent-light)">Cap Table</a></li>
+                <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+                <li role="none"><a href="about.html" role="menuitem">About</a></li>
+                <li role="none"><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+            <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l-1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l-1.42-1.42"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 1 11.21 3 7 7 0 0 1 0-14zm0 0A9 9 0 0 0 0 11.21-3 7 7 0 0 0 0 14z"/></svg></button></li></ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Cap Table <span class="gradient">Builder</span></h1>
+        <p>Build and manage your startup's cap table. Track ownership, model SAFEs, priced rounds, and analyze exit waterfall distributions.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="calc-layout">
+        <!-- Left: Inputs -->
+        <div class="input-panel">
+            <div class="save-indicator" aria-live="polite">
+                <svg class="save-indicator-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                    <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                    <polyline points="7 3 7 8 15 8"></polyline>
+                </svg>
+                <span>Saved locally</span>
+            </div>
+
+            <!-- Add Entity -->
+            <div class="panel-section">
+                <div class="panel-section-title">
+                    <span>Add Stakeholder</span>
+                </div>
+                <div class="entity-inputs">
+                    <div class="input-wrapper entity-input-full">
+                        <label for="entityType">Type</label>
+                        <select id="entityType" onchange="renderEntityFields()">
+                            <option value="founder">Founder</option>
+                            <option value="investor">Investor (Priced Round)</option>
+                            <option value="safe">SAFE/Convertible Note</option>
+                            <option value="option">Option Pool/Employee</option>
+                        </select>
+                    </div>
+                    <div class="input-wrapper entity-input-full">
+                        <label for="entityName">Name</label>
+                        <input type="text" id="entityName" placeholder="e.g., John Smith or Angel Investor" aria-label="Entity name">
+                    </div>
+                    <div class="input-wrapper entity-input-full" id="sharesWrapper">
+                        <label for="entityShares">Shares</label>
+                        <input type="number" id="entityShares" placeholder="1000000" min="0" aria-label="Number of shares">
+                    </div>
+                    <div class="input-wrapper" id="priceWrapper">
+                        <label for="entityPrice">Price/Share ($)</label>
+                        <input type="number" id="entityPrice" placeholder="0.01" min="0" step="0.001" aria-label="Price per share">
+                    </div>
+                    <div class="input-wrapper" id="preferenceWrapper" style="display:none;">
+                        <label for="entityPreference">Liquidation Pref</label>
+                        <select id="entityPreference" aria-label="Liquidation preference">
+                            <option value="1x">1x Non-participating</option>
+                            <option value="1xp">1x Participating</option>
+                            <option value="2x">2x Non-participating</option>
+                        </select>
+                    </div>
+                    <div class="input-wrapper" id="safeCapWrapper" style="display:none;">
+                        <label for="safeCap">Cap ($)</label>
+                        <input type="number" id="safeCap" placeholder="5000000" min="0" aria-label="SAFE cap amount">
+                    </div>
+                    <div class="input-wrapper" id="safeDiscountWrapper" style="display:none;">
+                        <label for="safeDiscount">Discount (%)</label>
+                        <input type="number" id="safeDiscount" placeholder="20" min="0" max="100" aria-label="SAFE discount percentage">
+                    </div>
+                    <div class="input-wrapper entity-input-full">
+                        <button class="btn-share" onclick="addEntity()" style="width:100%;background:var(--accent);color:white;border:none;">+ Add to Cap Table</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Entities List -->
+            <div class="panel-section">
+                <div class="panel-section-title">
+                    <span>Cap Table</span>
+                </div>
+                <div id="entitiesContainer" role="list" aria-label="List of cap table entities"></div>
+            </div>
+
+            <!-- Exit Scenario -->
+            <div class="panel-section">
+                <div class="panel-section-title"><span>Exit Scenario</span></div>
+                <div class="exit-inputs">
+                    <div class="input-wrapper">
+                        <label for="exitValue">Exit Value ($)</label>
+                        <input type="number" id="exitValue" value="50000000" min="0" step="100000" aria-label="Exit valuation amount" oninput="calculateWaterfall()">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="liquidationPref">Default Pref</label>
+                        <select id="liquidationPref" onchange="calculateWaterfall()" aria-label="Default liquidation preference">
+                            <option value="1x" selected>1x Non-participating</option>
+                            <option value="1xp">1x Participating</option>
+                            <option value="2x">2x Non-participating</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenarios -->
+            <div class="panel-section">
+                <div class="panel-section-title"><span>Saved Scenarios</span></div>
+                <input type="text" id="scenarioName" class="scenario-input" placeholder="Enter scenario name...">
+                <div class="scenario-controls">
+                    <select id="scenarioSelect" class="scenario-select" onchange="loadScenario(this.value)" aria-label="Load saved scenario">
+                        <option value="">-- Load Scenario --</option>
+                    </select>
+                    <button class="scenario-btn save" onclick="showSaveScenario()" aria-label="Save current inputs as scenario">Save</button>
+                    <button class="scenario-btn delete" id="deleteScenarioBtn" onclick="deleteScenario()" aria-label="Delete selected scenario" style="display:none;">Delete</button>
+                </div>
+            </div>
+
+            <!-- Pro Tips -->
+            <div class="panel-section">
+                <div class="panel-section-title">
+                    <span>Pro Tips</span>
+                    <button class="pro-tip-toggle" onclick="toggleProTips()" aria-label="Toggle pro tips" aria-expanded="false">
+                        <svg class="pro-tip-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9a4 4 0 1 1 0 8 8 0 0 1-1-8zM12 3a4 4 0 0 0-8 8 4 4 0 0 0 8z"/><path d="M12 15v6m-3-3h6m-6 0h6m-3 3h6M9 21h6"/></svg>
+                    </button>
+                </div>
+                <div class="pro-tip-content" id="proTipContent">
+                    <div class="pro-tip-item">
+                        <strong>Cap Table Order Matters:</strong> The order of entities in your cap table matters for waterfall calculations. Investors at the top get paid first.
+                    </div>
+                    <div class="pro-tip-item">
+                        <strong>Liquidation Preference:</strong> 1x non-participating is standard. Participating preferred lets investors get their money back AND participate in the remaining proceeds — this significantly reduces founder payouts.
+                    </div>
+                    <div class="pro-tip-item">
+                        <strong>SAFE Conversion:</strong> SAFEs convert at the lower of their cap or the discount to the next priced round. Plan for how they'll affect your dilution.
+                    </div>
+                    <div class="pro-tip-item">
+                        <strong>Option Pool:</strong> Keep your option pool large enough for future hires (15-20% is common at seed stage), but remember it dilutes existing shareholders.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Share -->
+            <div class="panel-section">
+                <div class="panel-section-title"><span>Share</span></div>
+                <div class="share-bar">
+                    <button class="btn-share" id="shareBtn" onclick="copyShareLink()" aria-describedby="toast">Copy Link</button>
+                    <button class="btn-share" onclick="shareToTwitter()" aria-label="Share on Twitter">Twitter</button>
+                    <button class="btn-share" onclick="exportCSV()" aria-label="Export as CSV">CSV</button>
+                    <button class="btn-share" onclick="FounderMathPro.requirePro('Export PDF', exportPDF)" aria-label="Export as PDF">PDF</button>
+                    <button class="btn-share" onclick="window.print()" aria-label="Print results">Print</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Results -->
+        <div class="results-panel" role="region" aria-label="Cap table results">
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="metric-value" id="summaryTotalShares" style="color:var(--accent-light)">—</div>
+                    <div class="metric-label">Total Shares</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="summaryFounders" style="color:var(--green)">—</div>
+                    <div class="metric-label">Founder %</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="summaryInvestors" style="color:var(--blue)">—</div>
+                    <div class="metric-label">Investor %</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="summaryOptionPool" style="color:var(--orange)">—</div>
+                    <div class="metric-label">Option Pool %</div>
+                </div>
+            </div>
+
+            <!-- Ownership Chart -->
+            <section class="chart-section" aria-labelledby="chartTitle">
+                <h3 id="chartTitle">Ownership Breakdown</h3>
+                <p class="chart-subtitle">Visual breakdown of current cap table ownership.</p>
+                <div class="chart-container" id="ownershipChart" role="img" aria-label="Bar chart showing ownership percentages"></div>
+            </section>
+
+            <!-- Cap Table -->
+            <section class="table-section" aria-labelledby="tableTitle">
+                <h3 id="tableTitle">Detailed Cap Table</h3>
+                <p class="table-subtitle">Full breakdown of all stakeholders, shares, and ownership percentages.</p>
+                <div style="overflow-x:auto;">
+                    <table class="cap-table" id="capTable" role="table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Name</th>
+                                <th>Shares</th>
+                                <th>Price/Share</th>
+                                <th>Ownership %</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <!-- Waterfall -->
+                <div class="waterfall-section">
+                    <h4 style="margin-bottom:16px;font-size:1rem;font-weight:700;">Exit Waterfall at $<span id="waterfallExitValue">50M</span></h4>
+                    <div id="waterfallContainer" role="list" aria-label="Waterfall distribution"></div>
+                </div>
+            </section>
+
+            <!-- Pro CTA -->
+            <div class="calc-cta" role="complementary" aria-label="FounderMath Pro upgrade offer">
+                <h3>Save cap table scenarios and compare exit outcomes?</h3>
+                <p>FounderMath Pro lets you save unlimited cap table configurations, export to PDF, and compare waterfall scenarios.</p>
+                <a href="pricing.html" class="btn-white">Upgrade to Pro — $19/mo</a>
+            </div>
+            <div id="email-capture-cap-table"></div>
+        </div>
+    </main>
+
+    <!-- Newsletter -->
+    <section style="max-width:700px;margin:40px auto;padding:32px 24px;text-align:center;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
+        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:8px;">Get weekly founder insights</h3>
+        <p style="color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem;">Equity breakdowns, fundraising math, and calculator tips. No spam.</p>
+        <form id="newsletterForm" onsubmit="handleCalcNewsletter(event)" style="display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+            <input type="email" id="newsletterEmail" placeholder="founder@startup.com" required style="flex:1;min-width:200px;background:var(--bg-input, var(--bg-primary));border:1px solid var(--border);color:var(--text-primary);padding:10px 14px;border-radius:8px;font-size:0.85rem;">
+            <button type="submit" id="newsletterBtn" style="background:var(--accent);color:white;border:none;padding:10px 20px;border-radius:8px;font-weight:600;font-size:0.85rem;cursor:pointer;">Subscribe</button>
+        </form>
+        <p id="newsletterMsg" style="margin-top:10px;font-size:0.8rem;display:none;"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="mailto:hello@foundermath.com">Contact</a></li>
+            <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l-1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l-1.42-1.42"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 1 11.21 3 7 7 0 0 1 0-14zm0 0A9 9 0 0 0 0 11.21-3 7 7 0 0 0 0 14z"/></svg></button></li></ul>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Link copied to clipboard!</div>
+
+    <!-- jsPDF -->
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script>
+    // ============================================================
+    // EVENT TRACKING (GA4)
+    // ============================================================
+    function trackEvent(eventName, params = {}) {
+        if (typeof gtag === 'function') {
+            gtag('event', eventName, {
+                calculator: 'cap-table',
+                ...params
+            });
+        }
+    }
+    trackEvent('calculator_view', { calculator: 'cap-table' });
+
+    // ============================================================
+    // DATA MODEL
+    // ============================================================
+    const COLORS = {
+        founder: '#6c5ce7',
+        investor: '#00b894',
+        safe: '#ffa502',
+        option: '#54a0ff'
+    };
+
+    const TYPE_LABELS = {
+        founder: 'Founder',
+        investor: 'Investor',
+        safe: 'SAFE',
+        option: 'Option'
+    };
+
+    let state = {
+        entities: [
+            { id: 1, type: 'founder', name: 'Founder 1', shares: 4000000, price: 0.0001, preference: '1x' },
+            { id: 2, type: 'founder', name: 'Founder 2', shares: 3000000, price: 0.0001, preference: '1x' },
+            { id: 3, type: 'investor', name: 'Seed Investor', shares: 2000000, price: 0.01, preference: '1x' },
+            { id: 4, type: 'safe', name: 'Angel SAFE', shares: 0, price: 0, cap: 5000000, discount: 20, preference: '1x' },
+            { id: 5, type: 'option', name: 'Option Pool', shares: 1000000, price: 0.01, preference: '1x' }
+        ],
+        exitValue: 50000000,
+        defaultPreference: '1x'
+    };
+
+    let entityIdCounter = 6;
+
+    // ============================================================
+    // URL STATE
+    // ============================================================
+    function loadFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        const encoded = params.get('s');
+        if (!encoded) return false;
+        try {
+            const json = atob(encoded);
+            const parsed = JSON.parse(json);
+            if (parsed.entities && parsed.exitValue !== undefined) {
+                state = parsed;
+                return true;
+            }
+        } catch (e) { }
+        return false;
+    }
+
+    function encodeStateToURL() {
+        const json = JSON.stringify(state);
+        return window.location.origin + window.location.pathname + '?s=' + btoa(json);
+    }
+
+    // ============================================================
+    // ENTITY FIELDS
+    // ============================================================
+    function renderEntityFields() {
+        const type = document.getElementById('entityType').value;
+        const sharesWrapper = document.getElementById('sharesWrapper');
+        const priceWrapper = document.getElementById('priceWrapper');
+        const preferenceWrapper = document.getElementById('preferenceWrapper');
+        const safeCapWrapper = document.getElementById('safeCapWrapper');
+        const safeDiscountWrapper = document.getElementById('safeDiscountWrapper');
+
+        // Reset all
+        sharesWrapper.style.display = 'flex';
+        priceWrapper.style.display = 'flex';
+        preferenceWrapper.style.display = 'none';
+        safeCapWrapper.style.display = 'none';
+        safeDiscountWrapper.style.display = 'none';
+
+        if (type === 'safe') {
+            sharesWrapper.style.display = 'none';
+            priceWrapper.style.display = 'none';
+            safeCapWrapper.style.display = 'flex';
+            safeDiscountWrapper.style.display = 'flex';
+        } else if (type === 'investor') {
+            preferenceWrapper.style.display = 'flex';
+        }
+    }
+
+    function escHtml(str) {
+        return String(str).replace(/[&<>"']/g, s => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        }[s]));
+    }
+
+    // ============================================================
+    // ENTITY MANAGEMENT
+    // ============================================================
+    function addEntity() {
+        const type = document.getElementById('entityType').value;
+        const name = document.getElementById('entityName').value.trim() || TYPE_LABELS[type];
+        const preference = document.getElementById('entityPreference')?.value || '1x';
+
+        let entity = {
+            id: entityIdCounter++,
+            type: type,
+            name: name,
+            preference: preference
+        };
+
+        if (type === 'safe') {
+            entity.cap = parseFloat(document.getElementById('safeCap').value) || 0;
+            entity.discount = parseFloat(document.getElementById('safeDiscount').value) || 0;
+            entity.shares = 0;
+            entity.price = 0;
+        } else {
+            entity.shares = parseFloat(document.getElementById('entityShares').value) || 0;
+            entity.price = parseFloat(document.getElementById('entityPrice').value) || 0;
+        }
+
+        state.entities.push(entity);
+        renderEntities();
+        calculate();
+        trackEvent('add_entity', { entity_type: type });
+
+        // Clear form
+        document.getElementById('entityName').value = '';
+        document.getElementById('entityShares').value = '';
+        document.getElementById('entityPrice').value = '';
+        document.getElementById('safeCap').value = '';
+        document.getElementById('safeDiscount').value = '';
+    }
+
+    function removeEntity(id) {
+        state.entities = state.entities.filter(e => e.id !== id);
+        renderEntities();
+        calculate();
+        trackEvent('remove_entity');
+    }
+
+    function updateEntity(id, field, value) {
+        const entity = state.entities.find(e => e.id === id);
+        if (entity) {
+            if (field === 'shares' || field === 'price' || field === 'cap' || field === 'discount') {
+                entity[field] = parseFloat(value) || 0;
+            } else {
+                entity[field] = value;
+            }
+            calculate();
+        }
+    }
+
+    function renderEntities() {
+        const container = document.getElementById('entitiesContainer');
+        container.innerHTML = '';
+
+        state.entities.forEach(entity => {
+            const card = document.createElement('div');
+            card.className = 'entity-card';
+            card.setAttribute('role', 'listitem');
+
+            let additionalFields = '';
+
+            if (entity.type === 'safe') {
+                additionalFields = `
+                    <div class="input-wrapper">
+                        <label>Cap ($)</label>
+                        <input type="number" value="${entity.cap}" min="0" step="10000"
+                            oninput="updateEntity(${entity.id}, 'cap', this.value)">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Discount (%)</label>
+                        <input type="number" value="${entity.discount}" min="0" max="100"
+                            oninput="updateEntity(${entity.id}, 'discount', this.value)">
+                    </div>
+                `;
+            } else {
+                additionalFields = `
+                    <div class="input-wrapper">
+                        <label>Shares</label>
+                        <input type="number" value="${entity.shares}" min="0"
+                            oninput="updateEntity(${entity.id}, 'shares', this.value)">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Price/Share ($)</label>
+                        <input type="number" value="${entity.price}" min="0" step="0.0001"
+                            oninput="updateEntity(${entity.id}, 'price', this.value)">
+                    </div>
+                `;
+            }
+
+            card.innerHTML = `
+                <div class="entity-card-header">
+                    <span class="entity-type-badge entity-type-${entity.type}">${TYPE_LABELS[entity.type]}</span>
+                    <input type="text" class="entity-name" value="${escHtml(entity.name)}"
+                        oninput="updateEntity(${entity.id}, 'name', this.value)">
+                    <button class="remove-btn" onclick="removeEntity(${entity.id})" aria-label="Remove ${escHtml(entity.name)}" title="Remove">&times;</button>
+                </div>
+                <div class="entity-inputs">
+                    ${additionalFields}
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    // ============================================================
+    // CALCULATIONS
+    // ============================================================
+    function calculate() {
+        const exitValue = parseFloat(document.getElementById('exitValue').value) || 0;
+        const defaultPreference = document.getElementById('liquidationPref').value;
+        state.exitValue = exitValue;
+        state.defaultPreference = defaultPreference;
+
+        // Convert SAFEs to shares based on current price per share
+        // Use the price from the most recent priced round, or a default
+        const pricedRounds = state.entities.filter(e => e.type === 'investor');
+        const currentPrice = pricedRounds.length > 0 ?
+            pricedRounds[pricedRounds.length - 1].price : 0.01;
+
+        // Calculate effective shares for SAFEs
+        const effectiveEntities = state.entities.map(e => {
+            if (e.type === 'safe') {
+                const capPrice = e.cap / (state.entities.reduce((sum, x) => sum + (x.type !== 'safe' ? x.shares : 0), 0) || 10000000);
+                const discountPrice = currentPrice * (1 - e.discount / 100);
+                const conversionPrice = Math.min(capPrice, discountPrice);
+                const effectiveShares = e.cap / conversionPrice;
+                return { ...e, effectiveShares, effectivePrice: conversionPrice };
+            }
+            return { ...e, effectiveShares: e.shares, effectivePrice: e.price };
+        });
+
+        // Calculate totals
+        const totalShares = effectiveEntities.reduce((sum, e) => sum + e.effectiveShares, 0);
+        const founders = effectiveEntities.filter(e => e.type === 'founder');
+        const investors = effectiveEntities.filter(e => e.type === 'investor');
+        const options = effectiveEntities.filter(e => e.type === 'option');
+
+        const founderShares = founders.reduce((sum, e) => sum + e.effectiveShares, 0);
+        const investorShares = investors.reduce((sum, e) => sum + e.effectiveShares, 0);
+        const optionShares = options.reduce((sum, e) => sum + e.effectiveShares, 0);
+
+        // Update summary
+        document.getElementById('summaryTotalShares').textContent = formatNumber(totalShares);
+        document.getElementById('summaryFounders').textContent = ((founderShares / totalShares) * 100).toFixed(1) + '%';
+        document.getElementById('summaryInvestors').textContent = ((investorShares / totalShares) * 100).toFixed(1) + '%';
+        document.getElementById('summaryOptionPool').textContent = ((optionShares / totalShares) * 100).toFixed(1) + '%';
+
+        // Render chart
+        renderOwnershipChart(effectiveEntities, totalShares);
+
+        // Render table
+        renderCapTable(effectiveEntities, totalShares);
+
+        // Calculate waterfall
+        calculateWaterfall(effectiveEntities, totalShares);
+
+        // Save to localStorage
+        saveToLocalStorage();
+    }
+
+    function formatNumber(num) {
+        if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+        if (num >= 1000) return (num / 1000).toFixed(0) + 'K';
+        return num.toFixed(0);
+    }
+
+    function formatCurrency(num) {
+        if (num >= 1000000) return '$' + (num / 1000000).toFixed(1) + 'M';
+        if (num >= 1000) return '$' + (num / 1000).toFixed(0) + 'K';
+        return '$' + num.toFixed(0);
+    }
+
+    // ============================================================
+    // OWNERSHIP CHART
+    // ============================================================
+    function renderOwnershipChart(entities, totalShares) {
+        const container = document.getElementById('ownershipChart');
+        container.innerHTML = '';
+
+        const entitiesWithShares = entities.filter(e => e.effectiveShares > 0);
+        entitiesWithShares.sort((a, b) => b.effectiveShares - a.effectiveShares);
+
+        entitiesWithShares.forEach(entity => {
+            const pct = (entity.effectiveShares / totalShares) * 100;
+            const row = document.createElement('div');
+            row.className = 'chart-row';
+            row.innerHTML = `
+                <div class="chart-label">${escHtml(entity.name)}</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar">
+                        <div class="bar-segment" style="width:${pct}%;background:${COLORS[entity.type] || COLORS.founder}">${pct >= 10 ? pct.toFixed(1) + '%' : ''}</div>
+                    </div>
+                </div>
+                <div class="chart-value">${pct.toFixed(1)}%</div>
+            `;
+            container.appendChild(row);
+        });
+    }
+
+    // ============================================================
+    // CAP TABLE
+    // ============================================================
+    function renderCapTable(entities, totalShares) {
+        const tbody = document.querySelector('#capTable tbody');
+        tbody.innerHTML = '';
+
+        entities.forEach(entity => {
+            const pct = (entity.effectiveShares / totalShares) * 100;
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><span class="type-badge entity-type-${entity.type}">${TYPE_LABELS[entity.type]}</span></td>
+                <td>${escHtml(entity.name)}</td>
+                <td style="font-family:var(--font-mono)">${formatNumber(entity.effectiveShares)}</td>
+                <td style="font-family:var(--font-mono)">$${entity.effectivePrice.toFixed(4)}</td>
+                <td style="font-family:var(--font-mono);font-weight:600">${pct.toFixed(2)}%</td>
+            `;
+            tbody.appendChild(row);
+        });
+
+        // Total row
+        const totalRow = document.createElement('tr');
+        totalRow.style.fontWeight = '700';
+        totalRow.innerHTML = `
+            <td colspan="2">Total</td>
+            <td style="font-family:var(--font-mono)">${formatNumber(totalShares)}</td>
+            <td></td>
+            <td style="font-family:var(--font-mono)">100.00%</td>
+        `;
+        tbody.appendChild(totalRow);
+    }
+
+    // ============================================================
+    // WATERFALL CALCULATION
+    // ============================================================
+    function calculateWaterfall(entities, totalShares) {
+        const exitValue = state.exitValue;
+        const container = document.getElementById('waterfallContainer');
+
+        document.getElementById('waterfallExitValue').textContent = formatCurrency(exitValue).replace('$', '');
+
+        // Sort by preference (investors first, then founders/options)
+        const sortedEntities = [...entities].sort((a, b) => {
+            const typeOrder = { investor: 0, safe: 1, option: 2, founder: 3 };
+            return typeOrder[a.type] - typeOrder[b.type];
+        });
+
+        // Calculate waterfall
+        let remaining = exitValue;
+        const payouts = [];
+
+        sortedEntities.forEach(entity => {
+            const preference = entity.preference || state.defaultPreference;
+            let payout = 0;
+            let prefAmount = entity.effectiveShares * entity.effectivePrice;
+
+            // Liquidation preference
+            if (preference === '2x') {
+                prefAmount *= 2;
+            }
+
+            if (remaining <= 0) {
+                payout = 0;
+            } else if (preference === '1xp' || preference === '2x' && preference.includes('p')) {
+                // Participating preferred: get pref + share of remaining
+                const prefPayout = Math.min(prefAmount, remaining);
+                const prefRemaining = remaining - prefPayout;
+                const participatingShares = totalShares;
+                const participatingPayout = (entity.effectiveShares / participatingShares) * prefRemaining;
+                payout = prefPayout + participatingPayout;
+            } else {
+                // Non-participating: choose between pref or conversion
+                const conversionValue = (entity.effectiveShares / totalShares) * exitValue;
+                payout = Math.max(Math.min(prefAmount, remaining), conversionValue);
+            }
+
+            payout = Math.min(payout, remaining);
+            remaining -= payout;
+
+            payouts.push({ entity, payout });
+        });
+
+        // Render waterfall
+        container.innerHTML = '';
+        payouts.forEach(({ entity, payout }) => {
+            const row = document.createElement('div');
+            row.className = 'waterfall-row';
+            row.innerHTML = `
+                <div class="waterfall-name">
+                    <span class="type-badge entity-type-${entity.type}" style="margin-right:8px;">${TYPE_LABELS[entity.type]}</span>
+                    ${escHtml(entity.name)}
+                </div>
+                <div class="waterfall-value">${formatCurrency(payout)}</div>
+            `;
+            container.appendChild(row);
+        });
+
+        // Remaining row
+        if (remaining > 0) {
+            const row = document.createElement('div');
+            row.className = 'waterfall-row';
+            row.style.color = 'var(--text-muted)';
+            row.innerHTML = `
+                <div class="waterfall-name">Remaining (Unallocated)</div>
+                <div class="waterfall-value" style="color:var(--text-muted)">${formatCurrency(remaining)}</div>
+            `;
+            container.appendChild(row);
+        }
+    }
+
+    // ============================================================
+    // LOCAL STORAGE
+    // ============================================================
+    function saveToLocalStorage() {
+        localStorage.setItem('foundermath_captable', JSON.stringify(state));
+    }
+
+    function loadFromLocalStorage() {
+        const saved = localStorage.getItem('foundermath_captable');
+        if (saved) {
+            try {
+                const parsed = JSON.parse(saved);
+                if (parsed.entities) {
+                    state = parsed;
+                    // Sync exit value with input
+                    if (state.exitValue) {
+                        document.getElementById('exitValue').value = state.exitValue;
+                    }
+                    if (state.defaultPreference) {
+                        document.getElementById('liquidationPref').value = state.defaultPreference;
+                    }
+                    // Find max ID
+                    state.entities.forEach(e => {
+                        if (e.id >= entityIdCounter) entityIdCounter = e.id + 1;
+                    });
+                    return true;
+                }
+            } catch (e) { }
+        }
+        return false;
+    }
+
+    // ============================================================
+    // SCENARIOS
+    // ============================================================
+    function showSaveScenario() {
+        const input = document.getElementById('scenarioName');
+        input.classList.toggle('show');
+        if (input.classList.contains('show')) {
+            input.focus();
+            input.addEventListener('keydown', function onEnter(e) {
+                if (e.key === 'Enter') {
+                    saveScenario();
+                    input.removeEventListener('keydown', onEnter);
+                }
+            });
+        }
+    }
+
+    function saveScenario() {
+        const input = document.getElementById('scenarioName');
+        const name = input.value.trim();
+        if (!name) {
+            showToast('Please enter a scenario name');
+            return;
+        }
+
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_captable_scenarios') || '[]');
+        const existingIndex = scenarios.findIndex(s => s.name === name);
+        const scenarioData = {
+            name: name,
+            state: state,
+            savedAt: new Date().toISOString()
+        };
+
+        if (existingIndex >= 0) {
+            scenarios[existingIndex] = scenarioData;
+        } else {
+            scenarios.push(scenarioData);
+        }
+
+        localStorage.setItem('foundermath_captable_scenarios', JSON.stringify(scenarios));
+        input.value = '';
+        input.classList.remove('show');
+        updateScenarioSelect();
+        showToast('Scenario saved!');
+        trackEvent('save_scenario', { scenario_name: name });
+    }
+
+    function loadScenario(name) {
+        if (!name) return;
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_captable_scenarios') || '[]');
+        const scenario = scenarios.find(s => s.name === name);
+        if (scenario) {
+            state = scenario.state;
+            if (state.exitValue) {
+                document.getElementById('exitValue').value = state.exitValue;
+            }
+            if (state.defaultPreference) {
+                document.getElementById('liquidationPref').value = state.defaultPreference;
+            }
+            renderEntities();
+            calculate();
+            document.getElementById('deleteScenarioBtn').style.display = 'block';
+            showToast('Scenario loaded!');
+            trackEvent('load_scenario', { scenario_name: name });
+        }
+    }
+
+    function deleteScenario() {
+        const select = document.getElementById('scenarioSelect');
+        const name = select.value;
+        if (!name) return;
+
+        if (!confirm(`Delete scenario "${name}"?`)) return;
+
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_captable_scenarios') || '[]');
+        const filtered = scenarios.filter(s => s.name !== name);
+        localStorage.setItem('foundermath_captable_scenarios', JSON.stringify(filtered));
+        select.value = '';
+        document.getElementById('deleteScenarioBtn').style.display = 'none';
+        updateScenarioSelect();
+        showToast('Scenario deleted!');
+        trackEvent('delete_scenario', { scenario_name: name });
+    }
+
+    function updateScenarioSelect() {
+        const select = document.getElementById('scenarioSelect');
+        const scenarios = JSON.parse(localStorage.getItem('foundermath_captable_scenarios') || '[]');
+        const currentValue = select.value;
+
+        select.innerHTML = '<option value="">-- Load Scenario --</option>';
+        scenarios.forEach(s => {
+            const option = document.createElement('option');
+            option.value = s.name;
+            option.textContent = s.name;
+            select.appendChild(option);
+        });
+
+        select.value = currentValue;
+        document.getElementById('deleteScenarioBtn').style.display = currentValue ? 'block' : 'none';
+    }
+
+    // ============================================================
+    // SHARE & EXPORT
+    // ============================================================
+    function copyShareLink() {
+        const url = encodeStateToURL();
+        navigator.clipboard.writeText(url).then(() => {
+            showToast('Link copied to clipboard!');
+            trackEvent('share', { method: 'copy_link' });
+        });
+    }
+
+    function shareToTwitter() {
+        const text = 'Check out this cap table I built with FounderMath 📊';
+        const url = encodeStateToURL();
+        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+        window.open(twitterUrl, '_blank');
+        trackEvent('share', { method: 'twitter' });
+    }
+
+    function exportCSV() {
+        const rows = [
+            ['Type', 'Name', 'Shares', 'Price/Share', 'Ownership %', 'Liquidation Pref']
+        ];
+
+        const totalShares = state.entities.reduce((sum, e) => sum + (e.effectiveShares || e.shares || 0), 0);
+
+        state.entities.forEach(e => {
+            const shares = e.effectiveShares || e.shares || 0;
+            const pct = totalShares > 0 ? ((shares / totalShares) * 100).toFixed(2) : 0;
+            rows.push([
+                TYPE_LABELS[e.type],
+                e.name,
+                shares,
+                e.effectivePrice || e.price || 0,
+                pct,
+                e.preference || state.defaultPreference
+            ]);
+        });
+
+        const csv = rows.map(r => r.join(',')).join('\n');
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'cap-table.csv';
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast('CSV exported!');
+        trackEvent('export_csv');
+    }
+
+    function exportPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.setFontSize(20);
+        doc.text('Cap Table - FounderMath', 20, 20);
+
+        doc.setFontSize(12);
+        let y = 35;
+        doc.text('Type', 20, y);
+        doc.text('Name', 45, y);
+        doc.text('Shares', 110, y);
+        doc.text('Ownership %', 160, y);
+
+        y += 10;
+        const totalShares = state.entities.reduce((sum, e) => sum + (e.effectiveShares || e.shares || 0), 0);
+
+        state.entities.forEach(e => {
+            const shares = e.effectiveShares || e.shares || 0;
+            const pct = totalShares > 0 ? ((shares / totalShares) * 100).toFixed(2) : 0;
+            doc.text(TYPE_LABELS[e.type], 20, y);
+            doc.text(e.name.substring(0, 20), 45, y);
+            doc.text(shares.toLocaleString(), 110, y);
+            doc.text(pct + '%', 160, y);
+            y += 8;
+        });
+
+        doc.save('cap-table.pdf');
+        showToast('PDF exported!');
+        trackEvent('export_pdf');
+    }
+
+    function toggleProTips() {
+        const content = document.getElementById('proTipContent');
+        const toggle = document.querySelector('.pro-tip-toggle');
+        content.classList.toggle('show');
+        toggle.setAttribute('aria-expanded', content.classList.contains('show'));
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    // ============================================================
+    // THEME & MOBILE MENU
+    // ============================================================
+    function toggleTheme() {
+        const body = document.body;
+        const current = body.getAttribute('data-theme');
+        body.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+        localStorage.setItem('foundermath_theme', current === 'light' ? 'dark' : 'light');
+    }
+
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const toggle = document.getElementById('mobileToggle');
+        navLinks.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+    }
+
+    // ============================================================
+    // NEWSLETTER
+    // ============================================================
+    async function handleCalcNewsletter(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value;
+        const btn = document.getElementById('newsletterBtn');
+        const msg = document.getElementById('newsletterMsg');
+
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+
+        try {
+            const response = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, source: 'cap-table' })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                msg.textContent = 'Subscribed! Check your inbox.';
+                msg.style.color = 'var(--green)';
+                document.getElementById('newsletterEmail').value = '';
+                trackEvent('newsletter_subscribe', { source: 'cap-table' });
+            } else {
+                throw new Error(data.error || 'Subscription failed');
+            }
+        } catch (err) {
+            msg.textContent = err.message || 'Something went wrong. Please try again.';
+            msg.style.color = 'var(--red)';
+        }
+
+        msg.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
+    }
+
+    // Load email capture form
+    async function loadEmailCapture() {
+        try {
+            const response = await fetch('/api/newsletter-form');
+            if (response.ok) {
+                const html = await response.text();
+                document.getElementById('email-capture-cap-table').innerHTML = html;
+            }
+        } catch (e) { /* ignore */ }
+    }
+
+    // ============================================================
+    // INITIALIZATION
+    // ============================================================
+    function init() {
+        // Load theme
+        const savedTheme = localStorage.getItem('foundermath_theme');
+        if (savedTheme) {
+            document.body.setAttribute('data-theme', savedTheme);
+        }
+
+        // Try URL first, then localStorage
+        if (!loadFromURL()) {
+            loadFromLocalStorage();
+        }
+
+        renderEntities();
+        calculate();
+        updateScenarioSelect();
+        renderEntityFields();
+        loadEmailCapture();
+    }
+
+    init();
+    </script>
+</body>
+</html>
