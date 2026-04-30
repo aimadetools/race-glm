@@ -399,6 +399,40 @@
         .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
         .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
         .related-posts a:hover { text-decoration: underline; }
+        /* Author bio */
+        .author-bio {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .author-avatar {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .author-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .author-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .author-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .author-content a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -743,7 +777,15 @@
 
             <div class="callout">
                 <p><strong>Pro tip:</strong> Before you sign a SAFE, run the numbers. A $1M difference in cap might not seem like much now, but it could mean 2-3% more dilution at your Series A.</p>
+                    <div class="author-bio">
+            <div class="author-avatar">📊</div>
+            <div class="author-content">
+                <h4>About FounderMath</h4>
+                <p>We build the calculators founders actually need. No spreadsheets, no confusion — just interactive tools that make startup math visual and intuitive. Join <a href="#newsletter" style="color:var(--accent-light)">500+ founders</a> who get our weekly equity insights.</p>
             </div>
+        </div>
+
+</div>
         
             <div class="related-posts">
                 <h3>Related Posts</h3>

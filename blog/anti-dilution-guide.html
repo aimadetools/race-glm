@@ -163,6 +163,69 @@
         .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
         .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
         .related-posts a:hover { text-decoration: underline; }
+        /* Table of Contents */
+        .toc {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin: 0 0 12px 0;
+        }
+        .toc ol {
+            padding-left: 20px;
+            counter-reset: toc;
+        }
+        .toc li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent-light); }
+        /* Author bio */
+        .author-bio {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .author-avatar {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .author-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .author-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .author-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .author-content a:hover { text-decoration: underline; }
     </style>
 </head>
 <body data-theme="dark">
@@ -192,14 +255,30 @@
             <h4>Key Takeaway</h4>
             <p>Anti-dilution provisions give investors extra shares in a down round to maintain the value of their investment. The two main types—full ratchet and weighted average—have very different impacts on founders.</p>
         </div>
-        <h2>What Triggers Anti-Dilution?</h2>
+
+        <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#what-triggers">What Triggers Anti-Dilution?</a></li>
+                <li><a href="#full-ratchet">Full Ratchet: The Aggressive Option</a></li>
+                <li><a href="#weighted-average">Weighted Average: The Balanced Approach</a></li>
+                <li><a href="#broad-narrow">Broad-Based vs Narrow-Based Weighted Average</a></li>
+                <li><a href="#exceptions">Exceptions and Exclusions</a></li>
+                <li><a href="#pay-to-play">Pay-to-Play Provisions</a></li>
+                <li><a href="#what-to-negotiate">What to Negotiate</a></li>
+                <li><a href="#real-world-impact">Real-World Impact</a></li>
+                <li><a href="#bottom-line">Bottom Line</a></li>
+            </ol>
+        </nav>
+
+        <h2 id="what-triggers">What Triggers Anti-Dilution?</h2>
         <p>Anti-dilution kicks in when:</p>
         <ul>
             <li>The company issues new securities (equity, convertible notes, SAFEs)</li>
             <li>The price per share is <strong>lower</strong> than what the previous investor paid</li>
         </ul>
         <p>This is called a <strong>down round</strong>. In a down round, early investors would own a smaller percentage of the company if nothing else changed. Anti-dilution provisions adjust their share count to compensate.</p>
-        <h2>Full Ratchet: The Aggressive Option</h2>
+        <h2 id="full-ratchet">Full Ratchet: The Aggressive Option</h2>
         <p>Full ratchet is the most investor-friendly (and founder-unfriendly) anti-dilution protection. It recalculates the investor's price as if they had invested at the <strong>new, lower price</strong>.</p>
         <div class="callout warning">
             <h4>⚠️ Watch Out</h4>
@@ -215,7 +294,7 @@
         <p><strong>With full ratchet:</strong> Series A investor's $2M is now treated as if bought at $5/share = 400,000 shares. They get an <strong>additional 200,000 shares</strong> to compensate.</p>
         <p>New ownership: Series A = 400,000 / 1,600,000 = <strong>25%</strong></p>
         <p>Founders just gave away an extra 10.7% of the company because of full ratchet.</p>
-        <h2>Weighted Average: The Balanced Approach</h2>
+        <h2 id="weighted-average">Weighted Average: The Balanced Approach</h2>
         <p>Weighted average is more balanced. It adjusts the conversion price based on the size of the down round relative to the company's overall capitalization.</p>
         <div class="formula">New Price = Old Price × [(Old Shares + New Shares) / (Old Shares + (Old Price / New Price) × New Shares)]</div>
         <p><strong>Example:</strong> Same scenario:</p>
@@ -230,7 +309,7 @@
         <p>Series A investor's $2M now converts at $7.78/share = 257,000 shares (vs. 200,000 originally).</p>
         <p>New ownership: 257,000 / 1,457,000 = <strong>17.6%</strong></p>
         <p>Compared to full ratchet (25%), weighted average is much less severe on founders.</p>
-        <h2>Broad-Based vs Narrow-Based Weighted Average</h2>
+        <h2 id="broad-narrow">Broad-Based vs Narrow-Based Weighted Average</h2>
         <p>Within weighted average, there's another distinction:</p>
         <ul>
             <li><strong>Broad-based:</strong> Includes all outstanding shares (common, preferred, options, SAFEs)</li>
@@ -241,7 +320,7 @@
         <div class="formula">New Price = $10 × [(1,100,000 + 400,000) / (1,100,000 + ($10/$5) × 400,000)]</div>
         <div class="formula">New Price = $10 × [1,500,000 / 1,900,000] = $10 × 0.79 = <strong>$7.89</strong></div>
         <p>The price adjustment is slightly less severe than narrow-based.</p>
-        <h2>Exceptions and Exclusions</h2>
+        <h2 id="exceptions">Exceptions and Exclusions</h2>
         <p>Well-negotiated term sheets include exceptions where anti-dilution <strong>doesn't</strong> apply:</p>
         <ul>
             <li><strong>Issuances to employees, advisors, consultants</strong> (option grants)</li>
@@ -253,14 +332,14 @@
             <h4>✅ Best Practice</h4>
             <p>Always negotiate for broad-based weighted average anti-dilution with reasonable exclusions. This protects you from excessive dilution in down rounds while still giving investors fair protection.</p>
         </div>
-        <h2>Pay-to-Play Provisions</h2>
+        <h2 id="pay-to-play">Pay-to-Play Provisions</h2>
         <p>Some term sheets include "pay-to-play" provisions alongside anti-dilution:</p>
         <ul>
             <li>Investors who <strong>participate</strong> in the down round keep full anti-dilution protection</li>
             <li>Investors who <strong>skip</strong> the down round lose some or all of their anti-dilution rights</li>
         </ul>
         <p>This encourages investors to support the company through tough times rather than sitting on the sidelines while their anti-dilution kicks in.</p>
-        <h2>What to Negotiate</h2>
+        <h2 id="what-to-negotiate">What to Negotiate</h2>
         <ol>
             <li><strong>Target:</strong> Broad-based weighted average with standard exclusions</li>
             <li><strong>Acceptable:</strong> Narrow-based weighted average (common in early stage)</li>
@@ -274,7 +353,7 @@
                 </ul>
             </li>
         </ol>
-        <h2>Real-World Impact</h2>
+        <h2 id="real-world-impact">Real-World Impact</h2>
         <p>Consider a startup that raises:</p>
         <ul>
             <li>Seed: $2M at $10M pre-money</li>
@@ -282,7 +361,7 @@
             <li>Series B: $5M at $30M pre-money (down round!)</li>
         </ul>
         <p>With broad-based weighted average, Series A gets a modest adjustment. With full ratchet, Series A's effective purchase price drops dramatically, and founders lose significantly more ownership.</p>
-        <h2>Bottom Line</h2>
+        <h2 id="bottom-line">Bottom Line</h2>
         <p>Anti-dilution provisions are standard, but the type matters. Broad-based weighted average is the industry standard for a reason—it balances investor protection with founder fairness. Full ratchet should be a red flag unless you're in a truly distressed fundraising situation.</p>
         <div class="callout">
             <h4>💡 Pro Tip</h4>
@@ -291,7 +370,15 @@
         <div class="cta-box">
             <h3>Model Your Down Round Scenarios</h3>
             <p>Use our Dilution Calculator to see how different funding rounds and anti-dilution provisions affect your ownership.</p>
-            <a href="../dilution.html" class="cta-btn">Try Dilution Calculator →</a>
+            <a href="../dilution.html" class="cta-btn">Try Dilution Calculator →</a>        <div class="author-bio">
+            <div class="author-avatar">📊</div>
+            <div class="author-content">
+                <h4>About FounderMath</h4>
+                <p>We build the calculators founders actually need. No spreadsheets, no confusion — just interactive tools that make startup math visual and intuitive. Join <a href="#newsletter" style="color:var(--accent-light)">500+ founders</a> who get our weekly equity insights.</p>
+            </div>
+        </div>
+
+
         </div>
 
     <div class="newsletter">

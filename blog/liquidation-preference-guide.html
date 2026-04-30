@@ -159,10 +159,74 @@
         .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
         @media (max-width: 600px) { h1 { font-size: 1.75rem; } h2 { font-size: 1.4rem; } .cta-box { padding: 24px; } }
     
-        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        
+        /* Table of Contents */
+        .toc {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin: 0 0 12px 0;
+        }
+        .toc ol {
+            padding-left: 20px;
+            counter-reset: toc;
+        }
+        .toc li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent-light); }
+.related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
         .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
         .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
         .related-posts a:hover { text-decoration: underline; }
+        /* Author bio */
+        .author-bio {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .author-avatar {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .author-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .author-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .author-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .author-content a:hover { text-decoration: underline; }
     </style>
 </head>
 <body data-theme="dark">
@@ -192,10 +256,25 @@
             <h4>Key Takeaway</h4>
             <p>Liquidation preference gives investors the right to get their money back (and sometimes more) before anyone else gets paid in an exit scenario.</p>
         </div>
-        <h2>What Is Liquidation Preference?</h2>
+                <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#what-liquidation">What Is Liquidation Preference?</a></li>
+                <li><a href="#non-participating">1x Non-Participating Preferred (Founder-Friendly)</a></li>
+                <li><a href="#participating">1x Participating Preferred</a></li>
+                <li><a href="#higher-participating">2x (or Higher) Participating Preferred</a></li>
+                <li><a href="#cap">The Cap: When Preference Stops Mattering</a></li>
+                <li><a href="#stacking">Multiple Rounds: The Stacking Effect</a></li>
+                <li><a href="#negotiating">Negotiating Liquidation Preference</a></li>
+                <li><a href="#key-terms">Key Terms to Understand</a></li>
+                <li><a href="#bottom-line">Bottom Line</a></li>
+            </ol>
+        </nav>
+
+<h2 id="what-liquidation">What Is Liquidation Preference?</h2>
         <p>Liquidation preference is a provision in investment agreements that specifies the order and amount in which shareholders get paid in a <strong>liquidation event</strong>—which includes acquisitions, mergers, IPOs, and sometimes shutdowns.</p>
         <p>Think of it as a VIP pass at an event. Investors with liquidation preference get to skip to the front of the line when the payout happens.</p>
-        <h2>1x Non-Participating Preferred (Founder-Friendly)</h2>
+        <h2 id="non-participating">1x Non-Participating Preferred (Founder-Friendly)</h2>
         <p>This is the most founder-friendly structure. Investors get the greater of:</p>
         <ul>
             <li><strong>Option A:</strong> Return of their investment (1x), OR</li>
@@ -208,7 +287,7 @@
             <tr><td>Founders/Employees</td><td>—</td><td>$15M (75% of $20M)</td><td>$15M</td></tr>
         </table>
         <p>In a 1x non-participating scenario, investors take whichever is better for them. If the exit is below their investment, they get 1x. If it's above, they convert to common stock and share proportionally.</p>
-        <h2>1x Participating Preferred</h2>
+        <h2 id="participating">1x Participating Preferred</h2>
         <p>This is more aggressive. Investors get:</p>
         <ul>
             <li>Their money back (1x) <strong>PLUS</strong></li>
@@ -227,7 +306,7 @@
             <tr><td><strong>Founders Get</strong></td><td><strong>$11.25M</strong></td><td>—</td></tr>
         </table>
         <p>Compared to non-participating, investors get an extra $3.75M and founders get $3.75M less.</p>
-        <h2>2x (or Higher) Participating Preferred</h2>
+        <h2 id="higher-participating">2x (or Higher) Participating Preferred</h2>
         <p>This is <strong>aggressive and increasingly rare</strong>. Investors get multiple times their investment back before participating in the remainder.</p>
         <div class="callout warning">
             <h4>🚨 Red Flag</h4>
@@ -242,7 +321,7 @@
             <tr><td><strong>Founders Get</strong></td><td><strong>$7.5M</strong></td><td>—</td></tr>
         </table>
         <p>Investors now get 62.5% of a $20M exit despite only owning 25% of the company.</p>
-        <h2>The Cap: When Preference Stops Mattering</h2>
+        <h2 id="cap">The Cap: When Preference Stops Mattering</h2>
         <p>Liquidation preference matters most in <strong>modest exits</strong>. As exit values increase, preference becomes less important because the ownership percentage calculation dominates.</p>
         <p>With 1x non-participating, the <strong>breakeven point</strong> is when:</p>
         <div class="formula">Exit Value = Investment / Investor Ownership %</div>
@@ -251,13 +330,13 @@
             <li>Exit below $20M: Investors take 1x preference</li>
             <li>Exit above $20M: Investors convert and take 25%</li>
         </ul>
-        <h2>Multiple Rounds: The Stacking Effect</h2>
+        <h2 id="stacking">Multiple Rounds: The Stacking Effect</h2>
         <p>When you raise multiple rounds, liquidation preferences stack. Each new investor typically gets their preference before earlier investors and common shareholders.</p>
         <div class="callout">
             <h4>📊 Real Scenario</h4>
             <p>Seed: $2M at 1x participating<br>Series A: $8M at 1x participating<br>Series B: $15M at 1x non-participating<br><br>Exit at $40M: Series B chooses between $15M (1x) or $6M (15% ownership). They take $15M. Remaining $25M goes to Series A ($8M preference + $5.4M share), Seed ($2M preference + $2.5M share), and founders ($7.1M).</p>
         </div>
-        <h2>Negotiating Liquidation Preference</h2>
+        <h2 id="negotiating">Negotiating Liquidation Preference</h2>
         <p>Here's what founders should aim for:</p>
         <ol>
             <li><strong>Target:</strong> 1x non-participating preferred</li>
@@ -265,14 +344,14 @@
             <li><strong>Negotiate hard:</strong> Anything above 1x, or multiple participating</li>
             <li><strong>Avoid:</strong> Pay-to-play provisions that require you to participate in future rounds to keep your preference</li>
         </ol>
-        <h2>Key Terms to Understand</h2>
+        <h2 id="key-terms">Key Terms to Understand</h2>
         <ul>
             <li><strong>Seniority:</strong> Later rounds are typically "senior" to earlier rounds, getting paid first</li>
             <li><strong>Pari Passu:</strong> Equal ranking—investors get paid together pro rata</li>
             <li><strong>Capped Participation:</strong> Investors get preference + participation, but total is capped at a multiple</li>
             <li><strong>Conversion:</strong> Investors can choose to convert preferred to common stock to participate proportionally</li>
         </ul>
-        <h2>Bottom Line</h2>
+        <h2 id="bottom-line">Bottom Line</h2>
         <p>Liquidation preference protects downside for investors. In a good outcome (2-3x+ return on investment), it rarely matters much. But in a modest exit—the kind that's actually common—preference can dramatically change what founders take home.</p>
         <div class="callout success">
             <h4>✅ Best Practice</h4>
@@ -298,6 +377,15 @@
             </ul>
         </div>
     </footer>
+
+    <div class="author-bio">
+        <div class="author-avatar">📊</div>
+        <div class="author-content">
+            <h4>About FounderMath</h4>
+            <p>We build the calculators founders actually need. No spreadsheets, no confusion — just interactive tools that make startup math visual and intuitive. Join 500+ founders who get our weekly equity insights.</p>
+        </div>
+    </div>
+
     <div class="newsletter">
         <h2>Get weekly equity insights</h2>
         <p>Join 500+ founders who get our weekly breakdown of startup math concepts, real-world equity scenarios, and calculator tips. No spam, ever.</p>

@@ -188,10 +188,74 @@
         body[data-theme="light"] .theme-toggle .sun-icon { display: block; }
         body[data-theme="light"] .theme-toggle .moon-icon { display: none; }
 
-        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        
+        /* Table of Contents */
+        .toc {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin: 0 0 12px 0;
+        }
+        .toc ol {
+            padding-left: 20px;
+            counter-reset: toc;
+        }
+        .toc li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent-light); }
+.related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
         .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
         .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
         .related-posts a:hover { text-decoration: underline; }
+        /* Author bio */
+        .author-bio {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .author-avatar {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .author-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .author-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .author-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .author-content a:hover { text-decoration: underline; }
 
         @media (max-width: 600px) {
             .nav-links { display: none; }
@@ -269,7 +333,23 @@
                 <strong>Calculate Your LTV:CAC Ratio Now →</strong>
             </a>
 
-            <h2>What is LTV:CAC Ratio?</h2>
+                    <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#what-ltv-cac">What is LTV:CAC Ratio?</a></li>
+                <li><a href="#why-important">Why It's the Most Important SaaS Metric</a></li>
+                <li><a href="#calculate-ltv">How to Calculate LTV</a></li>
+                <li><a href="#calculate-cac">How to Calculate CAC</a></li>
+                <li><a href="#benchmarks">LTV:CAC Benchmarks by Stage</a></li>
+                <li><a href="#payback">The CAC Payback Period</a></li>
+                <li><a href="#mistakes">Common LTV:CAC Mistakes</a></li>
+                <li><a href="#improve">How to Improve Your LTV:CAC Ratio</a></li>
+                <li><a href="#calculate-ratio">Calculate Your Own LTV:CAC Ratio</a></li>
+                <li><a href="#key-takeaways">Key Takeaways</a></li>
+            </ol>
+        </nav>
+
+<h2 id="what-ltv-cac">What is LTV:CAC Ratio?</h2>
 
             <p>LTV:CAC ratio compares the <strong>Lifetime Value (LTV)</strong> of a customer against the <strong>Customer Acquisition Cost (CAC)</strong>. It answers a simple question: for every dollar you spend acquiring a customer, how much do you get back?</p>
 
@@ -279,7 +359,7 @@
 
             <p>A ratio of 3:1 means you earn $3 back for every $1 spent on acquisition. This is considered healthy for most SaaS businesses.</p>
 
-            <h2>Why It's the Most Important SaaS Metric</h2>
+            <h2 id="why-important">Why It's the Most Important SaaS Metric</h2>
 
             <p>Revenue growth alone doesn't tell you if your business model works. You can grow revenue by spending more on marketing, but if each new customer costs more than they're worth, you'll eventually run out of money.</p>
 
@@ -292,7 +372,7 @@
                 <li><strong>Above 5:1</strong> — You might be underinvesting in growth. Could you spend more on acquisition without hurting economics?</li>
             </ul>
 
-            <h2>How to Calculate LTV</h2>
+            <h2 id="calculate-ltv">How to Calculate LTV</h2>
 
             <p>Lifetime Value is the total revenue you expect from a customer over their entire relationship with your company, minus the cost to serve them.</p>
 
@@ -320,7 +400,7 @@
 
             <p>The average customer stays for 20 months (1 ÷ 5% churn) and contributes $80 of gross margin each month, so their lifetime value is $1,600.</p>
 
-            <h2>How to Calculate CAC</h2>
+            <h2 id="calculate-cac">How to Calculate CAC</h2>
 
             <p>CAC includes all costs to acquire a new customer. This is more than just ad spend—you need to account for all sales and marketing expenses.</p>
 
@@ -349,7 +429,7 @@
                 </table>
             </div>
 
-            <h2>LTV:CAC Benchmarks by Stage</h2>
+            <h2 id="benchmarks">LTV:CAC Benchmarks by Stage</h2>
 
             <p>The right LTV:CAC ratio depends on your growth stage:</p>
 
@@ -361,7 +441,7 @@
                 <tr><td>Public/Profitable</td><td>4:1+</td><td>Market demands profitable growth. Margins matter more.</td></tr>
             </table>
 
-            <h2>The CAC Payback Period</h2>
+            <h2 id="payback">The CAC Payback Period</h2>
 
             <p>LTV:CAC ratio doesn't tell you <em>when</em> you recover your acquisition cost. That's where the CAC payback period comes in.</p>
 
@@ -388,7 +468,7 @@
                 <strong>Why Payback Period Matters:</strong> Even with a good LTV:CAC ratio, a long payback period means you need more working capital to grow. You're essentially lending money to customers while you wait for them to pay it back through subscription revenue.
             </div>
 
-            <h2>Common LTV:CAC Mistakes</h2>
+            <h2 id="mistakes">Common LTV:CAC Mistakes</h2>
 
             <h3>1. Not including all acquisition costs</h3>
             <p>Only counting ad spend while ignoring sales salaries dramatically understates your CAC. You need to include ALL customer acquisition expenses.</p>
@@ -405,7 +485,7 @@
             <h3>5. Optimizing for too high of a ratio</h3>
             <p>An LTV:CAC of 10:1 looks great, but it usually means you're underinvesting in growth. You could be growing faster without hurting economics.</p>
 
-            <h2>How to Improve Your LTV:CAC Ratio</h2>
+            <h2 id="improve">How to Improve Your LTV:CAC Ratio</h2>
 
             <h3>Increase LTV</h3>
             <ul>
@@ -421,7 +501,7 @@
                 <li><strong>Optimize sales process</strong> — Shorten sales cycles, increase close rates</li>
             </ul>
 
-            <h2>Calculate Your Own LTV:CAC Ratio</h2>
+            <h2 id="calculate-ratio">Calculate Your Own LTV:CAC Ratio</h2>
 
             <p>Ready to understand your SaaS unit economics? Use our free LTV:CAC calculator to:</p>
 
@@ -439,7 +519,7 @@
                 <strong>Pro Tip:</strong> Track LTV:CAC by cohort and channel. You might find that customers from content marketing have a 4:1 ratio while paid ads only achieve 2:1. This insight can dramatically improve your marketing allocation.
             </div>
 
-            <h2>Key Takeaways</h2>
+            <h2 id="key-takeaways">Key Takeaways</h2>
 
             <ul>
                 <li>LTV:CAC ratio measures whether you earn more from customers than you spend to acquire them</li>
@@ -450,6 +530,14 @@
                 <li>Target LTV:CAC varies by stage (2:1 at seed, 3:1+ at Series A+)</li>
                 <li>Don't optimize for too high a ratio—you might be underinvesting in growth</li>
             </ul>
+
+            <div class="author-bio">
+                <div class="author-avatar">📊</div>
+                <div class="author-content">
+                    <h4>About FounderMath</h4>
+                    <p>We build the calculators founders actually need. No spreadsheets, no confusion — just interactive tools that make startup math visual and intuitive. Join 500+ founders who get our weekly equity insights.</p>
+                </div>
+            </div>
 
             <div class="related-posts">
                 <h3>Related Posts</h3>

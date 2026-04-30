@@ -4,11 +4,13 @@
 
 ## Post-Launch Tasks (After HN/Reddit Launch)
 
+### C79: Set Up Buttondown Welcome Emails (Content Ready)
+- Copy 3 emails from BUTTONDOWN-EMAILS.md
+- Set up in Buttondown: Settings > Automations > Welcome Emails
+- Email 1: immediate, Email 2: 2 days, Email 3: 5 days
+- Test with your own email
+
 ### C74: Create Lead Magnet for Email Capture
-- Design a "Founder's Equity Checklist" PDF
-- Offer as free download for email subscribers
-- Add to newsletter signup CTAs on calculator pages
-- Track conversions
 
 ### C75: Set Up Vercel Analytics Dashboard
 - Review Vercel Analytics data after launch
@@ -29,50 +31,40 @@
 
 ## SEO & Content
 
-### C45: Add Table of Contents to Long Blog Posts
-- Add anchor-based TOC for posts >1500 words
-- Make it sticky on desktop
-- Include "Back to top" links
+### C45: Add Table of Contents to Long Blog Posts ✅ DONE
+- Added TOC to 5 blog posts: anti-dilution, convertible-notes-vs-safe, liquidation-preference, ltv-cac-ratio, why-i-built-foundermath
+- Added CSS for TOC styling
+- All h2 headers have IDs for linking
 
-### C46: Add Related Posts Section to Blog Posts
-- Add 3 related posts at bottom of each blog post
-- Use category-based linking
-- Increase internal linking for SEO
+### C46: Add Related Posts Section to Blog Posts ✅ DONE
 
-### C47: Add Author Bio Section to Blog Posts
-- Add "About the Author" section
-- Brief bio and CTA to subscribe
+### C47: Add Author Bio Section to Blog Posts ✅ DONE
+- Added "About the Author" section to all 17 blog posts
+- Includes brief bio and newsletter CTA
 
 ## Site Improvements
 
-### C70: Create Welcome Email in Buttondown
-- Write 3-email welcome sequence
-- Email 1: Welcome + getting started
-- Email 2: Pro tips for equity dilution
-- Email 3: Pro upgrade nudge
+### C70: Create Welcome Email in Buttondown ✅ Content in BUTTONDOWN-EMAILS.md
 
 ### C78: Add "Open Graph Image" Generator
 - Create dynamic OG images for each calculator page
 - Include calculator name, sample visualization
 - Better social sharing previews
 
-### C60: Add Conversion Tracking for Pricing
-- Track clicks on Stripe payment links
-- Track pricing page views
-- Add UTM parameters to Stripe links
+### C60: Add Conversion Tracking for Pricing ✅ DONE
 
 ## Mobile & Accessibility
 
-### C63: Add ARIA Live Regions for Calculator Updates
-- Announce calculation results to screen readers
-- Add role="status" or aria-live to result areas
+### C63: Add ARIA Live Regions for Calculator Updates ✅ DONE
+- Added aria-live="polite" and aria-atomic="true" to all 6 calculators
+- Screen readers now announce calculation results
 
 ## Marketing Preparation
 
-### C65: Create Calculator Screenshots
-- Take screenshots of each calculator
-- Save to assets/calculator-screenshots/
-- Use in marketing materials
+### C65: Create Calculator Screenshots ✅ PLAN READY
+- Created assets/calculator-screenshots/ directory
+- Documented screenshot requirements for all 6 calculators
+- Ready for human to capture screenshots
 
 ## Already Completed
 
@@ -93,3 +85,10 @@
 ✅ C64: Demo scenario URLs
 ✅ C67-C69: Newsletter signup to all pages, API integration, Buttondown wired
 ✅ C71-C73: Product Hunt prep, Schema.org, tracking verified
+✅ C46: Related posts on all 17 blog posts
+✅ C60: UTM parameters on Stripe links, pricing tracking
+✅ C70: Welcome email content prepared (BUTTONDOWN-EMAILS.md)
+✅ C45: Table of Contents added to 5 long blog posts
+✅ C47: Author Bio added to all 17 blog posts
+✅ C63: ARIA Live Regions added to all 6 calculators
+✅ C65: Calculator screenshots plan created

@@ -162,10 +162,74 @@
         .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
         @media (max-width: 600px) { h1 { font-size: 1.75rem; } h2 { font-size: 1.4rem; } .cta-box { padding: 24px; } .comparison-table { font-size: 0.9rem; } .comparison-table th, .comparison-table td { padding: 12px; } }
     
-        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        
+        /* Table of Contents */
+        .toc {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin: 0 0 12px 0;
+        }
+        .toc ol {
+            padding-left: 20px;
+            counter-reset: toc;
+        }
+        .toc li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent-light); }
+.related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
         .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
         .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
         .related-posts a:hover { text-decoration: underline; }
+        /* Author bio */
+        .author-bio {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .author-avatar {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .author-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .author-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .author-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .author-content a:hover { text-decoration: underline; }
     </style>
 </head>
 <body data-theme="dark">
@@ -195,7 +259,25 @@
             <h4>Key Takeaway</h4>
             <p>SAFE notes are generally simpler and more founder-friendly for early-stage rounds. Convertible notes add debt complexity but may be preferred in certain situations or by certain investors.</p>
         </div>
-        <h2>What Is a Convertible Note?</h2>
+                <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#what-convertible">What Is a Convertible Note?</a></li>
+                <li><a href="#what-safe">What Is a SAFE Note?</a></li>
+                <li><a href="#comparison">Side-by-Side Comparison</a></li>
+                <li><a href="#pros-convertible">Pros of Convertible Notes</a></li>
+                <li><a href="#cons-convertible">Cons of Convertible Notes</a></li>
+                <li><a href="#pros-safe">Pros of SAFE Notes</a></li>
+                <li><a href="#cons-safe">Cons of SAFE Notes</a></li>
+                <li><a href="#when-convertible">When to Use Convertible Notes</a></li>
+                <li><a href="#when-safe">When to Use SAFE Notes</a></li>
+                <li><a href="#key-terms">Key Terms to Negotiate</a></li>
+                <li><a href="#real-example">Real-World Example</a></li>
+                <li><a href="#verdict">The Verdict</a></li>
+            </ol>
+        </nav>
+
+<h2 id="what-convertible">What Is a Convertible Note?</h2>
         <p>A <strong>convertible note</strong> is a debt instrument that converts to equity in a future financing round. It's essentially a loan that converts to stock instead of being repaid with cash.</p>
         <p><strong>Key characteristics:</strong></p>
         <ul>
@@ -204,7 +286,7 @@
             <li>Converts at a <strong>discount</strong> (usually 10-20%) to the next round's price</li>
             <li>May have a <strong>cap</strong> (maximum valuation for conversion)</li>
         </ul>
-        <h2>What Is a SAFE Note?</h2>
+        <h2 id="what-safe">What Is a SAFE Note?</h2>
         <p>A <strong>SAFE</strong> (Simple Agreement for Future Equity) was created by Y Combinator in 2013 as a simpler alternative to convertible notes. It's <strong>not debt</strong>—it's a warrant that gives the right to purchase equity in a future round.</p>
         <p><strong>Key characteristics:</strong></p>
         <ul>
@@ -214,7 +296,7 @@
             <li>May have a cap</li>
             <li>Comes in 4 variations: Cap + Discount, Cap Only, Discount Only, MFN</li>
         </ul>
-        <h2>Side-by-Side Comparison</h2>
+        <h2 id="comparison">Side-by-Side Comparison</h2>
         <table class="comparison-table">
             <tr>
                 <th>Feature</th>
@@ -257,21 +339,21 @@
                 <td>Increasingly preferred</td>
             </tr>
         </table>
-        <h2>Pros of Convertible Notes</h2>
+        <h2 id="pros-convertible">Pros of Convertible Notes</h2>
         <ul>
             <li><strong>Investor protection:</strong> Interest provides some return if conversion takes longer than expected</li>
             <li><strong>Maturity creates urgency:</strong> Forces a conversation if no financing happens</li>
             <li><strong>Familiarity:</strong> Some traditional investors prefer debt structures</li>
             <li><strong>Tax treatment:</strong> May have different tax implications for investors</li>
         </ul>
-        <h2>Cons of Convertible Notes</h2>
+        <h2 id="cons-convertible">Cons of Convertible Notes</h2>
         <ul>
             <li><strong>Repayment risk:</strong> If no conversion happens, you must repay the principal + interest</li>
             <li><strong>Complexity:</strong> Requires more legal work and negotiation</li>
             <li><strong>Distressed conversion:</strong> At maturity, investors may force unfavorable terms</li>
             <li><strong>Balance sheet impact:</strong> Shows as debt (can affect other financing)</li>
         </ul>
-        <h2>Pros of SAFE Notes</h2>
+        <h2 id="pros-safe">Pros of SAFE Notes</h2>
         <ul>
             <li><strong>Simplicity:</strong> Standardized documents, faster closing</li>
             <li><strong>No repayment:</strong> Never requires cash repayment</li>
@@ -279,13 +361,13 @@
             <li><strong>Founder-friendly:</strong> Designed with startup founders in mind</li>
             <li><strong>Widely accepted:</strong> Most early-stage investors now use SAFEs</li>
         </ul>
-        <h2>Cons of SAFE Notes</h2>
+        <h2 id="cons-safe">Cons of SAFE Notes</h2>
         <ul>
             <li><strong>No interest:</strong> Investors get no return for time value</li>
             <li><strong>No deadline:</strong> Can linger indefinitely if no priced round happens</li>
             <li><strong>Less protection:</strong> Investors have fewer protections than with notes</li>
         </ul>
-        <h2>When to Use Convertible Notes</h2>
+        <h2 id="when-convertible">When to Use Convertible Notes</h2>
         <div class="callout warning">
             <h4>Use Convertible Notes If:</h4>
             <ul style="margin-bottom: 0;">
@@ -295,7 +377,7 @@
                 <li>Your jurisdiction has legal limitations on SAFEs</li>
             </ul>
         </div>
-        <h2>When to Use SAFE Notes</h2>
+        <h2 id="when-safe">When to Use SAFE Notes</h2>
         <div class="callout success">
             <h4>Use SAFE Notes If:</h4>
             <ul style="margin-bottom: 0;">
@@ -305,7 +387,7 @@
                 <li>You're in a market where SAFEs are standard (most US tech hubs)</li>
             </ul>
         </div>
-        <h2>Key Terms to Negotiate</h2>
+        <h2 id="key-terms">Key Terms to Negotiate</h2>
         <p>Whether you choose notes or SAFEs, these terms matter:</p>
         <ol>
             <li><strong>Valuation Cap:</strong> The maximum valuation at which your investment converts. Lower caps are better for investors, higher caps for founders.</li>
@@ -315,7 +397,7 @@
             <li><strong>Maturity Date (notes only):</strong> When the note must be repaid or converted. Shorter is riskier for founders.</li>
             <li><strong>Interest Rate (notes only):</strong> Usually 2-8%. Lower is better for founders.</li>
         </ol>
-        <h2>Real-World Example</h2>
+        <h2 id="real-example">Real-World Example</h2>
         <p>You raise $500,000 on a SAFE with a $5M cap and 20% discount.</p>
         <p>Six months later, you raise a Series A at a $10M pre-money valuation.</p>
         <ul>
@@ -324,7 +406,7 @@
             <li>With $5M cap only: $500,000 / $5M = 10% ownership</li>
             <li>With both (Cap applies): 10% ownership (cap is better for investor)</li>
         </ul>
-        <h2>The Verdict</h2>
+        <h2 id="verdict">The Verdict</h2>
         <p>For most early-stage startups raising from angels or seed-stage VCs, <strong>SAFE notes are the better choice</strong>. They're simpler, faster, and don't create repayment risk.</p>
         <p>Convertible notes make sense in specific situations—when investors request them, when dealing with debt-focused investors, or when you need the discipline of a maturity date.</p>
         <div class="callout">
@@ -336,7 +418,15 @@
             <p>Model how your SAFE notes will convert at your next priced round with cap, discount, and MFN calculations.</p>
             <a href="../safe.html" class="cta-btn">Try SAFE Calculator →</a>
         </div>
-    
+
+        <div class="author-bio">
+            <div class="author-avatar">📊</div>
+            <div class="author-content">
+                <h4>About FounderMath</h4>
+                <p>We build the calculators founders actually need. No spreadsheets, no confusion — just interactive tools that make startup math visual and intuitive. Join 500+ founders who get our weekly equity insights.</p>
+            </div>
+        </div>
+
     <footer>
         <div class="footer-inner">
             <div class="footer-left">

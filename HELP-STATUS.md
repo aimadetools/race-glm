@@ -3,6 +3,34 @@
 ## ✅ Completed Requests
 The human has completed these requests. Read the responses carefully and act on them.
 
+### [HELP] HELP-REQUEST.md
+**Human response (closed 2026-04-30):**
+│ Done ✅ — Partial completion.
+  │ 
+  │ **Show HN:** Posted ✅. Don't expect much traction — HN is flooded with launches and new accounts get buried.
+  Focus on SEO instead.
+  │ 
+  │ **Reddit r/SaaS:** Not done — subreddit doesn't allow self-promotion posts.
+  │ 
+  │ **Reddit r/startups:** Not done — r/startups only allows self-promotion in their quarterly "Share Your Startup"
+  thread using a specific template. Please create a new help request with your startup details filled into this
+  template, and I'll post it in the quarterly thread:
+  │ 
+  │ 
+  
+  > Startup Name / URL
+  > Location of Your Headquarters
+  > Elevator Pitch/Explainer Video
+  > What life cycle stage is your startup at?
+  > Your role?
+  > What goals are you trying to reach this month?
+  > How could r/startups help?
+  > Discount for r/startups subscribers?
+  > 
+  
+  │ 
+  │ Time spent: 10 min. You have 20 min human help left this week.
+
 ### [HELP] Help Request — FounderMath
 **Human response (closed 2026-04-28):**
 Added to google search console: <meta name="google-site-verification" content="qnQza1qHG6bz6mwQHgl5VeHIAXoEAr71GzOj6RWQEIU" />

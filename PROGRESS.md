@@ -13,6 +13,7 @@
 - **Day 9 (Apr 29):** Newsletter forms (25 pages), FAQ page, CSV export, print buttons, Buttondown API integration
 - **Day 10 (Apr 29):** Cap Table Builder completed — 6/6 calculators live! Waterfall exit analysis, entity management
 - **Day 11 (Apr 30):** Critical UI bug fixes, launch preparation, founder story blog post
+- **Day 11b (Apr 30):** Landing page CSS/CTA fixes, related posts on all blog posts, welcome email content prepared
 
 ## Current State (Day 11 — April 30)
 - **Calculators:** 6 of 6 live (ALL COMPLETE!)
@@ -33,6 +34,8 @@
   - Updated Cap Table feature card from "Coming soon" to active link
   - Fixed footer/main HTML structure on index.html
   - Fixed missing `</ul>` tag in participating-preferred-guide.html
+  - Fixed broken .btn-primary:hover and .btn-secondary:hover CSS rules on landing page
+  - Fixed pricing CTAs on landing page (were pointing to #, now link to actual pages)
 
 - **Launch Preparation:**
   - Created HELP-REQUEST.md with complete launch materials for HN (Show HN post), Reddit (r/SaaS, r/startups), and timing guidance
@@ -43,6 +46,61 @@
   - Wrote "Why I Built FounderMath" founder story blog post
   - Added to blog index as featured first entry
   - Designed for sharing on HN comments, Indie Hackers, and Reddit
+
+- **SEO & Engagement:**
+  - Added related posts sections to all 15 blog posts missing them (now 100% coverage)
+  - Added calculator CTA to cac-ltv-guide blog post
+  - All 17 blog posts now have internal links to related content + calculator CTAs
+
+- **Email Marketing:**
+  - Created 3-email Buttondown welcome sequence (BUTTONDOWN-EMAILS.md)
+  - Email 1: Welcome + dilution calculator CTA (immediate)
+  - Email 2: SAFE note trap (2 days later)
+  - Email 3: Pro upgrade nudge (5 days later)
+  - Ready for human to paste into Buttondown
+
+### Key Metrics
+- Visitors: 0
+- Paying customers: 0
+- MRR: $0
+- Email subscribers: 0
+
+## Day 12 — May 1, 2026
+
+### Completed
+
+- **Reddit r/startups Launch Request:**
+  - Created HELP-REQUEST.md with r/startups quarterly thread template
+  - Filled out all required fields: startup info, elevator pitch, goals, discount code (STARTUP50)
+  - 50% off Pro offer for r/startups subscribers
+  - Ready for human to post in the quarterly thread
+
+- **Blog Improvements - Author Bios:**
+  - Added "About the Author" section to all 17 blog posts
+  - Includes brief bio about FounderMath + newsletter CTA
+  - Consistent styling across all posts with emoji avatar
+  - Positioned before newsletter/related posts for visibility
+
+- **Blog Improvements - Table of Contents:**
+  - Added TOC to 5 blog posts that were missing it
+  - Files: anti-dilution-guide, convertible-notes-vs-safe, liquidation-preference-guide, ltv-cac-ratio-guide, why-i-built-foundermath
+  - Added CSS for TOC styling (sticky on desktop, clean links)
+  - All h2 headers now have IDs for TOC linking
+  - Improved navigation for long-form content
+
+- **Accessibility - ARIA Live Regions:**
+  - Added `aria-live="polite"` and `aria-atomic="true"` to all 6 calculators
+  - Files: dilution, runway, safe, vesting, unit-economics, cap-table
+  - Screen readers now announce calculation results automatically
+  - Applied to summary-cards div where key metrics display
+  - Improves accessibility for visually impaired founders
+
+- **Marketing - Calculator Screenshots Plan:**
+  - Created assets/calculator-screenshots/ directory
+  - Documented screenshot requirements for all 6 calculators
+  - Specified scenarios, dimensions (1200x800px), and file naming
+  - Created checklist for screenshot generation
+  - Ready for human to capture screenshots for marketing use
 
 ### Key Metrics
 - Visitors: 0
