@@ -22,12 +22,12 @@
 
 ## High Priority (Growth)
 
-### P6: Email Capture & Newsletter Integration (Partially Done)
+### P6: Email Capture & Newsletter Integration ✅ DONE
 - ✅ Buttondown integration (API endpoint live)
 - ✅ Newsletter forms on all 25 pages
-- ⬜ Create compelling lead magnet (free equity checklist PDF?)
-- ⬜ Welcome email sequence (3 emails: intro, tips, Pro nudge)
-- ⬜ Exit-intent popup for free users
+- ✅ Create compelling lead magnet (free equity checklist PDF?) ✅ DONE (Equity Cheat Sheet created)
+- ✅ Welcome email sequence (3 emails: intro, tips, Pro nudge) ✅ DONE (Content in BUTTONDOWN-EMAILS.md)
+- ✅ Exit-intent popup for free users ✅ DONE (added to 5 key pages)
 - **Why premium:** Email list is primary conversion channel
 
 ### P7: Competitive Analysis & Positioning ✅ DONE

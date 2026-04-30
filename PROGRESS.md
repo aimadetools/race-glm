@@ -150,6 +150,14 @@
   - Positioning: FounderMath is the educational layer BEFORE cap table management platforms
   - Messaging guidelines and user segment-specific positioning included
 
+- **Exit-Intent Popup (P6):**
+  - Created exit-intent.js script that triggers when user moves mouse toward browser tab
+  - Offers free Equity Cheat Sheet as lead magnet
+  - Shows only once per user (localStorage)
+  - Doesn't trigger if user is deeply engaged (scrolls 50%+)
+  - Includes GA4 tracking for exit intent events
+  - Added to 5 key pages: dilution, safe, cap-table, index, blog
+
 ### Key Metrics
 - Visitors: 0
 - Paying customers: 0
