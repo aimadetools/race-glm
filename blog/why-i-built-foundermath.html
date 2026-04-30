@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why I Built FounderMath — A Free Equity Calculator Suite for Founders</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="The story behind FounderMath: why I built a free startup equity calculator suite after watching founders make costly mistakes with dilution, SAFE notes, and cap tables.">
+    <meta name="keywords" content="startup equity calculator, founder equity, equity dilution, SAFE notes, cap table builder, startup tools">
+    <meta property="og:title" content="Why I Built FounderMath — Free Equity Calculator Suite for Founders">
+    <meta property="og:description" content="After watching founders make costly equity mistakes, I built a free calculator suite. Here's the story.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/why-i-built-foundermath.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why I Built FounderMath">
+    <meta name="twitter:description" content="After watching founders make costly equity mistakes, I built a free calculator suite.">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Why I Built FounderMath — A Free Equity Calculator Suite for Founders",
+        "description": "The story behind FounderMath: why I built a free startup equity calculator suite after watching founders make costly mistakes.",
+        "url": "https://founder-math.com/blog/why-i-built-foundermath.html",
+        "datePublished": "2026-04-30",
+        "author": { "@type": "Organization", "name": "FounderMath" },
+        "publisher": { "@type": "Organization", "name": "FounderMath", "logo": { "@type": "ImageObject", "url": "https://founder-math.com/og-image.svg" } }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        .article-container { max-width: 740px; margin: 0 auto; padding: 120px 24px 80px; }
+        .article-meta { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 32px; }
+        .article-meta a { color: var(--accent-light); text-decoration: none; }
+        h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.15; margin-bottom: 24px; letter-spacing: -0.02em; }
+        h2 { font-size: 1.5rem; font-weight: 700; margin: 48px 0 16px; letter-spacing: -0.01em; }
+        h3 { font-size: 1.2rem; font-weight: 600; margin: 32px 0 12px; }
+        p { color: var(--text-secondary); margin-bottom: 20px; font-size: 1.05rem; }
+        strong { color: var(--text-primary); }
+        a { color: var(--accent-light); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .callout { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 32px 0; }
+        .callout p { margin-bottom: 0; }
+        .callout.cta-callout { border-color: var(--accent); text-align: center; }
+        .callout.cta-callout a { display: inline-block; background: var(--accent); color: white; padding: 12px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; margin-top: 12px; }
+        .callout.cta-callout a:hover { text-decoration: none; opacity: 0.9; }
+
+        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
+        .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+        .stat-card .number { font-size: 2rem; font-weight: 800; color: var(--accent-light); font-family: var(--font-mono); }
+        .stat-card .label { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .calculator-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+        .calc-link { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-decoration: none; display: block; transition: all 0.2s; }
+        .calc-link:hover { border-color: var(--accent); text-decoration: none; transform: translateY(-2px); }
+        .calc-link h4 { color: var(--text-primary); margin-bottom: 4px; }
+        .calc-link p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0; }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+        footer a { color: var(--text-secondary); }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .stat-grid { grid-template-columns: 1fr; }
+            .calculator-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../" class="logo"><div class="logo-icon">%</div> FounderMath</a>
+            <ul class="nav-links">
+                <li><a href="../dilution.html">Dilution Calc</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../pricing.html" class="nav-cta">Start Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+        </div>
+    </nav>
+
+    <article class="article-container">
+        <div class="article-meta">
+            <time datetime="2026-04-30">April 30, 2026</time> &middot; 5 min read &middot; <a href="../blog.html">Back to Blog</a>
+        </div>
+
+        <h1>Why I Built FounderMath: Free Equity Calculators for Every Founder</h1>
+
+        <p>Every founder eventually faces the same terrifying question: <strong>"How much of my company will I actually own after raising money?"</strong> The answer is usually worse than they think.</p>
+
+        <p>I watched founder after founder make the same expensive mistakes. Accepting SAFE notes without understanding conversion. Negotiating term sheets without modeling dilution. Discovering too late that their 33% had become 12% after three rounds.</p>
+
+        <h2>The Problem: Equity Math Is Deceptively Hard</h2>
+
+        <p>Here's a pop quiz. You and two cofounders each own 33.3% of your startup. You raise a seed round at a $12M pre-money, selling 20% to investors. The investors also require a 10% option pool created pre-money. What do you own now?</p>
+
+        <div class="callout">
+            <p><strong>Answer:</strong> Not 33%. Not 25%. After the option pool expansion and seed round dilution, each founder owns approximately <strong>24%</strong>. That's a 28% reduction in ownership from a single round. And you haven't even hit Series A yet.</p>
+        </div>
+
+        <p>Most founders get this wrong. They'll do a quick calculation ("33% minus 20% for investors... so I have 26.4%?") without accounting for the option pool, anti-dilution protections, or how multiple rounds compound.</p>
+
+        <h2>The Existing Tools Don't Serve Founders</h2>
+
+        <p>When I looked for tools to help founders understand equity, I found two categories:</p>
+
+        <ul style="margin: 16px 0 24px; padding-left: 24px; color: var(--text-secondary);">
+            <li style="margin-bottom: 8px;"><strong>Enterprise cap table platforms</strong> (Carta, Pulley) — $100+/month, designed for companies managing existing cap tables, not for founders trying to understand what-if scenarios.</li>
+            <li style="margin-bottom: 8px;"><strong>Basic online calculators</strong> — Single-round, no visualization, no saving, no export. You enter numbers, get a percentage, and forget it.</li>
+        </ul>
+
+        <p>Nobody built a tool for the <strong>individual founder</strong> who needs to understand "what happens to MY equity" across multiple scenarios. So I did.</p>
+
+        <h2>FounderMath: Six Calculators, Zero Barriers</h2>
+
+        <p>I built FounderMath to be the tool I wished I had. It's free, requires no signup, runs entirely in your browser (no data is ever sent to a server), and covers the six calculations founders need most:</p>
+
+        <div class="calculator-grid">
+            <a href="../dilution.html" class="calc-link">
+                <h4>Equity Dilution</h4>
+                <p>Model dilution across multiple funding rounds</p>
+            </a>
+            <a href="../safe.html" class="calc-link">
+                <h4>SAFE Note Converter</h4>
+                <p>Understand what your SAFE converts to</p>
+            </a>
+            <a href="../runway.html" class="calc-link">
+                <h4>Runway Calculator</h4>
+                <p>How many months until you run out of cash</p>
+            </a>
+            <a href="../vesting.html" class="calc-link">
+                <h4>Vesting Schedule</h4>
+                <p>Map out your equity vesting timeline</p>
+            </a>
+            <a href="../unit-economics.html" class="calc-link">
+                <h4>CAC/LTV Analyzer</h4>
+                <p>Are your unit economics sustainable?</p>
+            </a>
+            <a href="../cap-table.html" class="calc-link">
+                <h4>Cap Table Builder</h4>
+                <p>Build and manage your cap table</p>
+            </a>
+        </div>
+
+        <h2>A Real Example: The Three-Founder Trap</h2>
+
+        <p>Here's the scenario that motivated me to build this. Three cofounders start with 40/35/25 split. They raise:</p>
+
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="number">40%</div>
+                <div class="label">Alice starts here</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" style="color: var(--green);">$3M</div>
+                <div class="label">Raised across 4 rounds</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" style="color: #ff6b6b;">~14%</div>
+                <div class="label">Alice ends here</div>
+            </div>
+        </div>
+
+        <p>After a pre-seed SAFE, a seed round, a Series A, and a Series B — with option pools at each stage — Alice's 40% becomes roughly 14%. That's a 65% reduction. And she didn't model any of it beforehand.</p>
+
+        <p><a href="../dilution.html">Try this scenario yourself &rarr;</a></p>
+
+        <h2>Technical Decisions: Privacy First</h2>
+
+        <p>One decision I'm particularly proud of: <strong>everything runs client-side.</strong> Your equity data never leaves your browser. No accounts, no databases, no tracking sensitive financial information. This isn't just a privacy feature — it's a trust feature. Founders shouldn't have to upload their cap table to a third-party server just to see what happens if they raise another round.</p>
+
+        <p>The calculators use vanilla JavaScript and Chart.js for visualizations. The Pro tier adds PDF export, scenario saving, and side-by-side comparison for $19/month — but the core calculations are and will remain free.</p>
+
+        <h2>What's Next</h2>
+
+        <p>I'm actively developing FounderMath based on what founders tell me they need. Upcoming features include:</p>
+
+        <ul style="margin: 16px 0 24px; padding-left: 24px; color: var(--text-secondary);">
+            <li style="margin-bottom: 8px;">Multi-round dilution simulation with up to 10 rounds</li>
+            <li style="margin-bottom: 8px;">Convertible note calculator with interest and maturity</li>
+            <li style="margin-bottom: 8px;">Team sharing for cofounders to collaborate on scenarios</li>
+            <li style="margin-bottom: 8px;">Scenario comparison side-by-side</li>
+        </ul>
+
+        <div class="callout cta-callout">
+            <p><strong>Try the calculators free &mdash; no signup required.</strong></p>
+            <p style="margin-bottom: 16px; font-size: 0.9rem;">See exactly what happens to your equity across funding rounds.</p>
+            <a href="../dilution.html">Try the Dilution Calculator</a>
+        </div>
+
+        <p>Have feedback or a feature request? I'd love to hear from you at <a href="mailto:hello@foundermath.com">hello@foundermath.com</a> or through the <a href="../contact.html">contact form</a>.</p>
+    </article>
+
+    <footer>
+        <p>&copy; 2026 FounderMath. <a href="../about.html">About</a> &middot; <a href="../blog.html">Blog</a> &middot; <a href="../pricing.html">Pricing</a> &middot; <a href="../contact.html">Contact</a></p>
+    </footer>
+</body>
+</html>
