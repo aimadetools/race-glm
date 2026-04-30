@@ -46,10 +46,12 @@
 
 ### C70: Create Welcome Email in Buttondown ✅ Content in BUTTONDOWN-EMAILS.md
 
-### C78: Add "Open Graph Image" Generator
-- Create dynamic OG images for each calculator page
-- Include calculator name, sample visualization
-- Better social sharing previews
+### C78: Add "Open Graph Image" Generator ✅ DONE
+- Created 10 unique OG SVG images for social sharing
+- Calculator OG images: dilution, safe, cap-table, vesting, runway, unit-economics
+- Site page OG images: home, about, pricing, blog
+- Each image has calculator-specific visualizations and branding
+- Updated 10 pages to use themed OG images for better social sharing
 
 ### C60: Add Conversion Tracking for Pricing ✅ DONE
 

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Equity Cheat Sheet — FounderMath</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00b894;
+            --orange: #ffa502;
+            --red: #ff6b6b;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        .header { text-align: center; margin-bottom: 40px; border-bottom: 3px solid var(--accent); padding-bottom: 30px; }
+        .header h1 { font-size: 42px; color: var(--accent); margin-bottom: 10px; }
+        .header p { font-size: 18px; color: #666; }
+        .section { margin-bottom: 30px; padding: 20px; border-radius: 10px; border-left: 4px solid var(--accent); background: #f8f9fa; }
+        .section h2 { font-size: 24px; color: var(--accent); margin-bottom: 15px; }
+        .formula { background: white; padding: 15px; border-radius: 8px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 14px; margin: 10px 0; border: 1px solid #e0e0e0; }
+        .tip { background: rgba(0, 184, 148, 0.1); padding: 12px; border-radius: 6px; margin: 10px 0; border-left: 3px solid var(--green); }
+        .warning { background: rgba(255, 107, 107, 0.1); padding: 12px; border-radius: 6px; margin: 10px 0; border-left: 3px solid var(--red); }
+        .example { background: white; padding: 12px; border-radius: 6px; margin: 10px 0; border: 1px dashed #ccc; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .card { background: white; padding: 15px; border-radius: 8px; border: 1px solid #e0e0e0; }
+        .card h3 { color: var(--accent); font-size: 18px; margin-bottom: 10px; }
+        .footer { text-align: center; margin-top: 50px; padding-top: 30px; border-top: 2px solid #e0e0e0; color: #666; }
+        .footer a { color: var(--accent); text-decoration: none; }
+        @media print {
+            body { padding: 20px; }
+            .section { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 Startup Equity Cheat Sheet</h1>
+        <p>Quick reference for founders navigating startup equity</p>
+        <p><small>From FounderMath — founder-math.com</small></p>
+    </div>
+
+    <div class="section">
+        <h2>📈 Equity Dilution Formula</h2>
+        <div class="formula">
+            Ownership After Round = Current Ownership × (1 - Dilution %)
+        </div>
+        <div class="example">
+            <strong>Example:</strong> If you own 60% and raise a round that dilutes you by 20%:<br>
+            60% × (1 - 0.20) = 60% × 0.80 = <strong>48%</strong>
+        </div>
+        <div class="tip">
+            <strong>💡 Pro Tip:</strong> Always calculate cumulative dilution, not per-round. Dilution compounds!
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🛡️ SAFE Notes at a Glance</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Valuation Cap</h3>
+                <p>Your valuation can't exceed this cap. Lower cap = better for investors.</p>
+                <div class="formula">Price = Cap / Pre-money Valuation</div>
+            </div>
+            <div class="card">
+                <h3>Discount</h3>
+                <p>Get shares at a discount to the priced round.</p>
+                <div class="formula">Price = Priced Round Price × (1 - Discount)</div>
+            </div>
+        </div>
+        <div class="warning">
+            <strong>⚠️ Common Mistake:</strong> A $5M cap is NOT the same as a $5M pre-money valuation. The cap is the effective valuation ONLY for the SAFE amount.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>⏳ Vesting Basics</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Standard Vesting</h3>
+                <p><strong>4-year cliff</strong>: 25% vests at 1 year, then monthly over 3 years</p>
+                <div class="formula">Monthly Vest = Total Grant ÷ 48 months</div>
+            </div>
+            <div class="card">
+                <h3>Cliff Period</h3>
+                <p>Nothing vests until the cliff (usually 1 year). If you leave before, you get $0.</p>
+            </div>
+        </div>
+        <div class="tip">
+            <strong>💡 Pro Tip:</strong> Acceleration triggers let you vest remaining equity on acquisition or termination. Negotiate these!
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>💰 Runway Math</h2>
+        <div class="formula">
+            Runway (months) = Cash Balance ÷ Monthly Burn Rate
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Gross Burn</h3>
+                <p>Total monthly expenses</p>
+                <div class="formula">Salaries + Rent + Software + Marketing</div>
+            </div>
+            <div class="card">
+                <h3>Net Burn</h3>
+                <p>Gross burn minus revenue</p>
+                <div class="formula">Gross Burn - Monthly Revenue</div>
+            </div>
+        </div>
+        <div class="warning">
+            <strong>⚠️ Danger Zone:</strong> Start fundraising when you have 6 months of runway. It takes 3-6 months to close a round.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📊 LTV:CAC Ratio</h2>
+        <div class="formula">
+            LTV:CAC = Lifetime Value ÷ Customer Acquisition Cost
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>< 3:1</h3>
+                <p><strong>Unsustainable</strong> — You're spending too much to acquire customers</p>
+            </div>
+            <div class="card">
+                <h3>3:1 to 5:1</h3>
+                <p><strong>Healthy</strong> — Solid unit economics, room for growth</p>
+            </div>
+            <div class="card">
+                <h3>> 5:1</h3>
+                <p><strong>Great!</strong> — Consider spending more on acquisition</p>
+            </div>
+            <div class="card">
+                <h3>Payback Period</h3>
+                <p><strong>< 12 months</strong> is ideal for SaaS</p>
+                <div class="formula">CAC ÷ (ARPU × Gross Margin)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>⚖️ Cap Table Best Practices</h2>
+        <ul>
+            <li>✅ <strong>Option Pool:</strong> Create before Series A (usually 10-20%)</li>
+            <li>✅ <strong>Pro Rata Rights:</strong> Allow investors to maintain ownership</li>
+            <li>✅ <strong>Liquidation Preference:</strong> 1x non-participating is standard</li>
+            <li>✅ <strong>Anti-Dilution:</strong> Broad-based weighted average is founder-friendly</li>
+            <li>✅ <strong>Board Seats:</strong> Keep founder control early (2-2-1)</li>
+        </ul>
+        <div class="warning">
+            <strong>⚠️ Watch Out:</strong> Participating preferred with multiple liquidation preferences can destroy founder economics at exit.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Key Milestones by Stage</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Pre-Seed</h3>
+                <p>• 1-2 co-founders<br>• $500K-$2M raise<br>• 10-25% dilution<br>• Product built</p>
+            </div>
+            <div class="card">
+                <h3>Seed</h3>
+                <p>• Team of 5-10<br>• $2M-$5M raise<br>• 15-25% dilution<br>• PMF signals</p>
+            </div>
+            <div class="card">
+                <h3>Series A</h3>
+                <p>• Team of 15-30<br>• $10M-$20M raise<br>• 20-30% dilution<br>• $1M+ ARR</p>
+            </div>
+            <div class="card">
+                <h3>Series B+</h3>
+                <p>• Team scales fast<br>• Larger raises<br>• Less dilution per round<br>• Growth metrics</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔐 Common Terms Explained</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Pre-Money Valuation</h3>
+                <p>Company value BEFORE new money arrives</p>
+            </div>
+            <div class="card">
+                <h3>Post-Money Valuation</h3>
+                <p>Pre-money + Investment = New valuation</p>
+            </div>
+            <div class="card">
+                <h3>Fully Diluted</h3>
+                <p>All shares outstanding + option pool + all convertible securities</p>
+            </div>
+            <div class="card">
+                <h3>Pro Rata</h3>
+                <p>Right to invest enough to maintain current ownership %</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>Need more detail?</strong> Use our free calculators at <a href="https://founder-math.com">founder-math.com</a></p>
+        <p><small>This cheat sheet is for educational purposes. Always consult legal and financial professionals.</small></p>
+    </div>
+</body>
+</html>
