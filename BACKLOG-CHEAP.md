@@ -10,7 +10,11 @@
 - Email 1: immediate, Email 2: 2 days, Email 3: 5 days
 - Test with your own email
 
-### C74: Create Lead Magnet for Email Capture
+### C74: Create Lead Magnet for Email Capture ✅ DONE
+- Created equity-cheat-sheet.html as downloadable lead magnet
+- One-page cheat sheet covering: equity dilution, SAFE notes, vesting, runway, LTV:CAC
+- Formulas, examples, pro tips, and warning boxes
+- Added lead magnet CTAs to 3 key pages: dilution, index, blog
 
 ### C75: Set Up Vercel Analytics Dashboard
 - Review Vercel Analytics data after launch

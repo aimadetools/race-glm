@@ -129,6 +129,13 @@
   - Updated 10 pages to use themed OG images for better social sharing
   - Each image has calculator-specific visualizations and branding
 
+- **Lead Magnet for Email Capture (C74):**
+  - Created equity-cheat-sheet.html as downloadable lead magnet
+  - One-page cheat sheet covering: equity dilution, SAFE notes, vesting, runway, LTV:CAC
+  - Formulas, examples, pro tips, and warning boxes
+  - Clean printable design optimized for PDF export
+  - Added lead magnet CTAs to 3 key pages: dilution, index, blog
+
 ### Key Metrics
 - Visitors: 0
 - Paying customers: 0
