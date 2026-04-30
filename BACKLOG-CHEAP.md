@@ -76,8 +76,12 @@
 
 ## Already Completed
 
-✅ C1-C6: Favicon, meta tags, GA4, mobile nav, footer, performance
-✅ C7-C10: 4 SEO blog posts
+✅ C1-C10: Favicon, meta tags, GA4, mobile nav, footer, performance, 4 SEO blog posts
+✅ C11-C14: Scroll animations, dark/light mode, print CSS, 404, robots.txt/sitemap, accessibility, error handling
+✅ C16-C27: Auto-save, saved scenarios, PDF export, compare scenarios, 5 blog posts, blog index, light theme
+✅ C28-C44: Calculator UX polish, pro tips, keyboard shortcuts, marketing templates, 5 SEO blog posts, Twitter Card tags, reading time
+✅ C45-C60: CSV export, calculator presets, import/export, print buttons, share to Twitter, contact page, FAQ, GSC verification, event tracking, mobile UX, skip links, demo URLs, newsletter forms, Buttondown wired, Product Hunt prep, Schema.org, tracking verified, related posts, UTM parameters, welcome email, TOCs, author bios, ARIA, screenshots plan
+✅ C63-C78: Conversion tracking, ARIA regions, calculator screenshots plan, OG images, lead magnet (equity cheat sheet), directory submissions, competitive analysis, exit-intent popup
 ✅ C11-C12: Scroll animations, dark/light mode
 ✅ C16-C20: Print CSS, 404, robots.txt/sitemap, accessibility, error handling
 ✅ C24-C27: Auto-save, saved scenarios, PDF export, compare scenarios
