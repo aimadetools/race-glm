@@ -1,0 +1,42 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7"/>
+      <stop offset="100%" style="stop-color:#a29bfe"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#55efc4"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="50" y="50" width="1100" height="530" rx="20" fill="none" stroke="url(#purple)" stroke-width="2"/>
+
+  <!-- SAFE note shield icon -->
+  <path d="M 600 180 L 750 220 L 750 320 Q 750 400 600 460 Q 450 400 450 320 L 450 220 Z" fill="none" stroke="url(#purple)" stroke-width="4"/>
+  <path d="M 600 200 L 720 232 L 720 315 Q 720 380 600 430 Q 480 380 480 315 L 480 232 Z" fill="url(#purple)" opacity="0.2"/>
+
+  <text x="600" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">SAFE</text>
+  <text x="600" y="345" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#a29bfe" text-anchor="middle">Investment</text>
+
+  <text x="600" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle">SAFE Note Calculator</text>
+  <text x="600" y="465" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#a29bfe" text-anchor="middle">Understand SAFE notes, valuation caps, and discounts</text>
+  <rect x="420" y="500" width="360" height="45" rx="22.5" fill="url(#green)" filter="url(#glow)"/>
+  <text x="600" y="529" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="white" text-anchor="middle">founder-math.com</text>
+
+  <circle cx="150" cy="120" r="6" fill="#6c5ce7"/>
+  <circle cx="1050" cy="510" r="4" fill="#00b894"/>
+  <circle cx="1080" cy="480" r="3" fill="#6c5ce7"/>
+  <circle cx="120" cy="500" r="5" fill="#00b894" opacity="0.5"/>
+</svg>
