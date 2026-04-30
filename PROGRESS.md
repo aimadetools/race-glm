@@ -2,64 +2,50 @@
 
 ## Key Milestones
 
-- **Day 1 (Apr 20):** Researched 10 ideas, selected FounderMath (41/50), built landing + about + pricing + blog pages, created backlogs
+- **Day 1 (Apr 20):** Researched 10 ideas, selected FounderMath (41/50), built landing + about + pricing + blog pages
 - **Day 2 (Apr 21):** Built Equity Dilution + Runway calculators, SAFE Note calc, first SEO blog post, favicons, 404, robots.txt, sitemap
-- **Day 3 (Apr 22):** GA4 analytics, OG tags, domain registered, Stripe payment links, 4 SEO blog posts, accessibility (WCAG AA), error handling, dark/light toggle
+- **Day 3 (Apr 22):** GA4 analytics, OG tags, domain registered, Stripe payment links, 4 SEO blog posts, accessibility, dark/light toggle
 - **Day 4 (Apr 21):** Fixed CSS duplication bug (16,626 duplicate lines), built Vesting + CAC/LTV calculators, site-wide nav update → 5/6 calculators live
-- **Day 5 (Apr 21):** localStorage auto-save, saved scenarios dropdown, PDF export (jsPDF), blog post "How to Evaluate Equity Offer"
-- **Day 6 (Apr 22):** 2 SEO blog posts (LTV:CAC, Vesting), blog index update, light theme for blog posts, compare scenarios UI, pro tips, keyboard shortcuts, marketing templates (HN/Reddit/Twitter)
-- **Day 7 (Apr 27):** 5 more SEO blog posts (pre/post-money, option pool, pro-rata, 409A, participating preferred), Twitter Card tags, mobile UX review, skip links
-- **Day 8 (Apr 28):** GSC verification, reading time for blogs, demo scenario URLs, share-to-Twitter buttons, contact page (Formspree), calculator presets
-- **Day 9 (Apr 29):** Newsletter forms added to all pages (25 total), FAQ page created, CSV export to all 5 calculators, print buttons added, Buttondown API integration complete
-- **Day 10 (Apr 29):** Cap Table Builder (P4) completed — 6/6 calculators live! Entity management (founders, investors, SAFEs, options), waterfall exit analysis, ownership visualization, navigation updated across all pages
+- **Day 5 (Apr 21):** localStorage auto-save, saved scenarios dropdown, PDF export (jsPDF), blog post
+- **Day 6 (Apr 22):** 2 SEO blog posts (LTV:CAC, Vesting), blog index update, light theme, compare scenarios UI, pro tips, keyboard shortcuts, marketing templates
+- **Day 7 (Apr 27):** 5 SEO blog posts, Twitter Card tags, mobile UX review, skip links
+- **Day 8 (Apr 28):** GSC verification, reading time, demo scenario URLs, share-to-Twitter, contact page, calculator presets
+- **Day 9 (Apr 29):** Newsletter forms (25 pages), FAQ page, CSV export, print buttons, Buttondown API integration
+- **Day 10 (Apr 29):** Cap Table Builder completed — 6/6 calculators live! Waterfall exit analysis, entity management
+- **Day 11 (Apr 30):** Critical UI bug fixes, launch preparation, founder story blog post
 
-## Current State (Day 10 — April 29)
+## Current State (Day 11 — April 30)
 - **Calculators:** 6 of 6 live (ALL COMPLETE!)
-- **Blog posts:** 16 published
-- **Pages:** 21 HTML files total (cap-table.html + FAQ)
-- **Visitors:** 0 (not launched yet)
+- **Blog posts:** 17 published (including founder story)
+- **Pages:** 22 HTML files total
+- **Visitors:** 0 (launch pending human posting)
 - **Revenue:** $0 MRR
 - **Budget:** $10 spent (domain), $90 remaining
 - **Pro system:** pro-gating.js + pro-success.html exist
-- **Newsletter:** API endpoint live, forms on all pages
+- **Newsletter:** Buttondown API integrated, forms on all pages
+- **Launch status:** HELP-REQUEST.md created with HN/Reddit launch materials
 
-## Day 10 — April 29, 2026
+## Day 11 — April 30, 2026
 
 ### Completed
-- **P4: Cap Table Builder — Complete implementation**
-  - Built cap-table.html with full functionality
-  - Entity types: Founders, Investors (priced rounds), SAFEs/Convertible Notes, Option Pool
-  - Add/edit/remove entities with type-specific fields
-  - SAFE conversion logic (cap vs discount)
-  - Waterfall exit analysis with liquidation preferences (1x non-participating, 1x participating, 2x)
-  - Ownership breakdown visualization (horizontal bar chart)
-  - Detailed cap table with shares, price/share, and ownership %
-  - Exit scenario modeling (configurable exit value)
-  - Scenario save/load/delete functionality
-  - Export to CSV and PDF (Pro)
-  - Print-optimized views
-  - Share links and Twitter integration
-  - Newsletter integration
-  - Full accessibility support (ARIA, keyboard navigation, screen reader support)
+- **Critical UI Bug Fixes:**
+  - Removed 40+ stray theme toggle buttons from pricing lists, footer links, and blog content across 17 files
+  - Updated Cap Table feature card from "Coming soon" to active link
+  - Fixed footer/main HTML structure on index.html
+  - Fixed missing `</ul>` tag in participating-preferred-guide.html
 
-- **Navigation Updates:**
-  - Added Cap Table link to all root-level pages (index, dilution, runway, safe, vesting, unit-economics, blog, contact, about, faq)
-  - Updated footer links where applicable
-  - Updated blog post navigation (vesting-schedules-guide, ltv-cac-ratio-guide, equity-dilution-guide)
+- **Launch Preparation:**
+  - Created HELP-REQUEST.md with complete launch materials for HN (Show HN post), Reddit (r/SaaS, r/startups), and timing guidance
+  - Created pre-filled demo scenario URL (3 cofounders through 4 rounds)
+  - Fixed false "Join thousands of founders" claim on landing page
+
+- **Marketing Content:**
+  - Wrote "Why I Built FounderMath" founder story blog post
+  - Added to blog index as featured first entry
+  - Designed for sharing on HN comments, Indie Hackers, and Reddit
 
 ### Key Metrics
 - Visitors: 0
 - Paying customers: 0
 - MRR: $0
 - Email subscribers: 0
-
-## Day 9 — April 29, 2026
-
-### Completed
-- **C67-C68:** Newsletter signup forms added to all 25 pages (5 calculators, 16 blog posts, index, blog, about, pricing, contact)
-- **C69:** Newsletter forms wired to /api/subscribe endpoint with Buttondown integration
-- **C54:** Created FAQ page (faq.html) with 4 categories (Calculators, Pricing, Data & Privacy, Technical)
-- **C48:** Export to CSV feature added to all 5 calculators
-- **C51:** Print-Optimized Views — added "Print Results" buttons to all calculators
-- **C59:** Event tracking verified complete across all calculators (calculator_view, calculate, save_scenario, load_scenario, delete_scenario, export_pdf, export_csv, share actions)
-- **C73:** Schema.org structured data verified (WebPage, SoftwareApplication, Offer, Article schemas in place)
