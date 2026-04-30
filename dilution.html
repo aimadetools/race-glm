@@ -1842,7 +1842,16 @@
 
     function shareToTwitter() {
         const url = encodeStateToURL();
-        const text = 'Check out my equity dilution scenario: ' + url + ' #startup #equity';
+        const { stages } = calculate();
+        let text;
+        if (stages.length > 0) {
+            const yourName = state.founders[0]?.name || 'You';
+            const startingPct = stages[0].stakeholders.find(s => s.name === yourName)?.ownership || 0;
+            const finalPct = stages[stages.length - 1].stakeholders.find(s => s.name === yourName)?.ownership || 0;
+            text = `I modeled my startup equity: ${startingPct.toFixed(1)}% → ${finalPct.toFixed(1)}% after ${stages.length} rounds. See yours: ${url} #startup #equity`;
+        } else {
+            text = 'Check out my equity dilution scenario: ' + url + ' #startup #equity';
+        }
         window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
         trackEvent('share_twitter');
     }

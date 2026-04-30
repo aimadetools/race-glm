@@ -1011,7 +1011,8 @@
 
     function shareToTwitter() {
         const url = encodeStateToURL();
-        const text = 'Check out my unit economics: ' + url + ' #SaaS #unitEconomics';
+        const ratio = document.getElementById('sumRatio')?.textContent || '';
+        const text = ratio ? `My LTV:CAC ratio is ${ratio}. Is your SaaS healthy? Check: ${url} #SaaS #unitEconomics` : 'Calculate your SaaS unit economics: ' + url + ' #SaaS #unitEconomics';
         window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
         trackEvent('share_twitter');
     }

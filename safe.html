@@ -1840,7 +1840,8 @@
 
     function shareToTwitter() {
         const url = encodeStateToURL();
-        const text = 'Check out my SAFE note conversion: ' + url + ' #startup #SAFE';
+        const valEl = document.getElementById('sumPreMoney') || document.getElementById('preMoneyInput');
+        const text = 'I modeled my SAFE note conversion on FounderMath. See what your SAFE converts to: ' + url + ' #startup #SAFE';
         window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
         trackEvent('share_twitter');
     }

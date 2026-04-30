@@ -1184,7 +1184,8 @@
 
     function shareToTwitter() {
         const url = encodeStateToURL();
-        const text = 'Check out my startup runway calculation: ' + url + ' #startup #runway';
+        const months = document.getElementById('sumMonthsRunway')?.textContent || '';
+        const text = months ? `My startup has ${months} of runway left. Check yours: ${url} #startup #runway` : 'Calculate your startup runway: ' + url + ' #startup #runway';
         window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
         trackEvent('share_twitter');
     }

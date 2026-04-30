@@ -1692,8 +1692,10 @@
     }
 
     function shareToTwitter() {
-        const text = 'Check out this cap table I built with FounderMath 📊';
         const url = encodeStateToURL();
+        const founderCount = (state.entities || []).filter(e => e.type === 'founder').length;
+        const investorCount = (state.entities || []).filter(e => e.type === 'investor').length;
+        const text = `I built my startup cap table on FounderMath — ${founderCount} founders, ${investorCount} investors. Build yours: ${url} #startup #captable`;
         const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
         window.open(twitterUrl, '_blank');
         trackEvent('share', { method: 'twitter' });
