@@ -393,7 +393,12 @@
             .theme-toggle { display: none; }
         }
     
-        @media (max-width: 600px) { .newsletter-form { flex-direction: column; } .footer-inner { flex-direction: column; text-align: center; gap: 16px; } }</style>
+        @media (max-width: 600px) { .newsletter-form { flex-direction: column; } .footer-inner { flex-direction: column; text-align: center; gap: 16px; } }
+        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
+        .related-posts a:hover { text-decoration: underline; }
+    </style>
 </head>
 <body data-theme="dark">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -564,6 +569,13 @@
             <div class="author-bio">
                 <h4>About FounderMath</h4>
                 <p>FounderMath provides free, powerful calculators for startup founders. From equity dilution to runway to SAFE notes, we help you make informed decisions about your startup's finances.</p>
+            </div>
+        
+            <div class="related-posts">
+                <h3>Related Posts</h3>
+                <a href="equity-dilution-guide.html">How Equity Dilution Works Across Funding Rounds →</a>
+                <a href="safe-note-guide.html">Understanding SAFE Notes: A Complete Guide →</a>
+                <a href="convertible-notes-vs-safe.html">Convertible Notes vs SAFE Notes: Which to Use →</a>
             </div>
         </article>
     
