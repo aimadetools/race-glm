@@ -2,7 +2,7 @@
 
 *These tasks are straightforward and can be done quickly.*
 
-## Post-Launch Tasks (After HN/Reddit Launch)
+## Growth & Distribution
 
 ### C79: Set Up Buttondown Welcome Emails (Content Ready)
 - Copy 3 emails from BUTTONDOWN-EMAILS.md
@@ -10,97 +10,80 @@
 - Email 1: immediate, Email 2: 2 days, Email 3: 5 days
 - Test with your own email
 
-### C74: Create Lead Magnet for Email Capture ✅ DONE
-- Created equity-cheat-sheet.html as downloadable lead magnet
-- One-page cheat sheet covering: equity dilution, SAFE notes, vesting, runway, LTV:CAC
-- Formulas, examples, pro tips, and warning boxes
-- Added lead magnet CTAs to 3 key pages: dilution, index, blog
-
-### C75: Set Up Vercel Analytics Dashboard
-- Review Vercel Analytics data after launch
-- Set up custom events for calculator usage
-- Track conversion funnel: landing → calculator → newsletter → Pro
-- Report key metrics
-
-### C76: Submit to Product Hunt "Coming Soon"
+### C80: Submit to Product Hunt "Coming Soon"
 - Create PH listing with tagline and description
 - Schedule launch date for Week 3-4
 - Prepare maker comment
 - Screenshot each calculator for gallery
 
-### C77: Submit to Startup Directories ✅ MATERIALS READY
-- Created MARKETING/DIRECTORY-SUBMISSIONS.md with submission materials
-- Consistent descriptions for BetaList, Startup Stash, AlternativeTo, Product Hunt
-- Taglines, descriptions (short/medium/long/full), feature lists
-- Submission checklists and after-submission tasks
-- Ready for human to submit to directories (requires external account creation)
+### C81: Create Startup Subreddit Value Posts
+- Write 3 helpful equity answers for r/startups (no self-promo)
+- Reference FounderMath naturally in comments
+- Post on different days for visibility
+
+### C82: Set Up Vercel Analytics Dashboard
+- Review Vercel Analytics data after launch
+- Set up custom events for calculator usage
+- Track conversion funnel: landing → calculator → newsletter → Pro
+
+### C88: Update Navigation on All Pages
+- Add "Equity Split" link to nav on all 6 calculator pages
+- Add "Equity Split" link to nav on about, pricing, blog, faq, 404 pages
+- Add "Free Tools" and "Carta Alternatives" links to footer on all pages
+- Ensure consistent nav across all 27+ pages
+
+### C89: Share Embed Page with Accelerators
+- Find 10 startup accelerator websites with resource pages
+- Email them suggesting they embed our free calculators
+- Use embed.html as the pitch page
+- Track which accelerators respond
 
 ## SEO & Content
 
-### C45: Add Table of Contents to Long Blog Posts ✅ DONE
-- Added TOC to 5 blog posts: anti-dilution, convertible-notes-vs-safe, liquidation-preference, ltv-cac-ratio, why-i-built-foundermath
-- Added CSS for TOC styling
-- All h2 headers have IDs for linking
+### C83: Optimize Page Titles for Click-Through Rate
+- Add "Free" to calculator page titles
+- Add year "2026" to blog post titles
+- Test emotional triggers in meta descriptions
+- Example: "Free Equity Dilution Calculator | FounderMath 2026"
 
-### C46: Add Related Posts Section to Blog Posts ✅ DONE
+### C84: Create Internal Link Building Strategy
+- Add "Related Calculators" section to each calculator page
+- Link blog posts to calculator pages with keyword-rich anchor text
+- Add "Try our X calculator" CTAs in blog posts
+- Cross-link between blog posts
 
-### C47: Add Author Bio Section to Blog Posts ✅ DONE
-- Added "About the Author" section to all 17 blog posts
-- Includes brief bio and newsletter CTA
+### C85: Submit Sitemap to Google Search Console
+- Verify sitemap.xml is accessible at founder-math.com/sitemap.xml
+- Submit via Google Search Console
+- Check for crawl errors
+- Monitor indexing progress
+
+### C90: Write Blog Post: "How to Split Equity with Your Co-Founder"
+- Target keyword: "how to split equity with cofounder"
+- Link to equity-split.html calculator
+- Include real-world examples and common mistakes
+- 1500+ words with TOC
+
+### C91: Create OG Image for Equity Split Calculator
+- Design SVG og image for equity-split.html
+- Match style of existing calculator OG images
+- Update meta tags
 
 ## Site Improvements
 
-### C70: Create Welcome Email in Buttondown ✅ Content in BUTTONDOWN-EMAILS.md
+### C86: Add Breadcrumb Navigation
+- Add breadcrumb trail to all calculator pages
+- Add to blog posts
+- Add BreadcrumbList schema markup for SEO
+- Example: Home > Calculators > Equity Dilution Calculator
 
-### C78: Add "Open Graph Image" Generator ✅ DONE
-- Created 10 unique OG SVG images for social sharing
-- Calculator OG images: dilution, safe, cap-table, vesting, runway, unit-economics
-- Site page OG images: home, about, pricing, blog
-- Each image has calculator-specific visualizations and branding
-- Updated 10 pages to use themed OG images for better social sharing
+### C87: Create Calculator Quick-Start Guide
+- Simple 3-step guide for each calculator
+- Add as expandable section above calculator
+- Include example inputs and expected outputs
 
-### C60: Add Conversion Tracking for Pricing ✅ DONE
+## Completed
 
-## Mobile & Accessibility
-
-### C63: Add ARIA Live Regions for Calculator Updates ✅ DONE
-- Added aria-live="polite" and aria-atomic="true" to all 6 calculators
-- Screen readers now announce calculation results
-
-## Marketing Preparation
-
-### C65: Create Calculator Screenshots ✅ PLAN READY
-- Created assets/calculator-screenshots/ directory
-- Documented screenshot requirements for all 6 calculators
-- Ready for human to capture screenshots
-
-## Already Completed
-
-✅ C1-C10: Favicon, meta tags, GA4, mobile nav, footer, performance, 4 SEO blog posts
-✅ C11-C14: Scroll animations, dark/light mode, print CSS, 404, robots.txt/sitemap, accessibility, error handling
-✅ C16-C27: Auto-save, saved scenarios, PDF export, compare scenarios, 5 blog posts, blog index, light theme
-✅ C28-C44: Calculator UX polish, pro tips, keyboard shortcuts, marketing templates, 5 SEO blog posts, Twitter Card tags, reading time
-✅ C45-C60: CSV export, calculator presets, import/export, print buttons, share to Twitter, contact page, FAQ, GSC verification, event tracking, mobile UX, skip links, demo URLs, newsletter forms, Buttondown wired, Product Hunt prep, Schema.org, tracking verified, related posts, UTM parameters, welcome email, TOCs, author bios, ARIA, screenshots plan
-✅ C63-C78: Conversion tracking, ARIA regions, calculator screenshots plan, OG images, lead magnet (equity cheat sheet), directory submissions, competitive analysis, exit-intent popup
-✅ C11-C12: Scroll animations, dark/light mode
-✅ C16-C20: Print CSS, 404, robots.txt/sitemap, accessibility, error handling
-✅ C24-C27: Auto-save, saved scenarios, PDF export, compare scenarios
-✅ C28-C32: 5 blog posts, blog index, light theme
-✅ C33-C37: Calculator UX polish, pro tips, keyboard shortcuts, marketing templates
-✅ C38-C42: 5 SEO blog posts
-✅ C43-C44: Twitter Card tags, reading time
-✅ C48-C51: CSV export, calculator presets, import/export, print buttons
-✅ C52-C53: Share to Twitter, contact page
-✅ C54: FAQ page
-✅ C58-C59: GSC verification, event tracking
-✅ C61-C62: Mobile UX review, skip links
-✅ C64: Demo scenario URLs
-✅ C67-C69: Newsletter signup to all pages, API integration, Buttondown wired
-✅ C71-C73: Product Hunt prep, Schema.org, tracking verified
-✅ C46: Related posts on all 17 blog posts
-✅ C60: UTM parameters on Stripe links, pricing tracking
-✅ C70: Welcome email content prepared (BUTTONDOWN-EMAILS.md)
-✅ C45: Table of Contents added to 5 long blog posts
-✅ C47: Author Bio added to all 17 blog posts
-✅ C63: ARIA Live Regions added to all 6 calculators
-✅ C65: Calculator screenshots plan created
+✅ C1-C44: Landing page, calculators, blog posts, SEO basics, UX polish, marketing templates
+✅ C45-C63: Blog TOCs, author bios, ARIA regions, conversion tracking, demo URLs, newsletter forms
+✅ C64-C78: Product Hunt prep, Schema.org, OG images, lead magnet, directory submissions, exit-intent popup

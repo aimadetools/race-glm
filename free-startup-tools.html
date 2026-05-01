@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Startup Calculator Tools — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="7 free startup calculator tools for founders: equity dilution, SAFE notes, runway, cap table, vesting, unit economics, and cofounder equity split. No signup required.">
+    <meta name="keywords" content="free startup calculator tools, free equity calculator, free SAFE note calculator, free runway calculator, free cap table tool, startup founder tools">
+    <meta property="og:title" content="Free Startup Calculator Tools — FounderMath">
+    <meta property="og:description" content="7 free interactive calculators for startup founders. Equity dilution, SAFE notes, runway, cap table, and more. No signup.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/free-startup-tools.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="7 Free Startup Calculator Tools">
+    <meta name="twitter:description" content="Interactive equity, SAFE, runway, and cap table calculators. No signup required.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Free Startup Calculator Tools",
+        "description": "7 free interactive calculators for startup founders.",
+        "numberOfItems": 7,
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "url": "https://founder-math.com/dilution.html", "name": "Equity Dilution Calculator" },
+            { "@type": "ListItem", "position": 2, "url": "https://founder-math.com/safe.html", "name": "SAFE Note Calculator" },
+            { "@type": "ListItem", "position": 3, "url": "https://founder-math.com/runway.html", "name": "Startup Runway Calculator" },
+            { "@type": "ListItem", "position": 4, "url": "https://founder-math.com/cap-table.html", "name": "Cap Table Builder" },
+            { "@type": "ListItem", "position": 5, "url": "https://founder-math.com/vesting.html", "name": "Vesting Schedule Calculator" },
+            { "@type": "ListItem", "position": 6, "url": "https://founder-math.com/unit-economics.html", "name": "CAC/LTV Unit Economics Calculator" },
+            { "@type": "ListItem", "position": 7, "url": "https://founder-math.com/equity-split.html", "name": "Co-Founder Equity Split Calculator" }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f; --bg-secondary: #12121a; --bg-card: #1a1a2e;
+            --accent: #6c5ce7; --accent-light: #a29bfe; --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894; --green-glow: rgba(0, 184, 148, 0.3);
+            --text-primary: #f0f0f5; --text-secondary: #a0a0b5; --text-muted: #666680;
+            --border: #2a2a40; --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        .hero { padding: 120px 24px 60px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%); pointer-events: none; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 16px; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { color: var(--text-secondary); font-size: 1.15rem; max-width: 650px; margin: 0 auto; position: relative; }
+        .hero .subtitle { margin-top: 12px; font-size: 0.9rem; color: var(--text-muted); }
+
+        .tools-grid { max-width: 1100px; margin: 0 auto; padding: 0 24px 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+
+        .tool-card {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px;
+            padding: 28px; transition: all 0.3s; position: relative; overflow: hidden;
+        }
+        .tool-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(108,92,231,0.15); }
+        .tool-card .tool-icon { font-size: 2rem; margin-bottom: 16px; }
+        .tool-card h2 { font-size: 1.2rem; margin-bottom: 8px; }
+        .tool-card h2 a { color: var(--text-primary); text-decoration: none; }
+        .tool-card h2 a:hover { color: var(--accent-light); }
+        .tool-card .tool-desc { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px; line-height: 1.5; }
+        .tool-card .tool-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+        .tool-tag { background: var(--bg-card); color: var(--text-muted); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; }
+        .tool-card .tool-link { color: var(--accent-light); font-weight: 600; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+        .tool-card .tool-link:hover { text-decoration: underline; }
+        .tool-card .free-badge { position: absolute; top: 16px; right: 16px; background: var(--green); color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+
+        .resources { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+        .resources h2 { font-size: 1.5rem; margin-bottom: 24px; text-align: center; }
+        .resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+        .resource-link { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-decoration: none; transition: all 0.2s; }
+        .resource-link:hover { border-color: var(--accent); }
+        .resource-link h3 { font-size: 0.95rem; color: var(--text-primary); margin-bottom: 4px; }
+        .resource-link p { font-size: 0.8rem; color: var(--text-muted); }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .tools-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo"><div class="logo-icon">%</div>FounderMath</a>
+            <ul class="nav-links">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="pricing.html" class="nav-cta">Start Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Free <span class="gradient">Startup Calculator</span> Tools</h1>
+        <p>7 interactive calculators for startup founders. No signup, no paywall, no email required. Just open and calculate.</p>
+        <p class="subtitle">Used by founders preparing for pre-seed, seed, and Series A fundraising.</p>
+    </header>
+
+    <div class="tools-grid">
+        <div class="tool-card">
+            <span class="free-badge">Free</span>
+            <div class="tool-icon">📊</div>
+            <h2><a href="dilution.html">Equity Dilution Calculator</a></h2>
+            <p class="tool-desc">See how your ownership percentage changes across pre-seed, seed, Series A, B, and C funding rounds. Visual stacked bar charts and detailed cap tables.</p>
+            <div class="tool-tags">
+                <span class="tool-tag">Dilution</span>
+                <span class="tool-tag">Funding Rounds</span>
+                <span class="tool-tag">Cap Table</span>
+            </div>
+            <a href="dilution.html" class="tool-link">Open Calculator &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <span class="free-badge">Free</span>
+            <div class="tool-icon">🤝</div>
+            <h2><a href="equity-split.html">Co-Founder Equity Split Calculator</a></h2>
+            <p class="tool-desc">Figure out a fair equity split based on each founder's contributions: idea, technical skills, business expertise, time commitment, and capital invested.</p>
+            <div class="tool-tags">
+                <span class="tool-tag">Equity Split</span>
+                <span class="tool-tag">Cofounders</span>
+                <span class="tool-tag">Fair Split</span>
+            </div>
+            <a href="equity-split.html" class="tool-link">Open Calculator &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <span class="free-badge">Free</span>
+            <div class="tool-icon">📝</div>
+            <h2><a href="safe.html">SAFE Note Calculator</a></h2>
+            <p class="tool-desc">Model Y Combinator SAFE note conversions. Compare pre-money and post-money SAFEs, see conversion prices, and understand dilution impact.</p>
+            <div class="tool-tags">
+                <span class="tool-tag">SAFE Notes</span>
+                <span class="tool-tag">Convertible</span>
+                <span class="tool-tag">Valuation Cap</span>
+            </div>
+            <a href="safe.html" class="tool-link">Open Calculator &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <span class="free-badge">Free</span>
+            <div class="tool-icon">🔥</div>
+            <h2><a href="runway.html">Startup Runway Calculator</a></h2>
+            <p class="tool-desc">Calculate how many months of runway you have left. Visualize your cash burn rate, project when you'll run out, and model hiring plans.</p>
+            <div class="tool-tags">
+                <span class="tool-tag">Runway</span>
+                <span class="tool-tag">Burn Rate</span>
+                <span class="tool-tag">Cash Flow</span>
+            </div>
+            <a href="runway.html" class="tool-link">Open Calculator &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <span class="free-badge">Free</span>
+            <div class="tool-icon">📋</div>
+            <h2><a href="cap-table.html">Cap Table Builder</a></h2>
+            <p class="tool-desc">Build a complete cap table with founders, investors, option pool, and convertible notes. Track ownership percentages and share counts across rounds.</p>
+            <div class="tool-tags">
+                <span class="tool-tag">Cap Table</span>
+                <span class="tool-tag">Ownership</span>
+                <span class="tool-tag">Shares</span>
+            </div>
+            <a href="cap-table.html" class="tool-link">Open Calculator &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <span class="free-badge">Free</span>
+            <div class="tool-icon">⏳</div>
+            <h2><a href="vesting.html">Vesting Schedule Calculator</a></h2>
+            <p class="tool-desc">Visualize your equity vesting schedule with cliff periods, monthly vesting, and acceleration. See how much equity you've earned at any point in time.</p>
+            <div class="tool-tags">
+                <span class="tool-tag">Vesting</span>
+                <span class="tool-tag">Cliff</span>
+                <span class="tool-tag">Timeline</span>
+            </div>
+            <a href="vesting.html" class="tool-link">Open Calculator &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <span class="free-badge">Free</span>
+            <div class="tool-icon">📈</div>
+            <h2><a href="unit-economics.html">CAC/LTV Unit Economics Calculator</a></h2>
+            <p class="tool-desc">Calculate Customer Acquisition Cost, Lifetime Value, and LTV:CAC ratio. Understand whether your SaaS business model is fundamentally sound.</p>
+            <div class="tool-tags">
+                <span class="tool-tag">CAC</span>
+                <span class="tool-tag">LTV</span>
+                <span class="tool-tag">Unit Economics</span>
+            </div>
+            <a href="unit-economics.html" class="tool-link">Open Calculator &rarr;</a>
+        </div>
+    </div>
+
+    <div class="resources">
+        <h2>Free Learning Resources</h2>
+        <div class="resources-grid">
+            <a href="blog/equity-dilution-guide.html" class="resource-link">
+                <h3>How Equity Dilution Works</h3>
+                <p>Complete guide to understanding dilution across funding rounds.</p>
+            </a>
+            <a href="blog/safe-note-guide.html" class="resource-link">
+                <h3>SAFE Notes Explained</h3>
+                <p>Everything founders need to know about YC SAFE notes.</p>
+            </a>
+            <a href="blog/runway-guide.html" class="resource-link">
+                <h3>How to Calculate Runway</h3>
+                <p>Step-by-step guide to understanding your startup's runway.</p>
+            </a>
+            <a href="blog/vesting-schedules-guide.html" class="resource-link">
+                <h3>Vesting Schedules 101</h3>
+                <p>Understand 4-year vesting, cliffs, and acceleration.</p>
+            </a>
+            <a href="blog/cap-table-guide.html" class="resource-link">
+                <h3>Cap Table Management</h3>
+                <p>How to build and maintain a clean cap table.</p>
+            </a>
+            <a href="equity-cheat-sheet.html" class="resource-link">
+                <h3>Free Equity Cheat Sheet</h3>
+                <p>Quick reference formulas for dilution, vesting, SAFE notes, and more.</p>
+            </a>
+            <a href="embed.html" class="resource-link">
+                <h3>Embed Calculators on Your Site</h3>
+                <p>Free widgets for accelerators, blogs, and startup communities.</p>
+            </a>
+            <a href="faq.html" class="resource-link">
+                <h3>Frequently Asked Questions</h3>
+                <p>Common questions about startup equity, dilution, and financing.</p>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left"><p>&copy; 2026 FounderMath. Free calculators for founders.</p></div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="mailto:hello@foundermath.com">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

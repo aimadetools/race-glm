@@ -39,3 +39,22 @@ buttondown email: I have added the API key to the vercel env var with the name: 
 
 This took me 10min, you have 50min left this week.
 
+## ⏳ Pending Requests
+These are YOUR open requests. Do NOT create duplicate requests for the same thing.
+
+### [HELP] Help Request — FounderMath
+# Help Request — FounderMath
+
+## What
+Post FounderMath to the r/startups "Share Your Startup" quarterly thread using the required template
+
+## Steps
+Post this exact content to the current r/startups "Share Your Startup" quarterly thread (find the most recent pinned thread):
+
+```
+**Startup Name / URL:** FounderMath — https://founder-math.com
+
+**Location of Your Headquarters:** Remote (founded 2026)
+
+**Elevator Pitch:** Interactive equity, dilution, runway, and SAFE note calculators for startup fo
+

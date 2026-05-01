@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Co-Founder Equity Split Calculator — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Free cofounder equity split calculator. Rate each founder's contributions and get a fair equity split recommendation instantly. No signup required.">
+    <meta name="keywords" content="cofounder equity split calculator, startup equity split, how to split equity with cofounder, founder equity distribution, fair equity split">
+    <meta property="og:title" content="Free Co-Founder Equity Split Calculator — FounderMath">
+    <meta property="og:description" content="Stop arguing about equity. Rate each founder's contributions and get a data-driven equity split recommendation in 2 minutes.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/equity-split.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Co-Founder Equity Split Calculator">
+    <meta name="twitter:description" content="Stop arguing about equity. Get a data-driven split recommendation in 2 minutes.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Free Co-Founder Equity Split Calculator — FounderMath",
+        "url": "https://founder-math.com/equity-split.html",
+        "description": "Free cofounder equity split calculator. Rate each founder's contributions and get a fair equity split recommendation instantly.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Co-Founder Equity Split Calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "Rate each cofounder's contributions across key dimensions and get a data-driven equity split recommendation."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do you split equity between cofounders?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Split equity based on each cofounder's contributions across key dimensions: idea origination, technical expertise, business expertise, time commitment, and capital invested. Use a weighted scoring system to get a data-driven recommendation rather than splitting 50/50 by default."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should cofounders split equity 50/50?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "50/50 splits work when both cofounders contribute equally, but often lead to resentment when contributions are asymmetric. A data-driven approach based on measurable contributions leads to fairer outcomes and fewer disputes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What factors determine cofounder equity?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Key factors include: who originated the idea, technical expertise and execution ability, business development and sales skills, time commitment (full-time vs part-time), capital invested, industry connections, and leadership capability."
+                }
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --pink: #ff6b9d;
+            --yellow: #feca57;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s !important; }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; padding: 8px; }
+        /* PAGE HEADER */
+        .page-header {
+            padding: 120px 24px 48px; text-align: center; position: relative; overflow: hidden;
+        }
+        .page-header::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%);
+            animation: heroGlow 15s ease-in-out infinite alternate; pointer-events: none;
+        }
+        @keyframes heroGlow { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-5%, 5%) scale(1.1); } }
+        .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 12px; }
+        .page-header h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; position: relative; }
+        /* LAYOUT */
+        .calc-layout {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px 80px;
+            display: grid; grid-template-columns: 420px 1fr; gap: 32px; align-items: start;
+        }
+        .input-panel {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px;
+            padding: 24px; position: sticky; top: 88px; max-height: calc(100vh - 104px); overflow-y: auto;
+        }
+        .input-panel::-webkit-scrollbar { width: 4px; }
+        .input-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        .panel-section { margin-bottom: 24px; }
+        .panel-section:last-child { margin-bottom: 0; }
+        .panel-section-title {
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--accent-light); margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .add-btn {
+            background: var(--accent); color: white; border: none; padding: 6px 14px;
+            border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.2s;
+        }
+        .add-btn:hover { background: var(--accent-light); transform: translateY(-1px); }
+        /* Founder Cards */
+        .founder-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 16px; margin-bottom: 12px; transition: border-color 0.2s;
+        }
+        .founder-card:hover { border-color: var(--accent); }
+        .founder-card-header {
+            display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;
+        }
+        .founder-card-header input {
+            background: transparent; border: none; color: var(--text-primary); font-size: 1rem;
+            font-weight: 600; width: 100%; outline: none;
+        }
+        .remove-btn {
+            background: none; border: none; color: var(--text-muted); font-size: 1.2rem;
+            cursor: pointer; padding: 4px 8px; border-radius: 4px; transition: all 0.2s; line-height: 1;
+        }
+        .remove-btn:hover { color: var(--red); background: rgba(255, 107, 107, 0.1); }
+        /* Sliders */
+        .slider-row { margin-bottom: 10px; }
+        .slider-label {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;
+        }
+        .slider-value { font-family: var(--font-mono); font-weight: 700; color: var(--accent-light); min-width: 24px; text-align: right; }
+        input[type="range"] {
+            width: 100%; height: 6px; -webkit-appearance: none; appearance: none;
+            background: var(--border); border-radius: 3px; outline: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; appearance: none; width: 18px; height: 18px;
+            border-radius: 50%; background: var(--accent); cursor: pointer; border: 2px solid var(--accent-light);
+            transition: transform 0.2s;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+        /* Weight adjusters */
+        .weight-section { margin-top: 16px; }
+        .weight-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .weight-label { font-size: 0.8rem; color: var(--text-secondary); min-width: 120px; }
+        .weight-input {
+            width: 60px; padding: 4px 8px; background: var(--bg-input); border: 1px solid var(--border);
+            border-radius: 6px; color: var(--text-primary); font-family: var(--font-mono); font-size: 0.85rem;
+            text-align: center; outline: none;
+        }
+        .weight-input:focus { border-color: var(--accent); }
+        /* Results Panel */
+        .results-panel { min-width: 0; }
+        .summary-cards {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px; margin-bottom: 32px;
+        }
+        .summary-card {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+            padding: 20px; text-align: center;
+        }
+        .summary-card .metric-value { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 800; }
+        .summary-card .metric-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+        .chart-section {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px;
+            padding: 32px; margin-bottom: 32px;
+        }
+        .chart-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .chart-section .chart-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+        .chart-container { position: relative; height: 400px; max-width: 500px; margin: 0 auto; }
+        .chart-container canvas { width: 100% !important; height: 100% !important; }
+        /* Results table */
+        .table-section {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px;
+            padding: 32px; overflow-x: auto;
+        }
+        .table-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .table-section .table-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+        .split-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .split-table th {
+            text-align: left; padding: 12px 16px; border-bottom: 2px solid var(--border);
+            color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;
+        }
+        .split-table td { padding: 12px 16px; border-bottom: 1px solid rgba(42, 42, 64, 0.3); }
+        .split-table tr:hover td { background: rgba(108, 92, 231, 0.05); }
+        .split-table .pct { font-family: var(--font-mono); font-weight: 700; font-size: 1.1rem; }
+        .split-table .bar-cell { width: 40%; }
+        .pct-bar { height: 8px; border-radius: 4px; transition: width 0.5s ease; }
+        /* CTA */
+        .calc-cta {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 16px;
+            padding: 32px; text-align: center; margin-top: 32px;
+        }
+        .calc-cta h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .calc-cta p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 20px; }
+        .calc-cta .btn-white {
+            background: white; color: var(--accent); padding: 12px 28px; border-radius: 8px;
+            font-weight: 700; text-decoration: none; transition: transform 0.2s; display: inline-block;
+        }
+        .calc-cta .btn-white:hover { transform: translateY(-2px); }
+        /* Share bar */
+        .share-bar { display: flex; gap: 8px; flex-wrap: wrap; }
+        .btn-share {
+            background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary);
+            padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; cursor: pointer;
+            transition: all 0.2s; font-weight: 500;
+        }
+        .btn-share:hover { border-color: var(--accent); color: var(--text-primary); }
+        /* Footer */
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text-primary); }
+        /* Toast */
+        .toast {
+            position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px);
+            background: var(--green); color: white; padding: 12px 24px; border-radius: 8px;
+            font-weight: 600; font-size: 0.9rem; transition: transform 0.3s ease; z-index: 1000;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+        .skip-link {
+            position: absolute; top: -40px; left: 0; background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001; transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+        /* Theme toggle */
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary);
+            padding: 8px; border-radius: 50%; cursor: pointer; display: flex; align-items: center;
+            justify-content: center; transition: all 0.2s; width: 36px; height: 36px;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        .theme-toggle .sun-icon, .theme-toggle .moon-icon { width: 18px; height: 18px; }
+        .theme-toggle .sun-icon { display: none; }
+        .theme-toggle .moon-icon { display: block; }
+        body[data-theme="light"] .theme-toggle .sun-icon { display: block; }
+        body[data-theme="light"] .theme-toggle .moon-icon { display: none; }
+        /* Responsive */
+        @media (max-width: 960px) {
+            .calc-layout { grid-template-columns: 1fr; }
+            .input-panel { position: static; max-height: none; }
+        }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .chart-container { height: 300px; }
+        }
+        @media (prefers-contrast: more) { :root { --border: #ffffff; --text-secondary: #e0e0e0; } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+        /* Light theme */
+        body[data-theme="light"] { --bg-primary: #f8f9fc; --bg-secondary: #ffffff; --bg-card: #f0f1f5; --bg-card-hover: #e8e9ed; --bg-input: #f0f1f5; --text-primary: #1a1a2e; --text-secondary: #555570; --text-muted: #8888a0; --border: #dddde5; }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="runway.html" role="menuitem">Runway</a></li>
+                <li role="none"><a href="safe.html" role="menuitem">SAFE</a></li>
+                <li role="none"><a href="vesting.html" role="menuitem">Vesting</a></li>
+                <li role="none"><a href="unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="cap-table.html" role="menuitem">Cap Table</a></li>
+                <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+                <li role="none"><a href="about.html" role="menuitem">About</a></li>
+                <li role="none"><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l-1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l-1.42-1.42"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Co-Founder <span class="gradient">Equity Split</span> Calculator</h1>
+        <p>Stop arguing about who gets what. Rate each founder's contributions and get a fair, data-driven equity split in 2 minutes.</p>
+    </header>
+
+    <main id="main-content">
+    <div class="calc-layout">
+        <!-- Left: Inputs -->
+        <div class="input-panel">
+            <div class="panel-section">
+                <div class="panel-section-title">
+                    <span>Founders</span>
+                    <button class="add-btn" onclick="addFounder()" id="addFounderBtn">+ Add Founder</button>
+                </div>
+                <div id="foundersContainer"></div>
+            </div>
+
+            <div class="panel-section weight-section">
+                <div class="panel-section-title"><span>Dimension Weights</span></div>
+                <p style="font-size:0.75rem;color:var(--text-muted);margin-bottom:12px;">Adjust how important each factor is (total must = 100).</p>
+                <div id="weightsContainer"></div>
+                <div id="weightWarning" style="color:var(--orange);font-size:0.8rem;display:none;margin-top:8px;">Weights must total 100.</div>
+            </div>
+
+            <div class="panel-section">
+                <div class="panel-section-title"><span>Share</span></div>
+                <div class="share-bar">
+                    <button class="btn-share" onclick="copyShareLink()" id="shareBtn">Copy Share Link</button>
+                    <button class="btn-share" onclick="shareToTwitter()">Share on Twitter</button>
+                    <button class="btn-share" onclick="window.print()">Print Results</button>
+                    <button class="btn-share" onclick="resetCalculator()">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Results -->
+        <div class="results-panel" role="region" aria-label="Calculator results">
+            <div class="summary-cards" aria-live="polite" aria-atomic="true" id="summaryCards"></div>
+
+            <section class="chart-section" aria-labelledby="chartTitle">
+                <h3 id="chartTitle">Recommended Equity Split</h3>
+                <p class="chart-subtitle">Based on each founder's weighted contributions across all dimensions.</p>
+                <div class="chart-container">
+                    <canvas id="splitChart" role="img" aria-label="Pie chart showing recommended equity split"></canvas>
+                </div>
+            </section>
+
+            <section class="table-section" aria-labelledby="tableTitle">
+                <h3 id="tableTitle">Detailed Breakdown</h3>
+                <p class="table-subtitle">Each founder's score by dimension and their resulting equity share.</p>
+                <div style="overflow-x:auto;">
+                    <table class="split-table" id="breakdownTable" role="table"></table>
+                </div>
+            </section>
+
+            <div class="calc-cta" role="complementary" aria-label="FounderMath Pro upgrade">
+                <h3>Ready to model dilution across funding rounds?</h3>
+                <p>See how your equity split changes after pre-seed, seed, and Series A with our Dilution Calculator.</p>
+                <a href="dilution.html" class="btn-white">Try Equity Dilution Calculator &rarr;</a>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <!-- Newsletter -->
+    <section style="max-width:700px;margin:40px auto;padding:32px 24px;text-align:center;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
+        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:8px;">Get weekly founder insights</h3>
+        <p style="color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem;">Equity breakdowns, fundraising math, and calculator tips. No spam.</p>
+        <form id="newsletterForm" onsubmit="handleNewsletter(event)" style="display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+            <input type="email" id="newsletterEmail" placeholder="founder@startup.com" required style="flex:1;min-width:200px;background:var(--bg-input);border:1px solid var(--border);color:var(--text-primary);padding:10px 14px;border-radius:8px;font-size:0.85rem;">
+            <button type="submit" id="newsletterBtn" style="background:var(--accent);color:white;border:none;padding:10px 20px;border-radius:8px;font-weight:600;font-size:0.85rem;cursor:pointer;">Subscribe</button>
+        </form>
+        <p id="newsletterMsg" style="margin-top:10px;font-size:0.8rem;display:none;"></p>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left"><p>&copy; 2026 FounderMath. Built for founders, by founders.</p></div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="mailto:hello@foundermath.com">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+    // ============================================================
+    // GA4 Tracking
+    // ============================================================
+    function trackEvent(eventName, params = {}) {
+        if (typeof gtag === 'function') gtag('event', eventName, { calculator: 'equity-split', ...params });
+    }
+    trackEvent('calculator_view', { calculator: 'equity-split' });
+
+    // ============================================================
+    // Data Model
+    // ============================================================
+    const DIMENSIONS = [
+        { id: 'idea', label: 'Idea & Vision', icon: '💡', desc: 'Who originated the core concept?' },
+        { id: 'tech', label: 'Technical Skills', icon: '⚙️', desc: 'Ability to build the product' },
+        { id: 'biz', label: 'Business & Sales', icon: '📈', desc: 'Domain expertise, fundraising, sales' },
+        { id: 'commitment', label: 'Time Commitment', icon: '⏰', desc: 'Full-time vs part-time dedication' },
+        { id: 'capital', label: 'Capital Invested', icon: '💰', desc: 'Personal funds put into the startup' },
+    ];
+
+    const FOUNDER_COLORS = ['#6c5ce7', '#00b894', '#ff6b6b', '#ffa502', '#54a0ff'];
+
+    let state = {
+        founders: [
+            { name: 'Founder 1', scores: { idea: 8, tech: 9, biz: 5, commitment: 10, capital: 3 } },
+            { name: 'Founder 2', scores: { idea: 5, tech: 4, biz: 9, commitment: 10, capital: 7 } },
+        ],
+        weights: { idea: 20, tech: 25, biz: 20, commitment: 25, capital: 10 }
+    };
+
+    let chart = null;
+
+    // ============================================================
+    // URL State
+    // ============================================================
+    function loadFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        const encoded = params.get('s');
+        if (!encoded) return false;
+        try {
+            const parsed = JSON.parse(atob(encoded));
+            if (parsed.founders && parsed.weights) { state = parsed; return true; }
+        } catch(e) {}
+        return false;
+    }
+
+    function encodeStateToURL() {
+        return window.location.origin + window.location.pathname + '?s=' + btoa(JSON.stringify(state));
+    }
+
+    // ============================================================
+    // Render Founders
+    // ============================================================
+    function renderFounders() {
+        const container = document.getElementById('foundersContainer');
+        container.innerHTML = '';
+        state.founders.forEach((f, i) => {
+            const card = document.createElement('div');
+            card.className = 'founder-card';
+            let slidersHTML = '';
+            DIMENSIONS.forEach(dim => {
+                const val = f.scores[dim.id] || 5;
+                slidersHTML += `
+                    <div class="slider-row">
+                        <div class="slider-label">
+                            <span>${dim.icon} ${dim.label}</span>
+                            <span class="slider-value" id="val-${i}-${dim.id}">${val}</span>
+                        </div>
+                        <input type="range" min="0" max="10" step="1" value="${val}"
+                            aria-label="${f.name} ${dim.label} score"
+                            oninput="updateScore(${i}, '${dim.id}', this.value)">
+                    </div>`;
+            });
+            card.innerHTML = `
+                <div class="founder-card-header">
+                    <input type="text" value="${escHtml(f.name)}" placeholder="Name"
+                        aria-label="Founder ${i+1} name"
+                        oninput="state.founders[${i}].name=this.value; recalculate()">
+                    <button class="remove-btn" onclick="removeFounder(${i})" aria-label="Remove ${escHtml(f.name)}" title="Remove">&times;</button>
+                </div>
+                ${slidersHTML}`;
+            container.appendChild(card);
+        });
+        document.getElementById('addFounderBtn').style.display = state.founders.length >= 5 ? 'none' : '';
+    }
+
+    function renderWeights() {
+        const container = document.getElementById('weightsContainer');
+        container.innerHTML = '';
+        DIMENSIONS.forEach(dim => {
+            const w = state.weights[dim.id] || 0;
+            const row = document.createElement('div');
+            row.className = 'weight-row';
+            row.innerHTML = `
+                <span class="weight-label">${dim.icon} ${dim.label}</span>
+                <input type="number" class="weight-input" min="0" max="100" value="${w}"
+                    aria-label="${dim.label} weight"
+                    oninput="updateWeight('${dim.id}', this.value)">
+                <span style="font-size:0.8rem;color:var(--text-muted);">%</span>`;
+            container.appendChild(row);
+        });
+    }
+
+    // ============================================================
+    // Actions
+    // ============================================================
+    function addFounder() {
+        if (state.founders.length >= 5) return;
+        state.founders.push({
+            name: `Founder ${state.founders.length + 1}`,
+            scores: { idea: 5, tech: 5, biz: 5, commitment: 5, capital: 5 }
+        });
+        renderFounders();
+        recalculate();
+    }
+
+    function removeFounder(i) {
+        if (state.founders.length <= 2) return;
+        state.founders.splice(i, 1);
+        renderFounders();
+        recalculate();
+    }
+
+    function updateScore(founderIdx, dimId, value) {
+        state.founders[founderIdx].scores[dimId] = parseInt(value) || 0;
+        const valEl = document.getElementById(`val-${founderIdx}-${dimId}`);
+        if (valEl) valEl.textContent = value;
+        recalculate();
+    }
+
+    function updateWeight(dimId, value) {
+        state.weights[dimId] = parseInt(value) || 0;
+        const total = Object.values(state.weights).reduce((s, w) => s + w, 0);
+        const warning = document.getElementById('weightWarning');
+        warning.style.display = total !== 100 ? 'block' : 'none';
+        recalculate();
+    }
+
+    function resetCalculator() {
+        state = {
+            founders: [
+                { name: 'Founder 1', scores: { idea: 8, tech: 9, biz: 5, commitment: 10, capital: 3 } },
+                { name: 'Founder 2', scores: { idea: 5, tech: 4, biz: 9, commitment: 10, capital: 7 } },
+            ],
+            weights: { idea: 20, tech: 25, biz: 20, commitment: 25, capital: 10 }
+        };
+        renderFounders();
+        renderWeights();
+        recalculate();
+    }
+
+    // ============================================================
+    // Calculate
+    // ============================================================
+    function calculate() {
+        const totalWeight = Object.values(state.weights).reduce((s, w) => s + w, 0);
+        const normalizedWeights = {};
+        if (totalWeight > 0) {
+            DIMENSIONS.forEach(dim => { normalizedWeights[dim.id] = state.weights[dim.id] / totalWeight; });
+        } else {
+            DIMENSIONS.forEach(dim => { normalizedWeights[dim.id] = 1 / DIMENSIONS.length; });
+        }
+
+        const results = state.founders.map((f, i) => {
+            let weightedScore = 0;
+            DIMENSIONS.forEach(dim => {
+                weightedScore += (f.scores[dim.id] || 0) * normalizedWeights[dim.id];
+            });
+            return { name: f.name, score: weightedScore, colorIndex: i, dimensionScores: { ...f.scores } };
+        });
+
+        const totalScore = results.reduce((s, r) => s + r.score, 0);
+        results.forEach(r => {
+            r.pct = totalScore > 0 ? (r.score / totalScore) * 100 : (100 / results.length);
+        });
+
+        return results;
+    }
+
+    // ============================================================
+    // Render
+    // ============================================================
+    function recalculate() {
+        const results = calculate();
+        renderSummaryCards(results);
+        renderChart(results);
+        renderTable(results);
+        try { localStorage.setItem('foundermath_split_state', JSON.stringify(state)); } catch(e) {}
+    }
+
+    function renderSummaryCards(results) {
+        const container = document.getElementById('summaryCards');
+        container.innerHTML = results.map((r, i) => `
+            <div class="summary-card">
+                <div class="metric-value" style="color:${FOUNDER_COLORS[i % FOUNDER_COLORS.length]}">${r.pct.toFixed(1)}%</div>
+                <div class="metric-label">${escHtml(r.name)}</div>
+            </div>`).join('');
+    }
+
+    function renderChart(results) {
+        const ctx = document.getElementById('splitChart').getContext('2d');
+        if (chart) chart.destroy();
+        chart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: results.map(r => r.name),
+                datasets: [{
+                    data: results.map(r => Math.round(r.pct * 10) / 10),
+                    backgroundColor: results.map((r, i) => FOUNDER_COLORS[i % FOUNDER_COLORS.length] + 'cc'),
+                    borderColor: results.map((r, i) => FOUNDER_COLORS[i % FOUNDER_COLORS.length]),
+                    borderWidth: 2,
+                    hoverOffset: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '55%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#8888a0', padding: 20, usePointStyle: true, font: { size: 13 } }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(ctx) { return ctx.label + ': ' + ctx.parsed.toFixed(1) + '%'; }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function renderTable(results) {
+        const table = document.getElementById('breakdownTable');
+        let html = '<thead><tr><th>Founder</th>';
+        DIMENSIONS.forEach(dim => { html += `<th>${dim.icon} ${dim.label}</th>`; });
+        html += '<th>Score</th><th>Equity</th><th class="bar-cell">Share</th></tr></thead><tbody>';
+
+        results.forEach((r, i) => {
+            const color = FOUNDER_COLORS[i % FOUNDER_COLORS.length];
+            html += `<tr>`;
+            html += `<td style="font-weight:600;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${color};margin-right:8px;" aria-hidden="true"></span>${escHtml(r.name)}</td>`;
+            DIMENSIONS.forEach(dim => {
+                const score = r.dimensionScores[dim.id] || 0;
+                const barWidth = score * 10;
+                html += `<td><span style="font-family:var(--font-mono);font-size:0.85rem;">${score}</span>/10</td>`;
+            });
+            html += `<td style="font-family:var(--font-mono);font-weight:600;">${r.score.toFixed(1)}</td>`;
+            html += `<td class="pct" style="color:${color}">${r.pct.toFixed(1)}%</td>`;
+            html += `<td class="bar-cell"><div class="pct-bar" style="width:${r.pct}%;background:${color};"></div></td>`;
+            html += '</tr>';
+        });
+
+        html += '</tbody>';
+        table.innerHTML = html;
+    }
+
+    // ============================================================
+    // Share
+    // ============================================================
+    function copyShareLink() {
+        const url = encodeStateToURL();
+        navigator.clipboard.writeText(url).then(() => {
+            const btn = document.getElementById('shareBtn');
+            btn.textContent = 'Copied!';
+            showToast('Link copied!');
+            trackEvent('copy_share_link');
+            setTimeout(() => { btn.textContent = 'Copy Share Link'; }, 2000);
+        }).catch(() => { prompt('Copy this link:', url); });
+    }
+
+    function shareToTwitter() {
+        const results = calculate();
+        const text = `Our cofounder equity split: ${results.map(r => `${r.name}: ${r.pct.toFixed(1)}%`).join(', ')}. Calculate yours: ${encodeStateToURL()} #startup #equity #cofounders`;
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+        trackEvent('share_twitter');
+    }
+
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // ============================================================
+    // Theme & Mobile
+    // ============================================================
+    function toggleTheme() {
+        const body = document.body;
+        const newTheme = (body.getAttribute('data-theme') || 'dark') === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+
+    function toggleMobileMenu() {
+        const nav = document.getElementById('navLinks');
+        const btn = document.getElementById('mobileToggle');
+        nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', nav.classList.contains('open'));
+    }
+
+    // ============================================================
+    // Helpers
+    // ============================================================
+    function escHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    // ============================================================
+    // Newsletter
+    // ============================================================
+    async function handleNewsletter(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value;
+        const msg = document.getElementById('newsletterMsg');
+        const btn = document.getElementById('newsletterBtn');
+        btn.textContent = 'Subscribing...'; btn.disabled = true;
+        try {
+            const resp = await fetch('/api/subscribe', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+            });
+            if (resp.ok) {
+                btn.textContent = 'Subscribed!'; btn.style.background = '#27ae60';
+                msg.textContent = 'Thanks! Weekly insights coming your way.'; msg.style.color = '#27ae60';
+                trackEvent('newsletter_signup', { source: 'equity-split' });
+                document.getElementById('newsletterEmail').value = '';
+            } else {
+                btn.textContent = 'Subscribe';
+                msg.textContent = 'Something went wrong.'; msg.style.color = '#e74c3c';
+            }
+        } catch(err) {
+            btn.textContent = 'Subscribe';
+            msg.textContent = 'Network error.'; msg.style.color = '#e74c3c';
+        }
+        msg.style.display = 'block'; btn.disabled = false;
+        setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = 'var(--accent)'; }, 4000);
+    }
+
+    // ============================================================
+    // Init
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+    });
+
+    loadFromURL();
+    renderFounders();
+    renderWeights();
+    recalculate();
+    </script>
+</body>
+</html>

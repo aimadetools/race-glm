@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed FounderMath Calculators — Free Widgets for Your Site</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Embed free startup equity calculators on your website. Dilution calculator, SAFE note calculator, runway calculator, and more. Copy-paste widget code.">
+    <meta name="keywords" content="embed equity calculator, startup calculator widget, free embeddable calculator, dilution calculator widget">
+    <meta property="og:title" content="Embed Free Startup Calculators on Your Site — FounderMath">
+    <meta property="og:description" content="Free embeddable startup calculators. Add equity dilution, SAFE note, and runway calculators to your website with one line of code.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/embed.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f; --bg-secondary: #12121a; --bg-card: #1a1a2e;
+            --accent: #6c5ce7; --accent-light: #a29bfe; --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894; --green-glow: rgba(0, 184, 148, 0.3);
+            --text-primary: #f0f0f5; --text-secondary: #a0a0b5; --text-muted: #666680;
+            --border: #2a2a40; --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .hero { padding: 120px 24px 60px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%); pointer-events: none; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 16px; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { color: var(--text-secondary); font-size: 1.15rem; max-width: 650px; margin: 0 auto; position: relative; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px 80px; }
+        .widget-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .widget-card h2 { font-size: 1.3rem; margin-bottom: 8px; }
+        .widget-card .desc { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px; }
+        .widget-preview { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; text-align: center; min-height: 200px; display: flex; align-items: center; justify-content: center; }
+        .widget-preview iframe { border: 1px solid var(--border); border-radius: 8px; max-width: 100%; }
+        .code-block { background: #0d1117; border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.85rem; color: #c9d1d9; overflow-x: auto; position: relative; }
+        .code-block .copy-btn { position: absolute; top: 8px; right: 8px; background: var(--accent); color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; cursor: pointer; font-weight: 600; }
+        .code-block .copy-btn:hover { background: var(--accent-light); }
+        .sizes { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .size-btn { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
+        .size-btn:hover, .size-btn.active { border-color: var(--accent); color: var(--text-primary); background: rgba(108, 92, 231, 0.1); }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 48px; }
+        .feature { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+        .feature h3 { font-size: 1rem; margin-bottom: 8px; color: var(--accent-light); }
+        .feature p { font-size: 0.9rem; color: var(--text-secondary); }
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo"><div class="logo-icon">%</div>FounderMath</a>
+            <ul class="nav-links">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="pricing.html" class="nav-cta">Start Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Embed Free <span class="gradient">Startup Calculators</span></h1>
+        <p>Add interactive equity, SAFE note, runway, and dilution calculators to your website, blog, or accelerator page. One line of code. Completely free.</p>
+    </header>
+
+    <div class="container">
+        <!-- Dilution Widget -->
+        <div class="widget-card">
+            <h2>Equity Dilution Calculator</h2>
+            <p class="desc">Let your visitors model how equity changes across funding rounds. Perfect for startup blogs, accelerators, and VC sites.</p>
+            <div class="widget-preview" id="preview-dilution"></div>
+            <div class="sizes">
+                <button class="size-btn active" onclick="setSize('dilution', '100%', '600')">Full Width</button>
+                <button class="size-btn" onclick="setSize('dilution', '500px', '600')">500px</button>
+                <button class="size-btn" onclick="setSize('dilution', '400px', '500')">Compact</button>
+            </div>
+            <div class="code-block" id="code-dilution">
+                <button class="copy-btn" onclick="copyCode('dilution')">Copy Code</button>
+                <pre id="embed-dilution"></pre>
+            </div>
+        </div>
+
+        <!-- Equity Split Widget -->
+        <div class="widget-card">
+            <h2>Co-Founder Equity Split Calculator</h2>
+            <p class="desc">Help founders figure out a fair equity split based on each person's contributions.</p>
+            <div class="widget-preview" id="preview-split"></div>
+            <div class="sizes">
+                <button class="size-btn active" onclick="setSize('split', '100%', '600')">Full Width</button>
+                <button class="size-btn" onclick="setSize('split', '500px', '600')">500px</button>
+            </div>
+            <div class="code-block" id="code-split">
+                <button class="copy-btn" onclick="copyCode('split')">Copy Code</button>
+                <pre id="embed-split"></pre>
+            </div>
+        </div>
+
+        <!-- Runway Widget -->
+        <div class="widget-card">
+            <h2>Startup Runway Calculator</h2>
+            <p class="desc">Show founders how many months of runway they have left based on their burn rate.</p>
+            <div class="widget-preview" id="preview-runway"></div>
+            <div class="sizes">
+                <button class="size-btn active" onclick="setSize('runway', '100%', '500')">Full Width</button>
+                <button class="size-btn" onclick="setSize('runway', '500px', '500')">500px</button>
+            </div>
+            <div class="code-block" id="code-runway">
+                <button class="copy-btn" onclick="copyCode('runway')">Copy Code</button>
+                <pre id="embed-runway"></pre>
+            </div>
+        </div>
+
+        <!-- Why embed -->
+        <div class="features">
+            <div class="feature">
+                <h3>100% Free</h3>
+                <p>No signup, no API key, no account required. Just copy the code and paste it into your site.</p>
+            </div>
+            <div class="feature">
+                <h3>No Dependencies</h3>
+                <p>Pure iframe embed. Works with WordPress, Squarespace, Webflow, Notion, and any HTML page.</p>
+            </div>
+            <div class="feature">
+                <h3>Mobile Responsive</h3>
+                <p>Calculators adapt to any screen size. Your mobile visitors get the same great experience.</p>
+            </div>
+            <div class="feature">
+                <h3>Always Up-to-Date</h3>
+                <p>Calculators are hosted on our CDN. Any updates are automatically reflected on your site.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left"><p>&copy; 2026 FounderMath. Free calculators for founders.</p></div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+    const widgets = {
+        dilution: { url: 'https://founder-math.com/dilution.html', width: '100%', height: '600' },
+        split: { url: 'https://founder-math.com/equity-split.html', width: '100%', height: '600' },
+        runway: { url: 'https://founder-math.com/runway.html', width: '100%', height: '500' }
+    };
+
+    function updateEmbedCode(id) {
+        const w = widgets[id];
+        const code = `<iframe src="${w.url}?embed=true" width="${w.width}" height="${w.height}" frameborder="0" style="border:1px solid #2a2a40;border-radius:12px;max-width:100%;" title="FounderMath ${id} calculator"></iframe>`;
+        document.getElementById(`embed-${id}`).textContent = code;
+    }
+
+    function setSize(id, width, height) {
+        widgets[id].width = width;
+        widgets[id].height = height;
+        updateEmbedCode(id);
+        // Update preview
+        const preview = document.getElementById(`preview-${id}`);
+        preview.innerHTML = `<iframe src="${widgets[id].url}?embed=true" width="${width === '100%' ? '100%' : width}" height="${height}" frameborder="0" style="border:1px solid #2a2a40;border-radius:8px;max-width:100%;" title="Preview"></iframe>`;
+        // Update active button
+        const card = preview.closest('.widget-card');
+        card.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+
+    function copyCode(id) {
+        const code = document.getElementById(`embed-${id}`).textContent;
+        navigator.clipboard.writeText(code).then(() => {
+            const btn = event.target;
+            btn.textContent = 'Copied!';
+            setTimeout(() => { btn.textContent = 'Copy Code'; }, 2000);
+        });
+    }
+
+    // Init
+    Object.keys(widgets).forEach(id => updateEmbedCode(id));
+
+    // Lazy-load previews on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const preview = entry.target;
+                const id = preview.id.replace('preview-', '');
+                const w = widgets[id];
+                preview.innerHTML = `<iframe src="${w.url}?embed=true" width="100%" height="300" frameborder="0" style="border:1px solid #2a2a40;border-radius:8px;" title="Preview"></iframe>`;
+                observer.unobserve(preview);
+            }
+        });
+    }, { rootMargin: '200px' });
+
+    document.querySelectorAll('[id^="preview-"]').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
