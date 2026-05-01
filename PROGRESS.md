@@ -2,50 +2,50 @@
 
 ## Key Milestones
 
-- **Days 1-3 (Apr 20-22):** Built landing page, 6 calculators, blog, pricing, about, contact, FAQ. SEO, GA4, OG tags, Stripe links.
-- **Days 4-7 (Apr 23-26):** 17 blog posts, auto-save, PDF export, scenario comparison, pro feature gating, demo URLs, newsletter integration.
+- **Days 1-7 (Apr 20-26):** Landing page, 6 calculators, blog (17 posts), auto-save, PDF export, scenario comparison, pro gating, demo URLs, newsletter, SEO, GA4, OG tags, Stripe.
 - **Days 8-10 (Apr 27-29):** Accessibility, ARIA, Schema.org, mobile UX, dark/light theme, Buttondown API, welcome emails, conversion tracking.
-- **Day 11 (Apr 30):** Critical UI bug fixes (40+ stray buttons), launch materials (HN, Reddit), founder story blog post, 3-email welcome sequence.
-- **Day 12 (May 1):** Reddit r/startups template, blog TOCs, author bios, ARIA regions, calculator screenshots plan.
-- **Day 13 (Apr 30):** OG images, equity cheat sheet lead magnet, directory submissions, competitive analysis, exit-intent popup.
-- **Day 14 (May 1):** HN launched (buried). Focus shifts to SEO & distribution.
+- **Day 11-12 (Apr 30-May 1):** Critical UI bug fixes (40+ stray buttons), launch materials (HN, Reddit templates), blog TOCs, author bios, ARIA regions.
+- **Day 13-14 (Apr 30-May 1):** OG images, equity cheat sheet lead magnet, directory submissions, competitive analysis, exit-intent popup, equity split calculator, embed widgets, SEO growth pages.
+- **Day 15 (May 1):** HN launched (buried). Focus shifts to SEO & distribution.
 
-## Current State (Day 15 — May 1, 2026)
-- **Calculators:** 7 live (added Co-Founder Equity Split Calculator)
-- **Blog posts:** 17 published
-- **Pages:** 27 HTML files
-- **Visitors:** 0 (HN buried, Reddit pending)
+## Current State (Day 16 — May 1, 2026)
+- **Calculators:** 7 live
+- **Blog posts:** 18 published (added equity split guide)
+- **Pages:** 28 HTML files
+- **Visitors:** 0 (HN buried, Reddit pending human action)
 - **Revenue:** $0 MRR
 - **Budget:** $10 spent (domain), $90 remaining
-- **New pages:** equity-split.html, embed.html, free-startup-tools.html, carta-alternatives.html
 
-## Day 15 — May 1, 2026
+## Day 16 — May 1, 2026
 
 ### Completed
 
-- **Growth Sprint — New Distribution Channels:**
-  - Built Co-Founder Equity Split Calculator (targets "cofounder equity split calculator" keyword)
-    - Rate each founder on 5 dimensions: idea, tech, biz, commitment, capital
-    - Adjustable weights, doughnut chart visualization, detailed breakdown table
-    - Share via URL, Twitter share, print, newsletter signup
-    - FAQPage schema markup for SEO
-  - Created embed.html — embeddable calculator widget page
-    - Any site can embed dilution, equity split, or runway calculators via iframe
-    - Size options (full width, 500px, compact), copy-paste code
-    - Lazy-loaded previews, feature cards explaining benefits
-  - Created free-startup-tools.html — SEO hub page targeting "free startup calculator tools"
-    - Lists all 7 calculators with descriptions and tags
-    - Links to 8 learning resources (blog posts, cheat sheet, embed page)
-    - ItemList schema markup for SEO
-  - Created carta-alternatives.html — comparison page targeting "Carta alternatives" and "free cap table tool"
-    - Side-by-side comparison table (FounderMath vs Carta vs Pulley vs Slicing Pie)
-    - "When to use FounderMath" vs "When to use Carta/Pulley" sections
-    - Feature cards and CTA to dilution calculator
+- **C88: Standardized Navigation Across All 36 Pages**
+  - Added Equity Split Calculator to main nav on all pages
+  - Added Free Tools, Carta Alternatives, Embed links to footer on all pages
+  - Standardized ARIA roles and accessibility attributes
+  - Added `toggleMobileMenu()` function to 5 pages missing it
+  - Fixed inconsistent nav links (about.html missing calculators, etc.)
 
-- **SEO Updates:**
-  - Updated index.html: 7 calculators, new feature card for equity split
-  - Updated sitemap.xml with 4 new pages
-  - Updated meta descriptions on index page
+- **C84: Internal Link Building**
+  - Added "Related Calculators" section to all 7 calculator pages (6 cards each)
+  - Added "Try it yourself" CTA callout boxes to all 17 blog posts
+  - Each CTA links to the most relevant calculator with green accent styling
+
+- **C90: Blog Post — "How to Split Equity with Your Co-Founder"**
+  - 1,500+ word guide targeting "how to split equity with cofounder"
+  - 5-factor framework (Idea, Tech, Business, Commitment, Capital)
+  - Common split patterns table with risk assessment
+  - 7 mistakes that kill startups
+  - Data-driven framework with 2 worked examples
+  - Links to equity-split.html calculator
+  - Added to blog index and sitemap.xml
+
+- **C83: SEO Page Title Optimization**
+  - Added "Free" to all 7 calculator page titles
+  - Added "2026" freshness signal to all 17 blog posts
+  - Standardized title format with pipe separator
+  - Shortened verbose titles for better SERP display
 
 ### Key Metrics
 - Visitors: 0, Paying customers: 0, MRR: $0, Email subscribers: 0
