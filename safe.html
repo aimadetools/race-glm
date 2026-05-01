@@ -46,6 +46,32 @@
         "description": "Interactive calculator that models how YC SAFE notes convert at a priced round, supporting cap, discount, MFN, and multiple SAFE waterfall scenarios."
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://founder-math.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Calculators",
+                "item": "https://founder-math.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "SAFE Note Calculator",
+                "item": "https://founder-math.com/safe.html"
+            }
+        ]
+    }
+    </script>
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -96,6 +122,25 @@
         .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 12px; }
         .page-header h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .page-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; position: relative; }
+        /* BREADCRUMBS */
+        .breadcrumbs { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+        .breadcrumb { color: var(--text-muted); font-size: 0.8rem; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb:hover { color: var(--accent-light); }
+        .breadcrumb:last-child { color: var(--text-secondary); font-weight: 600; }
+        .breadcrumb-separator { color: var(--border); font-size: 0.7rem; }
+
+        /* QUICK START GUIDE */
+        .quick-start { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+        .quick-start-header { display: flex; align-items: center; justify-content: space-between; cursor: pointer; margin-bottom: 0; }
+        .quick-start-header h3 { font-size: 1rem; font-weight: 600; margin: 0; display: flex; align-items: center; gap: 10px; }
+        .quick-start-header .toggle-icon { transition: transform 0.3s; font-size: 1.2rem; }
+        .quick-start-header[aria-expanded="true"] .toggle-icon { transform: rotate(180deg); }
+        .quick-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+        .step { background: var(--bg-card); border-radius: 8px; padding: 12px; }
+        .step-number { color: var(--accent-light); font-weight: 700; font-size: 0.8rem; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .step-text { font-size: 0.85rem; color: var(--text-secondary); }
+        .quick-start-content { display: none; }
+        .quick-start-content.show { display: block; }
 
         /* CALC LAYOUT */
         .calc-layout { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 380px 1fr; gap: 32px; align-items: start; }
@@ -335,11 +380,41 @@
     </nav>
 
     <div class="page-header">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/" class="breadcrumb">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb">Calculators</span>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb">SAFE Note Calculator</span>
+        </nav>
         <h1>SAFE Note <span class="gradient">Converter</span></h1>
         <p>Model how your SAFE notes convert at a priced round. See the cap, discount, and ownership for each SAFE investor.</p>
     </div>
 
-    <div class="calc-layout">
+    <div class="calc-layout" style="padding:0;">
+        <!-- Quick Start Guide -->
+        <section class="quick-start" style="max-width:1200px;margin:0 auto 32px;padding:24px;">
+            <div class="quick-start-header" onclick="toggleQuickStart(this)" aria-expanded="false" aria-controls="safeQuickStart">
+                <h3><span style="color:var(--accent-light);margin-right:8px;">⚡</span>Quick Start: Get results in 30 seconds</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div id="safeQuickStart" class="quick-start-content show">
+                <div class="quick-steps">
+                    <div class="step">
+                        <div class="step-number">Step 1</div>
+                        <div class="step-text">Add your SAFE note with investment amount</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">Step 2</div>
+                        <div class="step-text">Set cap, discount, or MFN terms</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">Step 3</div>
+                        <div class="step-text">Enter priced round details and see conversion</div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <div class="input-panel">
             <div class="save-indicator" aria-live="polite">
                 <svg class="save-indicator-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -2566,6 +2641,13 @@
     </style>
 
     <script>
+        function toggleQuickStart(header) {
+            const content = header.nextElementSibling;
+            const isExpanded = header.getAttribute('aria-expanded') === 'true';
+            header.setAttribute('aria-expanded', !isExpanded);
+            content.classList.toggle('show', !isExpanded);
+        }
+
         function openCompareModal() {
             const scenarios = JSON.parse(localStorage.getItem('foundermath_safe_scenarios') || '[]');
             const select1 = document.getElementById('compareScenario1');

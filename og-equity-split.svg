@@ -1,0 +1,61 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7"/>
+      <stop offset="100%" style="stop-color:#a29bfe"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#55efc4"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="50" y="50" width="1100" height="530" rx="20" fill="none" stroke="url(#purple)" stroke-width="2"/>
+
+  <!-- Pie chart representation -->
+  <circle cx="600" cy="200" r="100" fill="none" stroke="#2a2a40" stroke-width="2"/>
+  <path d="M 600 100 A 100 100 0 0 1 686.6 150 Z" fill="url(#purple)" filter="url(#glow)"/>
+  <path d="M 686.6 150 A 100 100 0 0 1 686.6 250 Z" fill="#00b894" filter="url(#glow)"/>
+  <path d="M 686.6 250 A 100 100 0 0 1 513.4 250 Z" fill="#ff6b6b" filter="url(#glow)"/>
+  <path d="M 513.4 250 A 100 100 0 0 1 600 100 Z" fill="#ffa502" filter="url(#glow)"/>
+
+  <!-- Founder icons -->
+  <circle cx="480" cy="140" r="20" fill="url(#purple)"/>
+  <text x="480" y="146" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="white" text-anchor="middle">1</text>
+  <text x="480" y="175" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#a29bfe" text-anchor="middle">Founder 1</text>
+
+  <circle cx="720" cy="140" r="20" fill="#00b894"/>
+  <text x="720" y="146" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="white" text-anchor="middle">2</text>
+  <text x="720" y="175" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#55efc4" text-anchor="middle">Founder 2</text>
+
+  <!-- Split percentages -->
+  <text x="480" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="url(#purple)" text-anchor="middle">55%</text>
+  <text x="720" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="#00b894" text-anchor="middle">45%</text>
+
+  <!-- Tagline -->
+  <text x="600" y="370" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#a29bfe" text-anchor="middle">Fair. Data-driven. In 2 minutes.</text>
+
+  <!-- Main title -->
+  <text x="600" y="430" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="bold" fill="white" text-anchor="middle">Co-Founder Equity Split</text>
+  <text x="600" y="475" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#a29bfe" text-anchor="middle">Stop arguing about who gets what</text>
+
+  <rect x="420" y="500" width="360" height="45" rx="22.5" fill="url(#green)" filter="url(#glow)"/>
+  <text x="600" y="529" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="white" text-anchor="middle">founder-math.com/equity-split</text>
+
+  <!-- Decorative elements -->
+  <circle cx="150" cy="120" r="6" fill="#6c5ce7"/>
+  <circle cx="1050" cy="120" r="4" fill="#00b894"/>
+  <circle cx="1080" cy="550" r="3" fill="#6c5ce7"/>
+  <circle cx="120" cy="520" r="5" fill="#00b894" opacity="0.5"/>
+</svg>
