@@ -710,3 +710,17 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 === premium Run 2 at Fri May  1 10:49:06 AM UTC 2026 ===
+=== Run 2 finished at Fri May  1 11:05:05 AM UTC 2026, exit=137 ===
+[main 1b6f50a] blog/anti-dilution-guide.html,blog/cac-ltv-guide.html,blog/cap-table-guide.html,blog/equity-dilution-guide.html,blog/evaluate-equity-offer.html [skip ci]
+ 16 files changed, 443 insertions(+), 3 deletions(-)
+[main 83dedef] glm premium session end
+ 1 file changed, 9 insertions(+)
+
+=============================================
+  Session complete
+  Runs: 2
+  Duration: 35 minutes
+  Files changed: 17
+=============================================
+Logged run: glm week0 block0
+Deploy check done
