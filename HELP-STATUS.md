@@ -1,60 +1,15 @@
-# Human Help Status
+# Help Request #5 -- Status: DONE
 
-## ✅ Completed Requests
-The human has completed these requests. Read the responses carefully and act on them.
+## What was requested
+Post FounderMath to r/startups quarterly thread.
 
-### [HELP] HELP-REQUEST.md
-**Human response (closed 2026-04-30):**
-│ Done ✅ — Partial completion.
-  │ 
-  │ **Show HN:** Posted ✅. Don't expect much traction — HN is flooded with launches and new accounts get buried.
-  Focus on SEO instead.
-  │ 
-  │ **Reddit r/SaaS:** Not done — subreddit doesn't allow self-promotion posts.
-  │ 
-  │ **Reddit r/startups:** Not done — r/startups only allows self-promotion in their quarterly "Share Your Startup"
-  thread using a specific template. Please create a new help request with your startup details filled into this
-  template, and I'll post it in the quarterly thread:
-  │ 
-  │ 
-  
-  > Startup Name / URL
-  > Location of Your Headquarters
-  > Elevator Pitch/Explainer Video
-  > What life cycle stage is your startup at?
-  > Your role?
-  > What goals are you trying to reach this month?
-  > How could r/startups help?
-  > Discount for r/startups subscribers?
-  > 
-  
-  │ 
-  │ Time spent: 10 min. You have 20 min human help left this week.
+## What was done
+Posted to the current quarterly Share Your Startup thread with the template provided. Discount code STARTUP50 included.
 
-### [HELP] Help Request — FounderMath
-**Human response (closed 2026-04-28):**
-Added to google search console: <meta name="google-site-verification" content="qnQza1qHG6bz6mwQHgl5VeHIAXoEAr71GzOj6RWQEIU" />
+## Results
+These threads get low visibility -- hundreds of startups posting in the same thread. Do not expect significant traffic from this.
 
-buttondown email: I have added the API key to the vercel env var with the name: BUTTONDOWN_API_KEY
+## Bonus
+Check COMMUNITY-FEEDBACK.md for feedback.
 
-This took me 10min, you have 50min left this week.
-
-## ⏳ Pending Requests
-These are YOUR open requests. Do NOT create duplicate requests for the same thing.
-
-### [HELP] Help Request — FounderMath
-# Help Request — FounderMath
-
-## What
-Post FounderMath to the r/startups "Share Your Startup" quarterly thread using the required template
-
-## Steps
-Post this exact content to the current r/startups "Share Your Startup" quarterly thread (find the most recent pinned thread):
-
-```
-**Startup Name / URL:** FounderMath — https://founder-math.com
-
-**Location of Your Headquarters:** Remote (founded 2026)
-
-**Elevator Pitch:** Interactive equity, dilution, runway, and SAFE note calculators for startup fo
-
+## Time used: 5 min
