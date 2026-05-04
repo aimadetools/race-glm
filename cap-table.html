@@ -972,7 +972,7 @@
                     </div>
                     <div class="step">
                         <div class="step-number">Step 3</div>
-                        <div class="step-text">See cap table breakdown and ownership</div>
+                        <div class="step-text">See cap table, dilution timeline, and ownership at each round</div>
                     </div>
                 </div>
             </div>
@@ -1165,6 +1165,18 @@
                 <div class="waterfall-section">
                     <h4 style="margin-bottom:16px;font-size:1rem;font-weight:700;">Exit Waterfall at $<span id="waterfallExitValue">50M</span></h4>
                     <div id="waterfallContainer" role="list" aria-label="Waterfall distribution"></div>
+                </div>
+            </section>
+
+            <!-- Dilution Timeline -->
+            <section class="table-section" id="dilutionTimelineSection" style="display:none;" aria-labelledby="dilutionTitle">
+                <h3 id="dilutionTitle">Round-by-Round Dilution</h3>
+                <p class="chart-subtitle">See how each funding round dilutes all existing stakeholders. Percentages show ownership after each round.</p>
+                <div style="overflow-x:auto;">
+                    <table class="cap-table" id="dilutionTimeline" role="table">
+                        <thead id="dilutionTimelineHead"></thead>
+                        <tbody id="dilutionTimelineBody"></tbody>
+                    </table>
                 </div>
             </section>
 
@@ -1532,11 +1544,126 @@
         // Render table
         renderCapTable(effectiveEntities, totalShares);
 
+        // Calculate dilution timeline
+        calculateDilutionTimeline(effectiveEntities);
+
         // Calculate waterfall
         calculateWaterfall(effectiveEntities, totalShares);
 
         // Save to localStorage
         saveToLocalStorage();
+    }
+
+    // ============================================================
+    // DILUTION TIMELINE
+    // ============================================================
+    function calculateDilutionTimeline(effectiveEntities) {
+        const section = document.getElementById('dilutionTimelineSection');
+
+        // Define round stages based on entity types
+        const roundStages = [];
+
+        // Stage 1: Founders + Option Pool
+        const founders = effectiveEntities.filter(e => e.type === 'founder');
+        const options = effectiveEntities.filter(e => e.type === 'option');
+        if (founders.length > 0) {
+            roundStages.push({
+                name: 'Founding',
+                entities: [...founders, ...options]
+            });
+        }
+
+        // Stage 2: SAFEs
+        const safes = effectiveEntities.filter(e => e.type === 'safe');
+        if (safes.length > 0) {
+            roundStages.push({
+                name: 'Pre-Seed (SAFEs)',
+                entities: safes
+            });
+        }
+
+        // Stage 3+: Each investor round
+        const investors = effectiveEntities.filter(e => e.type === 'investor');
+        const roundLabels = ['Seed', 'Series A', 'Series B', 'Series C', 'Series D'];
+        investors.forEach((inv, i) => {
+            roundStages.push({
+                name: roundLabels[i] || `Round ${i + 3}`,
+                entities: [inv]
+            });
+        });
+
+        // Need at least 2 stages to show dilution
+        if (roundStages.length < 2) {
+            section.style.display = 'none';
+            return;
+        }
+
+        section.style.display = 'block';
+
+        // Calculate cumulative ownership at each stage
+        const cumulativeShares = new Map();
+        const stageData = [];
+
+        roundStages.forEach(stage => {
+            stage.entities.forEach(e => {
+                cumulativeShares.set(e.id, e.effectiveShares);
+            });
+
+            let total = 0;
+            cumulativeShares.forEach(shares => total += shares);
+
+            const percentages = new Map();
+            effectiveEntities.forEach(e => {
+                if (cumulativeShares.has(e.id)) {
+                    percentages.set(e.id, total > 0 ? (cumulativeShares.get(e.id) / total * 100) : 0);
+                }
+            });
+
+            stageData.push({ name: stage.name, percentages, total });
+        });
+
+        // Render table header
+        const thead = document.getElementById('dilutionTimelineHead');
+        let headerHtml = '<tr><th>Stakeholder</th>';
+        stageData.forEach(stage => {
+            headerHtml += `<th>${escHtml(stage.name)}</th>`;
+        });
+        headerHtml += '</tr>';
+        thead.innerHTML = headerHtml;
+
+        // Render body rows
+        const tbody = document.getElementById('dilutionTimelineBody');
+        const typeOrder = { founder: 0, option: 1, safe: 2, investor: 3 };
+        const sortedEntities = [...effectiveEntities].sort((a, b) => typeOrder[a.type] - typeOrder[b.type]);
+
+        tbody.innerHTML = '';
+        sortedEntities.forEach(entity => {
+            const row = document.createElement('tr');
+            let html = `<td><span class="type-badge entity-type-${entity.type}" style="margin-right:6px;">${TYPE_LABELS[entity.type]}</span>${escHtml(entity.name)}</td>`;
+
+            let prevPct = null;
+            stageData.forEach(stage => {
+                const pct = stage.percentages.get(entity.id);
+                if (pct === undefined) {
+                    html += `<td style="color:var(--text-muted);">—</td>`;
+                } else {
+                    let changeIndicator = '';
+                    if (prevPct !== null && prevPct > 0) {
+                        const change = pct - prevPct;
+                        if (change < -0.5) {
+                            changeIndicator = ` <span style="color:var(--red);font-size:0.7rem;">(${change.toFixed(1)}%)</span>`;
+                        } else if (change > 0.5) {
+                            changeIndicator = ` <span style="color:var(--green);font-size:0.7rem;">(+${change.toFixed(1)}%)</span>`;
+                        }
+                    }
+                    html += `<td style="font-family:var(--font-mono);font-weight:600;">${pct.toFixed(1)}%${changeIndicator}</td>`;
+                    prevPct = pct;
+                }
+            });
+
+            row.innerHTML = html;
+            tbody.appendChild(row);
+        });
     }
 
     function formatNumber(num) {
