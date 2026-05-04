@@ -47,7 +47,10 @@
 
 ## Site Improvements
 
-### C100: Improve Mobile Experience
+### C101: Add Schema Markup for Calculators
+- Ensure all calculators have proper SoftwareApplication schema
+- Add HowTo schema for complex calculator workflows
+- Improve rich snippet opportunities
 - Test all calculators on mobile viewport
 - Fix any layout issues or usability problems
 - Ensure buttons and inputs are touch-friendly
