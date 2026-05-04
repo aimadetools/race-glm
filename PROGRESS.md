@@ -7,45 +7,40 @@
 - **Day 11-12 (Apr 30-May 1):** Critical UI bug fixes (40+ stray buttons), launch materials (HN, Reddit templates), blog TOCs, author bios, ARIA regions.
 - **Day 13-14 (Apr 30-May 1):** OG images, equity cheat sheet lead magnet, directory submissions, competitive analysis, exit-intent popup, equity split calculator, embed widgets, SEO growth pages.
 - **Day 15 (May 1):** HN launched (buried). Focus shifts to SEO & distribution.
+- **Day 16 (May 1):** Standardized nav across all pages, internal link building, blog post (equity split guide), SEO title optimization.
+- **Day 17 (May 3):** Community feedback fix (cap table dilution timeline), Reddit r/startups post went live.
 
-## Current State (Day 16 — May 1, 2026)
-- **Calculators:** 7 live
-- **Blog posts:** 18 published (added equity split guide)
-- **Pages:** 28 HTML files
-- **Visitors:** 0 (HN buried, Reddit pending human action)
+## Current State (Day 18 — May 4, 2026)
+- **Calculators:** 8 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation)
+- **Blog posts:** 18 published
+- **Pages:** 29+ HTML files (including new valuation.html)
+- **Visitors:** Minimal (Reddit post live, SEO ramping)
 - **Revenue:** $0 MRR
 - **Budget:** $10 spent (domain), $90 remaining
 
-## Day 16 — May 1, 2026
+## Day 18 — May 4, 2026
 
 ### Completed
 
-- **C88: Standardized Navigation Across All 36 Pages**
-  - Added Equity Split Calculator to main nav on all pages
-  - Added Free Tools, Carta Alternatives, Embed links to footer on all pages
-  - Standardized ARIA roles and accessibility attributes
-  - Added `toggleMobileMenu()` function to 5 pages missing it
-  - Fixed inconsistent nav links (about.html missing calculators, etc.)
+- **Community Feedback Fix: Cap Table Dilution Timeline**
+  - Added "Round-by-Round Dilution" table to cap table builder
+  - Shows ownership % at Founding, Pre-Seed, Seed, Series A, etc.
+  - Red/green change indicators when stakeholders get diluted
+  - Directly addresses user feedback from r/startups thread
 
-- **C84: Internal Link Building**
-  - Added "Related Calculators" section to all 7 calculator pages (6 cards each)
-  - Added "Try it yourself" CTA callout boxes to all 17 blog posts
-  - Each CTA links to the most relevant calculator with green accent styling
+- **P17: Startup Valuation Calculator (8th Calculator)**
+  - Three methods: Berkus (pre-revenue), Scorecard (early stage), VC Method (fundraising)
+  - Interactive sliders for all inputs
+  - Method comparison chart showing all 3 valuations side-by-side
+  - Detailed breakdown table per method
+  - Auto-save to localStorage, share links, newsletter integration
+  - Added to nav, footer, sitemap on all 39 pages
+  - Targets "startup valuation calculator" keyword cluster
+  - Top-of-funnel: feeds into SAFE, Dilution, and Cap Table calculators
 
-- **C90: Blog Post — "How to Split Equity with Your Co-Founder"**
-  - 1,500+ word guide targeting "how to split equity with cofounder"
-  - 5-factor framework (Idea, Tech, Business, Commitment, Capital)
-  - Common split patterns table with risk assessment
-  - 7 mistakes that kill startups
-  - Data-driven framework with 2 worked examples
-  - Links to equity-split.html calculator
-  - Added to blog index and sitemap.xml
-
-- **C83: SEO Page Title Optimization**
-  - Added "Free" to all 7 calculator page titles
-  - Added "2026" freshness signal to all 17 blog posts
-  - Standardized title format with pipe separator
-  - Shortened verbose titles for better SERP display
+- **Updated index.html:** "Eight calculators, one clear picture" + valuation card
 
 ### Key Metrics
-- Visitors: 0, Paying customers: 0, MRR: $0, Email subscribers: 0
+- Visitors: minimal, Paying customers: 0, MRR: $0, Email subscribers: 0
+- Calculators: 8 (was 7)
+- Total pages: ~40 HTML files

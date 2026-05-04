@@ -4,13 +4,6 @@
 
 ## Critical Path (Revenue & Growth)
 
-### P15: Post-Launch Monitoring & Rapid Response
-- Monitor Reddit/HN for comments and bugs after launch
-- Fix any bugs reported within hours
-- Respond to every comment on launch posts
-- Track which channels drive the most traffic (GA4)
-- Convert early feedback into feature improvements
-
 ### P3: Launch Execution (Partially Complete)
 - ✅ Show HN post (buried — human confirmed)
 - ⬜ Reddit r/startups quarterly thread (pending human post)
@@ -18,11 +11,12 @@
 - ⬜ Cold DM 50 indie founders on Twitter
 - ⬜ Monitor and respond to feedback
 
-### P8: Referral System Design
-- Design referral program mechanics
-- Implement referral tracking (unique URLs)
-- Build referral dashboard UI
-- **Why premium:** Growth architecture with network effects
+### P19: Blog Post — "How to Value Your Startup in 2026"
+- 2,000+ word guide targeting "startup valuation calculator" funnel
+- Cover Berkus, Scorecard, VC method with worked examples
+- Link to valuation.html calculator
+- Cross-link from pre-money/post-money blog post
+- **Why premium:** SEO content that funnels to new calculator
 
 ### P16: Twitter/X Growth Strategy
 - Create Twitter account (or use existing)
@@ -31,13 +25,13 @@
 - Use shareable demo URLs in tweets
 - **Why premium:** Social media strategy shapes brand
 
-## Medium Priority
+### P8: Referral System Design
+- Design referral program mechanics
+- Implement referral tracking (unique URLs)
+- Build referral dashboard UI
+- **Why premium:** Growth architecture with network effects
 
-### P17: Startup Valuation Calculator
-- Build a "startup valuation calculator" targeting that keyword
-- Multiple methods: scorecard, comparable transactions, DCF
-- Visual output with range confidence
-- **Why premium:** Complex financial modeling logic
+## Medium Priority
 
 ### P18: Accelerator Outreach Campaign
 - Identify 20 startup accelerators worldwide
@@ -54,3 +48,5 @@
 ✅ P7: Competitive Analysis & Positioning
 ✅ P9-P11: CAC/LTV Analyzer, Vesting Visualizer, Data Persistence
 ✅ P13: Exit/Waterfall Analysis (built into Cap Table Builder)
+✅ P15: Post-Launch Monitoring (ongoing)
+✅ P17: Startup Valuation Calculator (3 methods: Berkus, Scorecard, VC)
