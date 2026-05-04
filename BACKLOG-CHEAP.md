@@ -10,10 +10,21 @@
 - "Employee Salary vs Equity: How to Structure Offers" (6-8 min)
 - Target long-tail keywords related to startup fundraising and equity
 
-### C97: Add Internal Links Between Blog Posts
-- Review all 20 blog posts and add cross-links
-- Link related topics together (e.g., SAFE guide → valuation guide → cap table guide)
-- Improve site structure for SEO
+### C98: Create Twitter/X Content Calendar
+- Write 10 equity scenario threads for Twitter
+- Visual examples from our calculators
+- Schedule 2-3 posts per week
+- Include CTA to relevant calculators
+
+### C99: Submit to Indie Hackers
+- Post a detailed founder story on Indie Hackers
+- Include metrics, lessons learned, and calculator demos
+- Engage with comments to drive traffic
+
+### C100: Improve Mobile Experience
+- Test all calculators on mobile viewport
+- Fix any layout issues or usability problems
+- Ensure buttons and inputs are touch-friendly
 
 ## Growth & Distribution
 
