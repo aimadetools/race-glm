@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Value a Startup in 2026: 3 Methods Founders Actually Use | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Learn the 3 startup valuation methods founders actually use: Berkus, Scorecard, and Venture Capital. With worked examples, formulas, and a free calculator.">
+    <meta name="keywords" content="startup valuation methods, how to value a startup, Berkus method, scorecard valuation, venture capital method, pre-revenue valuation, startup valuation calculator">
+    <meta property="og:title" content="How to Value a Startup in 2026: 3 Methods Founders Actually Use">
+    <meta property="og:description" content="The practical guide to startup valuation with real examples and a free calculator.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://founder-math.com/blog/startup-valuation-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="author" content="FounderMath">
+    <meta property="article:published_time" content="2026-05-04">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f; --bg-secondary: #12121a; --bg-card: #1a1a2e;
+            --accent: #6c5ce7; --accent-light: #a29bfe; --green: #00b894;
+            --text-primary: #f0f0f5; --text-secondary: #a0a0b5; --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        article { max-width: 780px; margin: 0 auto; padding: 120px 24px 80px; }
+        h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+        .meta { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 40px; display: flex; gap: 16px; flex-wrap: wrap; }
+        .meta span { display: flex; align-items: center; gap: 4px; }
+
+        h2 { font-size: 1.5rem; font-weight: 700; margin: 48px 0 16px; scroll-margin-top: 80px; }
+        h3 { font-size: 1.2rem; font-weight: 600; margin: 32px 0 12px; }
+        p { margin-bottom: 16px; color: var(--text-secondary); }
+        strong { color: var(--text-primary); }
+        ul, ol { margin: 0 0 16px 24px; color: var(--text-secondary); }
+        li { margin-bottom: 8px; }
+
+        /* CTA box */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.1));
+            border: 1px solid var(--accent); border-radius: 12px; padding: 24px;
+            margin: 32px 0; text-align: center;
+        }
+        .cta-box h3 { margin: 0 0 8px; color: var(--text-primary); }
+        .cta-box p { margin: 0 0 16px; font-size: 0.9rem; }
+        .cta-btn {
+            display: inline-block; background: var(--accent); color: white;
+            padding: 12px 28px; border-radius: 8px; font-weight: 600;
+            text-decoration: none; transition: transform 0.2s;
+        }
+        .cta-btn:hover { transform: translateY(-2px); }
+
+        /* Example box */
+        .example {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px 24px; margin: 24px 0;
+        }
+        .example-title { font-size: 0.8rem; color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; font-weight: 700; }
+        .example table { width: 100%; border-collapse: collapse; }
+        .example th { text-align: left; padding: 8px 12px; color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+        .example td { padding: 8px 12px; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+        .example tr:last-child td { border-bottom: none; }
+
+        /* TOC */
+        .toc { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 40px; }
+        .toc h2 { font-size: 1rem; margin: 0 0 12px; color: var(--text-primary); }
+        .toc ol { margin: 0 0 0 20px; }
+        .toc li { margin-bottom: 4px; }
+        .toc a { color: var(--accent-light); text-decoration: none; font-size: 0.9rem; }
+        .toc a:hover { text-decoration: underline; }
+
+        /* Method card */
+        .method-card {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px; margin: 24px 0;
+        }
+        .method-tag {
+            display: inline-block; padding: 4px 10px; border-radius: 6px;
+            font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .tag-berkus { background: rgba(108,92,231,0.2); color: var(--accent-light); }
+        .tag-scorecard { background: rgba(0,184,148,0.2); color: var(--green); }
+        .tag-vc { background: rgba(84,160,255,0.2); color: #54a0ff; }
+
+        footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 40px 24px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-left p { color: var(--text-secondary); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 20px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.8rem; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../" class="logo"><div class="logo-icon">%</div>FounderMath</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../cap-table.html">Cap Table</a></li>
+                <li><a href="../equity-split.html">Equity Split</a></li>
+                <li><a href="../valuation.html">Valuation</a></li>
+                <li><a href="../pricing.html" class="nav-cta">Start Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <article itemscope itemtype="https://schema.org/BlogPosting">
+        <meta itemprop="datePublished" content="2026-05-04">
+        <meta itemprop="author" content="FounderMath">
+        <h1 itemprop="headline">How to Value a Startup in 2026: 3 Methods Founders Actually Use</h1>
+        <div class="meta">
+            <span>May 4, 2026</span>
+            <span>12 min read</span>
+            <span itemprop="about">Startup Valuation</span>
+        </div>
+
+        <div class="cta-box">
+            <h3>Free Startup Valuation Calculator</h3>
+            <p>Estimate your startup's worth in 2 minutes using Berkus, Scorecard, and VC methods.</p>
+            <a href="../valuation.html" class="cta-btn">Try the Calculator Free</a>
+        </div>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#why-matters">Why Startup Valuation Matters</a></li>
+                <li><a href="#berkus">Method 1: The Berkus Method (Pre-Revenue)</a></li>
+                <li><a href="#scorecard">Method 2: The Scorecard Method (Early Stage)</a></li>
+                <li><a href="#vc-method">Method 3: The Venture Capital Method (Fundraising)</a></li>
+                <li><a href="#comparison">Which Method Should You Use?</a></li>
+                <li><a href="#realistic">What's a Realistic Valuation for Your Stage?</a></li>
+                <li><a href="#mistakes">5 Valuation Mistakes That Kill Fundraises</a></li>
+            </ol>
+        </div>
+
+        <h2 id="why-matters">Why Startup Valuation Matters</h2>
+        <p>Your startup's valuation is the single number that determines <strong>how much of your company you give away</strong> when you raise money. A $1M difference in pre-money valuation can mean the difference between keeping 80% or 72% of your company after a seed round.</p>
+        <p>Yet most founders pick a number out of thin air. They look at what similar companies raised, add a premium for "our team is better," and hope investors agree. This approach fails because investors <em>always</em> have more data than you do.</p>
+        <p>The good news: there are <strong>structured methods</strong> for valuing startups at every stage. Pre-revenue companies use the Berkus method. Early-stage startups use Scorecard. Companies actively fundraising use the Venture Capital method. Here's how each works.</p>
+
+        <h2 id="berkus">Method 1: The Berkus Method (Pre-Revenue)</h2>
+        <div class="method-card">
+            <span class="method-tag tag-berkus">Best for: Pre-Revenue Startups</span>
+            <p>Created by angel investor Dave Berkus, this method values your startup based on how much risk you've eliminated. Each of 5 key milestones can add up to <strong>$500K</strong> to your pre-money valuation, with a typical maximum of <strong>$2–2.5M</strong>.</p>
+        </div>
+
+        <p>The five milestones are:</p>
+        <ol>
+            <li><strong>Sound Idea</strong> (up to $500K) — You have a validated concept, not just a shower thought. You've talked to customers, identified a real problem, and have a clear thesis for how your solution works.</li>
+            <li><strong>Working Prototype</strong> (up to $500K) — You've built something. It doesn't need to be pretty or even fully functional, but you can demonstrate the core concept to investors.</li>
+            <li><strong>Quality Management Team</strong> (up to $500K) — You have a complete founding team with relevant domain expertise. A solo non-technical founder gets $0 here. Two co-founders with complementary skills and industry experience get the full amount.</li>
+            <li><strong>Strategic Relationships</strong> (up to $500K) — You have partnerships, LOIs, pilot agreements, or advisors that reduce go-to-market risk. A warm intro from a partner isn't enough — you need signed agreements.</li>
+            <li><strong>Product Launch or Initial Sales</strong> (up to $500K) — The biggest de-risker. You've launched and have even $1 of revenue. This proves someone will pay for what you built.</li>
+        </ol>
+
+        <div class="example">
+            <div class="example-title">Worked Example: SaaS Startup</div>
+            <table>
+                <tr><th>Milestone</th><th>Status</th><th>Value</th></tr>
+                <tr><td>Sound Idea</td><td>Validated with 50 customer interviews</td><td>$300K</td></tr>
+                <tr><td>Working Prototype</td><td>MVP built, 10 beta users</td><td>$400K</td></tr>
+                <tr><td>Quality Team</td><td>2 co-founders (CTO + CEO), 5 years domain exp</td><td>$450K</td></tr>
+                <tr><td>Strategic Relationships</td><td>LOI from 1 enterprise customer</td><td>$200K</td></tr>
+                <tr><td>Product Launch / Sales</td><td>Not yet launched</td><td>$0</td></tr>
+                <tr style="font-weight:700;"><td colspan="2">Pre-Money Valuation</td><td><strong>$1.35M</strong></td></tr>
+            </table>
+        </div>
+
+        <p><strong>When to use it:</strong> You're pre-revenue, probably pre-seed or angel stage. You have a team and maybe a prototype, but no meaningful revenue yet. This method is ideal for explaining to investors <em>why</em> your valuation is what it is.</p>
+
+        <h2 id="scorecard">Method 2: The Scorecard Method (Early Stage)</h2>
+        <div class="method-card">
+            <span class="method-tag tag-scorecard">Best for: Early-Stage Startups</span>
+            <p>Developed by Bill Payne, the Scorecard method compares your startup to recently funded companies in your region and sector. You adjust the average based on how you stack up across 6 factors.</p>
+        </div>
+
+        <p>The process is:</p>
+        <ol>
+            <li><strong>Find the average pre-money valuation</strong> for startups at your stage, in your sector, in your region. For example, the average seed-stage SaaS startup in the US raised at a $5M pre-money in 2025.</li>
+            <li><strong>Rate your startup</strong> compared to that average across 6 weighted factors:</li>
+        </ol>
+
+        <div class="example">
+            <div class="example-title">Scorecard Factors &amp; Weights</div>
+            <table>
+                <tr><th>Factor</th><th>Weight</th><th>Your Rating</th><th>Example</th></tr>
+                <tr><td>Team</td><td>30%</td><td>How does your team compare?</td><td>1.3x (exceptional)</td></tr>
+                <tr><td>Market Size</td><td>25%</td><td>TAM relative to peers</td><td>1.0x (average)</td></tr>
+                <tr><td>Product / Tech</td><td>15%</td><td>Stage of product development</td><td>1.2x (ahead)</td></tr>
+                <tr><td>Competition</td><td>10%</td><td>Competitive landscape</td><td>0.8x (crowded)</td></tr>
+                <tr><td>Sales / Marketing</td><td>10%</td><td>Go-to-market progress</td><td>0.7x (early)</td></tr>
+                <tr><td>Capital Need</td><td>10%</td><td>How much you need vs peers</td><td>1.0x (average)</td></tr>
+            </table>
+        </div>
+
+        <p>The formula is simple: <strong>Average Valuation &times; Weighted Factor Score</strong>.</p>
+
+        <div class="example">
+            <div class="example-title">Worked Example: FinTech Startup</div>
+            <p style="margin-bottom:8px;">Average pre-money for seed fintech: <strong>$4M</strong></p>
+            <p style="margin-bottom:8px;">Weighted factor: (0.30 &times; 1.3) + (0.25 &times; 1.0) + (0.15 &times; 1.2) + (0.10 &times; 0.8) + (0.10 &times; 0.7) + (0.10 &times; 1.0) = <strong>1.07</strong></p>
+            <p style="margin:0;font-weight:700;color:var(--accent-light);">Pre-Money Valuation: $4M &times; 1.07 = <strong>$4.28M</strong></p>
+        </div>
+
+        <p><strong>When to use it:</strong> You're seed stage, have some traction (maybe early revenue or strong user growth), and need a defensible number for investors. This method works well because it's grounded in real market data.</p>
+
+        <h2 id="vc-method">Method 3: The Venture Capital Method (Fundraising)</h2>
+        <div class="method-card">
+            <span class="method-tag tag-vc">Best for: Active Fundraising</span>
+            <p>The VC method works backwards from your expected exit. It's how VCs actually decide what to pay — they start with "what will this company be worth in 5–7 years?" and work back to today.</p>
+        </div>
+
+        <p>The calculation:</p>
+        <ol>
+            <li><strong>Estimate exit value:</strong> Expected revenue in 5 years &times; industry revenue multiple</li>
+            <li><strong>Calculate required post-money:</strong> Exit value &divide; desired ROI (typically 10x for seed, 3–5x for Series A)</li>
+            <li><strong>Pre-money valuation:</strong> Post-money minus investment amount</li>
+        </ol>
+
+        <div class="example">
+            <div class="example-title">Worked Example: Enterprise SaaS</div>
+            <table>
+                <tr><th>Input</th><th>Value</th></tr>
+                <tr><td>Expected revenue (Year 5)</td><td>$20M</td></tr>
+                <tr><td>Revenue multiple (enterprise SaaS)</td><td>8x</td></tr>
+                <tr><td>Expected exit value</td><td>$160M</td></tr>
+                <tr><td>Target investor ROI</td><td>10x</td></tr>
+                <tr><td>Required post-money</td><td>$160M &divide; 10 = $16M</td></tr>
+                <tr><td>Investment amount</td><td>$3M</td></tr>
+                <tr style="font-weight:700;"><td>Pre-money valuation</td><td><strong>$13M</strong></td></tr>
+            </table>
+        </div>
+
+        <p><strong>When to use it:</strong> You're actively fundraising and need to justify your ask. This is the most common method VCs use internally, so speaking their language gives you credibility. It works best for startups with clear revenue models and reasonable exit projections.</p>
+        <p><strong>Warning:</strong> Don't be too aggressive with projections. Investors will sanity-check your revenue assumptions. If you're projecting $100M in 5 years but have $0 revenue today, you'll lose credibility.</p>
+
+        <h2 id="comparison">Which Method Should You Use?</h2>
+        <div class="example">
+            <div class="example-title">Quick Guide</div>
+            <table>
+                <tr><th>Stage</th><th>Revenue</th><th>Best Method</th><th>Typical Range</th></tr>
+                <tr><td>Idea / Pre-seed</td><td>$0</td><td>Berkus</td><td>$500K – $2.5M</td></tr>
+                <tr><td>Prototype / Angel</td><td>$0 – $10K</td><td>Berkus + Scorecard</td><td>$1M – $4M</td></tr>
+                <tr><td>Seed</td><td>$10K – $500K</td><td>Scorecard + VC</td><td>$3M – $15M</td></tr>
+                <tr><td>Series A</td><td>$500K – $5M</td><td>VC Method + Revenue Multiples</td><td>$10M – $50M</td></tr>
+                <tr><td>Series B+</td><td>$5M+</td><td>Revenue Multiples / DCF</td><td>$30M+</td></tr>
+            </table>
+        </div>
+        <p><strong>Pro tip:</strong> Use all three methods and average them. If the Berkus method gives you $1.5M, Scorecard gives $3M, and VC method gives $4M, your range is $1.5–4M with an average of $2.8M. That's a defensible answer when an investor asks "how did you arrive at your valuation?"</p>
+
+        <div class="cta-box">
+            <h3>Calculate Your Startup's Valuation Now</h3>
+            <p>Use all 3 methods side-by-side with our free calculator. Get your number in 2 minutes.</p>
+            <a href="../valuation.html" class="cta-btn">Open Free Valuation Calculator</a>
+        </div>
+
+        <h2 id="realistic">What's a Realistic Valuation for Your Stage?</h2>
+        <p>Based on 2025–2026 market data, here are typical pre-money valuation ranges by stage:</p>
+        <ul>
+            <li><strong>Pre-seed:</strong> $500K – $5M (median ~$2M). Heavily dependent on team pedigree.</li>
+            <li><strong>Seed:</strong> $3M – $20M (median ~$8M). Revenue and traction matter. Top quartile startups with $100K+ ARR command $10M+.</li>
+            <li><strong>Series A:</strong> $15M – $80M (median ~$30M). You need strong revenue metrics — typically $1M+ ARR with 100%+ YoY growth.</li>
+        </ul>
+        <p>Geography matters too. A San Francisco seed-stage startup typically commands 2–3x the valuation of an identical company in the Midwest or Southeast Asia. Not because the company is better, but because the market benchmarks are higher.</p>
+
+        <h2 id="mistakes">5 Valuation Mistakes That Kill Fundraises</h2>
+
+        <h3>1. Anchoring on a Number You "Deserve"</h3>
+        <p>Many founders start with "I want a $10M valuation" and work backwards to justify it. Investors see through this immediately. Instead, use the methods above and let the data determine your number. If the data says $5M, take the $5M and close the round.</p>
+
+        <h3>2. Ignoring Dilution from SAFEs</h3>
+        <p>If you raised a $500K SAFE on a $5M cap, your effective pre-money for the next round is lower than you think. The SAFE converts into equity at the next priced round, creating additional dilution. <a href="../safe.html">Use our SAFE calculator</a> to model the impact before setting your valuation.</p>
+
+        <h3>3. Comparing to Outliers</h3>
+        <p>"Company X raised at a $100M valuation and they're the same stage as us." Company X had an ex-Google CTO, $2M in ARR, and Sequoia leading the round. You're not Company X. Compare to median, not outliers.</p>
+
+        <h3>4. Valuing Effort Instead of Results</h3>
+        <p>"We spent 18 months building this." Investors don't care how long you worked. They care about traction, team, and market opportunity. A product built in 3 months with 10K users is worth more than one built in 18 months with 10 users.</p>
+
+        <h3>5. Not Knowing Your Number</h3>
+        <p>The worst answer to "what's your valuation?" is "we're open to discussion." This signals you haven't done your homework. Even if you end up negotiating, you need a starting point grounded in methodology.</p>
+
+        <div class="cta-box">
+            <h3>Ready to Calculate Your Valuation?</h3>
+            <p>Our free calculator uses all 3 methods with interactive sliders. Get a defensible number in minutes.</p>
+            <a href="../valuation.html" class="cta-btn">Try the Valuation Calculator</a>
+        </div>
+
+        <p style="margin-top:40px;font-size:0.85rem;color:var(--text-muted);"><em>Disclaimer: This guide is for educational purposes. Startup valuations are ultimately determined by negotiation between founders and investors. These methods provide frameworks for arriving at a defensible starting point.</em></p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:40px 0;">
+        <p style="font-size:0.9rem;color:var(--text-secondary);">More guides founders love:</p>
+        <ul>
+            <li><a href="pre-money-post-money-valuation-guide.html" style="color:var(--accent-light);">Pre-Money vs Post-Money Valuation: The Complete Guide</a></li>
+            <li><a href="safe-note-guide.html" style="color:var(--accent-light);">SAFE Notes Explained: How YC's Convertible Security Works</a></li>
+            <li><a href="equity-dilution-guide.html" style="color:var(--accent-light);">How Equity Dilution Works Across Funding Rounds</a></li>
+            <li><a href="cap-table-guide.html" style="color:var(--accent-light);">Cap Table 101: Building and Managing Your Startup's Cap Table</a></li>
+        </ul>
+    </article>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left"><p>&copy; 2026 FounderMath. Built for founders, by founders.</p></div>
+            <ul class="footer-links">
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../valuation.html">Valuation</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
