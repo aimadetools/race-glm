@@ -47,13 +47,15 @@
 
 ## Site Improvements
 
-### C101: Add Schema Markup for Calculators
-- Ensure all calculators have proper SoftwareApplication schema
-- Add HowTo schema for complex calculator workflows
-- Improve rich snippet opportunities
-- Test all calculators on mobile viewport
-- Fix any layout issues or usability problems
-- Ensure buttons and inputs are touch-friendly
+### C102: Create Equity Scenarios for Social Media
+- Design 5 visual scenarios (before/after funding rounds, equity splits)
+- Shareable images for Twitter/X, LinkedIn, Reddit
+- Each scenario links to relevant calculator
+
+### C103: Write Guest Post Pitches
+- Find 10 startup blogs that accept guest posts
+- Pitch topics: equity, dilution, fundraising math
+- Include calculator links as resources
 
 ### C101: Add Schema Markup for Calculators
 - Ensure all calculators have proper SoftwareApplication schema
