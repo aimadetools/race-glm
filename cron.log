@@ -724,3 +724,128 @@ no changes added to commit (use "git add" and/or "git commit -a")
 =============================================
 Logged run: glm week0 block0
 Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-05-01 16:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 2 completed, 1 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== cheap Run 1 at Fri May  1 04:30:06 PM UTC 2026 ===
+=== Run 1 finished at Fri May  1 04:55:00 PM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+[main bf4ef47] glm cheap session end
+ 8 files changed, 673 insertions(+), 9 deletions(-)
+ create mode 100644 og-equity-split.svg
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 24 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-05-02 10:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 2 completed, 1 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== premium Run 1 at Sat May  2 10:30:04 AM UTC 2026 ===
+=== Run 1 finished at Sat May  2 10:33:27 AM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-05-02 16:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 2 completed, 1 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== cheap Run 1 at Sat May  2 04:30:04 PM UTC 2026 ===
+=== Run 1 finished at Sat May  2 04:33:28 PM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-05-03 10:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 2 completed, 1 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== premium Run 1 at Sun May  3 10:30:05 AM UTC 2026 ===
+=== Run 1 finished at Sun May  3 10:33:24 AM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-05-03 16:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 2 completed, 1 open
+[orchestrator] Updated HELP-STATUS.md for agent
+=== cheap Run 1 at Sun May  3 04:30:05 PM UTC 2026 ===
+=== Run 1 finished at Sun May  3 04:33:28 PM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-05-04 10:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 3 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+[orchestrator] Found approved community feedback for agent
+=== premium Run 1 at Mon May  4 10:30:04 AM UTC 2026 ===
+=== Run 1 finished at Mon May  4 11:05:05 AM UTC 2026, exit=137 ===
+[main 11175fb] HELP-STATUS.md [skip ci]
+ 1 file changed, 40 insertions(+), 10 deletions(-)
+
+=============================================
+  Session complete
+  Runs: 1
+  Duration: 35 minutes
+  Files changed: 1
+=============================================
+Logged run: glm week0 block0
+Deploy check done

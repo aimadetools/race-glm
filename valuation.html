@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Startup Valuation Calculator | FounderMath 2026</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    <meta name="description" content="Free startup valuation calculator. Estimate your startup's worth using 3 proven methods: Berkus, Scorecard, and Venture Capital. No signup required.">
+    <meta name="keywords" content="startup valuation calculator, how to value a startup, Berkus method, scorecard valuation, venture capital method, pre-money valuation, pre-revenue valuation">
+    <meta property="og:title" content="Free Startup Valuation Calculator — FounderMath">
+    <meta property="og:description" content="Estimate your startup's worth in 2 minutes using 3 proven valuation methods. Free, instant, no signup.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-valuation.svg">
+    <meta property="og:url" content="https://founder-math.com/valuation.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Startup Valuation Calculator">
+    <meta name="twitter:description" content="Estimate your startup's worth in 2 minutes using 3 proven valuation methods.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Free Startup Valuation Calculator — FounderMath",
+        "url": "https://founder-math.com/valuation.html",
+        "description": "Free startup valuation calculator. Estimate your startup's worth using 3 proven methods.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Startup Valuation Calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "Estimate your startup's pre-money valuation using Berkus, Scorecard, and Venture Capital methods. Free, interactive, instant results."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do you value a startup?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Startup valuation depends on stage. Pre-revenue startups use methods like Berkus (assessing key milestones) or Scorecard (comparing to similar funded startups). Revenue-generating startups can use the Venture Capital method, projecting future earnings and working backwards. Most founders use 2-3 methods and average the results."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the Berkus method?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Berkus method values pre-revenue startups by assessing progress on 5 risk-mitigation milestones: sound idea, working prototype, quality team, strategic partnerships, and initial sales. Each milestone adds up to $500K in value, with a typical maximum pre-money valuation of $2-2.5M."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a good startup valuation for a pre-seed company?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pre-seed valuations typically range from $500K to $5M depending on the founding team's background, market size, product progress, and location. Strong teams with domain expertise and a working prototype tend to valuate at $2-4M pre-money."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://founder-math.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://founder-math.com/" },
+            { "@type": "ListItem", "position": 3, "name": "Startup Valuation Calculator", "item": "https://founder-math.com/valuation.html" }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --pink: #ff6b9d;
+            --yellow: #feca57;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer; padding: 8px;
+        }
+
+        /* HEADER */
+        .page-header {
+            padding: 120px 24px 48px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .page-header::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%);
+            animation: heroGlow 15s ease-in-out infinite alternate; pointer-events: none;
+        }
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-5%, 5%) scale(1.1); }
+        }
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem); font-weight: 800;
+            letter-spacing: -0.03em; position: relative; margin-bottom: 12px;
+        }
+        .page-header h1 .gradient {
+            background: linear-gradient(135deg, var(--accent-light), var(--green));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .page-header p {
+            color: var(--text-secondary); font-size: 1.1rem;
+            max-width: 600px; margin: 0 auto; position: relative;
+        }
+        .breadcrumbs {
+            display: flex; align-items: center; gap: 8px;
+            justify-content: center; margin-bottom: 16px; flex-wrap: wrap;
+        }
+        .breadcrumb { color: var(--text-muted); font-size: 0.8rem; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb:hover { color: var(--accent-light); }
+        .breadcrumb:last-child { color: var(--text-secondary); font-weight: 600; }
+        .breadcrumb-separator { color: var(--border); font-size: 0.7rem; }
+
+        /* METHOD TABS */
+        .method-tabs {
+            display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center;
+        }
+        .method-tab {
+            padding: 10px 20px; border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+            cursor: pointer; border: 1px solid var(--border); background: var(--bg-card);
+            color: var(--text-secondary); transition: all 0.2s; font-family: var(--font-sans);
+        }
+        .method-tab:hover { border-color: var(--accent); color: var(--text-primary); }
+        .method-tab.active {
+            background: var(--accent); color: white; border-color: var(--accent);
+        }
+        .method-tab:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+
+        /* CALC LAYOUT */
+        .calc-layout {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px 80px;
+            display: grid; grid-template-columns: 420px 1fr; gap: 32px; align-items: start;
+        }
+
+        /* INPUT PANEL */
+        .input-panel {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; padding: 24px; position: sticky; top: 88px;
+            max-height: calc(100vh - 104px); overflow-y: auto;
+        }
+        .input-panel::-webkit-scrollbar { width: 4px; }
+        .input-panel::-webkit-scrollbar-track { background: transparent; }
+        .input-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        .panel-section { margin-bottom: 24px; }
+        .panel-section:last-child { margin-bottom: 0; }
+        .panel-section-title {
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.1em; color: var(--accent-light); margin-bottom: 16px;
+        }
+        .save-indicator {
+            display: flex; align-items: center; gap: 6px; font-size: 0.7rem;
+            color: var(--text-muted); padding: 8px 12px; background: var(--bg-card);
+            border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--border);
+        }
+        .save-indicator-icon { width: 12px; height: 12px; color: var(--green); }
+        .input-wrapper { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+        .input-wrapper label {
+            font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;
+            letter-spacing: 0.05em; display: flex; align-items: center; justify-content: space-between;
+        }
+        .input-wrapper label .label-value { color: var(--accent-light); font-family: var(--font-mono); }
+        .input-wrapper input, .input-wrapper select {
+            background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary);
+            padding: 8px 12px; border-radius: 8px; font-size: 0.9rem; font-family: var(--font-mono);
+            transition: border-color 0.2s; width: 100%;
+        }
+        .input-wrapper input:focus, .input-wrapper select:focus { outline: none; border-color: var(--accent); }
+        .input-wrapper select { font-family: var(--font-sans); cursor: pointer; }
+
+        /* SLIDER */
+        .slider-container { position: relative; }
+        input[type="range"] {
+            -webkit-appearance: none; width: 100%; height: 6px;
+            background: var(--bg-card); border-radius: 3px; outline: none;
+            border: none; padding: 0; margin-top: 4px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; width: 20px; height: 20px;
+            background: var(--accent); border-radius: 50%; cursor: pointer;
+            box-shadow: 0 2px 8px var(--accent-glow);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px; height: 20px; background: var(--accent);
+            border-radius: 50%; cursor: pointer; border: none;
+        }
+
+        /* SHARE BAR */
+        .share-bar { display: flex; gap: 8px; margin-top: 8px; }
+        .btn-share {
+            flex: 1; background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 10px; border-radius: 8px;
+            font-size: 0.85rem; font-weight: 600; cursor: pointer;
+            transition: all 0.2s; font-family: var(--font-sans);
+        }
+        .btn-share:hover { border-color: var(--accent); color: var(--text-primary); }
+
+        /* RESULTS PANEL */
+        .results-panel { display: flex; flex-direction: column; gap: 24px; }
+
+        /* VALUATION HERO */
+        .valuation-hero {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));
+            border: 1px solid var(--border); border-radius: 16px; padding: 32px;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .valuation-hero::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 50% 50%, var(--accent-glow) 0%, transparent 60%);
+            opacity: 0.3; pointer-events: none;
+        }
+        .valuation-label { font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; position: relative; }
+        .valuation-amount {
+            font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; font-family: var(--font-mono);
+            background: linear-gradient(135deg, var(--accent-light), var(--green));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            position: relative; margin-bottom: 8px;
+        }
+        .valuation-range { font-size: 0.9rem; color: var(--text-secondary); position: relative; }
+        .valuation-range strong { color: var(--accent-light); }
+
+        /* METHOD CARDS */
+        .method-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .method-card {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px; text-align: center;
+            transition: transform 0.2s;
+        }
+        .method-card:hover { transform: translateY(-2px); }
+        .method-card-label {
+            font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase;
+            letter-spacing: 0.05em; margin-bottom: 8px;
+        }
+        .method-card-value { font-size: 1.6rem; font-weight: 800; font-family: var(--font-mono); margin-bottom: 4px; }
+        .method-card-desc { font-size: 0.8rem; color: var(--text-secondary); }
+        .method-card.best { border-color: var(--green); }
+        .method-card.best .method-card-value { color: var(--green); }
+
+        /* BREAKDOWN TABLE */
+        .breakdown-section {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; padding: 24px;
+        }
+        .breakdown-section h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+        .breakdown-subtitle { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; }
+        .breakdown-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .breakdown-table th {
+            text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--border);
+            color: var(--text-secondary); font-size: 0.75rem; text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .breakdown-table td {
+            padding: 10px 16px; border-bottom: 1px solid var(--border); color: var(--text-primary);
+        }
+        .breakdown-table tr:last-child td { border-bottom: none; }
+        .breakdown-bar-container {
+            width: 100%; height: 8px; background: var(--bg-card);
+            border-radius: 4px; overflow: hidden;
+        }
+        .breakdown-bar { height: 100%; border-radius: 4px; transition: width 0.3s ease; }
+
+        /* CHART */
+        .chart-section {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; padding: 24px;
+        }
+        .chart-section h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+        .chart-subtitle { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; }
+        .comparison-chart { display: flex; flex-direction: column; gap: 16px; }
+        .chart-row { display: flex; align-items: center; }
+        .chart-label { width: 140px; font-size: 0.85rem; color: var(--text-secondary); flex-shrink: 0; }
+        .chart-bar-container {
+            flex: 1; height: 36px; background: var(--bg-card);
+            border-radius: 6px; overflow: hidden; position: relative;
+        }
+        .chart-bar { height: 100%; display: flex; transition: width 0.5s ease; border-radius: 6px; }
+        .chart-value {
+            width: 100px; text-align: right; font-family: var(--font-mono);
+            font-size: 0.9rem; font-weight: 600; color: var(--text-primary); flex-shrink: 0;
+        }
+
+        /* CTA */
+        .calc-cta {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 16px; padding: 32px; text-align: center;
+        }
+        .calc-cta h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
+        .calc-cta p { color: rgba(255,255,255,0.9); margin-bottom: 20px; font-size: 0.95rem; }
+        .btn-white {
+            display: inline-block; background: white; color: var(--accent);
+            padding: 12px 28px; border-radius: 8px; font-weight: 600;
+            text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,255,255,0.3); }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-secondary); border-top: 1px solid var(--border);
+            padding: 40px 24px; margin-top: 80px;
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-left p { color: var(--text-secondary); font-size: 0.9rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        /* TOAST */
+        .toast {
+            position: fixed; bottom: 24px; left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--green); color: white; padding: 12px 24px;
+            border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+            transition: transform 0.3s ease; z-index: 1000;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 0; background: var(--accent);
+            color: white; padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 8px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; width: 36px; height: 36px;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+
+        @media (max-width: 960px) {
+            .calc-layout { grid-template-columns: 1fr; }
+            .input-panel { position: static; max-height: none; }
+            .method-results { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0; background: var(--bg-primary);
+                border-bottom: 1px solid var(--border); padding: 24px; gap: 16px;
+            }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .chart-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .chart-label { width: 100%; }
+        }
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+    <script src="pro-gating.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="runway.html" role="menuitem">Runway</a></li>
+                <li role="none"><a href="safe.html" role="menuitem">SAFE</a></li>
+                <li role="none"><a href="vesting.html" role="menuitem">Vesting</a></li>
+                <li role="none"><a href="unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="cap-table.html" role="menuitem">Cap Table</a></li>
+                <li role="none"><a href="equity-split.html" role="menuitem">Equity Split</a></li>
+                <li role="none"><a href="valuation.html" role="menuitem" style="color:var(--green);font-weight:600;">Valuation</a></li>
+                <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+                <li><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/" class="breadcrumb">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb">Calculators</span>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb">Valuation Calculator</span>
+        </nav>
+        <h1>Startup Valuation <span class="gradient">Calculator</span></h1>
+        <p>Estimate your startup's pre-money valuation using 3 proven methods. Free, instant, no signup required.</p>
+    </header>
+
+    <main id="main-content" class="calc-layout">
+        <!-- Input Panel -->
+        <div class="input-panel">
+            <div class="save-indicator" aria-live="polite">
+                <svg class="save-indicator-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                    <polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+                </svg>
+                <span>Saved locally</span>
+            </div>
+
+            <!-- Method Selector -->
+            <div class="panel-section">
+                <div class="panel-section-title">Valuation Method</div>
+                <div class="method-tabs">
+                    <button class="method-tab active" onclick="setMethod('berkus')" aria-pressed="true">Berkus</button>
+                    <button class="method-tab" onclick="setMethod('scorecard')" aria-pressed="false">Scorecard</button>
+                    <button class="method-tab" onclick="setMethod('vc')" aria-pressed="false">VC Method</button>
+                </div>
+                <p id="methodDescription" style="font-size:0.85rem;color:var(--text-secondary);margin-top:8px;">Best for pre-revenue startups. Values based on 5 risk milestones.</p>
+            </div>
+
+            <!-- BERKUS INPUTS -->
+            <div id="berkusInputs">
+                <div class="panel-section">
+                    <div class="panel-section-title">Risk Milestones</div>
+                    <div class="input-wrapper">
+                        <label>Sound Idea <span class="label-value" id="berkusIdeaVal">$0</span></label>
+                        <input type="range" id="berkusIdea" min="0" max="500000" step="50000" value="200000" oninput="updateSlider(this)">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Working Prototype <span class="label-value" id="berkusPrototypeVal">$0</span></label>
+                        <input type="range" id="berkusPrototype" min="0" max="500000" step="50000" value="100000" oninput="updateSlider(this)">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Quality Team <span class="label-value" id="berkusTeamVal">$0</span></label>
+                        <input type="range" id="berkusTeam" min="0" max="500000" step="50000" value="200000" oninput="updateSlider(this)">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Strategic Partnerships <span class="label-value" id="berkusPartnersVal">$0</span></label>
+                        <input type="range" id="berkusPartners" min="0" max="500000" step="50000" value="0" oninput="updateSlider(this)">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Product Launch / Sales <span class="label-value" id="berkusLaunchVal">$0</span></label>
+                        <input type="range" id="berkusLaunch" min="0" max="500000" step="50000" value="0" oninput="updateSlider(this)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCORECARD INPUTS -->
+            <div id="scorecardInputs" style="display:none;">
+                <div class="panel-section">
+                    <div class="panel-section-title">Comparable Company</div>
+                    <div class="input-wrapper">
+                        <label>Average Valuation of Similar Startups ($)</label>
+                        <input type="number" id="scAvgValuation" value="3000000" min="0" step="100000" oninput="calculate()">
+                    </div>
+                </div>
+                <div class="panel-section">
+                    <div class="panel-section-title">Comparison Factors</div>
+                    <div class="input-wrapper">
+                        <label>Team Strength <span class="label-value" id="scTeamVal">1.0x</span></label>
+                        <input type="range" id="scTeam" min="0" max="200" step="10" value="120" oninput="updateScorecardSlider(this)">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Market Size <span class="label-value" id="scMarketVal">1.0x</span></label>
+                        <input type="range" id="scMarket" min="0" max="200" step="10" value="100" oninput="updateScorecardSlider(this)">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Product / Technology <span class="label-value" id="scProductVal">1.0x</span></label>
+                        <input type="range" id="scProduct" min="0" max="200" step="10" value="100" oninput="updateScorecardSlider(this)">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Competitive Environment <span class="label-value" id="scCompetitionVal">1.0x</span></label>
+                        <input type="range" id="scCompetition" min="0" max="200" step="10" value="100" oninput="updateScorecardSlider(this)">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Sales / Marketing <span class="label-value" id="scSalesVal">1.0x</span></label>
+                        <input type="range" id="scSales" min="0" max="200" step="10" value="80" oninput="updateScorecardSlider(this)">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Capital Need <span class="label-value" id="scCapitalVal">1.0x</span></label>
+                        <input type="range" id="scCapital" min="0" max="200" step="10" value="100" oninput="updateScorecardSlider(this)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- VC METHOD INPUTS -->
+            <div id="vcInputs" style="display:none;">
+                <div class="panel-section">
+                    <div class="panel-section-title">Exit Projections</div>
+                    <div class="input-wrapper">
+                        <label>Expected Revenue in 5 Years ($)</label>
+                        <input type="number" id="vcRevenue" value="10000000" min="0" step="500000" oninput="calculate()">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Revenue Multiple (Exit / Revenue)</label>
+                        <input type="number" id="vcMultiple" value="5" min="0.5" max="50" step="0.5" oninput="calculate()">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Desired Investor ROI (x)</label>
+                        <input type="number" id="vcROI" value="10" min="1" max="100" step="1" oninput="calculate()">
+                    </div>
+                    <div class="input-wrapper">
+                        <label>Investment Amount ($)</label>
+                        <input type="number" id="vcInvestment" value="2000000" min="0" step="100000" oninput="calculate()">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Share -->
+            <div class="panel-section">
+                <div class="panel-section-title">Share</div>
+                <div class="share-bar">
+                    <button class="btn-share" onclick="copyShareLink()">Copy Link</button>
+                    <button class="btn-share" onclick="shareToTwitter()">Twitter</button>
+                    <button class="btn-share" onclick="window.print()">Print</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Panel -->
+        <div class="results-panel" role="region" aria-label="Valuation results">
+            <!-- Main Valuation Display -->
+            <div class="valuation-hero" aria-live="polite" aria-atomic="true">
+                <div class="valuation-label">Estimated Pre-Money Valuation</div>
+                <div class="valuation-amount" id="mainValuation">$0</div>
+                <div class="valuation-range" id="valuationRange">Based on <strong id="methodName">Berkus</strong> method</div>
+            </div>
+
+            <!-- Method Comparison Cards -->
+            <div class="method-results">
+                <div class="method-card" id="cardBerkus">
+                    <div class="method-card-label">Berkus Method</div>
+                    <div class="method-card-value" id="cardBerkusValue">$0</div>
+                    <div class="method-card-desc">Pre-revenue</div>
+                </div>
+                <div class="method-card" id="cardScorecard">
+                    <div class="method-card-label">Scorecard</div>
+                    <div class="method-card-value" id="cardScorecardValue">$0</div>
+                    <div class="method-card-desc">Early stage</div>
+                </div>
+                <div class="method-card" id="cardVC">
+                    <div class="method-card-label">VC Method</div>
+                    <div class="method-card-value" id="cardVCValue">$0</div>
+                    <div class="method-card-desc">Fundraising</div>
+                </div>
+            </div>
+
+            <!-- Comparison Chart -->
+            <section class="chart-section" aria-labelledby="chartTitle">
+                <h3 id="chartTitle">Method Comparison</h3>
+                <p class="chart-subtitle">Visual comparison of all three valuation methods.</p>
+                <div class="comparison-chart" id="comparisonChart" role="img" aria-label="Bar chart comparing valuation methods"></div>
+            </section>
+
+            <!-- Breakdown Table -->
+            <section class="breakdown-section" id="breakdownSection" aria-labelledby="breakdownTitle">
+                <h3 id="breakdownTitle">Valuation Breakdown</h3>
+                <p class="breakdown-subtitle" id="breakdownSubtitle">How each factor contributes to your valuation.</p>
+                <div style="overflow-x:auto;">
+                    <table class="breakdown-table" id="breakdownTable" role="table">
+                        <thead><tr><th>Factor</th><th>Value</th><th>Contribution</th></tr></thead>
+                        <tbody id="breakdownBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Pro CTA -->
+            <div class="calc-cta" role="complementary" aria-label="FounderMath Pro upgrade offer">
+                <h3>Need a defensible valuation for fundraising?</h3>
+                <p>FounderMath Pro lets you save valuation scenarios, compare side-by-side, and export professional PDF reports for investors.</p>
+                <a href="pricing.html" class="btn-white">Upgrade to Pro — $19/mo</a>
+            </div>
+
+            <!-- Related Calculators -->
+            <section style="margin-top:16px;">
+                <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:16px;">Next: Use your valuation in these calculators</h3>
+                <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+                    <a href="safe.html" style="display:block;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-size:0.95rem;font-weight:600;color:var(--text-primary);margin:0 0 4px;">SAFE Note Calculator</h4>
+                        <p style="font-size:0.8rem;color:var(--text-secondary);margin:0;">Model how SAFEs convert at your valuation</p>
+                    </a>
+                    <a href="dilution.html" style="display:block;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-size:0.95rem;font-weight:600;color:var(--text-primary);margin:0 0 4px;">Dilution Calculator</h4>
+                        <p style="font-size:0.8rem;color:var(--text-secondary);margin:0;">See how funding rounds affect your ownership</p>
+                    </a>
+                    <a href="cap-table.html" style="display:block;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-size:0.95rem;font-weight:600;color:var(--text-primary);margin:0 0 4px;">Cap Table Builder</h4>
+                        <p style="font-size:0.8rem;color:var(--text-secondary);margin:0;">Build your full cap table with this valuation</p>
+                    </a>
+                    <a href="equity-split.html" style="display:block;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-size:0.95rem;font-weight:600;color:var(--text-primary);margin:0 0 4px;">Equity Split Calculator</h4>
+                        <p style="font-size:0.8rem;color:var(--text-secondary);margin:0;">Fair equity splits between cofounders</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Newsletter -->
+    <section style="max-width:700px;margin:40px auto;padding:32px 24px;text-align:center;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
+        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:8px;">Get weekly founder insights</h3>
+        <p style="color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem;">Equity breakdowns, fundraising math, and calculator tips. No spam.</p>
+        <form id="newsletterForm" onsubmit="handleCalcNewsletter(event)" style="display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+            <input type="email" id="newsletterEmail" placeholder="founder@startup.com" required style="flex:1;min-width:200px;background:var(--bg-input);border:1px solid var(--border);color:var(--text-primary);padding:10px 14px;border-radius:8px;font-size:0.85rem;">
+            <button type="submit" id="newsletterBtn" style="background:var(--accent);color:white;border:none;padding:10px 20px;border-radius:8px;font-weight:600;font-size:0.85rem;cursor:pointer;">Subscribe</button>
+        </form>
+        <p id="newsletterMsg" style="margin-top:10px;font-size:0.8rem;display:none;"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="vesting.html">Vesting</a></li>
+                <li><a href="unit-economics.html">Unit Econ</a></li>
+                <li><a href="cap-table.html">Cap Table</a></li>
+                <li><a href="equity-split.html">Equity Split</a></li>
+                <li><a href="valuation.html">Valuation</a></li>
+                <li><a href="free-startup-tools.html">Free Tools</a></li>
+                <li><a href="carta-alternatives.html">Carta Alternatives</a></li>
+                <li><a href="embed.html">Embed</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Link copied!</div>
+
+    <script>
+    // ============================================================
+    // TRACKING
+    // ============================================================
+    function trackEvent(eventName, params = {}) {
+        if (typeof gtag === 'function') {
+            gtag('event', eventName, { calculator: 'valuation', ...params });
+        }
+    }
+    trackEvent('calculator_view');
+
+    // ============================================================
+    // STATE
+    // ============================================================
+    let currentMethod = 'berkus';
+    let valuations = { berkus: 0, scorecard: 0, vc: 0 };
+
+    // ============================================================
+    // METHOD SWITCHING
+    // ============================================================
+    const methodDescriptions = {
+        berkus: 'Best for pre-revenue startups. Values based on 5 risk milestones, up to $2.5M.',
+        scorecard: 'Best for early-stage startups. Compares your startup to recently funded peers.',
+        vc: 'Best for fundraising. Works backwards from your expected exit value.'
+    };
+    const methodNames = { berkus: 'Berkus', scorecard: 'Scorecard', vc: 'Venture Capital' };
+
+    function setMethod(method) {
+        currentMethod = method;
+        document.querySelectorAll('.method-tab').forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-pressed', 'false');
+        });
+        event.target.classList.add('active');
+        event.target.setAttribute('aria-pressed', 'true');
+
+        document.getElementById('berkusInputs').style.display = method === 'berkus' ? 'block' : 'none';
+        document.getElementById('scorecardInputs').style.display = method === 'scorecard' ? 'block' : 'none';
+        document.getElementById('vcInputs').style.display = method === 'vc' ? 'block' : 'none';
+        document.getElementById('methodDescription').textContent = methodDescriptions[method];
+        document.getElementById('methodName').textContent = methodNames[method];
+
+        calculate();
+        trackEvent('switch_method', { method });
+    }
+
+    // ============================================================
+    // SLIDER HELPERS
+    // ============================================================
+    function fmt$(n) {
+        if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
+        if (n >= 1000) return '$' + (n / 1000).toFixed(0) + 'K';
+        return '$' + n.toFixed(0);
+    }
+
+    function updateSlider(el) {
+        const val = parseFloat(el.value);
+        const label = el.parentElement.querySelector('.label-value');
+        label.textContent = fmt$(val);
+        calculate();
+    }
+
+    function updateScorecardSlider(el) {
+        const val = parseFloat(el.value);
+        const label = el.parentElement.querySelector('.label-value');
+        label.textContent = (val / 100).toFixed(1) + 'x';
+        calculate();
+    }
+
+    // ============================================================
+    // BERKUS METHOD
+    // ============================================================
+    function calculateBerkus() {
+        const idea = parseFloat(document.getElementById('berkusIdea').value);
+        const prototype = parseFloat(document.getElementById('berkusPrototype').value);
+        const team = parseFloat(document.getElementById('berkusTeam').value);
+        const partners = parseFloat(document.getElementById('berkusPartners').value);
+        const launch = parseFloat(document.getElementById('berkusLaunch').value);
+        return idea + prototype + team + partners + launch;
+    }
+
+    // ============================================================
+    // SCORECARD METHOD
+    // ============================================================
+    function calculateScorecard() {
+        const avgVal = parseFloat(document.getElementById('scAvgValuation').value) || 0;
+
+        // Weights from standard scorecard method
+        const weights = { team: 0.30, market: 0.25, product: 0.15, competition: 0.10, sales: 0.10, capital: 0.10 };
+        const factors = {
+            team: parseFloat(document.getElementById('scTeam').value) / 100,
+            market: parseFloat(document.getElementById('scMarket').value) / 100,
+            product: parseFloat(document.getElementById('scProduct').value) / 100,
+            competition: parseFloat(document.getElementById('scCompetition').value) / 100,
+            sales: parseFloat(document.getElementById('scSales').value) / 100,
+            capital: parseFloat(document.getElementById('scCapital').value) / 100,
+        };
+
+        let weightedFactor = 0;
+        for (const key of Object.keys(weights)) {
+            weightedFactor += weights[key] * factors[key];
+        }
+
+        return avgVal * weightedFactor;
+    }
+
+    // ============================================================
+    // VC METHOD
+    // ============================================================
+    function calculateVC() {
+        const revenue = parseFloat(document.getElementById('vcRevenue').value) || 0;
+        const multiple = parseFloat(document.getElementById('vcMultiple').value) || 1;
+        const roi = parseFloat(document.getElementById('vcROI').value) || 1;
+        const investment = parseFloat(document.getElementById('vcInvestment').value) || 0;
+
+        const exitValue = revenue * multiple;
+        const postMoney = exitValue / roi;
+        const preMoney = postMoney - investment;
+        return Math.max(0, preMoney);
+    }
+
+    // ============================================================
+    // MAIN CALCULATE
+    // ============================================================
+    function calculate() {
+        valuations.berkus = calculateBerkus();
+        valuations.scorecard = calculateScorecard();
+        valuations.vc = calculateVC();
+
+        const mainVal = valuations[currentMethod];
+        const allVals = [valuations.berkus, valuations.scorecard, valuations.vc].filter(v => v > 0);
+        const avgVal = allVals.length > 0 ? allVals.reduce((a, b) => a + b, 0) / allVals.length : 0;
+        const minVal = allVals.length > 0 ? Math.min(...allVals) : 0;
+        const maxVal = allVals.length > 0 ? Math.max(...allVals) : 0;
+
+        // Main display
+        document.getElementById('mainValuation').textContent = fmt$(mainVal);
+        document.getElementById('valuationRange').innerHTML =
+            `Based on <strong>${methodNames[currentMethod]}</strong> method &middot; Average across methods: <strong>${fmt$(avgVal)}</strong> &middot; Range: <strong>${fmt$(minVal)} – ${fmt$(maxVal)}</strong>`;
+
+        // Method cards
+        const maxCardVal = Math.max(valuations.berkus, valuations.scorecard, valuations.vc, 1);
+        document.getElementById('cardBerkusValue').textContent = fmt$(valuations.berkus);
+        document.getElementById('cardScorecardValue').textContent = fmt$(valuations.scorecard);
+        document.getElementById('cardVCValue').textContent = fmt$(valuations.vc);
+
+        // Highlight best method card
+        ['cardBerkus', 'cardScorecard', 'cardVC'].forEach(id => document.getElementById(id).classList.remove('best'));
+        const methodMap = { berkus: 'cardBerkus', scorecard: 'cardScorecard', vc: 'cardVC' };
+        document.getElementById(methodMap[currentMethod]).classList.add('best');
+
+        // Comparison chart
+        renderComparisonChart(maxCardVal);
+
+        // Breakdown table
+        renderBreakdown();
+
+        // Save
+        saveToLocalStorage();
+    }
+
+    // ============================================================
+    // COMPARISON CHART
+    // ============================================================
+    function renderComparisonChart(maxVal) {
+        const container = document.getElementById('comparisonChart');
+        const data = [
+            { name: 'Berkus Method', value: valuations.berkus, color: '#6c5ce7' },
+            { name: 'Scorecard', value: valuations.scorecard, color: '#00b894' },
+            { name: 'VC Method', value: valuations.vc, color: '#54a0ff' },
+            { name: 'Average', value: [valuations.berkus, valuations.scorecard, valuations.vc].filter(v => v > 0).reduce((a, b, i, arr) => a + b / arr.length, 0), color: '#ffa502' }
+        ];
+
+        container.innerHTML = '';
+        data.forEach(d => {
+            const pct = maxVal > 0 ? (d.value / maxVal) * 100 : 0;
+            const row = document.createElement('div');
+            row.className = 'chart-row';
+            row.innerHTML = `
+                <div class="chart-label">${d.name}</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar" style="width:${Math.max(pct, 2)}%;background:${d.color}"></div>
+                </div>
+                <div class="chart-value">${fmt$(d.value)}</div>
+            `;
+            container.appendChild(row);
+        });
+    }
+
+    // ============================================================
+    // BREAKDOWN TABLE
+    // ============================================================
+    function renderBreakdown() {
+        const tbody = document.getElementById('breakdownBody');
+        tbody.innerHTML = '';
+        const maxVal = Math.max(valuations[currentMethod], 1);
+
+        if (currentMethod === 'berkus') {
+            const factors = [
+                { name: 'Sound Idea', value: parseFloat(document.getElementById('berkusIdea').value), color: '#6c5ce7' },
+                { name: 'Working Prototype', value: parseFloat(document.getElementById('berkusPrototype').value), color: '#a29bfe' },
+                { name: 'Quality Team', value: parseFloat(document.getElementById('berkusTeam').value), color: '#00b894' },
+                { name: 'Strategic Partnerships', value: parseFloat(document.getElementById('berkusPartners').value), color: '#54a0ff' },
+                { name: 'Product Launch / Sales', value: parseFloat(document.getElementById('berkusLaunch').value), color: '#ffa502' },
+            ];
+            document.getElementById('breakdownSubtitle').textContent = 'Each milestone adds up to $500K to your pre-money valuation.';
+            factors.forEach(f => {
+                const pct = (f.value / maxVal) * 100;
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${f.name}</td>
+                    <td style="font-family:var(--font-mono);font-weight:600;">${fmt$(f.value)}</td>
+                    <td><div class="breakdown-bar-container"><div class="breakdown-bar" style="width:${pct}%;background:${f.color}"></div></div></td>
+                `;
+                tbody.appendChild(row);
+            });
+        } else if (currentMethod === 'scorecard') {
+            const avgVal = parseFloat(document.getElementById('scAvgValuation').value) || 0;
+            const weights = { Team: 0.30, Market: 0.25, Product: 0.15, Competition: 0.10, 'Sales/Marketing': 0.10, 'Capital Need': 0.10 };
+            const ids = { Team: 'scTeam', Market: 'scMarket', Product: 'scProduct', Competition: 'scCompetition', 'Sales/Marketing': 'scSales', 'Capital Need': 'scCapital' };
+            const colors = ['#6c5ce7', '#00b894', '#54a0ff', '#ffa502', '#ff6b9d', '#feca57'];
+            document.getElementById('breakdownSubtitle').textContent = 'Your startup compared to the average, weighted by importance.';
+
+            let i = 0;
+            for (const [name, weight] of Object.entries(weights)) {
+                const factor = parseFloat(document.getElementById(ids[name]).value) / 100;
+                const contribution = avgVal * weight * factor;
+                const pct = (factor * 100);
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${name} <span style="color:var(--text-muted);font-size:0.75rem;">(${(weight*100).toFixed(0)}% weight)</span></td>
+                    <td style="font-family:var(--font-mono);font-weight:600;">${factor.toFixed(1)}x &rarr; ${fmt$(contribution)}</td>
+                    <td><div class="breakdown-bar-container"><div class="breakdown-bar" style="width:${Math.min(pct, 100)}%;background:${colors[i]}"></div></div></td>
+                `;
+                tbody.appendChild(row);
+                i++;
+            }
+        } else {
+            const revenue = parseFloat(document.getElementById('vcRevenue').value) || 0;
+            const multiple = parseFloat(document.getElementById('vcMultiple').value) || 1;
+            const roi = parseFloat(document.getElementById('vcROI').value) || 1;
+            const investment = parseFloat(document.getElementById('vcInvestment').value) || 0;
+            const exitValue = revenue * multiple;
+            const postMoney = exitValue / roi;
+            document.getElementById('breakdownSubtitle').textContent = 'Working backwards from your expected exit to pre-money valuation.';
+
+            const steps = [
+                { name: 'Expected Revenue (Year 5)', value: revenue, color: '#6c5ce7' },
+                { name: `Exit Value (${multiple}x multiple)`, value: exitValue, color: '#a29bfe' },
+                { name: `Required Post-Money (${roi}x ROI)`, value: postMoney, color: '#54a0ff' },
+                { name: `Pre-Money Valuation`, value: valuations.vc, color: '#00b894' },
+            ];
+            const maxStep = Math.max(...steps.map(s => s.value), 1);
+            steps.forEach(s => {
+                const pct = (s.value / maxStep) * 100;
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td style="font-weight:${s.name === 'Pre-Money Valuation' ? '700' : '400'}">${s.name}</td>
+                    <td style="font-family:var(--font-mono);font-weight:600;color:${s.color}">${fmt$(s.value)}</td>
+                    <td><div class="breakdown-bar-container"><div class="breakdown-bar" style="width:${pct}%;background:${s.color}"></div></div></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+    }
+
+    // ============================================================
+    // LOCAL STORAGE
+    // ============================================================
+    function saveToLocalStorage() {
+        const data = {
+            method: currentMethod,
+            berkus: {
+                idea: document.getElementById('berkusIdea').value,
+                prototype: document.getElementById('berkusPrototype').value,
+                team: document.getElementById('berkusTeam').value,
+                partners: document.getElementById('berkusPartners').value,
+                launch: document.getElementById('berkusLaunch').value,
+            },
+            scorecard: {
+                avgValuation: document.getElementById('scAvgValuation').value,
+                team: document.getElementById('scTeam').value,
+                market: document.getElementById('scMarket').value,
+                product: document.getElementById('scProduct').value,
+                competition: document.getElementById('scCompetition').value,
+                sales: document.getElementById('scSales').value,
+                capital: document.getElementById('scCapital').value,
+            },
+            vc: {
+                revenue: document.getElementById('vcRevenue').value,
+                multiple: document.getElementById('vcMultiple').value,
+                roi: document.getElementById('vcROI').value,
+                investment: document.getElementById('vcInvestment').value,
+            }
+        };
+        localStorage.setItem('foundermath_valuation', JSON.stringify(data));
+    }
+
+    function loadFromLocalStorage() {
+        const saved = localStorage.getItem('foundermath_valuation');
+        if (!saved) return;
+        try {
+            const data = JSON.parse(saved);
+            if (data.berkus) {
+                Object.entries(data.berkus).forEach(([key, val]) => {
+                    const el = document.getElementById('berkus' + key.charAt(0).toUpperCase() + key.slice(1));
+                    if (el) { el.value = val; updateSlider(el); }
+                });
+            }
+            if (data.scorecard) {
+                if (data.scorecard.avgValuation) document.getElementById('scAvgValuation').value = data.scorecard.avgValuation;
+                ['team', 'market', 'product', 'competition', 'sales', 'capital'].forEach(key => {
+                    if (data.scorecard[key]) {
+                        const el = document.getElementById('sc' + key.charAt(0).toUpperCase() + key.slice(1));
+                        if (el) { el.value = data.scorecard[key]; updateScorecardSlider(el); }
+                    }
+                });
+            }
+            if (data.vc) {
+                ['revenue', 'multiple', 'roi', 'investment'].forEach(key => {
+                    if (data.vc[key]) document.getElementById('vc' + key.charAt(0).toUpperCase() + key.slice(1)).value = data.vc[key];
+                });
+            }
+        } catch (e) {}
+    }
+
+    // ============================================================
+    // SHARE
+    // ============================================================
+    function copyShareLink() {
+        const url = window.location.origin + window.location.pathname;
+        navigator.clipboard.writeText(url).then(() => showToast('Link copied!'));
+        trackEvent('share', { method: 'copy_link' });
+    }
+
+    function shareToTwitter() {
+        const val = fmt$(valuations[currentMethod]);
+        const text = `My startup's estimated valuation: ${val} (using @foundermath's free calculator). Try yours:`;
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.origin + window.location.pathname)}`, '_blank');
+        trackEvent('share', { method: 'twitter' });
+    }
+
+    function showToast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    // ============================================================
+    // THEME & MENU
+    // ============================================================
+    function toggleTheme() {
+        const body = document.body;
+        const current = body.getAttribute('data-theme');
+        body.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+        localStorage.setItem('foundermath_theme', current === 'light' ? 'dark' : 'light');
+    }
+
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const toggle = document.getElementById('mobileToggle');
+        navLinks.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+    }
+
+    // ============================================================
+    // NEWSLETTER
+    // ============================================================
+    async function handleCalcNewsletter(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value;
+        const btn = document.getElementById('newsletterBtn');
+        const msg = document.getElementById('newsletterMsg');
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+        try {
+            const response = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, source: 'valuation' })
+            });
+            const data = await response.json();
+            if (response.ok) {
+                msg.textContent = 'Subscribed! Check your inbox.';
+                msg.style.color = 'var(--green)';
+                document.getElementById('newsletterEmail').value = '';
+                trackEvent('newsletter_subscribe', { source: 'valuation' });
+            } else {
+                throw new Error(data.error || 'Failed');
+            }
+        } catch (err) {
+            msg.textContent = err.message || 'Something went wrong.';
+            msg.style.color = 'var(--red)';
+        }
+        msg.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
+    }
+
+    // ============================================================
+    // INIT
+    // ============================================================
+    function init() {
+        const savedTheme = localStorage.getItem('foundermath_theme');
+        if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
+        loadFromLocalStorage();
+        calculate();
+    }
+
+    init();
+    </script>
+    <script src="exit-intent.js" defer></script>
+</body>
+</html>
