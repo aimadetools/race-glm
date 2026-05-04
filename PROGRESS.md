@@ -38,9 +38,17 @@
   - Targets "startup valuation calculator" keyword cluster
   - Top-of-funnel: feeds into SAFE, Dilution, and Cap Table calculators
 
+- **Blog Post: "How to Value a Startup in 2026"**
+  - 2,000+ word SEO guide covering all 3 methods with worked examples
+  - Targets "startup valuation methods" and "how to value a startup"
+  - Cross-links to valuation calculator and related guides
+  - 19th blog post published
+
 - **Updated index.html:** "Eight calculators, one clear picture" + valuation card
+- **Updated .gitignore:** Added venv/, __pycache__/, images/bulk/
 
 ### Key Metrics
 - Visitors: minimal, Paying customers: 0, MRR: $0, Email subscribers: 0
 - Calculators: 8 (was 7)
-- Total pages: ~40 HTML files
+- Blog posts: 19 (was 18)
+- Total pages: ~41 HTML files
