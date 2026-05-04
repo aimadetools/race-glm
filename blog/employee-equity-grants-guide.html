@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pre-Money vs Post-Money Valuation: The Startup Funding Guide (2026) | FounderMath</title>
+    <title>How to Grant Equity to Employees: A Founder's Complete Guide (2026) | FounderMath</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
     <script>
@@ -36,16 +36,16 @@
             document.body.setAttribute('data-theme', saved);
         });
     </script>
-    <meta name="description" content="Learn the difference between pre-money and post-money valuations in startup funding. Includes formulas, real examples, and common mistakes founders make.">
-    <meta name="keywords" content="pre-money valuation, post-money valuation, startup valuation, funding rounds, equity dilution, founder ownership">
-    <meta property="og:title" content="Pre-Money vs Post-Money Valuation: The Startup Funding Guide">
-    <meta property="og:description" content="Understanding pre-money vs post-money valuation is crucial for founders. Learn the formula, see real examples, and avoid common mistakes.">
+    <meta name="description" content="Learn how to grant equity to employees: standard grants, vesting schedules, ISO vs NSO, strike prices, and common mistakes founders make.">
+    <meta name="keywords" content="employee equity grants, ISO, NSO, stock options, equity compensation, startup hiring, founder equity, employee stock options">
+    <meta property="og:title" content="How to Grant Equity to Employees: A Founder's Complete Guide">
+    <meta property="og:description" content="A practical guide for founders on granting equity to employees. Learn standard grant sizes, vesting, ISOs vs NSOs, and avoid costly mistakes.">
     <meta property="og:type" content="article">
     <meta property="og:image" content="https://founder-math.com/og-image.svg">
-    <meta property="og:url" content="https://founder-math.com/blog/pre-money-post-money-valuation-guide.html">
+    <meta property="og:url" content="https://founder-math.com/blog/employee-equity-grants-guide.html">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pre-Money vs Post-Money Valuation: The Startup Funding Guide">
-    <meta name="twitter:description" content="Understanding pre-money vs post-money valuation is crucial for founders. Learn the formula, see real examples, and avoid common mistakes.">
+    <meta name="twitter:title" content="How to Grant Equity to Employees">
+    <meta name="twitter:description" content="A practical guide for founders on granting equity to employees. Learn standard grant sizes, vesting, ISOs vs NSOs.">
     <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../print.css" media="print">
@@ -53,11 +53,11 @@
     {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Pre-Money vs Post-Money Valuation: The Startup Funding Guide",
-        "url": "https://founder-math.com/blog/pre-money-post-money-valuation-guide.html",
-        "description": "Learn the difference between pre-money and post-money valuations in startup funding. Includes formulas, real examples, and common mistakes founders make.",
-        "datePublished": "2026-04-27",
-        "dateModified": "2026-04-27",
+        "headline": "How to Grant Equity to Employees: A Founder's Complete Guide",
+        "url": "https://founder-math.com/blog/employee-equity-grants-guide.html",
+        "description": "Learn how to grant equity to employees: standard grants, vesting schedules, ISO vs NSO, strike prices, and common mistakes founders make.",
+        "datePublished": "2026-05-04",
+        "dateModified": "2026-05-04",
         "author": {
             "@type": "Organization",
             "name": "FounderMath",
@@ -73,7 +73,7 @@
         },
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://founder-math.com/blog/pre-money-post-money-valuation-guide.html"
+            "@id": "https://founder-math.com/blog/employee-equity-grants-guide.html"
         }
     }
     </script>
@@ -337,6 +337,10 @@
             font-weight: 600;
             transition: transform 0.2s, box-shadow 0.2s;
         }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
         .newsletter {
             max-width: 600px; margin: 40px auto 60px; padding: 32px; text-align: center;
             background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
@@ -353,21 +357,13 @@
         }
         .newsletter-form input:focus { border-color: var(--accent); }
         .newsletter-form input::placeholder { color: var(--text-muted); }
-        footer {
-            padding: 48px 24px; border-top: 1px solid var(--border);
+        .btn-primary {
+            background: var(--accent); color: white; padding: 12px 24px;
+            border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+            text-decoration: none; border: none; cursor: pointer; transition: all 0.3s;
+            white-space: nowrap;
         }
-        .footer-inner {
-            max-width: 900px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
-        .footer-links { display: flex; gap: 24px; list-style: none; }
-        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
-        .footer-links a:hover { color: var(--text-primary); }
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px var(--accent-glow);
-        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
         .author-bio {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -392,8 +388,7 @@
             .mobile-toggle { display: block; }
             .theme-toggle { display: none; }
         }
-    
-        @media (max-width: 600px) { .newsletter-form { flex-direction: column; } .footer-inner { flex-direction: column; text-align: center; gap: 16px; } }
+
         .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
         .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
         .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
@@ -431,184 +426,258 @@
         <article>
             <header class="article-header">
                 <div class="article-meta">
-                    <span class="tag">Funding</span>
-                    <span>April 27, 2026</span>
-                    <span>8 min read</span>
+                    <span class="tag">Hiring</span>
+                    <span>May 4, 2026</span>
+                    <span>9 min read</span>
                 </div>
-                <h1>Pre-Money vs Post-Money Valuation: The Startup Funding Guide</h1>
-                <p class="subtitle">Understanding the difference between pre-money and post-money valuation is crucial for founders. Get the formula, see real examples, and avoid costly mistakes.</p>
+                <h1>How to Grant Equity to Employees: A Founder's Complete Guide</h1>
+                <p class="subtitle">Grants, vesting, ISOs vs NSOs, strike prices, and common mistakes founders make when giving equity to employees.</p>
             </header>
             <div class="toc">
                 <h2>Table of Contents</h2>
                 <ol>
-                    <li><a href="#what-is-pre-money-valuation">What is Pre-Money Valuation?</a></li>
-                    <li><a href="#what-is-post-money-valuation">What is Post-Money Valuation?</a></li>
-                    <li><a href="#the-valuation-formula">The Valuation Formula</a></li>
-                    <li><a href="#calculating-your-ownership">Calculating Your Ownership</a></li>
-                    <li><a href="#real-world-example-series-a">Real-World Example: Series A</a></li>
-                    <li><a href="#common-mistakes-founders-make">Common Mistakes Founders Make</a></li>
+                    <li><a href="#why-grant-equity-at-all">Why Grant Equity at All?</a></li>
+                    <li><a href="#standard-equity-grants-by-role">Standard Equity Grants by Role</a></li>
+                    <li><a href="#vesting-schedules-101">Vesting Schedules 101</a></li>
+                    <li><a href="#iso-vs-nso-which-should-you-use">ISO vs NSO: Which Should You Use?</a></li>
+                    <li><a href="#setting-the-strike-price">Setting the Strike Price</a></li>
+                    <li><a href="#the-granting-process-step-by-step">The Granting Process: Step-by-Step</a></li>
+                    <li><a href="#common-mistakes-to-avoid">Common Mistakes to Avoid</a></li>
                     <li><a href="#key-takeaways">Key Takeaways</a></li>
                 </ol>
             </div>
             <div class="article-body">
-                <h2 id="what-is-pre-money-valuation">What is Pre-Money Valuation?</h2>
-                <p>Pre-money valuation is the value of your company <strong>before</strong> receiving any new investment. It represents what investors think your company is worth based on its current assets, traction, team, and future potential.</p>
-                <p>Think of it as the price tag on your startup before the cash infusion. If an investor offers you $2M on a $8M pre-money valuation, they're saying: "Your company is worth $8M right now, and I'll give you $2M for 20% ownership."</p>
+                <h2 id="why-grant-equity-at-all">Why Grant Equity at All?</h2>
+                <p>Equity aligns incentives. When employees own a piece of the company, they think like owners. This is especially important in early-stage startups where:</p>
+                <ul>
+                    <li>Salaries are often below market rate</li>
+                    <li>The work is risky — the company might fail</li>
+                    <li>Success depends on everyone going above and beyond</li>
+                </ul>
+                <p>Equity is also a powerful recruiting tool. Top candidates often compare offers not just on salary, but on potential upside. A well-structured equity package can help you compete with bigger companies.</p>
                 <div class="callout success">
                     <h4>Key Insight</h4>
-                    <p>Pre-money valuation is what you negotiate. Post-money valuation is just the math that follows.</p>
+                    <p>Equity doesn't cost you cash today, but it does dilute your ownership. The key is finding the right balance — enough to attract and retain great people, but not so much that you're giving away the company.</p>
                 </div>
-                <h2 id="what-is-post-money-valuation">What is Post-Money Valuation?</h2>
-                <p>Post-money valuation is the value of your company <strong>after</strong> the new investment is added. It's simply the pre-money valuation plus the amount of money being raised.</p>
-                <p>Using the example above: $8M pre-money + $2M investment = $10M post-money valuation. This number determines what percentage of the company the new investors receive.</p>
-                <h2 id="the-valuation-formula">The Valuation Formula</h2>
-                <p>The relationship between these two valuations is straightforward:</p>
-                <div class="formula-box">
-                    <code>Post-Money Valuation = Pre-Money Valuation + Investment Amount</code>
-                </div>
-                <p>From this, you can calculate the ownership percentage the investor receives:</p>
-                <div class="formula-box">
-                    <code>Investor Ownership % = Investment Amount ÷ Post-Money Valuation</code>
-                </div>
-                <p>Or, using only pre-money:</p>
-                <div class="formula-box">
-                    <code>Investor Ownership % = Investment Amount ÷ (Pre-Money Valuation + Investment Amount)</code>
-                </div>
-                <h2 id="calculating-your-ownership">Calculating Your Ownership</h2>
-                <p>After an investment round, your ownership percentage changes. Here's how to calculate what you'll own:</p>
-                <div class="formula-box">
-                    <code>Your New Ownership % = Your Current Ownership % × (Pre-Money Valuation ÷ Post-Money Valuation)</code>
-                </div>
-                <p>This is where many founders get surprised. If you own 100% of your company and raise $2M on an $8M pre-money valuation, you don't own 80%—you own less. The investor gets 20%, and you get diluted proportionally.</p>
-                <div class="callout cta">
-                    <strong>Try it yourself</strong>
-                    <p>Use our free Startup Valuation Calculator to estimate your pre-money valuation using 3 proven methods. No signup required.</p>
-                    <a href="../valuation.html" class="cta-button">Try Valuation Calculator Free →</a>
-                </div>
-                <h2 id="real-world-example-series-a">Real-World Example: Series A</h2>
-                <p>Let's walk through a realistic Series A scenario to see how this plays out.</p>
+                <h2 id="standard-equity-grants-by-role">Standard Equity Grants by Role</h2>
+                <p>While every situation is unique, here are typical equity grant ranges by role and stage:</p>
                 <table class="example-table">
                     <thead>
                         <tr>
-                            <th>Item</th>
-                            <th>Value</th>
+                            <th>Role</th>
+                            <th>Pre-Seed</th>
+                            <th>Seed</th>
+                            <th>Series A</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Pre-Money Valuation</td>
-                            <td>$15,000,000</td>
+                            <td>Founding Engineer (#1)</td>
+                            <td>2% - 5%</td>
+                            <td>1.5% - 3%</td>
+                            <td>0.8% - 2%</td>
                         </tr>
                         <tr>
-                            <td>Investment Amount</td>
-                            <td>$5,000,000</td>
+                            <td>Early Engineer (#2-5)</td>
+                            <td>0.5% - 2%</td>
+                            <td>0.3% - 1%</td>
+                            <td>0.2% - 0.8%</td>
                         </tr>
                         <tr>
-                            <td>Post-Money Valuation</td>
-                            <td class="highlight">$20,000,000</td>
+                            <td>Senior Engineer</td>
+                            <td>0.3% - 1%</td>
+                            <td>0.2% - 0.5%</td>
+                            <td>0.1% - 0.3%</td>
                         </tr>
                         <tr>
-                            <td>Investor Ownership</td>
-                            <td>25%</td>
+                            <td>Head of Product/Design/Sales</td>
+                            <td>1% - 3%</td>
+                            <td>0.5% - 1.5%</td>
+                            <td>0.3% - 0.8%</td>
                         </tr>
                         <tr>
-                            <td>Founders' Starting Ownership</td>
-                            <td>75%</td>
-                        </tr>
-                        <tr>
-                            <td>Founders' New Ownership</td>
-                            <td class="highlight">56.25%</td>
+                            <td>Individual Contributor</td>
+                            <td>0.1% - 0.5%</td>
+                            <td>0.05% - 0.3%</td>
+                            <td>0.02% - 0.15%</td>
                         </tr>
                     </tbody>
                 </table>
-                <p>Here's the math: The founders started with 75% ownership (25% went to early investors and employees). After the Series A, they own <strong>75% × ($15M ÷ $20M) = 56.25%</strong>.</p>
-                <p>The investor gets 25%, and the remaining 18.75% is dilution that affects all existing shareholders proportionally.</p>
+                <p>These are on a <strong>fully-diluted</strong> basis — meaning as a percentage of the company after all outstanding options, including unallocated options in your pool.</p>
                 <div class="callout warning">
-                    <h4>Watch Out for Option Pools</h4>
-                    <p>Many investors will negotiate that the option pool is created <em>before</em> their investment. This means the pre-money valuation includes the option pool, and you get diluted twice—once for the pool and once for the investor. This is called the "option pool shuffle."</p>
+                    <h4>The "Fully Diluted" Trap</h4>
+                    <p>Always clarify whether equity is offered on a "fully diluted" or "outstanding" basis. 1% on a fully-diluted basis (including the option pool) is significantly less equity than 1% on just outstanding shares. Most startups use fully-diluted.</p>
                 </div>
-                <h2 id="common-mistakes-founders-make">Common Mistakes Founders Make</h2>
-                <h3>1. Focusing Only on Pre-Money</h3>
-                <p>Founders often celebrate a high pre-money valuation without considering other terms. A $20M pre-money with terrible liquidation preferences, anti-dilution clauses, and board control might be worse than a $15M pre-money with clean terms.</p>
-                <h3>2. Confusing Pre-Money and Post-Money</h3>
-                <p>It sounds basic, but in the heat of negotiations, founders sometimes mix these up. If you think you're getting a $10M pre-money when it's actually $10M post-money, that's a massive difference in your ownership.</p>
-                <h3>3. Forgetting About Dilution</h3>
-                <p>Raising money dilutes your ownership. Each round reduces your percentage. Founders who don't plan for this across multiple rounds can end up with surprisingly little ownership by Series C or D.</p>
-                <h3>4. Ignoring the Option Pool Impact</h3>
-                <p>As mentioned above, the option pool can significantly impact your effective valuation. A $10M pre-money with a 20% unallocated option pool is effectively an $8M pre-money from your perspective.</p>
+                <h2 id="vesting-schedules-101">Vesting Schedules 101</h2>
+                <p>Vesting protects both you and the employee. Employees earn their equity over time, and if they leave early, you don't give away equity for minimal contribution.</p>
+                <p><strong>Standard vesting schedule:</strong></p>
+                <ul>
+                    <li><strong>4-year total vesting period</strong> — The industry standard</li>
+                    <li><strong>1-year cliff</strong> — No equity vests until the employee completes 1 year of service</li>
+                    <li><strong>Monthly vesting after cliff</strong> — 1/48 of their grant vests each month</li>
+                </ul>
+                <div class="formula-box">
+                    <code>Monthly Vest = Total Grant ÷ 48</code>
+                </div>
+                <p>Example: An employee granted 48,000 options with a 1-year cliff vests 1,000 options per month after the first year. If they leave after 18 months, they leave with 6,000 vested options (12 months after cliff + 6 months).</p>
+                <div class="callout success">
+                    <h4>Alternative: Accelerated Vesting</h4>
+                    <p>Consider offering acceleration clauses for key hires. Single-trigger acceleration vests remaining unvested equity on acquisition. Double-trigger requires both acquisition AND termination. These are powerful incentives but should be used sparingly.</p>
+                </div>
+                <h2 id="iso-vs-nso-which-should-you-use">ISO vs NSO: Which Should You Use?</h2>
+                <p>There are two main types of stock options you can grant:</p>
+                <h3>Incentive Stock Options (ISOs)</h3>
+                <ul>
+                    <li><strong>Tax advantage:</strong> Qualified employees pay no tax on grant and only capital gains tax on sale (if held > 1 year after exercise and > 2 years after grant)</li>
+                    <li><strong>Restrictions:</strong> Only available to employees (not contractors), max $100K grant value per year, must be issued at FMV strike price</li>
+                    <li><strong>AMT risk:</strong> Can trigger Alternative Minimum Tax if spread between strike and FMV is large</li>
+                </ul>
+                <h3>Non-Qualified Stock Options (NSOs)</h3>
+                <ul>
+                    <li><strong>Flexibility:</strong> Can be granted to anyone (employees, contractors, advisors)</li>
+                    <li><strong>Tax treatment:</strong> Ordinary income tax on the spread at exercise (strike vs FMV), then capital gains on sale</li>
+                    <li><strong>No limits:</strong> No $100K cap, no AMT issues</li>
+                </ul>
+                <table class="example-table">
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>ISO</th>
+                            <th>NSO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Who can receive</td>
+                            <td>Employees only</td>
+                            <td>Anyone</td>
+                        </tr>
+                        <tr>
+                            <td>Max annual grant</td>
+                            <td>$100K FMV</td>
+                            <td>No limit</td>
+                        </tr>
+                        <tr>
+                            <td>Tax at exercise</td>
+                            <td>None (unless AMT)</td>
+                            <td>Ordinary income on spread</td>
+                        </tr>
+                        <tr>
+                            <td>Tax at sale</td>
+                            <td>Capital gains (if qualified)</td>
+                            <td>Capital gains</td>
+                        </tr>
+                        <tr>
+                            <td>AMT risk</td>
+                            <td>Yes</td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="callout warning">
+                    <h4>Practical Advice</h4>
+                    <p>Grant ISOs to early employees who can benefit from favorable tax treatment. Grant NSOs to contractors, advisors, or for grants over the $100K ISO limit. Many startups grant ISOs first, then NSOs once the ISO cap is hit.</p>
+                </div>
+                <h2 id="setting-the-strike-price">Setting the Strike Price</h2>
+                <p>The strike price is what employees pay to exercise their options. It must be at or above the <strong>fair market value (FMV)</strong> determined by your 409A valuation.</p>
+                <p><strong>Why FMV matters:</strong></p>
+                <ul>
+                    <li>Too low = Tax consequences for employees (IRS scrutiny)</li>
+                    <li>Too high = Less upside for employees (less attractive)</li>
+                </ul>
+                <p>Your 409A valuation determines the FMV. For example:</p>
+                <ul>
+                    <li>409A valuation: $5M</li>
+                    <li>Outstanding shares: 10M</li>
+                    <li>FMV per share: $0.50</li>
+                    <li>Strike price: $0.50 (must be ≥ FMV)</li>
+                </ul>
+                <p>Employee upside = Exit price - Strike price. The lower your 409A valuation (and thus strike price), the more upside for employees. This is why some founders aim for lower 409A valuations when hiring is a priority.</p>
                 <div class="cta-box">
-                    <h3>Plan Your Dilution Across Rounds</h3>
-                    <p>Use our <a href="../dilution.html">Equity Dilution Calculator</a> to model multiple funding rounds and see exactly how your ownership changes over time.</p>
-                    <a href="../dilution.html" class="cta-btn">Try the Calculator</a>
+                    <h3>Understand Your 409A Impact</h3>
+                    <p>Use our <a href="../valuation.html">Valuation Calculator</a> to estimate your pre-money valuation before your 409A appraisal. A lower 409A means lower strike prices and more upside for employees.</p>
+                    <a href="../valuation.html" class="cta-btn">Try Valuation Calculator</a>
+                </div>
+                <h2 id="the-granting-process-step-by-step">The Granting Process: Step-by-Step</h2>
+                <h3>1. Determine the grant size</h3>
+                <p>Use the ranges above as a starting point. Adjust based on:</p>
+                <ul>
+                    <li>The candidate's experience and impact potential</li>
+                    <li>How early they're joining</li>
+                    <li>Salary trade-offs (more equity = lower salary is acceptable)</li>
+                    <li>Market competition (are other offers on the table?)</li>
+                </ul>
+                <h3>2. Choose the option type</h3>
+                <p>ISOs for employees under the $100K cap. NSOs for everyone else or for additional grants.</p>
+                <h3>3. Get board approval</h3>
+                <p>Most option grants require board approval. Have this process documented and efficient so you don't lose candidates while waiting.</p>
+                <h3>4. Issue the stock option agreement</h3>
+                <p>This legal document specifies: grant size, vesting schedule, strike price, exercise window, and other terms. Work with a lawyer to have a standard template.</p>
+                <h3>5. Send 409A notice</h3>
+                <p>When you grant options, you typically need to provide the employee with a 409A notice (a simple document showing the FMV per share).</p>
+                <h3>6. Track everything in your cap table</h3>
+                <p>Update your cap table immediately after each grant. Include: employee name, grant date, grant size, strike price, vesting schedule, and exercise status.</p>
+                <h2 id="common-mistakes-to-avoid">Common Mistakes to Avoid</h2>
+                <h3>1. Granting too much to early employees</h3>
+                <p>It's tempting to be generous, but remember that early grants dilute everyone. A 5% grant to employee #1 means less equity for everyone who follows, including future co-founders.</p>
+                <h3>2. Not having a 409A valuation</h3>
+                <p>Setting strike prices without a 409A valuation is risky. If the IRS determines your strike price was below FMV, employees face immediate tax consequences and your company can face penalties.</p>
+                <h3>3. Unclear vesting terms</h3>
+                <p>Be explicit about vesting. What happens if the employee is fired vs quits? Is there an acceleration clause on acquisition? Ambiguity leads to disputes.</p>
+                <h3>4. Forgetting about exercise windows</h3>
+                <p>Standard practice: 90 days to exercise after termination. Some startups offer 10 years for terminated employees, which is more generous but means more unexercised options sitting on your books.</p>
+                <h3>5. Not refreshing the option pool</h3>
+                <p>As you grow, you'll need more options for new hires. Plan for pool refreshes in future funding rounds, or you'll run out.</p>
+                <div class="cta-box">
+                    <h3>Model Your Equity</h3>
+                    <p>Use our <a href="../vesting.html">Vesting Calculator</a> to visualize vesting schedules and see exactly how much equity employees will have at any point in time.</p>
+                    <a href="../vesting.html" class="cta-btn">Try Vesting Calculator</a>
                 </div>
                 <h2 id="key-takeaways">Key Takeaways</h2>
                 <ul>
-                    <li><strong>Pre-money</strong> is your company's value before investment; <strong>post-money</strong> is after investment.</li>
-                    <li>Post-money = Pre-money + Investment amount.</li>
-                    <li>Investor ownership = Investment ÷ Post-money valuation.</li>
-                    <li>Your ownership dilutes proportionally in every round.</li>
-                    <li>Watch for option pools—they can effectively lower your pre-money valuation.</li>
-                    <li>Don't focus solely on valuation; consider all deal terms.</li>
-                    <li>Model multiple rounds ahead to understand your long-term ownership trajectory.</li>
+                    <li>Equity aligns incentives and helps attract top talent</li>
+                    <li>Standard grants: 0.5-5% depending on role and stage (on a fully-diluted basis)</li>
+                    <li>Use standard vesting: 4-year total, 1-year cliff, monthly thereafter</li>
+                    <li>Grant ISOs to employees (under $100K cap), NSOs to everyone else</li>
+                    <li>Strike price must be at or above 409A FMV — get a 409A valuation before granting</li>
+                    <li>Track all grants in your cap table immediately</li>
+                    <li>Plan for option pool refreshes as you grow</li>
+                    <li>Be clear about vesting terms, exercise windows, and termination scenarios</li>
                 </ul>
                 <div class="callout success">
                     <h4>Pro Tip</h4>
-                    <p>When negotiating, focus on the post-money valuation and what percentage you'll own after the round. That's the number that actually matters for your future wealth and control.</p>
+                    <p>When negotiating equity, focus on the <strong>value</strong> of the grant, not just the percentage. A small percentage of a high-potential company can be worth more than a large percentage of a struggling one. Help candidates understand the upside potential of your company.</p>
                 </div>
 
                 <div class="callout cta">
                     <strong>Try it yourself</strong>
-                    <p>Use our free Equity Dilution Calculator to model how pre-money and post-money valuations affect your ownership. No signup required.</p>
-                    <a href="../dilution.html" class="cta-button">Try Equity Dilution Calculator Free →</a>
+                    <p>Use our free Cap Table Builder to model employee grants and see exactly how each hire affects founder ownership. No signup required.</p>
+                    <a href="../cap-table.html" class="cta-button">Try Cap Table Builder Free →</a>
                 </div>
             </div>
             <div class="author-bio">
                 <h4>About FounderMath</h4>
                 <p>FounderMath provides free, powerful calculators for startup founders. From equity dilution to runway to SAFE notes, we help you make informed decisions about your startup's finances.</p>
             </div>
-        
+
             <div class="related-posts">
                 <h3>Related Posts</h3>
-                <a href="equity-dilution-guide.html">How Equity Dilution Works Across Funding Rounds →</a>
-                <a href="safe-note-guide.html">Understanding SAFE Notes: A Complete Guide →</a>
-                <a href="convertible-notes-vs-safe.html">Convertible Notes vs SAFE Notes: Which to Use →</a>
+                <a href="option-pool-management-guide.html">Option Pool Management: How to Avoid Surprise Dilution →</a>
+                <a href="409a-valuation-guide.html">409A Valuations: What Founders Need to Know →</a>
+                <a href="evaluate-equity-offer.html">How to Evaluate an Equity Job Offer →</a>
             </div>
         </article>
-    
-        <footer>
-        <div class="footer-inner">
-            <div class="footer-left">
-                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
-            </div>
-            <ul class="footer-links">
-                <li><a href="../dilution.html">Dilution</a></li>
-                <li><a href="../runway.html">Runway</a></li>
-                <li><a href="../safe.html">SAFE</a></li>
-                <li><a href="../vesting.html">Vesting</a></li>
-                <li><a href="../unit-economics.html">Unit Econ</a></li>
-                <li><a href="../cap-table.html">Cap Table</a></li>
-                <li><a href="../equity-split.html">Equity Split</a></li>
-                <li><a href="../valuation.html">Valuation</a></li>
-                <li><a href="../free-startup-tools.html">Free Tools</a></li>
-                <li><a href="../carta-alternatives.html">Carta Alternatives</a></li>
-                <li><a href="../embed.html">Embed</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../pricing.html">Pricing</a></li>
-                <li><a href="../blog.html">Blog</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-                <li><a href="../faq.html">FAQ</a></li>
-            </ul>
-        </div>
-    </footer>
+
     <div class="newsletter">
         <h2>Get weekly equity insights</h2>
         <p>Join 500+ founders who get our weekly breakdown of startup math concepts, real-world equity scenarios, and calculator tips. No spam, ever.</p>
         <form class="newsletter-form" id="blogNewsletterForm" onsubmit="handleBlogNewsletter(event)">
             <input type="email" id="blogNewsletterEmail" placeholder="you@company.com" required>
-            <button type="submit" id="blogNewsletterBtn" class="cta-btn">Subscribe</button>
+            <button type="submit" id="blogNewsletterBtn" class="btn-primary">Subscribe</button>
         </form>
         <p id="blogNewsletterMsg" style="margin-top:12px;font-size:0.85rem;display:none;"></p>
-    </div></main>
+    </div>
+    </main>
 
     <script>
     async function handleBlogNewsletter(e) {
@@ -646,5 +715,6 @@
         btn.disabled = false;
         setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 4000);
     }
-    </script></body>
+    </script>
+</body>
 </html>
