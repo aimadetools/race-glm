@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Much Are My Stock Options Worth? (2026 Guide) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Calculate what your startup stock options are really worth. Step-by-step guide to evaluating stock option grants with real examples, tax implications, and a free calculator.">
+    <meta name="keywords" content="how much are my stock options worth, stock option calculator, startup stock options, ISO vs NSO, evaluate equity offer, stock option value">
+    <meta property="og:title" content="How Much Are My Stock Options Worth? A Complete Guide (2026)">
+    <meta property="og:description" content="Calculate what your startup stock options are really worth with this step-by-step guide including tax estimates and exit scenarios.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/stock-options-worth-guide.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How Much Are My Stock Options Worth? A Complete Guide for Startup Employees",
+        "url": "https://founder-math.com/blog/stock-options-worth-guide.html",
+        "description": "Calculate what your startup stock options are really worth. Step-by-step guide to evaluating stock option grants with real examples, tax implications, and a free calculator.",
+        "datePublished": "2026-05-05",
+        "dateModified": "2026-05-05",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.8; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.cta { background: var(--accent); color: white; padding: 8px 16px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); cursor: pointer; }
+        .article-container { max-width: 740px; margin: 120px auto 60px; padding: 0 24px; }
+        .article-header { margin-bottom: 48px; }
+        .article-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 16px; }
+        .article-meta span { background: var(--bg-card); border: 1px solid var(--border); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .article-title { font-size: 2.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.03em; }
+        .article-title .gradient { background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .article-excerpt { font-size: 1.2rem; color: var(--text-secondary); line-height: 1.6; }
+        .toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 48px; }
+        .toc h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 16px; }
+        .toc ul { list-style: none; }
+        .toc li { margin-bottom: 8px; }
+        .toc a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; }
+        .toc a:hover { color: var(--accent-light); }
+        h2 { font-size: 1.6rem; font-weight: 700; margin: 48px 0 16px; letter-spacing: -0.02em; }
+        h3 { font-size: 1.2rem; font-weight: 600; margin: 32px 0 12px; }
+        p { color: var(--text-secondary); margin-bottom: 16px; font-size: 1.05rem; }
+        ul, ol { color: var(--text-secondary); margin: 0 0 20px 24px; font-size: 1.05rem; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--text-primary); }
+        .formula { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-family: var(--font-mono); font-size: 0.95rem; color: var(--accent-light); overflow-x: auto; }
+        .example { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+        .example h4 { color: var(--accent-light); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+        .cta-box { background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(162,155,254,0.1)); border: 1px solid var(--accent); border-radius: 12px; padding: 28px 32px; margin: 40px 0; text-align: center; }
+        .cta-box h3 { color: var(--text-primary); margin-bottom: 8px; }
+        .cta-box p { margin-bottom: 16px; }
+        .cta-box a { display: inline-block; background: var(--accent); color: white; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.2s; }
+        .cta-box a:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .warning { background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.3); border-radius: 8px; padding: 16px 20px; margin: 20px 0; font-size: 0.9rem; color: #ff6b6b; }
+        .related-posts { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 48px 0; }
+        .related-posts h3 { margin-bottom: 16px; color: var(--text-primary); }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; padding: 8px 0; border-bottom: 1px solid var(--border); }
+        .related-posts a:last-child { border-bottom: none; }
+        .related-posts a:hover { color: var(--text-primary); }
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); text-align: center; }
+        footer p { color: var(--text-muted); font-size: 0.85rem; }
+        @media (max-width: 768px) {
+            .nav-links { position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: var(--bg-primary); flex-direction: column; padding: 48px; gap: 24px; transform: translateX(100%); transition: transform 0.3s; }
+            .nav-links.open { transform: translateX(0); }
+            .mobile-toggle { display: block; }
+            .article-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo"><div class="logo-icon">%</div>FounderMath</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/stock-options.html">Stock Options Calculator</a></li>
+            <li><a href="/vesting.html">Vesting</a></li>
+            <li><a href="/dilution.html">Dilution</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/pricing.html" class="cta">Start Free</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<div class="article-container">
+    <div class="article-header">
+        <div class="article-meta">
+            <span>May 5, 2026</span>
+            <span>12 min read</span>
+            <span>Stock Options</span>
+        </div>
+        <h1 class="article-title">How Much Are My Stock Options <span class="gradient">Worth?</span></h1>
+        <p class="article-excerpt">The complete guide to calculating the value of your startup stock options &mdash; from strike price and FMV to exit scenarios and tax implications. With a free calculator.</p>
+    </div>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#the-basics">The Basics: What Are Stock Options?</a></li>
+            <li><a href="#the-formula">The Formula: Calculating Option Value</a></li>
+            <li><a href="#real-example">Real Example: 10,000 Options at a $50M Startup</a></li>
+            <li><a href="#vesting">How Vesting Affects Your Value</a></li>
+            <li><a href="#exit-scenarios">Exit Scenarios: What If the Company 10xs?</a></li>
+            <li><a href="#iso-vs-nso">ISO vs NSO: Tax Implications</a></li>
+            <li><a href="#calculator">Free Stock Option Calculator</a></li>
+            <li><a href="#common-mistakes">Common Mistakes to Avoid</a></li>
+        </ul>
+    </div>
+
+    <h2 id="the-basics">The Basics: What Are Stock Options?</h2>
+    <p>When a startup offers you stock options, they're giving you the <strong>right to buy shares</strong> at a fixed price (the "strike price" or "exercise price") at some point in the future. The key insight: your options only have value if the company's share price rises above your strike price.</p>
+    <p>Here are the key terms you need to understand:</p>
+    <ul>
+        <li><strong>Number of Options:</strong> How many options you were granted (e.g., 10,000)</li>
+        <li><strong>Strike Price:</strong> What you pay per share when you exercise (e.g., $1.00)</li>
+        <li><strong>Current FMV (409A):</strong> The current fair market value per share (e.g., $5.00)</li>
+        <li><strong>Vesting Schedule:</strong> How you earn the options over time (typically 4 years with a 1-year cliff)</li>
+    </ul>
+
+    <h2 id="the-formula">The Formula: Calculating Option Value</h2>
+    <p>The intrinsic value of your stock options is straightforward:</p>
+    <div class="formula">
+        Option Value = (Current FMV - Strike Price) &times; Number of Vested Options
+    </div>
+    <p>If your strike price is $1.00 and the current FMV is $5.00, each option has an intrinsic value of $4.00. With 10,000 options, that's $40,000 in gross value.</p>
+    <p>But there are three critical factors that complicate this calculation:</p>
+    <ol>
+        <li><strong>Vesting:</strong> You only own the options that have vested so far</li>
+        <li><strong>Taxes:</strong> The IRS takes a significant cut depending on your option type</li>
+        <li><strong>Liquidity:</strong> You can't sell private company shares easily</li>
+    </ol>
+
+    <h2 id="real-example">Real Example: 10,000 Options at a $50M Startup</h2>
+    <div class="example">
+        <h4>Worked Example</h4>
+        <p>You join a startup valued at $50M with 10M shares outstanding. You receive 10,000 options with a $1.00 strike price.</p>
+        <ul>
+            <li>Current share price: $50M / 10M = $5.00/share</li>
+            <li>Your ownership: 10,000 / 10M = 0.10%</li>
+            <li>Intrinsic value per option: $5.00 - $1.00 = $4.00</li>
+            <li>Total grant value: $4.00 &times; 10,000 = <strong>$40,000</strong></li>
+            <li>Exercise cost: $1.00 &times; 10,000 = $10,000</li>
+            <li>Net value: $40,000 - $10,000 = <strong>$30,000</strong></li>
+        </ul>
+    </div>
+    <p>After 18 months of vesting (with a 12-month cliff), you'd have vested approximately 37.5% of your options &mdash; about 3,750 shares worth $15,000 gross ($11,250 net of exercise cost).</p>
+
+    <h2 id="vesting">How Vesting Affects Your Value</h2>
+    <p>Most startup stock options vest over <strong>4 years with a 1-year cliff</strong>. This means:</p>
+    <ul>
+        <li><strong>Months 1-12:</strong> Nothing vests (the cliff period)</li>
+        <li><strong>Month 12:</strong> 25% of your options vest all at once (the cliff)</li>
+        <li><strong>Months 13-48:</strong> The remaining 75% vests monthly (1/48th per month)</li>
+    </ul>
+    <p>If you leave the company before your 1-year cliff, you get <strong>zero options</strong>. This is why it's critical to understand your vesting schedule before joining a startup.</p>
+    <p>After 2 years, you'd have vested 50% of your options. After 3 years, 75%. After 4 years, 100%.</p>
+
+    <h2 id="exit-scenarios">Exit Scenarios: What If the Company Grows?</h2>
+    <p>The real money in stock options comes from company growth. Using our $50M startup example:</p>
+    <div class="example">
+        <h4>Exit Scenario Analysis</h4>
+        <ul>
+            <li><strong>2x exit ($100M):</strong> Share price = $10. Your net = $90,000</li>
+            <li><strong>5x exit ($250M):</strong> Share price = $25. Your net = $240,000</li>
+            <li><strong>10x exit ($500M):</strong> Share price = $50. Your net = $490,000</li>
+            <li><strong>20x exit ($1B):</strong> Share price = $100. Your net = $990,000</li>
+        </ul>
+    </div>
+    <p>Of course, most startups fail. The value of your options could also go to zero. This is why stock options should be viewed as a <strong>lottery ticket with better odds</strong> &mdash; not a replacement for market-rate salary.</p>
+
+    <h2 id="iso-vs-nso">ISO vs NSO: Tax Implications</h2>
+    <p>The type of stock options you have dramatically affects your tax bill:</p>
+
+    <h3>Incentive Stock Options (ISOs)</h3>
+    <ul>
+        <li>No tax at grant or exercise (if you hold the shares)</li>
+        <li>If you hold for 1+ year after exercise AND 2+ years from grant: <strong>long-term capital gains rate (15-20%)</strong></li>
+        <li>If you sell early (disqualifying disposition): ordinary income tax on the spread at exercise, then short-term CG on additional gains</li>
+        <li>AMS risk: The spread at exercise counts as AMT income</li>
+    </ul>
+
+    <h3>Non-Qualified Stock Options (NSOs)</h3>
+    <ul>
+        <li>No tax at grant</li>
+        <li><strong>Ordinary income tax on the spread at exercise</strong> (FMV - strike price) &times; number of shares</li>
+        <li>Additional gains taxed as capital gains (short or long term depending on holding period)</li>
+        <li>Typically given to contractors, advisors, and non-US employees</li>
+    </ul>
+
+    <div class="example">
+        <h4>Tax Comparison</h4>
+        <p>With 10,000 options, $1 strike, $5 FMV (37% combined tax rate):</p>
+        <ul>
+            <li><strong>ISO (qualifying):</strong> LTCG tax = 20% of $40,000 = $8,000. Net = <strong>$32,000</strong></li>
+            <li><strong>NSO:</strong> Ordinary income tax on spread = 37% of $40,000 = $14,800. Net = <strong>$25,200</strong></li>
+        </ul>
+        <p>ISOs save you $6,800 in this scenario. The difference grows dramatically at higher valuations.</p>
+    </div>
+
+    <div class="warning">
+        <strong>Important:</strong> This is simplified tax guidance. Always consult a tax professional before making exercise decisions, especially for ISOs where AMT can create unexpected tax bills.
+    </div>
+
+    <h2 id="calculator">Free Stock Option Calculator</h2>
+    <p>Want to skip the math? Our <strong>free Stock Option Calculator</strong> does all of this automatically:</p>
+    <ul>
+        <li>Enter your option grant details (number, strike price, FMV)</li>
+        <li>See current value and vesting progress</li>
+        <li>View exit scenarios at 2x, 5x, 10x, 20x, and 50x</li>
+        <li>Compare ISO vs NSO tax implications</li>
+        <li>Get a personalized assessment of your grant</li>
+    </ul>
+    <div class="cta-box">
+        <h3>Calculate Your Stock Option Value Now</h3>
+        <p>Free, instant, no signup required. Your data never leaves your browser.</p>
+        <a href="/stock-options.html">Open Stock Option Calculator &rarr;</a>
+    </div>
+
+    <h2 id="common-mistakes">Common Mistakes to Avoid</h2>
+    <ol>
+        <li><strong>Confusing options with shares.</strong> Options give you the RIGHT to buy shares. You still need to exercise (pay the strike price) to own them.</li>
+        <li><strong>Ignoring vesting.</strong> You don't own all your options on day one. If you leave before the cliff, you get nothing.</li>
+        <li><strong>Forgetting the exercise cost.</strong> Your net value = gross value - exercise cost. Don't forget you need cash to exercise.</li>
+        <li><strong>Underestimating taxes.</strong> NSOs trigger ordinary income tax at exercise. ISOs can trigger AMT. Plan for the tax bill.</li>
+        <li><strong>Overvaluing illiquid options.</strong> Private company shares are illiquid. A $40K "value" on paper doesn't mean $40K in your bank account.</li>
+        <li><strong>Not considering the 83(b) election.</strong> If you receive restricted stock (not options), filing an 83(b) election within 30 days can save you massive taxes.</li>
+    </ol>
+
+    <h2>Related Guides</h2>
+    <div class="related-posts">
+        <a href="/blog/evaluate-equity-offer.html">How to Evaluate a Startup Equity Offer</a>
+        <a href="/blog/vesting-schedules-guide.html">Understanding Vesting Schedules</a>
+        <a href="/blog/employee-equity-grants-guide.html">A Guide to Employee Equity Grants</a>
+        <a href="/blog/option-pool-management-guide.html">How to Manage an Option Pool</a>
+        <a href="/blog/409a-valuation-guide.html">Understanding 409A Valuations</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 FounderMath. The startup calculator suite founders actually need.</p>
+</footer>
+</body>
+</html>
