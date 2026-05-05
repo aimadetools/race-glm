@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is My Equity Offer Good? Take the Quiz | FounderMath 2026</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    <meta name="description" content="Take our 2-minute equity offer quiz and find out if your startup equity compensation is above, below, or at market rate for your role and stage.">
+    <meta name="keywords" content="equity offer quiz, startup equity calculator, is my equity offer good, equity benchmarks, startup compensation">
+    <meta property="og:title" content="Is My Equity Offer Good? — Take the Quiz">
+    <meta property="og:description" content="Answer 5 questions about your equity grant and see how it compares to market benchmarks.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/equity-quiz.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Is My Equity Offer Good? — Take the Quiz">
+    <meta name="twitter:description" content="Answer 5 questions about your equity grant and see how it compares to market benchmarks.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "FounderMath Equity Offer Quiz",
+        "description": "Interactive quiz to evaluate startup equity offers against market benchmarks.",
+        "url": "https://founder-math.com/equity-quiz.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --yellow: #fdcb6e;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; min-height: 100vh; }
+
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        .hero { padding: 120px 24px 40px; text-align: center; max-width: 800px; margin: 0 auto; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%); pointer-events: none; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 16px; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { color: var(--text-secondary); font-size: 1.1rem; margin: 0 auto 16px; position: relative; }
+        .hero .subtitle { color: var(--text-muted); font-size: 0.9rem; }
+        .hero .badge { display: inline-block; background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 16px; }
+
+        .quiz-container { max-width: 700px; margin: 0 auto 60px; padding: 0 24px; }
+        .quiz-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 24px; padding: 40px; position: relative; overflow: hidden; }
+        .quiz-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--green)); }
+
+        .progress-bar { background: var(--bg-card); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 32px; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-light)); transition: width 0.3s ease; }
+        .step-indicator { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .question-number { font-size: 0.9rem; color: var(--accent-light); font-weight: 600; margin-bottom: 12px; }
+        .question-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 24px; line-height: 1.4; }
+        .question-subtitle { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 32px; }
+
+        .options-grid { display: grid; gap: 16px; }
+        .option-card {
+            background: var(--bg-card); border: 2px solid var(--border); border-radius: 16px;
+            padding: 20px 24px; cursor: pointer; transition: all 0.2s ease; display: flex;
+            align-items: center; justify-content: space-between; gap: 16px;
+        }
+        .option-card:hover { border-color: var(--accent); background: var(--bg-card-hover); transform: translateY(-2px); }
+        .option-card.selected { border-color: var(--accent); background: linear-gradient(135deg, var(--accent-glow), var(--bg-card)); }
+        .option-label { font-size: 1.05rem; font-weight: 600; flex: 1; }
+        .option-value { color: var(--text-muted); font-size: 0.9rem; }
+        .option-radio { width: 24px; height: 24px; border: 2px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; }
+        .option-card.selected .option-radio { border-color: var(--accent); background: var(--accent); }
+        .option-card.selected .option-radio::after { content: ''; width: 10px; height: 10px; background: white; border-radius: 50%; }
+
+        .input-group { margin-bottom: 32px; }
+        .input-label { display: block; font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; color: var(--text-secondary); }
+        .input-field {
+            width: 100%; background: var(--bg-card); border: 2px solid var(--border);
+            border-radius: 12px; padding: 16px 20px; font-size: 1.1rem; color: var(--text-primary);
+            font-family: var(--font-sans); transition: all 0.2s;
+        }
+        .input-field:focus { outline: none; border-color: var(--accent); background: var(--bg-card-hover); }
+        .input-field::placeholder { color: var(--text-muted); }
+        .input-hint { color: var(--text-muted); font-size: 0.85rem; margin-top: 8px; }
+
+        .quiz-nav { display: flex; justify-content: space-between; margin-top: 32px; gap: 16px; }
+        .nav-btn {
+            padding: 14px 32px; border-radius: 12px; font-size: 1rem; font-weight: 600;
+            cursor: pointer; transition: all 0.2s; border: none; flex: 1; max-width: 180px;
+        }
+        .btn-back { background: var(--bg-card); border: 2px solid var(--border); color: var(--text-primary); }
+        .btn-back:hover { border-color: var(--accent); background: var(--bg-card-hover); }
+        .btn-next { background: var(--accent); color: white; flex: 2; max-width: 240px; }
+        .btn-next:hover { background: var(--accent-light); transform: translateY(-2px); }
+        .btn-next:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        .btn-submit { background: linear-gradient(135deg, var(--green), #00d4aa); }
+
+        /* Results Page */
+        .results-container { max-width: 900px; margin: 0 auto 60px; padding: 0 24px; }
+        .result-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 24px; padding: 40px; position: relative; overflow: hidden; }
+        .result-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--green), var(--accent), var(--accent-light)); }
+
+        .result-header { text-align: center; margin-bottom: 32px; }
+        .result-badge {
+            display: inline-block; padding: 8px 24px; border-radius: 24px;
+            font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+        .result-badge.above { background: linear-gradient(135deg, var(--green), #00d4aa); color: white; }
+        .result-badge.average { background: linear-gradient(135deg, var(--yellow), var(--orange)); color: var(--bg-primary); }
+        .result-badge.below { background: linear-gradient(135deg, var(--red), #ff8787); color: white; }
+
+        .result-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        .result-title.above { color: var(--green); }
+        .result-title.average { color: var(--yellow); }
+        .result-title.below { color: var(--red); }
+        .result-subtitle { color: var(--text-secondary); font-size: 1.1rem; }
+
+        .result-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 32px; }
+        .metric-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+            padding: 24px; text-align: center;
+        }
+        .metric-label { color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+        .metric-value { font-size: 1.8rem; font-weight: 700; }
+        .metric-comparison { font-size: 0.9rem; margin-top: 4px; }
+        .metric-comparison.good { color: var(--green); }
+        .metric-comparison.bad { color: var(--red); }
+        .metric-comparison.neutral { color: var(--text-muted); }
+
+        .result-breakdown { background: var(--bg-card); border-radius: 16px; padding: 28px; margin-bottom: 24px; border: 1px solid var(--border); }
+        .breakdown-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .breakdown-item { display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .breakdown-item:last-child { border-bottom: none; }
+        .breakdown-label { flex: 1; color: var(--text-secondary); }
+        .breakdown-value { font-weight: 600; }
+        .breakdown-value.good { color: var(--green); }
+        .breakdown-value.bad { color: var(--red); }
+
+        .recommendation-box {
+            background: linear-gradient(135deg, var(--accent-glow), var(--bg-card));
+            border: 1px solid var(--accent); border-radius: 16px; padding: 24px; margin-bottom: 24px;
+        }
+        .recommendation-title { font-size: 1.1rem; font-weight: 700; color: var(--accent-light); margin-bottom: 12px; }
+        .recommendation-text { color: var(--text-secondary); line-height: 1.7; }
+
+        .result-actions { display: grid; gap: 16px; margin-top: 32px; }
+        .action-btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 16px 24px; border-radius: 12px; font-size: 1rem; font-weight: 600;
+            text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+        }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+        .btn-secondary { background: var(--bg-card); border: 2px solid var(--border); color: var(--text-primary); }
+        .btn-secondary:hover { border-color: var(--accent); background: var(--bg-card-hover); }
+        .btn-share { background: linear-gradient(135deg, #1da1f2, #0d8ecf); color: white; }
+        .btn-share:hover { transform: translateY(-2px); }
+
+        .share-card {
+            background: linear-gradient(135deg, #0a0a0f, #12121a); border: 2px solid var(--border);
+            border-radius: 16px; padding: 32px; text-align: center; margin-top: 32px;
+            position: relative; overflow: hidden;
+        }
+        .share-card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 50% 0%, var(--accent-glow) 0%, transparent 60%); }
+        .share-badge {
+            display: inline-block; background: var(--green); color: var(--bg-primary);
+            padding: 6px 16px; border-radius: 16px; font-size: 0.8rem; font-weight: 700;
+            text-transform: uppercase; margin-bottom: 16px; position: relative;
+        }
+        .share-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; position: relative; }
+        .share-subtitle { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px; position: relative; }
+        .share-stats { display: flex; justify-content: center; gap: 32px; margin-bottom: 24px; position: relative; flex-wrap: wrap; }
+        .share-stat { text-align: center; }
+        .share-stat-value { font-size: 1.6rem; font-weight: 700; color: var(--green); }
+        .share-stat-label { color: var(--text-muted); font-size: 0.8rem; }
+        .share-cta {
+            background: #1da1f2; color: white; padding: 12px 24px; border-radius: 24px;
+            font-size: 0.95rem; font-weight: 600; text-decoration: none; display: inline-block;
+            position: relative; transition: all 0.2s;
+        }
+        .share-cta:hover { background: #0d8ecf; transform: translateY(-2px); }
+
+        .quiz-step { display: none; }
+        .quiz-step.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .error-message { color: var(--red); font-size: 0.9rem; margin-top: 8px; display: none; }
+        .input-field.error { border-color: var(--red); }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); margin-top: 60px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; justify-content: center; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .hero h1 { font-size: 1.8rem; }
+            .quiz-card { padding: 24px 20px; }
+            .result-card { padding: 24px 20px; }
+            .question-title { font-size: 1.25rem; }
+            .option-card { padding: 16px; }
+            .quiz-nav { flex-direction: column-reverse; }
+            .nav-btn { max-width: 100%; }
+            .result-title { font-size: 1.6rem; }
+            .share-stats { gap: 20px; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="runway.html" role="menuitem">Runway</a></li>
+                <li role="none"><a href="safe.html" role="menuitem">SAFE</a></li>
+                <li role="none"><a href="vesting.html" role="menuitem">Vesting</a></li>
+                <li role="none"><a href="unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="cap-table.html" role="menuitem">Cap Table</a></li>
+                <li role="none"><a href="equity-split.html" role="menuitem">Equity Split</a></li>
+                <li role="none"><a href="valuation.html" role="menuitem">Valuation</a></li>
+                <li role="none"><a href="stock-options.html" role="menuitem">Options</a></li>
+                <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+                <li><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <span class="badge">2-Min Quiz</span>
+        <h1>Is My <span class="gradient">Equity Offer</span> Good?</h1>
+        <p>Answer 5 quick questions to see how your startup equity compensation compares to market benchmarks.</p>
+        <p class="subtitle">Get instant feedback and personalized recommendations.</p>
+    </header>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container" id="quizContainer">
+        <div class="quiz-card">
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+
+            <!-- Step 1: Role -->
+            <div class="quiz-step active" data-step="1">
+                <p class="step-indicator">Question 1 of 5</p>
+                <p class="question-number">Your Role</p>
+                <h2 class="question-title">What's your role at the company?</h2>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(1, 'founder')">
+                        <span class="option-label">Founder / Co-founder</span>
+                        <div class="option-radio"></div>
+                    </div>
+                    <div class="option-card" onclick="selectOption(1, 'executive')">
+                        <span class="option-label">Executive (C-level, VP)</span>
+                        <div class="option-radio"></div>
+                    </div>
+                    <div class="option-card" onclick="selectOption(1, 'engineer')">
+                        <span class="option-label">Engineer / Technical</span>
+                        <div class="option-radio"></div>
+                    </div>
+                    <div class="option-card" onclick="selectOption(1, 'sales')">
+                        <span class="option-label">Sales / Marketing / Growth</span>
+                        <div class="option-radio"></div>
+                    </div>
+                    <div class="option-card" onclick="selectOption(1, 'operations')">
+                        <span class="option-label">Operations / Support / Other</span>
+                        <div class="option-radio"></div>
+                    </div>
+                </div>
+                <div class="quiz-nav">
+                    <button class="nav-btn btn-back" disabled>Back</button>
+                    <button class="nav-btn btn-next" id="next1" onclick="nextStep(1)" disabled>Next →</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Company Stage -->
+            <div class="quiz-step" data-step="2">
+                <p class="step-indicator">Question 2 of 5</p>
+                <p class="question-number">Company Stage</p>
+                <h2 class="question-title">What stage is the company at?</h2>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(2, 'preseed')">
+                        <span class="option-label">Pre-Seed</span>
+                        <span class="option-value">0-10 employees, < $2M raised</span>
+                        <div class="option-radio"></div>
+                    </div>
+                    <div class="option-card" onclick="selectOption(2, 'seed')">
+                        <span class="option-label">Seed</span>
+                        <span class="option-value">10-50 employees, $2-15M raised</span>
+                        <div class="option-radio"></div>
+                    </div>
+                    <div class="option-card" onclick="selectOption(2, 'seriesa')">
+                        <span class="option-label">Series A</span>
+                        <span class="option-value">50-150 employees, $15-50M raised</span>
+                        <div class="option-radio"></div>
+                    </div>
+                    <div class="option-card" onclick="selectOption(2, 'seriesb')">
+                        <span class="option-label">Series B+</span>
+                        <span class="option-value">150+ employees, $50M+ raised</span>
+                        <div class="option-radio"></div>
+                    </div>
+                </div>
+                <div class="quiz-nav">
+                    <button class="nav-btn btn-back" onclick="prevStep(2)">← Back</button>
+                    <button class="nav-btn btn-next" id="next2" onclick="nextStep(2)" disabled>Next →</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Equity Percentage -->
+            <div class="quiz-step" data-step="3">
+                <p class="step-indicator">Question 3 of 5</p>
+                <p class="question-number">Your Equity</p>
+                <h2 class="question-title">What percentage of the company are you being offered?</h2>
+                <p class="question-subtitle">Enter as a percentage (e.g., 0.5 for half a percent)</p>
+                <div class="input-group">
+                    <label class="input-label" for="equityPercent">Equity Percentage</label>
+                    <input type="number" class="input-field" id="equityPercent" placeholder="0.5" step="0.01" min="0" max="100" oninput="validateStep3()">
+                    <p class="input-hint">Example: 0.5 = 0.5%, 1 = 1%, 5 = 5%</p>
+                    <p class="error-message" id="equityError">Please enter a valid percentage</p>
+                </div>
+                <div class="quiz-nav">
+                    <button class="nav-btn btn-back" onclick="prevStep(3)">← Back</button>
+                    <button class="nav-btn btn-next" id="next3" onclick="nextStep(3)" disabled>Next →</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Vesting -->
+            <div class="quiz-step" data-step="4">
+                <p class="step-indicator">Question 4 of 5</p>
+                <p class="question-number">Vesting Schedule</p>
+                <h2 class="question-title">What's your vesting schedule?</h2>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(4, '4yr')">
+                        <span class="option-label">4 years with 1-year cliff</span>
+                        <span class="option-value">Standard, most common</span>
+                        <div class="option-radio"></div>
+                    </div>
+                    <div class="option-card" onclick="selectOption(4, '3yr')">
+                        <span class="option-label">3 years</span>
+                        <span class="option-value">Faster vesting, less common</span>
+                        <div class="option-radio"></div>
+                    </div>
+                    <div class="option-card" onclick="selectOption(4, '5yr')">
+                        <span class="option-label">5 years</span>
+                        <span class="option-value">Slower vesting</span>
+                        <div class="option-radio"></div>
+                    </div>
+                    <div class="option-card" onclick="selectOption(4, 'notsure')">
+                        <span class="option-label">Not sure / Not specified</span>
+                        <span class="option-value">Check your offer letter</span>
+                        <div class="option-radio"></div>
+                    </div>
+                </div>
+                <div class="quiz-nav">
+                    <button class="nav-btn btn-back" onclick="prevStep(4)">← Back</button>
+                    <button class="nav-btn btn-next" id="next4" onclick="nextStep(4)" disabled>Next →</button>
+                </div>
+            </div>
+
+            <!-- Step 5: Salary -->
+            <div class="quiz-step" data-step="5">
+                <p class="step-indicator">Question 5 of 5</p>
+                <p class="question-number">Base Salary</p>
+                <h2 class="question-title">What's your annual base salary?</h2>
+                <p class="question-subtitle">This helps us evaluate your total compensation package</p>
+                <div class="input-group">
+                    <label class="input-label" for="salary">Annual Salary (USD)</label>
+                    <input type="number" class="input-field" id="salary" placeholder="150000" step="1000" min="0" oninput="validateStep5()">
+                    <p class="input-hint">Enter your total annual base salary before taxes</p>
+                    <p class="error-message" id="salaryError">Please enter a valid salary</p>
+                </div>
+                <div class="quiz-nav">
+                    <button class="nav-btn btn-back" onclick="prevStep(5)">← Back</button>
+                    <button class="nav-btn btn-next btn-submit" id="submitBtn" onclick="showResults()" disabled>See My Results →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Container (Hidden by default) -->
+    <div class="results-container" id="resultsContainer" style="display: none;">
+        <div class="result-card" id="resultCard">
+            <div class="result-header">
+                <div class="result-badge" id="resultBadge">Analyzing...</div>
+                <h1 class="result-title" id="resultTitle">Your Offer Assessment</h1>
+                <p class="result-subtitle" id="resultSubtitle">Based on market benchmarks for your role and stage</p>
+            </div>
+
+            <div class="result-metrics" id="resultMetrics">
+                <!-- Metrics will be inserted here -->
+            </div>
+
+            <div class="result-breakdown">
+                <h3 class="breakdown-title">📊 Offer Breakdown</h3>
+                <div id="breakdownItems">
+                    <!-- Breakdown items will be inserted here -->
+                </div>
+            </div>
+
+            <div class="recommendation-box">
+                <h3 class="recommendation-title">💡 Personalized Recommendation</h3>
+                <p class="recommendation-text" id="recommendationText">
+                    Loading your personalized recommendation...
+                </p>
+            </div>
+
+            <div class="result-actions">
+                <a href="stock-options.html" class="action-btn btn-primary">
+                    <span>📈</span> Calculate Your Option Value
+                </a>
+                <a href="blog/evaluate-equity-offer.html" class="action-btn btn-secondary">
+                    <span>📚</span> Read Equity Evaluation Guide
+                </a>
+                <a href="blog/salary-vs-equity-guide.html" class="action-btn btn-secondary">
+                    <span>💰</span> Salary vs Equity Guide
+                </a>
+            </div>
+
+            <!-- Shareable Card -->
+            <div class="share-card" id="shareCard">
+                <span class="share-badge">My Equity Assessment</span>
+                <h3 class="share-title" id="shareTitle">Is My Equity Offer Good?</h3>
+                <p class="share-subtitle" id="shareSubtitle">I just took the FounderMath equity quiz...</p>
+                <div class="share-stats">
+                    <div class="share-stat">
+                        <div class="share-stat-value" id="shareEquity">0%</div>
+                        <div class="share-stat-label">My Equity</div>
+                    </div>
+                    <div class="share-stat">
+                        <div class="share-stat-value" id="shareStatus">Checking...</div>
+                        <div class="share-stat-label">vs Market</div>
+                    </div>
+                </div>
+                <a href="https://founder-math.com/equity-quiz.html" class="share-cta">Take the Quiz →</a>
+            </div>
+
+            <div style="text-align: center; margin-top: 32px;">
+                <button class="action-btn btn-share" onclick="shareToTwitter()">
+                    <span>🐦</span> Share Results on Twitter
+                </button>
+                <button class="action-btn btn-secondary" onclick="restartQuiz()" style="margin-top: 12px;">
+                    <span>🔄</span> Take Quiz Again
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="vesting.html">Vesting</a></li>
+                <li><a href="unit-economics.html">Unit Econ</a></li>
+                <li><a href="cap-table.html">Cap Table</a></li>
+                <li><a href="equity-split.html">Equity Split</a></li>
+                <li><a href="valuation.html">Valuation</a></li>
+                <li><a href="stock-options.html">Stock Options</a></li>
+                <li><a href="equity-quiz.html">Equity Quiz</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Quiz state
+        let answers = {
+            role: null,
+            stage: null,
+            equity: null,
+            vesting: null,
+            salary: null
+        };
+
+        // Market benchmarks (equity percentages)
+        const benchmarks = {
+            founder: { preseed: 50, seed: 25, seriesa: 15, seriesb: 8 },
+            executive: { preseed: 15, seed: 8, seriesa: 4, seriesb: 2 },
+            engineer: { preseed: 3, seed: 1.5, seriesa: 0.8, seriesb: 0.4 },
+            sales: { preseed: 2.5, seed: 1.2, seriesa: 0.6, seriesb: 0.3 },
+            operations: { preseed: 2, seed: 1, seriesa: 0.5, seriesb: 0.25 }
+        };
+
+        // Salary benchmarks (USD)
+        const salaryBenchmarks = {
+            preseed: { founder: 80000, executive: 140000, engineer: 120000, sales: 100000, operations: 80000 },
+            seed: { founder: 120000, executive: 180000, engineer: 160000, sales: 140000, operations: 100000 },
+            seriesa: { founder: 180000, executive: 250000, engineer: 220000, sales: 200000, operations: 140000 },
+            seriesb: { founder: 250000, executive: 350000, engineer: 300000, sales: 280000, operations: 180000 }
+        };
+
+        function selectOption(step, value) {
+            answers[Object.keys(answers)[step - 1]] = value;
+
+            // Update UI
+            document.querySelectorAll(`[data-step="${step}"] .option-card`).forEach(card => {
+                card.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+
+            // Enable next button
+            document.getElementById(`next${step}`).disabled = false;
+        }
+
+        function validateStep3() {
+            const value = parseFloat(document.getElementById('equityPercent').value);
+            const input = document.getElementById('equityPercent');
+            const error = document.getElementById('equityError');
+
+            if (isNaN(value) || value < 0 || value > 100) {
+                input.classList.add('error');
+                error.style.display = 'block';
+                document.getElementById('next3').disabled = true;
+            } else {
+                input.classList.remove('error');
+                error.style.display = 'none';
+                answers.equity = value;
+                document.getElementById('next3').disabled = false;
+            }
+        }
+
+        function validateStep5() {
+            const value = parseFloat(document.getElementById('salary').value);
+            const input = document.getElementById('salary');
+            const error = document.getElementById('salaryError');
+
+            if (isNaN(value) || value < 0) {
+                input.classList.add('error');
+                error.style.display = 'block';
+                document.getElementById('submitBtn').disabled = true;
+            } else {
+                input.classList.remove('error');
+                error.style.display = 'none';
+                answers.salary = value;
+                document.getElementById('submitBtn').disabled = false;
+            }
+        }
+
+        function nextStep(currentStep) {
+            const nextStep = currentStep + 1;
+            document.querySelector(`[data-step="${currentStep}"]`).classList.remove('active');
+            document.querySelector(`[data-step="${nextStep}"]`).classList.add('active');
+            updateProgress(nextStep);
+        }
+
+        function prevStep(currentStep) {
+            const prevStep = currentStep - 1;
+            document.querySelector(`[data-step="${currentStep}"]`).classList.remove('active');
+            document.querySelector(`[data-step="${prevStep}"]`).classList.add('active');
+            updateProgress(prevStep);
+        }
+
+        function updateProgress(step) {
+            const progress = ((step - 1) / 5) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+        }
+
+        function showResults() {
+            // Hide quiz, show results
+            document.getElementById('quizContainer').style.display = 'none';
+            document.getElementById('resultsContainer').style.display = 'block';
+
+            // Calculate assessment
+            const benchmarkEquity = benchmarks[answers.role][answers.stage];
+            const equityRatio = answers.equity / benchmarkEquity;
+
+            const benchmarkSalary = salaryBenchmarks[answers.stage][answers.role];
+            const salaryRatio = answers.salary / benchmarkSalary;
+
+            // Overall score (weighted: equity 60%, salary 40%)
+            const overallScore = (equityRatio * 0.6) + (salaryRatio * 0.4);
+
+            // Determine result category
+            let category, badgeClass, title, subtitle;
+            if (overallScore >= 1.2) {
+                category = 'above';
+                badgeClass = 'above';
+                title = '🎉 Excellent Offer!';
+                subtitle = `Your compensation is ${Math.round((overallScore - 1) * 100)}% above market average for a ${getRoleLabel(answers.role)} at ${getStageLabel(answers.stage)} stage.`;
+            } else if (overallScore >= 0.9) {
+                category = 'average';
+                badgeClass = 'average';
+                title = '✅ Solid Offer';
+                subtitle = `Your compensation is close to market average for a ${getRoleLabel(answers.role)} at ${getStageLabel(answers.stage)} stage.`;
+            } else {
+                category = 'below';
+                badgeClass = 'below';
+                title = '⚠️ Below Market';
+                subtitle = `Your compensation is ${Math.round((1 - overallScore) * 100)}% below market average for a ${getRoleLabel(answers.role)} at ${getStageLabel(answers.stage)} stage.`;
+            }
+
+            // Update result header
+            const badge = document.getElementById('resultBadge');
+            badge.textContent = category === 'above' ? 'Above Market' : category === 'average' ? 'At Market' : 'Below Market';
+            badge.className = 'result-badge ' + badgeClass;
+
+            const resultTitle = document.getElementById('resultTitle');
+            resultTitle.textContent = title;
+            resultTitle.className = 'result-title ' + badgeClass;
+
+            document.getElementById('resultSubtitle').textContent = subtitle;
+
+            // Update metrics
+            const metricsHtml = `
+                <div class="metric-card">
+                    <div class="metric-label">Your Equity</div>
+                    <div class="metric-value">${answers.equity}%</div>
+                    <div class="metric-comparison ${equityRatio >= 1 ? 'good' : 'bad'}">
+                        ${equityRatio >= 1 ? '▲' : '▼'} ${Math.round((equityRatio - 1) * 100)}% vs ${benchmarkEquity}% benchmark
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Base Salary</div>
+                    <div class="metric-value">$${answers.salary.toLocaleString()}</div>
+                    <div class="metric-comparison ${salaryRatio >= 1 ? 'good' : 'bad'}">
+                        ${salaryRatio >= 1 ? '▲' : '▼'} ${Math.round((salaryRatio - 1) * 100)}% vs $${benchmarkSalary.toLocaleString()} benchmark
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Vesting</div>
+                    <div class="metric-value">${getVestingLabel(answers.vesting)}</div>
+                    <div class="metric-comparison ${answers.vesting === '4yr' ? 'good' : 'neutral'}">
+                        ${answers.vesting === '4yr' ? '✓ Standard' : '⚠ Non-standard'}
+                    </div>
+                </div>
+            `;
+            document.getElementById('resultMetrics').innerHTML = metricsHtml;
+
+            // Update breakdown
+            const breakdownHtml = `
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Role</span>
+                    <span class="breakdown-value">${getRoleLabel(answers.role)}</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Company Stage</span>
+                    <span class="breakdown-value">${getStageLabel(answers.stage)}</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Market Benchmark Equity</span>
+                    <span class="breakdown-value">${benchmarkEquity}%</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Your Equity vs Benchmark</span>
+                    <span class="breakdown-value ${equityRatio >= 1 ? 'good' : 'bad'}">
+                        ${equityRatio >= 1 ? '+' : ''}${Math.round((equityRatio - 1) * 100)}%
+                    </span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Market Benchmark Salary</span>
+                    <span class="breakdown-value">$${benchmarkSalary.toLocaleString()}</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Your Salary vs Benchmark</span>
+                    <span class="breakdown-value ${salaryRatio >= 1 ? 'good' : 'bad'}">
+                        ${salaryRatio >= 1 ? '+' : ''}${Math.round((salaryRatio - 1) * 100)}%
+                    </span>
+                </div>
+            `;
+            document.getElementById('breakdownItems').innerHTML = breakdownHtml;
+
+            // Update recommendation
+            let recommendation = '';
+            if (category === 'above') {
+                recommendation = `You've got an excellent offer! Your equity of ${answers.equity}% and salary of $${answers.salary.toLocaleString()} are both above market benchmarks. ${answers.vesting === '4yr' ? 'The 4-year vesting with 1-year cliff is standard and fair.' : 'Consider negotiating for a standard 4-year vesting schedule if possible.'} Make sure to understand your strike price and consider filing an 83(b) election within 30 days if exercising early.`;
+            } else if (category === 'average') {
+                recommendation = `Your offer is solid and close to market average. Your equity of ${answers.equity}% is ${equityRatio >= 1 ? 'above' : 'slightly below'} the ${benchmarkEquity}% benchmark, and your salary is ${salaryRatio >= 1 ? 'above' : 'close to'} the $${benchmarkSalary.toLocaleString()} benchmark. ${answers.vesting !== '4yr' ? 'Note that a non-standard vesting schedule may affect your equity value.' : ''} Consider using our Stock Options Calculator to model your potential exit value.`;
+            } else {
+                recommendation = `Your offer appears below market average. The benchmark equity for a ${getRoleLabel(answers.role)} at ${getStageLabel(answers.stage)} is ${benchmarkEquity}%, and benchmark salary is $${benchmarkSalary.toLocaleString()}. Consider negotiating for more equity or a higher salary. If the company has exceptional traction or you believe in the mission significantly, the lower compensation might be justified. Use our calculators to model different scenarios and prepare for negotiation.`;
+            }
+            document.getElementById('recommendationText').textContent = recommendation;
+
+            // Update share card
+            document.getElementById('shareTitle').textContent = title;
+            document.getElementById('shareEquity').textContent = `${answers.equity}%`;
+            document.getElementById('shareStatus').textContent = category === 'above' ? 'Above Market' : category === 'average' ? 'At Market' : 'Below Market';
+            document.getElementById('shareStatus').style.color = category === 'above' ? 'var(--green)' : category === 'average' ? 'var(--yellow)' : 'var(--red)';
+            document.getElementById('shareCard').className = 'share-card ' + category;
+
+            // Update result card border color
+            const resultCard = document.getElementById('resultCard');
+            resultCard.style.setProperty('--accent', category === 'above' ? 'var(--green)' : category === 'average' ? 'var(--yellow)' : 'var(--red)');
+            resultCard.querySelector('.result-card::before').style.background = `linear-gradient(90deg, ${category === 'above' ? 'var(--green)' : category === 'average' ? 'var(--yellow)' : 'var(--red)'}, var(--accent))`;
+
+            // Track completion
+            gtag('event', 'quiz_completed', {
+                role: answers.role,
+                stage: answers.stage,
+                category: category
+            });
+        }
+
+        function getRoleLabel(role) {
+            const labels = {
+                founder: 'Founder',
+                executive: 'Executive',
+                engineer: 'Engineer',
+                sales: 'Sales/Growth',
+                operations: 'Operations'
+            };
+            return labels[role] || role;
+        }
+
+        function getStageLabel(stage) {
+            const labels = {
+                preseed: 'Pre-Seed',
+                seed: 'Seed',
+                seriesa: 'Series A',
+                seriesb: 'Series B+'
+            };
+            return labels[stage] || stage;
+        }
+
+        function getVestingLabel(vesting) {
+            const labels = {
+                '4yr': '4 Years (1-year cliff)',
+                '3yr': '3 Years',
+                '5yr': '5 Years',
+                'notsure': 'Not Specified'
+            };
+            return labels[vesting] || vesting;
+        }
+
+        function shareToTwitter() {
+            const text = `I just took the FounderMath equity quiz and got: ${document.getElementById('shareStatus').textContent} with ${answers.equity}% equity. Take the quiz to see if your offer is good: https://founder-math.com/equity-quiz.html`;
+            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+
+            // Track share
+            gtag('event', 'quiz_shared', {
+                platform: 'twitter',
+                category: document.getElementById('shareStatus').textContent
+            });
+        }
+
+        function restartQuiz() {
+            // Reset state
+            answers = { role: null, stage: null, equity: null, vesting: null, salary: null };
+
+            // Reset UI
+            document.querySelectorAll('.quiz-step').forEach(step => step.classList.remove('active'));
+            document.querySelector('[data-step="1"]').classList.add('active');
+            document.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+            document.querySelectorAll('.input-field').forEach(input => {
+                input.value = '';
+                input.classList.remove('error');
+            });
+            document.querySelectorAll('.error-message').forEach(error => error.style.display = 'none');
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if (btn.id.startsWith('next')) btn.disabled = true;
+            });
+
+            // Show quiz, hide results
+            document.getElementById('quizContainer').style.display = 'block';
+            document.getElementById('resultsContainer').style.display = 'none';
+
+            // Reset progress
+            updateProgress(1);
+        }
+
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+
+        // Track quiz start
+        gtag('event', 'quiz_started');
+    </script>
+</body>
+</html>
