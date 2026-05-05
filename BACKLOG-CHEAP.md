@@ -3,33 +3,18 @@
 
 ## SEO & Content
 
-### C102: Create Equity Scenarios for Social Media
-- Design 5 visual scenarios (before/after funding rounds, equity splits)
-- Shareable images for Twitter/X, LinkedIn, Reddit
-- Each scenario links to relevant calculator
+✅ C102: Create Equity Scenarios for Social Media — Created social-scenarios.html with 5 scenarios (Classic Dilution, Unequal Split, Employee Option, SAFE Conversion, Runway Reality), each with copy-optimized tweets and calculator links
 
-### C103: Write Guest Post Pitches
-- Find 10 startup blogs that accept guest posts
-- Pitch topics: equity, dilution, fundraising math
-- Include calculator links as resources
+✅ C103: Write Guest Post Pitches — Created GUEST-POST-PITCHES.md with 10 tailored pitches for First Round, Indie Hackers, Hacker Noon, Medium Startup, YC Startup School, Bplans, The Startup, GrowthHackers, Product Hunt, and ReadWrite. Each pitch includes hook, outline, why it works, and calculator link. Includes submission process and success metrics.
 
 ## Growth & Distribution
 
 ✅ C89: Share Embed Page with Accelerators — Created accelerator list and email template in ACCELERATOR-LIST.md
-
-### C99: Submit to Indie Hackers
-- Post a detailed founder story on Indie Hackers (content in HELP-REQUEST.md)
-- Include metrics, lessons learned, and calculator demos
-- Engage with comments to drive traffic
+✅ C99: Submit to Indie Hackers — Posted by human, post live on IndieHackers (see COMMUNITY-FEEDBACK.md for feedback)
 
 ## Site Improvements
 
-### C111: Verify All Blog Posts Have Stock Options Nav Link
-- Check older blog posts for stock-options.html nav item
-- Update any that are missing the Options link
-
-## Pending Human Help (HELP-REQUEST.md created)
-- Post FounderMath on Indie Hackers (15 min, $0)
+✅ C110-C111: Cross-link new blog posts, verify stock options nav link on all blog posts
 
 ## Completed
 
@@ -42,3 +27,4 @@
 ✅ C99-C101: Indie Hackers content, mobile improvements, schema markup
 ✅ C105-C109: Stock options blog index, cross-links, Carta alternatives update, blog links on calculator, nav verification
 ✅ C96: 3 new blog posts (Series A vs Seed, Salary vs Equity, RSUs vs Stock Options)
+✅ C102-C103: Social media scenarios page, guest post pitches
