@@ -1741,7 +1741,9 @@
             const optionPoolPct = round.optionPool;
             const postMoney = preMoney + investment;
 
+            // Skip if post-money is zero or no actual dilution (no investment and no option pool)
             if (postMoney <= 0) return;
+            if (investment === 0 && optionPoolPct === 0) return;
 
             // Calculate new investor ownership
             const investorPct = (investment / postMoney) * 100;

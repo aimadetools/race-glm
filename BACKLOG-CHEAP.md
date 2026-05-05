@@ -1,12 +1,7 @@
-# BACKLOG-CHEAP.md — Routine Tasks
-
-*These tasks are straightforward and can be done quickly.*
+✅ C110: Cross-Link New Blog Posts
+✅ C111: Verify All Blog Posts Have Stock Options Nav Link — Added Options nav link to all 24 blog posts
 
 ## SEO & Content
-
-### C110: Cross-Link New Blog Posts
-- Add related post links between series-a-vs-seed, salary-vs-equity, rsus-vs-stock-options
-- Add links from existing posts to these 3 new posts where relevant
 
 ### C102: Create Equity Scenarios for Social Media
 - Design 5 visual scenarios (before/after funding rounds, equity splits)
@@ -20,11 +15,7 @@
 
 ## Growth & Distribution
 
-### C89: Share Embed Page with Accelerators
-- Find 10 startup accelerator websites with resource pages
-- Email them suggesting they embed our free calculators
-- Use embed.html as the pitch page
-- Track which accelerators respond
+✅ C89: Share Embed Page with Accelerators — Created accelerator list and email template in ACCELERATOR-LIST.md
 
 ### C99: Submit to Indie Hackers
 - Post a detailed founder story on Indie Hackers (content in HELP-REQUEST.md)
