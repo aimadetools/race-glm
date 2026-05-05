@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Stock Option Calculator | How Much Are My Options Worth? — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Free stock option calculator for startup employees. Calculate what your stock options are worth today, at exit, and through your vesting schedule. ISO vs NSO tax estimates included.">
+    <meta name="keywords" content="stock option calculator, how much are my stock options worth, startup equity offer, ISO calculator, NSO calculator, employee stock options, evaluate equity offer">
+    <meta property="og:title" content="Stock Option Calculator — How Much Are My Options Worth?">
+    <meta property="og:description" content="Free calculator for startup employees. Find out what your stock options are really worth at different exit scenarios.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-vesting.svg">
+    <meta property="og:url" content="https://founder-math.com/stock-options.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Stock Option Calculator — FounderMath",
+        "url": "https://founder-math.com/stock-options.html",
+        "description": "Free stock option calculator for startup employees. Calculate what your stock options are worth today, at exit, and through your vesting schedule.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Stock Option Calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "Calculate what your startup stock options are worth today and at different exit scenarios, with vesting timeline and tax estimates."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Calculate Stock Option Value",
+        "description": "Learn how to calculate the value of your startup stock options with this step-by-step guide.",
+        "step": [
+            {"@type": "HowToStep", "text": "Enter the number of options you were granted and your strike price."},
+            {"@type": "HowToStep", "text": "Enter the company's current 409A valuation (fair market value per share)."},
+            {"@type": "HowToStep", "text": "Review your vesting schedule and how much has vested so far."},
+            {"@type": "HowToStep", "text": "See what your options are worth at different exit scenarios (2x, 5x, 10x)."},
+            {"@type": "HowToStep", "text": "Compare ISO vs NSO tax implications for your grant."}
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://founder-math.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://founder-math.com/"},
+            {"@type": "ListItem", "position": 3, "name": "Stock Option Calculator", "item": "https://founder-math.com/stock-options.html"}
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: white; padding: 8px 16px; text-decoration: none; z-index: 1001; transition: top 0.3s; }
+        .skip-link:focus { top: 0; }
+        @media (prefers-contrast: more) { :root { --border: #ffffff; --text-secondary: #e0e0e0; } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-links a.active { color: var(--accent-light); font-weight: 600; }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s !important; }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; padding: 8px; }
+        .mobile-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+
+        /* PAGE HEADER */
+        .page-header { padding: 120px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+        .page-header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%); pointer-events: none; }
+        .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 12px; }
+        .page-header h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; position: relative; }
+        .breadcrumbs { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+        .breadcrumb { color: var(--text-muted); font-size: 0.8rem; text-decoration: none; }
+        .breadcrumb:hover { color: var(--accent-light); }
+        .breadcrumb:last-child { color: var(--text-secondary); font-weight: 600; }
+        .breadcrumb-sep { color: var(--border); font-size: 0.7rem; }
+
+        /* CALC LAYOUT */
+        .calc-layout { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 380px 1fr; gap: 32px; align-items: start; }
+
+        /* INPUT PANEL */
+        .input-panel { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 24px; position: sticky; top: 88px; max-height: calc(100vh - 104px); overflow-y: auto; }
+        .input-panel::-webkit-scrollbar { width: 4px; }
+        .input-panel::-webkit-scrollbar-track { background: transparent; }
+        .input-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        .panel-section { margin-bottom: 28px; }
+        .panel-section:last-child { margin-bottom: 0; }
+        .panel-section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-light); margin-bottom: 16px; }
+        .input-group { margin-bottom: 16px; }
+        .input-group label { display: block; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+        .input-group input, .input-group select { width: 100%; background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary); padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; font-family: var(--font-mono); transition: border-color 0.2s; min-height: 44px; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: var(--accent); }
+        .input-group input:focus-visible, .input-group select:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+        .input-group .hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .separator { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+        /* RESULTS */
+        .results-panel { min-width: 0; }
+        .summary-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 32px; }
+        .summary-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+        .summary-card .metric-value { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 800; }
+        .summary-card .metric-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+        .summary-card.highlight { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+        .summary-card.positive .metric-value { color: var(--green); }
+        .summary-card.negative .metric-value { color: var(--red); }
+
+        .chart-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .chart-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .chart-section .chart-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+        .chart-container { position: relative; height: 350px; }
+        .chart-container canvas { width: 100% !important; height: 100% !important; }
+
+        /* Scenario table */
+        .scenario-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        .scenario-table th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        .scenario-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.9rem; }
+        .scenario-table tr:last-child td { border-bottom: none; }
+        .scenario-table .positive { color: var(--green); }
+        .scenario-table .negative { color: var(--red); }
+
+        /* Tax comparison */
+        .tax-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+        .tax-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+        .tax-card h4 { font-size: 0.9rem; margin-bottom: 4px; }
+        .tax-card .tax-type { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+        .tax-card .tax-value { font-family: var(--font-mono); font-size: 1.3rem; font-weight: 700; color: var(--green); }
+        .tax-card .tax-detail { font-size: 0.8rem; color: var(--text-secondary); margin-top: 8px; }
+
+        /* Vesting timeline */
+        .vesting-bar { position: relative; height: 40px; background: var(--bg-card); border-radius: 8px; overflow: hidden; margin: 16px 0; }
+        .vesting-fill { position: absolute; top: 0; left: 0; height: 100%; background: linear-gradient(90deg, var(--accent), var(--green)); border-radius: 8px; transition: width 0.5s ease; }
+        .vesting-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 8px; }
+
+        /* Verdict */
+        .verdict { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; margin-bottom: 32px; }
+        .verdict h3 { font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .verdict p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+
+        /* Related calculators */
+        .related { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .related h3 { font-size: 1.1rem; margin-bottom: 16px; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .related a { display: block; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-decoration: none; transition: border-color 0.2s; }
+        .related a:hover { border-color: var(--accent); }
+        .related a:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+        .related .rel-title { color: var(--text-primary); font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+        .related .rel-desc { color: var(--text-muted); font-size: 0.8rem; }
+
+        /* FOOTER */
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .footer-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-overlay { display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: rgba(10, 10, 15, 0.6); z-index: 99; }
+        .nav-overlay.open { display: block; }
+
+        @media (max-width: 900px) {
+            .calc-layout { grid-template-columns: 1fr; }
+            .input-panel { position: static; max-height: none; }
+            .summary-cards { grid-template-columns: 1fr 1fr; }
+            .tax-grid { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            .summary-cards { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: 1fr; }
+            .chart-container { height: 260px; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="/" class="logo" aria-label="FounderMath home">
+            <div class="logo-icon" aria-hidden="true">%</div>
+            FounderMath
+        </a>
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <li role="none"><a href="dilution.html" role="menuitem">Dilution</a></li>
+            <li role="none"><a href="runway.html" role="menuitem">Runway</a></li>
+            <li role="none"><a href="safe.html" role="menuitem">SAFE</a></li>
+            <li role="none"><a href="vesting.html" role="menuitem">Vesting</a></li>
+            <li role="none"><a href="unit-economics.html" role="menuitem">Unit Econ</a></li>
+            <li role="none"><a href="cap-table.html" role="menuitem">Cap Table</a></li>
+            <li role="none"><a href="equity-split.html" role="menuitem">Equity Split</a></li>
+            <li role="none"><a href="valuation.html" role="menuitem">Valuation</a></li>
+            <li role="none"><a href="stock-options.html" role="menuitem" class="active">Options</a></li>
+            <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+            <li><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+    </div>
+</nav>
+<div class="nav-overlay" onclick="document.querySelector('.nav-links').classList.remove('open');this.classList.remove('open')"></div>
+
+<div class="page-header">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/" class="breadcrumb">Home</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="/" class="breadcrumb">Calculators</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <span class="breadcrumb">Stock Options</span>
+    </nav>
+    <h1>Stock Option <span class="gradient">Calculator</span></h1>
+    <p>How much are your startup stock options really worth? See your grant value today, at exit, and through vesting &mdash; with tax estimates.</p>
+</div>
+
+<div class="calc-layout" id="main-content">
+    <!-- INPUT PANEL -->
+    <aside class="input-panel" role="form" aria-label="Calculator inputs">
+        <div class="panel-section">
+            <div class="panel-section-title">Option Grant</div>
+            <div class="input-group">
+                <label for="numOptions">Number of Options</label>
+                <input type="number" id="numOptions" value="10000" min="1" step="100" inputmode="numeric" aria-describedby="numOptionsHint">
+                <div class="hint" id="numOptionsHint">Total options in your grant</div>
+            </div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="strikePrice">Strike Price ($)</label>
+                    <input type="number" id="strikePrice" value="1.00" min="0" step="0.01" inputmode="decimal">
+                </div>
+                <div class="input-group">
+                    <label for="currentFMV">Current FMV ($)</label>
+                    <input type="number" id="currentFMV" value="5.00" min="0" step="0.01" inputmode="decimal" aria-describedby="fmvHint">
+                    <div class="hint" id="fmvHint">409A valuation per share</div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="separator">
+
+        <div class="panel-section">
+            <div class="panel-section-title">Company Valuation</div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="sharesOutstanding">Shares Outstanding</label>
+                    <input type="number" id="sharesOutstanding" value="10000000" min="1" step="100000" inputmode="numeric" aria-describedby="sharesHint">
+                    <div class="hint" id="sharesHint">Fully diluted shares</div>
+                </div>
+                <div class="input-group">
+                    <label for="companyValuation">Company Value ($M)</label>
+                    <input type="number" id="companyValuation" value="50" min="0" step="1" inputmode="decimal">
+                </div>
+            </div>
+        </div>
+
+        <hr class="separator">
+
+        <div class="panel-section">
+            <div class="panel-section-title">Vesting Schedule</div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="vestingYears">Vesting (years)</label>
+                    <select id="vestingYears">
+                        <option value="3">3 years</option>
+                        <option value="4" selected>4 years</option>
+                        <option value="5">5 years</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="cliffMonths">Cliff (months)</label>
+                    <select id="cliffMonths">
+                        <option value="6">6 months</option>
+                        <option value="12" selected>12 months</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="monthsVested">Months Already Vested</label>
+                <input type="number" id="monthsVested" value="18" min="0" step="1" inputmode="numeric">
+            </div>
+        </div>
+
+        <hr class="separator">
+
+        <div class="panel-section">
+            <div class="panel-section-title">Tax Settings</div>
+            <div class="input-group">
+                <label for="optionType">Option Type</label>
+                <select id="optionType">
+                    <option value="iso">ISO (Incentive Stock Option)</option>
+                    <option value="nso">NSO (Non-Qualified Stock Option)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="taxRate">Tax Rate (%)</label>
+                <input type="number" id="taxRate" value="37" min="0" max="60" step="1" inputmode="numeric" aria-describedby="taxHint">
+                <div class="hint" id="taxHint">Combined federal + state rate</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- RESULTS PANEL -->
+    <main class="results-panel" role="region" aria-label="Calculator results">
+        <!-- Summary Cards -->
+        <div class="summary-cards" id="summaryCards">
+            <div class="summary-card highlight">
+                <div class="metric-value" id="currentValue">$40,000</div>
+                <div class="metric-label">Current Gross Value</div>
+            </div>
+            <div class="summary-card">
+                <div class="metric-value" id="vestedValue">$18,750</div>
+                <div class="metric-label">Vested Value</div>
+            </div>
+            <div class="summary-card">
+                <div class="metric-value" id="pctVested">37.5%</div>
+                <div class="metric-label">Options Vested</div>
+            </div>
+            <div class="summary-card">
+                <div class="metric-value" id="ownershipPct">0.10%</div>
+                <div class="metric-label">Ownership Stake</div>
+            </div>
+        </div>
+
+        <!-- Vesting Progress -->
+        <div class="chart-section">
+            <h3>Vesting Progress</h3>
+            <div class="chart-subtitle">How your options vest over time</div>
+            <div class="vesting-bar">
+                <div class="vesting-fill" id="vestingFill" style="width: 37.5%"></div>
+            </div>
+            <div class="vesting-label" id="vestingLabel">3,750 of 10,000 options vested (18 of 48 months)</div>
+            <div style="margin-top: 16px;">
+                <div class="chart-container" style="height: 280px;">
+                    <canvas id="vestingChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exit Scenarios -->
+        <div class="chart-section">
+            <h3>Exit Scenario Analysis</h3>
+            <div class="chart-subtitle">What your options are worth at different company valuations</div>
+            <div class="chart-container">
+                <canvas id="exitChart"></canvas>
+            </div>
+            <table class="scenario-table" id="scenarioTable">
+                <thead>
+                    <tr>
+                        <th>Exit Multiple</th>
+                        <th>Company Value</th>
+                        <th>Share Price</th>
+                        <th>Net Value (After Exercise)</th>
+                    </tr>
+                </thead>
+                <tbody id="scenarioBody"></tbody>
+            </table>
+        </div>
+
+        <!-- Tax Comparison -->
+        <div class="chart-section">
+            <h3>Tax Estimate (At Current FMV)</h3>
+            <div class="chart-subtitle">Estimated tax if you exercise and sell at current fair market value</div>
+            <div class="tax-grid" id="taxGrid">
+                <div class="tax-card">
+                    <h4>ISO</h4>
+                    <div class="tax-type">Incentive Stock Option</div>
+                    <div class="tax-value" id="isoTax">$0</div>
+                    <div class="tax-detail" id="isoDetail"></div>
+                </div>
+                <div class="tax-card">
+                    <h4>NSO</h4>
+                    <div class="tax-type">Non-Qualified Stock Option</div>
+                    <div class="tax-value" id="nsoTax">$0</div>
+                    <div class="tax-detail" id="nsoDetail"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Verdict -->
+        <div class="verdict" id="verdict">
+            <h3>&#128161; Quick Assessment</h3>
+            <p id="verdictText">Loading...</p>
+        </div>
+
+        <!-- Related Calculators -->
+        <div class="related">
+            <h3>Related Calculators</h3>
+            <div class="related-grid">
+                <a href="vesting.html">
+                    <div class="rel-title">Vesting Schedule</div>
+                    <div class="rel-desc">Visualize your full vesting timeline</div>
+                </a>
+                <a href="dilution.html">
+                    <div class="rel-title">Dilution Calculator</div>
+                    <div class="rel-desc">See how funding rounds dilute your stake</div>
+                </a>
+                <a href="valuation.html">
+                    <div class="rel-title">Valuation Calculator</div>
+                    <div class="rel-desc">Estimate your startup's worth</div>
+                </a>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="dilution.html">Dilution</a></li>
+            <li><a href="runway.html">Runway</a></li>
+            <li><a href="safe.html">SAFE</a></li>
+            <li><a href="vesting.html">Vesting</a></li>
+            <li><a href="unit-economics.html">Unit Econ</a></li>
+            <li><a href="cap-table.html">Cap Table</a></li>
+            <li><a href="equity-split.html">Equity Split</a></li>
+            <li><a href="valuation.html">Valuation</a></li>
+            <li><a href="stock-options.html">Stock Options</a></li>
+            <li><a href="free-startup-tools.html">Free Tools</a></li>
+            <li><a href="carta-alternatives.html">Carta Alternatives</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="pro-gating.js"></script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script>
+
+<script>
+// ============================================================
+// MOBILE MENU
+// ============================================================
+function toggleMobileMenu() {
+    const nav = document.getElementById('navLinks');
+    const toggle = document.getElementById('mobileToggle');
+    nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const nav = document.getElementById('navLinks');
+        if (nav.classList.contains('open')) {
+            nav.classList.remove('open');
+            document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+            document.getElementById('mobileToggle').focus();
+        }
+    }
+});
+
+// ============================================================
+// HELPERS
+// ============================================================
+function fmt(n) {
+    if (Math.abs(n) >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
+    if (Math.abs(n) >= 1e3) return '$' + (n / 1e3).toFixed(1) + 'K';
+    return '$' + n.toFixed(2);
+}
+
+function fmtWhole(n) {
+    return '$' + Math.round(n).toLocaleString();
+}
+
+function pct(n) {
+    return (n * 100).toFixed(2) + '%';
+}
+
+// ============================================================
+// STATE
+// ============================================================
+function getState() {
+    return {
+        numOptions: parseFloat(document.getElementById('numOptions').value) || 0,
+        strikePrice: parseFloat(document.getElementById('strikePrice').value) || 0,
+        currentFMV: parseFloat(document.getElementById('currentFMV').value) || 0,
+        sharesOutstanding: parseFloat(document.getElementById('sharesOutstanding').value) || 1,
+        companyValuation: (parseFloat(document.getElementById('companyValuation').value) || 0) * 1e6,
+        vestingYears: parseInt(document.getElementById('vestingYears').value) || 4,
+        cliffMonths: parseInt(document.getElementById('cliffMonths').value) || 12,
+        monthsVested: parseInt(document.getElementById('monthsVested').value) || 0,
+        optionType: document.getElementById('optionType').value,
+        taxRate: parseFloat(document.getElementById('taxRate').value) / 100 || 0.37
+    };
+}
+
+// ============================================================
+// CALCULATION
+// ============================================================
+function calculate() {
+    const s = getState();
+    const totalMonths = s.vestingYears * 12;
+
+    // Derived values
+    const impliedSharePrice = s.sharesOutstanding > 0 ? s.companyValuation / s.sharesOutstanding : s.currentFMV;
+    const currentPrice = s.currentFMV > 0 ? s.currentFMV : impliedSharePrice;
+    const spread = Math.max(0, currentPrice - s.strikePrice);
+    const grossValue = spread * s.numOptions;
+    const exerciseCost = s.strikePrice * s.numOptions;
+
+    // Vesting calculation
+    const monthsVested = Math.max(0, Math.min(s.monthsVested, totalMonths));
+    let vestedShares = 0;
+    if (monthsVested >= s.cliffMonths) {
+        const cliffPct = s.cliffMonths / totalMonths;
+        vestedShares = s.numOptions * cliffPct;
+        const postCliffMonths = monthsVested - s.cliffMonths;
+        const remainingMonths = totalMonths - s.cliffMonths;
+        if (remainingMonths > 0) {
+            vestedShares += s.numOptions * (1 - cliffPct) * (postCliffMonths / remainingMonths);
+        }
+    }
+    vestedShares = Math.min(vestedShares, s.numOptions);
+    const vestedPct = s.numOptions > 0 ? vestedShares / s.numOptions : 0;
+    const vestedValue = vestedShares * spread;
+    const ownershipPct = s.sharesOutstanding > 0 ? s.numOptions / s.sharesOutstanding : 0;
+
+    // Exit scenarios
+    const multiples = [1, 2, 5, 10, 20, 50];
+    const exitScenarios = multiples.map(function(m) {
+        var exitVal = s.companyValuation * m;
+        var exitPrice = s.sharesOutstanding > 0 ? exitVal / s.sharesOutstanding : 0;
+        var exitSpread = Math.max(0, exitPrice - s.strikePrice);
+        var netValue = exitSpread * s.numOptions;
+        return {
+            multiple: m,
+            companyValue: exitVal,
+            sharePrice: exitPrice,
+            netValue: netValue,
+            grossReturn: exerciseCost > 0 ? netValue / exerciseCost : 0
+        };
+    });
+
+    // Tax estimates (simplified)
+    // ISO: hold > 1yr after exercise + 2yr from grant = LTCG (15-20%)
+    // ISO: disqualifying disposition = ordinary income on spread at exercise + LTCG on additional gain
+    // NSO: ordinary income on spread at exercise, then CG on sale
+    const ordinaryRate = s.taxRate;
+    const ltcgRate = 0.20; // simplified federal LTCG rate
+
+    // ISO qualifying (hold 1yr post-exercise + 2yr from grant)
+    const isoLTCG = Math.max(0, grossValue * (1 - ltcgRate));
+    // ISO disqualifying (sell within 1yr of exercise)
+    const isoSpread = spread * s.numOptions;
+    const isoOrdinaryTax = isoSpread * ordinaryRate;
+    const isoDisqualified = grossValue - isoOrdinaryTax;
+
+    // NSO: ordinary income on spread at exercise
+    const nsoIncome = spread * s.numOptions;
+    const nsoTax = nsoIncome * ordinaryRate;
+    const nsoAfterTax = grossValue - nsoTax;
+
+    // Verdict logic
+    var verdictText = '';
+    if (spread <= 0) {
+        verdictText = 'Your options are currently underwater (strike price >= FMV). This is common in early-stage companies or during market downturns. If you believe in the company, your options could still become valuable if the company grows. Consider exercising if the strike price is low and you can afford the risk.';
+    } else if (grossValue < 10000) {
+        verdictText = 'Your grant has a modest current value of ' + fmtWhole(grossValue) + '. This is typical for early-stage startups where the FMV is still low. The real potential is in future growth — if the company 10xs, your grant would be worth ' + fmtWhole(exitScenarios[3].netValue) + '. Focus on the company\'s growth trajectory and your career fit.';
+    } else if (grossValue < 100000) {
+        verdictText = 'Your grant is worth ' + fmtWhole(grossValue) + ' at current FMV — a meaningful amount. You\'ve vested ' + fmtWhole(vestedValue) + ' so far. At a 5x exit, this could be worth ' + fmtWhole(exitScenarios[2].netValue) + '. Consider exercising vested shares early if it\'s an ISO to start the LTCG holding clock.';
+    } else {
+        verdictText = 'Your grant has significant value at ' + fmtWhole(grossValue) + '. With ' + fmtWhole(vestedValue) + ' already vested, you have real skin in the game. At a 5x exit, you\'re looking at ' + fmtWhole(exitScenarios[2].netValue) + ' net. Consider talking to a tax advisor about ISO exercise strategies (early exercise, 83(b) elections if eligible).';
+    }
+
+    // Vesting schedule data for chart
+    var vestingData = [];
+    for (var m = 0; m <= totalMonths; m++) {
+        var vested = 0;
+        if (m >= s.cliffMonths) {
+            var cPct = s.cliffMonths / totalMonths;
+            vested = s.numOptions * cPct;
+            var pMonths = m - s.cliffMonths;
+            var rMonths = totalMonths - s.cliffMonths;
+            if (rMonths > 0) vested += s.numOptions * (1 - cPct) * (pMonths / rMonths);
+        }
+        vestingData.push({
+            month: m,
+            vested: Math.min(vested, s.numOptions),
+            value: Math.min(vested, s.numOptions) * spread
+        });
+    }
+
+    return {
+        grossValue: grossValue,
+        vestedValue: vestedValue,
+        vestedShares: vestedShares,
+        vestedPct: vestedPct,
+        ownershipPct: ownershipPct,
+        exerciseCost: exerciseCost,
+        currentPrice: currentPrice,
+        spread: spread,
+        exitScenarios: exitScenarios,
+        isoLTCG: isoLTCG,
+        isoDisqualified: isoDisqualified,
+        nsoAfterTax: nsoAfterTax,
+        nsoTax: nsoTax,
+        verdictText: verdictText,
+        vestingData: vestingData,
+        totalMonths: totalMonths,
+        monthsVested: monthsVested,
+        numOptions: s.numOptions,
+        optionType: s.optionType,
+        taxRate: s.taxRate,
+        ordinaryRate: ordinaryRate
+    };
+}
+
+// ============================================================
+// RENDERING
+// ============================================================
+var vestingChart = null;
+var exitChart = null;
+
+function render(r) {
+    // Summary cards
+    document.getElementById('currentValue').textContent = fmtWhole(r.grossValue);
+    document.getElementById('currentValue').style.color = r.grossValue > 0 ? 'var(--green)' : 'var(--red)';
+    document.getElementById('vestedValue').textContent = fmtWhole(r.vestedValue);
+    document.getElementById('vestedValue').style.color = r.vestedValue > 0 ? 'var(--green)' : 'var(--text-primary)';
+    document.getElementById('pctVested').textContent = (r.vestedPct * 100).toFixed(1) + '%';
+    document.getElementById('ownershipPct').textContent = pct(r.ownershipPct);
+
+    // Vesting progress bar
+    document.getElementById('vestingFill').style.width = (r.vestedPct * 100) + '%';
+    document.getElementById('vestingLabel').textContent =
+        Math.round(r.vestedShares).toLocaleString() + ' of ' +
+        r.numOptions.toLocaleString() + ' options vested (' +
+        r.monthsVested + ' of ' + r.totalMonths + ' months)';
+
+    // Exit scenario table
+    var tbody = document.getElementById('scenarioBody');
+    tbody.innerHTML = '';
+    r.exitScenarios.forEach(function(sc) {
+        var tr = document.createElement('tr');
+        tr.innerHTML =
+            '<td>' + sc.multiple + 'x</td>' +
+            '<td>' + fmt(sc.companyValue) + '</td>' +
+            '<td>' + fmt(sc.sharePrice) + '</td>' +
+            '<td class="' + (sc.netValue > 0 ? 'positive' : 'negative') + '">' + fmtWhole(sc.netValue) + '</td>';
+        tbody.appendChild(tr);
+    });
+
+    // Tax comparison
+    if (r.optionType === 'iso') {
+        document.getElementById('isoTax').textContent = fmtWhole(r.grossValue - r.isoLTCG);
+        document.getElementById('isoDetail').textContent = 'Qualifying disposition (LTCG ' + (r.ordinaryRate * 100).toFixed(0) + '% → ' + (20).toFixed(0) + '% rate). Net: ' + fmtWhole(r.isoLTCG);
+        document.getElementById('nsoTax').textContent = fmtWhole(r.nsoTax);
+        document.getElementById('nsoDetail').textContent = 'Ordinary income tax on spread. Net: ' + fmtWhole(r.nsoAfterTax);
+    } else {
+        document.getElementById('isoTax').textContent = fmtWhole(r.grossValue - r.isoLTCG);
+        document.getElementById('isoDetail').textContent = 'If this were an ISO (LTCG rate). Net: ' + fmtWhole(r.isoLTCG);
+        document.getElementById('nsoTax').textContent = fmtWhole(r.nsoTax);
+        document.getElementById('nsoDetail').textContent = 'NSO: ordinary income on spread. Net: ' + fmtWhole(r.nsoAfterTax);
+    }
+
+    // Verdict
+    document.getElementById('verdictText').textContent = r.verdictText;
+
+    // Charts
+    renderVestingChart(r);
+    renderExitChart(r);
+}
+
+function renderVestingChart(r) {
+    var ctx = document.getElementById('vestingChart').getContext('2d');
+    // Sample every N months for clarity
+    var step = Math.max(1, Math.floor(r.totalMonths / 24));
+    var labels = [];
+    var vestedData = [];
+    var valueData = [];
+    for (var i = 0; i < r.vestingData.length; i += step) {
+        var d = r.vestingData[i];
+        labels.push('Mo ' + d.month);
+        vestedData.push(Math.round(d.vested));
+        valueData.push(d.value);
+    }
+    // Always include last
+    var last = r.vestingData[r.vestingData.length - 1];
+    if (labels[labels.length - 1] !== 'Mo ' + last.month) {
+        labels.push('Mo ' + last.month);
+        vestedData.push(Math.round(last.vested));
+        valueData.push(last.value);
+    }
+
+    if (vestingChart) vestingChart.destroy();
+    vestingChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Options Vested',
+                    data: vestedData,
+                    borderColor: '#6c5ce7',
+                    backgroundColor: 'rgba(108, 92, 231, 0.1)',
+                    fill: true,
+                    tension: 0.3,
+                    yAxisID: 'y'
+                },
+                {
+                    label: 'Value ($)',
+                    data: valueData,
+                    borderColor: '#00b894',
+                    backgroundColor: 'rgba(0, 184, 148, 0.1)',
+                    fill: true,
+                    tension: 0.3,
+                    yAxisID: 'y1'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { intersect: false, mode: 'index' },
+            plugins: {
+                legend: { labels: { color: '#a0a0b5', font: { size: 11 } } },
+                tooltip: {
+                    backgroundColor: '#1a1a2e',
+                    titleColor: '#f0f0f5',
+                    bodyColor: '#a0a0b5',
+                    borderColor: '#2a2a40',
+                    borderWidth: 1,
+                    callbacks: {
+                        label: function(ctx) {
+                            if (ctx.datasetIndex === 0) return ctx.parsed.y.toLocaleString() + ' options';
+                            return fmtWhole(ctx.parsed.y);
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: { ticks: { color: '#666680', maxTicksLimit: 8 }, grid: { color: 'rgba(42,42,64,0.5)' } },
+                y: {
+                    position: 'left',
+                    ticks: { color: '#6c5ce7', callback: function(v) { return v >= 1000 ? (v/1000).toFixed(0) + 'K' : v; } },
+                    grid: { color: 'rgba(42,42,64,0.3)' },
+                    title: { display: true, text: 'Options', color: '#6c5ce7' }
+                },
+                y1: {
+                    position: 'right',
+                    ticks: { color: '#00b894', callback: function(v) { return fmt(v); } },
+                    grid: { display: false },
+                    title: { display: true, text: 'Value', color: '#00b894' }
+                }
+            }
+        }
+    });
+}
+
+function renderExitChart(r) {
+    var ctx = document.getElementById('exitChart').getContext('2d');
+    var labels = r.exitScenarios.map(function(s) { return s.multiple + 'x'; });
+    var values = r.exitScenarios.map(function(s) { return s.netValue; });
+
+    if (exitChart) exitChart.destroy();
+    exitChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Net Value (After Exercise)',
+                data: values,
+                backgroundColor: values.map(function(v) {
+                    return v > 0 ? 'rgba(0, 184, 148, 0.6)' : 'rgba(255, 107, 107, 0.6)';
+                }),
+                borderColor: values.map(function(v) {
+                    return v > 0 ? '#00b894' : '#ff6b6b';
+                }),
+                borderWidth: 1,
+                borderRadius: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#1a1a2e',
+                    titleColor: '#f0f0f5',
+                    bodyColor: '#a0a0b5',
+                    borderColor: '#2a2a40',
+                    borderWidth: 1,
+                    callbacks: {
+                        label: function(ctx) { return fmtWhole(ctx.parsed.y); }
+                    }
+                }
+            },
+            scales: {
+                x: { ticks: { color: '#666680' }, grid: { color: 'rgba(42,42,64,0.3)' } },
+                y: {
+                    ticks: { color: '#666680', callback: function(v) { return fmt(v); } },
+                    grid: { color: 'rgba(42,42,64,0.3)' }
+                }
+            }
+        }
+    });
+}
+
+// ============================================================
+// EVENT LISTENERS
+// ============================================================
+var inputs = document.querySelectorAll('.input-panel input, .input-panel select');
+inputs.forEach(function(el) {
+    el.addEventListener('input', function() {
+        var r = calculate();
+        render(r);
+    });
+});
+
+// Auto-calculate FMV from company valuation / shares outstanding
+document.getElementById('companyValuation').addEventListener('input', function() {
+    var val = parseFloat(this.value) || 0;
+    var shares = parseFloat(document.getElementById('sharesOutstanding').value) || 1;
+    if (val > 0 && shares > 0) {
+        var fmv = (val * 1e6) / shares;
+        document.getElementById('currentFMV').value = fmv.toFixed(2);
+    }
+});
+
+document.getElementById('sharesOutstanding').addEventListener('input', function() {
+    var shares = parseFloat(this.value) || 1;
+    var val = parseFloat(document.getElementById('companyValuation').value) || 0;
+    if (val > 0 && shares > 0) {
+        var fmv = (val * 1e6) / shares;
+        document.getElementById('currentFMV').value = fmv.toFixed(2);
+    }
+});
+
+// Initial render
+var initialResult = calculate();
+render(initialResult);
+</script>
+</body>
+</html>
