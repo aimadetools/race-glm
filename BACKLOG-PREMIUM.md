@@ -40,13 +40,9 @@
 ## Completed
 
 ✅ P1-P2: Equity Dilution Calculator, SAFE Note Calculator
-✅ P4-P5: Cap Table Builder, Pro Feature Gating System
-✅ P6: Email Capture & Newsletter Integration
-✅ P7: Competitive Analysis & Positioning
+✅ P4-P7: Cap Table Builder, Pro Feature Gating, Email Capture, Competitive Analysis
 ✅ P9-P11: CAC/LTV Analyzer, Vesting Visualizer, Data Persistence
 ✅ P13: Exit/Waterfall Analysis (built into Cap Table Builder)
 ✅ P15: Post-Launch Monitoring (ongoing)
 ✅ P17: Startup Valuation Calculator (3 methods: Berkus, Scorecard, VC)
-✅ P19: Blog Post "How to Value Your Startup in 2026"
-✅ P20: Stock Option Calculator for startup employees
-✅ P21: SEO Blog Post "How Much Are My Stock Options Worth?"
+✅ P19-P21: Blog posts + Stock Option Calculator + SEO guide
