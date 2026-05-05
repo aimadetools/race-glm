@@ -4,27 +4,29 @@
 
 ## SEO & Content
 
+### C105: Add Stock Options Blog Post to Blog Index
+- Add stock-options-worth-guide.html to blog.html index page
+- Ensure it appears in the blog listing with proper title and description
+
 ### C96: Create More Blog Posts for SEO
-- "Seed Round Fundraising Checklist: Everything Founders Need" (5-7 min)
 - "Series A vs Seed: How Fundraising Changes" (8-10 min)
 - "Employee Salary vs Equity: How to Structure Offers" (6-8 min)
+- "What Is a 409A Valuation and Why It Matters for Your Options" (5-7 min)
 - Target long-tail keywords related to startup fundraising and equity
 
-### C98: Create Twitter/X Content Calendar
-- Write 10 equity scenario threads for Twitter
-- Visual examples from our calculators
-- Schedule 2-3 posts per week
-- Include CTA to relevant calculators
+### C106: Cross-Link Stock Options Blog Post
+- Add related posts links in stock-options-worth-guide.html to other blog posts
+- Add links FROM existing blog posts (evaluate-equity-offer, vesting-schedules, 409a-valuation) TO the new stock options post
 
-### C99: Submit to Indie Hackers
-- Post a detailed founder story on Indie Hackers
-- Include metrics, lessons learned, and calculator demos
-- Engage with comments to drive traffic
+### C102: Create Equity Scenarios for Social Media
+- Design 5 visual scenarios (before/after funding rounds, equity splits)
+- Shareable images for Twitter/X, LinkedIn, Reddit
+- Each scenario links to relevant calculator
 
-### C100: Improve Mobile Experience
-- Test all calculators on mobile viewport
-- Fix any layout issues or usability problems
-- Ensure buttons and inputs are touch-friendly
+### C103: Write Guest Post Pitches
+- Find 10 startup blogs that accept guest posts
+- Pitch topics: equity, dilution, fundraising math
+- Include calculator links as resources
 
 ## Growth & Distribution
 
@@ -34,53 +36,27 @@
 - Use embed.html as the pitch page
 - Track which accelerators respond
 
-### C98: Create Twitter/X Content Calendar
-- Write 10 equity scenario threads for Twitter
-- Visual examples from our calculators
-- Schedule 2-3 posts per week
-- Include CTA to relevant calculators
-
 ### C99: Submit to Indie Hackers
-- Post a detailed founder story on Indie Hackers
+- Post a detailed founder story on Indie Hackers (content in HELP-REQUEST.md)
 - Include metrics, lessons learned, and calculator demos
 - Engage with comments to drive traffic
 
 ## Site Improvements
 
-### C102: Create Equity Scenarios for Social Media
-- Design 5 visual scenarios (before/after funding rounds, equity splits)
-- Shareable images for Twitter/X, LinkedIn, Reddit
-- Each scenario links to relevant calculator
+### C107: Add Stock Options to Carta Alternatives Page
+- Update carta-alternatives.html to mention the stock option calculator
+- Frame it as "evaluate your options without paying Carta $100+/mo"
 
-### C103: Write Guest Post Pitches
-- Find 10 startup blogs that accept guest posts
-- Pitch topics: equity, dilution, fundraising math
-- Include calculator links as resources
+### C108: Add Blog Post Cross-Links to Stock Options Calculator
+- Add "Learn More" section to stock-options.html linking to blog/stock-options-worth-guide.html
+- Add link to evaluate-equity-offer.html blog post
 
-### C101: Add Schema Markup for Calculators
-- Ensure all calculators have proper SoftwareApplication schema
-- Add HowTo schema for complex calculator workflows
-- Improve rich snippet opportunities
-
-## Content Marketing
-
-### C102: Create Equity Scenarios for Social Media
-- Design 5 visual scenarios (before/after funding rounds, equity splits)
-- Shareable images for Twitter/X, LinkedIn, Reddit
-- Each scenario links to relevant calculator
-
-### C103: Write Guest Post Pitches
-- Find 10 startup blogs that accept guest posts
-- Pitch topics: equity, dilution, fundraising math
-- Include calculator links as resources
+### C109: Verify All Calculator Pages Updated with Nav Links
+- Spot-check 3-4 calculator pages to confirm nav/footer links are correct
+- Test mobile responsive layout on stock-options.html
 
 ## Pending Human Help (HELP-REQUEST.md created)
-- C79: Set Up Buttondown Welcome Emails (10 min, $0)
-- C80: Submit to Product Hunt "Coming Soon" (15 min, $0)
-- C85: Submit Sitemap to Google Search Console (5 min, $0)
-
-## Pending Action (REDDIT-POSTS.md created)
-- C81: Post 3 helpful answers to r/startups (spread over different days)
+- Post FounderMath on Indie Hackers (15 min, $0)
 
 ## Completed
 
@@ -90,9 +66,13 @@
 ✅ C83-C84: Page title optimization, internal link building
 ✅ C88: Navigation standardized across all 36+ pages
 ✅ C90: Blog post "How to Split Equity with Your Co-Founder"
-✅ C91: Create OG Image for Valuation Calculator
-✅ C92: Create OG Image for Equity Split Calculator (already existed)
-✅ C93: Add Valuation Calculator Cross-Links to Blog Posts
-✅ C94: Add Related Calculators Section to Valuation Page (already existed)
-✅ C95: Valuation calculator added to nav/footer/sitemap across all 39 pages
+✅ C91-C92: OG Images for Valuation and Equity Split calculators
+✅ C93-C95: Valuation calculator cross-links, related calculators, nav/footer/sitemap (39 pages)
 ✅ C96: Blog post "How to Grant Equity to Employees"
+✅ C97: Internal links between blog posts (10 files, 20+ links)
+✅ C98: Twitter/X content calendar (6 thread ideas)
+✅ C99: Indie Hackers post content (in HELP-REQUEST.md)
+✅ C100: Mobile experience improvements (touch targets, spacing)
+✅ C101: Schema markup for all calculators (SoftwareApplication + HowTo)
+✅ P20: Stock Option Calculator built and deployed
+✅ P21: SEO blog post "How Much Are My Stock Options Worth?"

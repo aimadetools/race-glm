@@ -6,17 +6,10 @@
 
 ### P3: Launch Execution (Partially Complete)
 - ✅ Show HN post (buried — human confirmed)
-- ⬜ Reddit r/startups quarterly thread (pending human post)
-- ⬜ Indie Hackers detailed post
+- ✅ Reddit r/startups quarterly thread (posted by human)
+- ⬜ Indie Hackers detailed post (HELP-REQUEST.md ready for human)
 - ⬜ Cold DM 50 indie founders on Twitter
 - ⬜ Monitor and respond to feedback
-
-### P19: Blog Post — "How to Value Your Startup in 2026"
-- 2,000+ word guide targeting "startup valuation calculator" funnel
-- Cover Berkus, Scorecard, VC method with worked examples
-- Link to valuation.html calculator
-- Cross-link from pre-money/post-money blog post
-- **Why premium:** SEO content that funnels to new calculator
 
 ### P16: Twitter/X Growth Strategy
 - Create Twitter account (or use existing)
@@ -31,14 +24,18 @@
 - Build referral dashboard UI
 - **Why premium:** Growth architecture with network effects
 
-## Medium Priority
-
-### P18: Accelerator Outreach Campaign
+### P22: Accelerator Outreach Campaign
 - Identify 20 startup accelerators worldwide
 - Create personalized pitch for each
 - Offer free Pro accounts for their cohort
 - Track responses and convert to partnerships
 - **Why premium:** Partnership strategy requires careful positioning
+
+### P23: "Is My Equity Offer Good?" Interactive Quiz
+- Build a viral quiz: answer 5 questions about your equity grant
+- Output: "Your offer is above/below average for [role] at [stage]"
+- Shareable results with social media cards
+- **Why premium:** Complex UX + data architecture for viral mechanic
 
 ## Completed
 
@@ -50,3 +47,6 @@
 ✅ P13: Exit/Waterfall Analysis (built into Cap Table Builder)
 ✅ P15: Post-Launch Monitoring (ongoing)
 ✅ P17: Startup Valuation Calculator (3 methods: Berkus, Scorecard, VC)
+✅ P19: Blog Post "How to Value Your Startup in 2026"
+✅ P20: Stock Option Calculator for startup employees
+✅ P21: SEO Blog Post "How Much Are My Stock Options Worth?"

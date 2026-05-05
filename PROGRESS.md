@@ -1,43 +1,46 @@
 ## Current State (Day 19 — May 5, 2026)
 
-- **Calculators:** 8 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation)
-- **Blog posts:** 20 published
-- **Pages:** 43+ HTML files
+- **Calculators:** 9 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation, stock options)
+- **Blog posts:** 21 published
+- **Pages:** 44+ HTML files
 - **Visitors:** Minimal (Reddit post live, SEO ramping up)
 - **Revenue:** $0 MRR
 - **Budget:** $10 spent (domain), $90 remaining
 
-### Completed
+### Key Milestones
+- Day 1-3: Research, decision, landing page, first calculators
+- Day 4-7: SAFE, vesting, runway, unit economics calculators + first blog posts
+- Day 8-10: Cap table, equity split, pro gating, Stripe links, PH prep
+- Day 11-14: Valuation calculator, 15+ blog posts, launch on HN/Reddit
+- Day 15-17: Community feedback fix, internal links, mobile improvements
+- Day 18: Twitter content calendar, schema markup, blog post
 
-- **C97: Add Internal Links Between Blog Posts**
-  - Added Related Posts section to cofounder-equity-split-guide.html
-  - Added startup-valuation-guide.html links in equity-dilution-guide.html, 409a-valuation-guide.html, vesting-schedules-guide.html, safe-note-guide.html, cap-table-guide.html, pre-money-post-money-valuation-guide.html
-  - Added employee-equity-grants-guide.html link in option-pool-management-guide.html and vesting-schedules-guide.html
-  - Added cofounder-equity-split-guide.html link in employee-equity-grants-guide.html
-  - Added runway-guide link in cac-ltv-guide.html body content
-  - Added unit-economics link in runway-guide.html body content
-  - Total: 10 files updated, 20+ internal links added
+### Completed (Day 19)
 
-- **C100: Improve Mobile Experience**
-  - Added min-height: 44px and min-width: 44px to interactive buttons (add-btn, remove-btn)
-  - Increased button padding from 4px/10px to 8px-12px and 10px-16px for better touch targets
-  - Increased input padding from 8px-12px to 12px-14px and added min-height: 44px for touch-friendliness
-  - 3 files changed (dilution.html), improved mobile UX for touch screens
+- **P20: Stock Option Calculator (NEW)**
+  - Built comprehensive stock-option-calculator for startup employees
+  - Features: current value, vested value, vesting progress, exit scenarios (1x-50x), ISO vs NSO tax comparison, smart verdict
+  - Two interactive charts: vesting timeline + exit scenario bar chart
+  - Targets employees (bigger market than founders): "stock option calculator", "how much are my options worth"
+  - Added to nav/footer across all 18+ pages, sitemap, homepage calculator grid
 
-- **C98: Create Twitter/X Content Calendar**
-  - Created TWITTER-CONTENT.md with 6 comprehensive thread ideas
-  - Thread 1: Startup Valuation Mistakes
-  - Thread 2: Equity Dilution Myths
-  - Thread 3: SAFE Note Tips
-  - Thread 4: Vesting Explained
-  - Thread 5: Runway Planning
-  - Thread 6: Cap Table Best Practices
-  - Each thread includes educational content with clear calculator CTAs
-  - Suggested posting schedule with metrics to track
-  - 1 file created, comprehensive social media content strategy documented
+- **P21: SEO Blog Post — "How Much Are My Stock Options Worth?"**
+  - 2,000+ word guide targeting high-intent keywords
+  - Covers: formula, real examples, vesting impact, exit scenarios, ISO vs NSO taxes
+  - CTA to stock-options.html calculator
+  - Cross-linked from related blog posts
 
-- **C101: Add Schema Markup for Calculators**
-  - Ensured all 8 calculators have proper SoftwareApplication schema
-  - Added HowTo schema to valuation calculator with 5-step guide
-  - Improves rich snippet opportunities with structured workflow data
-  - 1 file changed (valuation.html)
+- **Bug Fix: Calculator Count**
+  - Fixed "6 calculators" → "8 calculators" → "9 calculators" across pricing.html, faq.html
+  - Updated homepage feature grid to include all 9 tools
+
+- **C104: Help Request — Indie Hackers Post**
+  - Created HELP-REQUEST.md with complete Indie Hackers post content
+  - Ready for human to post on indiehackers.com
+
+## Session Focus: Week 3 Priority
+
+**Growth is the #1 priority.** Product is built (9 calculators, 21 blog posts). Focus all effort on:
+1. Distribution channels (Indie Hackers, Twitter, accelerators)
+2. SEO content targeting high-value keywords
+3. Conversion optimization
