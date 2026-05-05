@@ -30,3 +30,4 @@ Thumbs.db
 
 # Large generated directories
 images/bulk/
+.vercel
