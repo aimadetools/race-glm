@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Equity Scenarios for Founders | FounderMath 2026</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks && navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+        function copyTweet(tweetId) {
+            const tweetText = document.getElementById(tweetId).innerText;
+            navigator.clipboard.writeText(tweetText).then(() => {
+                const btn = document.getElementById(tweetId + '-btn');
+                btn.innerText = 'Copied!';
+                setTimeout(() => btn.innerText = 'Copy Tweet', 2000);
+            });
+        }
+    </script>
+    <meta name="description" content="5 real-world equity scenarios for startup founders. Before/after funding rounds, cofounder splits, and exit outcomes. Calculate your own scenarios.">
+    <meta name="keywords" content="equity scenarios, founder examples, funding round dilution, cofounder equity split, startup exit math">
+    <meta property="og:title" content="5 Equity Scenarios for Founders — FounderMath">
+    <meta property="og:description" content="Real-world founder scenarios: before/after funding, cofounder splits, and exit outcomes. Calculate your own.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/social-scenarios.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="5 Equity Scenarios for Founders">
+    <meta name="twitter:description" content="Real-world founder scenarios: before/after funding, cofounder splits, and exit outcomes.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f; --bg-secondary: #12121a; --bg-card: #1a1a2e;
+            --accent: #6c5ce7; --accent-light: #a29bfe; --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894; --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b; --red-glow: rgba(255, 107, 107, 0.3);
+            --text-primary: #f0f0f5; --text-secondary: #a0a0b5; --text-muted: #666680;
+            --border: #2a2a40; --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        .hero { padding: 120px 24px 60px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%); pointer-events: none; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 16px; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { color: var(--text-secondary); font-size: 1.15rem; max-width: 650px; margin: 0 auto; position: relative; }
+        .hero .subtitle { margin-top: 12px; font-size: 0.9rem; color: var(--text-muted); }
+
+        .scenarios { max-width: 1000px; margin: 0 auto; padding: 0 24px 80px; }
+        .scenario-card {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px;
+            margin: 0 0 40px; overflow: hidden; position: relative;
+        }
+        .scenario-header {
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+            padding: 24px 32px; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 16px;
+        }
+        .scenario-number {
+            width: 48px; height: 48px; background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.3rem; color: white;
+        }
+        .scenario-title { font-size: 1.4rem; font-weight: 700; }
+        .scenario-subtitle { color: var(--text-muted); font-size: 0.9rem; margin-top: 4px; }
+
+        .scenario-body { padding: 32px; }
+        .scenario-description { color: var(--text-secondary); margin-bottom: 24px; line-height: 1.7; }
+
+        .scenario-visual {
+            background: var(--bg-card); border-radius: 16px; padding: 24px; margin-bottom: 24px;
+            border: 1px solid var(--border);
+        }
+        .visual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
+        .visual-stage {
+            background: var(--bg-secondary); border-radius: 12px; padding: 16px; text-align: center;
+            border: 1px solid var(--border);
+        }
+        .visual-stage-label { color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+        .visual-stage-value { font-size: 1.8rem; font-weight: 700; }
+        .visual-stage-value.decrease { color: var(--red); }
+        .visual-stage-value.increase { color: var(--green); }
+        .visual-stage-diff { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+
+        .scenario-social {
+            background: var(--bg-card); border-radius: 12px; padding: 20px; margin-bottom: 24px;
+            border: 1px solid var(--border);
+        }
+        .social-label {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: var(--accent); color: white; padding: 4px 12px;
+            border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 12px;
+        }
+        .tweet-box {
+            background: var(--bg-primary); border: 1px solid var(--border); border-radius: 10px;
+            padding: 16px; font-family: var(--font-sans); font-size: 0.9rem; color: var(--text-secondary);
+            line-height: 1.6; white-space: pre-wrap; margin-bottom: 12px; position: relative;
+        }
+        .tweet-hashtag { color: var(--accent-light); }
+        .copy-btn {
+            background: var(--bg-card); border: 1px solid var(--border); color: var(--text-primary);
+            padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; cursor: pointer;
+            transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px;
+        }
+        .copy-btn:hover { border-color: var(--accent); background: var(--bg-secondary); }
+
+        .scenario-cta {
+            display: flex; align-items: center; justify-content: space-between;
+            background: linear-gradient(135deg, var(--accent-glow), transparent);
+            padding: 20px 24px; border-radius: 12px; border: 1px solid var(--accent);
+        }
+        .scenario-cta-text h4 { font-size: 1.1rem; margin-bottom: 4px; }
+        .scenario-cta-text p { color: var(--text-secondary); font-size: 0.85rem; }
+        .scenario-cta-btn {
+            background: var(--accent); color: white; padding: 12px 24px; border-radius: 10px;
+            text-decoration: none; font-weight: 600; transition: all 0.2s; white-space: nowrap;
+        }
+        .scenario-cta-btn:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+        .footer-note {
+            text-align: center; color: var(--text-muted); font-size: 0.85rem;
+            padding: 40px 24px; border-top: 1px solid var(--border); margin-top: 40px;
+        }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .scenario-header { padding: 20px; }
+            .scenario-number { width: 40px; height: 40px; font-size: 1.1rem; }
+            .scenario-title { font-size: 1.1rem; }
+            .scenario-body { padding: 20px; }
+            .scenario-cta { flex-direction: column; text-align: center; gap: 16px; }
+            .visual-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="runway.html" role="menuitem">Runway</a></li>
+                <li role="none"><a href="safe.html" role="menuitem">SAFE</a></li>
+                <li role="none"><a href="vesting.html" role="menuitem">Vesting</a></li>
+                <li role="none"><a href="unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="cap-table.html" role="menuitem">Cap Table</a></li>
+                <li role="none"><a href="equity-split.html" role="menuitem">Equity Split</a></li>
+                <li role="none"><a href="valuation.html" role="menuitem">Valuation</a></li>
+                <li role="none"><a href="stock-options.html" role="menuitem">Options</a></li>
+                <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+                <li><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>5 <span class="gradient">Founder Equity</span> Scenarios</h1>
+        <p>Real-world equity scenarios from startup funding rounds, cofounder splits, and exits. Copy these for social media or calculate your own.</p>
+        <p class="subtitle">Shareable visualizations for Twitter/X, LinkedIn, and Reddit.</p>
+    </header>
+
+    <div class="scenarios">
+
+        <!-- Scenario 1: The Classic Dilution -->
+        <div class="scenario-card">
+            <div class="scenario-header">
+                <div class="scenario-number">1</div>
+                <div>
+                    <div class="scenario-title">The Classic Dilution</div>
+                    <div class="scenario-subtitle">Solo founder raising through Series A</div>
+                </div>
+            </div>
+            <div class="scenario-body">
+                <p class="scenario-description">You start with 100% ownership. By the time you reach Series A, you've sold equity in 4 rounds. Here's what happens to your ownership percentage.</p>
+
+                <div class="scenario-visual">
+                    <div class="visual-grid">
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">Start</div>
+                            <div class="visual-stage-value">100%</div>
+                            <div class="visual-stage-diff">Your equity</div>
+                        </div>
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">After Seed</div>
+                            <div class="visual-stage-value decrease">75%</div>
+                            <div class="visual-stage-diff">-25% sold</div>
+                        </div>
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">After Series A</div>
+                            <div class="visual-stage-value decrease">51%</div>
+                            <div class="visual-stage-diff">-24% sold</div>
+                        </div>
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">After Series B</div>
+                            <div class="visual-stage-value decrease">34%</div>
+                            <div class="visual-stage-diff">-17% sold</div>
+                        </div>
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">After Series C</div>
+                            <div class="visual-stage-value decrease">23%</div>
+                            <div class="visual-stage-diff">-11% sold</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scenario-social">
+                    <div class="social-label">📱 Share on Twitter/X</div>
+                    <div class="tweet-box" id="tweet-1">Starting a startup? Here's what happens to your equity through Series A:
+
+100% → 75% (Seed)
+75% → 51% (Series A)
+51% → 34% (Series B)
+34% → 23% (Series C)
+
+You sell ~77% of your company by Series C. The tradeoff: you own less, but the company is worth $100M+.
+
+Calculate your dilution: founder-math.com/dilution
+
+<span class="tweet-hashtag">#startup #founders #equity #fundraising</span></div>
+                    <button class="copy-btn" onclick="copyTweet('tweet-1')" id="tweet-1-btn">📋 Copy Tweet</button>
+                </div>
+
+                <div class="scenario-cta">
+                    <div class="scenario-cta-text">
+                        <h4>Calculate Your Dilution</h4>
+                        <p>Model your ownership across funding rounds with the Dilution Calculator</p>
+                    </div>
+                    <a href="dilution.html" class="scenario-cta-btn">Open Dilution Calculator →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scenario 2: Two Co-Founders, Unequal Split -->
+        <div class="scenario-card">
+            <div class="scenario-header">
+                <div class="scenario-number">2</div>
+                <div>
+                    <div class="scenario-title">The Unequal Split</div>
+                    <div class="scenario-subtitle">Technical founder vs. business founder</div>
+                </div>
+            </div>
+            <div class="scenario-body">
+                <p class="scenario-description">Two cofounders start a company. One is full-time technical, the other is part-time business. Here's a fair equity split based on contributions.</p>
+
+                <div class="scenario-visual">
+                    <div class="visual-grid">
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">Tech Founder</div>
+                            <div class="visual-stage-value increase">70%</div>
+                            <div class="visual-stage-diff">Full-time, built product</div>
+                        </div>
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">Business Founder</div>
+                            <div class="visual-stage-value">30%</div>
+                            <div class="visual-stage-diff">Part-time, sales/fundraising</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scenario-social">
+                    <div class="social-label">📱 Share on Twitter/X</div>
+                    <div class="tweet-box" id="tweet-2">How do you split equity with cofounders when contributions are unequal?
+
+Example: 2 cofounders, SaaS startup
+
+Technical founder (full-time, built MVP): 70%
+Business founder (part-time, doing sales): 30%
+
+The key: equity should reflect contribution, not just "equal split."
+
+Split fairly: founder-math.com/equity-split
+
+<span class="tweet-hashtag">#startup #cofounders #equity #foundertips</span></div>
+                    <button class="copy-btn" onclick="copyTweet('tweet-2')" id="tweet-2-btn">📋 Copy Tweet</button>
+                </div>
+
+                <div class="scenario-cta">
+                    <div class="scenario-cta-text">
+                        <h4>Split Equity Fairly</h4>
+                        <p>Calculate a fair cofounder equity split based on contributions</p>
+                    </div>
+                    <a href="equity-split.html" class="scenario-cta-btn">Open Equity Split Calculator →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scenario 3: The Employee Stock Option -->
+        <div class="scenario-card">
+            <div class="scenario-header">
+                <div class="scenario-number">3</div>
+                <div>
+                    <div class="scenario-title">The Employee Option</div>
+                    <div class="scenario-subtitle">What your 0.5% grant is really worth</div>
+                </div>
+            </div>
+            <div class="scenario-body">
+                <p class="scenario-description">You're offered 0.5% equity as an early employee. What's that actually worth at different exit values? (Assuming 10M shares outstanding)</p>
+
+                <div class="scenario-visual">
+                    <div class="visual-grid">
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">$10M Exit</div>
+                            <div class="visual-stage-value">$50K</div>
+                            <div class="visual-stage-diff">50,000 shares × $1</div>
+                        </div>
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">$50M Exit</div>
+                            <div class="visual-stage-value increase">$250K</div>
+                            <div class="visual-stage-diff">50,000 shares × $5</div>
+                        </div>
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">$100M Exit</div>
+                            <div class="visual-stage-value increase">$500K</div>
+                            <div class="visual-stage-diff">50,000 shares × $10</div>
+                        </div>
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">$500M Exit</div>
+                            <div class="visual-stage-value increase">$2.5M</div>
+                            <div class="visual-stage-diff">50,000 shares × $50</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scenario-social">
+                    <div class="social-label">📱 Share on Twitter/X</div>
+                    <div class="tweet-box" id="tweet-3">You're offered 0.5% equity. What's it actually worth?
+
+Assuming 10M shares outstanding (50,000 shares):
+
+$10M exit → $50,000
+$50M exit → $250,000
+$100M exit → $500,000
+$500M exit → $2,500,000
+
+The upside is real, but so is the risk. Calculate your offer: founder-math.com/stock-options
+
+<span class="tweet-hashtag">#startup #equity #employeestockoptions #compensation</span></div>
+                    <button class="copy-btn" onclick="copyTweet('tweet-3')" id="tweet-3-btn">📋 Copy Tweet</button>
+                </div>
+
+                <div class="scenario-cta">
+                    <div class="scenario-cta-text">
+                        <h4>Calculate Your Options</h4>
+                        <p>See what your stock options are worth at different exits</p>
+                    </div>
+                    <a href="stock-options.html" class="scenario-cta-btn">Open Stock Options Calculator →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scenario 4: SAFE Note Conversion -->
+        <div class="scenario-card">
+            <div class="scenario-header">
+                <div class="scenario-number">4</div>
+                <div>
+                    <div class="scenario-title">The SAFE Conversion</div>
+                    <div class="scenario-subtitle">How a $500K SAFE converts at Series A</div>
+                </div>
+            </div>
+            <div class="scenario-body">
+                <p class="scenario-description">You raise a $500K SAFE with $5M cap. At Series A, you raise $3M at $15M pre-money. What does the SAFE investor get?</p>
+
+                <div class="scenario-visual">
+                    <div class="visual-grid">
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">SAFE Amount</div>
+                            <div class="visual-stage-value">$500K</div>
+                            <div class="visual-stage-diff">Invested upfront</div>
+                        </div>
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">SAFE Cap</div>
+                            <div class="visual-stage-value">$5M</div>
+                            <div class="visual-stage-diff">Max valuation</div>
+                        </div>
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">Series A Price</div>
+                            <div class="visual-stage-value">$15M</div>
+                            <div class="visual-stage-diff">Higher than cap</div>
+                        </div>
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">SAFE Gets</div>
+                            <div class="visual-stage-value increase">3.33%</div>
+                            <div class="visual-stage-diff">$500K / $15M</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scenario-social">
+                    <div class="social-label">📱 Share on Twitter/X</div>
+                    <div class="tweet-box" id="tweet-4">How a SAFE note converts:
+
+You raise: $500K SAFE, $5M cap
+Series A: $3M at $15M pre-money
+
+The SAFE converts at the CAP (not the Series A price):
+
+$500K / $5M cap = 10% of the company... at the SAFE price
+
+But at Series A, that's only 3.33% of the post-money.
+
+Model your SAFE: founder-math.com/safe
+
+<span class="tweet-hashtag">#startup #SAFE #fundraising #founders</span></div>
+                    <button class="copy-btn" onclick="copyTweet('tweet-4')" id="tweet-4-btn">📋 Copy Tweet</button>
+                </div>
+
+                <div class="scenario-cta">
+                    <div class="scenario-cta-text">
+                        <h4>Model Your SAFE</h4>
+                        <p>Calculate SAFE conversion and dilution impact</p>
+                    </div>
+                    <a href="safe.html" class="scenario-cta-btn">Open SAFE Calculator →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scenario 5: The Runway Reality -->
+        <div class="scenario-card">
+            <div class="scenario-header">
+                <div class="scenario-number">5</div>
+                <div>
+                    <div class="scenario-title">The Runway Reality</div>
+                    <div class="scenario-subtitle">$2M raised, $40K monthly burn</div>
+                </div>
+            </div>
+            <div class="scenario-body">
+                <p class="scenario-description">You raise $2M with a $40K monthly burn rate. But hiring 3 engineers at $15K/month each changes everything. Here's your real runway.</p>
+
+                <div class="scenario-visual">
+                    <div class="visual-grid">
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">Initial Runway</div>
+                            <div class="visual-stage-value">50 months</div>
+                            <div class="visual-stage-diff">$2M / $40K</div>
+                        </div>
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">After Hiring</div>
+                            <div class="visual-stage-value decrease">25 months</div>
+                            <div class="visual-stage-diff">$2M / ($40K + $45K)</div>
+                        </div>
+                        <div class="visual-stage">
+                            <div class="visual-stage-label">Target Runway</div>
+                            <div class="visual-stage-value">18-24 mo</div>
+                            <div class="visual-stage-diff">Before next raise</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scenario-social">
+                    <div class="social-label">📱 Share on Twitter/X</div>
+                    <div class="tweet-box" id="tweet-5">Runway math that catches founders off guard:
+
+You raise $2M at $40K/month burn:
+
+Initial runway: 50 months 😎
+
+Hire 3 engineers @ $15K each:
+
+New burn: $85K/month
+Real runway: 23 months 😰
+
+You just lost 27 months of runway. Always model hiring before you hire.
+
+Calculate yours: founder-math.com/runway
+
+<span class="tweet-hashtag">#startup #runway #burnrate #founders</span></div>
+                    <button class="copy-btn" onclick="copyTweet('tweet-5')" id="tweet-5-btn">📋 Copy Tweet</button>
+                </div>
+
+                <div class="scenario-cta">
+                    <div class="scenario-cta-text">
+                        <h4>Calculate Your Runway</h4>
+                        <p>Model burn rate and hiring plans</p>
+                    </div>
+                    <a href="runway.html" class="scenario-cta-btn">Open Runway Calculator →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p>These scenarios are for educational purposes. Actual outcomes vary based on many factors. Always consult with legal and financial professionals for your specific situation.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="vesting.html">Vesting</a></li>
+                <li><a href="unit-economics.html">Unit Econ</a></li>
+                <li><a href="cap-table.html">Cap Table</a></li>
+                <li><a href="equity-split.html">Equity Split</a></li>
+                <li><a href="valuation.html">Valuation</a></li>
+                <li><a href="stock-options.html">Stock Options</a></li>
+                <li><a href="free-startup-tools.html">Free Tools</a></li>
+                <li><a href="social-scenarios.html">Equity Scenarios</a></li>
+                <li><a href="carta-alternatives.html">Carta Alternatives</a></li>
+                <li><a href="embed.html">Embed</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
