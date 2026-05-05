@@ -17,6 +17,25 @@
 
 ### Completed (Day 19 — This Session)
 
+- **C102: Social Media Scenarios Page**
+  - Created social-scenarios.html with 5 real-world equity scenarios
+  - Each scenario includes: visual breakdown, copy-optimized Twitter/X text, calculator link
+  - Scenarios: Classic Dilution, Unequal Cofounder Split, Employee Option, SAFE Conversion, Runway Reality
+  - Added "Equity Scenarios" link to footer of all 40+ pages
+  - Updated sitemap.xml
+
+- **C103: Guest Post Pitches**
+  - Created GUEST-POST-PITCHES.md with 10 tailored guest post pitches
+  - Targets: First Round, Indie Hackers, Hacker Noon, Medium Startup, YC Startup School, Bplans, The Startup, GrowthHackers, Product Hunt, ReadWrite
+  - Each pitch includes: hook, outline, why it works, relevant calculator link
+  - Includes submission process, tracking template, and success metrics
+
+- **P22: Accelerator Outreach Plan**
+  - Created ACCELERATOR-OUTREACH.md with detailed execution strategy
+  - Prioritized 20+ accelerators into 3 tiers based on cohort size
+  - 4 email templates: Direct pitch, Founder story, Portfolio intro, Follow-up
+  - 4-week timeline, tracking template, and success metrics
+
 - **C105: Stock Options Blog Post → Blog Index**
   - Added stock-options-worth-guide.html to blog.html listing
 
