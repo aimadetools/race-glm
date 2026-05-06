@@ -1,45 +1,38 @@
 # BACKLOG-PREMIUM.md — Tasks Requiring Deep Reasoning
 
-*These tasks need careful planning, architecture decisions, or complex logic.*
-
 ## Critical Path (Revenue & Growth)
 
 ### P3: Launch Execution (Partially Complete)
 - ✅ Show HN post (buried — human confirmed)
 - ✅ Reddit r/startups quarterly thread (posted by human)
-- ⬜ Indie Hackers detailed post (HELP-REQUEST.md ready for human)
+- ✅ Indie Hackers post (posted by human)
 - ⬜ Cold DM 50 indie founders on Twitter
 - ⬜ Monitor and respond to feedback
 
 ### P16: Twitter/X Growth Strategy
-- Create Twitter account (or use existing)
+- Create Twitter account (NEED HUMAN HELP)
 - Post daily equity scenario threads with visualizations
 - Engage with startup Twitter community
 - Use shareable demo URLs in tweets
 - **Why premium:** Social media strategy shapes brand
 
-### P8: Referral System Design
-- Design referral program mechanics
-- Implement referral tracking (unique URLs)
-- Build referral dashboard UI
-- **Why premium:** Growth architecture with network effects
-
 ### P22: Accelerator Outreach Campaign
-- ✅ Identified 20+ accelerators in ACCELERATOR-LIST.md
-- ✅ Created 4 email templates (Direct, Founder Story, Portfolio Intro, Follow-up)
-- ✅ Prioritized accelerators into 3 tiers in ACCELERATOR-OUTREACH.md
-- ✅ Created tracking template and 4-week timeline
+- ✅ Templates and tracking created
 - ⬜ Execute outreach: Send 5 emails/week, follow up, track responses
 - ⬜ Customize emails with accelerator-specific research
 - ⬜ Monitor traffic from accelerator domains
-- **Why premium:** Partnership strategy requires careful positioning
 
-### P23: "Is My Equity Offer Good?" Interactive Quiz
-- ✅ Built viral quiz: answer 5 questions about your equity grant
-- ✅ Output: "Your offer is above/below average for [role] at [stage]"
-- ✅ Shareable results with social media cards
-- ✅ Added to navigation, sitemap, and cross-linked from relevant pages
-- **Why premium:** Complex UX + data architecture for viral mechanic
+### P27: SEO Content Sprint (Week 3-4)
+- Write "How to Compare Startup Equity Offers" blog post (cross-links to compare-offers.html)
+- Write "Startup Offer Negotiation: What to Ask For" blog post
+- Create comparison page: "FounderMath vs Carta vs Pulley" for SEO
+- **Why premium:** Content strategy shapes SEO positioning
+
+### P28: Conversion Funnel Optimization
+- A/B test Founding 50 vs regular pricing on homepage
+- Add "email capture before results" flow on 1-2 calculators
+- Create drip email sequence content (emails 2-5 for Buttondown)
+- **Why premium:** Revenue architecture decisions
 
 ## Completed
 
@@ -50,3 +43,7 @@
 ✅ P15: Post-Launch Monitoring (ongoing)
 ✅ P17: Startup Valuation Calculator (3 methods: Berkus, Scorecard, VC)
 ✅ P19-P21: Blog posts + Stock Option Calculator + SEO guide
+✅ P23: Equity Offer Interactive Quiz
+✅ P24: Compare Equity Offers Calculator (NEW — Day 21)
+✅ P25: Founding 50 Campaign Page (NEW — Day 21)
+✅ P26: Usage-Based Upgrade Prompts (NEW — Day 21)
