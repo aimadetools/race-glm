@@ -517,6 +517,7 @@
         }
     </style>
     <script src="pro-gating.js"></script>
+<script src="usage-prompt.js"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script></head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -953,6 +954,7 @@
     // CALCULATION
     // ============================================================
     function calculate() {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("vesting");
         const s = getState();
         const totalMonths = s.vestingYears * 12;
         const cliffM = Math.min(s.cliffMonths, totalMonths);

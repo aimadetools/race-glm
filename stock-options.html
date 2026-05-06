@@ -1,581 +1,1179 @@
 <!DOCTYPE html>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 <html lang="en">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 <head>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <meta charset="UTF-8">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <title>Free Stock Option Calculator | How Much Are My Options Worth? — FounderMath</title>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <meta name="description" content="Free stock option calculator for startup employees. Calculate what your stock options are worth today, at exit, and through your vesting schedule. ISO vs NSO tax estimates included.">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <meta name="keywords" content="stock option calculator, how much are my stock options worth, startup equity offer, ISO calculator, NSO calculator, employee stock options, evaluate equity offer">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <meta property="og:title" content="Stock Option Calculator — How Much Are My Options Worth?">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <meta property="og:description" content="Free calculator for startup employees. Find out what your stock options are really worth at different exit scenarios.">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <meta property="og:type" content="website">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <meta property="og:image" content="https://founder-math.com/og-vesting.svg">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <meta property="og:url" content="https://founder-math.com/stock-options.html">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <meta name="twitter:card" content="summary_large_image">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <link rel="stylesheet" href="print.css" media="print">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <script type="application/ld+json">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "@context": "https://schema.org",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "@type": "WebPage",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "name": "Stock Option Calculator — FounderMath",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "url": "https://founder-math.com/stock-options.html",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "description": "Free stock option calculator for startup employees. Calculate what your stock options are worth today, at exit, and through your vesting schedule.",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "isPartOf": {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             "@type": "WebSite",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             "name": "FounderMath",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             "url": "https://founder-math.com"
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     </script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <script type="application/ld+json">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "@context": "https://schema.org",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "@type": "SoftwareApplication",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "name": "Stock Option Calculator",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "applicationCategory": "BusinessApplication",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "operatingSystem": "Web Browser",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "offers": {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             "@type": "Offer",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             "price": "0",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             "priceCurrency": "USD"
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         },
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "description": "Calculate what your startup stock options are worth today and at different exit scenarios, with vesting timeline and tax estimates."
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     </script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <script type="application/ld+json">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "@context": "https://schema.org",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "@type": "HowTo",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "name": "How to Calculate Stock Option Value",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "description": "Learn how to calculate the value of your startup stock options with this step-by-step guide.",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "step": [
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             {"@type": "HowToStep", "text": "Enter the number of options you were granted and your strike price."},
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             {"@type": "HowToStep", "text": "Enter the company's current 409A valuation (fair market value per share)."},
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             {"@type": "HowToStep", "text": "Review your vesting schedule and how much has vested so far."},
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             {"@type": "HowToStep", "text": "See what your options are worth at different exit scenarios (2x, 5x, 10x)."},
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             {"@type": "HowToStep", "text": "Compare ISO vs NSO tax implications for your grant."}
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         ]
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     </script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <script type="application/ld+json">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "@context": "https://schema.org",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "@type": "BreadcrumbList",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         "itemListElement": [
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://founder-math.com/"},
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://founder-math.com/"},
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             {"@type": "ListItem", "position": 3, "name": "Stock Option Calculator", "item": "https://founder-math.com/stock-options.html"}
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         ]
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     </script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <style>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         :root {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --bg-primary: #0a0a0f;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --bg-secondary: #12121a;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --bg-card: #1a1a2e;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --bg-card-hover: #22223a;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --bg-input: #15151f;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --accent: #6c5ce7;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --accent-light: #a29bfe;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --accent-glow: rgba(108, 92, 231, 0.3);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --green: #00b894;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --green-glow: rgba(0, 184, 148, 0.3);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --red: #ff6b6b;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --orange: #ffa502;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --blue: #54a0ff;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --text-primary: #f0f0f5;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --text-secondary: #a0a0b5;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --text-muted: #666680;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --border: #2a2a40;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             --focus-outline: 2px solid var(--accent-light);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: white; padding: 8px 16px; text-decoration: none; z-index: 1001; transition: top 0.3s; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .skip-link:focus { top: 0; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         @media (prefers-contrast: more) { :root { --border: #ffffff; --text-secondary: #e0e0e0; } }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         * { margin: 0; padding: 0; box-sizing: border-box; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         html { scroll-behavior: smooth; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         /* NAV */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85); border-bottom: 1px solid var(--border); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .nav-links a:hover { color: var(--text-primary); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .nav-links a.active { color: var(--accent-light); font-weight: 600; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s !important; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; padding: 8px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .mobile-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         /* PAGE HEADER */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .page-header { padding: 120px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .page-header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%); pointer-events: none; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 12px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .page-header h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .page-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; position: relative; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .breadcrumbs { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .breadcrumb { color: var(--text-muted); font-size: 0.8rem; text-decoration: none; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .breadcrumb:hover { color: var(--accent-light); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .breadcrumb:last-child { color: var(--text-secondary); font-weight: 600; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .breadcrumb-sep { color: var(--border); font-size: 0.7rem; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         /* CALC LAYOUT */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .calc-layout { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 380px 1fr; gap: 32px; align-items: start; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         /* INPUT PANEL */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .input-panel { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 24px; position: sticky; top: 88px; max-height: calc(100vh - 104px); overflow-y: auto; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .input-panel::-webkit-scrollbar { width: 4px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .input-panel::-webkit-scrollbar-track { background: transparent; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .input-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .panel-section { margin-bottom: 28px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .panel-section:last-child { margin-bottom: 0; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .panel-section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-light); margin-bottom: 16px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .input-group { margin-bottom: 16px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .input-group label { display: block; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .input-group input, .input-group select { width: 100%; background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary); padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; font-family: var(--font-mono); transition: border-color 0.2s; min-height: 44px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .input-group input:focus, .input-group select:focus { outline: none; border-color: var(--accent); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .input-group input:focus-visible, .input-group select:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .input-group .hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .separator { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         /* RESULTS */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .results-panel { min-width: 0; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .summary-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 32px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .summary-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .summary-card .metric-value { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 800; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .summary-card .metric-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .summary-card.highlight { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .summary-card.positive .metric-value { color: var(--green); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .summary-card.negative .metric-value { color: var(--red); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .chart-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .chart-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .chart-section .chart-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .chart-container { position: relative; height: 350px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .chart-container canvas { width: 100% !important; height: 100% !important; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         /* Scenario table */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .scenario-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .scenario-table th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .scenario-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.9rem; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .scenario-table tr:last-child td { border-bottom: none; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .scenario-table .positive { color: var(--green); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .scenario-table .negative { color: var(--red); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         /* Tax comparison */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .tax-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .tax-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .tax-card h4 { font-size: 0.9rem; margin-bottom: 4px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .tax-card .tax-type { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .tax-card .tax-value { font-family: var(--font-mono); font-size: 1.3rem; font-weight: 700; color: var(--green); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .tax-card .tax-detail { font-size: 0.8rem; color: var(--text-secondary); margin-top: 8px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         /* Vesting timeline */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .vesting-bar { position: relative; height: 40px; background: var(--bg-card); border-radius: 8px; overflow: hidden; margin: 16px 0; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .vesting-fill { position: absolute; top: 0; left: 0; height: 100%; background: linear-gradient(90deg, var(--accent), var(--green)); border-radius: 8px; transition: width 0.5s ease; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .vesting-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 8px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         /* Verdict */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .verdict { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; margin-bottom: 32px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .verdict h3 { font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .verdict p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         /* Related calculators */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .related { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .related h3 { font-size: 1.1rem; margin-bottom: 16px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .related a { display: block; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-decoration: none; transition: border-color 0.2s; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .related a:hover { border-color: var(--accent); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .related a:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .related .rel-title { color: var(--text-primary); font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .related .rel-desc { color: var(--text-muted); font-size: 0.8rem; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         /* FOOTER */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .footer-links a:hover { color: var(--text-primary); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .footer-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .nav-overlay { display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: rgba(10, 10, 15, 0.6); z-index: 99; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         .nav-overlay.open { display: block; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         @media (max-width: 900px) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             .calc-layout { grid-template-columns: 1fr; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             .input-panel { position: static; max-height: none; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             .summary-cards { grid-template-columns: 1fr 1fr; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             .tax-grid { grid-template-columns: 1fr; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             .related-grid { grid-template-columns: 1fr 1fr; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         @media (max-width: 600px) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             .nav-links { display: none; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             .mobile-toggle { display: block; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             .summary-cards { grid-template-columns: 1fr; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             .related-grid { grid-template-columns: 1fr; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             .chart-container { height: 260px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             .footer-inner { flex-direction: column; text-align: center; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     </style>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 </head>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 <body>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 <a href="#main-content" class="skip-link">Skip to main content</a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 <nav role="navigation" aria-label="Main navigation">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <div class="nav-inner">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <a href="/" class="logo" aria-label="FounderMath home">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="logo-icon" aria-hidden="true">%</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             FounderMath
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <ul class="nav-links" id="navLinks" role="menubar">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li role="none"><a href="dilution.html" role="menuitem">Dilution</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li role="none"><a href="runway.html" role="menuitem">Runway</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li role="none"><a href="safe.html" role="menuitem">SAFE</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li role="none"><a href="vesting.html" role="menuitem">Vesting</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li role="none"><a href="unit-economics.html" role="menuitem">Unit Econ</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li role="none"><a href="cap-table.html" role="menuitem">Cap Table</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li role="none"><a href="equity-split.html" role="menuitem">Equity Split</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li role="none"><a href="valuation.html" role="menuitem">Valuation</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li role="none"><a href="stock-options.html" role="menuitem" class="active">Options</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
+                <li role="none"><a href="compare-offers.html" role="menuitem">Compare</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </ul>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 </nav>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 <div class="nav-overlay" onclick="document.querySelector('.nav-links').classList.remove('open');this.classList.remove('open')"></div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 <div class="page-header">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <nav class="breadcrumbs" aria-label="Breadcrumb">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <a href="/" class="breadcrumb">Home</a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <span class="breadcrumb-sep">&#8250;</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <a href="/" class="breadcrumb">Calculators</a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <span class="breadcrumb-sep">&#8250;</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <span class="breadcrumb">Stock Options</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     </nav>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <h1>Stock Option <span class="gradient">Calculator</span></h1>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <p>How much are your startup stock options really worth? See your grant value today, at exit, and through vesting &mdash; with tax estimates.</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 <div class="calc-layout" id="main-content">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <!-- INPUT PANEL -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <aside class="input-panel" role="form" aria-label="Calculator inputs">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <div class="panel-section">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="panel-section-title">Option Grant</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="input-group">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <label for="numOptions">Number of Options</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <input type="number" id="numOptions" value="10000" min="1" step="100" inputmode="numeric" aria-describedby="numOptionsHint">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="hint" id="numOptionsHint">Total options in your grant</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="input-row">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="input-group">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <label for="strikePrice">Strike Price ($)</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <input type="number" id="strikePrice" value="1.00" min="0" step="0.01" inputmode="decimal">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="input-group">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <label for="currentFMV">Current FMV ($)</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <input type="number" id="currentFMV" value="5.00" min="0" step="0.01" inputmode="decimal" aria-describedby="fmvHint">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="hint" id="fmvHint">409A valuation per share</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <hr class="separator">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <div class="panel-section">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="panel-section-title">Company Valuation</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="input-row">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="input-group">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <label for="sharesOutstanding">Shares Outstanding</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <input type="number" id="sharesOutstanding" value="10000000" min="1" step="100000" inputmode="numeric" aria-describedby="sharesHint">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="hint" id="sharesHint">Fully diluted shares</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="input-group">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <label for="companyValuation">Company Value ($M)</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <input type="number" id="companyValuation" value="50" min="0" step="1" inputmode="decimal">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <hr class="separator">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <div class="panel-section">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="panel-section-title">Vesting Schedule</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="input-row">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="input-group">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <label for="vestingYears">Vesting (years)</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <select id="vestingYears">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                         <option value="3">3 years</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                         <option value="4" selected>4 years</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                         <option value="5">5 years</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     </select>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="input-group">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <label for="cliffMonths">Cliff (months)</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <select id="cliffMonths">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                         <option value="6">6 months</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                         <option value="12" selected>12 months</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     </select>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="input-group">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <label for="monthsVested">Months Already Vested</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <input type="number" id="monthsVested" value="18" min="0" step="1" inputmode="numeric">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <hr class="separator">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <div class="panel-section">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="panel-section-title">Tax Settings</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="input-group">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <label for="optionType">Option Type</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <select id="optionType">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <option value="iso">ISO (Incentive Stock Option)</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <option value="nso">NSO (Non-Qualified Stock Option)</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </select>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="input-group">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <label for="taxRate">Tax Rate (%)</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <input type="number" id="taxRate" value="37" min="0" max="60" step="1" inputmode="numeric" aria-describedby="taxHint">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="hint" id="taxHint">Combined federal + state rate</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     </aside>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <!-- RESULTS PANEL -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <main class="results-panel" role="region" aria-label="Calculator results">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <!-- Summary Cards -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <div class="summary-cards" id="summaryCards">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="summary-card highlight">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="metric-value" id="currentValue">$40,000</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="metric-label">Current Gross Value</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="summary-card">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="metric-value" id="vestedValue">$18,750</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="metric-label">Vested Value</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="summary-card">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="metric-value" id="pctVested">37.5%</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="metric-label">Options Vested</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="summary-card">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="metric-value" id="ownershipPct">0.10%</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="metric-label">Ownership Stake</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <!-- Vesting Progress -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <div class="chart-section">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <h3>Vesting Progress</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="chart-subtitle">How your options vest over time</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="vesting-bar">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="vesting-fill" id="vestingFill" style="width: 37.5%"></div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="vesting-label" id="vestingLabel">3,750 of 10,000 options vested (18 of 48 months)</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div style="margin-top: 16px;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="chart-container" style="height: 280px;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <canvas id="vestingChart"></canvas>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <!-- Exit Scenarios -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <div class="chart-section">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <h3>Exit Scenario Analysis</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="chart-subtitle">What your options are worth at different company valuations</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="chart-container">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <canvas id="exitChart"></canvas>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <table class="scenario-table" id="scenarioTable">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <thead>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <tr>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                         <th>Exit Multiple</th>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                         <th>Company Value</th>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                         <th>Share Price</th>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                         <th>Net Value (After Exercise)</th>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     </tr>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </thead>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <tbody id="scenarioBody"></tbody>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </table>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <!-- Tax Comparison -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <div class="chart-section">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <h3>Tax Estimate (At Current FMV)</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="chart-subtitle">Estimated tax if you exercise and sell at current fair market value</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="tax-grid" id="taxGrid">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="tax-card">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <h4>ISO</h4>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="tax-type">Incentive Stock Option</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="tax-value" id="isoTax">$0</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="tax-detail" id="isoDetail"></div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <div class="tax-card">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <h4>NSO</h4>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="tax-type">Non-Qualified Stock Option</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="tax-value" id="nsoTax">$0</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="tax-detail" id="nsoDetail"></div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <!-- Verdict -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <div class="verdict" id="verdict">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <h3>&#128161; Quick Assessment</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <p id="verdictText">Loading...</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <!-- Related Calculators -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <div class="related">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <h3>Related Calculators</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="related-grid">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <a href="vesting.html">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="rel-title">Vesting Schedule</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="rel-desc">Visualize your full vesting timeline</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <a href="dilution.html">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="rel-title">Dilution Calculator</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="rel-desc">See how funding rounds dilute your stake</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <a href="valuation.html">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="rel-title">Valuation Calculator</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="rel-desc">Estimate your startup's worth</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <div class="related" style="margin-top:16px;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <h3>Learn More</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <div class="related-grid">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <a href="blog/stock-options-worth-guide.html">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="rel-title">How Much Are My Options Worth?</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="rel-desc">Complete guide to valuing stock options</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <a href="blog/evaluate-equity-offer.html">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="rel-title">Evaluate an Equity Offer</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="rel-desc">What to check before signing</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <a href="blog/vesting-schedules-guide.html">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="rel-title">Vesting Schedules Explained</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                     <div class="rel-desc">Cliff, acceleration, and 83(b)</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </a>
-                <a href="equity-quiz.html">
-                    <div class="rel-title">Is My Equity Offer Good?</div>
-                    <div class="rel-desc">Take our 2-minute quiz to find out</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
+                <a href="compare-offers.html">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
+                    <div class="rel-title">Compare Two Equity Offers</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
+                    <div class="rel-desc">Side-by-side offer comparison tool</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 </a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
+
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
+        <!-- Share & Export -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
+        <div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
+            <button onclick="FounderMathPro.requirePro('Save Scenarios', function(){alert('Scenario saved!')})" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:inherit;">Save Scenario</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
+            <button onclick="FounderMathPro.requirePro('Export PDF', function(){window.print()})" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:inherit;">Export PDF</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
+            <button onclick="window.print()" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:inherit;">Print</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
+        </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     </main>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 <footer>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     <div class="footer-inner">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <div class="footer-left">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         <ul class="footer-links">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="dilution.html">Dilution</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="runway.html">Runway</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="safe.html">SAFE</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="vesting.html">Vesting</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="unit-economics.html">Unit Econ</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="cap-table.html">Cap Table</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="equity-split.html">Equity Split</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="valuation.html">Valuation</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="stock-options.html">Stock Options</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
+                <li><a href="compare-offers.html">Compare Offers</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="free-startup-tools.html">Free Tools</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <li><a href="social-scenarios.html">Equity Scenarios</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
                 <li><a href="equity-quiz.html">Equity Quiz</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="carta-alternatives.html">Carta Alternatives</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="about.html">About</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="pricing.html">Pricing</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="blog.html">Blog</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="contact.html">Contact</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             <li><a href="faq.html">FAQ</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         </ul>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 </footer>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 <script src="pro-gating.js"></script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
+<script src="usage-prompt.js"></script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 <script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 // MOBILE MENU
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 function toggleMobileMenu() {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     const nav = document.getElementById('navLinks');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     const toggle = document.getElementById('mobileToggle');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     nav.classList.toggle('open');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 document.addEventListener('keydown', function(e) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     if (e.key === 'Escape') {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         const nav = document.getElementById('navLinks');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         if (nav.classList.contains('open')) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             nav.classList.remove('open');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
             document.getElementById('mobileToggle').focus();
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 });
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 // HELPERS
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 function fmt(n) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     if (Math.abs(n) >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     if (Math.abs(n) >= 1e3) return '$' + (n / 1e3).toFixed(1) + 'K';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     return '$' + n.toFixed(2);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 function fmtWhole(n) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     return '$' + Math.round(n).toLocaleString();
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 function pct(n) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     return (n * 100).toFixed(2) + '%';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 // STATE
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 function getState() {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     return {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         numOptions: parseFloat(document.getElementById('numOptions').value) || 0,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         strikePrice: parseFloat(document.getElementById('strikePrice').value) || 0,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         currentFMV: parseFloat(document.getElementById('currentFMV').value) || 0,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         sharesOutstanding: parseFloat(document.getElementById('sharesOutstanding').value) || 1,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         companyValuation: (parseFloat(document.getElementById('companyValuation').value) || 0) * 1e6,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         vestingYears: parseInt(document.getElementById('vestingYears').value) || 4,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         cliffMonths: parseInt(document.getElementById('cliffMonths').value) || 12,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         monthsVested: parseInt(document.getElementById('monthsVested').value) || 0,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         optionType: document.getElementById('optionType').value,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
         taxRate: parseFloat(document.getElementById('taxRate').value) / 100 || 0.37
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     };
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 // CALCULATION
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
 function calculate() {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("stock_options");
     const s = getState();
     const totalMonths = s.vestingYears * 12;
 

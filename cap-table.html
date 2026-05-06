@@ -1,1511 +1,3025 @@
 <!DOCTYPE html>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 <html lang="en">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 <head>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <meta charset="UTF-8">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <title>Free Cap Table Builder | FounderMath 2026</title>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <meta name="description" content="Free interactive cap table builder for startup founders. Track ownership, model SAFEs, priced rounds, and waterfall exit distributions.">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <meta name="keywords" content="cap table builder, startup cap table, equity ownership, waterfall analysis, SAFE calculator, liquidation preference">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <meta property="og:title" content="Cap Table Builder — FounderMath">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <meta property="og:description" content="Build and manage your startup's cap table. Model rounds, track ownership, and analyze exit scenarios.">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <meta property="og:type" content="website">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <meta property="og:image" content="https://founder-math.com/og-cap-table.svg">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <meta property="og:url" content="https://founder-math.com/cap-table.html">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <link rel="stylesheet" href="print.css" media="print">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <script type="application/ld+json">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "@context": "https://schema.org",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "@type": "WebPage",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "name": "Cap Table Builder — FounderMath",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "url": "https://founder-math.com/cap-table.html",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "description": "Free interactive cap table builder for startup founders. Track ownership, model SAFEs, priced rounds, and waterfall exit distributions.",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "isPartOf": {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             "@type": "WebSite",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             "name": "FounderMath",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             "url": "https://founder-math.com"
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     </script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <script type="application/ld+json">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "@context": "https://schema.org",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "@type": "SoftwareApplication",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "name": "Cap Table Builder",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "applicationCategory": "BusinessApplication",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "operatingSystem": "Web Browser",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "offers": {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             "@type": "Offer",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             "price": "0",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             "priceCurrency": "USD"
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         },
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "description": "Interactive cap table builder that tracks equity ownership across founders, investors, SAFEs, and option pools with waterfall exit analysis."
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     </script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <script type="application/ld+json">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "@context": "https://schema.org",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "@type": "BreadcrumbList",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         "itemListElement": [
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 "@type": "ListItem",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 "position": 1,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 "name": "Home",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 "item": "https://founder-math.com/"
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             },
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 "@type": "ListItem",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 "position": 2,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 "name": "Calculators",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 "item": "https://founder-math.com/"
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             },
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 "@type": "ListItem",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 "position": 3,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 "name": "Cap Table Builder",
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 "item": "https://founder-math.com/cap-table.html"
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         ]
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     </script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <style>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         :root {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --bg-primary: #0a0a0f;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --bg-secondary: #12121a;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --bg-card: #1a1a2e;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --bg-card-hover: #22223a;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --bg-input: #15151f;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --accent: #6c5ce7;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --accent-light: #a29bfe;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --accent-glow: rgba(108, 92, 231, 0.3);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --green: #00b894;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --green-glow: rgba(0, 184, 148, 0.3);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --red: #ff6b6b;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --orange: #ffa502;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --blue: #54a0ff;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --pink: #ff6b9d;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --yellow: #feca57;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --text-primary: #f0f0f5;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --text-secondary: #a0a0b5;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --text-muted: #666680;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --border: #2a2a40;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             --focus-outline: 2px solid var(--accent-light);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         * { margin: 0; padding: 0; box-sizing: border-box; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         html { scroll-behavior: smooth; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         body {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-family: var(--font-sans);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             line-height: 1.6;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             overflow-x: hidden;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* --- NAV --- */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         nav {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             position: fixed;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             top: 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             width: 100%;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             z-index: 100;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             backdrop-filter: blur(20px);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: rgba(10, 10, 15, 0.85);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-bottom: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .nav-inner {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             max-width: 1200px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin: 0 auto;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 0 24px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             height: 64px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             justify-content: space-between;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .logo {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 1.3rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 700;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-decoration: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .logo-icon {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             width: 32px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             height: 32px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             justify-content: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 800;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 1.1rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: white;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .nav-links {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 32px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             list-style: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .nav-links a {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-decoration: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.9rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: color 0.2s;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .nav-links a:hover { color: var(--text-primary); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .nav-cta {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--accent) !important;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: white !important;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 8px 20px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 600;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: transform 0.2s, box-shadow 0.2s !important;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .nav-cta:hover {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transform: translateY(-1px);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             box-shadow: 0 4px 20px var(--accent-glow);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .nav-cta:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .mobile-toggle {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 1.5rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             cursor: pointer;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .mobile-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* --- PAGE HEADER --- */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .page-header {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 120px 24px 48px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-align: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             position: relative;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             overflow: hidden;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .page-header::before {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             content: '';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             position: absolute;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             top: -50%;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             left: -50%;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             width: 200%;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             height: 200%;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%),
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             animation: heroGlow 15s ease-in-out infinite alternate;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             pointer-events: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         @keyframes heroGlow {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             0% { transform: translate(0, 0) scale(1); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             100% { transform: translate(-5%, 5%) scale(1.1); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .page-header h1 {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: clamp(2rem, 5vw, 3rem);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 800;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             letter-spacing: -0.03em;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             position: relative;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 12px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .page-header h1 .gradient {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: linear-gradient(135deg, var(--accent-light), var(--green));
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             -webkit-background-clip: text;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             -webkit-text-fill-color: transparent;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background-clip: text;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .page-header p {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 1.1rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             max-width: 600px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin: 0 auto;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             position: relative;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* BREADCRUMBS */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .breadcrumbs {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex; align-items: center; gap: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             justify-content: center; margin-bottom: 16px; flex-wrap: wrap;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .breadcrumb {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-muted); font-size: 0.8rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-decoration: none; transition: color 0.2s;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .breadcrumb:hover { color: var(--accent-light); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .breadcrumb:last-child { color: var(--text-secondary); font-weight: 600; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .breadcrumb-separator { color: var(--border); font-size: 0.7rem; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* QUICK START GUIDE */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .quick-start { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .quick-start-header { display: flex; align-items: center; justify-content: space-between; cursor: pointer; margin-bottom: 0; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .quick-start-header h3 { font-size: 1rem; font-weight: 600; margin: 0; display: flex; align-items: center; gap: 10px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .quick-start-header .toggle-icon { transition: transform 0.3s; font-size: 1.2rem; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .quick-start-header[aria-expanded="true"] .toggle-icon { transform: rotate(180deg); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .quick-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .step { background: var(--bg-card); border-radius: 8px; padding: 12px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .step-number { color: var(--accent-light); font-weight: 700; font-size: 0.8rem; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .step-text { font-size: 0.85rem; color: var(--text-secondary); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .quick-start-content { display: none; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .quick-start-content.show { display: block; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* --- CALCULATOR LAYOUT --- */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .calc-layout {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             max-width: 1200px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin: 0 auto;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 0 24px 80px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: grid;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             grid-template-columns: 380px 1fr;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 32px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: start;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* --- INPUT PANEL --- */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .input-panel {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 16px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 24px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             position: sticky;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             top: 88px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             max-height: calc(100vh - 104px);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             overflow-y: auto;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .input-panel::-webkit-scrollbar { width: 4px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .input-panel::-webkit-scrollbar-track { background: transparent; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .input-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .panel-section {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 28px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .panel-section:last-child { margin-bottom: 0; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .panel-section-title {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.75rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 700;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-transform: uppercase;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             letter-spacing: 0.1em;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--accent-light);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 16px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             justify-content: space-between;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .panel-section-title .add-btn {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-card);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.7rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 4px 10px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 6px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             cursor: pointer;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: all 0.2s;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .panel-section-title .add-btn:hover {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-color: var(--accent);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .panel-section-title .add-btn:focus-visible {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline: var(--focus-outline);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline-offset: 2px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .save-indicator {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 6px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.7rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-muted);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 8px 12px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-card);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 20px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .save-indicator-icon {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             width: 12px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             height: 12px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--green);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* Entity cards */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-card {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-card);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 12px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 16px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 12px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-card-header {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             justify-content: space-between;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 12px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-type-badge {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: inline-flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 6px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 4px 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 6px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.7rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 600;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-transform: uppercase;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-type-founder { background: rgba(108, 92, 231, 0.2); color: var(--accent-light); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-type-investor { background: rgba(0, 184, 148, 0.2); color: var(--green); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-type-safe { background: rgba(255, 165, 2, 0.2); color: var(--orange); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-type-option { background: rgba(84, 160, 255, 0.2); color: var(--blue); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-card-header .entity-name {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-input);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 4px 10px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 6px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.85rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 600;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-family: var(--font-sans);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             flex: 1;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-right: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-card-header .entity-name:focus {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-color: var(--accent);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-card-header .remove-btn {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-muted);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 1rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             cursor: pointer;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: color 0.2s;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 4px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-card-header .remove-btn:hover { color: var(--red); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-card-header .remove-btn:focus-visible {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline: var(--focus-outline);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline-offset: 2px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--red);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-inputs {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: grid;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-input-group {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: grid;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             grid-template-columns: 1fr 1fr;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .entity-input-full {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             grid-column: 1 / -1;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .input-wrapper {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             flex-direction: column;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 4px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .input-wrapper label {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.7rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-muted);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-transform: uppercase;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             letter-spacing: 0.05em;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .input-wrapper input, .input-wrapper select {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-input);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 6px 10px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 6px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.85rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-family: var(--font-mono);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: border-color 0.2s;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .input-wrapper input:focus, .input-wrapper select:focus {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-color: var(--accent);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .input-wrapper select {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-family: var(--font-sans);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             cursor: pointer;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* Exit scenario section */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .exit-inputs {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: grid;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             grid-template-columns: 1fr 1fr;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* Share button */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .share-bar {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-top: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .pro-tip-toggle {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-muted);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             cursor: pointer;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: color 0.2s;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .pro-tip-toggle:hover { color: var(--text-primary); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .pro-tip-icon { transition: transform 0.2s; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .pro-tip-toggle[aria-expanded="true"] .pro-tip-icon { transform: rotate(45deg); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .pro-tip-content {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-top: 16px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .pro-tip-content.show { display: block; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .pro-tip-item {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-left: 3px solid var(--accent);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 16px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 12px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.9rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             line-height: 1.6;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .pro-tip-item strong {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: block;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 4px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .btn-share {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             flex: 1;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-card);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 10px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.85rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 600;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             cursor: pointer;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: all 0.2s;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-family: var(--font-sans);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .btn-share:hover {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-color: var(--accent);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .btn-share:focus-visible {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline: var(--focus-outline);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline-offset: 2px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* Scenarios */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .scenario-input {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             width: 100%;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-input);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 8px 12px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.85rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .scenario-input.show { display: block; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .scenario-input:focus {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-color: var(--accent);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .scenario-controls {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .scenario-select {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             flex: 1;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-input);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 8px 12px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.85rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             cursor: pointer;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .scenario-btn {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 8px 12px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.8rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 600;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             cursor: pointer;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-card);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: all 0.2s;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-family: var(--font-sans);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .scenario-btn:hover {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-color: var(--accent);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .scenario-btn:focus-visible {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline: var(--focus-outline);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline-offset: 2px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* --- RESULTS PANEL --- */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .results-panel {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             flex-direction: column;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 32px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* Summary cards */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .summary-cards {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: grid;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             grid-template-columns: repeat(4, 1fr);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 16px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .summary-card {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 12px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 20px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-align: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .metric-value {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 1.8rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 800;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-family: var(--font-mono);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .metric-label {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.75rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-transform: uppercase;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             letter-spacing: 0.05em;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* Charts */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .chart-section {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 16px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 24px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .chart-section h3 {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 1.2rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 700;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .chart-subtitle {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.9rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 20px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .chart-container {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             height: 300px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             position: relative;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .chart-row {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 16px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .chart-label {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             width: 120px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.85rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             flex-shrink: 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .chart-bar-container {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             flex: 1;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             height: 32px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-card);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 6px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             overflow: hidden;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             position: relative;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .chart-bar {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             height: 100%;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: width 0.3s ease;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .bar-segment {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             justify-content: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.7rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 600;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: white;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: width 0.3s ease;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .chart-value {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             width: 80px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-align: right;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-family: var(--font-mono);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.9rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 600;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             flex-shrink: 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* Tables */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .table-section {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 16px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 24px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .table-section h3 {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 1.2rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 700;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .table-subtitle {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.9rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 20px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .cap-table {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             width: 100%;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-collapse: collapse;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.9rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .cap-table th {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-align: left;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 12px 16px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-bottom: 2px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.75rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-transform: uppercase;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             letter-spacing: 0.05em;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .cap-table td {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 12px 16px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-bottom: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .cap-table tr:last-child td { border-bottom: none; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .cap-table .type-badge {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: inline-block;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 3px 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 4px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.7rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 600;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .waterfall-section {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-top: 24px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding-top: 24px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-top: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .waterfall-row {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             justify-content: space-between;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 8px 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-bottom: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .waterfall-row:last-child { border-bottom: none; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .waterfall-name {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             flex: 1;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .waterfall-value {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-family: var(--font-mono);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 600;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--green);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* CTA */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .calc-cta {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 16px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 32px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-align: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .calc-cta h3 {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 1.3rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 700;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 12px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .calc-cta p {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: rgba(255, 255, 255, 0.9);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-bottom: 20px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.95rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .btn-white {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: inline-block;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: white;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--accent);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 12px 28px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 600;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-decoration: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: transform 0.2s, box-shadow 0.2s;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .btn-white:hover {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transform: translateY(-2px);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* Footer */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         footer {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-top: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 40px 24px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin-top: 80px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .footer-inner {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             max-width: 1200px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             margin: 0 auto;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             justify-content: space-between;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .footer-left p {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.9rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .footer-links {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gap: 24px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             list-style: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .footer-links a {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-decoration: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.85rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: color 0.2s;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .footer-links a:hover { color: var(--text-primary); }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .footer-links a:focus-visible {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline: var(--focus-outline);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline-offset: 4px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* --- RESPONSIVE --- */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         @media (max-width: 960px) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             .calc-layout {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 grid-template-columns: 1fr;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             .input-panel {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 position: static;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 max-height: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             .summary-cards {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 grid-template-columns: repeat(2, 1fr);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         @media (max-width: 600px) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             .nav-links { display: none; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             .nav-links.open {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 flex-direction: column;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 position: absolute;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 top: 64px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 left: 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 right: 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 background: var(--bg-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 border-bottom: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 padding: 24px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 gap: 16px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             .mobile-toggle { display: block; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             .summary-cards { grid-template-columns: 1fr 1fr; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             .exit-inputs, .entity-input-group { grid-template-columns: 1fr; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             .footer-inner { flex-direction: column; text-align: center; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             .chart-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             .chart-label { width: 100%; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             .chart-bar-container { width: 100%; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* Toast */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .toast {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             position: fixed;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             bottom: 24px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             left: 50%;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transform: translateX(-50%) translateY(100px);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--green);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: white;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 12px 24px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-weight: 600;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             font-size: 0.9rem;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: transform 0.3s ease;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             z-index: 1000;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .toast.show {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transform: translateX(-50%) translateY(0);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* Skip link */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .skip-link {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             position: absolute;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             top: -40px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             left: 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--accent);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: white;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 8px 16px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             text-decoration: none;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             z-index: 1001;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: top 0.3s;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .skip-link:focus {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             top: 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* High contrast */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         @media (prefers-contrast: more) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             :root {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 --border: #ffffff;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 --text-secondary: #e0e0e0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* Reduced motion */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         @media (prefers-reduced-motion: reduce) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             *, *::before, *::after {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 animation-duration: 0.01ms !important;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 animation-iteration-count: 1 !important;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 transition-duration: 0.01ms !important;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         /* Theme toggle */
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .theme-toggle {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             background: var(--bg-card);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border: 1px solid var(--border);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-secondary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             padding: 8px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-radius: 50%;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             cursor: pointer;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             display: flex;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             align-items: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             justify-content: center;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             transition: all 0.2s;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             width: 36px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             height: 36px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .theme-toggle:hover {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             border-color: var(--accent);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             color: var(--text-primary);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .theme-toggle:focus-visible {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline: var(--focus-outline);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             outline-offset: 2px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .theme-toggle .sun-icon, .theme-toggle .moon-icon {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             width: 18px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             height: 18px;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .theme-toggle .sun-icon { display: none; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         .theme-toggle .moon-icon { display: block; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         body[data-theme="light"] .theme-toggle .sun-icon { display: block; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         body[data-theme="light"] .theme-toggle .moon-icon { display: none; }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     </style>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <script src="pro-gating.js"></script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
+<script src="usage-prompt.js"></script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script></head>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 <body>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <a href="#main-content" class="skip-link">Skip to main content</a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <!-- Navigation -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <nav role="navigation" aria-label="Main navigation">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <div class="nav-inner">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <a href="/" class="logo" aria-label="FounderMath home">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="logo-icon" aria-hidden="true">%</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 FounderMath
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <ul class="nav-links" id="navLinks" role="menubar">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li role="none"><a href="dilution.html" role="menuitem">Dilution</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li role="none"><a href="runway.html" role="menuitem">Runway</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li role="none"><a href="safe.html" role="menuitem">SAFE</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li role="none"><a href="vesting.html" role="menuitem">Vesting</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li role="none"><a href="unit-economics.html" role="menuitem">Unit Econ</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li role="none"><a href="cap-table.html" role="menuitem">Cap Table</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li role="none"><a href="equity-split.html" role="menuitem">Equity Split</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li role="none"><a href="valuation.html" role="menuitem">Valuation</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li role="none"><a href="stock-options.html" role="menuitem">Options</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
+                <li role="none"><a href="compare-offers.html" role="menuitem">Compare</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li role="none"><a href="equity-quiz.html" role="menuitem">Equity Quiz</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </ul>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     </nav>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <!-- Page Header -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <header class="page-header">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <nav class="breadcrumbs" aria-label="Breadcrumb">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <a href="/" class="breadcrumb">Home</a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <span class="breadcrumb-separator">/</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <span class="breadcrumb">Calculators</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <span class="breadcrumb-separator">/</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <span class="breadcrumb">Cap Table Builder</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         </nav>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <h1>Cap Table <span class="gradient">Builder</span></h1>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <p>Build and manage your startup's cap table. Track ownership, model SAFEs, priced rounds, and analyze exit waterfall distributions.</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     </header>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <!-- Main Content -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <main id="main-content" class="calc-layout" style="padding:0;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <!-- Quick Start Guide -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <section class="quick-start" style="max-width:1200px;margin:0 auto 32px;padding:24px;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <div class="quick-start-header" onclick="toggleQuickStart(this)" aria-expanded="false" aria-controls="capTableQuickStart">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <h3><span style="color:var(--accent-light);margin-right:8px;">⚡</span>Quick Start: Get results in 30 seconds</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <span class="toggle-icon">▼</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <div id="capTableQuickStart" class="quick-start-content show">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="quick-steps">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="step">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <div class="step-number">Step 1</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <div class="step-text">Add founders with their share percentages</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="step">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <div class="step-number">Step 2</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <div class="step-text">Add SAFEs or priced round investors</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="step">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <div class="step-number">Step 3</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <div class="step-text">See cap table, dilution timeline, and ownership at each round</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         </section>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <div class="input-panel">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <div class="save-indicator" aria-live="polite">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <svg class="save-indicator-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <polyline points="17 21 17 13 7 13 7 21"></polyline>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <polyline points="7 3 7 8 15 8"></polyline>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </svg>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <span>Saved locally</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <!-- Add Entity -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <div class="panel-section">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="panel-section-title">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <span>Add Stakeholder</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="entity-inputs">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="input-wrapper entity-input-full">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <label for="entityType">Type</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <select id="entityType" onchange="renderEntityFields()">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             <option value="founder">Founder</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             <option value="investor">Investor (Priced Round)</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             <option value="safe">SAFE/Convertible Note</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             <option value="option">Option Pool/Employee</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         </select>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="input-wrapper entity-input-full">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <label for="entityName">Name</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <input type="text" id="entityName" placeholder="e.g., John Smith or Angel Investor" aria-label="Entity name">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="input-wrapper entity-input-full" id="sharesWrapper">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <label for="entityShares">Shares</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <input type="number" id="entityShares" placeholder="1000000" min="0" aria-label="Number of shares">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="input-wrapper" id="priceWrapper">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <label for="entityPrice">Price/Share ($)</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <input type="number" id="entityPrice" placeholder="0.01" min="0" step="0.001" aria-label="Price per share">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="input-wrapper" id="preferenceWrapper" style="display:none;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <label for="entityPreference">Liquidation Pref</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <select id="entityPreference" aria-label="Liquidation preference">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             <option value="1x">1x Non-participating</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             <option value="1xp">1x Participating</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             <option value="2x">2x Non-participating</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         </select>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="input-wrapper" id="safeCapWrapper" style="display:none;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <label for="safeCap">Cap ($)</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <input type="number" id="safeCap" placeholder="5000000" min="0" aria-label="SAFE cap amount">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="input-wrapper" id="safeDiscountWrapper" style="display:none;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <label for="safeDiscount">Discount (%)</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <input type="number" id="safeDiscount" placeholder="20" min="0" max="100" aria-label="SAFE discount percentage">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="input-wrapper entity-input-full">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <button class="btn-share" onclick="addEntity()" style="width:100%;background:var(--accent);color:white;border:none;">+ Add to Cap Table</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <!-- Entities List -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <div class="panel-section">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="panel-section-title">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <span>Cap Table</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div id="entitiesContainer" role="list" aria-label="List of cap table entities"></div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <!-- Exit Scenario -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <div class="panel-section">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="panel-section-title"><span>Exit Scenario</span></div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="exit-inputs">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="input-wrapper">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <label for="exitValue">Exit Value ($)</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <input type="number" id="exitValue" value="50000000" min="0" step="100000" aria-label="Exit valuation amount" oninput="calculateWaterfall()">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="input-wrapper">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <label for="liquidationPref">Default Pref</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <select id="liquidationPref" onchange="calculateWaterfall()" aria-label="Default liquidation preference">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             <option value="1x" selected>1x Non-participating</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             <option value="1xp">1x Participating</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             <option value="2x">2x Non-participating</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         </select>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <!-- Scenarios -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <div class="panel-section">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="panel-section-title"><span>Saved Scenarios</span></div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <input type="text" id="scenarioName" class="scenario-input" placeholder="Enter scenario name...">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="scenario-controls">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <select id="scenarioSelect" class="scenario-select" onchange="loadScenario(this.value)" aria-label="Load saved scenario">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <option value="">-- Load Scenario --</option>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </select>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <button class="scenario-btn save" onclick="showSaveScenario()" aria-label="Save current inputs as scenario">Save</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <button class="scenario-btn delete" id="deleteScenarioBtn" onclick="deleteScenario()" aria-label="Delete selected scenario" style="display:none;">Delete</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <!-- Pro Tips -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <div class="panel-section">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="panel-section-title">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <span>Pro Tips</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <button class="pro-tip-toggle" onclick="toggleProTips()" aria-label="Toggle pro tips" aria-expanded="false">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <svg class="pro-tip-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9a4 4 0 1 1 0 8 8 0 0 1-1-8zM12 3a4 4 0 0 0-8 8 4 4 0 0 0 8z"/><path d="M12 15v6m-3-3h6m-6 0h6m-3 3h6M9 21h6"/></svg>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="pro-tip-content" id="proTipContent">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="pro-tip-item">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <strong>Cap Table Order Matters:</strong> The order of entities in your cap table matters for waterfall calculations. Investors at the top get paid first.
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="pro-tip-item">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <strong>Liquidation Preference:</strong> 1x non-participating is standard. Participating preferred lets investors get their money back AND participate in the remaining proceeds — this significantly reduces founder payouts.
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="pro-tip-item">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <strong>SAFE Conversion:</strong> SAFEs convert at the lower of their cap or the discount to the next priced round. Plan for how they'll affect your dilution.
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="pro-tip-item">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <strong>Option Pool:</strong> Keep your option pool large enough for future hires (15-20% is common at seed stage), but remember it dilutes existing shareholders.
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <!-- Share -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <div class="panel-section">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="panel-section-title"><span>Share</span></div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="share-bar">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <button class="btn-share" id="shareBtn" onclick="copyShareLink()" aria-describedby="toast">Copy Link</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <button class="btn-share" onclick="shareToTwitter()" aria-label="Share on Twitter">Twitter</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <button class="btn-share" onclick="exportCSV()" aria-label="Export as CSV">CSV</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <button class="btn-share" onclick="FounderMathPro.requirePro('Export PDF', exportPDF)" aria-label="Export as PDF">PDF</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <button class="btn-share" onclick="window.print()" aria-label="Print results">Print</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <!-- Right: Results -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <div class="results-panel" role="region" aria-label="Cap table results">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <!-- Summary Cards -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <div class="summary-cards" aria-live="polite" aria-atomic="true">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="summary-card">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="metric-value" id="summaryTotalShares" style="color:var(--accent-light)">—</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="metric-label">Total Shares</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="summary-card">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="metric-value" id="summaryFounders" style="color:var(--green)">—</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="metric-label">Founder %</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="summary-card">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="metric-value" id="summaryInvestors" style="color:var(--blue)">—</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="metric-label">Investor %</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="summary-card">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="metric-value" id="summaryOptionPool" style="color:var(--orange)">—</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="metric-label">Option Pool %</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <!-- Ownership Chart -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <section class="chart-section" aria-labelledby="chartTitle">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <h3 id="chartTitle">Ownership Breakdown</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <p class="chart-subtitle">Visual breakdown of current cap table ownership.</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="chart-container" id="ownershipChart" role="img" aria-label="Bar chart showing ownership percentages"></div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </section>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <!-- Cap Table -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <section class="table-section" aria-labelledby="tableTitle">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <h3 id="tableTitle">Detailed Cap Table</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <p class="table-subtitle">Full breakdown of all stakeholders, shares, and ownership percentages.</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div style="overflow-x:auto;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <table class="cap-table" id="capTable" role="table">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <thead>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             <tr>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                                 <th>Type</th>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                                 <th>Name</th>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                                 <th>Shares</th>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                                 <th>Price/Share</th>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                                 <th>Ownership %</th>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             </tr>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         </thead>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <tbody></tbody>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </table>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <!-- Waterfall -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="waterfall-section">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <h4 style="margin-bottom:16px;font-size:1rem;font-weight:700;">Exit Waterfall at $<span id="waterfallExitValue">50M</span></h4>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div id="waterfallContainer" role="list" aria-label="Waterfall distribution"></div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </section>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <!-- Dilution Timeline -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <section class="table-section" id="dilutionTimelineSection" style="display:none;" aria-labelledby="dilutionTitle">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <h3 id="dilutionTitle">Round-by-Round Dilution</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <p class="chart-subtitle">See how each funding round dilutes all existing stakeholders. Percentages show ownership after each round.</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div style="overflow-x:auto;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <table class="cap-table" id="dilutionTimeline" role="table">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <thead id="dilutionTimelineHead"></thead>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <tbody id="dilutionTimelineBody"></tbody>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </table>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </section>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <!-- Pro CTA -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <div class="calc-cta" role="complementary" aria-label="FounderMath Pro upgrade offer">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <h3>Save cap table scenarios and compare exit outcomes?</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <p>FounderMath Pro lets you save unlimited cap table configurations, export to PDF, and compare waterfall scenarios.</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <a href="pricing.html" class="btn-white">Upgrade to Pro — $19/mo</a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <div id="email-capture-cap-table"></div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     </main>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <!-- Newsletter -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <section style="max-width:700px;margin:40px auto;padding:32px 24px;text-align:center;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:8px;">Get weekly founder insights</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <p style="color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem;">Equity breakdowns, fundraising math, and calculator tips. No spam.</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <form id="newsletterForm" onsubmit="handleCalcNewsletter(event)" style="display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <input type="email" id="newsletterEmail" placeholder="founder@startup.com" required style="flex:1;min-width:200px;background:var(--bg-input, var(--bg-primary));border:1px solid var(--border);color:var(--text-primary);padding:10px 14px;border-radius:8px;font-size:0.85rem;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <button type="submit" id="newsletterBtn" style="background:var(--accent);color:white;border:none;padding:10px 20px;border-radius:8px;font-weight:600;font-size:0.85rem;cursor:pointer;">Subscribe</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         </form>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <p id="newsletterMsg" style="margin-top:10px;font-size:0.8rem;display:none;"></p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     </section>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <!-- Related Calculators -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <section style="max-width:1200px;margin:0 auto;padding:60px 24px 40px;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <h2 style="text-align:center;font-size:1.75rem;font-weight:700;color:var(--text-primary);margin-bottom:12px;">Related Calculators</h2>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <p style="text-align:center;color:var(--text-secondary);margin-bottom:40px;font-size:1rem;">Explore more tools built for startup founders</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <a href="dilution.html" style="display:block;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <h3 style="font-size:1.1rem;font-weight:600;color:var(--text-primary);margin:0 0 8px;">Equity Dilution Calculator</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <p style="font-size:0.9rem;color:var(--text-secondary);margin:0 0 16px;line-height:1.5;">See how your ownership changes across funding rounds</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <span style="color:var(--green);font-size:0.85rem;font-weight:600;">Try it free &rarr;</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <a href="runway.html" style="display:block;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <h3 style="font-size:1.1rem;font-weight:600;color:var(--text-primary);margin:0 0 8px;">Runway Calculator</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <p style="font-size:0.9rem;color:var(--text-secondary);margin:0 0 16px;line-height:1.5;">Calculate how many months of runway you have left</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <span style="color:var(--green);font-size:0.85rem;font-weight:600;">Try it free &rarr;</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <a href="safe.html" style="display:block;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <h3 style="font-size:1.1rem;font-weight:600;color:var(--text-primary);margin:0 0 8px;">SAFE Note Calculator</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <p style="font-size:0.9rem;color:var(--text-secondary);margin:0 0 16px;line-height:1.5;">Model your SAFE note conversion and dilution impact</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <span style="color:var(--green);font-size:0.85rem;font-weight:600;">Try it free &rarr;</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <a href="vesting.html" style="display:block;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <h3 style="font-size:1.1rem;font-weight:600;color:var(--text-primary);margin:0 0 8px;">Vesting Schedule Calculator</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <p style="font-size:0.9rem;color:var(--text-secondary);margin:0 0 16px;line-height:1.5;">Visualize your equity vesting schedule and cliffs</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <span style="color:var(--green);font-size:0.85rem;font-weight:600;">Try it free &rarr;</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <a href="unit-economics.html" style="display:block;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <h3 style="font-size:1.1rem;font-weight:600;color:var(--text-primary);margin:0 0 8px;">Unit Economics Calculator</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <p style="font-size:0.9rem;color:var(--text-secondary);margin:0 0 16px;line-height:1.5;">Analyze your CAC, LTV, and payback period</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <span style="color:var(--green);font-size:0.85rem;font-weight:600;">Try it free &rarr;</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <a href="equity-split.html" style="display:block;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <h3 style="font-size:1.1rem;font-weight:600;color:var(--text-primary);margin:0 0 8px;">Co-Founder Equity Split Calculator</h3>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <p style="font-size:0.9rem;color:var(--text-secondary);margin:0 0 16px;line-height:1.5;">Calculate fair equity splits based on contributions</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <span style="color:var(--green);font-size:0.85rem;font-weight:600;">Try it free &rarr;</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </a>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <style>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             @media (max-width: 768px) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 div[style*="grid-template-columns:repeat(3"] {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     grid-template-columns: repeat(2, 1fr) !important;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             @media (max-width: 480px) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 div[style*="grid-template-columns:repeat(2"] {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     grid-template-columns: 1fr !important;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         </style>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     </section>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <!-- Footer -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <footer>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         <div class="footer-inner">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <div class="footer-left">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             <ul class="footer-links">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="dilution.html">Dilution</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="runway.html">Runway</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="safe.html">SAFE</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="vesting.html">Vesting</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="unit-economics.html">Unit Econ</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="cap-table.html">Cap Table</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="equity-split.html">Equity Split</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="valuation.html">Valuation</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="stock-options.html">Stock Options</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
+                <li><a href="compare-offers.html">Compare Offers</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="free-startup-tools.html">Free Tools</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="social-scenarios.html">Equity Scenarios</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="equity-quiz.html">Equity Quiz</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="carta-alternatives.html">Carta Alternatives</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="embed.html">Embed</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="about.html">About</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="pricing.html">Pricing</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="blog.html">Blog</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="contact.html">Contact</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <li><a href="faq.html">FAQ</a></li>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             </ul>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     </footer>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <!-- Toast -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Link copied to clipboard!</div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <!-- jsPDF -->
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     <script>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // EVENT TRACKING (GA4)
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     function trackEvent(eventName, params = {}) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         if (typeof gtag === 'function') {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             gtag('event', eventName, {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 calculator: 'cap-table',
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 ...params
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             });
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     trackEvent('calculator_view', { calculator: 'cap-table' });
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // DATA MODEL
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     const COLORS = {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         founder: '#6c5ce7',
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         investor: '#00b894',
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         safe: '#ffa502',
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         option: '#54a0ff'
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     };
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     const TYPE_LABELS = {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         founder: 'Founder',
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         investor: 'Investor',
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         safe: 'SAFE',
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         option: 'Option'
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     };
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     let state = {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         entities: [
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             { id: 1, type: 'founder', name: 'Founder 1', shares: 4000000, price: 0.0001, preference: '1x' },
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             { id: 2, type: 'founder', name: 'Founder 2', shares: 3000000, price: 0.0001, preference: '1x' },
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             { id: 3, type: 'investor', name: 'Seed Investor', shares: 2000000, price: 0.01, preference: '1x' },
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             { id: 4, type: 'safe', name: 'Angel SAFE', shares: 0, price: 0, cap: 5000000, discount: 20, preference: '1x' },
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             { id: 5, type: 'option', name: 'Option Pool', shares: 1000000, price: 0.01, preference: '1x' }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         ],
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         exitValue: 50000000,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         defaultPreference: '1x'
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     };
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     let entityIdCounter = 6;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // URL STATE
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     function loadFromURL() {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const params = new URLSearchParams(window.location.search);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const encoded = params.get('s');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         if (!encoded) return false;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         try {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             const json = atob(encoded);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             const parsed = JSON.parse(json);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             if (parsed.entities && parsed.exitValue !== undefined) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 state = parsed;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 return true;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         } catch (e) { }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         return false;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     function encodeStateToURL() {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const json = JSON.stringify(state);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         return window.location.origin + window.location.pathname + '?s=' + btoa(json);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // ENTITY FIELDS
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     function renderEntityFields() {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const type = document.getElementById('entityType').value;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const sharesWrapper = document.getElementById('sharesWrapper');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const priceWrapper = document.getElementById('priceWrapper');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const preferenceWrapper = document.getElementById('preferenceWrapper');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const safeCapWrapper = document.getElementById('safeCapWrapper');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const safeDiscountWrapper = document.getElementById('safeDiscountWrapper');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         // Reset all
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         sharesWrapper.style.display = 'flex';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         priceWrapper.style.display = 'flex';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         preferenceWrapper.style.display = 'none';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         safeCapWrapper.style.display = 'none';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         safeDiscountWrapper.style.display = 'none';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         if (type === 'safe') {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             sharesWrapper.style.display = 'none';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             priceWrapper.style.display = 'none';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             safeCapWrapper.style.display = 'flex';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             safeDiscountWrapper.style.display = 'flex';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         } else if (type === 'investor') {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             preferenceWrapper.style.display = 'flex';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     function escHtml(str) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         return String(str).replace(/[&<>"']/g, s => ({
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }[s]));
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // ENTITY MANAGEMENT
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     function addEntity() {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const type = document.getElementById('entityType').value;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const name = document.getElementById('entityName').value.trim() || TYPE_LABELS[type];
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const preference = document.getElementById('entityPreference')?.value || '1x';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         let entity = {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             id: entityIdCounter++,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             type: type,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             name: name,
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             preference: preference
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         };
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         if (type === 'safe') {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             entity.cap = parseFloat(document.getElementById('safeCap').value) || 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             entity.discount = parseFloat(document.getElementById('safeDiscount').value) || 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             entity.shares = 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             entity.price = 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         } else {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             entity.shares = parseFloat(document.getElementById('entityShares').value) || 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             entity.price = parseFloat(document.getElementById('entityPrice').value) || 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         state.entities.push(entity);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         renderEntities();
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         calculate();
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         trackEvent('add_entity', { entity_type: type });
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         // Clear form
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         document.getElementById('entityName').value = '';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         document.getElementById('entityShares').value = '';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         document.getElementById('entityPrice').value = '';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         document.getElementById('safeCap').value = '';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         document.getElementById('safeDiscount').value = '';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     function removeEntity(id) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         state.entities = state.entities.filter(e => e.id !== id);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         renderEntities();
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         calculate();
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         trackEvent('remove_entity');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     function updateEntity(id, field, value) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const entity = state.entities.find(e => e.id === id);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         if (entity) {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             if (field === 'shares' || field === 'price' || field === 'cap' || field === 'discount') {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 entity[field] = parseFloat(value) || 0;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             } else {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 entity[field] = value;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             calculate();
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     function renderEntities() {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const container = document.getElementById('entitiesContainer');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         container.innerHTML = '';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         state.entities.forEach(entity => {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             const card = document.createElement('div');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             card.className = 'entity-card';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             card.setAttribute('role', 'listitem');
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             let additionalFields = '';
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             if (entity.type === 'safe') {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 additionalFields = `
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="input-wrapper">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <label>Cap ($)</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <input type="number" value="${entity.cap}" min="0" step="10000"
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             oninput="updateEntity(${entity.id}, 'cap', this.value)">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="input-wrapper">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <label>Discount (%)</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <input type="number" value="${entity.discount}" min="0" max="100"
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             oninput="updateEntity(${entity.id}, 'discount', this.value)">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 `;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             } else {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 additionalFields = `
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="input-wrapper">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <label>Shares</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <input type="number" value="${entity.shares}" min="0"
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             oninput="updateEntity(${entity.id}, 'shares', this.value)">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <div class="input-wrapper">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <label>Price/Share ($)</label>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         <input type="number" value="${entity.price}" min="0" step="0.0001"
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                             oninput="updateEntity(${entity.id}, 'price', this.value)">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 `;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             card.innerHTML = `
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="entity-card-header">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <span class="entity-type-badge entity-type-${entity.type}">${TYPE_LABELS[entity.type]}</span>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <input type="text" class="entity-name" value="${escHtml(entity.name)}"
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                         oninput="updateEntity(${entity.id}, 'name', this.value)">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     <button class="remove-btn" onclick="removeEntity(${entity.id})" aria-label="Remove ${escHtml(entity.name)}" title="Remove">&times;</button>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 <div class="entity-inputs">
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                     ${additionalFields}
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
                 </div>
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             `;
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
             container.appendChild(card);
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         });
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     }
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
 
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // CALCULATIONS
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     // ============================================================
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
     function calculate() {
+    if (window.FMUsagePrompt) FMUsagePrompt.trackUse("cap_table");
         const exitValue = parseFloat(document.getElementById('exitValue').value) || 0;
         const defaultPreference = document.getElementById('liquidationPref').value;
         state.exitValue = exitValue;

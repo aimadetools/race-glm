@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founding 50 — 50% Off FounderMath Pro Forever | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Join the Founding 50 — get 50% off FounderMath Pro forever. Save scenarios, export PDFs, compare side-by-side. Only 50 spots at this price.">
+    <meta property="og:title" content="Founding 50 — 50% Off FounderMath Pro Forever">
+    <meta property="og:description" content="Only 50 founders will get Pro at $9.50/mo forever. Save scenarios, export PDFs, compare equity side-by-side.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/founding.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f; --bg-secondary: #12121a; --bg-card: #1a1a2e;
+            --accent: #6c5ce7; --accent-light: #a29bfe; --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894; --green-glow: rgba(0, 184, 148, 0.3);
+            --gold: #feca57; --gold-glow: rgba(254, 202, 87, 0.3);
+            --red: #ff6b6b;
+            --text-primary: #f0f0f5; --text-secondary: #a0a0b5; --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        .hero { padding: 140px 24px 60px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 40% 30%, var(--gold-glow) 0%, transparent 50%), radial-gradient(ellipse at 60% 50%, var(--accent-glow) 0%, transparent 50%); pointer-events: none; }
+
+        .hero .badge { display: inline-block; background: linear-gradient(135deg, var(--gold), #ff9f43); color: #1a1a2e; padding: 6px 20px; border-radius: 100px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 24px; position: relative; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 16px; }
+        .hero h1 .gold { background: linear-gradient(135deg, var(--gold), #ff9f43); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; position: relative; }
+
+        .spots-counter { margin: 40px auto; position: relative; max-width: 500px; }
+        .counter-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 24px 32px; display: flex; align-items: center; justify-content: center; gap: 24px; }
+        .counter-number { font-size: 4rem; font-weight: 800; font-family: var(--font-mono); color: var(--gold); line-height: 1; }
+        .counter-label { text-align: left; }
+        .counter-label .big { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
+        .counter-label .small { font-size: 0.85rem; color: var(--text-secondary); }
+        .counter-bar { width: 100%; height: 8px; background: var(--bg-card); border-radius: 4px; margin-top: 16px; overflow: hidden; }
+        .counter-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), #ff9f43); border-radius: 4px; width: 0%; transition: width 1s ease; }
+
+        .pricing-comparison { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+        .price-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+        .price-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; text-align: center; position: relative; }
+        .price-card.founding { border-color: var(--gold); box-shadow: 0 0 40px var(--gold-glow); }
+        .price-card.founding::before { content: 'FOUNDING 50'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--gold), #ff9f43); color: #1a1a2e; padding: 4px 16px; border-radius: 100px; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; }
+        .price-card h3 { font-size: 1rem; color: var(--text-secondary); margin-bottom: 12px; }
+        .price-card .price { font-size: 3rem; font-weight: 800; font-family: var(--font-mono); }
+        .price-card .price .cur { font-size: 1.5rem; vertical-align: super; }
+        .price-card .price .per { font-size: 0.9rem; font-weight: 400; color: var(--text-muted); }
+        .price-card .price .old { font-size: 1.2rem; color: var(--text-muted); text-decoration: line-through; margin-right: 8px; }
+        .price-card .price .new { color: var(--gold); }
+        .price-card .savings { color: var(--green); font-weight: 700; font-size: 0.9rem; margin-top: 4px; }
+
+        .features-list { list-style: none; text-align: left; margin: 24px 0; }
+        .features-list li { padding: 8px 0; font-size: 0.9rem; color: var(--text-secondary); display: flex; align-items: center; gap: 10px; }
+        .features-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+        .btn-cta { display: block; width: 100%; padding: 16px; border-radius: 10px; font-size: 1rem; font-weight: 700; text-align: center; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; border: none; cursor: pointer; }
+        .btn-cta:hover { transform: translateY(-2px); }
+        .btn-gold { background: linear-gradient(135deg, var(--gold), #ff9f43); color: #1a1a2e; box-shadow: 0 8px 30px var(--gold-glow); }
+        .btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text-primary); }
+        .btn-ghost:hover { background: var(--bg-card); }
+
+        .what-you-get { max-width: 800px; margin: 0 auto; padding: 60px 24px; }
+        .what-you-get h2 { font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 40px; }
+        .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .feature-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+        .feature-card h3 { font-size: 1rem; margin-bottom: 8px; color: var(--accent-light); }
+        .feature-card p { font-size: 0.85rem; color: var(--text-secondary); }
+
+        .guarantee { max-width: 600px; margin: 0 auto; padding: 40px 24px; text-align: center; }
+        .guarantee-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
+        .guarantee-box h3 { font-size: 1.2rem; margin-bottom: 12px; }
+        .guarantee-box p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        .faq { max-width: 700px; margin: 0 auto; padding: 40px 24px 80px; }
+        .faq h2 { font-size: 1.6rem; font-weight: 800; text-align: center; margin-bottom: 32px; }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-q { padding: 16px 0; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text-primary); background: none; border: none; width: 100%; text-align: left; }
+        .faq-q::after { content: '+'; font-size: 1.3rem; color: var(--text-muted); }
+        .faq-item.open .faq-q::after { content: '−'; }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+        .faq-item.open .faq-a { max-height: 200px; }
+        .faq-a p { padding-bottom: 16px; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 700px) {
+            .price-cards { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+            .features-grid { grid-template-columns: 1fr; }
+            .counter-box { flex-direction: column; text-align: center; }
+            .counter-label { text-align: center; }
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo"><div class="logo-icon">%</div> FounderMath</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="compare-offers.html">Compare Offers</a></li>
+            <li><a href="dilution.html">Dilution Calc</a></li>
+            <li><a href="founding.html" class="nav-cta" style="background:linear-gradient(135deg,#feca57,#ff9f43)!important;color:#1a1a2e!important;">Claim Your Spot</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="badge">Limited Time — Founding Members Only</div>
+    <h1>The <span class="gold">Founding 50</span></h1>
+    <p>Be one of the first 50 founders to go Pro and lock in 50% off forever. Your price never goes up.</p>
+</section>
+
+<div class="spots-counter">
+    <div class="counter-box">
+        <div class="counter-number" id="spotsLeft">50</div>
+        <div class="counter-label">
+            <div class="big">spots remaining</div>
+            <div class="small">at the founding member price</div>
+        </div>
+    </div>
+    <div class="counter-bar"><div class="counter-bar-fill" id="counterFill"></div></div>
+</div>
+
+<section class="pricing-comparison">
+    <div class="price-cards">
+        <div class="price-card">
+            <h3>Regular Pro</h3>
+            <div class="price"><span class="cur">$</span>19<span class="per">/mo</span></div>
+            <div style="height:28px"></div>
+            <ul class="features-list">
+                <li>Save unlimited scenarios</li>
+                <li>Export PDF & PNG</li>
+                <li>Compare side-by-side</li>
+                <li>Multi-round simulation</li>
+                <li>SAFE conversion waterfall</li>
+            </ul>
+            <a href="pricing.html" class="btn-cta btn-ghost">Regular Price</a>
+        </div>
+        <div class="price-card founding">
+            <h3>Founding 50</h3>
+            <div class="price"><span class="old">$19</span><span class="cur">$</span><span class="new">9.50</span><span class="per">/mo</span></div>
+            <div class="savings">Save $114/year — locked in forever</div>
+            <ul class="features-list">
+                <li>Everything in Pro</li>
+                <li>Same features, half the price</li>
+                <li>Price locked forever</li>
+                <li>Priority support</li>
+                <li>Early access to new calculators</li>
+            </ul>
+            <a href="https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06?utm_source=founder-math&utm_medium=founding50&utm_campaign=founding_50&prefilled_promo_code=FOUNDING50" class="btn-cta btn-gold" onclick="if(typeof gtag==='function')gtag('event','founding50_click',{source:'founding_page'})">Claim Founding Spot — $9.50/mo</a>
+        </div>
+    </div>
+</section>
+
+<section class="what-you-get">
+    <h2>What you get with Pro</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>Save Unlimited Scenarios</h3>
+            <p>Save every "what if" calculation. Come back anytime to compare your scenarios.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Export PDF & PNG</h3>
+            <p>Download beautiful charts and cap tables for board meetings, pitch decks, and advisors.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Side-by-Side Comparison</h3>
+            <p>Compare two funding scenarios, two vesting schedules, or two equity offers side by side.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Multi-Round Simulation</h3>
+            <p>Model dilution across 5+ funding rounds. See exactly what happens to your equity at each stage.</p>
+        </div>
+    </div>
+</section>
+
+<section class="guarantee">
+    <div class="guarantee-box">
+        <h3>30-Day Money-Back Guarantee</h3>
+        <p>If FounderMath Pro doesn't help you understand your equity better within 30 days, we'll refund you in full. No questions asked. You keep the founding price even if you cancel and resubscribe later (while spots remain).</p>
+    </div>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What happens after the first 50 spots are filled?</button>
+        <div class="faq-a"><p>The price goes back to $19/mo for everyone. If you claimed a Founding 50 spot, your price is locked at $9.50/mo forever — it will never increase.</p></div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I cancel anytime?</button>
+        <div class="faq-a"><p>Yes. No contracts, no commitments. Cancel with one click. You'll keep Pro features until the end of your billing period, and your founding price is saved if you resubscribe (while spots remain).</p></div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How is my data protected?</button>
+        <div class="faq-a"><p>Your calculations never leave your browser. All math runs client-side in JavaScript. We don't store your financial data on any server.</p></div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I get all 10 calculators?</button>
+        <div class="faq-a"><p>Yes. Every calculator works for free. Pro adds saving, exporting, comparing, and advanced features across all calculators. New calculators are included automatically.</p></div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left"><p>&copy; 2026 FounderMath. Built for founders, by founders.</p></div>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script>
+// Animate counter bar on load
+document.addEventListener('DOMContentLoaded', function() {
+    var spotsClaimed = parseInt(localStorage.getItem('fm_founding_claimed') || '0');
+    var spotsLeft = Math.max(0, 50 - spotsClaimed);
+    document.getElementById('spotsLeft').textContent = spotsLeft;
+    var pct = ((50 - spotsLeft) / 50 * 100);
+    setTimeout(function() {
+        document.getElementById('counterFill').style.width = pct + '%';
+    }, 500);
+});
+</script>
+</body>
+</html>
