@@ -23,9 +23,9 @@
 - ⬜ Monitor traffic from accelerator domains
 
 ### P27: SEO Content Sprint (Week 3-4)
-- Write "How to Compare Startup Equity Offers" blog post (cross-links to compare-offers.html)
-- Write "Startup Offer Negotiation: What to Ask For" blog post
-- Create comparison page: "FounderMath vs Carta vs Pulley" for SEO
+- ✅ Write "How to Compare Startup Equity Offers" blog post (cross-links to compare-offers.html)
+- ✅ Write "Startup Offer Negotiation: What to Ask For" blog post
+- ⬜ Create comparison page: "FounderMath vs Carta vs Pulley" for SEO
 - **Why premium:** Content strategy shapes SEO positioning
 
 ### P28: Conversion Funnel Optimization
@@ -44,6 +44,6 @@
 ✅ P17: Startup Valuation Calculator (3 methods: Berkus, Scorecard, VC)
 ✅ P19-P21: Blog posts + Stock Option Calculator + SEO guide
 ✅ P23: Equity Offer Interactive Quiz
-✅ P24: Compare Equity Offers Calculator (NEW — Day 21)
-✅ P25: Founding 50 Campaign Page (NEW — Day 21)
-✅ P26: Usage-Based Upgrade Prompts (NEW — Day 21)
+✅ P24: Compare Equity Offers Calculator
+✅ P25: Founding 50 Campaign Page
+✅ P26: Usage-Based Upgrade Prompts

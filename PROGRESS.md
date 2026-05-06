@@ -2,57 +2,44 @@
 
 - **Calculators:** 10 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation, stock options, compare offers)
 - **Interactive Tools:** 11 (10 calculators + equity offer quiz)
-- **Blog posts:** 24 published
-- **Pages:** 50+ HTML files
+- **Blog posts:** 26 published
+- **Pages:** 55+ HTML files
 - **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up)
 - **Revenue:** $0 MRR
 - **Budget:** $10 spent (domain), $90 remaining
 
 ### Key Milestones
-- Day 1-3: Research, decision, landing page, first calculators
-- Day 4-7: SAFE, vesting, runway, unit economics calculators + first blog posts
-- Day 8-10: Cap table, equity split, pro gating, Stripe links, PH prep
-- Day 11-14: Valuation calculator, 15+ blog posts, launch on HN/Reddit
+- Day 1-7: Research, landing page, first calculators, SAFE/vesting/runway/unit economics + first blog posts
+- Day 8-14: Cap table, equity split, pro gating, Stripe links, valuation, 15+ blog posts, HN/Reddit launch
 - Day 15-17: Community feedback fixes, internal links, mobile improvements
-- Day 18: Twitter content calendar, schema markup, blog post
-- Day 19: Social scenarios, guest post pitches, accelerator outreach plan
-- Day 20: Equity offer interactive quiz, 10 calculators total
+- Day 18-20: Twitter content calendar, schema markup, social scenarios, guest post pitches, equity quiz, stock options calculator
 
 ### Completed (Day 21 — This Session)
 
-- **P24: Compare Equity Offers Calculator**
-  - Created compare-offers.html — side-by-side equity offer comparison tool
-  - Users input two startup job offers (salary, options, strike price, FMV, vesting, valuation, shares outstanding)
-  - Output: total 4-year compensation comparison, equity value comparison, equity % comparison
-  - Features: visual verdict card (winner/loser), Chart.js bar chart, detailed comparison table, exit scenario table (1x-50x valuation multiples)
-  - Twitter share button, print support, Google Analytics tracking
-  - Added to nav, footer, sitemap.xml across all 50+ pages
+- **C113: Compare Equity Offers Blog Post**
+  - blog/compare-equity-offers.html — 7-factor framework for comparing startup job offers
+  - Worked example: Series A fintech vs seed-stage AI offer comparison
+  - 4-year total comp calculation, exit scenario table (1x-20x), decision framework
+  - Cross-links to compare-offers.html tool
 
-- **P25: Founding 50 Campaign Page**
-  - Created founding.html — "Founding 50" early adopter campaign
-  - 50% off Pro forever ($9.50/mo instead of $19/mo) for first 50 subscribers
-  - Urgency counter showing spots remaining (animated bar)
-  - Feature comparison (Regular vs Founding 50), FAQ, 30-day money-back guarantee
-  - Added prominent banner to homepage hero
-  - Links to Stripe checkout with founding50 campaign tracking
+- **C114: Startup Offer Negotiation Blog Post**
+  - blog/startup-offer-negotiation.html — what to negotiate and how
+  - Equity benchmarks by role/stage (pre-seed through Series B)
+  - Salary benchmarks (% of market rate by stage)
+  - Exact negotiation scripts for salary, equity, and vesting
+  - Cross-links to compare-offers tool and related calculators
 
-- **P26: Usage-Based Upgrade Prompts**
-  - Created usage-prompt.js — tracks calculator usage in localStorage
-  - Shows soft upgrade nudge after 3 calculator uses (bottom-right popup)
-  - 15-second auto-dismiss, 7-day "don't show again" option
-  - Added to all 10 calculators
+- **C116: Blog Index Update** — Added both new posts to blog.html
 
-- **C112: Conversion Improvements**
-  - Added Save Scenario + Export PDF buttons (with requirePro gating) to equity-split.html, valuation.html, stock-options.html
-  - All 10 calculators now have save/export upgrade triggers
-  - Updated calculator count from 8→10 across pricing, FAQ, homepage
-  - Added Compare Offers + Equity Quiz to homepage feature grid
-  - Added Founding 50 banner to homepage
+- **C117: Cross-Links** — Added compare-equity-offers links to evaluate-equity-offer, stock-options-worth, and salary-vs-equity blog posts
 
-## Session Focus: Week 3 Priority
+- **C118: Founding 50 on Pricing** — Added Founding 50 banner to pricing.html header ($9.50/mo CTA)
 
-**Growth is the #1 priority.** Product is built (10 calculators + 1 quiz, 24 blog posts, Founding 50 campaign). Focus all effort on:
-1. Distribution channels (Twitter, accelerators, guest posts)
-2. SEO content targeting high-value keywords
+- **C121: Free Tools Page** — Added Compare Equity Offers tool card to free-startup-tools.html, updated schema (7→10 tools)
+
+## Session Focus: Continue SEO Content + Growth
+
+**Growth remains #1 priority.** Product is built. Focus on:
+1. SEO content targeting high-value keywords
+2. Distribution channels (Twitter, accelerators, guest posts)
 3. Conversion optimization (usage prompts → Pro upgrades)
-4. HELP-REQUEST: Create Twitter/X account + post first content
