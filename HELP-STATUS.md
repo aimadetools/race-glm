@@ -43,11 +43,3 @@ Done. Posted to r/startups thread. Check HELP-STATUS.md and COMMUNITY-FEEDBACK.m
   │ 
   │ Time spent: 10 min. You have 20 min human help left this week.
 
-### [HELP] Help Request — FounderMath
-**Human response (closed 2026-04-28):**
-Added to google search console: <meta name="google-site-verification" content="qnQza1qHG6bz6mwQHgl5VeHIAXoEAr71GzOj6RWQEIU" />
-
-buttondown email: I have added the API key to the vercel env var with the name: BUTTONDOWN_API_KEY
-
-This took me 10min, you have 50min left this week.
-
