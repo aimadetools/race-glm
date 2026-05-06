@@ -832,19 +832,86 @@ function renderChart(a, b, nameA, nameB) {
 // ============================================================
 // SHARE FUNCTIONS
 // ============================================================
+function getComparisonData() {
+    var data = {
+        companyA: document.getElementById('companyA').value,
+        roleA: document.getElementById('roleA').value,
+        salaryA: document.getElementById('salaryA').value,
+        optionsA: document.getElementById('optionsA').value,
+        strikeA: document.getElementById('strikeA').value,
+        fmvA: document.getElementById('fmvA').value,
+        vestingA: document.getElementById('vestingA').value,
+        valuationA: document.getElementById('valuationA').value,
+        sharesOutA: document.getElementById('sharesOutA').value,
+        bonusA: document.getElementById('bonusA').value,
+        companyB: document.getElementById('companyB').value,
+        roleB: document.getElementById('roleB').value,
+        salaryB: document.getElementById('salaryB').value,
+        optionsB: document.getElementById('optionsB').value,
+        strikeB: document.getElementById('strikeB').value,
+        fmvB: document.getElementById('fmvB').value,
+        vestingB: document.getElementById('vestingB').value,
+        valuationB: document.getElementById('valuationB').value,
+        sharesOutB: document.getElementById('sharesOutB').value,
+        bonusB: document.getElementById('bonusB').value
+    };
+    return btoa(JSON.stringify(data));
+}
+
+function loadComparisonData(encodedData) {
+    try {
+        var data = JSON.parse(atob(encodedData));
+        if (data.companyA) document.getElementById('companyA').value = data.companyA;
+        if (data.roleA) document.getElementById('roleA').value = data.roleA;
+        if (data.salaryA) document.getElementById('salaryA').value = data.salaryA;
+        if (data.optionsA) document.getElementById('optionsA').value = data.optionsA;
+        if (data.strikeA) document.getElementById('strikeA').value = data.strikeA;
+        if (data.fmvA) document.getElementById('fmvA').value = data.fmvA;
+        if (data.vestingA) document.getElementById('vestingA').value = data.vestingA;
+        if (data.valuationA) document.getElementById('valuationA').value = data.valuationA;
+        if (data.sharesOutA) document.getElementById('sharesOutA').value = data.sharesOutA;
+        if (data.bonusA) document.getElementById('bonusA').value = data.bonusA;
+        if (data.companyB) document.getElementById('companyB').value = data.companyB;
+        if (data.roleB) document.getElementById('roleB').value = data.roleB;
+        if (data.salaryB) document.getElementById('salaryB').value = data.salaryB;
+        if (data.optionsB) document.getElementById('optionsB').value = data.optionsB;
+        if (data.strikeB) document.getElementById('strikeB').value = data.strikeB;
+        if (data.fmvB) document.getElementById('fmvB').value = data.fmvB;
+        if (data.vestingB) document.getElementById('vestingB').value = data.vestingB;
+        if (data.valuationB) document.getElementById('valuationB').value = data.valuationB;
+        if (data.sharesOutB) document.getElementById('sharesOutB').value = data.sharesOutB;
+        if (data.bonusB) document.getElementById('bonusB').value = data.bonusB;
+        return true;
+    } catch(e) {
+        return false;
+    }
+}
+
 function copyShareLink() {
-    var url = window.location.href;
-    navigator.clipboard.writeText(url).then(function() {
-        var btn = document.getElementById('shareBtn');
-        if (btn) { btn.textContent = 'Copied!'; setTimeout(function() { btn.textContent = 'Copy Share Link'; }, 2000); }
+    var baseUrl = window.location.href.split('?')[0];
+    var data = getComparisonData();
+    var shareUrl = baseUrl + '?data=' + encodeURIComponent(data);
+    navigator.clipboard.writeText(shareUrl).then(function() {
+        var btn = document.querySelector('.btn-share');
+        if (btn) {
+            var originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = originalText; }, 2000);
+        }
     }).catch(function() {
-        prompt('Copy this link:', url);
+        prompt('Copy this link:', shareUrl);
     });
+    if (typeof gtag === 'function') {
+        gtag('event', 'share', { method: 'copy_link', calculator: 'compare_offers' });
+    }
 }
 
 function shareToTwitter() {
+    var baseUrl = window.location.href.split('?')[0];
+    var data = getComparisonData();
+    var shareUrl = baseUrl + '?data=' + encodeURIComponent(data);
     var text = "I just compared two startup equity offers with FounderMath's free tool. Super helpful for deciding which offer is better!";
-    var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(window.location.href);
+    var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(shareUrl);
     window.open(url, '_blank', 'width=600,height=400');
     if (typeof gtag === 'function') {
         gtag('event', 'share', { method: 'twitter', calculator: 'compare_offers' });
@@ -860,6 +927,17 @@ function resetCalculator() {
     document.getElementById('resultsSection').classList.remove('visible');
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+// Load shared comparison data from URL
+(function() {
+    var params = new URLSearchParams(window.location.search);
+    var sharedData = params.get('data');
+    if (sharedData) {
+        if (loadComparisonData(sharedData)) {
+            compareOffers();
+        }
+    }
+})();
 </script>
 </body>
 </html>

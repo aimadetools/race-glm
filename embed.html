@@ -114,7 +114,7 @@
 
     <header class="hero">
         <h1>Embed Free <span class="gradient">Startup Calculators</span></h1>
-        <p>Add interactive equity, SAFE note, runway, and dilution calculators to your website, blog, or accelerator page. One line of code. Completely free.</p>
+        <p>Add interactive equity, SAFE note, runway, dilution, and offer comparison calculators to your website, blog, or accelerator page. One line of code. Completely free.</p>
     </header>
 
     <div class="container">
@@ -161,6 +161,21 @@
             <div class="code-block" id="code-runway">
                 <button class="copy-btn" onclick="copyCode('runway')">Copy Code</button>
                 <pre id="embed-runway"></pre>
+            </div>
+        </div>
+
+        <!-- Compare Offers Widget -->
+        <div class="widget-card">
+            <h2>Compare Equity Offers Calculator</h2>
+            <p class="desc">Help job seekers compare startup job offers side-by-side. Includes 4-year total comp, exit scenarios, and decision framework.</p>
+            <div class="widget-preview" id="preview-compare"></div>
+            <div class="sizes">
+                <button class="size-btn active" onclick="setSize('compare', '100%', '700')">Full Width</button>
+                <button class="size-btn" onclick="setSize('compare', '600px', '700')">600px</button>
+            </div>
+            <div class="code-block" id="code-compare">
+                <button class="copy-btn" onclick="copyCode('compare')">Copy Code</button>
+                <pre id="embed-compare"></pre>
             </div>
         </div>
 
@@ -219,7 +234,8 @@
     const widgets = {
         dilution: { url: 'https://founder-math.com/dilution.html', width: '100%', height: '600' },
         split: { url: 'https://founder-math.com/equity-split.html', width: '100%', height: '600' },
-        runway: { url: 'https://founder-math.com/runway.html', width: '100%', height: '500' }
+        runway: { url: 'https://founder-math.com/runway.html', width: '100%', height: '500' },
+        compare: { url: 'https://founder-math.com/compare-offers.html', width: '100%', height: '700' }
     };
 
     function updateEmbedCode(id) {

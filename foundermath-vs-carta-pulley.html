@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FounderMath vs Carta vs Pulley — Which is Better for Early-Stage Startups?</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks && navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="FounderMath vs Carta vs Pulley: Side-by-side comparison for early-stage startups. See pricing, features, and when to use each tool. FounderMath is free and requires no signup.">
+    <meta name="keywords" content="FounderMath vs Carta, FounderMath vs Pulley, Carta vs Pulley vs FounderMath, cap table comparison, equity tool comparison, startup equity software">
+    <meta property="og:title" content="FounderMath vs Carta vs Pulley — Which is Better for Early-Stage Startups?">
+    <meta property="og:description" content="Compare FounderMath, Carta, and Pulley side-by-side. Free calculators vs $100+/mo subscriptions. Know which tool is right for your stage.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/foundermath-vs-carta-pulley.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://founder-math.com/foundermath-vs-carta-pulley.html">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "FounderMath vs Carta vs Pulley — Which is Better for Early-Stage Startups?",
+        "description": "Side-by-side comparison of FounderMath, Carta, and Pulley for early-stage startups.",
+        "url": "https://founder-math.com/foundermath-vs-carta-pulley.html",
+        "datePublished": "2026-05-06",
+        "dateModified": "2026-05-06",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f; --bg-secondary: #12121a; --bg-card: #1a1a2e;
+            --accent: #6c5ce7; --accent-light: #a29bfe; --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894; --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b; --text-primary: #f0f0f5; --text-secondary: #a0a0b5; --text-muted: #666680;
+            --border: #2a2a40; --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        .hero { padding: 120px 24px 60px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%); pointer-events: none; }
+        .hero h1 { font-size: clamp(1.8rem, 4.5vw, 2.5rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 16px; }
+        .hero h1 .highlight { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { color: var(--text-secondary); font-size: 1.1rem; max-width: 700px; margin: 0 auto 24px; position: relative; }
+        .hero-meta { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; position: relative; }
+        .meta-item { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; padding: 12px 20px; display: flex; align-items: center; gap: 10px; }
+        .meta-icon { font-size: 1.2rem; }
+        .meta-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .meta-value { font-weight: 700; font-size: 1rem; }
+        .meta-value.free { color: var(--green); }
+        .meta-value.expensive { color: var(--red); }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px 80px; }
+        .article-content { max-width: 800px; margin: 0 auto; }
+
+        /* Three-way comparison cards */
+        .comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin: 48px 0; }
+        .comparison-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px 24px; position: relative; }
+        .comparison-card.featured { border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
+        .comparison-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; padding: 4px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+        .card-header { text-align: center; margin-bottom: 24px; }
+        .card-logo { width: 60px; height: 60px; background: var(--bg-card); border-radius: 12px; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; }
+        .card-name { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
+        .card-price { font-size: 1.5rem; font-weight: 800; }
+        .card-price.free { color: var(--green); }
+        .card-price.paid { color: var(--red); }
+        .card-features { list-style: none; }
+        .card-features li { padding: 10px 0; border-bottom: 1px solid var(--border); display: flex; gap: 10px; align-items: flex-start; }
+        .card-features li:last-child { border-bottom: none; }
+        .check { color: var(--green); flex-shrink: 0; }
+        .cross { color: var(--red); flex-shrink: 0; }
+        .card-cta { display: block; width: 100%; text-align: center; background: var(--bg-card); color: var(--text-primary); padding: 14px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 24px; transition: all 0.2s; }
+        .card-cta:hover { background: var(--border); }
+        .comparison-card.featured .card-cta { background: var(--accent); color: white; }
+        .comparison-card.featured .card-cta:hover { background: var(--accent-light); }
+
+        /* Detailed comparison table */
+        .comparison-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin: 48px 0; }
+        .comparison-table { width: 100%; border-collapse: collapse; }
+        .comparison-table th { text-align: left; padding: 16px; border-bottom: 2px solid var(--border); color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .comparison-table td { padding: 16px; border-bottom: 1px solid rgba(42, 42, 64, 0.5); }
+        .comparison-table tr:hover td { background: rgba(108, 92, 231, 0.05); }
+        .comparison-table .winner { background: rgba(0, 184, 148, 0.1); }
+        .comparison-table .product-name { font-weight: 700; }
+
+        /* Content sections */
+        .section-title { font-size: 1.5rem; margin: 48px 0 16px; }
+        .section-subtitle { color: var(--text-secondary); font-size: 1rem; margin-bottom: 24px; }
+        .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
+        .pro-con-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+        .pro-con-box.pro { border-color: var(--green); }
+        .pro-con-box.con { border-color: var(--red); }
+        .pro-con-title { display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 16px; }
+        .pro-con-title.pro { color: var(--green); }
+        .pro-con-title.con { color: var(--red); }
+        .pro-con ul { list-style: none; }
+        .pro-con li { padding: 8px 0; padding-left: 24px; position: relative; }
+        .pro-con li::before { content: '•'; position: absolute; left: 0; }
+        .pro-box li::before { color: var(--green); }
+        .con-box li::before { color: var(--red); }
+
+        .recommendation-box { background: linear-gradient(135deg, rgba(108, 92, 231, 0.2), rgba(0, 184, 148, 0.1)); border: 1px solid var(--accent); border-radius: 16px; padding: 32px; margin: 48px 0; }
+        .recommendation-title { display: flex; align-items: center; gap: 12px; font-size: 1.3rem; font-weight: 700; margin-bottom: 16px; }
+        .recommendation-title .icon { font-size: 1.5rem; }
+        .recommendation-list { list-style: none; }
+        .recommendation-list li { padding: 12px 0; padding-left: 32px; position: relative; }
+        .recommendation-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+        .cta-box { background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 16px; padding: 40px; text-align: center; margin: 48px 0; }
+        .cta-box h2 { font-size: 1.5rem; margin-bottom: 12px; }
+        .cta-box p { font-size: 1rem; opacity: 0.9; margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .cta-btn { display: inline-block; background: white; color: var(--accent); padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 1rem; transition: transform 0.2s; }
+        .cta-btn:hover { transform: translateY(-2px); }
+
+        /* FAQ */
+        .faq-section { margin: 48px 0; }
+        .faq-item { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+        .faq-question { padding: 20px 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
+        .faq-question:hover { background: var(--bg-card); }
+        .faq-answer { padding: 0 24px 20px; color: var(--text-secondary); display: none; }
+        .faq-item.open .faq-answer { display: block; }
+        .faq-item.open .faq-question::after { transform: rotate(180deg); }
+        .faq-question::after { content: '▼'; font-size: 0.8rem; transition: transform 0.3s; }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        @media (max-width: 700px) {
+            .nav-links { display: none; } .mobile-toggle { display: block; }
+            .pro-con { grid-template-columns: 1fr; }
+            .comparison-table { font-size: 0.8rem; }
+            .comparison-table th, .comparison-table td { padding: 10px 8px; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="/" class="logo" aria-label="FounderMath home">
+            <div class="logo-icon" aria-hidden="true">%</div>
+            FounderMath
+        </a>
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <li role="none"><a href="dilution.html" role="menuitem">Dilution</a></li>
+            <li role="none"><a href="runway.html" role="menuitem">Runway</a></li>
+            <li role="none"><a href="safe.html" role="menuitem">SAFE</a></li>
+            <li role="none"><a href="vesting.html" role="menuitem">Vesting</a></li>
+            <li role="none"><a href="unit-economics.html" role="menuitem">Unit Econ</a></li>
+            <li role="none"><a href="cap-table.html" role="menuitem">Cap Table</a></li>
+            <li role="none"><a href="equity-split.html" role="menuitem">Equity Split</a></li>
+            <li role="none"><a href="valuation.html" role="menuitem">Valuation</a></li>
+            <li role="none"><a href="stock-options.html" role="menuitem">Options</a></li>
+            <li role="none"><a href="compare-offers.html" role="menuitem">Compare</a></li>
+            <li role="none"><a href="equity-quiz.html" role="menuitem">Equity Quiz</a></li>
+            <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+            <li><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+            <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></li>
+        </ul>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+    </div>
+</nav>
+
+<header class="hero">
+    <h1>FounderMath vs <span class="highlight">Carta vs Pulley</span></h1>
+    <p>Side-by-side comparison for early-stage startups. See pricing, features, and when to use each tool.</p>
+    <div class="hero-meta">
+        <div class="meta-item">
+            <span class="meta-icon">&#10003;</span>
+            <div>
+                <div class="meta-label">FounderMath</div>
+                <div class="meta-value free">Free forever</div>
+            </div>
+        </div>
+        <div class="meta-item">
+            <span class="meta-icon">&#36;</span>
+            <div>
+                <div class="meta-label">Carta</div>
+                <div class="meta-value expensive">$100+/mo</div>
+            </div>
+        </div>
+        <div class="meta-item">
+            <span class="meta-icon">&#36;</span>
+            <div>
+                <div class="meta-label">Pulley</div>
+                <div class="meta-value expensive">$100+/mo</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="article-content">
+        <p class="section-subtitle">Last updated: May 6, 2026 • 5 min read</p>
+
+        <!-- Quick comparison cards -->
+        <h2 class="section-title">Quick Comparison</h2>
+        <div class="comparison-grid">
+            <div class="comparison-card featured">
+                <div class="comparison-badge">Best for Early Stage</div>
+                <div class="card-header">
+                    <div class="card-logo" style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white;">%</div>
+                    <div class="card-name">FounderMath</div>
+                    <div class="card-price free">Free forever</div>
+                </div>
+                <ul class="card-features">
+                    <li><span class="check">&#10003;</span> 10+ equity calculators</li>
+                    <li><span class="check">&#10003;</span> No signup required</li>
+                    <li><span class="check">&#10003;</span> Interactive visual charts</li>
+                    <li><span class="check">&#10003;</span> Shareable via URL</li>
+                    <li><span class="check">&#10003;</span> Built for learning</li>
+                    <li><span class="cross">&#10007;</span> 409a valuations</li>
+                    <li><span class="cross">&#10007;</span> Legal compliance</li>
+                </ul>
+                <a href="dilution.html" class="card-cta">Try Free &rarr;</a>
+            </div>
+
+            <div class="comparison-card">
+                <div class="card-header">
+                    <div class="card-logo" style="background: #3b82f6;">C</div>
+                    <div class="card-name">Carta</div>
+                    <div class="card-price paid">$100+/mo</div>
+                </div>
+                <ul class="card-features">
+                    <li><span class="check">&#10003;</span> Full cap table management</li>
+                    <li><span class="check">&#10003;</span> 409a valuations</li>
+                    <li><span class="check">&#10003;</span> Legal compliance</li>
+                    <li><span class="check">&#10003;</span> Investor access</li>
+                    <li><span class="cross">&#10007;</span> Expensive for startups</li>
+                    <li><span class="cross">&#10007;</span> Sales demo required</li>
+                    <li><span class="cross">&#10007;</span> Steep learning curve</li>
+                </ul>
+                <a href="https://carta.com" target="_blank" rel="noopener" class="card-cta">Visit Carta &rarr;</a>
+            </div>
+
+            <div class="comparison-card">
+                <div class="card-header">
+                    <div class="card-logo" style="background: #10b981;">P</div>
+                    <div class="card-name">Pulley</div>
+                    <div class="card-price paid">$100+/mo</div>
+                </div>
+                <ul class="card-features">
+                    <li><span class="check">&#10003;</span> Cap table management</li>
+                    <li><span class="check">&#10003;</span> 409a valuations</li>
+                    <li><span class="check">&#10003;</span> Simpler than Carta</li>
+                    <li><span class="check">&#10003;</span> Employee equity plans</li>
+                    <li><span class="cross">&#10007;</span> Still expensive</li>
+                    <li><span class="cross">&#10007;</span> Account required</li>
+                    <li><span class="cross">&#10007;</span> Limited free tier</li>
+                </ul>
+                <a href="https://pulley.com" target="_blank" rel="noopener" class="card-cta">Visit Pulley &rarr;</a>
+            </div>
+        </div>
+
+        <!-- Detailed comparison -->
+        <div class="comparison-section">
+            <h2 class="section-title" style="margin-top: 0;">Detailed Feature Comparison</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>FounderMath</th>
+                        <th>Carta</th>
+                        <th>Pulley</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="winner">
+                        <td class="product-name">Pricing</td>
+                        <td><strong>Free</strong> ($19/mo Pro)</td>
+                        <td>$100-$500+/mo</td>
+                        <td>$100-$300+/mo</td>
+                    </tr>
+                    <tr class="winner">
+                        <td>Signup Required</td>
+                        <td><strong>No</strong></td>
+                        <td>Yes, sales demo</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr class="winner">
+                        <td>Equity Dilution Calculator</td>
+                        <td><strong>&#10003;</strong></td>
+                        <td>&#10007;</td>
+                        <td>&#10007;</td>
+                    </tr>
+                    <tr class="winner">
+                        <td>SAFE Note Calculator</td>
+                        <td><strong>&#10003;</strong></td>
+                        <td>&#10007;</td>
+                        <td>&#10007;</td>
+                    </tr>
+                    <tr class="winner">
+                        <td>Runway Calculator</td>
+                        <td><strong>&#10003;</strong></td>
+                        <td>&#10007;</td>
+                        <td>&#10007;</td>
+                    </tr>
+                    <tr>
+                        <td>Cap Table Management</td>
+                        <td>&#10003; (basic)</td>
+                        <td><strong>&#10003; (full)</strong></td>
+                        <td><strong>&#10003; (full)</strong></td>
+                    </tr>
+                    <tr>
+                        <td>409a Valuations</td>
+                        <td>&#10007;</td>
+                        <td><strong>&#10003;</strong></td>
+                        <td><strong>&#10003;</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Legal Compliance</td>
+                        <td>&#10007;</td>
+                        <td><strong>&#10003;</strong></td>
+                        <td><strong>&#10003;</strong></td>
+                    </tr>
+                    <tr class="winner">
+                        <td>Stock Option Calculator</td>
+                        <td><strong>&#10003;</strong></td>
+                        <td>&#10007;</td>
+                        <td>&#10007;</td>
+                    </tr>
+                    <tr class="winner">
+                        <td>Equity Split Calculator</td>
+                        <td><strong>&#10003;</strong></td>
+                        <td>&#10007;</td>
+                        <td>&#10007;</td>
+                    </tr>
+                    <tr class="winner">
+                        <td>Compare Job Offers</td>
+                        <td><strong>&#10003;</strong></td>
+                        <td>&#10007;</td>
+                        <td>&#10007;</td>
+                    </tr>
+                    <tr>
+                        <td>Employee Equity Portal</td>
+                        <td>&#10007;</td>
+                        <td><strong>&#10003;</strong></td>
+                        <td><strong>&#10003;</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Investor Access</td>
+                        <td>&#10007;</td>
+                        <td><strong>&#10003;</strong></td>
+                        <td><strong>&#10003;</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- FounderMath section -->
+        <h2 class="section-title">FounderMath: Best for Early-Stage Founders & Employees</h2>
+        <p class="section-subtitle">FounderMath is designed for founders and employees who need to understand equity math before they commit to expensive tools.</p>
+
+        <div class="pro-con">
+            <div class="pro-con-box pro">
+                <div class="pro-con-title pro"><span class="icon">&#10003;</span> Pros</div>
+                <div class="pro-con pro-box">
+                    <ul>
+                        <li>Completely free for all 10+ calculators</li>
+                        <li>No signup or credit card required</li>
+                        <li>Interactive charts make equity math visual</li>
+                        <li>Share calculations via URL with cofounders</li>
+                        <li>Built-in learning resources and pro tips</li>
+                        <li>Perfect for modeling funding scenarios</li>
+                        <li>Evaluating job offers with equity</li>
+                        <li>Works in 5 seconds, no setup needed</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pro-con-box con">
+                <div class="pro-con-title con"><span class="icon">&#10007;</span> Cons</div>
+                <div class="pro-con con-box">
+                    <ul>
+                        <li>Not a full cap table management system</li>
+                        <li>No 409a valuations</li>
+                        <li>No legal compliance features</li>
+                        <li>Not suitable for complex cap tables (50+ stakeholders)</li>
+                        <li>Doesn't issue actual equity or options</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carta section -->
+        <h2 class="section-title">Carta: Best for Post-Series A Companies</h2>
+        <p class="section-subtitle">Carta is the industry standard for cap table management, 409a valuations, and equity compliance.</p>
+
+        <div class="pro-con">
+            <div class="pro-con-box pro">
+                <div class="pro-con-title pro"><span class="icon">&#10003;</span> Pros</div>
+                <div class="pro-con pro-box">
+                    <ul>
+                        <li>Industry standard for cap table management</li>
+                        <li>Integrated 409a valuations</li>
+                        <li>Full legal compliance support</li>
+                        <li>Employee equity portal</li>
+                        <li>Investor access and portfolio tools</li>
+                        <li>Liquidity marketplace for secondary sales</li>
+                        <li>Comprehensive reporting</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pro-con-box con">
+                <div class="pro-con-title con"><span class="icon">&#10007;</span> Cons</div>
+                <div class="pro-con con-box">
+                    <ul>
+                        <li>Very expensive for early-stage startups</li>
+                        <li>Requires sales demo and account setup</li>
+                        <li>Steep learning curve</li>
+                        <li>Overkill for pre-seed/seed stage</li>
+                        <li>No standalone calculators</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pulley section -->
+        <h2 class="section-title">Pulley: Simpler Alternative to Carta</h2>
+        <p class="section-subtitle">Pulley offers cap table management with a simpler interface than Carta, but still requires a paid subscription.</p>
+
+        <div class="pro-con">
+            <div class="pro-con-box pro">
+                <div class="pro-con-title pro"><span class="icon">&#10003;</span> Pros</div>
+                <div class="pro-con pro-box">
+                    <ul>
+                        <li>Simpler UI than Carta</li>
+                        <li>409a valuations included</li>
+                        <li>Good for Series A-B companies</li>
+                        <li>Employee equity portal</li>
+                        <li>Faster onboarding than Carta</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pro-con-box con">
+                <div class="pro-con-title con"><span class="icon">&#10007;</span> Cons</div>
+                <div class="pro-con con-box">
+                    <ul>
+                        <li>Still expensive ($100+/mo)</li>
+                        <li>Limited free tier</li>
+                        <li>Account required</li>
+                        <li>Overkill for early stage</li>
+                        <li>Less feature-rich than Carta</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- When to use each -->
+        <h2 class="section-title">When to Use Each Tool</h2>
+
+        <div class="recommendation-box">
+            <div class="recommendation-title"><span class="icon">&#10003;</span> Use FounderMath if you are:</div>
+            <ul class="recommendation-list">
+                <li>A pre-seed or seed-stage founder trying to understand equity dilution</li>
+                <li>Modeling different funding scenarios before talking to investors</li>
+                <li>Having the equity split conversation with cofounders</li>
+                <li>Evaluating a startup job offer and need to understand the equity component</li>
+                <li>Calculating the potential value of stock options at different exit scenarios</li>
+                <li>Teaching at an accelerator and need tools for your cohort</li>
+                <li>Just starting out and need to learn the basics of startup equity</li>
+            </ul>
+        </div>
+
+        <div class="recommendation-box" style="border-color: #3b82f6; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));">
+            <div class="recommendation-title" style="color: #3b82f6;"><span class="icon">&#9888;</span> Use Carta if you are:</div>
+            <ul class="recommendation-list">
+                <li>Post-Series A with 20+ stakeholders on your cap table</li>
+                <li>Required by your investors to use Carta for portfolio management</li>
+                <li>Need 409a valuations for tax compliance</li>
+                <li>Managing employee equity plans with grants and exercises</li>
+                <li>Need legally compliant cap table management</li>
+            </ul>
+        </div>
+
+        <div class="recommendation-box" style="border-color: #10b981; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));">
+            <div class="recommendation-title" style="color: #10b981;"><span class="icon">&#9888;</span> Use Pulley if you are:</div>
+            <ul class="recommendation-list">
+                <li>Series A-B stage and want something simpler than Carta</li>
+                <li>Need 409a valuations and cap table management</li>
+                <li>Managing employee equity at scale</li>
+                <li>Looking for a middle ground between basic tools and enterprise Carta</li>
+            </ul>
+        </div>
+
+        <!-- Bottom line -->
+        <div class="cta-box">
+            <h2>The Bottom Line</h2>
+            <p><strong>Use FounderMath to LEARN and PLAN. Use Carta or Pulley to MANAGE and COMPLY.</strong> They serve different needs at different stages. Start with FounderMath for free, upgrade to Carta/Pulley when you actually need compliance and 409a valuations.</p>
+            <a href="dilution.html" class="cta-btn">Start Calculating for Free &rarr;</a>
+        </div>
+
+        <!-- FAQ -->
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-section">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Is FounderMath a replacement for Carta?</div>
+                <div class="faq-answer">No. FounderMath is for learning and planning. Carta is for managing and complying. Use FounderMath to understand your equity math before you need full cap table management. Most founders start with FounderMath and upgrade to Carta when they reach Series A or have 20+ stakeholders.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Can I use FounderMath and Carta together?</div>
+                <div class="faq-answer">Absolutely. Many founders use FounderMath to model funding scenarios and understand dilution before signing deals, then manage the actual cap table in Carta. They complement each other well.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Why is FounderMath free when Carta and Pulley cost so much?</div>
+                <div class="faq-answer">FounderMath focuses on calculators and education, not full cap table management. Our tools help you understand equity math, but we don't handle the legal compliance, 409a valuations, or actual equity issuance that justify Carta and Pulley's pricing.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Which tool should I use if I'm evaluating a job offer?</div>
+                <div class="faq-answer">FounderMath is the clear winner here. Use our <a href="compare-offers.html" style="color: var(--accent);">Compare Equity Offers</a> and <a href="stock-options.html" style="color: var(--accent);">Stock Options Calculator</a> to understand what your offer is worth. Carta and Pulley are for managing equity you already have, not evaluating offers.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Do I really need Carta or Pulley if I use FounderMath?</div>
+                <div class="faq-answer">Not until you reach Series A or have a complex cap table. Many founders use FounderMath from pre-seed through seed. You'll know when it's time to upgrade — usually when your investors require it or you need 409a valuations for tax compliance.</div>
+            </div>
+        </div>
+
+        <!-- Related -->
+        <h2 class="section-title">Related Resources</h2>
+        <div class="comparison-grid">
+            <a href="carta-alternatives.html" style="text-decoration: none;" class="comparison-card">
+                <div class="card-header">
+                    <div class="card-logo" style="background: var(--bg-card);">ALT</div>
+                    <div class="card-name">Carta Alternatives</div>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">More alternatives to Carta and Pulley for early-stage startups.</p>
+            </a>
+            <a href="free-startup-tools.html" style="text-decoration: none;" class="comparison-card">
+                <div class="card-header">
+                    <div class="card-logo" style="background: var(--bg-card);">10</div>
+                    <div class="card-name">All Free Tools</div>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">See all 10+ free startup calculators in one place.</p>
+            </a>
+            <a href="blog.html" style="text-decoration: none;" class="comparison-card">
+                <div class="card-header">
+                    <div class="card-logo" style="background: var(--bg-card);">BLOG</div>
+                    <div class="card-name">Equity Guides</div>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">26+ blog posts on startup equity, dilution, and more.</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="dilution.html">Dilution</a></li>
+            <li><a href="runway.html">Runway</a></li>
+            <li><a href="safe.html">SAFE</a></li>
+            <li><a href="vesting.html">Vesting</a></li>
+            <li><a href="unit-economics.html">Unit Econ</a></li>
+            <li><a href="cap-table.html">Cap Table</a></li>
+            <li><a href="equity-split.html">Equity Split</a></li>
+            <li><a href="valuation.html">Valuation</a></li>
+            <li><a href="stock-options.html">Stock Options</a></li>
+            <li><a href="compare-offers.html">Compare Offers</a></li>
+            <li><a href="free-startup-tools.html">Free Tools</a></li>
+            <li><a href="social-scenarios.html">Equity Scenarios</a></li>
+            <li><a href="equity-quiz.html">Equity Quiz</a></li>
+            <li><a href="carta-alternatives.html">Carta Alternatives</a></li>
+            <li><a href="embed.html">Embed</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script>
+function toggleFaq(element) {
+    const faqItem = element.parentElement;
+    faqItem.classList.toggle('open');
+}
+</script>
+</body>
+</html>

@@ -5,6 +5,7 @@
 **Method:** Personalized outreach to 20+ accelerators
 **Resource:** https://founder-math.com/embed
 **Status:** List and basic template ready (ACCELERATOR-LIST.md)
+**Tools:** 10 calculators (dilution, SAFE, runway, cap table, vesting, unit economics, equity split, valuation, stock options, compare offers)
 
 ## Accelerator Priority Matrix
 
@@ -43,7 +44,7 @@
 
 Hi [Name],
 
-I'm building FounderMath, a suite of 9 free calculators for startup founders:
+I'm building FounderMath, a suite of 10 free calculators for startup founders:
 
 - Equity Dilution Calculator (model ownership across funding rounds)
 - SAFE Note Calculator (YC SAFE conversions)
@@ -54,6 +55,7 @@ I'm building FounderMath, a suite of 9 free calculators for startup founders:
 - Co-Founder Equity Split Calculator (fair split based on contributions)
 - Startup Valuation Calculator (3 methods: Berkus, Scorecard, VC)
 - Stock Options Calculator (what your options are worth)
+- Compare Equity Offers (side-by-side job offer comparison with exit scenarios)
 
 These calculators are completely free and can be embedded on any website with a single line of code.
 
@@ -166,6 +168,7 @@ Available calculators for embed:
 - /embed/equity-split.html (Equity Split)
 - /embed/valuation.html (Valuation)
 - /embed/stock-options.html (Stock Options)
+- /embed/compare-offers.html (Compare Equity Offers)
 
 ## Outreach Tracking
 

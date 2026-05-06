@@ -2,17 +2,28 @@
 
 ## SEO & Content
 
-- ⬜ C115: Create "FounderMath vs Carta vs Pulley" comparison page for SEO
-- ⬜ C119: Verify all nav/footer links are correct after mass update (spot-check 10 pages)
-- ⬜ C120: Test compare-offers.html on mobile — verify layout and responsiveness
-- ⬜ C122: Test usage-prompt.js — verify tracking and nudge display works correctly
+- ⬜ C127: Write "How to Negotiate Your Startup Job Offer" practical guide
+- ⬜ C128: Create "Equity vs Salary Calculator" — simple comparison tool
+- ⬜ C129: Add internal links from all blog posts to new comparison page
+- ⬜ C130: Create "Startup Equity Glossary" page for SEO
+- ⬜ C131: Write "Stock Option Vesting Cliff Explained" blog post
+- ⬜ C132: Add "Print this comparison" styled CSS for compare-offers.html
 
 ## Growth & Distribution
 
-- ⬜ C123: Submit new blog posts to Google Search Console for indexing
-- ⬜ C124: Create embeddable widget code for compare-offers tool
-- ⬜ C125: Add "Share your comparison" feature to compare-offers.html results
-- ⬜ C126: Update ACCELERATOR-OUTREACH.md with compare-offers tool mention
+- ⬜ C133: Update Twitter bio with link to compare-offers tool
+- ⬜ C134: Create LinkedIn post template for job offer comparison
+- ⬜ C135: Submit foundermath-vs-carta-pulley.html to relevant directories
+- ⬜ C136: Reach out to 5 startup blogs for guest post about equity negotiation
+- ⬜ C137: Create "Share to LinkedIn" button for compare-offers results
+- ⬜ C138: Add comparison tool link to salary-vs-equity blog post CTA
+
+## Product & UX
+
+- ⬜ C139: Add "Clear all fields" confirmation dialog
+- ⬜ C140: Improve error messaging for invalid inputs on compare-offers
+- ⬜ C141: Add "Download as PDF" Pro feature highlight on results
+- ⬜ C142: Create "Quick Start" modal for first-time calculator users
 
 ## Completed
 
@@ -29,3 +40,4 @@
 ✅ C113-C114: Compare equity offers + startup offer negotiation blog posts (Day 21)
 ✅ C116-C118: Blog index updates, cross-links, Founding 50 on pricing (Day 21)
 ✅ C121: Added Compare Offers to free-startup-tools.html with updated schema (Day 21)
+✅ C115-C126: Comparison page, nav verification, mobile test, usage-prompt fix (critical bug), sitemap update, embed widget, share feature, accelerator outreach (Day 22)
