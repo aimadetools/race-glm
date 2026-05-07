@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAFE Note Stacking: How Multiple SAFEs Convert at a Priced Round (2026) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu(){const n=document.getElementById('navLinks'),t=document.getElementById('mobileToggle');n.classList.toggle('open');t.setAttribute('aria-expanded',n.classList.contains('open'))}
+        document.addEventListener('keydown',function(e){if(e.key==='Escape'){const n=document.getElementById('navLinks');if(n.classList.contains('open')){n.classList.remove('open');document.getElementById('mobileToggle').focus()}}});
+    </script>
+    <meta name="description" content="Learn how multiple SAFE notes stack and convert at a priced funding round. Step-by-step examples with 2, 3, and 4 SAFEs converting at different valuation caps.">
+    <meta name="keywords" content="SAFE note stacking, multiple SAFEs, SAFE waterfall, SAFE conversion, stacking SAFEs, cap table SAFE notes, SAFE notes converting">
+    <meta property="og:title" content="SAFE Note Stacking: How Multiple SAFEs Convert at a Priced Round">
+    <meta property="og:description" content="Step-by-step guide to understanding how multiple SAFE notes stack and convert at different valuation caps during a priced round.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/safe-note-stacking.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SAFE Note Stacking: How Multiple SAFEs Convert">
+    <meta name="twitter:description" content="Step-by-step guide to understanding how multiple SAFE notes stack and convert during a priced round.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "SAFE Note Stacking: How Multiple SAFEs Convert at a Priced Round",
+        "author": { "@type": "Organization", "name": "FounderMath" },
+        "datePublished": "2026-05-07",
+        "dateModified": "2026-05-07",
+        "publisher": { "@type": "Organization", "name": "FounderMath", "logo": { "@type": "ImageObject", "url": "https://founder-math.com/og-home.svg" } },
+        "description": "Learn how multiple SAFE notes stack and convert at a priced funding round with step-by-step examples.",
+        "mainEntityOfPage": "https://founder-math.com/blog/safe-note-stacking.html"
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f; --bg-secondary: #12121a; --bg-card: #1a1a2e;
+            --accent: #6c5ce7; --accent-light: #a29bfe; --accent-glow: rgba(108,92,231,0.3);
+            --green: #00b894; --red: #ff6b6b; --orange: #ffa502;
+            --text-primary: #f0f0f5; --text-secondary: #a0a0b5; --text-muted: #666680;
+            --border: #2a2a40; --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        .article { max-width: 800px; margin: 0 auto; padding: 120px 24px 60px; }
+        .article h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.2; }
+        .article-meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 40px; }
+        .article h2 { font-size: 1.5rem; font-weight: 700; margin: 48px 0 16px; color: var(--accent-light); }
+        .article h3 { font-size: 1.2rem; font-weight: 700; margin: 32px 0 12px; }
+        .article p { color: var(--text-secondary); margin-bottom: 16px; font-size: 1rem; }
+        .article ul, .article ol { color: var(--text-secondary); margin: 0 0 16px 24px; font-size: 1rem; }
+        .article li { margin-bottom: 8px; }
+        .article strong { color: var(--text-primary); }
+
+        .example-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0; }
+        .example-box h4 { color: var(--accent-light); margin-bottom: 12px; font-size: 1rem; }
+        .example-box .calc { font-family: var(--font-mono); background: var(--bg-primary); padding: 12px 16px; border-radius: 8px; margin: 8px 0; font-size: 0.9rem; overflow-x: auto; }
+        .example-box .result { color: var(--green); font-weight: 700; }
+        .example-box .highlight { color: var(--orange); font-weight: 600; }
+
+        .cta-box { background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 16px; padding: 32px; margin: 40px 0; text-align: center; }
+        .cta-box h3 { color: white; margin-bottom: 12px; font-size: 1.3rem; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+        .cta-btn { display: inline-block; background: white; color: var(--accent); padding: 14px 32px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 1rem; transition: transform 0.2s; }
+        .cta-btn:hover { transform: translateY(-2px); }
+
+        .waterfall-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        .waterfall-table th { text-align: left; padding: 10px 12px; border-bottom: 2px solid var(--border); color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .waterfall-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--text-secondary); }
+        .waterfall-table .pct { font-family: var(--font-mono); font-weight: 700; }
+        .waterfall-table .neg { color: var(--red); }
+        .waterfall-table .founder { color: var(--accent-light); }
+        .waterfall-table .total-row td { border-top: 2px solid var(--border); font-weight: 700; color: var(--text-primary); }
+
+        .takeaway { background: rgba(108,92,231,0.1); border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+        .takeaway p { color: var(--text-secondary); margin: 0; }
+
+        .toc { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 40px; }
+        .toc h3 { font-size: 1rem; margin-bottom: 12px; color: var(--text-primary); }
+        .toc ul { list-style: none; margin: 0; padding: 0; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: var(--accent-light); text-decoration: none; font-size: 0.9rem; }
+        .toc a:hover { text-decoration: underline; }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo"><div class="logo-icon">%</div> FounderMath</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/dilution.html">Dilution</a></li>
+                <li><a href="/safe.html">SAFE</a></li>
+                <li><a href="/cap-table.html">Cap Table</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/pricing.html" class="nav-cta">Start Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <article class="article">
+        <h1>SAFE Note Stacking: How Multiple SAFEs Convert at a Priced Round</h1>
+        <div class="article-meta">May 7, 2026 &mdash; 10 min read &bull; By FounderMath</div>
+
+        <div class="toc">
+            <h3>In this guide</h3>
+            <ul>
+                <li><a href="#what-is-stacking">What is SAFE stacking?</a></li>
+                <li><a href="#how-it-works">How multiple SAFEs convert</a></li>
+                <li><a href="#example">Example: 3 SAFEs at different caps</a></li>
+                <li><a href="#waterfall">The SAFE waterfall explained</a></li>
+                <li><a href="#common-mistakes">Common mistakes with stacking SAFEs</a></li>
+                <li><a href="#try-it">Try it yourself</a></li>
+            </ul>
+        </div>
+
+        <p>You raised $250K on a $5M cap SAFE in January. Then another $500K on an $8M cap in March. Then a $1M MFN SAFE in May. Now your Series A is priced at $20M pre-money. What happens to your cap table?</p>
+
+        <p>This is <strong>SAFE stacking</strong> &mdash; and it's one of the most confusing things founders face during fundraising. Let's break it down step by step.</p>
+
+        <h2 id="what-is-stacking">What is SAFE stacking?</h2>
+        <p>SAFE stacking happens when a startup raises money through <strong>multiple SAFE notes at different terms</strong> before a priced round. Each SAFE has its own valuation cap, discount, and investment amount. When a priced round finally happens, <strong>all SAFEs convert at once</strong>, but each at its own conversion price.</p>
+
+        <p>This is extremely common. Most pre-seed startups raise from 3-5 angels using SAFEs, often with different terms negotiated by each investor.</p>
+
+        <h2 id="how-it-works">How multiple SAFEs convert</h2>
+        <p>Each SAFE converts independently based on its own terms. Here's the key insight: <strong>a lower valuation cap or higher discount means more shares for that investor</strong>, which means more dilution for you.</p>
+
+        <p>For each SAFE, the conversion price is calculated as:</p>
+
+        <div class="example-box">
+            <h4>Conversion Price Rules</h4>
+            <div class="calc">
+<strong>Cap Only:</strong> Conversion Price = (Valuation Cap / Pre-Money Valuation) &times; Price Per Share<br><br>
+<strong>Discount Only:</strong> Conversion Price = Price Per Share &times; (1 - Discount%)<br><br>
+<strong>Cap + Discount:</strong> Conversion Price = min(Cap Price, Discounted Price)<br><br>
+<strong>MFN:</strong> Gets the best price of any other SAFE in the round
+            </div>
+        </div>
+
+        <p>Once you have the conversion price for each SAFE:</p>
+        <div class="calc">
+Shares Issued = Investment Amount / Conversion Price<br>
+Ownership % = Shares Issued / (Pre-Money Shares + All SAFE Shares) &times; 100
+        </div>
+
+        <h2 id="example">Example: 3 SAFEs at different caps</h2>
+        <p>Let's work through a real scenario with actual numbers.</p>
+
+        <div class="example-box">
+            <h4>Setup</h4>
+            <p><strong>Pre-money valuation:</strong> $20M &nbsp;|&nbsp; <strong>Price per share:</strong> $10.00</p>
+            <p><strong>Pre-money shares outstanding:</strong> 2,000,000</p>
+            <table class="waterfall-table">
+                <tr><th>SAFE</th><th>Investment</th><th>Cap</th><th>Discount</th><th>Type</th></tr>
+                <tr><td>Angel SAFE 1</td><td>$250,000</td><td>$5M</td><td>20%</td><td>Cap + Discount</td></tr>
+                <tr><td>Angel SAFE 2</td><td>$500,000</td><td>$8M</td><td>&mdash;</td><td>Cap Only</td></tr>
+                <tr><td>Angel SAFE 3</td><td>$1,000,000</td><td>&mdash;</td><td>&mdash;</td><td>MFN</td></tr>
+            </table>
+        </div>
+
+        <h3>Step 1: Calculate conversion price for each SAFE</h3>
+
+        <div class="example-box">
+            <h4>Angel SAFE 1 ($250K, $5M cap, 20% discount)</h4>
+            <div class="calc">
+Cap Price = ($5M / $20M) &times; $10 = <span class="highlight">$2.50</span><br>
+Discount Price = $10 &times; (1 - 0.20) = <span class="highlight">$8.00</span><br>
+Conversion Price = min($2.50, $8.00) = <span class="result">$2.50</span>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Angel SAFE 2 ($500K, $8M cap, no discount)</h4>
+            <div class="calc">
+Cap Price = ($8M / $20M) &times; $10 = <span class="result">$4.00</span><br>
+Conversion Price = <span class="result">$4.00</span>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Angel SAFE 3 ($1M, MFN)</h4>
+            <div class="calc">
+Best price of other SAFEs = min($2.50, $4.00) = $2.50<br>
+Conversion Price = <span class="result">$2.50</span> (matches the best deal)
+            </div>
+        </div>
+
+        <h3>Step 2: Calculate shares and ownership</h3>
+
+        <div class="example-box">
+            <h4>Share Calculation</h4>
+            <div class="calc">
+Angel SAFE 1: $250,000 / $2.50 = <span class="result">100,000 shares</span> (4.55%)<br>
+Angel SAFE 2: $500,000 / $4.00 = <span class="result">125,000 shares</span> (5.68%)<br>
+Angel SAFE 3: $1,000,000 / $2.50 = <span class="result">400,000 shares</span> (18.18%)<br><br>
+Total SAFE Shares: <span class="highlight">625,000</span><br>
+Total Fully Diluted: 2,000,000 + 625,000 = <span class="highlight">2,625,000</span>
+            </div>
+        </div>
+
+        <h2 id="waterfall">The SAFE Waterfall: Founder Dilution Step by Step</h2>
+
+        <p>Here's where the stacking effect becomes clear. Watch the founder ownership drop with each SAFE:</p>
+
+        <table class="waterfall-table">
+            <tr><th>Step</th><th>Event</th><th>Founder Ownership</th><th>Change</th></tr>
+            <tr><td>1</td><td>Before SAFEs</td><td class="pct founder">100.00%</td><td>&mdash;</td></tr>
+            <tr><td>2</td><td>After Angel SAFE 1 converts</td><td class="pct">95.24%</td><td class="pct neg">-4.76%</td></tr>
+            <tr><td>3</td><td>After Angel SAFE 2 converts</td><td class="pct">89.52%</td><td class="pct neg">-5.72%</td></tr>
+            <tr><td>4</td><td>After Angel SAFE 3 (MFN) converts</td><td class="pct">71.43%</td><td class="pct neg">-18.09%</td></tr>
+            <tr class="total-row"><td></td><td><strong>Final Founder Ownership</strong></td><td class="pct founder"><strong>71.43%</strong></td><td class="pct neg"><strong>-28.57%</strong></td></tr>
+        </table>
+
+        <div class="takeaway">
+            <p><strong>Key insight:</strong> Angel SAFE 3 (the MFN SAFE) caused the most dilution because it matched the lowest cap price ($2.50) while investing the most money ($1M). MFN SAFEs can be <em>very expensive</em> for founders when they match a low cap and invest a large amount.</p>
+        </div>
+
+        <h2 id="common-mistakes">5 Common Mistakes with Stacking SAFEs</h2>
+
+        <h3>1. Not tracking cumulative dilution</h3>
+        <p>Each SAFE seems small on its own, but they add up. Three SAFEs that each dilute you 5-8% can leave you with 70% ownership before the Series A even starts.</p>
+
+        <h3>2. Underestimating MFN SAFEs</h3>
+        <p>MFN (Most Favored Nation) SAFEs inherit the best terms of any other SAFE. If you gave one angel a $5M cap, every MFN investor also gets that $5M cap &mdash; no matter how much they invested.</p>
+
+        <h3>3. Ignoring the "stacking effect" on future rounds</h3>
+        <p>If SAFEs take 28% of your company, and then your Series A takes 20%, you're left with: 71.43% &times; 80% = <strong>57.1%</strong>. After option pool creation (typically 10%), you're at <strong>51.4%</strong>. That's before Series B.</p>
+
+        <h3>4. Not modeling before signing</h3>
+        <p>Always model the full SAFE conversion before accepting a new SAFE. Use the <a href="/safe.html" style="color:var(--accent-light)">SAFE Note Calculator</a> to see exactly what each new SAFE does to your cap table.</p>
+
+        <h3>5. Forgetting SAFE dilution affects employees too</h3>
+        <p>Your option pool gets diluted by SAFEs too. A 10% option pool pre-SAFE becomes 7.1% after the SAFEs in our example. You may need to increase the pool &mdash; which dilutes founders further.</p>
+
+        <h2 id="try-it">Model your own SAFE stacking scenario</h2>
+        <p>Our <a href="/safe.html" style="color:var(--accent-light)">SAFE Note Calculator</a> handles multiple SAFEs with different caps, discounts, and MFN provisions. It shows you the full waterfall &mdash; exactly how your ownership changes as each SAFE converts.</p>
+
+        <div class="cta-box">
+            <h3>Try the SAFE Stacking Calculator</h3>
+            <p>Add up to 6 SAFEs with different terms and see exactly what happens to your cap table.</p>
+            <a href="/safe.html" class="cta-btn">Open SAFE Calculator &rarr;</a>
+        </div>
+
+        <h2>Related Resources</h2>
+        <ul>
+            <li><a href="/blog/safe-note-guide.html" style="color:var(--accent-light)">SAFE Note Conversion: The Complete Guide</a></li>
+            <li><a href="/blog/convertible-notes-vs-safe.html" style="color:var(--accent-light)">Convertible Notes vs SAFE Notes: Which to Use</a></li>
+            <li><a href="/blog/equity-dilution-guide.html" style="color:var(--accent-light)">How Equity Dilution Works Across Funding Rounds</a></li>
+            <li><a href="/dilution.html" style="color:var(--accent-light)">Equity Dilution Calculator</a></li>
+            <li><a href="/cap-table.html" style="color:var(--accent-light)">Cap Table Builder</a></li>
+        </ul>
+    </article>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left"><p>&copy; 2026 FounderMath. Built for founders, by founders.</p></div>
+            <ul class="footer-links">
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
