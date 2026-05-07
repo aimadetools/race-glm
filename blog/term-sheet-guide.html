@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Term Sheet Guide: Every Clause Explained (2026) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="Complete guide to startup term sheets. Understand valuation, liquidation preference, anti-dilution, pro-rata rights, board composition, and every clause that affects founder ownership.">
+    <meta name="keywords" content="startup term sheet, term sheet guide, series a term sheet, venture capital term sheet, term sheet negotiation, term sheet clauses, what is a term sheet">
+    <meta property="og:title" content="Startup Term Sheet Guide: Every Clause Explained">
+    <meta property="og:description" content="Understand every clause in your startup's term sheet. Valuation, liquidation preference, anti-dilution, board seats, and negotiation tips for founders.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/term-sheet-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Startup Term Sheet Guide: Every Clause Explained">
+    <meta name="twitter:description" content="Understand every clause in your startup's term sheet. Valuation, liquidation preference, anti-dilution, board seats, and negotiation tips for founders.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Startup Term Sheet Guide: Every Clause Explained",
+        "url": "https://founder-math.com/blog/term-sheet-guide.html",
+        "description": "Complete guide to startup term sheets. Understand valuation, liquidation preference, anti-dilution, pro-rata rights, and every clause that affects founder ownership.",
+        "datePublished": "2026-05-07",
+        "dateModified": "2026-05-07",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00b894;
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+        }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --bg-card: #f9f9fb;
+            --text-primary: #1a1a2e;
+            --text-secondary: #555570;
+            --border: #e0e0e0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85); border-bottom: 1px solid var(--border); }
+        body[data-theme="light"] nav { background: rgba(255, 255, 255, 0.9); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.25rem; font-weight: 700; text-decoration: none; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+        .theme-toggle { background: none; border: none; color: var(--text-secondary); cursor: pointer; padding: 8px; display: flex; align-items: center; justify-content: center; }
+        .theme-toggle:hover { color: var(--text-primary); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        @media (max-width: 768px) { .nav-links { position: fixed; top: 64px; left: 0; right: 0; background: var(--bg-primary); flex-direction: column; padding: 24px; gap: 16px; border-bottom: 1px solid var(--border); transform: translateY(-100%); transition: transform 0.3s; } .nav-links.open { transform: translateY(0); } .mobile-toggle { display: block; } }
+        main { max-width: 800px; margin: 0 auto; padding: 96px 24px 64px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); text-decoration: none; margin-bottom: 32px; font-size: 0.95rem; }
+        .back-link:hover { color: var(--accent); }
+        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 24px; }
+        .meta { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 40px; }
+        h2 { font-size: 1.75rem; margin: 48px 0 24px; }
+        h3 { font-size: 1.35rem; margin: 32px 0 16px; }
+        p { margin-bottom: 24px; color: var(--text-secondary); }
+        strong { color: var(--text-primary); }
+        code { background: var(--bg-secondary); padding: 4px 8px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.9rem; }
+        ul, ol { margin-bottom: 24px; padding-left: 24px; color: var(--text-secondary); }
+        li { margin-bottom: 12px; }
+        .callout { background: var(--bg-card); border-left: 4px solid var(--accent); padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 32px 0; }
+        .callout h4 { color: var(--accent); margin-bottom: 8px; font-size: 1.1rem; }
+        .callout p { margin-bottom: 0; }
+        .warning { border-color: var(--red); }
+        .warning h4 { color: var(--red); }
+        .success { border-color: var(--green); }
+        .success h4 { color: var(--green); }
+        .comparison-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 32px 0; border-radius: 8px; overflow: hidden; }
+        .comparison-table th, .comparison-table td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        .comparison-table th { background: var(--bg-secondary); color: var(--text-primary); font-weight: 600; }
+        .comparison-table th:first-child { border-radius: 8px 0 0 0; }
+        .comparison-table th:last-child { border-radius: 0 8px 0 0; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .cta-box { background: linear-gradient(135deg, var(--accent) 0%, #4834d4 100%); padding: 32px; border-radius: 12px; text-align: center; margin: 48px 0; }
+        .cta-box h3 { color: white; margin-bottom: 12px; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 24px; }
+        .cta-btn { display: inline-block; background: white; color: var(--accent); padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+        .newsletter { max-width: 600px; margin: 40px auto 60px; padding: 32px; text-align: center; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; }
+        .newsletter h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .newsletter p { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem; }
+        .newsletter-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; }
+        .newsletter-form input { flex: 1; padding: 12px 16px; background: var(--bg-input); border: 1px solid var(--border); border-radius: 10px; color: var(--text-primary); font-size: 0.9rem; outline: none; }
+        .newsletter-form input:focus { border-color: var(--accent); }
+        .newsletter-form input::placeholder { color: var(--text-muted); }
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        @media (max-width: 600px) { h1 { font-size: 1.75rem; } h2 { font-size: 1.4rem; } .cta-box { padding: 24px; } .comparison-table { font-size: 0.9rem; } .comparison-table th, .comparison-table td { padding: 12px; } }
+        .toc { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 32px 0; }
+        .toc h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-light); margin: 0 0 12px 0; }
+        .toc ol { padding-left: 20px; }
+        .toc li { margin-bottom: 6px; font-size: 0.9rem; }
+        .toc a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .toc a:hover { color: var(--accent-light); }
+        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
+        .related-posts a:hover { text-decoration: underline; }
+        .author-bio { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-top: 48px; display: flex; gap: 16px; align-items: flex-start; }
+        .author-avatar { font-size: 2.5rem; line-height: 1; flex-shrink: 0; }
+        .author-content h4 { margin: 0 0 8px 0; font-size: 0.95rem; color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.05em; }
+        .author-content p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
+        .author-content a { color: var(--accent-light); text-decoration: none; }
+        .author-content a:hover { text-decoration: underline; }
+        .callout.cta { border-left-color: var(--green); background: rgba(0,184,148,0.08); }
+        .callout.cta .cta-button { display: inline-block; margin-top: 0.75rem; padding: 0.6rem 1.5rem; background: var(--green); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .callout.cta .cta-button:hover { opacity: 0.9; }
+        .clause-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0; }
+        .clause-card h4 { color: var(--accent-light); margin-bottom: 8px; font-size: 1.1rem; }
+        .clause-card .clause-label { display: inline-block; background: var(--bg-secondary); padding: 2px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+    </style>
+</head>
+<body data-theme="dark">
+    <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="../" class="logo" aria-label="FounderMath home">
+            <div class="logo-icon" aria-hidden="true">%</div>
+            FounderMath
+        </a>
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+            <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+            <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+            <li role="none"><a href="../vesting.html" role="menuitem">Vesting</a></li>
+            <li role="none"><a href="../unit-economics.html" role="menuitem">Unit Econ</a></li>
+            <li role="none"><a href="../cap-table.html" role="menuitem">Cap Table</a></li>
+            <li role="none"><a href="../equity-split.html" role="menuitem">Equity Split</a></li>
+            <li role="none"><a href="../valuation.html" role="menuitem">Valuation</a></li>
+            <li role="none"><a href="../stock-options.html" role="menuitem">Options</a></li>
+            <li role="none"><a href="compare-offers.html" role="menuitem">Compare</a></li>
+            <li role="none"><a href="../pricing.html" role="menuitem">Pricing</a></li>
+            <li><a href="../pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+            <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></li>
+        </ul>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+    </div>
+</nav>
+<main>
+    <a href="../blog.html" class="back-link">&larr; Back to Blog</a>
+    <h1>Startup Term Sheet Guide: Every Clause Explained for Founders</h1>
+    <div class="meta">Published May 7, 2026 &bull; 14 min read</div>
+    <p>When a venture capital firm wants to invest in your startup, they deliver a <strong>term sheet</strong> -- a document outlining the key terms of the investment. It is not legally binding (with a few exceptions), but it sets the framework for the definitive agreements that follow. Understanding every clause in your term sheet is critical because these terms determine how much of your company you keep, how much control you retain, and what happens at exit.</p>
+
+    <div class="callout">
+        <h4>Key Takeaway</h4>
+        <p>A term sheet has two types of terms: <strong>economics</strong> (how the money works -- valuation, liquidation preference, anti-dilution) and <strong>governance</strong> (who controls what -- board seats, protective provisions, voting rights). Focus on economics first, because bad economics cannot be fixed by good governance.</p>
+    </div>
+
+    <nav class="toc">
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#what-is-term-sheet">What Is a Term Sheet?</a></li>
+            <li><a href="#economics">Economic Terms</a></li>
+            <li><a href="#governance">Governance Terms</a></li>
+            <li><a href="#founder-friendly">What a Founder-Friendly Term Sheet Looks Like</a></li>
+            <li><a href="#negotiate">What to Negotiate (and What to Accept)</a></li>
+            <li><a href="#red-flags">Red Flags in a Term Sheet</a></li>
+            <li><a href="#process">The Term Sheet Process</a></li>
+        </ol>
+    </nav>
+
+    <h2 id="what-is-term-sheet">What Is a Term Sheet?</h2>
+    <p>A term sheet is a <strong>non-binding document</strong> that outlines the key terms of a proposed investment. It serves as the basis for negotiation before the lawyers draft the definitive legal documents (Stock Purchase Agreement, Investors' Rights Agreement, Voting Agreement, and Right of First Refusal/Co-Sale Agreement). Most term sheets are 3-5 pages long and follow a relatively standard format.</p>
+    <p>Key things to understand about term sheets:</p>
+    <ul>
+        <li><strong>Most clauses are non-binding.</strong> The economic and governance terms are typically subject to further negotiation and documentation.</li>
+        <li><strong>Some clauses ARE binding.</strong> Confidentiality, exclusivity (no-shop clause), and expense provisions are usually binding even if the deal falls apart.</li>
+        <li><strong>Magic happens in the details.</strong> A term sheet that looks similar on the surface can produce very different outcomes at exit based on the specific language.</li>
+    </ul>
+
+    <h2 id="economics">Economic Terms</h2>
+    <p>Economic terms determine how the financial pie is divided. These are the clauses that directly affect how much money you, the founder, walk away with at exit.</p>
+
+    <div class="clause-card">
+        <span class="clause-label">Critical</span>
+        <h4>Pre-Money Valuation</h4>
+        <p>The pre-money valuation is the value of your company <strong>before</strong> the new money comes in. The post-money valuation is pre-money plus the new investment amount. Your dilution is calculated as:</p>
+        <p><code>Founder dilution = Investment / Post-money valuation</code></p>
+        <p>For example, if you raise $3M at a $12M pre-money valuation, the post-money is $15M. You dilute by 20% ($3M / $15M). After the round, you own 80% of the company (assuming no option pool expansion).</p>
+        <div class="callout warning">
+            <h4>Watch Out: Option Pool Shuffle</h4>
+            <p>Investors often require an option pool expansion as part of the pre-money. If the term sheet says "12M pre-money, including a 10% post-money option pool," the actual value of your existing shares is less than you think. The option pool comes out of the pre-money, meaning your effective valuation is lower. Use our <a href="../dilution.html" style="color: var(--accent);">Dilution Calculator</a> to model this.</p>
+        </div>
+    </div>
+
+    <div class="clause-card">
+        <span class="clause-label">Critical</span>
+        <h4>Liquidation Preference</h4>
+        <p>Liquidation preference determines who gets paid first and how much when the company is sold, goes public, or shuts down. This is one of the most important economic terms.</p>
+        <ul>
+            <li><strong>1x non-participating (standard):</strong> Investors choose between (a) getting their investment back, or (b) converting to common stock and sharing proportionally. This is the most founder-friendly structure and market standard for good companies.</li>
+            <li><strong>1x participating:</strong> Investors get their money back first, THEN also share in the remaining proceeds as if they had converted. This is called "double dipping" and significantly reduces founder proceeds in moderate exits.</li>
+            <li><strong>2x or higher:</strong> Investors get 2x (or more) their investment back before anyone else sees a dime. This is aggressive and usually a sign of a down round or investor-friendly terms.</li>
+        </ul>
+        <p>For a deeper dive, see our <a href="liquidation-preference-guide.html" style="color: var(--accent);">Liquidation Preference Guide</a>.</p>
+    </div>
+
+    <div class="clause-card">
+        <span class="clause-label">Important</span>
+        <h4>Anti-Dilution Protection</h4>
+        <p>Anti-dilution provisions protect investors if you raise a future round at a lower price (a "down round"). There are two main types:</p>
+        <ul>
+            <li><strong>Broad-based weighted average (standard):</strong> Adjusts the investor's conversion price based on a formula that considers the amount of new money and the price difference. This is the market standard and moderately founder-friendly.</li>
+            <li><strong>Full ratchet (aggressive):</strong> If you issue even one share at a lower price, all of the investor's shares are repriced to that lower price. This is extremely punitive to founders and should be resisted.</li>
+        </ul>
+        <p>For the full breakdown, read our <a href="anti-dilution-guide.html" style="color: var(--accent);">Anti-Dilution Provisions Guide</a>.</p>
+    </div>
+
+    <div class="clause-card">
+        <span class="clause-label">Important</span>
+        <h4>Dividends</h4>
+        <p>Term sheets often include a dividend provision. The standard is an <strong>8% non-cumulative dividend</strong> on preferred stock. In practice, this means preferred shareholders get an 8% annual return on top of their liquidation preference -- but only if dividends are declared by the board. For startups that never declare dividends (which is most of them), this provision has minimal practical effect. Watch out for <strong>cumulative dividends</strong>, which accrue regardless of whether they are declared and significantly increase the liquidation preference over time.</p>
+    </div>
+
+    <div class="clause-card">
+        <span class="clause-label">Important</span>
+        <h4>Conversion Rights</h4>
+        <p>Preferred stock can convert to common stock. The key terms are:</p>
+        <ul>
+            <li><strong>Voluntary conversion:</strong> Preferred holders can choose to convert to common at any time. This happens when the common stock is worth more than the preferred (usually at a strong IPO).</li>
+            <li><strong>Automatic conversion:</strong> Preferred automatically converts to common at a qualified IPO (typically defined as an offering of at least $15-25M at a price that gives investors a 3-5x return).</li>
+            <li><strong>Pay-to-play:</strong> If an investor does not participate in a future round, their preferred stock converts to common. This is founder-friendly because it forces investors to support the company in future rounds.</li>
+        </ul>
+    </div>
+
+    <h2 id="governance">Governance Terms</h2>
+    <p>Governance terms determine who controls the company's decision-making. These are important but generally less critical than economic terms.</p>
+
+    <div class="clause-card">
+        <span class="clause-label">Critical</span>
+        <h4>Board Composition</h4>
+        <p>Board composition determines who controls the board of directors. The standard structure for a Series A is:</p>
+        <ul>
+            <li><strong>2 founders + 1 investor + 1 independent</strong> (founder-controlled, typical for strong deals)</li>
+        </ul>
+        <p>Watch out for structures that give investors board control, such as 2 investors + 1 founder + 1 independent, which means investors + independent can outvote the founder.</p>
+    </div>
+
+    <div class="clause-card">
+        <span class="clause-label">Important</span>
+        <h4>Protective Provisions</h4>
+        <p>Protective provisions give preferred shareholders veto power over certain major decisions, regardless of their voting power. Standard protective provisions include:</p>
+        <ul>
+            <li>Amending the certificate of incorporation</li>
+            <li>Creating a new series of preferred stock with senior rights</li>
+            <li>Liquidating or selling the company</li>
+            <li>Increasing the authorized share count</li>
+            <li>Changing the size of the board</li>
+        </ul>
+        <p>These are standard and generally acceptable. Watch out for investors who try to add protective provisions for things like hiring/firing executives, setting budgets, or changing business direction -- these should remain with management.</p>
+    </div>
+
+    <div class="clause-card">
+        <span class="clause-label">Standard</span>
+        <h4>Pro-Rata Rights</h4>
+        <p>Pro-rata rights give investors the right to maintain their ownership percentage in future rounds. If an investor owns 20% after Series A, they have the right to buy 20% of the Series B to avoid dilution.</p>
+        <p>This is standard market practice and generally acceptable. Some founders negotiate to limit pro-rata to investors who meet certain thresholds (e.g., only investors owning more than 5%). Read our <a href="pro-rata-rights-guide.html" style="color: var(--accent);">Pro-Rata Rights Guide</a> for more details.</p>
+    </div>
+
+    <div class="clause-card">
+        <span class="clause-label">Standard</span>
+        <h4>Information Rights</h4>
+        <p>Investors with information rights receive annual audited financials, quarterly financials, and monthly management reports. This is standard and you should accept it. Major investors (typically those investing above a threshold) usually get board observer rights and more detailed reporting.</p>
+    </div>
+
+    <div class="clause-card">
+        <span class="clause-label">Important</span>
+        <h4>Founder Vesting</h4>
+        <p>Investors often require founders to re-vest their shares over 3-4 years, even if they have been working on the company for years. This means if a founder leaves within the vesting period, the company repurchases their unvested shares at cost.</p>
+        <ul>
+            <li><strong>Market standard:</strong> 4-year vesting with 1-year cliff, with credit for time already served. If you have been working for 2 years, you get credit for 2 years of vesting.</li>
+            <li><strong>Aggressive:</strong> Full 4-year vesting with no credit for prior service. Resist this if you have been building the company for a significant time.</li>
+            <li><strong>Acceleration:</strong> Negotiate for single-trigger or double-trigger acceleration on change of control. Double-trigger (leaving within 12 months after an acquisition) is more common and investor-friendly. Use our <a href="../vesting.html" style="color: var(--accent);">Vesting Calculator</a> to model different scenarios.</li>
+        </ul>
+    </div>
+
+    <div class="clause-card">
+        <span class="clause-label">Important</span>
+        <h4>No-Shop / Exclusivity</h4>
+        <p>The no-shop clause prevents you from soliciting or accepting other investment offers for a period (typically 30-60 days) after signing the term sheet. This is <strong>binding</strong> even though the rest of the term sheet is not. A 30-45 day no-shop is standard. Push back on anything longer than 60 days.</p>
+    </div>
+
+    <div class="clause-card">
+        <span class="clause-label">Standard</span>
+        <h4>Right of First Refusal (ROFR) and Co-Sale</h4>
+        <p>ROFR gives the company or investors the right to purchase shares before a founder sells to a third party. Co-sale gives investors the right to sell their shares alongside a founder. Both are standard and protect against unwanted third-party ownership changes.</p>
+    </div>
+
+    <h2 id="founder-friendly">What a Founder-Friendly Term Sheet Looks Like</h2>
+    <p>Here is a quick reference for what a standard, founder-friendly Series A term sheet includes:</p>
+
+    <table class="comparison-table">
+        <tr>
+            <th>Term</th>
+            <th>Founder-Friendly (Market)</th>
+            <th>Aggressive (Watch Out)</th>
+        </tr>
+        <tr>
+            <td><strong>Valuation</strong></td>
+            <td>Fair market value, no hidden option pool</td>
+            <td>Lowball with large option pool expansion</td>
+        </tr>
+        <tr>
+            <td><strong>Liquidation Preference</strong></td>
+            <td>1x non-participating</td>
+            <td>1x+ participating, or 2x non-participating</td>
+        </tr>
+        <tr>
+            <td><strong>Anti-Dilution</strong></td>
+            <td>Broad-based weighted average</td>
+            <td>Full ratchet</td>
+        </tr>
+        <tr>
+            <td><strong>Dividends</strong></td>
+            <td>8% non-cumulative</td>
+            <td>Cumulative dividends</td>
+        </tr>
+        <tr>
+            <td><strong>Board</strong></td>
+            <td>Founder-controlled (2F + 1I + 1 ind)</td>
+            <td>Investor-controlled</td>
+        </tr>
+        <tr>
+            <td><strong>Founder Vesting</strong></td>
+            <td>Credit for time served + double-trigger</td>
+            <td>Full re-vest, no credit, no acceleration</td>
+        </tr>
+        <tr>
+            <td><strong>No-Shop</strong></td>
+            <td>30-45 days</td>
+            <td>60+ days</td>
+        </tr>
+        <tr>
+            <td><strong>Pay-to-Play</strong></td>
+            <td>Included (founder-friendly)</td>
+            <td>Not included</td>
+        </tr>
+    </table>
+
+    <h2 id="negotiate">What to Negotiate (and What to Accept)</h2>
+    <p>Not everything in a term sheet is worth fighting over. Here is how to prioritize your negotiation efforts:</p>
+
+    <h3>Always Negotiate</h3>
+    <ul>
+        <li><strong>Valuation and option pool.</strong> This directly determines your dilution. Use our <a href="../valuation.html" style="color: var(--accent);">Valuation Calculator</a> to understand what is fair.</li>
+        <li><strong>Liquidation preference.</strong> Fight for 1x non-participating. Push back hard on participating preferred or 2x+ multiples.</li>
+        <li><strong>Anti-dilution.</strong> Ensure it is broad-based weighted average, not full ratchet.</li>
+        <li><strong>Board composition.</strong> Maintain founder control of the board.</li>
+    </ul>
+
+    <h3>Worth Negotiating</h3>
+    <ul>
+        <li><strong>Founder vesting credit.</strong> Get credit for time already served.</li>
+        <li><strong>Vesting acceleration.</strong> Push for double-trigger acceleration on change of control.</li>
+        <li><strong>No-shop period.</strong> Keep it to 30-45 days maximum.</li>
+        <li><strong>Pay-to-play.</strong> Try to include this founder-friendly provision.</li>
+    </ul>
+
+    <h3>Generally Accept as Standard</h3>
+    <ul>
+        <li>Pro-rata rights for major investors</li>
+        <li>Information rights with standard reporting</li>
+        <li>Standard protective provisions (the big 5: amend charter, create senior stock, liquidate, increase shares, change board size)</li>
+        <li>ROFR and co-sale rights</li>
+        <li>Expense reimbursement (cap at $25-50K)</li>
+        <li>8% non-cumulative dividends</li>
+    </ul>
+
+    <h2 id="red-flags">Red Flags in a Term Sheet</h2>
+    <p>These clauses should make you pause and seek advice:</p>
+
+    <div class="callout warning">
+        <h4>Red Flags</h4>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Participating preferred stock.</strong> Investors get paid twice. In a moderate exit ($50-100M for a company that raised $20M+), participating preferred can take 30-50% of founder proceeds.</li>
+            <li><strong>2x or higher liquidation preference.</strong> Investors are protecting against a down-round exit at your expense.</li>
+            <li><strong>Full ratchet anti-dilution.</strong> If you ever do a down round, this will destroy your ownership.</li>
+            <li><strong>Cumulative dividends.</strong> These accrue annually and increase the effective liquidation preference.</li>
+            <li><strong>Investor-controlled board.</strong> Investors can outvote founders on major decisions.</li>
+            <li><strong>Excessive protective provisions.</strong> Vetoes on hiring, budgeting, or operational decisions belong with management.</li>
+            <li><strong>Redemption rights.</strong> Investors can force the company to buy back their shares after a certain period. This creates a looming liability.</li>
+            <li><strong>No vesting credit for time served.</strong> If you have been building for 2+ years, you should get credit.</li>
+        </ul>
+    </div>
+
+    <h2 id="process">The Term Sheet Process</h2>
+    <p>Here is what happens after you receive a term sheet:</p>
+    <ol>
+        <li><strong>Review and negotiate (1-2 weeks).</strong> Go through each clause with your lawyer. Push back on aggressive terms. Most negotiations happen over 1-3 rounds of markups.</li>
+        <li><strong>Sign the term sheet (day 1-14).</strong> Once both sides agree, sign the term sheet. The no-shop/exclusivity period begins.</li>
+        <li><strong>Legal drafting and due diligence (3-6 weeks).</strong> Lawyers draft the definitive documents. The investor conducts financial, legal, and technical due diligence.</li>
+        <li><strong>Sign definitive documents and close (day 30-60).</strong> Both sides sign the final legal documents. The wire transfer happens.</li>
+    </ol>
+
+    <div class="callout">
+        <h4>Pro Tip: Get a Startup Lawyer</h4>
+        <p>Do not try to negotiate a term sheet alone. Hire a lawyer who specializes in venture capital deals at startups. They know what is standard, what is aggressive, and where you have leverage. The cost ($10-25K for a Series A) is small compared to the value of getting the terms right. Many startup lawyers will defer fees until the round closes.</p>
+    </div>
+
+    <div class="callout">
+        <h4>Model Your Dilution</h4>
+        <p>Use our <a href="../dilution.html" style="color: var(--accent);">Dilution Calculator</a> to see exactly how much of your company you keep after the round. Factor in the option pool, investment amount, and pre-money valuation.</p>
+    </div>
+
+    <div class="cta-box">
+        <h3>Model Your Funding Round</h3>
+        <p>See exactly how much dilution you will take at different valuations. Input your pre-money valuation, raise amount, and option pool to visualize your cap table after the round.</p>
+        <a href="../dilution.html" class="cta-btn">Try Dilution Calculator &rarr;</a>
+    </div>
+
+    <div class="callout cta">
+        <strong>Try it yourself</strong>
+        <p>Use our free SAFE Calculator to model your convertible note or SAFE round before you negotiate your term sheet. See conversion scenarios and dilution impact.</p>
+        <a href="../safe.html" class="cta-button">Try SAFE Calculator Free &rarr;</a>
+    </div>
+
+    <div class="author-bio">
+        <div class="author-avatar">📊</div>
+        <div class="author-content">
+            <h4>About FounderMath</h4>
+            <p>We build the calculators founders and employees actually need. No spreadsheets, no confusion -- just interactive tools that make startup equity math visual and intuitive. Join 500+ founders who get our weekly equity insights.</p>
+        </div>
+    </div>
+
+    <div class="related-posts">
+        <h3>Related Posts</h3>
+        <a href="liquidation-preference-guide.html">Liquidation Preference Explained: How It Affects Your Exit</a>
+        <a href="anti-dilution-guide.html">Anti-Dilution Provisions: Full Ratchet vs Weighted Average</a>
+        <a href="pro-rata-rights-guide.html">Pro-Rata Rights: Why Investors Want to Keep Their %</a>
+        <a href="pre-money-post-money-valuation-guide.html">Pre-Money vs Post-Money Valuation</a>
+        <a href="series-a-vs-seed-guide.html">Series A vs Seed: How Fundraising Changes at Each Stage</a>
+        <a href="participating-preferred-guide.html">Participating Preferred vs Non-Participating: Exit Scenarios</a>
+    </div>
+
+    <footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="../dilution.html">Dilution</a></li>
+            <li><a href="../runway.html">Runway</a></li>
+            <li><a href="../safe.html">SAFE</a></li>
+            <li><a href="../vesting.html">Vesting</a></li>
+            <li><a href="../unit-economics.html">Unit Econ</a></li>
+            <li><a href="../cap-table.html">Cap Table</a></li>
+            <li><a href="../equity-split.html">Equity Split</a></li>
+            <li><a href="../valuation.html">Valuation</a></li>
+            <li><a href="../free-startup-tools.html">Free Tools</a></li>
+            <li><a href="../social-scenarios.html">Equity Scenarios</a></li>
+            <li><a href="../carta-alternatives.html">Carta Alternatives</a></li>
+            <li><a href="../embed.html">Embed</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+    </div>
+</footer>
+<div class="newsletter">
+    <h2>Get weekly equity insights</h2>
+    <p>Join 500+ founders who get our weekly breakdown of startup math concepts, real-world equity scenarios, and calculator tips. No spam, ever.</p>
+    <form class="newsletter-form" id="blogNewsletterForm" onsubmit="handleBlogNewsletter(event)">
+        <input type="email" id="blogNewsletterEmail" placeholder="you@company.com" required>
+        <button type="submit" id="blogNewsletterBtn" class="cta-btn">Subscribe</button>
+    </form>
+    <p id="blogNewsletterMsg" style="margin-top:12px;font-size:0.85rem;display:none;"></p>
+</div></main>
+
+<script>
+async function handleBlogNewsletter(e) {
+    e.preventDefault();
+    const email = document.getElementById('blogNewsletterEmail').value;
+    const msg = document.getElementById('blogNewsletterMsg');
+    const btn = document.getElementById('blogNewsletterBtn');
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+    try {
+        const resp = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+        const data = await resp.json();
+        if (resp.ok) {
+            btn.textContent = 'Subscribed!';
+            btn.style.background = '#27ae60';
+            msg.textContent = 'Thanks! You\'ll get weekly startup equity insights.';
+            msg.style.color = '#27ae60';
+            if (typeof gtag === 'function') gtag('event', 'newsletter_signup', { source: 'blog' });
+            document.getElementById('blogNewsletterEmail').value = '';
+        } else {
+            btn.textContent = 'Subscribe';
+            msg.textContent = data.error || 'Something went wrong. Try again.';
+            msg.style.color = '#e74c3c';
+        }
+    } catch(err) {
+        btn.textContent = 'Subscribe';
+        msg.textContent = 'Network error. Please try again.';
+        msg.style.color = '#e74c3c';
+    }
+    msg.style.display = 'block';
+    btn.disabled = false;
+    setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 4000);
+}
+</script></body>
+</html>
