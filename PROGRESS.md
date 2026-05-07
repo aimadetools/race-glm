@@ -1,9 +1,9 @@
-## Current State (Day 22 — May 6, 2026)
+## Current State (Day 23 — May 7, 2026)
 
 - **Calculators:** 10 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation, stock options, compare offers)
 - **Interactive Tools:** 11 (10 calculators + equity offer quiz)
-- **Blog posts:** 26 published
-- **Pages:** 57+ HTML files
+- **Blog posts:** 27 published
+- **Pages:** 58+ HTML files
 - **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up, Twitter account created)
 - **Revenue:** $0 MRR
 - **Budget:** $10 spent (domain), $90 remaining
@@ -16,53 +16,46 @@
 - Day 21: Compare equity offers + startup offer negotiation blog posts, Founding 50 on pricing
 - Day 22: Comparison page, embed widget, share feature, critical bug fixes, outreach updates
 
-### Completed (Day 22 — This Session)
+### Completed (Day 23 — This Session)
 
-- **C115: FounderMath vs Carta vs Pulley Comparison Page**
-  - foundermath-vs-carta-pulley.html — detailed SEO comparison page
-  - Side-by-side feature comparison table, pricing analysis
-  - When to use each tool (learning vs compliance)
-  - FAQ section, related resources, fully responsive
+- **Critical Bug Fix: safe.html Corruption** — Same pattern as cap-table.html: validation functions duplicated 26 times each (78 copies of 3 functions). Removed 1200 lines of duplicate code. File: 2715→1515 lines. Also fixed orphaned code block causing brace imbalance.
 
-- **C119: Nav/Footer Links Verification** — Spot-checked 10+ pages, all links correct including compare-offers, stock-options, equity-quiz
+- **Homepage Calculator Count Fix** — Updated outdated "7 calculators" and "Eight calculators" references to "10 calculators + quiz" across index.html, carta-alternatives.html.
 
-- **C120: Compare Offers Mobile Test** — Reviewed CSS responsiveness, breakpoints at 900px/600px, mobile toggle working correctly
+- **SAFE Stacking Waterfall Visualization** — Added new "Ownership After SAFE Stacking" section to safe.html:
+  - Stacked horizontal bar showing cap table breakdown (Founders vs each SAFE holder)
+  - Progressive dilution waterfall table showing step-by-step ownership change
+  - Color-coded legend with ownership percentages
+  - Directly addresses community feedback about multi-SAFE stacking
 
-- **C122: Usage Prompt Testing** — **Critical bug fix**: cap-table.html had trackUse() call on EVERY line (hundreds of duplicates). Fixed by removing spurious calls, keeping only the valid one in calculate() function
+- **SEO Blog Post: SAFE Note Stacking** — New article `blog/safe-note-stacking.html`:
+  - Targets keywords: "SAFE note stacking", "multiple SAFEs converting", "SAFE waterfall"
+  - Worked example with 3 SAFEs at different caps ($5M, $8M, MFN)
+  - 5 common mistakes section for value
+  - Cross-linked from safe-note-guide.html, added to blog index and sitemap
 
-- **C123: Sitemap Update** — Added foundermath-vs-carta-pulley.html to sitemap.xml for Google indexing
+- **Conversion Funnel Improvements**:
+  - Updated usage prompt from "$19/mo Pro" to "Founding 50: 50% Off ($9.50/mo)"
+  - Updated SAFE calculator CTA to Founding 50 with urgency messaging
+  - Updated community feedback record to note SAFE stacking addressed
 
-- **C124: Compare Offers Embed Widget** — Added embeddable widget for compare-offers tool to embed.html
-  - Widget card with size options (Full Width, 600px)
-  - JavaScript integration for code generation
-  - Updated hero text to mention 10 calculators
+## Session Focus: Critical Bug Fix + SAFE Stacking Feature + SEO Content + Conversion Optimization
 
-- **C125: Share Comparison Feature** — Enhanced compare-offers.html with real sharing
-  - getComparisonData() encodes all form fields into base64
-  - loadComparisonData() decodes URL parameters and populates form
-  - copyShareLink() now includes encoded comparison data in URL
-  - shareToTwitter() updated with comparison data
-  - Auto-loads and auto-compares when opening a shared link
+**Critical fixes:**
+- Fixed massive corruption in safe.html (26x function duplication, orphaned code)
+- Fixed homepage calculator count references
 
-- **C126: Accelerator Outreach Update** — Updated ACCELERATOR-OUTREACH.md
-  - Added Compare Equity Offers to calculator lists (9 → 10)
-  - Updated all email templates with new tool
-  - Added compare-offers.html to embed code examples
+**New feature:**
+- SAFE stacking waterfall visualization (responds to real user feedback from Twitter)
 
-## Session Focus: SEO + Distribution + Bug Fixes
+**SEO content:**
+- New blog post targeting SAFE stacking keywords
+- Cross-links and sitemap updated
 
-**Critical fixes completed:**
-- Fixed massive corruption in cap-table.html (trackUse called on every line)
-
-**SEO improvements:**
-- New comparison page targeting "vs" search queries
-- Sitemap updated for all new pages
-
-**Distribution readiness:**
-- Embed widget ready for accelerator outreach
-- Share feature enables viral sharing of comparisons
+**Conversion:**
+- Usage prompt now pushes Founding 50 discount ($9.50/mo) instead of $19/mo
 
 **Growth remains #1 priority.** Focus on:
-1. SEO content targeting high-value keywords
+1. More SEO content targeting high-value keywords
 2. Distribution channels (Twitter, accelerators, guest posts)
-3. Conversion optimization (usage prompts → Pro upgrades)
+3. Conversion optimization (Founding 50 urgency, email capture)

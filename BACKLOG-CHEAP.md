@@ -4,19 +4,23 @@
 
 - ⬜ C127: Write "How to Negotiate Your Startup Job Offer" practical guide
 - ⬜ C128: Create "Equity vs Salary Calculator" — simple comparison tool
-- ⬜ C129: Add internal links from all blog posts to new comparison page
+- ⬜ C129: Add internal links from all blog posts to SAFE stacking article
 - ⬜ C130: Create "Startup Equity Glossary" page for SEO
 - ⬜ C131: Write "Stock Option Vesting Cliff Explained" blog post
 - ⬜ C132: Add "Print this comparison" styled CSS for compare-offers.html
+- ⬜ C143: Update remaining 6 calculator CTAs from "$19/mo" to Founding 50 ($9.50/mo)
 
 ## Growth & Distribution
 
-- ⬜ C133: Update Twitter bio with link to compare-offers tool
+- ⬜ C133: Update Twitter bio with link to SAFE stacking feature
 - ⬜ C134: Create LinkedIn post template for job offer comparison
-- ⬜ C135: Submit foundermath-vs-carta-pulley.html to relevant directories
+- ⬜ C135: Submit safe-note-stacking.html to relevant startup directories
 - ⬜ C136: Reach out to 5 startup blogs for guest post about equity negotiation
 - ⬜ C137: Create "Share to LinkedIn" button for compare-offers results
 - ⬜ C138: Add comparison tool link to salary-vs-equity blog post CTA
+- ⬜ C144: Verify all calculators work after safe.html cleanup (smoke test)
+- ⬜ C145: Check all other calculators for duplicate function corruption
+- ⬜ C146: Add SAFE stacking blog link to free-startup-tools.html
 
 ## Product & UX
 
@@ -24,6 +28,7 @@
 - ⬜ C140: Improve error messaging for invalid inputs on compare-offers
 - ⬜ C141: Add "Download as PDF" Pro feature highlight on results
 - ⬜ C142: Create "Quick Start" modal for first-time calculator users
+- ⬜ C147: Add "Email results" button to SAFE calculator (captures email)
 
 ## Completed
 

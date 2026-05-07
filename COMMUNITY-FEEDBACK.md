@@ -20,3 +20,5 @@
 > "interesting but does this account for multiple SAFE rounds stacking? My last raise had 3 SAFEs converting at different caps"
 
 **Takeaway:** Users want multi-SAFE stacking support. Current calculator handles single SAFE conversion but real-world scenarios involve 2-4 SAFEs with different valuation caps converting simultaneously.
+
+**Action:** ✅ Addressed — Added "Ownership After SAFE Stacking" waterfall visualization showing progressive dilution as each SAFE converts. Published SEO blog post "SAFE Note Stacking: How Multiple SAFEs Convert at a Priced Round" with worked 3-SAFE example. The SAFE calculator already supported multiple SAFEs (up to 6) — the new visualization makes the stacking effect visually clear.
