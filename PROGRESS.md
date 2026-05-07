@@ -17,7 +17,28 @@
 - Day 22: Comparison page, embed widget, share feature, critical bug fixes, outreach updates
 - Day 23: SAFE stacking waterfall, safe.html corruption fix, SAFE stacking blog post, Founding 50 CTAs
 
-### Completed (Day 24 — This Session)
+### Completed (Day 24 — Session 2)
+
+- **Internal Linking: SAFE Stacking Article** — Added links to 5 blog posts:
+  - convertible-notes-vs-safe.html: Added related posts section + link
+  - equity-dilution-guide.html: Added link to related posts
+  - pre-money-post-money-valuation-guide.html: Added link to related posts
+  - series-a-vs-seed-guide.html: Added link to related guides
+  - startup-valuation-guide.html: Added link to "More guides founders love"
+  - free-startup-tools.html: Added link to Free Learning Resources section
+
+- **CTA Updates Complete** — Verified all calculators for pricing:
+  - 6 calculators had "$19/mo" CTAs (cap-table, unit-economics, vesting, runway, dilution, safe)
+  - All updated to "$9.50/mo" Founding 50 pricing
+  - 3 calculators (stock-options, compare-offers, equity-split) don't have inline pricing CTAs
+
+- **Duplicate Function Corruption Fix** — pricing.html:
+  - Removed duplicate `toggleMobileMenu()` function (was defined twice)
+  - Removed duplicate `toggleTheme()` function (was defined twice)
+  - Removed duplicate DOMContentLoaded event listener
+  - File now has single copies of all functions
+
+### Completed (Day 24 — Session 1)
 
 - **SEO Blog Post: 83(b) Election Guide** — New article `blog/83b-election-guide.html`:
   - Targets keywords: "83b election", "section 83b", "83(b) startup", "file 83b"
