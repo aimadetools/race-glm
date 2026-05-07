@@ -247,6 +247,27 @@
         .chart-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
         .chart-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
         .chart-section .chart-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+
+        /* Waterfall Steps */
+        .waterfall-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .waterfall-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .waterfall-section .chart-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+        .waterfall-bar-container { position: relative; margin: 0 0 12px; }
+        .waterfall-bar { display: flex; height: 48px; border-radius: 8px; overflow: hidden; position: relative; }
+        .waterfall-segment { display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; color: white; transition: width 0.4s ease; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding: 0 4px; cursor: default; }
+        .waterfall-segment:hover { opacity: 0.85; }
+        .waterfall-legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+        .waterfall-legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--text-secondary); }
+        .waterfall-legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+        .waterfall-steps { margin-top: 20px; }
+        .waterfall-step { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+        .waterfall-step:last-child { border-bottom: none; }
+        .waterfall-step-label { flex: 1; color: var(--text-secondary); }
+        .waterfall-step-pct { font-family: var(--font-mono); font-weight: 700; min-width: 60px; text-align: right; }
+        .waterfall-step-change { font-family: var(--font-mono); font-size: 0.8rem; min-width: 70px; text-align: right; }
+        .waterfall-step-change.neg { color: var(--red); }
+        .waterfall-step-bar { width: 120px; height: 8px; background: var(--bg-card); border-radius: 4px; overflow: hidden; }
+        .waterfall-step-bar-fill { height: 100%; border-radius: 4px; transition: width 0.4s ease; }
         .chart-container { position: relative; height: 350px; }
         .chart-container canvas { width: 100% !important; height: 100% !important; }
 
@@ -530,6 +551,17 @@
                 <div class="chart-container">
                     <canvas id="safeChart" role="img" aria-label="Bar chart showing SAFE investment amounts and ownership percentages"></canvas>
                 </div>
+            </section>
+
+            <!-- Stacking Waterfall -->
+            <section class="waterfall-section" aria-labelledby="waterfallTitle">
+                <h3 id="waterfallTitle">Ownership After SAFE Stacking</h3>
+                <p class="chart-subtitle">See how your cap table changes as each SAFE converts. Founders start at 100% and get diluted with each SAFE.</p>
+                <div class="waterfall-bar-container">
+                    <div class="waterfall-bar" id="waterfallBar"></div>
+                </div>
+                <div class="waterfall-legend" id="waterfallLegend"></div>
+                <div class="waterfall-steps" id="waterfallSteps"></div>
             </section>
 
             <!-- Conversion Table -->
@@ -885,9 +917,6 @@
             }, 100);
         }
     });
-        updateScenarioSelect();
-        showToast('Scenario saved!');
-    }
 
     function loadScenario(name) {
         if (!name) return;
@@ -1139,6 +1168,63 @@
     }
 
     // ============================================================
+    // WATERFALL VISUALIZATION
+    // ============================================================
+    function renderWaterfall(data) {
+        const bar = document.getElementById('waterfallBar');
+        const legend = document.getElementById('waterfallLegend');
+        const steps = document.getElementById('waterfallSteps');
+        if (!bar || !data.results.length) return;
+
+        const preMoneyShares = data.preMoneyShares;
+        const totalShares = preMoneyShares + data.totalSAFEShares;
+        const founderPct = (preMoneyShares / totalShares * 100);
+        const safeColors = ['#6c5ce7', '#00b894', '#ff6b6b', '#ffa502', '#54a0ff', '#ff6b9d'];
+        const founderColor = '#a29bfe';
+
+        // Build stacked bar
+        let barHTML = '';
+        let legendHTML = `<div class="waterfall-legend-item"><div class="waterfall-legend-dot" style="background:${founderColor}"></div>Founders (${founderPct.toFixed(1)}%)</div>`;
+        data.results.forEach((r, i) => {
+            const pct = r.ownershipPct;
+            const color = safeColors[i % safeColors.length];
+            const label = pct >= 4 ? r.name + ' ' + pct.toFixed(1) + '%' : (pct >= 2 ? pct.toFixed(1) + '%' : '');
+            barHTML += `<div class="waterfall-segment" style="width:${pct}%;background:${color}" title="${escHtml(r.name)}: ${pct.toFixed(2)}%">${label}</div>`;
+            legendHTML += `<div class="waterfall-legend-item"><div class="waterfall-legend-dot" style="background:${color}"></div>${escHtml(r.name)} (${pct.toFixed(1)}%)</div>`;
+        });
+        // Founder bar last (on the right like a cap table)
+        barHTML = `<div class="waterfall-segment" style="width:${founderPct}%;background:${founderColor}" title="Founders: ${founderPct.toFixed(1)}%">${founderPct >= 8 ? 'Founders ' + founderPct.toFixed(1) + '%' : (founderPct >= 3 ? founderPct.toFixed(1) + '%' : '')}</div>` + barHTML;
+        bar.innerHTML = barHTML;
+        legend.innerHTML = legendHTML;
+
+        // Build waterfall steps (progressive dilution)
+        let stepsHTML = '';
+        let runningPct = 100;
+        // Starting point
+        stepsHTML += `<div class="waterfall-step">
+            <span class="waterfall-step-label">Founders (before SAFEs)</span>
+            <div class="waterfall-step-bar"><div class="waterfall-step-bar-fill" style="width:100%;background:${founderColor}"></div></div>
+            <span class="waterfall-step-pct" style="color:${founderColor}">100.0%</span>
+            <span class="waterfall-step-change">—</span>
+        </div>`;
+
+        data.results.forEach((r, i) => {
+            const prevPct = runningPct;
+            runningPct -= r.ownershipPct;
+            const change = runningPct - prevPct;
+            const color = safeColors[i % safeColors.length];
+            stepsHTML += `<div class="waterfall-step">
+                <span class="waterfall-step-label">+ ${escHtml(r.name)} (${escHtml(r.type)}, $${(r.amount/1000).toFixed(0)}K invested)</span>
+                <div class="waterfall-step-bar"><div class="waterfall-step-bar-fill" style="width:${Math.max(runningPct, 0)}%;background:${founderColor}"></div></div>
+                <span class="waterfall-step-pct" style="color:${founderColor}">${runningPct.toFixed(1)}%</span>
+                <span class="waterfall-step-change neg">${change.toFixed(1)}%</span>
+            </div>`;
+        });
+
+        steps.innerHTML = stepsHTML;
+    }
+
+    // ============================================================
     // MAIN RECALCULATE
     // ============================================================
     function recalculate() {
@@ -1151,6 +1237,7 @@
         renderChart(data.results);
         renderTable(data.results);
         renderSummary(data);
+        renderWaterfall(data);
 
         // Track calculation (debounced)
         trackCalculationDebounced();
