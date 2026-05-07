@@ -173,6 +173,34 @@
         .share-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; justify-content: center; }
         .btn-share { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; cursor: pointer; font-weight: 500; transition: all 0.2s; font-family: var(--font-sans); }
         .btn-share:hover { border-color: var(--accent); color: var(--text-primary); }
+        .btn-print { background: #2d3748; border: 1px solid var(--border); color: #fff; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; cursor: pointer; font-weight: 600; transition: all 0.2s; font-family: var(--font-sans); }
+        .btn-print:hover { background: #1a202c; border-color: var(--accent); }
+
+        /* Print-specific styles */
+        @media print {
+            .offer-summary, .comparison-table, .summary-cards {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            .comparison-table th {
+                background: #f0f0f0 !important;
+                color: #1a1a1a !important;
+                border-bottom: 2px solid #000 !important;
+            }
+            .comparison-table td {
+                border-bottom: 1px solid #ddd !important;
+            }
+            .winner {
+                background: #e6ffed !important;
+                font-weight: 700 !important;
+            }
+            .loser {
+                color: #999 !important;
+            }
+            .results-panel > *:not(.offer-summary):not(.comparison-table):not(.summary-cards):not(.verdict) {
+                display: none !important;
+            }
+        }
 
         /* Related */
         .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }

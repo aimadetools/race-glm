@@ -3,7 +3,7 @@
 ## SEO & Content
 
 - ⬜ C127: Write "How to Negotiate Your Startup Job Offer" practical guide
-- ⬜ C128: Create "Equity vs Salary Calculator" — simple comparison tool
+- ✅ C128: Created equity-vs-salary.html calculator with break-even exit analysis
 - ⬜ C129: Add internal links from all blog posts to SAFE stacking article
 - ⬜ C130: Create "Startup Equity Glossary" page for SEO
 - ⬜ C131: Write "Stock Option Vesting Cliff Explained" blog post
