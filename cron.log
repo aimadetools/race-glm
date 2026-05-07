@@ -941,3 +941,148 @@ Wrote HELP-STATUS.md: 5 completed, 0 open
  29 files changed, 185 insertions(+), 19 deletions(-)
  create mode 100644 ACCELERATOR-LIST.md
 === cheap Run 2 at Tue May  5 04:43:57 PM UTC 2026 ===
+=== Run 2 finished at Tue May  5 04:55:52 PM UTC 2026, exit=143 ===
+[main 88f177e] - **C102: Social Media Scenarios Page** [skip ci]
+ 2 files changed, 26 insertions(+), 4 deletions(-)
+=== cheap Run 3 at Tue May  5 04:55:54 PM UTC 2026 ===
+=== Run 3 finished at Tue May  5 05:05:05 PM UTC 2026, exit=137 ===
+[main 426ae6b] ## Current State (Day 20 — May 6, 2026) [skip ci]
+ 24 files changed, 889 insertions(+), 8 deletions(-)
+ create mode 100644 equity-quiz.html
+
+=============================================
+  Session complete
+  Runs: 3
+  Duration: 35 minutes
+  Files changed: 26
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-05-06 10:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 4 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+[orchestrator] Found approved community feedback for agent
+=== premium Run 1 at Wed May  6 10:30:05 AM UTC 2026 ===
+=== Run 1 finished at Wed May  6 10:57:18 AM UTC 2026, exit=0 ===
+[main c689867] HELP-STATUS.md [skip ci]
+ 1 file changed, 8 deletions(-)
+=== premium Run 2 at Wed May  6 10:57:21 AM UTC 2026 ===
+=== Run 2 finished at Wed May  6 11:05:05 AM UTC 2026, exit=137 ===
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/runs.jsonl
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[orchestrator] Found HELP-REQUEST.md — creating GitHub Issue
+Created: https://github.com/aimadetools/race-glm/issues/8
+[main ba36cb9] Help request submitted as GitHub Issue [skip ci]
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename HELP-REQUEST.md => help-requests/20260506-110513-HELP-REQUEST.md (100%)
+
+=============================================
+  Session complete
+  Runs: 2
+  Duration: 35 minutes
+  Files changed: 8
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-05-06 16:30:01 UTC
+=============================================
+Wrote HELP-STATUS.md: 5 completed, 0 open
+[orchestrator] Updated HELP-STATUS.md for agent
+[orchestrator] Found approved community feedback for agent
+=== cheap Run 1 at Wed May  6 04:30:06 PM UTC 2026 ===
+=== Run 1 finished at Wed May  6 04:41:34 PM UTC 2026, exit=0 ===
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/runs.jsonl
+
+no changes added to commit (use "git add" and/or "git commit -a")
+=== cheap Run 2 at Wed May  6 04:41:36 PM UTC 2026 ===
+=== Run 2 finished at Wed May  6 04:46:09 PM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 1
+  Duration: 16 minutes
+  Files changed: 1
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-05-07 10:30:01 UTC
+=============================================
+[orchestrator] Updated HELP-STATUS.md for agent
+[orchestrator] Found approved community feedback for agent
+=== premium Run 1 at Thu May  7 10:30:03 AM UTC 2026 ===
+=== Run 1 finished at Thu May  7 10:50:00 AM UTC 2026, exit=0 ===
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/runs.jsonl
+
+no changes added to commit (use "git add" and/or "git commit -a")
+=== premium Run 2 at Thu May  7 10:50:02 AM UTC 2026 ===
+=== Run 2 finished at Thu May  7 11:05:03 AM UTC 2026, exit=137 ===
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/runs.jsonl
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+=============================================
+  Session complete
+  Runs: 2
+  Duration: 35 minutes
+  Files changed: 9
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-05-07 16:30:01 UTC
+=============================================
+[orchestrator] Updated HELP-STATUS.md for agent
+[orchestrator] Found approved community feedback for agent
+=== cheap Run 1 at Thu May  7 04:30:03 PM UTC 2026 ===
+=== Run 1 finished at Thu May  7 04:43:27 PM UTC 2026, exit=0 ===
+[main 890a81a] ### Completed (Day 24 — Session 2) [skip ci]
+ 10 files changed, 40 insertions(+), 32 deletions(-)
+=== cheap Run 2 at Thu May  7 04:43:29 PM UTC 2026 ===

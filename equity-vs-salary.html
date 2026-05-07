@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equity vs Salary Calculator | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    <meta name="description" content="Compare startup job offers by salary and equity. See which offer pays better at different exit scenarios.">
+    <meta name="keywords" content="equity vs salary, startup offer calculator, compare job offers, salary equity tradeoff">
+    <meta property="og:title" content="Equity vs Salary Calculator — Which Offer Is Better?">
+    <meta property="og:description" content="Compare two startup job offers by salary and equity. See which pays more at different exit scenarios.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/equity-vs-salary.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Equity vs Salary Calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Compare two startup job offers by salary and equity to see which pays more at different exit scenarios."
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f; --bg-secondary: #12121a; --bg-card: #1a1a2e;
+            --accent: #6c5ce7; --accent-light: #a29bfe; --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894; --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b; --text-primary: #f0f0f5; --text-secondary: #a0a0b5;
+            --text-muted: #666680; --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+        }
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: white; padding: 8px 16px; text-decoration: none; z-index: 1001; transition: top 0.3s; }
+        .skip-link:focus { top: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s !important; }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; padding: 8px; }
+
+        .page-header { padding: 120px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+        .page-header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%); pointer-events: none; }
+        .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 12px; }
+        .page-header h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; position: relative; }
+
+        .calc-layout { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 350px 1fr; gap: 32px; align-items: start; }
+
+        .input-panel { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 24px; position: sticky; top: 88px; max-height: calc(100vh - 104px); overflow-y: auto; }
+        .input-panel::-webkit-scrollbar { width: 4px; }
+        .input-panel::-webkit-scrollbar-track { background: transparent; }
+        .input-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        .panel-section { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+        .panel-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .panel-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-light); margin-bottom: 16px; }
+        .input-group { margin-bottom: 14px; }
+        .input-group label { display: block; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+        .input-group input, .input-group select { width: 100%; background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary); padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; font-family: var(--font-mono); transition: border-color 0.2s; min-height: 44px; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: var(--accent); }
+        .input-group .hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+        .offer-label { font-weight: 600; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .offer-badge { font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; background: var(--bg-card); color: var(--text-muted); }
+
+        .results-panel { min-width: 0; }
+        .summary-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 32px; }
+        .summary-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+        .summary-card .metric-value { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 800; }
+        .summary-card .metric-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+        .summary-card.highlight { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+        .summary-card.positive .metric-value { color: var(--green); }
+        .summary-card.negative .metric-value { color: var(--red); }
+
+        .comparison-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 32px; }
+        .comparison-section h3 { font-size: 1.1rem; margin-bottom: 16px; }
+        .comparison-table { width: 100%; border-collapse: collapse; }
+        .comparison-table th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        .comparison-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.9rem; }
+        .comparison-table .winner { color: var(--green); font-weight: 600; }
+        .comparison-table .loser { color: var(--text-muted); }
+
+        .chart-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .chart-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .chart-section .chart-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+        .chart-container { position: relative; height: 350px; }
+        .chart-container canvas { width: 100% !important; height: 100% !important; }
+
+        .verdict { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; margin-bottom: 32px; }
+        .verdict h3 { font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .verdict p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+        .verdict .highlight { color: var(--accent-light); font-weight: 600; }
+
+        .related { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .related h3 { font-size: 1.1rem; margin-bottom: 16px; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .related a { display: block; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-decoration: none; transition: border-color 0.2s; }
+        .related a:hover { border-color: var(--accent); }
+        .related .rel-title { color: var(--text-primary); font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+        .related .rel-desc { color: var(--text-muted); font-size: 0.8rem; }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+
+        @media (max-width: 900px) {
+            .calc-layout { grid-template-columns: 1fr; }
+            .input-panel { position: static; max-height: none; }
+            .summary-cards { grid-template-columns: 1fr 1fr; }
+            .related-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            .summary-cards { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: 1fr; }
+            .chart-container { height: 260px; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="/" class="logo" aria-label="FounderMath home">
+            <div class="logo-icon" aria-hidden="true">%</div>
+            FounderMath
+        </a>
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <li role="none"><a href="dilution.html" role="menuitem">Dilution</a></li>
+            <li role="none"><a href="runway.html" role="menuitem">Runway</a></li>
+            <li role="none"><a href="safe.html" role="menuitem">SAFE</a></li>
+            <li role="none"><a href="vesting.html" role="menuitem">Vesting</a></li>
+            <li role="none"><a href="unit-economics.html" role="menuitem">Unit Econ</a></li>
+            <li role="none"><a href="cap-table.html" role="menuitem">Cap Table</a></li>
+            <li role="none"><a href="equity-split.html" role="menuitem">Equity Split</a></li>
+            <li role="none"><a href="valuation.html" role="menuitem">Valuation</a></li>
+            <li role="none"><a href="stock-options.html" role="menuitem">Options</a></li>
+            <li role="none"><a href="equity-vs-salary.html" role="menuitem" class="active">Equity vs Salary</a></li>
+            <li role="none"><a href="compare-offers.html" role="menuitem">Compare</a></li>
+            <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+            <li><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>Equity vs <span class="gradient">Salary</span></h1>
+    <p>Compare two startup offers by salary and equity. See which pays more at different exit scenarios.</p>
+</div>
+
+<div class="calc-layout" id="main-content">
+    <aside class="input-panel" role="form" aria-label="Calculator inputs">
+        <div class="panel-section">
+            <div class="offer-label">Offer A</div>
+            <span class="offer-badge">Higher Salary / Lower Equity</span>
+            <div class="input-group">
+                <label for="salaryA">Annual Salary ($)</label>
+                <input type="number" id="salaryA" value="180000" min="0" step="1000" inputmode="numeric">
+            </div>
+            <div class="input-group">
+                <label for="equityA">Equity (%)</label>
+                <input type="number" id="equityA" value="0.1" min="0" max="100" step="0.01" inputmode="decimal">
+            </div>
+            <div class="input-group">
+                <label for="strikePriceA">Strike Price ($)</label>
+                <input type="number" id="strikePriceA" value="1.00" min="0" step="0.01" inputmode="decimal">
+            </div>
+        </div>
+
+        <div class="panel-section">
+            <div class="offer-label">Offer B</div>
+            <span class="offer-badge">Lower Salary / Higher Equity</span>
+            <div class="input-group">
+                <label for="salaryB">Annual Salary ($)</label>
+                <input type="number" id="salaryB" value="150000" min="0" step="1000" inputmode="numeric">
+            </div>
+            <div class="input-group">
+                <label for="equityB">Equity (%)</label>
+                <input type="number" id="equityB" value="0.5" min="0" max="100" step="0.01" inputmode="decimal">
+            </div>
+            <div class="input-group">
+                <label for="strikePriceB">Strike Price ($)</label>
+                <input type="number" id="strikePriceB" value="1.00" min="0" step="0.01" inputmode="decimal">
+            </div>
+        </div>
+
+        <div class="panel-section">
+            <div class="panel-title">Company & Timeline</div>
+            <div class="input-group">
+                <label for="companyValue">Company Value ($M)</label>
+                <input type="number" id="companyValue" value="50" min="0" step="1" inputmode="decimal">
+            </div>
+            <div class="input-group">
+                <label for="yearsStay">Years at Company</label>
+                <input type="number" id="yearsStay" value="4" min="1" max="10" step="1" inputmode="numeric">
+            </div>
+        </div>
+    </aside>
+
+    <main class="results-panel" role="region" aria-label="Calculator results">
+        <div class="summary-cards" id="summaryCards">
+            <div class="summary-card">
+                <div class="metric-value" id="salaryDiff">$120,000</div>
+                <div class="metric-label">Total Salary Difference (A - B)</div>
+            </div>
+            <div class="summary-card highlight">
+                <div class="metric-value" id="breakEvenExit">5.3x</div>
+                <div class="metric-label">Break-Even Exit Multiple</div>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h3>4-Year Comparison</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Offer A</th>
+                        <th>Offer B</th>
+                        <th>Better</th>
+                    </tr>
+                </thead>
+                <tbody id="comparisonBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="chart-section">
+            <h3>Total Compensation by Exit Multiple</h3>
+            <div class="chart-subtitle">Shows when equity makes up for the salary difference</div>
+            <div class="chart-container">
+                <canvas id="compChart"></canvas>
+            </div>
+        </div>
+
+        <div class="verdict" id="verdict">
+            <h3>&#128161; Recommendation</h3>
+            <p id="verdictText">Loading...</p>
+        </div>
+
+        <div class="related">
+            <h3>Related Calculators</h3>
+            <div class="related-grid">
+                <a href="compare-offers.html">
+                    <div class="rel-title">Compare Equity Offers</div>
+                    <div class="rel-desc">Full side-by-side offer comparison</div>
+                </a>
+                <a href="stock-options.html">
+                    <div class="rel-title">Stock Options Calculator</div>
+                    <div class="rel-desc">Value your stock options at exit</div>
+                </a>
+                <a href="blog/salary-vs-equity-guide.html">
+                    <div class="rel-title">Salary vs Equity Guide</div>
+                    <div class="rel-desc">How to structure compensation</div>
+                </a>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="dilution.html">Dilution</a></li>
+            <li><a href="runway.html">Runway</a></li>
+            <li><a href="safe.html">SAFE</a></li>
+            <li><a href="vesting.html">Vesting</a></li>
+            <li><a href="unit-economics.html">Unit Econ</a></li>
+            <li><a href="cap-table.html">Cap Table</a></li>
+            <li><a href="equity-split.html">Equity Split</a></li>
+            <li><a href="valuation.html">Valuation</a></li>
+            <li><a href="stock-options.html">Stock Options</a></li>
+            <li><a href="compare-offers.html">Compare Offers</a></li>
+            <li><a href="free-startup-tools.html">Free Tools</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="pro-gating.js"></script>
+<script src="usage-prompt.js"></script>
+
+<script>
+// ============================================================
+// MOBILE MENU
+// ============================================================
+function toggleMobileMenu() {
+    const nav = document.getElementById('navLinks');
+    const toggle = document.getElementById('mobileToggle');
+    nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const nav = document.getElementById('navLinks');
+        if (nav.classList.contains('open')) {
+            nav.classList.remove('open');
+            document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+            document.getElementById('mobileToggle').focus();
+        }
+    }
+});
+
+// ============================================================
+// CALCULATION
+// ============================================================
+function calculate() {
+    const salaryA = parseFloat(document.getElementById('salaryA').value) || 0;
+    const equityA = parseFloat(document.getElementById('equityA').value) / 100 || 0;
+    const strikeA = parseFloat(document.getElementById('strikePriceA').value) || 0;
+
+    const salaryB = parseFloat(document.getElementById('salaryB').value) || 0;
+    const equityB = parseFloat(document.getElementById('equityB').value) / 100 || 0;
+    const strikeB = parseFloat(document.getElementById('strikePriceB').value) || 0;
+
+    const companyValue = (parseFloat(document.getElementById('companyValue').value) || 0) * 1e6;
+    const years = parseInt(document.getElementById('yearsStay').value) || 4;
+
+    // Total salary over the period
+    const totalSalaryA = salaryA * years;
+    const totalSalaryB = salaryB * years;
+    const salaryDiff = totalSalaryA - totalSalaryB;
+
+    // Calculate breakeven: when equityB value - equityA value = salaryDiff
+    // Equity value = equityPct * (exitValue - shares * strikePrice) / shares
+    // Simplified: equityValue = equityPct * (companyValue * multiple - exerciseCost)
+    // For breakeven: equityB * (companyValue * multiple) - equityA * (companyValue * multiple) = salaryDiff
+    // (equityB - equityA) * companyValue * multiple = salaryDiff
+    // multiple = salaryDiff / ((equityB - equityA) * companyValue)
+    let breakEvenMultiple = 0;
+    if (equityB > equityA && companyValue > 0) {
+        breakEvenMultiple = salaryDiff / ((equityB - equityA) * companyValue);
+    }
+
+    // Calculate total comp at various exit multiples
+    const multiples = [1, 2, 3, 5, 10, 20];
+    const scenarios = multiples.map(function(m) {
+        const exitValue = companyValue * m;
+        const sharesA = equityA * 1e8; // Assume 100M shares outstanding
+        const sharesB = equityB * 1e8;
+        const valueA = equityA * exitValue - (strikeA > 0 ? sharesA * strikeA : 0);
+        const valueB = equityB * exitValue - (strikeB > 0 ? sharesB * strikeB : 0);
+        const totalA = totalSalaryA + Math.max(0, valueA);
+        const totalB = totalSalaryB + Math.max(0, valueB);
+        return {
+            multiple: m,
+            exitValue: exitValue,
+            totalA: totalA,
+            totalB: totalB,
+            diff: totalB - totalA
+        };
+    });
+
+    return {
+        salaryA, salaryB, equityA, equityB, strikeA, strikeB,
+        companyValue, years,
+        totalSalaryA, totalSalaryB, salaryDiff,
+        breakEvenMultiple,
+        scenarios
+    };
+}
+
+// ============================================================
+// RENDERING
+// ============================================================
+var compChart = null;
+
+function render(r) {
+    // Summary cards
+    document.getElementById('salaryDiff').textContent = formatCurrency(r.salaryDiff);
+    document.getElementById('salaryDiff').style.color = r.salaryDiff >= 0 ? 'var(--green)' : 'var(--red)';
+
+    if (r.breakEvenMultiple > 0 && r.breakEvenMultiple < 100) {
+        document.getElementById('breakEvenExit').textContent = r.breakEvenMultiple.toFixed(1) + 'x';
+    } else if (r.equityA >= r.equityB) {
+        document.getElementById('breakEvenExit').textContent = 'N/A (A has more equity)';
+    } else {
+        document.getElementById('breakEvenExit').textContent = '>100x';
+    }
+
+    // Comparison table
+    const tbody = document.getElementById('comparisonBody');
+    const scenario = r.scenarios.find(s => s.multiple === 5) || r.scenarios[3]; // Use 5x as default
+    tbody.innerHTML = `
+        <tr>
+            <td>Total Salary (4 years)</td>
+            <td>${formatCurrency(r.totalSalaryA)}</td>
+            <td>${formatCurrency(r.totalSalaryB)}</td>
+            <td class="${r.totalSalaryA > r.totalSalaryB ? 'winner' : 'loser'}">Offer A</td>
+        </tr>
+        <tr>
+            <td>Equity Value at 5x Exit</td>
+            <td>${formatCurrency(scenario.totalA - r.totalSalaryA)}</td>
+            <td>${formatCurrency(scenario.totalB - r.totalSalaryB)}</td>
+            <td class="${scenario.totalB - r.totalSalaryB > scenario.totalA - r.totalSalaryA ? 'winner' : 'loser'}">Offer B</td>
+        </tr>
+        <tr>
+            <td>Total Compensation at 5x</td>
+            <td>${formatCurrency(scenario.totalA)}</td>
+            <td>${formatCurrency(scenario.totalB)}</td>
+            <td class="${scenario.totalB > scenario.totalA ? 'winner' : 'loser'}">${scenario.totalB > scenario.totalA ? 'Offer B' : 'Offer A'}</td>
+        </tr>
+    `;
+
+    // Verdict
+    const verdictEl = document.getElementById('verdictText');
+    if (r.breakEvenMultiple > 0 && r.breakEvenMultiple < 10) {
+        verdictEl.innerHTML = `Offer B's equity makes up for the ${formatCurrency(r.salaryDiff)} salary difference at a <span class="highlight">${r.breakEvenMultiple.toFixed(1)}x</span> exit. If you believe the company can exit at ${Math.ceil(r.breakEvenMultiple)}x or higher, Offer B wins. Otherwise, take the higher salary in Offer A.`;
+    } else if (r.breakEvenMultiple >= 10 && r.breakEvenMultiple < 100) {
+        verdictEl.innerHTML = `Offer B would need a <span class="highlight">${r.breakEvenMultiple.toFixed(1)}x</span> exit to match Offer A's total compensation. That's a high bar. Unless you're very bullish on this company, Offer A's higher salary is the safer bet.`;
+    } else if (r.equityA >= r.equityB) {
+        verdictEl.innerHTML = `Offer A offers ${r.salaryDiff >= 0 ? 'higher salary' : 'lower salary'} AND ${r.equityA > r.equityB ? 'more equity' : 'the same equity'}. Offer A dominates Offer B - take it unless there are other factors like role fit or team quality.`;
+    } else {
+        verdictEl.innerHTML = `Offer B's equity would need an exit over 100x to match Offer A. That's extremely rare. The higher salary in Offer A gives you more flexibility and lower risk. Consider Offer B only if you're certain this will be a unicorn exit.`;
+    }
+
+    // Chart
+    renderChart(r);
+}
+
+function formatCurrency(n) {
+    if (Math.abs(n) >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
+    if (Math.abs(n) >= 1e3) return '$' + (n / 1e3).toFixed(0) + 'K';
+    return '$' + n.toFixed(0);
+}
+
+function renderChart(r) {
+    var ctx = document.getElementById('compChart').getContext('2d');
+    var labels = r.scenarios.map(function(s) { return s.multiple + 'x'; });
+    var dataA = r.scenarios.map(function(s) { return s.totalA / 1000; });
+    var dataB = r.scenarios.map(function(s) { return s.totalB / 1000; });
+
+    if (compChart) compChart.destroy();
+    compChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Offer A',
+                    data: dataA,
+                    borderColor: '#6c5ce7',
+                    backgroundColor: 'rgba(108, 92, 231, 0.1)',
+                    fill: true,
+                    tension: 0.3
+                },
+                {
+                    label: 'Offer B',
+                    data: dataB,
+                    borderColor: '#00b894',
+                    backgroundColor: 'rgba(0, 184, 148, 0.1)',
+                    fill: true,
+                    tension: 0.3
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { intersect: false, mode: 'index' },
+            plugins: {
+                legend: { labels: { color: '#a0a0b5', font: { size: 11 } } },
+                tooltip: {
+                    backgroundColor: '#1a1a2e',
+                    titleColor: '#f0f0f5',
+                    bodyColor: '#a0a0b5',
+                    borderColor: '#2a2a40',
+                    borderWidth: 1,
+                    callbacks: {
+                        label: function(ctx) { return ctx.dataset.label + ': ' + formatCurrency(ctx.parsed.y * 1000); }
+                    }
+                }
+            },
+            scales: {
+                x: { ticks: { color: '#666680' }, grid: { color: 'rgba(42,42,64,0.3)' } },
+                y: {
+                    ticks: { color: '#666680', callback: function(v) { return '$' + v + 'K'; } },
+                    grid: { color: 'rgba(42,42,64,0.3)' }
+                }
+            }
+        }
+    });
+}
+
+// ============================================================
+// EVENT LISTENERS
+// ============================================================
+var inputs = document.querySelectorAll('.input-panel input');
+inputs.forEach(function(el) {
+    el.addEventListener('input', function() {
+        var r = calculate();
+        render(r);
+    });
+});
+
+// Initial render
+var initialResult = calculate();
+render(initialResult);
+</script>
+</body>
+</html>

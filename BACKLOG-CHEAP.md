@@ -18,9 +18,8 @@
 - ⬜ C136: Reach out to 5 startup blogs for guest post about equity negotiation
 - ⬜ C137: Create "Share to LinkedIn" button for compare-offers results
 - ⬜ C138: Add comparison tool link to salary-vs-equity blog post CTA
-- ⬜ C144: Verify all calculators work after safe.html cleanup (smoke test)
-- ⬜ C145: Check all other calculators for duplicate function corruption
-- ⬜ C146: Add SAFE stacking blog link to free-startup-tools.html
+- ✅ C145: Checked all calculators - fixed stock-options.html (588 duplicates), equity-split.html (745 duplicates), valuation.html (900 duplicates)
+- ✅ C146: SAFE stacking blog link already present in free-startup-tools.html
 
 ## Product & UX
 
