@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO vs NSO: Which Stock Option Type Is Better? (2026) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="ISO vs NSO: Understand the key differences between Incentive Stock Options and Non-Qualified Stock Options. Tax treatment, AMT implications, and which type is better for startup employees.">
+    <meta name="keywords" content="iso vs nso, incentive stock options vs non-qualified, iso nso comparison, startup stock options types, iso tax treatment, nso tax treatment, amt stock options">
+    <meta property="og:title" content="ISO vs NSO: Which Stock Option Type Is Better for Startup Employees?">
+    <meta property="og:description" content="Understand the key differences between ISOs and NSOs. Tax treatment, AMT risk, holding requirements, and practical implications for startup employees.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/iso-vs-nso-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ISO vs NSO: Which Stock Option Type Is Better?">
+    <meta name="twitter:description" content="Understand the key differences between ISOs and NSOs. Tax treatment, AMT risk, holding requirements, and practical implications.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "ISO vs NSO: Which Stock Option Type Is Better?",
+        "url": "https://founder-math.com/blog/iso-vs-nso-guide.html",
+        "description": "ISO vs NSO: Understand the key differences between Incentive Stock Options and Non-Qualified Stock Options. Tax treatment, AMT, and which is better.",
+        "datePublished": "2026-05-07",
+        "dateModified": "2026-05-07",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00b894;
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+        }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --bg-card: #f9f9fb;
+            --text-primary: #1a1a2e;
+            --text-secondary: #555570;
+            --border: #e0e0e0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85); border-bottom: 1px solid var(--border); }
+        body[data-theme="light"] nav { background: rgba(255, 255, 255, 0.9); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.25rem; font-weight: 700; text-decoration: none; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+        .theme-toggle { background: none; border: none; color: var(--text-secondary); cursor: pointer; padding: 8px; display: flex; align-items: center; justify-content: center; }
+        .theme-toggle:hover { color: var(--text-primary); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        @media (max-width: 768px) { .nav-links { position: fixed; top: 64px; left: 0; right: 0; background: var(--bg-primary); flex-direction: column; padding: 24px; gap: 16px; border-bottom: 1px solid var(--border); transform: translateY(-100%); transition: transform 0.3s; } .nav-links.open { transform: translateY(0); } .mobile-toggle { display: block; } }
+        main { max-width: 800px; margin: 0 auto; padding: 96px 24px 64px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); text-decoration: none; margin-bottom: 32px; font-size: 0.95rem; }
+        .back-link:hover { color: var(--accent); }
+        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 24px; }
+        .meta { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 40px; }
+        h2 { font-size: 1.75rem; margin: 48px 0 24px; }
+        h3 { font-size: 1.35rem; margin: 32px 0 16px; }
+        p { margin-bottom: 24px; color: var(--text-secondary); }
+        strong { color: var(--text-primary); }
+        code { background: var(--bg-secondary); padding: 4px 8px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.9rem; }
+        ul, ol { margin-bottom: 24px; padding-left: 24px; color: var(--text-secondary); }
+        li { margin-bottom: 12px; }
+        .callout { background: var(--bg-card); border-left: 4px solid var(--accent); padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 32px 0; }
+        .callout h4 { color: var(--accent); margin-bottom: 8px; font-size: 1.1rem; }
+        .callout p { margin-bottom: 0; }
+        .warning { border-color: var(--red); }
+        .warning h4 { color: var(--red); }
+        .success { border-color: var(--green); }
+        .success h4 { color: var(--green); }
+        .comparison-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 32px 0; border-radius: 8px; overflow: hidden; }
+        .comparison-table th, .comparison-table td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        .comparison-table th { background: var(--bg-secondary); color: var(--text-primary); font-weight: 600; }
+        .comparison-table th:first-child { border-radius: 8px 0 0 0; }
+        .comparison-table th:last-child { border-radius: 0 8px 0 0; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .check { color: var(--green); font-weight: bold; }
+        .cross { color: var(--red); font-weight: bold; }
+        .cta-box { background: linear-gradient(135deg, var(--accent) 0%, #4834d4 100%); padding: 32px; border-radius: 12px; text-align: center; margin: 48px 0; }
+        .cta-box h3 { color: white; margin-bottom: 12px; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 24px; }
+        .cta-btn { display: inline-block; background: white; color: var(--accent); padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+        .newsletter { max-width: 600px; margin: 40px auto 60px; padding: 32px; text-align: center; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; }
+        .newsletter h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .newsletter p { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem; }
+        .newsletter-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; }
+        .newsletter-form input { flex: 1; padding: 12px 16px; background: var(--bg-input); border: 1px solid var(--border); border-radius: 10px; color: var(--text-primary); font-size: 0.9rem; outline: none; }
+        .newsletter-form input:focus { border-color: var(--accent); }
+        .newsletter-form input::placeholder { color: var(--text-muted); }
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        @media (max-width: 600px) { h1 { font-size: 1.75rem; } h2 { font-size: 1.4rem; } .cta-box { padding: 24px; } .comparison-table { font-size: 0.9rem; } .comparison-table th, .comparison-table td { padding: 12px; } }
+        .toc { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 32px 0; }
+        .toc h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-light); margin: 0 0 12px 0; }
+        .toc ol { padding-left: 20px; }
+        .toc li { margin-bottom: 6px; font-size: 0.9rem; }
+        .toc a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .toc a:hover { color: var(--accent-light); }
+        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
+        .related-posts a:hover { text-decoration: underline; }
+        .author-bio { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-top: 48px; display: flex; gap: 16px; align-items: flex-start; }
+        .author-avatar { font-size: 2.5rem; line-height: 1; flex-shrink: 0; }
+        .author-content h4 { margin: 0 0 8px 0; font-size: 0.95rem; color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.05em; }
+        .author-content p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
+        .author-content a { color: var(--accent-light); text-decoration: none; }
+        .author-content a:hover { text-decoration: underline; }
+        .callout.cta { border-left-color: var(--green); background: rgba(0,184,148,0.08); }
+        .callout.cta .cta-button { display: inline-block; margin-top: 0.75rem; padding: 0.6rem 1.5rem; background: var(--green); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .callout.cta .cta-button:hover { opacity: 0.9; }
+    </style>
+</head>
+<body data-theme="dark">
+    <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="../" class="logo" aria-label="FounderMath home">
+            <div class="logo-icon" aria-hidden="true">%</div>
+            FounderMath
+        </a>
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+            <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+            <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+            <li role="none"><a href="../vesting.html" role="menuitem">Vesting</a></li>
+            <li role="none"><a href="../unit-economics.html" role="menuitem">Unit Econ</a></li>
+            <li role="none"><a href="../cap-table.html" role="menuitem">Cap Table</a></li>
+            <li role="none"><a href="../equity-split.html" role="menuitem">Equity Split</a></li>
+            <li role="none"><a href="../valuation.html" role="menuitem">Valuation</a></li>
+            <li role="none"><a href="../stock-options.html" role="menuitem">Options</a></li>
+            <li role="none"><a href="compare-offers.html" role="menuitem">Compare</a></li>
+            <li role="none"><a href="../pricing.html" role="menuitem">Pricing</a></li>
+            <li><a href="../pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+            <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></li>
+        </ul>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+    </div>
+</nav>
+<main>
+    <a href="../blog.html" class="back-link">&larr; Back to Blog</a>
+    <h1>ISO vs NSO: Which Stock Option Type Is Better for Startup Employees?</h1>
+    <div class="meta">Published May 7, 2026 &bull; 9 min read</div>
+    <p>When a startup grants you stock options, they come in one of two flavors: <strong>Incentive Stock Options (ISOs)</strong> or <strong>Non-Qualified Stock Options (NSOs)</strong>. The type you receive has enormous implications for your tax bill -- potentially tens of thousands of dollars difference. This guide explains the key differences, when you get each type, and how to optimize your tax strategy.</p>
+
+    <div class="callout">
+        <h4>Key Takeaway</h4>
+        <p>ISOs offer better tax treatment (potential for long-term capital gains on the full spread) but come with AMT risk and a $100K annual vesting limit. NSOs are simpler (ordinary income at exercise) but available to anyone. Most startup employees receive ISOs; contractors and advisors get NSOs.</p>
+    </div>
+
+    <nav class="toc">
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#what-are-isos">What Are Incentive Stock Options (ISOs)?</a></li>
+            <li><a href="#what-are-nsos">What Are Non-Qualified Stock Options (NSOs)?</a></li>
+            <li><a href="#comparison">Side-by-Side Comparison</a></li>
+            <li><a href="#tax">Tax Treatment at Each Stage</a></li>
+            <li><a href="#amt">Understanding AMT Risk with ISOs</a></li>
+            <li><a href="#which">Which Type Will You Get?</a></li>
+            <li><a href="#strategies">Tax Optimization Strategies</a></li>
+        </ol>
+    </nav>
+
+    <h2 id="what-are-isos">What Are Incentive Stock Options (ISOs)?</h2>
+    <p>Incentive Stock Options (ISOs) are a type of stock option that qualifies for special tax treatment under the Internal Revenue Code (Section 422). They are also sometimes called "qualified" or "statutory" stock options because they must meet specific IRS requirements.</p>
+    <p><strong>ISO Requirements:</strong></p>
+    <ul>
+        <li><strong>Employees only.</strong> Only W-2 employees can receive ISOs. Contractors, advisors, and board members are not eligible.</li>
+        <li><strong>$100K annual limit.</strong> The total value of ISOs that first become exercisable in any calendar year cannot exceed $100,000 (based on the grant-date FMV). Any excess automatically converts to NSO treatment.</li>
+        <li><strong>10-year exercise window.</strong> ISOs must be exercised within 10 years of the grant date (5 years if the option holder owns more than 10% of the company).</li>
+        <li><strong>Strike price = FMV at grant.</strong> The exercise price must equal or exceed the fair market value of the stock on the grant date.</li>
+        <li><strong>Board approval.</strong> The board of directors must approve the option grant.</li>
+    </ul>
+    <p><strong>The big tax advantage of ISOs:</strong> If you exercise your ISOs and hold the shares for at least <strong>1 year after exercise AND 2 years after the grant date</strong> (the "qualifying disposition" rules), the entire gain from your strike price to the sale price is taxed at <strong>long-term capital gains rates</strong> (15-20%) instead of ordinary income rates (up to 37%). This can save you 17+ percentage points on hundreds of thousands of dollars.</p>
+
+    <h2 id="what-are-nsos">What Are Non-Qualified Stock Options (NSOs)?</h2>
+    <p>Non-Qualified Stock Options (NSOs) do not qualify for the special tax treatment of ISOs. They are also called "non-statutory" stock options. The tax treatment is simpler but less favorable.</p>
+    <p><strong>NSO characteristics:</strong></p>
+    <ul>
+        <li><strong>Available to anyone.</strong> Employees, contractors, advisors, and board members can all receive NSOs.</li>
+        <li><strong>No $100K limit.</strong> There is no annual vesting cap for NSOs.</li>
+        <li><strong>Simpler tax treatment.</strong> When you exercise NSOs, the spread between the FMV at exercise and your strike price is taxed as <strong>ordinary income</strong> immediately. Your employer withholds taxes (and reports it on your W-2).</li>
+        <li><strong>No AMT complication.</strong> NSOs do not trigger the Alternative Minimum Tax at exercise.</li>
+    </ul>
+    <p><strong>Why companies use NSOs:</strong> NSOs are more flexible. Companies can grant them to non-employees (advisors, consultants, board members). Many companies also use NSOs for employees who have exceeded the $100K ISO annual vesting limit. Some companies simply use NSOs for all grants to simplify administration.</p>
+
+    <h2 id="comparison">Side-by-Side Comparison</h2>
+    <table class="comparison-table">
+        <tr>
+            <th>Feature</th>
+            <th>ISOs</th>
+            <th>NSOs</th>
+        </tr>
+        <tr>
+            <td><strong>Who Can Receive</strong></td>
+            <td>Employees only (W-2)</td>
+            <td>Anyone (employees, contractors, advisors)</td>
+        </tr>
+        <tr>
+            <td><strong>Tax at Grant</strong></td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td><strong>Tax at Vest</strong></td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td><strong>Tax at Exercise</strong></td>
+            <td>May trigger AMT on spread</td>
+            <td>Ordinary income on spread (withheld by employer)</td>
+        </tr>
+        <tr>
+            <td><strong>Tax at Sale (qualifying)</strong></td>
+            <td>Long-term capital gains on full gain</td>
+            <td>Capital gains only on post-exercise appreciation</td>
+        </tr>
+        <tr>
+            <td><strong>Annual Vesting Limit</strong></td>
+            <td>$100K per year</td>
+            <td>No limit</td>
+        </tr>
+        <tr>
+            <td><strong>Holding Period for Tax Benefit</strong></td>
+            <td>2 years from grant + 1 year from exercise</td>
+            <td>N/A (no special holding benefit)</td>
+        </tr>
+        <tr>
+            <td><strong>Employer Tax Deduction</strong></td>
+            <td>Only if disqualifying disposition</td>
+            <td>Yes, at exercise (equal to employee's income)</td>
+        </tr>
+        <tr>
+            <td><strong>Post-Employment Exercise</strong></td>
+            <td>Typically 90 days (ISOs become NSOs if not exercised)</td>
+            <td>Typically 90 days (check your grant agreement)</td>
+        </tr>
+    </table>
+
+    <h2 id="tax">Tax Treatment at Each Stage</h2>
+    <p>Understanding the tax timeline for each option type is essential for making informed exercise and sale decisions.</p>
+
+    <h3>ISO Tax Timeline</h3>
+    <p><strong>At grant:</strong> No tax.</p>
+    <p><strong>At vest:</strong> No tax. Vesting only means you have earned the right to exercise.</p>
+    <p><strong>At exercise:</strong> The spread (FMV at exercise minus strike price) is NOT subject to regular income tax. However, it IS included in your <strong>AMT calculation</strong>. If your AMT liability exceeds your regular tax liability, you pay the difference. This is the hidden trap of ISOs -- you may owe significant tax at exercise even though you have not sold any shares.</p>
+    <p><strong>At sale (qualifying disposition):</strong> If you held the shares for at least 1 year after exercise AND 2 years after grant, the entire gain is taxed at long-term capital gains rates (15-20% federal). This is the best-case scenario.</p>
+    <p><strong>At sale (disqualifying disposition):</strong> If you sell before meeting both holding requirements, the spread at exercise is "recaptured" and taxed as ordinary income. Only the additional appreciation (if any) gets capital gains treatment.</p>
+
+    <h3>NSO Tax Timeline</h3>
+    <p><strong>At grant:</strong> No tax.</p>
+    <p><strong>At vest:</strong> No tax.</p>
+    <p><strong>At exercise:</strong> The spread is taxed as <strong>ordinary income</strong> immediately. Your employer withholds taxes (typically 22-37% federal plus state). The spread is reported on your W-2.</p>
+    <p><strong>At sale:</strong> Any appreciation from the exercise-date FMV to the sale price is a capital gain (long-term if held more than 1 year after exercise).</p>
+
+    <div class="callout">
+        <h4>Worked Example: Tax Comparison on $200K Spread</h4>
+        <p>You exercise options when the spread (FMV minus strike price) is $200,000. You hold for 2 years and sell when the shares have appreciated to $500,000 total value (above strike price).</p>
+        <p><strong>ISO path:</strong> At exercise, AMT may apply on $200K spread. At sale (qualifying disposition), the full $500K gain is taxed at 20% long-term capital gains = <strong>$100,000 tax</strong>.</p>
+        <p><strong>NSO path:</strong> At exercise, $200K spread taxed as ordinary income at ~32% = <strong>$64,000 tax</strong>. At sale, $300K additional gain taxed at 20% LTCG = <strong>$60,000 tax</strong>. Total tax: <strong>$124,000</strong>.</p>
+        <p>The ISO saves you $24,000 in this scenario -- even though the AMT at exercise is painful upfront.</p>
+    </div>
+
+    <h2 id="amt">Understanding AMT Risk with ISOs</h2>
+    <p>The Alternative Minimum Tax (AMT) is the most confusing aspect of ISO exercise. Here is what you need to know.</p>
+    <p>When you exercise ISOs, the spread between the FMV at exercise and your strike price is added to your income for AMT purposes only. It is not added to your regular taxable income. The AMT calculation runs in parallel to your regular tax calculation, and you pay whichever is higher.</p>
+
+    <div class="callout warning">
+        <h4>AMT Warning</h4>
+        <p>If you exercise a large number of ISOs at a significant spread, you could face an AMT bill of tens or hundreds of thousands of dollars -- on paper gains in a private company that you cannot sell. This has trapped many startup employees who exercised ISOs and then could not afford the tax bill. Always run AMT calculations with a tax advisor before exercising a large ISO block.</p>
+    </div>
+
+    <h3>AMT Rough Calculation</h3>
+    <p>The AMT rate is 26% on the first $232,000 of AMT income (for married filing jointly in 2026) and 28% above that. Here is a simplified example:</p>
+    <ul>
+        <li>Your regular taxable income: $150,000</li>
+        <li>ISO spread at exercise: $300,000</li>
+        <li>AMT income: $150,000 + $300,000 = $450,000</li>
+        <li>AMT exemption: ~$133,000 (married joint)</li>
+        <li>AMT taxable income: $450,000 - $133,000 = $317,000</li>
+        <li>AMT at 26%: ~$82,420</li>
+        <li>Regular tax on $150K: ~$24,000</li>
+        <li>AMT you owe: $82,420 - $24,000 = <strong>$58,420</strong></li>
+    </ul>
+    <p>You would owe an additional $58,420 in taxes at exercise, even though you have not sold any shares. However, you may be able to recover some of this as an AMT credit in future years when your regular tax exceeds your AMT.</p>
+
+    <h2 id="which">Which Type Will You Get?</h2>
+    <p>In most cases, you do not choose between ISOs and NSOs. The company decides based on your role and the grant size.</p>
+
+    <h3>Standard Practice at Startups</h3>
+    <ul>
+        <li><strong>Employees:</strong> Typically receive ISOs for the first $100K of annual vesting value. Any amount above $100K automatically converts to NSO treatment.</li>
+        <li><strong>Contractors and consultants:</strong> Always receive NSOs (ISOs are not available to non-employees).</li>
+        <li><strong>Advisors and board members:</strong> Always receive NSOs.</li>
+        <li><strong>Very large grants:</strong> If your total grant vests more than $100K in a single year, the excess is treated as NSOs.</li>
+    </ul>
+
+    <h3>How to Check What You Have</h3>
+    <p>Check your stock option agreement. It will clearly state whether the options are "Incentive Stock Options" or "Non-Qualified Stock Options." If you are not sure, ask your company's HR or legal team. This information is also typically available in your equity management platform (Carta, Pulley, etc.).</p>
+
+    <h2 id="strategies">Tax Optimization Strategies</h2>
+
+    <h3>For ISO Holders</h3>
+    <ol>
+        <li><strong>Exercise early when the spread is small.</strong> If you can exercise shortly after grant when the FMV is close to your strike price, the AMT impact is minimal or zero. You also start the holding period clock for qualifying disposition treatment.</li>
+        <li><strong>Exercise in batches across tax years.</strong> Spread exercises across multiple calendar years to keep the AMT impact manageable each year.</li>
+        <li><strong>Hold for qualifying disposition.</strong> If you can afford to hold exercised shares for 1 year after exercise and 2 years after grant, you convert the entire gain to long-term capital gains. This can save 15-17% on the spread.</li>
+        <li><strong>Consider an <a href="83b-election-guide.html" style="color: var(--accent);">83(b) election</a> if you early exercise.</strong> If your company allows early exercise (exercising before vesting), the resulting restricted stock may benefit from an 83(b) election.</li>
+    </ol>
+
+    <h3>For NSO Holders</h3>
+    <ol>
+        <li><strong>Exercise when the spread is small.</strong> Since NSOs are taxed as ordinary income at exercise, exercising when FMV is low minimizes the tax hit.</li>
+        <li><strong>Exercise and hold for 1+ year before selling.</strong> Any appreciation after the exercise date is taxed at capital gains rates if you hold for more than 1 year.</li>
+        <li><strong>Time exercise with income planning.</strong> Since the NSO spread is ordinary income, exercise in years when your income is lower to stay in a lower tax bracket.</li>
+    </ol>
+
+    <div class="callout success">
+        <h4>Universal Strategy</h4>
+        <p>Regardless of option type: <strong>do not wait until a liquidity event to think about exercise.</strong> Plan your exercise strategy early, understand your AMT exposure, and work with a tax advisor who understands startup equity. The difference between a well-planned exercise and a last-minute one can be hundreds of thousands of dollars.</p>
+    </div>
+
+    <div class="callout">
+        <h4>Calculate Your Options Value</h4>
+        <p>Use our <a href="../stock-options.html" style="color: var(--accent);">Stock Options Calculator</a> to model different exercise scenarios for your ISOs or NSOs. See your after-tax returns at different exit valuations.</p>
+    </div>
+
+    <div class="cta-box">
+        <h3>Model Your Stock Option Value</h3>
+        <p>Input your grant details -- strike price, share count, ISO or NSO -- and see exactly what your options could be worth at different company valuations. Factor in taxes, exercise costs, and vesting.</p>
+        <a href="../stock-options.html" class="cta-btn">Try Stock Options Calculator &rarr;</a>
+    </div>
+
+    <div class="callout cta">
+        <strong>Try it yourself</strong>
+        <p>Use our free Stock Options Calculator to compare ISO vs NSO outcomes side by side. See the tax difference at exercise and sale. No signup required.</p>
+        <a href="../stock-options.html" class="cta-button">Try Stock Options Calculator Free &rarr;</a>
+    </div>
+
+    <div class="author-bio">
+        <div class="author-avatar">📊</div>
+        <div class="author-content">
+            <h4>About FounderMath</h4>
+            <p>We build the calculators founders and employees actually need. No spreadsheets, no confusion -- just interactive tools that make startup equity math visual and intuitive. Join 500+ founders who get our weekly equity insights.</p>
+        </div>
+    </div>
+
+    <div class="related-posts">
+        <h3>Related Posts</h3>
+        <a href="rsus-vs-stock-options-guide.html">RSUs vs Stock Options: What Startup Employees Need to Know</a>
+        <a href="stock-options-worth-guide.html">How Much Are My Stock Options Worth?</a>
+        <a href="83b-election-guide.html">Section 83(b) Election: The Tax Move That Saves Thousands</a>
+        <a href="vesting-schedules-guide.html">Vesting Schedules Explained: Cliff, Acceleration, and 83(b)</a>
+        <a href="evaluate-equity-offer.html">How to Evaluate a Startup Equity Offer</a>
+        <a href="409a-valuation-guide.html">409A Valuations: What Founders Need to Know</a>
+    </div>
+
+    <footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="../dilution.html">Dilution</a></li>
+            <li><a href="../runway.html">Runway</a></li>
+            <li><a href="../safe.html">SAFE</a></li>
+            <li><a href="../vesting.html">Vesting</a></li>
+            <li><a href="../unit-economics.html">Unit Econ</a></li>
+            <li><a href="../cap-table.html">Cap Table</a></li>
+            <li><a href="../equity-split.html">Equity Split</a></li>
+            <li><a href="../valuation.html">Valuation</a></li>
+            <li><a href="../free-startup-tools.html">Free Tools</a></li>
+            <li><a href="../social-scenarios.html">Equity Scenarios</a></li>
+            <li><a href="../carta-alternatives.html">Carta Alternatives</a></li>
+            <li><a href="../embed.html">Embed</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+    </div>
+</footer>
+<div class="newsletter">
+    <h2>Get weekly equity insights</h2>
+    <p>Join 500+ founders who get our weekly breakdown of startup math concepts, real-world equity scenarios, and calculator tips. No spam, ever.</p>
+    <form class="newsletter-form" id="blogNewsletterForm" onsubmit="handleBlogNewsletter(event)">
+        <input type="email" id="blogNewsletterEmail" placeholder="you@company.com" required>
+        <button type="submit" id="blogNewsletterBtn" class="cta-btn">Subscribe</button>
+    </form>
+    <p id="blogNewsletterMsg" style="margin-top:12px;font-size:0.85rem;display:none;"></p>
+</div></main>
+
+<script>
+async function handleBlogNewsletter(e) {
+    e.preventDefault();
+    const email = document.getElementById('blogNewsletterEmail').value;
+    const msg = document.getElementById('blogNewsletterMsg');
+    const btn = document.getElementById('blogNewsletterBtn');
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+    try {
+        const resp = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+        const data = await resp.json();
+        if (resp.ok) {
+            btn.textContent = 'Subscribed!';
+            btn.style.background = '#27ae60';
+            msg.textContent = 'Thanks! You\'ll get weekly startup equity insights.';
+            msg.style.color = '#27ae60';
+            if (typeof gtag === 'function') gtag('event', 'newsletter_signup', { source: 'blog' });
+            document.getElementById('blogNewsletterEmail').value = '';
+        } else {
+            btn.textContent = 'Subscribe';
+            msg.textContent = data.error || 'Something went wrong. Try again.';
+            msg.style.color = '#e74c3c';
+        }
+    } catch(err) {
+        btn.textContent = 'Subscribe';
+        msg.textContent = 'Network error. Please try again.';
+        msg.style.color = '#e74c3c';
+    }
+    msg.style.display = 'block';
+    btn.disabled = false;
+    setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 4000);
+}
+</script></body>
+</html>
