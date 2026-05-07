@@ -55,12 +55,16 @@
                     '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L3 7l9 5 9-5-9-5z"/><path d="M3 17l9 5 9-5"/><path d="M3 12l9 5 9-5"/></svg>' +
                 '</div>' +
                 '<div>' +
-                    '<div style="color:var(--text-primary,#f0f0f5);font-weight:700;font-size:0.9rem;">Save your work</div>' +
-                    '<div style="color:var(--text-secondary,#a0a0b5);font-size:0.8rem;">Pro users save unlimited scenarios</div>' +
+                    '<div style="color:var(--text-primary,#f0f0f5);font-weight:700;font-size:0.9rem;">Founding 50: 50% Off Pro</div>' +
+                    '<div style="color:var(--text-secondary,#a0a0b5);font-size:0.8rem;">Save scenarios, export PDFs &mdash; $9.50/mo forever</div>' +
                 '</div>' +
             '</div>' +
-            '<a href="https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06?utm_source=founder-math&utm_medium=usage_prompt&utm_campaign=pro_upgrade" target="_blank" style="display:block;text-align:center;background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:white;text-decoration:none;padding:10px 16px;border-radius:8px;font-weight:700;font-size:0.85rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.9" onmouseout="this.style.opacity=1">Upgrade to Pro — $19/mo</a>' +
-            '<button onclick="localStorage.setItem(\'' + DISMISSED_KEY + '\', Date.now().toString());this.parentElement.remove()" style="display:block;width:100%;text-align:center;background:none;border:none;color:var(--text-muted,#666680);font-size:0.75rem;cursor:pointer;margin-top:6px;">Don\'t show again</button>';
+            '<a href="/founding.html?utm_source=founder-math&utm_medium=usage_prompt&utm_campaign=founding50" target="_blank" style="display:block;text-align:center;background:linear-gradient(135deg,#feca57,#ff9f43);color:#1a1a2e;text-decoration:none;padding:10px 16px;border-radius:8px;font-weight:700;font-size:0.85rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.9" onmouseout="this.style.opacity=1">Claim Your 50% Discount &rarr;</a>' +
+            '<div style="text-align:center;margin-top:6px;">' +
+                '<span style="color:var(--text-muted,#666680);font-size:0.7rem;">Only 50 spots at this price</span>' +
+                ' &middot; ' +
+                '<button onclick="localStorage.setItem(\'' + DISMISSED_KEY + '\', Date.now().toString());this.parentElement.parentElement.remove()" style="background:none;border:none;color:var(--text-muted,#666680);font-size:0.7rem;cursor:pointer;text-decoration:underline;">Dismiss</button>' +
+            '</div>';
 
         document.body.appendChild(nudge);
 
