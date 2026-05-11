@@ -2,19 +2,19 @@
 
 ## SEO & Content
 
-- ⬜ C127: Write "How to Negotiate Your Startup Job Offer" practical guide
+- ✅ C127: Write "How to Negotiate Your Startup Job Offer" practical guide (Day 27)
 - ⬜ C129: Add internal links from all blog posts to SAFE stacking article
 - ⬜ C148: Add equity-glossary.html links to all blog posts (cross-link from every post)
 - ⬜ C149: Add glossary page link to nav on all calculator pages ✅ (Day 26)
-- ⬜ C150: Write "How to Read a Cap Table" blog post linking to glossary
+- ✅ C150: Write "How to Read a Cap Table" blog post linking to glossary (Day 27)
 
 ## Growth & Distribution
 
-- ⬜ C133: Update Twitter bio with link to Equity Glossary page
+- ✅ C133: Update Twitter bio with link to Equity Glossary page (Day 27 - HELP-REQUEST created)
 - ⬜ C134: Create LinkedIn post template for equity glossary
 - ⬜ C135: Submit equity-glossary.html to startup directories and aggregators
 - ⬜ C136: Reach out to 5 startup blogs for guest post about equity negotiation
-- ⬜ C138: Add comparison tool link to salary-vs-equity blog post CTA
+- ✅ C138: Add comparison tool link to salary-vs-equity blog post CTA (Day 27)
 - ⬜ C151: Create Twitter thread: "50 startup equity terms explained in one thread"
 - ⬜ C152: Share equity glossary in startup subreddits as a resource
 

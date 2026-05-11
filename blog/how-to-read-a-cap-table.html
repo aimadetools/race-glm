@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Read a Cap Table: A Practical Guide for Founders (2026) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="Learn how to read and interpret startup cap tables. Understand the columns, share classes, ownership percentages, and red flags. A practical guide with examples.">
+    <meta name="keywords" content="how to read a cap table, cap table columns, share classes, preferred stock, common stock, option pool, fully diluted ownership">
+    <meta property="og:title" content="How to Read a Cap Table: A Practical Guide for Founders">
+    <meta property="og:description" content="A step-by-step guide to reading startup cap tables. Learn what each column means, understand share classes, and spot red flags.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/how-to-read-a-cap-table.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Read a Cap Table: A Practical Guide for Founders">
+    <meta name="twitter:description" content="A step-by-step guide to reading startup cap tables. Learn what each column means, understand share classes, and spot red flags.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Read a Cap Table: A Practical Guide for Founders",
+        "url": "https://founder-math.com/blog/how-to-read-a-cap-table.html",
+        "description": "Learn how to read and interpret startup cap tables. Understand the columns, share classes, ownership percentages, and red flags.",
+        "datePublished": "2026-05-11",
+        "dateModified": "2026-05-11",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+        .article-layout {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+        .article-header { margin-bottom: 48px; }
+        .article-meta {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted);
+        }
+        .article-meta .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+        .article-title {
+            font-size: 2.2rem; font-weight: 800; line-height: 1.2;
+            margin-bottom: 20px; color: var(--text-primary);
+        }
+        .article-excerpt {
+            font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7;
+        }
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 48px;
+        }
+        .toc h3 {
+            font-size: 0.9rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 16px;
+        }
+        .toc ul { list-style: none; }
+        .toc li { margin-bottom: 8px; }
+        .toc a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.95rem; transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent); }
+        .article-content h2 {
+            font-size: 1.6rem; font-weight: 700; margin: 48px 0 20px;
+            color: var(--text-primary); padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-content h3 {
+            font-size: 1.3rem; font-weight: 600; margin: 32px 0 16px;
+            color: var(--text-primary);
+        }
+        .article-content p {
+            margin-bottom: 20px; font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 20px; padding-left: 24px;
+        }
+        .article-content li {
+            margin-bottom: 12px; color: var(--text-secondary);
+        }
+        .article-content strong { color: var(--text-primary); }
+        .callout {
+            background: var(--bg-card);
+            border-left: 3px solid var(--accent);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .callout.warning { border-left-color: var(--orange); }
+        .callout.success { border-left-color: var(--green); }
+        .callout p { margin-bottom: 0; font-size: 0.95rem; }
+        .data-table {
+            width: 100%; border-collapse: collapse;
+            margin: 24px 0; font-size: 0.9rem;
+        }
+        .data-table th, .data-table td {
+            padding: 12px 16px; text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-table th {
+            font-weight: 600; color: var(--text-primary);
+            background: var(--bg-card);
+        }
+        .data-table td { color: var(--text-secondary); }
+        .data-table tr:last-child td { border-bottom: none; }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(0, 184, 148, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 48px 0;
+            text-align: center;
+        }
+        .cta-box h3 { font-size: 1.4rem; margin-bottom: 12px; color: var(--text-primary); }
+        .cta-box p { margin-bottom: 24px; color: var(--text-secondary); }
+        .btn-cta {
+            display: inline-block; background: var(--accent); color: white;
+            padding: 12px 32px; border-radius: 8px; text-decoration: none;
+            font-weight: 600; transition: all 0.3s;
+        }
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+        .back-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9rem; margin-bottom: 24px;
+        }
+        .back-link:hover { color: var(--text-primary); }
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .footer-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0; background: var(--bg-primary);
+                border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100;
+            }
+            .mobile-toggle { display: block; }
+            .article-title { font-size: 1.7rem; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            width: 36px;
+            height: 36px;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .theme-toggle:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
+        .theme-toggle .sun-icon, .theme-toggle .moon-icon {
+            width: 18px; height: 18px;
+        }
+        .theme-toggle .sun-icon { display: none; }
+        .theme-toggle .moon-icon { display: block; }
+        body[data-theme="light"] .theme-toggle .sun-icon { display: block; }
+        body[data-theme="light"] .theme-toggle .moon-icon { display: none; }
+        .newsletter {
+            max-width: 600px; margin: 40px auto 60px; padding: 32px; text-align: center;
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+        }
+        .newsletter h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .newsletter p { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem; }
+        .newsletter-form {
+            display: flex; gap: 10px; max-width: 420px; margin: 0 auto;
+        }
+        .newsletter-form input {
+            flex: 1; padding: 12px 16px; background: var(--bg-input);
+            border: 1px solid var(--border); border-radius: 10px;
+            color: var(--text-primary); font-size: 0.9rem; outline: none;
+        }
+        .newsletter-form input:focus { border-color: var(--accent); }
+        .newsletter-form input::placeholder { color: var(--text-muted); }
+        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
+        .related-posts a:hover { text-decoration: underline; }
+        .author-bio {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .author-avatar {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .author-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .author-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .author-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .author-content a:hover { text-decoration: underline; }
+        .callout.cta { border-left-color: var(--green); background: rgba(0,184,148,0.08); }
+        .callout.cta .cta-button { display: inline-block; margin-top: 0.75rem; padding: 0.6rem 1.5rem; background: var(--green); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .callout.cta .cta-button:hover { opacity: 0.9; }
+        .glossary-link {
+            color: var(--accent-light);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent-light);
+        }
+        .glossary-link:hover {
+            color: var(--accent);
+            border-bottom-style: solid;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+                <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+                <li role="none"><a href="../vesting.html" role="menuitem">Vesting</a></li>
+                <li role="none"><a href="../unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="../cap-table.html" role="menuitem">Cap Table</a></li>
+                <li role="none"><a href="../equity-split.html" role="menuitem">Equity Split</a></li>
+                <li role="none"><a href="../valuation.html" role="menuitem">Valuation</a></li>
+                <li role="none"><a href="../stock-options.html" role="menuitem">Options</a></li>
+                <li role="none"><a href="../equity-vs-salary.html" role="menuitem">Equity vs Salary</a></li>
+                <li role="none"><a href="../compare-offers.html" role="menuitem">Compare</a></li>
+                <li role="none"><a href="../equity-quiz.html" role="menuitem">Equity Quiz</a></li>
+                <li role="none"><a href="../equity-glossary.html" role="menuitem">Glossary</a></li>
+                <li role="none"><a href="../pricing.html" role="menuitem">Pricing</a></li>
+                <li><a href="../pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <main id="main-content" class="article-layout">
+        <a href="../blog.html" class="back-link">← Back to Blog</a>
+
+        <article class="article-content">
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="tag">Cap Table</span>
+                    <span>12 min read</span>
+                </div>
+                <h1 class="article-title">How to Read a Cap Table: A Practical Guide for Founders</h1>
+                <p class="article-excerpt">A step-by-step guide to reading startup cap tables. Learn what each column means, understand share classes, and spot red flags before investors do.</p>
+            </header>
+
+            <nav class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#the-basics">The Basics: What You're Looking At</a></li>
+                    <li><a href="#standard-columns">Standard Cap Table Columns Explained</a></li>
+                    <li><a href="#sample-cap-table">Sample Cap Table Breakdown</a></li>
+                    <li><a href="#share-classes">Understanding Share Classes</a></li>
+                    <li><a href="#fully-diluted">Fully-Diluted vs. Issued</a></li>
+                    <li><a href="#red-flags">Red Flags to Watch For</a></li>
+                    <li><a href="#investor-formats">Reading Investor Cap Tables</a></li>
+                    <li><a href="#common-mistakes">Common Mistakes When Reading Cap Tables</a></li>
+                </ul>
+            </nav>
+
+            <h2 id="the-basics">The Basics: What You're Looking At</h2>
+
+            <p>A cap table (short for <a href="../equity-glossary.html#capitalization-table" class="glossary-link">capitalization table</a>) is a spreadsheet that lists every shareholder in your company, how many shares they own, what type of shares they have, and their ownership percentage.</p>
+
+            <div class="callout success">
+                <p><strong>Why this matters:</strong> Investors will ask for your cap table during due diligence. If you can't read and explain it confidently, that's a red flag. This guide teaches you exactly what to look for.</p>
+            </div>
+
+            <p>At a glance, a cap table should tell you:</p>
+            <ul>
+                <li><strong>Who owns the company</strong> — Founders, investors, employees, advisors</li>
+                <li><strong>What they own</strong> — Number of shares, share class, rights</li>
+                <li><strong>How much they own</strong> — Ownership percentage on a fully-diluted basis</li>
+                <li><strong>What's coming</strong> — Unissued options, convertible securities, warrants</li>
+            </ul>
+
+            <h2 id="standard-columns">Standard Cap Table Columns Explained</h2>
+
+            <p>Most cap tables follow a similar structure. Here's what each column means:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Column</th>
+                        <th>What It Means</th>
+                        <th>What to Look For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Shareholder</strong></td>
+                        <td>Name of person or entity owning shares</td>
+                        <td>Verify all names are correct, no duplicates</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Share Class</strong></td>
+                        <td>Type of stock: Common or Preferred</td>
+                        <td>Founders/employees = Common, Investors = Preferred</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Shares</strong></td>
+                        <td>Number of shares held</td>
+                        <td>Check math: shares should equal % × total</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Price/Share</strong></td>
+                        <td>What they paid per share</td>
+                        <td>Should increase with each funding round</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ownership %</strong></td>
+                        <td>Calculated on fully-diluted basis</td>
+                        <td>All percentages should sum to 100%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vested/Unvested</strong></td>
+                        <td>For founders/employees with vesting</td>
+                        <td>Check vesting schedule matches agreements</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="sample-cap-table">Sample Cap Table Breakdown</h2>
+
+            <p>Here's a typical early-stage cap table with explanations:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Shareholder</th>
+                        <th>Type</th>
+                        <th>Shares</th>
+                        <th>Price/Share</th>
+                        <th>% Ownership</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jordan Chen (Founder/CEO)</td>
+                        <td>Common</td>
+                        <td>4,500,000</td>
+                        <td>$0.0001</td>
+                        <td>45%</td>
+                    </tr>
+                    <tr>
+                        <td>Sam Rivera (Founder/CTO)</td>
+                        <td>Common</td>
+                        <td>4,500,000</td>
+                        <td>$0.0001</td>
+                        <td>45%</td>
+                    </tr>
+                    <tr>
+                        <td>Seed Investors</td>
+                        <td>Series A Preferred</td>
+                        <td>1,000,000</td>
+                        <td>$2.00</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>Option Pool (unissued)</td>
+                        <td>Common</td>
+                        <td>0</td>
+                        <td>—</td>
+                        <td>0%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TOTAL</strong></td>
+                        <td></td>
+                        <td><strong>10,000,000</strong></td>
+                        <td></td>
+                        <td><strong>100%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout warning">
+                <p><strong>Wait — where's the option pool?</strong> In this example, the option pool exists (authorized) but has 0 shares issued. This is common for very early-stage companies. However, when calculating ownership percentages, the option pool should be included in the fully-diluted share count if it's been authorized.</p>
+            </div>
+
+            <h3>What This Tells Us:</h3>
+            <ul>
+                <li><strong>Founders own 90%</strong> — Typical for pre-seed/seed stage</li>
+                <li><strong>Investors paid $2M</strong> — 1M shares × $2/share = $2M raised</li>
+                <li><strong>Post-money valuation = $20M</strong> — $2M investment ÷ 10% ownership</li>
+                <li><strong>Option pool is empty</strong> — No employee grants yet, but pool is available</li>
+            </ul>
+
+            <h2 id="share-classes">Understanding Share Classes</h2>
+
+            <p>Cap tables typically show two main types of shares:</p>
+
+            <div class="callout">
+                <p><strong><a href="../equity-glossary.html#common-stock" class="glossary-link">Common Stock</a>:</strong> Owned by founders and employees. Has basic voting rights and participates in exits after preferred shareholders get their preference. This is what you vest over 4 years.</p>
+            </div>
+
+            <div class="callout">
+                <p><strong><a href="../equity-glossary.html#preferred-stock" class="glossary-link">Preferred Stock</a>:</strong> Owned by investors. Has special rights like <a href="../equity-glossary.html#liquidation-preference" class="glossary-link">liquidation preference</a>, anti-dilution protection, and sometimes board seats. Converts to common in an IPO or acquisition.</p>
+            </div>
+
+            <h3>Series Designations:</h3>
+            <p>You'll see preferred stock labeled by series:</p>
+            <ul>
+                <li><strong>Series Seed:</strong> First institutional round, usually $500K-$3M</li>
+                <li><strong>Series A:</strong> First major round, typically $2M-$15M</li>
+                <li><strong>Series B, C, D...</strong> — Later rounds with higher valuations</li>
+            </ul>
+
+            <h2 id="fully-diluted">Fully-Diluted vs. Issued</h2>
+
+            <p>This is the most common confusion when reading cap tables:</p>
+
+            <div class="callout warning">
+                <p><strong>Issued shares:</strong> Shares that have actually been granted to someone. If 5M shares are issued and you own 1M, you own 20% on an issued basis.</p>
+            </div>
+
+            <div class="callout success">
+                <p><strong>Fully-diluted shares:</strong> Issued shares + unissued option pool + convertible securities (SAFEs, notes, warrants). If 5M are issued, there's a 1M option pool, and you own 1M shares, you own 16.7% on a fully-diluted basis.</p>
+            </div>
+
+            <p><strong>Why fully-diluted matters:</strong></p>
+            <ul>
+                <li>Investors always quote ownership on a fully-diluted basis</li>
+                <li>Your ownership percentage will decrease as the option pool is filled</li>
+                <li>SAFEs and convertible notes dilute you when they convert</li>
+            </ul>
+
+            <div class="callout">
+                <p><strong>Quick check:</strong> Sum all ownership percentages. If they don't equal exactly 100%, someone's math is wrong or you're looking at partial data.</p>
+            </div>
+
+            <h2 id="red-flags">Red Flags to Watch For</h2>
+
+            <p>When reviewing a cap table (yours or another company's), watch for these warning signs:</p>
+
+            <h3>1. Ownership Doesn't Add Up</h3>
+            <p>If percentages sum to 98% or 103%, something is wrong. Missing shareholders? Double-counted shares? Inconsistent basis (issued vs fully-diluted)?</p>
+
+            <h3>2. Missing Option Pool</h3>
+            <p>No option pool listed means either (a) the company hasn't created one yet, or (b) it's hidden. Investors will expect to see an option pool before Series A.</p>
+
+            <h3>3. Multiple Share Prices for Same Round</h3>
+            <p>If "Seed Investors" show different prices per share, it could mean messy cap table hygiene, different SAFE conversion terms, or side deals.</p>
+
+            <h3>4. Unexplained Unissued Shares</h3>
+            <p>Large blocks of unissued common stock with no purpose suggest the cap table isn't the source of truth. Every share should have a reason for existing.</p>
+
+            <h3>5. Vesting Not Tracked</h3>
+            <p>If founders show 100% of their shares as vested with no vesting schedule, it's a red flag. Most founders vest over 4 years with a 1-year cliff.</p>
+
+            <h3>6. SAFEs Not Shown</h3>
+            <p>Convertible securities like <a href="../equity-glossary.html#safe-note" class="glossary-link">SAFE notes</a> should be listed even if they haven't converted. They represent future dilution.</p>
+
+            <h2 id="investor-formats">Reading Investor Cap Tables</h2>
+
+            <p>When investors send you a cap table during due diligence, it may look different from your internal spreadsheet. Common formats:</p>
+
+            <h3>Format A: Waterfall View</h3>
+            <p>Shows how exit proceeds flow through different classes of shareholders. You'll see columns like:</p>
+            <ul>
+                <li><strong>Liquidation Preference</strong> — What preferred shareholders get first</li>
+                <li><strong>Participation</strong> — Whether preferred shareholders participate in remaining proceeds</li>
+                <li><strong>Conversion</strong> — At what price preferred converts to common</li>
+            </ul>
+
+            <h3>Format B: Round-by-Round Summary</h3>
+            <p>Groups shareholders by funding round rather than individual. Shows:</p>
+            <ul>
+                <li>Pre-money valuation</li>
+                <li>Investment amount</li>
+                <li>Post-money valuation</li>
+                <li>Investor ownership per round</li>
+            </ul>
+
+            <div class="callout warning">
+                <p><strong>Due diligence tip:</strong> When investors ask for your cap table, send the version you've been maintaining all along. Don't create a new, "clean" version — discrepancies will be spotted and create trust issues.</p>
+            </div>
+
+            <h2 id="common-mistakes">Common Mistakes When Reading Cap Tables</h2>
+
+            <ol>
+                <li><strong>Confusing issued vs fully-diluted</strong> — Thinking you own 20% when it's actually 16% on a fully-diluted basis.</li>
+                <li><strong>Ignoring the option pool</strong> — Not realizing that unissued options dilute your ownership even before they're granted.</li>
+                <li><strong>Forgetting about SAFEs</strong> — SAFEs convert at priced rounds and can significantly dilute founders if not modeled correctly.</li>
+                <li><strong>Misreading share prices</strong> — Thinking a low share price means low valuation. Price depends on total shares authorized.</li>
+                <li><strong>Assuming all shares are equal</strong> — Preferred shares have rights that common shares don't. Read the terms.</li>
+                <li><strong>Not checking vesting</strong> — Assuming fully-vested shares when founders are actually on a 4-year schedule.</li>
+            </ol>
+
+            <div class="cta-box">
+                <h3>Practice Reading Cap Tables</h3>
+                <p>Use our free Cap Table Builder to create and analyze different cap table scenarios. See how ownership changes across funding rounds.</p>
+                <a href="../cap-table.html" class="btn-cta">Try Cap Table Builder →</a>
+            </div>
+
+            <h3>Key Takeaways</h3>
+
+            <ol>
+                <li><strong>Know the columns</strong> — Shareholder, type, shares, price, % — and what each means.</li>
+                <li><strong>Understand share classes</strong> — Common for founders/employees, Preferred for investors.</li>
+                <li><strong>Always think fully-diluted</strong> — Include option pool and convertibles in all calculations.</li>
+                <li><strong>Watch for red flags</strong> — Math that doesn't add up, missing option pool, untracked vesting.</li>
+                <li><strong>Know investor formats</strong> — Waterfalls and round summaries show different perspectives.</li>
+                <li><strong>Keep one source of truth</strong> — Don't maintain multiple versions. One cap table, always accurate.</li>
+            </ol>
+
+            <div class="callout success">
+                <p><strong>Final tip:</strong> The best way to get comfortable reading cap tables is to build one. Start with a simple spreadsheet for your company, update it monthly, and you'll quickly develop an intuitive sense for what the numbers mean. When investors ask about your cap table, you'll answer with confidence.</p>
+            </div>
+
+            <div class="callout cta">
+                <strong>Try it yourself</strong>
+                <p>Use our free Cap Table Builder to organize and visualize your company's ownership. No signup required.</p>
+                <a href="../cap-table.html" class="cta-button">Try Cap Table Builder Free →</a>
+            </div>
+
+            <div class="author-bio">
+                <div class="author-avatar">📊</div>
+                <div class="author-content">
+                    <h4>About FounderMath</h4>
+                    <p>We build the calculators founders actually need. No spreadsheets, no confusion — just interactive tools that make startup math visual and intuitive. Check out our <a href="../equity-glossary.html">Startup Equity Glossary</a> for 50+ terms explained.</p>
+                </div>
+            </div>
+
+            <div class="related-posts">
+                <h3>Related Posts</h3>
+                <a href="../equity-glossary.html">Startup Equity Glossary — 50+ Terms Explained →</a>
+                <a href="cap-table-guide.html">Cap Table 101 for Founders: A Beginner's Complete Guide →</a>
+                <a href="equity-dilution-guide.html">How Equity Dilution Works Across Funding Rounds →</a>
+                <a href="safe-note-guide.html">SAFE Note Conversion Explained: Cap vs. Discount →</a>
+                <a href="option-pool-management-guide.html">Option Pool Management: How to Avoid Surprise Dilution →</a>
+            </div>
+        </article>
+
+        <div class="newsletter">
+            <h2>Get weekly equity insights</h2>
+            <p>Join 500+ founders who get our weekly breakdown of startup math concepts, real-world equity scenarios, and calculator tips. No spam, ever.</p>
+            <form class="newsletter-form" id="blogNewsletterForm" onsubmit="handleBlogNewsletter(event)">
+                <input type="email" id="blogNewsletterEmail" placeholder="you@company.com" required>
+                <button type="submit" id="blogNewsletterBtn" class="btn-cta">Subscribe</button>
+            </form>
+            <p id="blogNewsletterMsg" style="margin-top:12px;font-size:0.85rem;display:none;"></p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../cap-table.html">Cap Table</a></li>
+                <li><a href="../equity-split.html">Equity Split</a></li>
+                <li><a href="../valuation.html">Valuation</a></li>
+                <li><a href="../stock-options.html">Stock Options</a></li>
+                <li><a href="../compare-offers.html">Compare Offers</a></li>
+                <li><a href="../free-startup-tools.html">Free Tools</a></li>
+                <li><a href="../equity-quiz.html">Equity Quiz</a></li>
+                <li><a href="../equity-glossary.html">Equity Glossary</a></li>
+                <li><a href="../carta-alternatives.html">Carta Alternatives</a></li>
+                <li><a href="../embed.html">Embed</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+    async function handleBlogNewsletter(e) {
+        e.preventDefault();
+        const email = document.getElementById('blogNewsletterEmail').value;
+        const msg = document.getElementById('blogNewsletterMsg');
+        const btn = document.getElementById('blogNewsletterBtn');
+        btn.textContent = 'Subscribing...';
+        btn.disabled = true;
+        try {
+            const resp = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+            });
+            const data = await resp.json();
+            if (resp.ok) {
+                btn.textContent = 'Subscribed!';
+                btn.style.background = '#27ae60';
+                msg.textContent = 'Thanks! You\'ll get weekly startup equity insights.';
+                msg.style.color = '#27ae60';
+                if (typeof gtag === 'function') gtag('event', 'newsletter_signup', { source: 'blog' });
+                document.getElementById('blogNewsletterEmail').value = '';
+            } else {
+                btn.textContent = 'Subscribe';
+                msg.textContent = data.error || 'Something went wrong. Try again.';
+                msg.style.color = '#e74c3c';
+            }
+        } catch(err) {
+            btn.textContent = 'Subscribe';
+            msg.textContent = 'Network error. Please try again.';
+            msg.style.color = '#e74c3c';
+        }
+        msg.style.display = 'block';
+        btn.disabled = false;
+        setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 4000);
+    }
+    </script>
+</body>
+</html>
