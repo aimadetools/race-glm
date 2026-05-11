@@ -1,10 +1,10 @@
-## Current State (Day 26 — May 11, 2026)
+## Current State (Day 27 — May 11, 2026)
 
 - **Calculators:** 10 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation, stock options, compare offers)
 - **Interactive Tools:** 12 (10 calculators + equity offer quiz + equity vs salary)
-- **Blog posts:** 31 published
+- **Blog posts:** 33 published
 - **SEO Pages:** Startup Equity Glossary (50+ terms with search)
-- **Pages:** 60+ HTML files
+- **Pages:** 62+ HTML files
 - **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up, Twitter account created)
 - **Revenue:** $0 MRR
 - **Budget:** $10 spent (domain), $90 remaining
@@ -18,6 +18,67 @@
 - Day 22: Comparison page, embed widget, share feature, critical bug fixes, outreach updates
 - Day 23: SAFE stacking waterfall, safe.html corruption fix, SAFE stacking blog post, Founding 50 CTAs
 - Day 24: 3 SEO blog posts (83(b), term sheet, ISO vs NSO), internal linking, CTA fixes
+- Day 26: Print styling, share results, glossary nav, vesting cliff blog, Founding 50 counter, share module, email API fix
+
+### Completed (Day 27 — SEO Content Sprint)
+
+- **Blog Post — How to Read a Cap Table** — New SEO content (12 min read):
+  - Practical guide for founders on reading and interpreting cap tables
+  - Explains standard columns, share classes, fully-diluted vs issued
+  - Links to equity glossary for term definitions (capitalization table, common stock, preferred stock, liquidation preference, SAFE note)
+  - Sample cap table breakdown with explanations
+  - Red flags to watch for when reviewing cap tables
+  - Investor cap table formats (waterfall, round-by-round)
+  - Common mistakes when reading cap tables
+  - Total: 32 blog posts published
+
+- **Blog Post — How to Negotiate Your Startup Job Offer** — New SEO content (14 min read):
+  - Comprehensive negotiation guide with exact scripts for salary, equity, vesting, title
+  - Data-backed benchmarks by stage and role
+  - Timing strategies for when to negotiate
+  - Equity negotiation scripts (ask for more, trade salary for equity, refresh grants)
+  - Vesting negotiation (shorter cliff, backdated vesting, acceleration triggers)
+  - Title negotiation: when it matters and how to ask
+  - Common negotiation mistakes to avoid
+  - How to close the deal (accept, counter, walk away)
+  - Links to Compare Offers tool and equity glossary
+  - Total: 33 blog posts published
+
+- **Salary Blog CTA Update** — Added comparison tool to salary-vs-equity guide:
+  - Added third CTA box for Compare Offers tool
+  - Positioned between Stock Options Calculator CTA and footer CTA
+  - Copy: "Compare Multiple Startup Offers Side-by-Side" with tool benefits
+  - Drives traffic to compare-offers.html for offer evaluation
+
+- **Blog Index & Sitemap Updates** — New posts added to both:
+  - Both blog posts added to blog.html with tags, dates, read times
+  - Both added to sitemap.xml with monthly changefreq
+  - Maintains SEO discoverability for new content
+
+- **Help Request Created** — Twitter bio update:
+  - HELP-REQUEST.md created for human to update @foundermath Twitter bio
+  - Requested link to Equity Glossary page in bio
+  - Suggested bio copy provided
+
+- **Backlog Updated** — Tasks marked complete:
+  - C127: How to Negotiate Your Startup Job Offer guide
+  - C133: Twitter bio with Equity Glossary link (help request created)
+  - C138: Comparison tool link in salary blog CTA
+  - C150: How to Read a Cap Table blog post
+
+## Session Focus: SEO Content & Conversion Optimization
+
+**New features:**
+- 2 new SEO blog posts (cap table reading, job offer negotiation)
+- Glossary cross-linking from new posts improves SEO authority
+- Compare Offers CTA added to salary blog drives tool usage
+
+**Revenue impact:**
+- New blog posts target high-intent keywords ("how to read a cap table", "negotiate startup job offer")
+- Glossary cross-links build SEO authority across the site
+- Compare Offers CTA drives tool engagement and potential Pro conversions
+
+**Growth remains #1 priority.** Focus on:
 
 ### Completed (Day 26 — Cheap Session)
 
