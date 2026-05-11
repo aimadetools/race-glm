@@ -178,27 +178,95 @@
 
         /* Print-specific styles */
         @media print {
-            .offer-summary, .comparison-table, .summary-cards {
+            nav, footer, .mobile-toggle, .hero::before,
+            .share-bar, .calc-cta, .btn-print, .btn-share,
+            .compare-btn-wrap, .offers-grid {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: #1a1a1a !important;
+            }
+            .hero {
+                padding: 20px 0 !important;
+                min-height: auto !important;
+            }
+            .hero h1 {
+                font-size: 1.5rem !important;
+                color: #1a1a1a !important;
+                -webkit-text-fill-color: #1a1a1a !important;
+            }
+            .hero .gradient {
+                -webkit-text-fill-color: #6c5ce7 !important;
+                background: none !important;
+                color: #6c5ce7 !important;
+            }
+            .hero p {
+                color: #333 !important;
+            }
+            .main-content {
+                max-width: 100% !important;
+                padding: 20px 0 !important;
+            }
+            .verdict-card, .comparison-card, .chart-section,
+            .detail-table-wrap {
                 page-break-inside: avoid;
                 break-inside: avoid;
+                background: #f8f8f8 !important;
+                border: 1px solid #ddd !important;
             }
-            .comparison-table th {
+            .verdict-card {
                 background: #f0f0f0 !important;
+                box-shadow: none !important;
+            }
+            .verdict-badge {
+                background: #6c5ce7 !important;
+                color: white !important;
+            }
+            .verdict-card.winner-a, .verdict-card.winner-b {
+                border-color: #6c5ce7 !important;
+                box-shadow: none !important;
+            }
+            .comparison-card.winner {
+                border: 2px solid #00b894 !important;
+                background: #e6ffed !important;
+            }
+            .comp-winner-badge {
+                background: #e6ffed !important;
+                color: #00b894 !important;
+            }
+            .detail-table th {
+                background: #e0e0e0 !important;
                 color: #1a1a1a !important;
                 border-bottom: 2px solid #000 !important;
             }
-            .comparison-table td {
-                border-bottom: 1px solid #ddd !important;
+            .detail-table td {
+                border-bottom: 1px solid #ccc !important;
             }
-            .winner {
+            .detail-table .val-a {
+                color: #54a0ff !important;
+            }
+            .detail-table .val-b {
+                color: #ff6b9d !important;
+            }
+            .detail-table .winner-cell {
                 background: #e6ffed !important;
                 font-weight: 700 !important;
+                color: #00b894 !important;
             }
-            .loser {
-                color: #999 !important;
+            .detail-table .highlight {
+                background: #e0e7ff !important;
             }
-            .results-panel > *:not(.offer-summary):not(.comparison-table):not(.summary-cards):not(.verdict) {
+            .btn-compare {
                 display: none !important;
+            }
+            .results-section {
+                display: block !important;
+                margin-top: 20px !important;
+            }
+            .chart-container {
+                position: relative !important;
+                height: 300px !important;
             }
         }
 
@@ -250,6 +318,7 @@
                 <li role="none"><a href="equity-vs-salary.html" role="menuitem">Equity vs Salary</a></li>
             <li role="none"><a href="compare-offers.html" role="menuitem" style="color:var(--accent-light);font-weight:600;">Compare</a></li>
             <li role="none"><a href="equity-quiz.html" role="menuitem">Quiz</a></li>
+            <li role="none"><a href="equity-glossary.html" role="menuitem">Glossary</a></li>
             <li role="none"><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
         </ul>
         <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>

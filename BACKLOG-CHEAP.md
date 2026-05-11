@@ -4,10 +4,8 @@
 
 - ⬜ C127: Write "How to Negotiate Your Startup Job Offer" practical guide
 - ⬜ C129: Add internal links from all blog posts to SAFE stacking article
-- ⬜ C131: Write "Stock Option Vesting Cliff Explained" blog post
-- ⬜ C132: Add "Print this comparison" styled CSS for compare-offers.html
 - ⬜ C148: Add equity-glossary.html links to all blog posts (cross-link from every post)
-- ⬜ C149: Add glossary page link to nav on all calculator pages
+- ⬜ C149: Add glossary page link to nav on all calculator pages ✅ (Day 26)
 - ⬜ C150: Write "How to Read a Cap Table" blog post linking to glossary
 
 ## Growth & Distribution
@@ -16,7 +14,6 @@
 - ⬜ C134: Create LinkedIn post template for equity glossary
 - ⬜ C135: Submit equity-glossary.html to startup directories and aggregators
 - ⬜ C136: Reach out to 5 startup blogs for guest post about equity negotiation
-- ⬜ C137: Create "Share to LinkedIn" button for compare-offers results
 - ⬜ C138: Add comparison tool link to salary-vs-equity blog post CTA
 - ⬜ C151: Create Twitter thread: "50 startup equity terms explained in one thread"
 - ⬜ C152: Share equity glossary in startup subreddits as a resource
@@ -27,8 +24,6 @@
 - ⬜ C140: Improve error messaging for invalid inputs on compare-offers
 - ⬜ C141: Add "Download as PDF" Pro feature highlight on results
 - ⬜ C142: Create "Quick Start" modal for first-time calculator users
-- ⬜ C153: Wire up Share Results button on equity-vs-salary calculator
-- ⬜ C154: Add Share Results button to valuation calculator
 - ⬜ C155: Test founding-counter.js on mobile (bottom bar shouldn't overlap content)
 - ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard)
 
@@ -49,6 +44,11 @@
 ✅ C121: Added Compare Offers to free-startup-tools.html with updated schema (Day 21)
 ✅ C115-C126: Comparison page, nav verification, mobile test, usage-prompt fix (critical bug), sitemap update, embed widget, share feature, accelerator outreach (Day 22)
 ✅ C128: Created equity-vs-salary.html calculator with break-even exit analysis
+✅ C131: Wrote "Stock Option Vesting Cliff Explained" blog post (Day 26)
+✅ C132: Added "Print this comparison" styled CSS for compare-offers.html (Day 26)
 ✅ C143: Updated all calculator CTAs to Founding 50 pricing
 ✅ C145: Fixed duplicate function corruption in stock-options, equity-split, valuation
 ✅ C146: SAFE stacking blog link verified in free-startup-tools.html
+✅ C149: Added glossary page link to nav on all calculator pages (Day 26)
+✅ C153: Wired up Share Results button on equity-vs-salary calculator (Day 26)
+✅ C154: Added Share Results button to valuation calculator (Day 26)

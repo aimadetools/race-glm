@@ -158,6 +158,7 @@
             <li role="none"><a href="stock-options.html" role="menuitem">Options</a></li>
             <li role="none"><a href="equity-vs-salary.html" role="menuitem" class="active">Equity vs Salary</a></li>
             <li role="none"><a href="compare-offers.html" role="menuitem">Compare</a></li>
+            <li role="none"><a href="equity-glossary.html" role="menuitem">Glossary</a></li>
             <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
             <li><a href="pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
         </ul>
@@ -258,6 +259,12 @@
         <div class="verdict" id="verdict">
             <h3>&#128161; Recommendation</h3>
             <p id="verdictText">Loading...</p>
+        </div>
+
+        <div style="display:flex;gap:8px;justify-content:center;margin-bottom:32px;">
+            <button id="shareBtn" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-weight:500;transition:all 0.2s;">
+                Share Results
+            </button>
         </div>
 
         <div class="related">
@@ -527,6 +534,64 @@ inputs.forEach(function(el) {
 // Initial render
 var initialResult = calculate();
 render(initialResult);
+
+// ============================================================
+// SHARE FUNCTIONALITY
+// ============================================================
+// Get results data for sharing
+function getShareResults() {
+    var r = calculate();
+    return {
+        salaryA: r.salaryA,
+        equityA: r.equityA,
+        strikeA: r.strikeA,
+        salaryB: r.salaryB,
+        equityB: r.equityB,
+        strikeB: r.strikeB,
+        companyValue: r.companyValue,
+        years: r.years,
+        breakEvenMultiple: r.breakEvenMultiple,
+        summary: {
+            salaryDiff: r.salaryDiff,
+            offerA: 'Salary: $' + r.salaryA.toLocaleString() + ', Equity: ' + (r.equityA * 100).toFixed(2) + '%',
+            offerB: 'Salary: $' + r.salaryB.toLocaleString() + ', Equity: ' + (r.equityB * 100).toFixed(2) + '%'
+        }
+    };
+}
+
+// Load shared results from URL
+function loadSharedResults(data) {
+    if (!data || !data.r) return false;
+    var r = data.r;
+    if (r.salaryA) document.getElementById('salaryA').value = r.salaryA;
+    if (r.equityA) document.getElementById('equityA').value = r.equityA * 100;
+    if (r.strikeA) document.getElementById('strikePriceA').value = r.strikeA;
+    if (r.salaryB) document.getElementById('salaryB').value = r.salaryB;
+    if (r.equityB) document.getElementById('equityB').value = r.equityB * 100;
+    if (r.strikeB) document.getElementById('strikePriceB').value = r.strikeB;
+    if (r.companyValue) document.getElementById('companyValue').value = r.companyValue / 1e6;
+    if (r.years) document.getElementById('yearsStay').value = r.years;
+    var result = calculate();
+    render(result);
+    return true;
+}
+
+// Wire up share button
+document.getElementById('shareBtn').onclick = function() {
+    var results = getShareResults();
+    var summary = 'Offer A: ' + results.summary.offerA + '<br>Offer B: ' + results.summary.offerB;
+    if (window.FMShare && window.FMShare.showShareModal) {
+        window.FMShare.showShareModal('equity-vs-salary', results, summary);
+    }
+};
+
+// Check for shared results on load
+if (window.FMShare && window.FMShare.checkForSharedResults) {
+    var sharedData = window.FMShare.checkForSharedResults();
+    if (sharedData && sharedData.r) {
+        loadSharedResults(sharedData);
+    }
+}
 </script>
 </body>
 </html>

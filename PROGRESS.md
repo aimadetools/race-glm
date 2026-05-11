@@ -1,8 +1,8 @@
-## Current State (Day 25 — May 11, 2026)
+## Current State (Day 26 — May 11, 2026)
 
 - **Calculators:** 10 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation, stock options, compare offers)
 - **Interactive Tools:** 12 (10 calculators + equity offer quiz + equity vs salary)
-- **Blog posts:** 30 published
+- **Blog posts:** 31 published
 - **SEO Pages:** Startup Equity Glossary (50+ terms with search)
 - **Pages:** 60+ HTML files
 - **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up, Twitter account created)
@@ -19,7 +19,39 @@
 - Day 23: SAFE stacking waterfall, safe.html corruption fix, SAFE stacking blog post, Founding 50 CTAs
 - Day 24: 3 SEO blog posts (83(b), term sheet, ISO vs NSO), internal linking, CTA fixes
 
-### Completed (Day 25 — Premium Session)
+### Completed (Day 26 — Cheap Session)
+
+- **Print Styling Fix** — Updated compare-offers.html @media print styles:
+  - Fixed incorrect class names (offer-summary, comparison-table → actual HTML structure)
+  - Added proper print styles for verdict, comparison cards, detail tables
+  - Improved chart rendering in print mode
+  - Hides non-essential elements (nav, footer, share bar)
+
+- **Share Results — Equity vs Salary Calculator** — Added share functionality:
+  - Added "Share Results" button to the UI
+  - Created getShareResults() function to capture calculation data
+  - Wired up to FMShare.showShareModal() with summary text
+  - Added loadSharedResults() function for URL-based sharing
+  - Integrated with share-results.js API
+
+- **Share Results — Valuation Calculator** — Fixed and enhanced existing share buttons:
+  - Updated copyShareLink() and shareToTwitter() to use FMShare API
+  - Created getShareResults() capturing all 3 valuation methods (Berkus, Scorecard, VC)
+  - Added loadSharedResults() to restore shared scenarios from URL
+  - Added setMethodByName() helper for proper method switching
+
+- **Glossary Navigation Links** — Added to all 11 calculator pages:
+  - Updated nav on: dilution, runway, safe, vesting, unit-economics, cap-table, equity-split, valuation, stock-options, equity-vs-salary, compare-offers
+  - Positioned after "Equity Quiz" and before "Pricing"
+  - Consistent nav structure across all calculators
+
+- **Blog Post — Stock Option Vesting Cliff Explained** — New SEO content:
+  - Comprehensive guide on vesting cliffs (1-year standard, why they exist)
+  - Visual examples of cliff vesting vs regular vesting
+  - Negotiation tips and common scenarios
+  - Links to glossary and related calculators
+  - Schema markup for SEO
+  - Total: 31 blog posts published
 
 - **Founding 50 Urgency Counter** — New `founding-counter.js` widget:
   - Floating bottom bar shows "X of 50 spots claimed" on all 11 calculators + pricing/founding/index pages

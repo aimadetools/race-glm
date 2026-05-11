@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Option Vesting Cliff Explained | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+    </script>
+    <meta name="description" content="What is a vesting cliff in stock options? Learn how the 1-year cliff works, why startups use it, and what it means for your equity grant.">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Stock Option Vesting Cliff Explained",
+        "url": "https://founder-math.com/blog/stock-option-vesting-cliff-explained.html",
+        "description": "What is a vesting cliff in stock options? Learn how the 1-year cliff works, why startups use it, and what it means for your equity grant.",
+        "datePublished": "2026-05-11",
+        "dateModified": "2026-05-11",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        }
+    }
+    </script>
+    <meta property="og:title" content="Stock Option Vesting Cliff Explained | FounderMath">
+    <meta property="og:description" content="What is a vesting cliff in stock options? Learn how the 1-year cliff works, why startups use it, and what it means for your equity grant.">
+    <meta property="og:image" content="/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/stock-option-vesting-cliff-explained.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 900px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links {
+            display: flex; align-items: center; gap: 32px; list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer; padding: 8px;
+        }
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 8px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; width: 36px; height: 36px;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+
+        .article-layout {
+            max-width: 720px; margin: 100px auto 60px; padding: 0 24px;
+        }
+        .article-header {
+            margin-bottom: 40px; text-align: center;
+        }
+        .article-meta {
+            display: flex; gap: 16px; justify-content: center;
+            flex-wrap: wrap; margin-bottom: 16px; font-size: 0.85rem;
+        }
+        .article-meta span { color: var(--text-muted); }
+        .tag {
+            background: var(--accent); color: white; padding: 4px 12px;
+            border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+        }
+        .article-layout h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800; letter-spacing: -0.03em;
+            margin-bottom: 24px; line-height: 1.2;
+        }
+        .article-layout h2 {
+            font-size: 1.6rem; font-weight: 700; margin-top: 48px; margin-bottom: 20px;
+        }
+        .article-layout h3 {
+            font-size: 1.3rem; font-weight: 600; margin-top: 32px; margin-bottom: 16px;
+        }
+        .article-layout p {
+            margin-bottom: 20px; color: var(--text-secondary);
+        }
+        .article-layout ul, .article-layout ol {
+            margin-bottom: 20px; padding-left: 28px;
+        }
+        .article-layout li {
+            margin-bottom: 12px; color: var(--text-secondary);
+        }
+        .lead {
+            font-size: 1.15rem; color: var(--text-primary);
+            line-height: 1.7; font-weight: 500;
+        }
+        .inline-cta {
+            display: block; background: var(--bg-card); border: 1px solid var(--accent);
+            padding: 20px; border-radius: 12px; text-align: center;
+            text-decoration: none; margin: 24px 0; transition: all 0.2s;
+        }
+        .inline-cta:hover { border-color: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .inline-cta strong { color: var(--accent-light); font-size: 1rem; }
+        .callout {
+            background: var(--bg-card); border-left: 4px solid var(--accent);
+            border-radius: 8px; padding: 20px; margin: 24px 0;
+        }
+        .callout p { margin: 0; }
+        .callout.formula {
+            text-align: center; font-size: 1.1rem; font-weight: 600;
+            background: var(--bg-secondary); border-radius: 8px; padding: 16px;
+            margin: 12px 0;
+        }
+        .callout.warning { border-left-color: var(--orange); }
+        .callout.tip { border-left-color: var(--green); }
+        .callout.example {
+            background: var(--bg-input); border-left-color: var(--accent-light);
+        }
+        .toc {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px 24px; margin: 32px 0;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin: 0 0 12px 0;
+        }
+        .toc ol {
+            padding-left: 20px;
+            counter-reset: toc;
+        }
+        .toc li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent-light); }
+        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
+        .related-posts a:hover { text-decoration: underline; }
+        .author-bio {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .author-avatar {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .author-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .author-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .author-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .author-content a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .article-meta { flex-wrap: wrap; }
+        }
+        .newsletter {
+            max-width: 600px; margin: 40px auto 60px; padding: 32px; text-align: center;
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+        }
+        .newsletter h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .newsletter p { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem; }
+        .newsletter-form {
+            display: flex; gap: 10px; max-width: 420px; margin: 0 auto;
+        }
+        .newsletter-form input {
+            flex: 1; padding: 12px 16px; background: var(--bg-input);
+            border: 1px solid var(--border); border-radius: 10px;
+            color: var(--text-primary); font-size: 0.9rem; outline: none;
+        }
+        .newsletter-form input:focus { border-color: var(--accent); }
+        .newsletter-form input::placeholder { color: var(--text-muted); }
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .callout.cta { border-left-color: var(--green); background: rgba(0,184,148,0.08); }
+        .callout.cta .cta-button { display: inline-block; margin-top: 0.75rem; padding: 0.6rem 1.5rem; background: var(--green); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .callout.cta .cta-button:hover { opacity: 0.9; }</style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+        <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+                <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+                <li role="none"><a href="../vesting.html" role="menuitem">Vesting</a></li>
+                <li role="none"><a href="../unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="../cap-table.html" role="menuitem">Cap Table</a></li>
+                <li role="none"><a href="../equity-split.html" role="menuitem">Equity Split</a></li>
+                <li role="none"><a href="../valuation.html" role="menuitem">Valuation</a></li>
+                <li role="none"><a href="../stock-options.html" role="menuitem">Options</a></li>
+                <li role="none"><a href="../equity-vs-salary.html" role="menuitem">Equity vs Salary</a></li>
+                <li role="none"><a href="../compare-offers.html" role="menuitem">Compare</a></li>
+                <li role="none"><a href="../equity-glossary.html" role="menuitem">Glossary</a></li>
+                <li role="none"><a href="../pricing.html" role="menuitem">Pricing</a></li>
+                <li><a href="../pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <article class="article-layout" id="main-content">
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="tag">Equity 101</span>
+                <span>May 11, 2026</span>
+                <span>8 min read</span>
+            </div>
+            <h1>Stock Option Vesting Cliff Explained</h1>
+        </header>
+
+        <div class="article-body">
+            <p class="lead">Your startup stock options don't vest evenly from day one. Most equity grants include a "cliff" period during which you earn zero equity. Here's how cliffs work and what they mean for your startup equity.</p>
+
+            <a href="../vesting.html" class="inline-cta">
+                <strong>Calculate Your Vesting Schedule →</strong>
+            </a>
+
+                <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#what-is-cliff">What is a Vesting Cliff?</a></li>
+                <li><a href="#why-cliff">Why Do Startups Use Cliffs?</a></li>
+                <li><a href="#1-year-standard">The 1-Year Cliff Standard</a></li>
+                <li><a href="#cliff-math">How Cliff Vesting Works</a></li>
+                <li><a href="#acceleration">What Happens at the Cliff?</a></li>
+                <li><a href="#before-cliff">Leaving Before the Cliff</a></li>
+                <li><a href="#negotiating">Can You Negotiate the Cliff?</a></li>
+                <li><a href="#examples">Vesting Cliff Examples</a></li>
+                <li><a href="#calculator">Calculate Your Vesting</a></li>
+                <li><a href="#key-takeaways">Key Takeaways</a></li>
+            </ol>
+        </nav>
+
+        <h2 id="what-is-cliff">What is a Vesting Cliff?</h2>
+
+        <p>A <strong>vesting cliff</strong> is an initial period (usually 1 year) in which you earn <strong>zero equity</strong> from your stock option grant. After the cliff, if you're still employed, you retroactively receive a large chunk of vested equity—typically 25% of your total grant.</p>
+
+        <p>After the cliff period ends, your equity then vests on a regular schedule (usually monthly or quarterly) for the remainder of the vesting term.</p>
+
+        <div class="callout warning">
+            <p><strong>Important:</strong> If you leave before your cliff, you walk away with zero equity from that grant—regardless of how long you worked before hitting the cliff date.</p>
+        </div>
+
+        <h2 id="why-cliff">Why Do Startups Use Cliffs?</h2>
+
+        <p>Startups use cliffs for two main reasons:</p>
+
+        <ul>
+            <li><strong>Commitment Test:</strong> A cliff forces both parties to commit to at least one year of employment. This reduces hiring risks for the company and demonstrates employee commitment.</li>
+            <li><strong>Protection Against Quick Departures:</strong> If someone quits after 3 months, the company keeps the full equity pool rather than issuing partial shares to short-term employees.</li>
+        </ul>
+
+        <p>Cliffs became standard in Silicon Valley during the 1990s and 2000s as startups refined their equity compensation practices.</p>
+
+        <h2 id="1-year-standard">The 1-Year Cliff Standard</h2>
+
+        <p>The <strong>1-year cliff with 4-year vesting</strong> is the industry standard for startup employees:</p>
+
+        <div class="callout formula">
+            <p><strong>4 Years Total Vesting × 25% Per Year</strong><br>
+            <span style="font-size: 0.9rem; color: var(--text-muted);">= 100% of grant vests over 4 years</span></p>
+        </div>
+
+        <p>Under this standard:</p>
+
+        <ul>
+            <li><strong>Year 1 (Cliff):</strong> 0% vests until cliff date, then 25% vests all at once</li>
+            <li><strong>Year 2:</strong> 25% vests (gradually throughout the year)</li>
+            <li><strong>Year 3:</strong> 25% vests (gradually throughout the year)</li>
+            <li><strong>Year 4:</strong> 25% vests (gradually throughout the year)</li>
+        </ul>
+
+        <div class="callout tip">
+            <p><strong>Tip:</strong> Some companies offer 6-month cliffs or no cliff at all for senior roles. These are <a href="../equity-glossary.html" style="color: var(--accent-light);">unusual</a> and typically negotiated as part of a competitive offer.</p>
+        </div>
+
+        <h2 id="cliff-math">How Cliff Vesting Works</h2>
+
+        <p>Let's visualize the cliff with a concrete example. Suppose you receive:</p>
+
+        <div class="callout example">
+            <p><strong>Grant:</strong> 100,000 stock options<br>
+            <strong>Vesting:</strong> 4 years, 1-year cliff<br>
+            <strong>Start Date:</strong> January 1, 2026</p>
+        </div>
+
+        <p>Here's your vesting timeline:</p>
+
+        <ul>
+            <li><strong>Jan 1, 2026 – Dec 31, 2026:</strong> You work the entire year, but <strong>0 options vest</strong> until the cliff date. On January 1, 2027, <strong>25,000 options (25%) vest</strong> all at once.</li>
+            <li><strong>Jan 2, 2027 – Dec 31, 2027:</strong> <strong>25,000 options vest</strong> throughout the year (typically ~2,083 per month)</li>
+            <li><strong>Jan 1, 2028 – Dec 31, 2028:</strong> <strong>25,000 options vest</strong> throughout the year</li>
+            <li><strong>Jan 1, 2029 – Dec 31, 2029:</strong> <strong>25,000 options vest</strong> throughout the year, completing your grant</li>
+        </ul>
+
+        <p>If you quit on <strong>November 1, 2026</strong> (11 months in, 1 month before cliff), you receive <strong>zero equity</strong> from this grant. Those 100,000 options go back to the company pool.</p>
+
+        <h2 id="acceleration">What Happens at the Cliff?</h2>
+
+        <p>On your cliff anniversary (e.g., exactly 1 year after your grant date), two things typically happen:</p>
+
+        <ol>
+            <li><strong>Immediate Vesting:</strong> The cliff portion (usually 25% of your total grant) vests immediately. In our example, 25,000 options suddenly become exercisable.</li>
+            <li><strong>Regular Vesting Resumes:</strong> Starting the day after your cliff, your options continue vesting on the regular monthly/quarterly schedule.</li>
+        </ol>
+
+        <div class="callout">
+            <p><strong>Practical Impact:</strong> After your cliff, you can exercise those vested options right away, sell them if your company allows, or hold them. Each month after the cliff, more options become available as they vest.</p>
+        </div>
+
+        <h2 id="before-cliff">Leaving Before the Cliff</h2>
+
+        <p>This is the riskiest part of cliff vesting. If you leave before your cliff date:</p>
+
+        <ul>
+            <li>You receive <strong>zero vested equity</strong> from that grant</li>
+            <li>The company <strong>keeps the entire option pool</strong></li>
+            <li>Any unvested shares are <strong>canceled and return to the pool</strong></li>
+            <li>You may still owe taxes if you exercised any options before leaving (rare, but possible)</li>
+        </ul>
+
+        <p>This is why founders emphasize <strong>cultural fit</strong> and <strong>long-term thinking</strong> in interviews. They want to minimize the chance of cliff-related departures.</p>
+
+        <div class="callout warning">
+            <p><strong>Warning:</strong> Some employees discover they're unhappy only 6-9 months into a new role. At that point, leaving means forfeiting significant equity. Always evaluate cultural fit early and don't ignore red flags.</p>
+        </div>
+
+        <h2 id="negotiating">Can You Negotiate the Cliff?</h2>
+
+        <p>Yes, cliffs are negotiable—but with limits:</p>
+
+        <h3>What You Can Negotiate:</h3>
+
+        <ul>
+            <li><strong>Shorter Cliff:</strong> Request 6 months instead of 12 (more common for senior hires)</li>
+            <li><strong>No Cliff:</strong> Request immediate monthly vesting (unusual, reserved for executives or unique situations)</li>
+            <li><strong>Longer Vesting:</strong> Request 5 years instead of 4 (means cliff is smaller percentage of total)</li>
+        </ul>
+
+        <h3>What's Harder to Negotiate:</h3>
+
+        <ul>
+            <li><strong>Accelerated Cliff:</strong> Asking for 3-month cliff is often rejected</li>
+            <li><strong>Higher Initial Vesting:</strong> Requesting more than 25% to vest at cliff is very unusual</li>
+        </ul>
+
+        <h3>Trade-offs to Understand:</h3>
+
+        <ul>
+            <li>Shorter cliff = More generous to you, more risk for company</li>
+            <li>Longer cliff = More risk for you, lower risk for company</li>
+            <li>Most companies standardize on 1-year, 4-year vesting for consistency</li>
+        </ul>
+
+        <div class="callout tip">
+            <p><strong>Negotiation Tip:</strong> Focus your negotiation on <strong>total grant size</strong> (number of options) and <strong>strike price</strong> rather than the cliff. The cliff is usually set company-wide and harder to change than grant size.</p>
+        </div>
+
+        <h2 id="examples">Vesting Cliff Examples</h2>
+
+        <p>Let's compare three different vesting schedules:</p>
+
+        <h3>Example 1: Standard Startup Cliff</h3>
+        <div class="callout example">
+            <p><strong>Grant:</strong> 50,000 options<br>
+            <strong>Vesting:</strong> 4 years, 1-year cliff<br>
+            <strong>Result:</strong> 0 vests for 12 months, then 25% at cliff, 25% annually thereafter</p>
+        </div>
+
+        <h3>Example 2: Senior Hire (No Cliff)</h3>
+        <div class="callout example">
+            <p><strong>Grant:</strong> 200,000 options<br>
+            <strong>Vesting:</strong> 5 years, no cliff<br>
+            <strong>Result:</strong> ~3,333 options vest monthly starting day one</p>
+        </div>
+
+        <h3>Example 3: Shortened Cliff</h3>
+        <div class="callout example">
+            <p><strong>Grant:</strong> 100,000 options<br>
+            <strong>Vesting:</strong> 4 years, 6-month cliff<br>
+            <strong>Result:</strong> 0 vests for 6 months, then 25% at cliff, 25% annually thereafter</p>
+        </div>
+
+        <h2 id="calculator">Calculate Your Vesting Schedule</h2>
+
+        <p>Use our free vesting calculator to see exactly how your equity will vest over time, including your cliff date:</p>
+
+        <a href="../vesting.html" class="inline-cta">
+            <strong>Open Vesting Schedule Calculator →</strong>
+        </a>
+
+        <p>You'll see:</p>
+
+        <ul>
+            <li>Your exact cliff date</li>
+            <li>Monthly vesting amounts</li>
+            <li>Visual timeline of your vesting progress</li>
+            <li>What happens if you leave early</li>
+        </ul>
+
+        <h2 id="key-takeaways">Key Takeaways</h2>
+
+        <ul>
+            <li><strong>Cliffs mean zero equity</strong> during the initial period (usually 1 year)</li>
+            <li><strong>25% typically vests</strong> all at once on your cliff anniversary</li>
+            <li><strong>Leaving before the cliff</strong> means forfeiting your entire grant</li>
+            <li><strong>Standard is 4-year vesting, 1-year cliff</strong> for startup employees</li>
+            <li><strong>Cliffs are negotiable</strong> but less flexible than grant size</li>
+            <li><strong>Understand your cliff date</strong> before accepting an offer and plan accordingly</li>
+        </ul>
+
+        <div class="callout cta">
+            <p><strong>Ready to visualize your vesting?</strong> Use our free <a href="../vesting.html" style="color: var(--accent-light);">Vesting Calculator</a> to see exactly when your cliff hits and how your equity vests over time.</p>
+        </div>
+        </div>
+
+        <div class="related-posts">
+            <h3>Related Articles</h3>
+            <a href="../equity-glossary.html">Startup Equity Glossary — 50+ Terms Explained</a>
+            <a href="blog/vesting-schedules-guide.html">Complete Guide to Equity Vesting Schedules</a>
+            <a href="blog/stock-options-worth-guide.html">How Much Are My Stock Options Worth?</a>
+            <a href="blog/employee-equity-grants-guide.html">Employee Equity Grants: The Complete Guide</a>
+        </div>
+    </article>
+
+    <section class="newsletter">
+        <h2>Get weekly founder insights</h2>
+        <p>Equity breakdowns, fundraising math, and calculator tips. No spam.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" id="newsletterEmail" placeholder="founder@startup.com" required>
+            <button type="submit" style="background:var(--accent);color:white;border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer;">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../cap-table.html">Cap Table</a></li>
+                <li><a href="../equity-split.html">Equity Split</a></li>
+                <li><a href="../valuation.html">Valuation</a></li>
+                <li><a href="../stock-options.html">Stock Options</a></li>
+                <li><a href="../equity-glossary.html">Glossary</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+    function toggleTheme() {
+        const body = document.body;
+        const current = body.getAttribute('data-theme');
+        body.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+        localStorage.setItem('foundermath_theme', current === 'light' ? 'dark' : 'light');
+    }
+
+    async function handleNewsletter(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value;
+        const btn = e.target.querySelector('button');
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+        try {
+            const response = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, source: 'blog' })
+            });
+            if (response.ok) {
+                alert('Subscribed! Check your inbox.');
+                document.getElementById('newsletterEmail').value = '';
+            } else {
+                throw new Error('Failed to subscribe');
+            }
+        } catch (err) {
+            alert('Something went wrong. Please try again.');
+        }
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
+    }
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem('foundermath_theme');
+    if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
+    </script>
+</body>
+</html>
