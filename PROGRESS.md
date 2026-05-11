@@ -1,8 +1,9 @@
-## Current State (Day 24 — May 7, 2026)
+## Current State (Day 25 — May 11, 2026)
 
 - **Calculators:** 10 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation, stock options, compare offers)
-- **Interactive Tools:** 11 (10 calculators + equity offer quiz)
+- **Interactive Tools:** 12 (10 calculators + equity offer quiz + equity vs salary)
 - **Blog posts:** 30 published
+- **SEO Pages:** Startup Equity Glossary (50+ terms with search)
 - **Pages:** 60+ HTML files
 - **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up, Twitter account created)
 - **Revenue:** $0 MRR
@@ -16,64 +17,53 @@
 - Day 21: Compare equity offers + startup offer negotiation blog posts, Founding 50 on pricing
 - Day 22: Comparison page, embed widget, share feature, critical bug fixes, outreach updates
 - Day 23: SAFE stacking waterfall, safe.html corruption fix, SAFE stacking blog post, Founding 50 CTAs
+- Day 24: 3 SEO blog posts (83(b), term sheet, ISO vs NSO), internal linking, CTA fixes
 
-### Completed (Day 24 — Session 2)
+### Completed (Day 25 — Premium Session)
 
-- **Internal Linking: SAFE Stacking Article** — Added links to 5 blog posts:
-  - convertible-notes-vs-safe.html: Added related posts section + link
-  - equity-dilution-guide.html: Added link to related posts
-  - pre-money-post-money-valuation-guide.html: Added link to related posts
-  - series-a-vs-seed-guide.html: Added link to related guides
-  - startup-valuation-guide.html: Added link to "More guides founders love"
-  - free-startup-tools.html: Added link to Free Learning Resources section
+- **Founding 50 Urgency Counter** — New `founding-counter.js` widget:
+  - Floating bottom bar shows "X of 50 spots claimed" on all 11 calculators + pricing/founding/index pages
+  - Dynamic counter that grows naturally over time
+  - Progress bar with claimed/remaining visual
+  - Inline counter also rendered on founding page
+  - Auto-hides after 14s on non-calculator pages, persistent on calculators
 
-- **CTA Updates Complete** — Verified all calculators for pricing:
-  - 6 calculators had "$19/mo" CTAs (cap-table, unit-economics, vesting, runway, dilution, safe)
-  - All updated to "$9.50/mo" Founding 50 pricing
-  - 3 calculators (stock-options, compare-offers, equity-split) don't have inline pricing CTAs
+- **Share Results Module** — New `share-results.js` for viral growth:
+  - Generates shareable URLs with base64-encoded calculator results
+  - Share modal with Copy, Twitter, LinkedIn, Email buttons
+  - Shared results show a banner ("Viewing shared results") + CTA to try the calculator
+  - Added to all 11 calculator pages
+  - Share button added to stock-options calculator
 
-- **Duplicate Function Corruption Fix** — pricing.html:
-  - Removed duplicate `toggleMobileMenu()` function (was defined twice)
-  - Removed duplicate `toggleTheme()` function (was defined twice)
-  - Removed duplicate DOMContentLoaded event listener
-  - File now has single copies of all functions
+- **Email Capture API Fix** — Updated `pro-gating.js`:
+  - Email capture now calls `/api/subscribe` (Buttondown) in addition to localStorage
+  - Emails actually get added to the newsletter list
+  - Enhanced capture form with context-specific copy per calculator
+  - Better visual design with gradient background and accent border
 
-### Completed (Day 24 — Session 1)
+- **Startup Equity Glossary** — New `equity-glossary.html` SEO page:
+  - 50+ terms with plain-English definitions
+  - Search/filter functionality
+  - Jump-to-letter navigation
+  - Links to relevant calculators and blog posts for each term
+  - FAQPage + WebPage schema markup for SEO
+  - Added to sitemap.xml, index.html, free-startup-tools.html navigation
 
-- **SEO Blog Post: 83(b) Election Guide** — New article `blog/83b-election-guide.html`:
-  - Targets keywords: "83b election", "section 83b", "83(b) startup", "file 83b"
-  - Covers when to file, how it works, worked tax savings example, step-by-step filing instructions
-  - Cross-linked from vesting guide and stock options worth guide
-  - Links to stock options calculator and vesting calculator
+## Session Focus: Conversion Funnel Build
 
-- **SEO Blog Post: Startup Term Sheet Guide** — New article `blog/term-sheet-guide.html`:
-  - Targets keywords: "startup term sheet", "term sheet guide", "series a term sheet"
-  - Clause-by-clause breakdown: valuation, liquidation preference, anti-dilution, board composition, etc.
-  - Founder-friendly vs aggressive comparison table
-  - Cross-linked from series-a-vs-seed guide
-  - Links to dilution calculator and SAFE calculator
+**New features:**
+- Founding 50 urgency counter (all pages)
+- Share Results module (all calculators)
+- Email capture API integration (all calculators)
+- Startup Equity Glossary (SEO page)
 
-- **SEO Blog Post: ISO vs NSO Comparison** — New article `blog/iso-vs-nso-guide.html`:
-  - Targets keywords: "iso vs nso", "incentive stock options", "nso vs iso"
-  - Side-by-side comparison table, AMT risk explanation, worked tax example
-  - Cross-linked from RSUs vs stock options guide
-  - Links to stock options calculator
-
-- **Blog Index & Sitemap Updates** — All 3 new posts added to blog index (top positions), sitemap.xml, and cross-linked from 5+ related posts.
-
-## Session Focus: SEO Content Sprint (3 High-Value Blog Posts)
-
-**New content:**
-- 83(b) Election Guide (10 min read)
-- Startup Term Sheet Guide (14 min read)
-- ISO vs NSO Comparison (9 min read)
-
-**SEO impact:**
-- Targets 15+ high-intent keywords related to startup equity compensation
-- Each post links directly to relevant calculators (conversion funnel)
-- Cross-linked from 5+ existing posts (internal link juice)
+**Revenue impact:**
+- Urgency counter creates FOMO → drives Pro conversions
+- Share results creates viral growth loop → new users for free
+- Email API captures leads properly → enables email nurture
+- Glossary targets "startup equity terms" → new SEO traffic
 
 **Growth remains #1 priority.** Focus on:
-1. More SEO content targeting high-value keywords
-2. Distribution channels (Twitter, accelerators, guest posts)
-3. Conversion optimization (Founding 50 urgency, email capture)
+1. Distribution channels (Product Hunt launch, paid ads, partnerships)
+2. More SEO content targeting high-value keywords
+3. Accelerator outreach for qualified traffic

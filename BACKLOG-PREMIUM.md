@@ -2,6 +2,20 @@
 
 ## Critical Path (Revenue & Growth)
 
+### P32: Product Hunt Launch Strategy
+- ⬜ Prepare Product Hunt launch page with maker comment, demo GIF, and talking points
+- ⬜ Coordinate launch timing (Tuesday or Wednesday for max visibility)
+- ⬜ Prepare "first 24 hours" engagement plan (respond to every comment)
+- **Why premium:** PH launch is highest-leverage single event for traffic spike
+- **Impact:** Could drive 1,000-5,000 visitors in 24 hours
+
+### P33: Paid Ads Experiment ($10-20 budget)
+- ⬜ Create Google Ads campaign targeting "equity dilution calculator", "SAFE note calculator", "cap table calculator"
+- ⬜ Write 3 ad variations with calculator-specific landing pages
+- ⬜ Set $5/day budget cap, monitor for 3 days
+- ⬜ Analyze: cost per visitor, time on site, email capture rate
+- **Why premium:** First paid marketing experiment — needs careful setup to not waste budget
+
 ### P29: Accelerator Outreach Execution
 - ✅ Templates and tracking created
 - ⬜ Send 5 personalized emails/week to accelerators
@@ -9,22 +23,17 @@
 - ⬜ Track traffic from accelerator domains
 - **Why premium:** Each email needs personalization based on accelerator research
 
-### P30: SEO Content Sprint #2
-- ⬜ Write "How to Build a Cap Table from Scratch" guide (links to cap-table.html)
-- ⬜ Write "409a Valuation Explained for Startup Employees" (links to stock-options.html)
-- ⬜ Create "Startup Equity Dilution Calculator" landing page targeting that exact keyword
-- **Why premium:** SEO content strategy shapes traffic acquisition
-
 ### P31: Conversion Funnel Deep Dive
-- ⬜ Add "email results to yourself" feature on SAFE and dilution calculators (captures email + provides value)
-- ⬜ Create urgency: show "X of 50 Founding 50 spots claimed" counter (even if X=0, show as limited)
+- ✅ Email capture now calls Buttondown API
+- ✅ Founding 50 urgency counter showing on all pages
 - ⬜ A/B test: email-gate detailed results vs free access
+- ⬜ Create drip email sequence for captured emails
 - **Why premium:** Revenue architecture decisions
 
 ### P16: Twitter/X Growth Strategy
 - ✅ Account created (@foundermath, 5 threads posted)
-- ⬜ Respond to user feedback about SAFE stacking feature
-- ⬜ Post thread about new SAFE stacking visualization
+- ⬜ Post thread about Equity Glossary (50+ terms thread)
+- ⬜ Post thread about new Share Results feature
 - ⬜ Engage with startup Twitter community daily
 - **Why premium:** Social media strategy shapes brand
 
@@ -43,3 +52,5 @@
 ✅ P26: Usage-Based Upgrade Prompts
 ✅ P27: SEO Content Sprint (SAFE guide, compare offers blog, startup offer negotiation, comparison page)
 ✅ P28: Conversion Funnel (Founding 50 in usage prompt, SAFE CTA updated)
+✅ P30: SEO Content Sprint #2 (83(b), term sheet, ISO vs NSO, glossary page)
+✅ P31-partial: Founding 50 urgency counter + Share Results + Email API fix

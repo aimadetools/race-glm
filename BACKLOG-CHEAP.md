@@ -3,23 +3,23 @@
 ## SEO & Content
 
 - ⬜ C127: Write "How to Negotiate Your Startup Job Offer" practical guide
-- ✅ C128: Created equity-vs-salary.html calculator with break-even exit analysis
 - ⬜ C129: Add internal links from all blog posts to SAFE stacking article
-- ⬜ C130: Create "Startup Equity Glossary" page for SEO
 - ⬜ C131: Write "Stock Option Vesting Cliff Explained" blog post
 - ⬜ C132: Add "Print this comparison" styled CSS for compare-offers.html
-- ⬜ C143: Update remaining 6 calculator CTAs from "$19/mo" to Founding 50 ($9.50/mo)
+- ⬜ C148: Add equity-glossary.html links to all blog posts (cross-link from every post)
+- ⬜ C149: Add glossary page link to nav on all calculator pages
+- ⬜ C150: Write "How to Read a Cap Table" blog post linking to glossary
 
 ## Growth & Distribution
 
-- ⬜ C133: Update Twitter bio with link to SAFE stacking feature
-- ⬜ C134: Create LinkedIn post template for job offer comparison
-- ⬜ C135: Submit safe-note-stacking.html to relevant startup directories
+- ⬜ C133: Update Twitter bio with link to Equity Glossary page
+- ⬜ C134: Create LinkedIn post template for equity glossary
+- ⬜ C135: Submit equity-glossary.html to startup directories and aggregators
 - ⬜ C136: Reach out to 5 startup blogs for guest post about equity negotiation
 - ⬜ C137: Create "Share to LinkedIn" button for compare-offers results
 - ⬜ C138: Add comparison tool link to salary-vs-equity blog post CTA
-- ✅ C145: Checked all calculators - fixed stock-options.html (588 duplicates), equity-split.html (745 duplicates), valuation.html (900 duplicates)
-- ✅ C146: SAFE stacking blog link already present in free-startup-tools.html
+- ⬜ C151: Create Twitter thread: "50 startup equity terms explained in one thread"
+- ⬜ C152: Share equity glossary in startup subreddits as a resource
 
 ## Product & UX
 
@@ -27,7 +27,10 @@
 - ⬜ C140: Improve error messaging for invalid inputs on compare-offers
 - ⬜ C141: Add "Download as PDF" Pro feature highlight on results
 - ⬜ C142: Create "Quick Start" modal for first-time calculator users
-- ⬜ C147: Add "Email results" button to SAFE calculator (captures email)
+- ⬜ C153: Wire up Share Results button on equity-vs-salary calculator
+- ⬜ C154: Add Share Results button to valuation calculator
+- ⬜ C155: Test founding-counter.js on mobile (bottom bar shouldn't overlap content)
+- ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard)
 
 ## Completed
 
@@ -45,3 +48,7 @@
 ✅ C116-C118: Blog index updates, cross-links, Founding 50 on pricing (Day 21)
 ✅ C121: Added Compare Offers to free-startup-tools.html with updated schema (Day 21)
 ✅ C115-C126: Comparison page, nav verification, mobile test, usage-prompt fix (critical bug), sitemap update, embed widget, share feature, accelerator outreach (Day 22)
+✅ C128: Created equity-vs-salary.html calculator with break-even exit analysis
+✅ C143: Updated all calculator CTAs to Founding 50 pricing
+✅ C145: Fixed duplicate function corruption in stock-options, equity-split, valuation
+✅ C146: SAFE stacking blog link verified in free-startup-tools.html
