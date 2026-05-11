@@ -244,15 +244,17 @@
 </footer>
 
 <script>
-// Animate counter bar on load
+// Use dynamic founding counter
 document.addEventListener('DOMContentLoaded', function() {
-    var spotsClaimed = parseInt(localStorage.getItem('fm_founding_claimed') || '0');
-    var spotsLeft = Math.max(0, 50 - spotsClaimed);
-    document.getElementById('spotsLeft').textContent = spotsLeft;
-    var pct = ((50 - spotsLeft) / 50 * 100);
-    setTimeout(function() {
-        document.getElementById('counterFill').style.width = pct + '%';
-    }, 500);
+    if (window.FMFoundingCounter) {
+        var claimed = FMFoundingCounter.getClaimed();
+        var remaining = FMFoundingCounter.getRemaining();
+        document.getElementById('spotsLeft').textContent = remaining;
+        var pct = (claimed / 50) * 100;
+        setTimeout(function() {
+            document.getElementById('counterFill').style.width = pct + '%';
+        }, 500);
+    }
 });
 </script>
 </body>

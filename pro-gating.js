@@ -108,11 +108,11 @@
         });
     }
 
-    // Email capture
+    // Email capture — stores locally AND sends to Buttondown via API
     function captureEmail(email, source) {
         if (!email || !email.includes('@')) return false;
         var emails = JSON.parse(localStorage.getItem(EMAIL_CAPTURES_KEY) || '[]');
-        // Don't add duplicates
+        // Don't add duplicates locally
         if (emails.some(function(e) { return e.email === email; })) return false;
         emails.push({ email: email, date: new Date().toISOString(), source: source || 'unknown' });
         localStorage.setItem(EMAIL_CAPTURES_KEY, JSON.stringify(emails));
@@ -120,23 +120,51 @@
         if (typeof gtag === 'function') {
             gtag('event', 'email_capture', { source: source || 'unknown' });
         }
+        // Send to Buttondown API (fire and forget)
+        try {
+            fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email })
+            }).catch(function() {});
+        } catch(e) {}
         return true;
     }
 
-    // Show email capture inline
+    // Show email capture inline — enhanced with more compelling copy
     function renderEmailCapture(containerId, source) {
         var container = document.getElementById(containerId);
         if (!container) return;
+
+        var sourceLabels = {
+            'dilution': 'equity dilution insights',
+            'safe': 'SAFE note tips',
+            'runway': 'runway management advice',
+            'vesting': 'vesting schedule tips',
+            'cap-table': 'cap table management',
+            'unit-economics': 'unit economics insights',
+            'valuation': 'startup valuation tips',
+            'stock-options': 'stock option guidance',
+            'equity-split': 'equity split advice',
+            'compare-offers': 'job offer negotiation tips',
+            'equity-vs-salary': 'salary vs equity analysis'
+        };
+        var label = sourceLabels[source] || 'equity insights';
+
         container.innerHTML =
-            '<div style="background:var(--bg-secondary,#12121a);border:1px solid var(--border,#2a2a40);border-radius:12px;padding:20px 24px;margin-top:24px;">' +
+            '<div style="background:linear-gradient(135deg, rgba(108,92,231,0.1), rgba(162,155,254,0.05));border:1px solid var(--accent,#6c5ce7);border-radius:12px;padding:20px 24px;margin-top:24px;">' +
                 '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">' +
-                    '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent,#6c5ce7)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>' +
-                    '<span style="color:var(--text-primary,#f0f0f5);font-weight:600;font-size:0.95rem;">Get weekly equity insights</span>' +
+                    '<div style="width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#6c5ce7,#a29bfe);display:flex;align-items:center;justify-content:center;flex-shrink:0;">' +
+                        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>' +
+                    '</div>' +
+                    '<div>' +
+                        '<span style="color:var(--text-primary,#f0f0f5);font-weight:600;font-size:0.95rem;">Get weekly ' + label + '</span>' +
+                        '<p style="color:var(--text-secondary,#a0a0b5);font-size:0.8rem;margin:2px 0 0;">Free. No spam. Unsubscribe anytime.</p>' +
+                    '</div>' +
                 '</div>' +
-                '<p style="color:var(--text-secondary,#a0a0b5);font-size:0.85rem;margin:0 0 12px;">Join 100+ founders getting weekly tips on equity, dilution, and fundraising math.</p>' +
                 '<form id="fm-email-form-' + source + '" style="display:flex;gap:8px;flex-wrap:wrap;">' +
                     '<input type="email" id="fm-email-' + source + '" placeholder="founder@startup.com" required style="flex:1;min-width:200px;background:var(--bg-input,#15151f);border:1px solid var(--border,#2a2a40);color:var(--text-primary,#f0f0f5);padding:10px 14px;border-radius:6px;font-size:0.85rem;" aria-label="Email address">' +
-                    '<button type="submit" style="background:var(--accent,#6c5ce7);color:white;border:none;padding:10px 18px;border-radius:6px;font-weight:600;font-size:0.85rem;cursor:pointer;white-space:nowrap;">Subscribe</button>' +
+                    '<button type="submit" style="background:var(--accent,#6c5ce7);color:white;border:none;padding:10px 18px;border-radius:6px;font-weight:600;font-size:0.85rem;cursor:pointer;white-space:nowrap;">Get Free Tips</button>' +
                 '</form>' +
                 '<p id="fm-email-msg-' + source + '" style="margin:8px 0 0;font-size:0.8rem;display:none;"></p>' +
             '</div>';
@@ -145,13 +173,14 @@
             e.preventDefault();
             var email = document.getElementById('fm-email-' + source).value.trim();
             var msg = document.getElementById('fm-email-msg-' + source);
+            var form = document.getElementById('fm-email-form-' + source);
             if (captureEmail(email, source)) {
-                msg.textContent = 'Welcome aboard! Check your inbox soon.';
+                msg.textContent = 'Welcome aboard! Check your inbox for your first equity tip.';
                 msg.style.color = '#00b894';
                 msg.style.display = 'block';
-                document.getElementById('fm-email-form-' + source).innerHTML = '<span style="color:#00b894;font-weight:600;">Subscribed!</span>';
+                form.innerHTML = '<div style="display:flex;align-items:center;gap:8px;color:#00b894;font-weight:600;font-size:0.9rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Subscribed! Check your inbox.</div>';
             } else {
-                msg.textContent = 'Already subscribed!';
+                msg.textContent = 'You\'re already subscribed!';
                 msg.style.color = 'var(--text-secondary,#a0a0b5)';
                 msg.style.display = 'block';
             }

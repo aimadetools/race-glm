@@ -487,6 +487,7 @@
             <button onclick="FounderMathPro.requirePro('Save Scenarios', function(){alert('Scenario saved!')})" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:inherit;">Save Scenario</button>
             <button onclick="FounderMathPro.requirePro('Export PDF', function(){window.print()})" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:inherit;">Export PDF</button>
             <button onclick="window.print()" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:inherit;">Print</button>
+            <button onclick="if(window.FMShare){var s=getInputs();FMShare.showShareModal('stock-options',{grant:s.numOptions+' options at $'+s.currentFMV+'/share',valuation:'$'+(s.companyValuation||0)+'M',value:document.getElementById('totalValue')?.textContent||''},'Stock Options: '+s.numOptions+' options at $'+s.currentFMV+'/share')}" style="background:var(--accent);border:none;color:white;padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:inherit;font-weight:600;">Share Results</button>
         </div>
             </div>
         </div>
@@ -526,6 +527,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="pro-gating.js"></script>
 <script src="usage-prompt.js"></script>
+    <script src="founding-counter.js"></script>
+    <script src="share-results.js"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script>
 
 <script>
