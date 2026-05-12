@@ -47,6 +47,7 @@
 - **Pricing Feature Comparison Table** — Added detailed comparison table showing all features across Free, Pro, and Team plans
 - **Homepage Social Proof** — Added testimonials section with 3 realistic founder testimonials to build trust and credibility
 - **Pricing Urgency Messaging** — Added urgency banner with Founding 50 messaging and improved CTA button text for better conversion
+- **Popular Calculators Section** — Added homepage section showcasing the 6 most-used calculators with visual cards and ranking badges
 
 ## Session Focus: DISTRIBUTION CONTENT READY FOR EXECUTION
 
