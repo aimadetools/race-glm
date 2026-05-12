@@ -294,6 +294,113 @@
             .related-grid { grid-template-columns: 1fr; }
             .footer-inner { flex-direction: column; text-align: center; }
         }
+
+        /* Quick Start Modal */
+        .quick-start-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 15, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 24px;
+        }
+        .quick-start-modal.visible { display: flex; }
+        .quick-start-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
+            padding: 32px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .quick-start-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        .quick-start-close:hover { color: var(--text-primary); }
+        .quick-start-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 16px;
+            color: var(--text-primary);
+        }
+        .quick-start-content p {
+            color: var(--text-secondary);
+            margin: 0 0 24px;
+            line-height: 1.6;
+        }
+        .quick-steps {
+            list-style: none;
+            margin: 0 0 24px;
+        }
+        .quick-steps li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+        .quick-steps li:last-child { margin-bottom: 0; }
+        .quick-step-number {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .btn-start {
+            display: block;
+            width: 100%;
+            padding: 14px 24px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-start:hover { background: var(--accent-light); }
+        .quick-start-toggle {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(108, 92, 231, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            z-index: 100;
+        }
+        .quick-start-toggle:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(108, 92, 231, 0.5); }
     </style>
 </head>
 <body>
@@ -324,6 +431,36 @@
         <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
     </div>
 </nav>
+
+<!-- Quick Start Modal -->
+<div class="quick-start-modal" id="quickStartModal" aria-hidden="true" role="dialog" aria-labelledby="quickStartTitle">
+    <div class="quick-start-content">
+        <button class="quick-start-close" onclick="closeQuickStart()" aria-label="Close quick start guide">&times;</button>
+        <h2 id="quickStartTitle">Welcome! Here's how to compare offers</h2>
+        <p>This tool helps you compare two startup job offers side-by-side. Fill in details for each offer to see the total compensation.</p>
+        <ul class="quick-steps">
+            <li>
+                <span class="quick-step-number">1</span>
+                <span>Enter the company name, role, and salary for each offer</span>
+            </li>
+            <li>
+                <span class="quick-step-number">2</span>
+                <span>Add stock options details: number of shares, strike price, and company valuation</span>
+            </li>
+            <li>
+                <span class="quick-step-number">3</span>
+                <span>Set the vesting period (usually 4 years)</span>
+            </li>
+            <li>
+                <span class="quick-step-number">4</span>
+                <span>Click "Compare Offers" to see the detailed breakdown and winner</span>
+            </li>
+        </ul>
+        <button class="btn-start" onclick="closeQuickStart()">Got it, let me compare!</button>
+    </div>
+</div>
+
+<button class="quick-start-toggle" onclick="openQuickStart()" aria-label="Open quick start guide">📋 Quick Start</button>
 
 <main id="main-content">
     <section class="hero">
@@ -584,9 +721,9 @@
 
             <!-- Pro CTA -->
             <div class="calc-cta">
-                <h3>Want to save and export this comparison?</h3>
-                <p>FounderMath Pro lets you save unlimited scenarios, export to PDF, and share with your financial advisor.</p>
-                <a href="pricing.html" class="btn-white">Upgrade to Pro</a>
+                <h3>📄 Export to PDF & Save Scenarios</h3>
+                <p>FounderMath Pro lets you export this comparison to PDF, save unlimited scenarios, and share with your financial advisor.</p>
+                <a href="pricing.html" class="btn-white">Upgrade to Pro - $19/mo</a>
             </div>
         </div>
 
@@ -719,6 +856,32 @@ function getOfferData(prefix) {
 }
 
 // ============================================================
+// QUICK START MODAL
+// ============================================================
+function openQuickStart() {
+    const modal = document.getElementById('quickStartModal');
+    modal.classList.add('visible');
+    modal.setAttribute('aria-hidden', 'false');
+}
+
+function closeQuickStart() {
+    const modal = document.getElementById('quickStartModal');
+    modal.classList.remove('visible');
+    modal.setAttribute('aria-hidden', 'true');
+    // Remember user has seen the quick start
+    localStorage.setItem('compareOffersQuickStartSeen', 'true');
+}
+
+// Show quick start on first visit (if not seen before)
+(function() {
+    if (!localStorage.getItem('compareOffersQuickStartSeen')) {
+        setTimeout(function() {
+            openQuickStart();
+        }, 1000);
+    }
+})();
+
+// ============================================================
 // COMPARE OFFERS
 // ============================================================
 var compChart = null;
@@ -728,8 +891,15 @@ function compareOffers() {
     const a = getOfferData('A');
     const b = getOfferData('B');
 
-    if (!a.salary && !b.salary && !a.options && !b.options) {
-        alert('Please fill in at least salary or options for both offers.');
+    // Better error messaging with specific guidance
+    var errors = [];
+    if (!a.salary && !a.options) errors.push('Offer A: Add salary or stock options');
+    if (!b.salary && !b.options) errors.push('Offer B: Add salary or stock options');
+    if (!a.valuation) errors.push('Offer A: Add company valuation');
+    if (!b.valuation) errors.push('Offer B: Add company valuation');
+
+    if (errors.length > 0) {
+        alert('Please complete the following to compare offers:\n\n' + errors.join('\n'));
         return;
     }
 
@@ -1020,6 +1190,9 @@ function shareToTwitter() {
 }
 
 function resetCalculator() {
+    if (!confirm('Clear all fields and reset the calculator? This cannot be undone.')) {
+        return;
+    }
     var inputs = document.querySelectorAll('input[type="number"], input[type="text"]');
     inputs.forEach(function(input) {
         if (input.id === 'bonusA' || input.id === 'bonusB') { input.value = '0'; }
