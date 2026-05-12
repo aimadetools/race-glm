@@ -23,11 +23,11 @@
 
 ## Product & UX
 - ✅ C162: Add "Featured on Product Hunt" badge (hidden, activate on launch day) (Day 29)
-- ⬜ C139: Add "Clear all fields" confirmation dialog
-- ⬜ C140: Improve error messaging for invalid inputs on compare-offers
-- ⬜ C141: Add "Download as PDF" Pro feature highlight on results
-- ⬜ C142: Create "Quick Start" modal for first-time calculator users
-- ⬜ C155: Test founding-counter.js on mobile (bottom bar shouldn't overlap content)
+- ✅ C139: Add "Clear all fields" confirmation dialog (Day 30)
+- ✅ C140: Improve error messaging for invalid inputs on compare-offers (Day 30)
+- ✅ C141: Add "Download as PDF" Pro feature highlight on results (Day 30)
+- ✅ C142: Create "Quick Start" modal for first-time calculator users (Day 30)
+- ✅ C155: Test founding-counter.js on mobile (bottom bar shouldn't overlap content) (Day 30)
 - ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard)
 
 ## Completed
@@ -63,3 +63,8 @@
 ✅ C136: Guest post outreach emails for 5+ target blogs (Day 30)
 ✅ C151: Twitter thread: 50 startup equity terms explained (Day 30)
 ✅ C159: Twitter thread: Carta vs Pulley vs FounderMath comparison (Day 30)
+✅ C139: Reset confirmation dialog on compare-offers calculator (Day 30)
+✅ C140: Improved error messaging with specific field validation (Day 30)
+✅ C141: Enhanced Pro CTA with PDF export highlight (Day 30)
+✅ C142: Quick Start modal for first-time users (Day 30)
+✅ C155: Fixed founding counter bar mobile overlap issue (Day 30)
