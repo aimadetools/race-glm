@@ -508,6 +508,93 @@
             .footer-inner { flex-direction: column; text-align: center; }
             .chart-container { height: 220px; }
         }
+
+        /* Floating Pro CTA */
+        .floating-pro-cta {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 16px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 8px 40px rgba(108, 92, 231, 0.5);
+            z-index: 90;
+            transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: calc(100vw - 48px);
+        }
+        .floating-pro-cta.visible {
+            bottom: 24px;
+        }
+        .floating-pro-cta-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .floating-pro-cta-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+        .floating-pro-cta-text {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.85);
+            margin: 2px 0 0;
+        }
+        .floating-pro-cta-btn {
+            background: white;
+            color: var(--accent);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: transform 0.2s;
+        }
+        .floating-pro-cta-btn:hover {
+            transform: translateY(-1px);
+        }
+        .floating-pro-cta-close {
+            position: absolute;
+            top: 4px;
+            right: 8px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.6);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 4px 8px;
+            line-height: 1;
+        }
+        .floating-pro-cta-close:hover {
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .floating-pro-cta {
+                flex-direction: column;
+                gap: 12px;
+                padding: 14px 18px;
+                text-align: center;
+                left: 12px;
+                right: 12px;
+                transform: none;
+                width: auto;
+                max-width: none;
+            }
+            .floating-pro-cta.visible {
+                bottom: 16px;
+            }
+            .floating-pro-cta-content {
+                align-items: center;
+            }
+            .floating-pro-cta-close {
+                display: none;
+            }
+        }
     </style>
     <script src="pro-gating.js"></script>
 <script src="usage-prompt.js"></script>
@@ -544,6 +631,16 @@
             <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
         </div>
     </nav>
+
+    <!-- Floating Pro CTA -->
+    <div class="floating-pro-cta" id="floatingProCta" aria-hidden="true">
+        <button class="floating-pro-cta-close" onclick="closeFloatingCta()" aria-label="Close CTA">&times;</button>
+        <div class="floating-pro-cta-content">
+            <span class="floating-pro-cta-title">Save Your Unit Economics</span>
+            <span class="floating-pro-cta-text">Export CAC/LTV models to PDF, save unlimited scenarios, and track your metrics over time</span>
+        </div>
+        <a href="pricing.html" class="floating-pro-cta-btn">Try Pro Free</a>
+    </div>
 
     <header class="page-header">
         <nav class="breadcrumbs" aria-label="Breadcrumb">
@@ -899,6 +996,41 @@
             trackEvent('calculate');
         }, 2000);
     }
+
+    // ============================================================
+    // FLOATING PRO CTA
+    // ============================================================
+    function closeFloatingCta() {
+        const cta = document.getElementById('floatingProCta');
+        cta.classList.remove('visible');
+        cta.setAttribute('aria-hidden', 'true');
+        localStorage.setItem('unitEconFloatingCtaClosed', 'true');
+    }
+
+    (function() {
+        if (localStorage.getItem('unitEconFloatingCtaClosed')) return;
+
+        const cta = document.getElementById('floatingProCta');
+        const foldThreshold = 400;
+
+        function checkScroll() {
+            if (window.scrollY > foldThreshold) {
+                cta.classList.add('visible');
+                cta.setAttribute('aria-hidden', 'false');
+            } else {
+                cta.classList.remove('visible');
+                cta.setAttribute('aria-hidden', 'true');
+            }
+        }
+
+        var scrollTimeout;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(checkScroll, 50);
+        });
+
+        checkScroll();
+    })();
 
     const DEFAULTS = {
         marketingSpend: 5000, salesCost: 8000, otherAcqCost: 1000, newCustomers: 20,
