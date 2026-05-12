@@ -533,6 +533,85 @@
             margin-top: 2px;
         }
 
+        /* --- POPULAR CALCULATORS --- */
+        .popular-calculators {
+            padding: 80px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .popular-calculators .section-label {
+            text-align: center;
+            color: var(--accent-light);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+        .popular-calculators h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+        .popular-calculators .subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 48px;
+            font-size: 1.05rem;
+        }
+        .popular-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .popular-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .popular-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        .popular-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        .popular-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .popular-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+        .popular-tag {
+            align-self: flex-start;
+            background: var(--accent);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
         /* --- FEATURES --- */
         .features {
             padding: 80px 24px;
@@ -837,10 +916,12 @@
         .mobile-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
             .features-grid { grid-template-columns: 1fr; }
             .testimonials-grid { grid-template-columns: 1fr; }
+            .popular-grid { grid-template-columns: repeat(2, 1fr); }
             .demo-controls { grid-template-columns: 1fr; }
             .demo-output { grid-template-columns: 1fr; }
             .hero-stats { gap: 24px; }
             .footer-inner { flex-direction: column; text-align: center; }
+            .popular-grid { grid-template-columns: 1fr; }
         }
 
         /* --- CHART CANVAS --- */
@@ -1064,6 +1145,48 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Popular Calculators -->
+    <section class="popular-calculators">
+        <div class="section-label">Most Used</div>
+        <h2>Popular Calculators</h2>
+        <p class="subtitle">The tools founders use most to understand their equity and plan their next round.</p>
+        <div class="popular-grid">
+            <a href="dilution.html" class="popular-card">
+                <div class="popular-icon">%</div>
+                <h3>Equity Dilution</h3>
+                <p>See how your ownership changes across funding rounds</p>
+                <span class="popular-tag">#1 Most Used</span>
+            </a>
+            <a href="safe.html" class="popular-card">
+                <div class="popular-icon">∿</div>
+                <h3>SAFE Note Calculator</h3>
+                <p>Model pre-money and post-money SAFE conversions</p>
+                <span class="popular-tag">#2 Most Used</span>
+            </a>
+            <a href="runway.html" class="popular-card">
+                <div class="popular-icon">💰</div>
+                <h3>Runway Calculator</h3>
+                <p>Calculate how long your cash will last</p>
+                <span class="popular-tag">#3 Most Used</span>
+            </a>
+            <a href="vesting.html" class="popular-card">
+                <div class="popular-icon">📅</div>
+                <h3>Vesting Schedule</h3>
+                <p>Visualize your equity vesting over time</p>
+            </a>
+            <a href="compare-offers.html" class="popular-card">
+                <div class="popular-icon">⚖️</div>
+                <h3>Compare Offers</h3>
+                <p>Side-by-side equity offer comparison</p>
+            </a>
+            <a href="cap-table.html" class="popular-card">
+                <div class="popular-icon">📊</div>
+                <h3>Cap Table Builder</h3>
+                <p>Track founders, investors, and option pools</p>
+            </a>
         </div>
     </section>
 
