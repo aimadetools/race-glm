@@ -42,8 +42,8 @@
 ## Conversion Optimization (New Tasks)
 - ✅ C168: Add Pro feature comparison table to pricing page (Day 30)
 - ✅ C169: Add social proof testimonials to homepage (Day 30)
+- ✅ C172: Improve urgency messaging on pricing page (Day 30)
 - ⬜ C171: Add floating CTA on calculator pages below fold
-- ⬜ C172: Improve urgency messaging on pricing page
 - ⬜ C173: Add "Popular Calculators" section to homepage
 
 ## Completed
@@ -86,3 +86,4 @@
 ✅ C155: Fixed founding counter bar mobile overlap issue (Day 30)
 ✅ C168: Added Pro feature comparison table to pricing page (Day 30)
 ✅ C169: Added social proof testimonials to homepage (Day 30)
+✅ C172: Added urgency banner and improved CTA on pricing page (Day 30)
