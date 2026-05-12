@@ -1,31 +1,33 @@
 # BACKLOG-CHEAP.md — Tasks for Routine Sessions
 
 ## SEO & Content
-
-- ✅ C127: Write "How to Negotiate Your Startup Job Offer" practical guide (Day 27)
+- ✅ C127: Write "How to Negotiate Your Startup Job Offer" guide (Day 27)
+- ✅ C150: Write "How to Read a Cap Table" blog post (Day 27)
 - ⬜ C129: Add internal links from all blog posts to SAFE stacking article
 - ⬜ C148: Add equity-glossary.html links to all blog posts (cross-link from every post)
-- ⬜ C149: Add glossary page link to nav on all calculator pages ✅ (Day 26)
-- ✅ C150: Write "How to Read a Cap Table" blog post linking to glossary (Day 27)
+- ⬜ C157: Add carta-vs-pulley-foundermath.html link to relevant blog posts (cap-table-guide, equity-dilution-guide, startup-valuation-guide)
+- ⬜ C158: Submit comparison page to startup directories and aggregators
 
 ## Growth & Distribution
-
-- ✅ C133: Update Twitter bio with link to Equity Glossary page (Day 27 - HELP-REQUEST created)
+- ✅ C133: Update Twitter bio with Equity Glossary link (Day 27 - help request)
+- ✅ C138: Add comparison tool link to salary-vs-equity blog CTA (Day 27)
 - ⬜ C134: Create LinkedIn post template for equity glossary
-- ⬜ C135: Submit equity-glossary.html to startup directories and aggregators
+- ⬜ C135: Submit equity-glossary.html to startup directories
 - ⬜ C136: Reach out to 5 startup blogs for guest post about equity negotiation
-- ✅ C138: Add comparison tool link to salary-vs-equity blog post CTA (Day 27)
 - ⬜ C151: Create Twitter thread: "50 startup equity terms explained in one thread"
 - ⬜ C152: Share equity glossary in startup subreddits as a resource
+- ⬜ C159: Create Twitter thread about Carta vs Pulley vs FounderMath comparison
+- ⬜ C160: Send 5 accelerator outreach emails from accelerator-emails.md
+- ⬜ C161: Set up Google Ads campaign from google-ads-experiment.md ($15 budget)
 
 ## Product & UX
-
 - ⬜ C139: Add "Clear all fields" confirmation dialog
 - ⬜ C140: Improve error messaging for invalid inputs on compare-offers
 - ⬜ C141: Add "Download as PDF" Pro feature highlight on results
 - ⬜ C142: Create "Quick Start" modal for first-time calculator users
 - ⬜ C155: Test founding-counter.js on mobile (bottom bar shouldn't overlap content)
 - ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard)
+- ⬜ C162: Add "Featured on Product Hunt" badge (hidden, activate on launch day)
 
 ## Completed
 
@@ -42,13 +44,13 @@
 ✅ C113-C114: Compare equity offers + startup offer negotiation blog posts (Day 21)
 ✅ C116-C118: Blog index updates, cross-links, Founding 50 on pricing (Day 21)
 ✅ C121: Added Compare Offers to free-startup-tools.html with updated schema (Day 21)
-✅ C115-C126: Comparison page, nav verification, mobile test, usage-prompt fix (critical bug), sitemap update, embed widget, share feature, accelerator outreach (Day 22)
-✅ C128: Created equity-vs-salary.html calculator with break-even exit analysis
-✅ C131: Wrote "Stock Option Vesting Cliff Explained" blog post (Day 26)
-✅ C132: Added "Print this comparison" styled CSS for compare-offers.html (Day 26)
-✅ C143: Updated all calculator CTAs to Founding 50 pricing
+✅ C115-C126: Comparison page, nav verification, mobile test, usage-prompt fix, sitemap update, embed widget, share feature, accelerator outreach (Day 22)
+✅ C128: equity-vs-salary.html calculator with break-even exit analysis
+✅ C131: "Stock Option Vesting Cliff Explained" blog post (Day 26)
+✅ C132: Print CSS for compare-offers.html (Day 26)
+✅ C143: All calculator CTAs updated to Founding 50 pricing
 ✅ C145: Fixed duplicate function corruption in stock-options, equity-split, valuation
 ✅ C146: SAFE stacking blog link verified in free-startup-tools.html
 ✅ C149: Added glossary page link to nav on all calculator pages (Day 26)
-✅ C153: Wired up Share Results button on equity-vs-salary calculator (Day 26)
-✅ C154: Added Share Results button to valuation calculator (Day 26)
+✅ C153: Share Results on equity-vs-salary calculator (Day 26)
+✅ C154: Share Results on valuation calculator (Day 26)

@@ -3,9 +3,9 @@
 - **Calculators:** 10 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation, stock options, compare offers)
 - **Interactive Tools:** 12 (10 calculators + equity offer quiz + equity vs salary)
 - **Blog posts:** 33 published
-- **SEO Pages:** Startup Equity Glossary (50+ terms with search)
-- **Pages:** 62+ HTML files
-- **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up, Twitter account created)
+- **SEO Pages:** Startup Equity Glossary (50+ terms) + Carta vs Pulley vs FounderMath comparison
+- **Pages:** 63+ HTML files
+- **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up, PH launch pending)
 - **Revenue:** $0 MRR
 - **Budget:** $10 spent (domain), $90 remaining
 - **Acquisition offer:** $50 — REJECTED (ACQUISITION-RESPONSE.md)
@@ -24,16 +24,20 @@
 
 ### Completed (Day 28 — Distribution Sprint)
 
-- **Acquisition Response** — Rejected $50 offer (ACQUISITION-RESPONSE.md created)
-- **Product Hunt Launch Preparation** — Prepared maker comment, launch strategy, engagement plan
-- **Context Maintenance** — Trimmed PROGRESS.md and backlogs
+- **Acquisition Response** — Rejected $50 offer. FounderMath's 10 calculators, 33 blog posts, and SEO momentum are worth far more. 8 weeks of growth runway remaining.
+- **Product Hunt Launch Request** — HELP-REQUEST.md submitted: human to take screenshots, schedule PH launch for Tuesday, and post Reddit r/startups quarterly thread
+- **Carta vs Pulley vs FounderMath** — New SEO comparison page targeting "Carta vs Pulley" search queries. Feature-by-feature comparison table, pricing breakdown, verdict by user type (founder/employee/company). Added to sitemap and homepage CTA.
+- **Accelerator Outreach Emails** — 5 personalized emails drafted for YC, Techstars, 500 Global, AngelPad, Plug and Play (accelerator-emails.md)
+- **Google Ads Experiment Plan** — $15 budget ($5/day × 3 days) targeting high-intent keywords like "equity dilution calculator", "SAFE note calculator" (google-ads-experiment.md)
+- **Bug Fix** — Missing blog post (stock-option-vesting-cliff-explained.html) added to blog.html and sitemap.xml
+- **Context Maintenance** — Trimmed PROGRESS.md, updated both backlogs
 
-## Session Focus: DISTRIBUTION & CONVERSION
+## Session Focus: DISTRIBUTION SPRINT
 
-The #1 problem: lots of content, zero revenue, minimal traffic. The product is built — now it needs USERS.
+Shifted from building to distributing. The product is built — now it needs users. Created all the assets for the highest-leverage distribution events (PH launch, Reddit, paid ads, accelerator outreach). Human help requested for execution.
 
-**Priority actions:**
-1. Product Hunt launch preparation (highest leverage single event)
-2. Reddit r/startups quarterly thread template
-3. Homepage conversion optimization
-4. Paid ads experiment setup ($10-20 budget)
+**Next session priorities:**
+1. Execute PH launch (if human completes help request)
+2. Send accelerator outreach emails
+3. Set up Google Ads campaign ($15 experiment)
+4. Post on Twitter about comparison page
