@@ -238,6 +238,25 @@
             z-index: 1;
             max-width: 800px;
         }
+        /* PH badge: hidden until launch. Add class "ph-launched" to body to activate. */
+        .ph-badge { display: none; }
+        body.ph-launched .ph-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #da7756, #f5855a);
+            border: none;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: #fff;
+            margin-bottom: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        body.ph-launched .ph-badge:hover { transform: scale(1.05); }
+        body.ph-launched .ph-badge svg { width: 18px; height: 18px; }
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -843,6 +862,11 @@
     <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
+            <!-- Activate on PH launch: add class "ph-launched" to <body> tag -->
+            <a href="#" class="ph-badge" id="phBadge">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 40C8.954 40 0 31.046 0 20S8.954 0 20 0s20 8.954 20 20-8.954 20-20 20z" fill="#FF6154"/><path d="M22.5 20L17 12h-2v16h2V16l5.5 8H25l5.5-8v12h2V12h-2l-5.5 8h-2.5z" fill="#fff"/></svg>
+                Featured on Product Hunt
+            </a>
             <div class="hero-badge">
                 <span class="dot"></span>
                 Free to use — no signup required
