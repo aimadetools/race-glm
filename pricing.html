@@ -267,6 +267,61 @@
         .guarantee h3 { font-size: 1.3rem; margin-bottom: 12px; }
         .guarantee p { color: var(--text-secondary); max-width: 500px; margin: 0 auto; font-size: 0.95rem; }
 
+        .comparison-table-section {
+            max-width: 1000px; margin: 0 auto; padding: 60px 24px;
+        }
+        .comparison-table-section h2 {
+            font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 40px;
+        }
+        .comparison-table-wrapper {
+            overflow-x: auto;
+        }
+        .comparison-table {
+            width: 100%; border-collapse: collapse; background: var(--bg-secondary);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--border);
+        }
+        .comparison-table th {
+            background: var(--bg-card); font-weight: 700; font-size: 0.9rem;
+            color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .comparison-table th:first-child { border-top-left-radius: 12px; }
+        .comparison-table th:last-child { border-top-right-radius: 12px; }
+        .comparison-table td { font-size: 0.95rem; color: var(--text-secondary); }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table tr.highlight-row {
+            background: var(--bg-card);
+        }
+        .comparison-table tr.highlight-row td {
+            font-weight: 700; color: var(--text-primary); border-top: 2px solid var(--accent);
+        }
+        .comparison-table tr:hover td {
+            background: rgba(108, 92, 231, 0.05);
+        }
+        .comparison-table tr.highlight-row:hover td {
+            background: rgba(108, 92, 231, 0.1);
+        }
+        .check-icon {
+            color: var(--green); font-weight: 700; font-size: 1.1rem;
+        }
+        .dash-icon {
+            color: var(--text-muted); font-weight: 400; font-size: 1.1rem;
+        }
+        .comparison-table th:nth-child(2),
+        .comparison-table td:nth-child(2) {
+            text-align: center; font-weight: 700; color: var(--text-primary);
+        }
+        .comparison-table th:nth-child(3),
+        .comparison-table td:nth-child(3) {
+            text-align: center; font-weight: 700; color: var(--accent-light);
+        }
+        .comparison-table th:nth-child(4),
+        .comparison-table td:nth-child(4) {
+            text-align: center; font-weight: 700; color: var(--green);
+        }
+
         footer {
             padding: 48px 24px; border-top: 1px solid var(--border);
         }
@@ -283,6 +338,9 @@
 
         @media (max-width: 900px) {
             .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .comparison-table th, .comparison-table td {
+                padding: 12px 12px; font-size: 0.85rem;
+            }
         }
         .nav-overlay {
             display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
@@ -444,6 +502,145 @@
                 </ul>
                 <a href="https://buy.stripe.com/cNicN5dh691ceIG5S7eEo05?utm_source=founder-math&utm_medium=pricing&utm_campaign=team_trial" class="btn-secondary" id="teamButton" onclick="trackPricingClick('team')">Start Team Trial</a>
             </div>
+        </div>
+    </div>
+
+    <!-- Feature Comparison Table -->
+    <div class="comparison-table-section">
+        <h2>Compare All Features</h2>
+        <div class="comparison-table-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Free</th>
+                        <th>Pro</th>
+                        <th>Team</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>All 10 calculators</td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Interactive charts</td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Real-time calculations</td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Basic inputs & outputs</td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Advanced inputs & outputs</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Save scenarios</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td>Unlimited</td>
+                        <td>Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td>Export charts (PDF & PNG)</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Side-by-side comparison</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Multi-round dilution simulation</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td>Up to 5 rounds</td>
+                        <td>Up to 15 rounds</td>
+                    </tr>
+                    <tr>
+                        <td>SAFE conversion waterfall</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Advanced CAC/LTV with cohorts</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Share with team members</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td>Up to 5 members</td>
+                    </tr>
+                    <tr>
+                        <td>Collaborative editing</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Embeddable charts</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Custom branding on exports</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Priority support</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Dedicated Slack channel</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Onboarding call</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Monthly Price</strong></td>
+                        <td><strong>Free</strong></td>
+                        <td><strong>$19/mo</strong></td>
+                        <td><strong>$49/mo</strong></td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Annual Price</strong></td>
+                        <td><strong>Free</strong></td>
+                        <td><strong>$190/yr</strong></td>
+                        <td><strong>$490/yr</strong></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
