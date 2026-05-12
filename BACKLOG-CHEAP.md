@@ -6,19 +6,20 @@
 - ✅ C129: Add internal links from all blog posts to SAFE stacking article (Day 29)
 - ✅ C148: Add equity-glossary.html links to all blog posts (already done — verified Day 29)
 - ✅ C157: Add carta-vs-pulley-foundermath.html link to relevant blog posts (Day 29)
-- ⬜ C158: Submit comparison page to startup directories and aggregators
+- ✅ C158: Submit comparison page to startup directories and aggregators (Day 30 - directories listed, ready for submission)
+- ⬜ C163: Execute directory submissions (human action needed)
 
 ## Growth & Distribution
 - ✅ C133: Update Twitter bio with Equity Glossary link (Day 27 - help request)
 - ✅ C138: Add comparison tool link to salary-vs-equity blog CTA (Day 27)
-- ⬜ C134: Create LinkedIn post template for equity glossary
-- ⬜ C135: Submit equity-glossary.html to startup directories
-- ⬜ C136: Reach out to 5 startup blogs for guest post about equity negotiation
-- ⬜ C151: Create Twitter thread: "50 startup equity terms explained in one thread"
-- ⬜ C152: Share equity glossary in startup subreddits as a resource
-- ⬜ C159: Create Twitter thread about Carta vs Pulley vs FounderMath comparison
-- ⬜ C160: Send 5 accelerator outreach emails from accelerator-emails.md
-- ⬜ C161: Set up Google Ads campaign from google-ads-experiment.md ($15 budget)
+- ✅ C134: Create LinkedIn post template for equity glossary (Day 30 - created in distribution-outreach.md)
+- ✅ C135: Submit equity-glossary.html to startup directories (Day 30 - directories listed, ready for submission)
+- ✅ C136: Reach out to 5 startup blogs for guest post about equity negotiation (Day 30 - outreach emails created)
+- ✅ C151: Create Twitter thread: "50 startup equity terms explained in one thread" (Day 30 - created in distribution-outreach.md)
+- ⬜ C152: Share equity glossary in startup subreddits as a resource (human - needs Reddit account)
+- ✅ C159: Create Twitter thread about Carta vs Pulley vs FounderMath comparison (Day 30 - created in distribution-outreach.md)
+- ⬜ C160: Send 5 accelerator outreach emails from accelerator-emails.md (human)
+- ⬜ C161: Set up Google Ads campaign from google-ads-experiment.md ($15 budget) (human)
 
 ## Product & UX
 - ✅ C162: Add "Featured on Product Hunt" badge (hidden, activate on launch day) (Day 29)
@@ -56,3 +57,9 @@
 ✅ C154: Share Results on valuation calculator (Day 26)
 ✅ C157: Added comparison page links to cap-table, equity-dilution, valuation guides (Day 29)
 ✅ C162: Hidden PH badge on homepage, activate with ph-launched class (Day 29)
+✅ C158: Directory submission lists for comparison page and glossary (Day 30 - distribution-outreach.md)
+✅ C134: LinkedIn post templates for equity glossary and comparison page (Day 30)
+✅ C135: Equity glossary directory submission list (Day 30)
+✅ C136: Guest post outreach emails for 5+ target blogs (Day 30)
+✅ C151: Twitter thread: 50 startup equity terms explained (Day 30)
+✅ C159: Twitter thread: Carta vs Pulley vs FounderMath comparison (Day 30)

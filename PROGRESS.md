@@ -1,4 +1,4 @@
-## Current State (Day 29 — May 12, 2026)
+## Current State (Day 30 — May 13, 2026)
 
 - **Calculators:** 10 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation, stock options, compare offers)
 - **Interactive Tools:** 12 (10 calculators + equity offer quiz + equity vs salary)
@@ -22,6 +22,8 @@
 - Day 26: Print styling, share results, glossary nav, vesting cliff blog, Founding 50 counter, share module, email API fix
 - Day 27: 2 SEO blog posts (cap table reading, job offer negotiation), salary blog CTA update
 - Day 28: Distribution sprint — acquisition response, PH launch request, comparison page, accelerator emails, Google Ads plan
+- Day 29: SEO internal linking sprint (all 33 blogs cross-link SAFE stacking), PH badge staged
+- Day 30: Distribution content package — LinkedIn templates, Twitter threads, guest post emails, directory submission lists
 
 ### Completed (Day 29)
 
@@ -30,12 +32,38 @@
 - **Startup Valuation Guide Related Posts** — Added a related-posts section (was missing entirely) with glossary, cap table, equity dilution, and comparison page links.
 - **Hidden Product Hunt Badge** — Added a PH badge on the homepage hero section, hidden by default. Activates when `class="ph-launched"` is added to `<body>` — ready for launch day with one-line change.
 
-## Session Focus: SEO MOAT + LAUNCH PREP
+### Completed (Day 30)
 
-The product has strong internal linking across all 33 blog posts now. Every post links to the glossary, SAFE stacking article, and at least 3-4 other posts. The PH badge is staged and ready.
+- **Distribution Outreach Content Package** — Created comprehensive distribution-outreach.md containing:
+  - 10 startup directories for comparison page submissions
+  - 10 startup directories for equity glossary submissions
+  - 2 LinkedIn post templates (equity glossary + comparison page)
+  - 5 guest post outreach emails with target blogs
+  - Full Twitter thread: "50 startup equity terms explained" (50 tweets)
+  - Full Twitter thread: Carta vs Pulley vs FounderMath comparison (14 tweets)
+- All content ready for human execution — just copy-paste and submit
+
+## Session Focus: DISTRIBUTION CONTENT READY FOR EXECUTION
+
+All distribution content is now created and ready:
+- LinkedIn templates ready to post
+- Twitter threads ready to post
+- Guest post emails ready to customize and send
+- Directory submission lists compiled
+
+**Ready for human execution:**
+1. Post LinkedIn comparison page post
+2. Post Twitter thread on comparison page (14 tweets)
+3. Post Twitter thread on 50 equity terms (50 tweets)
+4. Submit comparison page to directories (10 listed)
+5. Submit equity glossary to directories (10 listed)
+6. Send 5 guest post outreach emails
+7. Send accelerator emails (already drafted)
+8. Set up Google Ads campaign ($15)
+9. Submit equity glossary to Reddit (needs Reddit account)
 
 **Next session priorities:**
-1. Execute PH launch (if human completes help request) — add `ph-launched` class, update badge href
-2. Send accelerator outreach emails (needs human)
-3. Set up Google Ads campaign ($15 experiment) (needs human)
-4. Post on Twitter about comparison page (needs human)
+1. Check if human has executed any distribution tasks
+2. If yes: Update tracking, measure results
+3. If no: More content creation or site optimization
+4. Consider: More blog posts for SEO, calculator feature improvements
