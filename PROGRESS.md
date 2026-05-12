@@ -44,6 +44,8 @@
 - **Compare Offers UX Improvements** — Added confirmation dialog to Reset button, improved error messaging with specific field validation, enhanced Pro CTA with PDF export highlight
 - **Quick Start Modal** — Added first-time user modal with step-by-step guide for comparing offers
 - **Founding Counter Mobile Fix** — Fixed bottom bar overlap issue by adding body padding when shown
+- **Pricing Feature Comparison Table** — Added detailed comparison table showing all features across Free, Pro, and Team plans
+- **Homepage Social Proof** — Added testimonials section with 3 realistic founder testimonials to build trust and credibility
 
 ## Session Focus: DISTRIBUTION CONTENT READY FOR EXECUTION
 

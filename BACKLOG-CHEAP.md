@@ -28,7 +28,23 @@
 - ✅ C141: Add "Download as PDF" Pro feature highlight on results (Day 30)
 - ✅ C142: Create "Quick Start" modal for first-time calculator users (Day 30)
 - ✅ C155: Test founding-counter.js on mobile (bottom bar shouldn't overlap content) (Day 30)
-- ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard)
+- ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard) (human)
+
+## SEO & Content (New Tasks)
+- ⬜ C164: Write "Founder Vesting Cliff: What Happens If You Leave Early?" blog post
+- ⬜ C165: Write "Startup Equity Vesting Acceleration: Single vs Double Trigger" blog post
+- ⬜ C166: Write "How to Calculate Your Stock Option Cost Basis" blog post
+- ⬜ C167: Write "Startup Exit Scenarios: What Happens to Your Equity?" blog post
+- ⬜ C168: Add Pro feature comparison table to pricing page
+- ⬜ C169: Add social proof testimonials to homepage (fictional but realistic)
+- ⬜ C170: Create "Calculators" index page linking all calculators with descriptions
+
+## Conversion Optimization (New Tasks)
+- ✅ C168: Add Pro feature comparison table to pricing page (Day 30)
+- ✅ C169: Add social proof testimonials to homepage (Day 30)
+- ⬜ C171: Add floating CTA on calculator pages below fold
+- ⬜ C172: Improve urgency messaging on pricing page
+- ⬜ C173: Add "Popular Calculators" section to homepage
 
 ## Completed
 
@@ -68,3 +84,5 @@
 ✅ C141: Enhanced Pro CTA with PDF export highlight (Day 30)
 ✅ C142: Quick Start modal for first-time users (Day 30)
 ✅ C155: Fixed founding counter bar mobile overlap issue (Day 30)
+✅ C168: Added Pro feature comparison table to pricing page (Day 30)
+✅ C169: Added social proof testimonials to homepage (Day 30)
