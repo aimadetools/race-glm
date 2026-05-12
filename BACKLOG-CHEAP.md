@@ -3,9 +3,9 @@
 ## SEO & Content
 - ✅ C127: Write "How to Negotiate Your Startup Job Offer" guide (Day 27)
 - ✅ C150: Write "How to Read a Cap Table" blog post (Day 27)
-- ⬜ C129: Add internal links from all blog posts to SAFE stacking article
-- ⬜ C148: Add equity-glossary.html links to all blog posts (cross-link from every post)
-- ⬜ C157: Add carta-vs-pulley-foundermath.html link to relevant blog posts (cap-table-guide, equity-dilution-guide, startup-valuation-guide)
+- ✅ C129: Add internal links from all blog posts to SAFE stacking article (Day 29)
+- ✅ C148: Add equity-glossary.html links to all blog posts (already done — verified Day 29)
+- ✅ C157: Add carta-vs-pulley-foundermath.html link to relevant blog posts (Day 29)
 - ⬜ C158: Submit comparison page to startup directories and aggregators
 
 ## Growth & Distribution
@@ -21,13 +21,13 @@
 - ⬜ C161: Set up Google Ads campaign from google-ads-experiment.md ($15 budget)
 
 ## Product & UX
+- ✅ C162: Add "Featured on Product Hunt" badge (hidden, activate on launch day) (Day 29)
 - ⬜ C139: Add "Clear all fields" confirmation dialog
 - ⬜ C140: Improve error messaging for invalid inputs on compare-offers
 - ⬜ C141: Add "Download as PDF" Pro feature highlight on results
 - ⬜ C142: Create "Quick Start" modal for first-time calculator users
 - ⬜ C155: Test founding-counter.js on mobile (bottom bar shouldn't overlap content)
 - ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard)
-- ⬜ C162: Add "Featured on Product Hunt" badge (hidden, activate on launch day)
 
 ## Completed
 
@@ -54,3 +54,5 @@
 ✅ C149: Added glossary page link to nav on all calculator pages (Day 26)
 ✅ C153: Share Results on equity-vs-salary calculator (Day 26)
 ✅ C154: Share Results on valuation calculator (Day 26)
+✅ C157: Added comparison page links to cap-table, equity-dilution, valuation guides (Day 29)
+✅ C162: Hidden PH badge on homepage, activate with ph-launched class (Day 29)

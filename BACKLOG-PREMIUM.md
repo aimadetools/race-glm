@@ -31,7 +31,7 @@
 - ✅ Accelerator outreach emails drafted
 - ✅ Google Ads experiment plan
 - ✅ PH + Reddit help request submitted
-- ⬜ Add comparison page links to blog posts
+- ✅ Add comparison page links to blog posts (Day 29)
 - ⬜ Submit comparison page to startup directories
 - **Why premium:** Distribution strategy needs founder-level decisions
 
