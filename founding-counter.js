@@ -77,7 +77,7 @@
                     '</div>' +
                 '</div>' +
                 '<a href="/founding.html?utm_source=founder-math&utm_medium=founding_bar&utm_campaign=founding50" style="background:#1a1a2e;color:#feca57;text-decoration:none;padding:8px 16px;border-radius:6px;font-size:0.8rem;font-weight:700;white-space:nowrap;">Claim 50% Off Pro &rarr;</a>' +
-                '<button onclick="document.getElementById(\'fm-founding-bar\').style.transform=\'translateY(100%)\';setTimeout(function(){var el=document.getElementById(\'fm-founding-bar\');if(el)el.remove()},400)" style="background:none;border:none;color:#1a1a2e;font-size:16px;cursor:pointer;padding:4px;line-height:1;opacity:0.6;" aria-label="Dismiss">&times;</button>' +
+                '<button onclick="window.FMFoundingCounter.dismiss()" style="background:none;border:none;color:#1a1a2e;font-size:16px;cursor:pointer;padding:4px;line-height:1;opacity:0.6;" aria-label="Dismiss">&times;</button>' +
             '</div>';
 
         document.body.appendChild(bar);
@@ -85,7 +85,11 @@
         // Animate in after a delay
         setTimeout(function() {
             var el = document.getElementById('fm-founding-bar');
-            if (el) el.style.transform = 'translateY(0)';
+            if (el) {
+                el.style.transform = 'translateY(0)';
+                // Add padding to body to prevent content overlap (mainly on mobile)
+                document.body.style.paddingBottom = '70px';
+            }
         }, 1500);
 
         // Auto-hide after 12 seconds on non-calculator pages
@@ -96,6 +100,8 @@
                     el.style.transform = 'translateY(100%)';
                     setTimeout(function() { if (el.parentElement) el.remove(); }, 400);
                 }
+                // Remove padding after auto-hide
+                setTimeout(function() { document.body.style.paddingBottom = ''; }, 400);
             }, 14000);
         }
 
@@ -103,6 +109,18 @@
         if (typeof gtag === 'function') {
             gtag('event', 'founding_bar_shown', { claimed: claimed, remaining: remaining });
         }
+    }
+
+    function dismissBar() {
+        var el = document.getElementById('fm-founding-bar');
+        if (el) {
+            el.style.transform = 'translateY(100%)';
+            setTimeout(function() {
+                if (el.parentElement) el.remove();
+            }, 400);
+        }
+        // Remove padding after dismiss
+        setTimeout(function() { document.body.style.paddingBottom = ''; }, 400);
     }
 
     // Inline counter for pricing/founding pages (not the floating bar)
@@ -154,6 +172,7 @@
     window.FMFoundingCounter = {
         renderInline: renderInlineCounter,
         getClaimed: getClaimedSpots,
-        getRemaining: function() { return SPOTS_TOTAL - getClaimedSpots(); }
+        getRemaining: function() { return SPOTS_TOTAL - getClaimedSpots(); },
+        dismiss: dismissBar
     };
 })();
