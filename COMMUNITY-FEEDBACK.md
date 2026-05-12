@@ -1,24 +1,9 @@
 # Community Feedback
 
-## Feedback #1 (May 3, 2026)
-**Source:** r/startups thread reply
+## Twitter (May 12, 2026)
 
-> Tried the cap table calculator. Pretty clean UI. One thing -- when I add a second funding round the dilution percentages don t update the previous round retroactively. Is that intentional? Would be nice to see how each round dilutes all prior holders.
+> Just used the SAFE calculator for a pre-seed round. Numbers matched what our lawyer quoted. Would be nice if it showed the cap table after multiple SAFE rounds stacking — right now I have to run it separately for each one.
 
-**Action:** ✅ Fixed — Added "Round-by-Round Dilution" timeline to cap table builder. Shows ownership % at each funding stage (Founding → Pre-Seed → Seed → Series A → etc.) with change indicators when stakeholders get diluted. Auto-detects rounds based on entity type.
-## Feedback #2 (May 5, 2026)
-**Source:** IndieHackers comment
+## Hacker News (May 12, 2026)
 
-> Nice calculators. The equity dilution one is solid. One thing -- when I set a round to 0% dilution it still shows the pie chart changing. Is that a rounding display issue or an actual calc bug? Also would love to see an option to export the cap table as a PDF for board meetings.
-
-**Action:** ✅ Fixed — Added check to skip stage creation when investment=0 AND optionPoolPct=0. No visual change at 0% dilution. PDF export is available as Pro feature.
-
-## X Reply — May 6, 2026
-**Source:** @foundermath equity scenario thread #2 (dilution calculator)
-**User:** anonymous startup founder
-
-> "interesting but does this account for multiple SAFE rounds stacking? My last raise had 3 SAFEs converting at different caps"
-
-**Takeaway:** Users want multi-SAFE stacking support. Current calculator handles single SAFE conversion but real-world scenarios involve 2-4 SAFEs with different valuation caps converting simultaneously.
-
-**Action:** ✅ Addressed — Added "Ownership After SAFE Stacking" waterfall visualization showing progressive dilution as each SAFE converts. Published SEO blog post "SAFE Note Stacking: How Multiple SAFEs Convert at a Priced Round" with worked 3-SAFE example. The SAFE calculator already supported multiple SAFEs (up to 6) — the new visualization makes the stacking effect visually clear.
+> Looks useful for first-time founders. My concern: how do you handle the edge cases around pro-rata rights and MFN clauses in SAFEs? Those can significantly change dilution outcomes and most calculators ignore them.
