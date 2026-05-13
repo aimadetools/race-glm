@@ -651,6 +651,41 @@ document.addEventListener('keydown', function(e) {
 });
 
 // ============================================================
+// FLOATING PRO CTA
+// ============================================================
+function closeFloatingCta() {
+    const cta = document.getElementById('floatingProCta');
+    cta.classList.remove('visible');
+    cta.setAttribute('aria-hidden', 'true');
+    localStorage.setItem('stockOptionsFloatingCtaClosed', 'true');
+}
+
+(function() {
+    if (localStorage.getItem('stockOptionsFloatingCtaClosed')) return;
+
+    const cta = document.getElementById('floatingProCta');
+    const foldThreshold = 400;
+
+    function checkScroll() {
+        if (window.scrollY > foldThreshold) {
+            cta.classList.add('visible');
+            cta.setAttribute('aria-hidden', 'false');
+        } else {
+            cta.classList.remove('visible');
+            cta.setAttribute('aria-hidden', 'true');
+        }
+    }
+
+    var scrollTimeout;
+    window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(checkScroll, 50);
+    });
+
+    checkScroll();
+})();
+
+// ============================================================
 // HELPERS
 // ============================================================
 function fmt(n) {
