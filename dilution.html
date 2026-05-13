@@ -1096,6 +1096,35 @@
             }
         }
 
+        .social-proof {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 12px;
+        }
+        .social-proof-icon {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .social-proof-icon svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--green);
+        }
+        @media (max-width: 600px) {
+            .social-proof {
+                font-size: 0.75rem;
+                padding: 4px 10px;
+            }
+        }
+
     </style>
     <script src="pro-gating.js"></script>
 <script src="usage-prompt.js"></script>
@@ -1154,6 +1183,12 @@
             <span class="breadcrumb">Equity Dilution Calculator</span>
         </nav>
         <h1>Equity <span class="gradient">Dilution</span> Calculator</h1>
+        <div class="social-proof">
+            <span class="social-proof-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </span>
+            <span>Join 500+ founders using FounderMath</span>
+        </div>
         <p>See exactly how your ownership changes across every funding round. Add founders, model rounds, and share with cofounders.</p>
     </header>
 
