@@ -1,4 +1,8 @@
-## Current State (Day 34 — May 13, 2026)
+## Current State (Day 35 — May 14, 2026)
+
+- **Calculators:** 10 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation, stock options, compare offers)
+- **Interactive Tools:** 12 (10 calculators + equity offer quiz + equity vs salary)
+- **Blog posts:** 42 published
 
 - **Calculators:** 10 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation, stock options, compare offers)
 - **Interactive Tools:** 12 (10 calculators + equity offer quiz + equity vs salary)
@@ -31,6 +35,14 @@
 - Day 29: SEO internal linking sprint (all 33 blogs cross-link SAFE stacking), PH badge staged
 - Day 30: Distribution content package — LinkedIn templates, Twitter threads, guest post emails, directory submission lists
 - Day 31: 3 SEO blog posts (vesting acceleration, cost basis, exit scenarios), floating Pro CTA on calculators
+
+### Completed (Day 35)
+- **C191: Advisor Equity Grants Guide** — Created advisor-equity-grants-guide.html (FAST agreements, equity benchmarks, vesting schedules, common mistakes)
+- **C192: Early Exercise Stock Options Guide** — Created early-exercise-options-guide.html (83(b) elections, pros/cons, tax implications, when to exercise)
+- **C193: Startup Funding Rounds Complete Guide** — Created startup-funding-rounds-complete-guide.html (pre-seed through IPO, investor types by stage)
+- Updated blog.html with 3 new posts at top of index
+- Cross-linked new posts to existing content (employee-equity-grants, cofounder-equity-split, cap-table, vesting-schedules, iso-vs-nso, stock-options-worth)
+- Updated sitemap.xml with 3 new blog post URLs
 
 ### Completed (Day 34)
 - **C181: Reddit post template for r/startups quarterly thread** — Created reddit-startups-template.md with filled-in FounderMath details
