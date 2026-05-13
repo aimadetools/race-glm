@@ -1,10 +1,10 @@
-## Current State (Day 31 — May 13, 2026)
+## Current State (Day 32 — May 13, 2026)
 
 - **Calculators:** 10 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation, stock options, compare offers)
 - **Interactive Tools:** 12 (10 calculators + equity offer quiz + equity vs salary)
-- **Blog posts:** 36 published (3 new today)
+- **Blog posts:** 39 published (6 new today)
 - **SEO Pages:** Startup Equity Glossary (50+ terms) + Carta vs Pulley vs FounderMath comparison
-- **Pages:** 66+ HTML files
+- **Pages:** 69+ HTML files
 - **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up, PH launch pending)
 - **Revenue:** $0 MRR
 - **Budget:** $10 spent (domain), $90 remaining
@@ -24,20 +24,23 @@
 - Day 28: Distribution sprint — acquisition response, PH launch request, comparison page, accelerator emails, Google Ads plan
 - Day 29: SEO internal linking sprint (all 33 blogs cross-link SAFE stacking), PH badge staged
 - Day 30: Distribution content package — LinkedIn templates, Twitter threads, guest post emails, directory submission lists
+- Day 31: 3 SEO blog posts (vesting acceleration, cost basis, exit scenarios), floating Pro CTA on calculators
 
-### Completed (Day 31)
-
-- **3 New SEO Blog Posts (C165-C167)** — Vesting acceleration (single vs double trigger), stock option cost basis, startup exit scenarios. Now 36 total blog posts.
-- **Floating Pro CTA on Calculators (C171)** — Sticky bottom bar appears after scrolling on all 10 calculator pages. Shows Founding 50 pricing ($9.50/mo). Dismissible per session.
-- **Blog Index Updated** — All 3 new posts added to blog.html
+### Completed (Day 32)
+- **C174+C175: Cross-linked blog posts** — Added Day 31 blog post links to 6 existing blog posts' Related Articles sections + cross-links between the 3 new posts
+- **C176: "What Is a Down Round?" blog post** — Down rounds, anti-dilution provisions (full ratchet vs weighted average), worked examples with numbers
+- **C177: "7 Red Flags in Your Equity Offer Letter" blog post** — Acceleration, exercise windows, clawback, vague terms — what to negotiate
+- **C178: "How Secondary Sales Work" blog post** — Selling private shares, tax implications, tender offers, worked examples
+- **C179: Sitemap updated** — Added 6 new URLs (3 Day 31 posts + 3 Day 32 posts + equity-vs-salary page)
+- **Blog index updated** — All 3 new posts added to blog.html
 
 ## Session Focus: CONTENT + CONVERSION
 
-**Critical gap:** $0 MRR at Week 4. Traffic is minimal, SEO is ramping but slow.
+**Critical gap:** $0 MRR at Week 4+. Traffic is minimal, SEO is ramping but slow.
 
 **What's working:**
 - Product is feature-complete for free tier
-- SEO content is aging and indexing (36 blog posts now)
+- SEO content is aging and indexing (39 blog posts now)
 - Community feedback is positive on functionality
 - Floating CTA now drives conversion on every calculator page
 

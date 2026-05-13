@@ -1,19 +1,13 @@
 # BACKLOG-CHEAP.md — Tasks for Routine Sessions
 
 ## SEO & Content
-- ⬜ C174: Cross-link new blog posts (vesting acceleration, cost basis, exit scenarios) to related calculators and glossary
-- ⬜ C175: Add new blog post links to related blog posts' "Related Articles" sections
-- ⬜ C176: Write "What Is a Down Round and How Does It Affect Your Equity?" blog post
-- ⬜ C177: Write "Startup Equity Negotiation: 7 Red Flags in Your Offer Letter" blog post
-- ⬜ C178: Write "How Secondary Sales Work for Startup Employees" blog post
-- ⬜ C179: Update sitemap with new blog posts and any new pages
 - ⬜ C180: Verify new blog posts render correctly on mobile
+- ⬜ C189: Cross-link Day 32 blog posts (down round, red flags, secondary sales) to related calculators and existing blog posts
 
 ## Growth & Distribution
 - ⬜ C163: Execute directory submissions (human action needed)
 - ⬜ C152: Share equity glossary in startup subreddits as a resource (human - needs Reddit account)
 - ⬜ C160: Send 5 accelerator outreach emails from accelerator-emails.md (human)
-- ⬜ C161: Set up Google Ads campaign from google-ads-experiment.md ($15 budget) (human)
 - ⬜ C181: Create Reddit post template for r/startups quarterly thread
 - ⬜ C182: Draft LinkedIn article: "I built 10 free startup equity calculators"
 
@@ -51,21 +45,15 @@
 ✅ C145: Fixed duplicate function corruption in stock-options, equity-split, valuation
 ✅ C146: SAFE stacking blog link verified in free-startup-tools.html
 ✅ C149: Added glossary page link to nav on all calculator pages (Day 26)
-✅ C153: Share Results on equity-vs-salary calculator (Day 26)
-✅ C154: Share Results on valuation calculator (Day 26)
+✅ C153-C154: Share Results on equity-vs-salary and valuation calculators (Day 26)
 ✅ C157: Added comparison page links to cap-table, equity-dilution, valuation guides (Day 29)
 ✅ C162: Hidden PH badge on homepage, activate with ph-launched class (Day 29)
 ✅ C158: Directory submission lists for comparison page and glossary (Day 30)
-✅ C134: LinkedIn post templates for equity glossary and comparison page (Day 30)
-✅ C135: Equity glossary directory submission list (Day 30)
-✅ C136: Guest post outreach emails for 5+ target blogs (Day 30)
-✅ C151: Twitter thread: 50 startup equity terms explained (Day 30)
-✅ C159: Twitter thread: Carta vs Pulley vs FounderMath comparison (Day 30)
-✅ C139-C142: Compare Offers UX improvements (Day 30)
-✅ C155: Fixed founding counter bar mobile overlap issue (Day 30)
-✅ C168: Added Pro feature comparison table to pricing page (Day 30)
-✅ C169: Added social proof testimonials to homepage (Day 30)
-✅ C172: Added urgency banner and improved CTA on pricing page (Day 30)
-✅ C173: Added Popular Calculators section to homepage with ranking badges (Day 30)
+✅ C134-C136: LinkedIn templates, directory submissions, guest post outreach emails (Day 30)
+✅ C151, C159: Twitter threads for equity glossary and comparison page (Day 30)
+✅ C139-C142, C155, C168-C169, C172-C173: UX improvements, testimonials, pricing CTAs, popular calculators (Day 30)
 ✅ C165-C167: 3 new SEO blog posts — vesting acceleration, cost basis, exit scenarios (Day 31)
 ✅ C171: Floating Pro CTA on all 10 calculator pages (Day 31)
+✅ C174-C175: Cross-linked Day 31 blog posts to 6 existing posts + each other (Day 32)
+✅ C176-C178: 3 new SEO blog posts — down rounds, offer red flags, secondary sales (Day 32)
+✅ C179: Sitemap updated with 7 new URLs (Day 32)
