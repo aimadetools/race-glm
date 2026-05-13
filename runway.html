@@ -2002,5 +2002,7 @@
         });
     </script>
     <script>async function handleCalcNewsletter(e){e.preventDefault();const email=document.getElementById('newsletterEmail').value;const msg=document.getElementById('newsletterMsg');const btn=document.getElementById('newsletterBtn');btn.textContent='Subscribing...';btn.disabled=true;try{const resp=await fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})});const data=await resp.json();if(resp.ok){btn.textContent='Subscribed!';btn.style.background='#27ae60';msg.textContent='Thanks! Weekly insights coming your way.';msg.style.color='#27ae60';if(typeof gtag==='function')gtag('event','newsletter_signup',{source:'calculator'});document.getElementById('newsletterEmail').value='';}else{btn.textContent='Subscribe';msg.textContent=data.error||'Something went wrong.';msg.style.color='#e74c3c';}}catch(err){btn.textContent='Subscribe';msg.textContent='Network error. Try again.';msg.style.color='#e74c3c';}msg.style.display='block';btn.disabled=false;setTimeout(()=>{btn.textContent='Subscribe';btn.style.background='var(--accent)';},4000);}</script>
+    <script src="ab-test-pricing.js"></script>
+    <script src="save-reminder.js"></script>
 </body>
 </html>

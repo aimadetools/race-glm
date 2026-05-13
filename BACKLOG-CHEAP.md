@@ -8,15 +8,13 @@
 - ⬜ C152: Share equity glossary in startup subreddits as a resource (human - needs Reddit account)
 - ⬜ C160: Send 5 accelerator outreach emails from accelerator-emails.md (human)
 - ⬜ C181: Create Reddit post template for r/startups quarterly thread
-- ⬜ C182: Draft LinkedIn article: "I built 10 free startup equity calculators"
+- ⬜ C190: Post LinkedIn articles from linkedin-article-10-calculators.md (human)
 
 ## Product & UX
 - ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard) (human)
-- ⬜ C184: Add "Save this calculation" reminder after user changes inputs 3+ times
 
 ## Conversion Optimization
 - ⬜ C186: Add exit-intent popup to new blog posts (vesting acceleration, cost basis, exit scenarios)
-- ⬜ C187: A/B test Pro pricing on floating CTA ($9.50 vs $19)
 - ⬜ C188: Add social proof to calculator pages (e.g., "Join 500+ founders using FounderMath")
 
 ## Completed
@@ -57,3 +55,6 @@
 ✅ C183: Floating CTA verified on all 10 calculator pages + compare-offers (Day 32)
 ✅ C185: Nav consistency verified across all 3 new Day 32 blog posts (Day 32)
 ✅ C189: Cross-linked Day 32 posts to 5 existing blog posts (Day 32)
+✅ C187: A/B test for Pro pricing ($19 vs $9.50) — ab-test-pricing.js added to all 11 calculators (Day 33)
+✅ C184: "Save this calculation" reminder — save-reminder.js added to all calculators (Day 33)
+✅ C182: LinkedIn article templates — 5 posts drafted in linkedin-article-10-calculators.md (Day 33)

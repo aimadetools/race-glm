@@ -1,4 +1,4 @@
-## Current State (Day 32 — May 13, 2026)
+## Current State (Day 33 — May 13, 2026)
 
 - **Calculators:** 10 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation, stock options, compare offers)
 - **Interactive Tools:** 12 (10 calculators + equity offer quiz + equity vs salary)
@@ -26,13 +26,14 @@
 - Day 30: Distribution content package — LinkedIn templates, Twitter threads, guest post emails, directory submission lists
 - Day 31: 3 SEO blog posts (vesting acceleration, cost basis, exit scenarios), floating Pro CTA on calculators
 
+### Completed (Day 33)
+- **C187: A/B test for Pro pricing ($19 vs $9.50)** — Created ab-test-pricing.js, added to all 11 calculators, proper 50/50 split with localStorage persistence + GA tracking
+- **C184: "Save this calculation" reminder** — Created save-reminder.js, tracks 3+ input changes, shows dismissible CTA, added to all calculators
+- **C182: LinkedIn article templates** — Drafted 5 LinkedIn posts about the 10 calculators for distribution
+- **Fixed missing Pro CTAs** — Added Pro CTAs to stock-options.html and equity-vs-salary.html with proper styling
+
 ### Completed (Day 32)
-- **C174+C175: Cross-linked blog posts** — Added Day 31 blog post links to 6 existing blog posts' Related Articles sections + cross-links between the 3 new posts
-- **C176: "What Is a Down Round?" blog post** — Down rounds, anti-dilution provisions (full ratchet vs weighted average), worked examples with numbers
-- **C177: "7 Red Flags in Your Equity Offer Letter" blog post** — Acceleration, exercise windows, clawback, vague terms — what to negotiate
-- **C178: "How Secondary Sales Work" blog post** — Selling private shares, tax implications, tender offers, worked examples
-- **C179: Sitemap updated** — Added 6 new URLs (3 Day 31 posts + 3 Day 32 posts + equity-vs-salary page)
-- **Blog index updated** — All 3 new posts added to blog.html
+✅ C174-C179: 3 new SEO blog posts (down rounds, red flags, secondary sales), sitemap update, cross-linking
 
 ## Session Focus: CONTENT + CONVERSION
 

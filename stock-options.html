@@ -316,6 +316,28 @@
                 display: none;
             }
         }
+
+        .calc-cta {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            margin-top: 32px;
+        }
+        .calc-cta h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .calc-cta p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 20px; }
+        .calc-cta .btn-white {
+            background: white;
+            color: var(--accent);
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+        .calc-cta .btn-white:hover { transform: translateY(-2px); }
+        .calc-cta .btn-white:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
     </style>
 </head>
 <body>
@@ -587,6 +609,13 @@
             <button onclick="if(window.FMShare){var s=getInputs();FMShare.showShareModal('stock-options',{grant:s.numOptions+' options at $'+s.currentFMV+'/share',valuation:'$'+(s.companyValuation||0)+'M',value:document.getElementById('totalValue')?.textContent||''},'Stock Options: '+s.numOptions+' options at $'+s.currentFMV+'/share')}" style="background:var(--accent);border:none;color:white;padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:inherit;font-weight:600;">Share Results</button>
         </div>
             </div>
+        </div>
+
+        <!-- Pro CTA -->
+        <div class="calc-cta" role="complementary" aria-label="FounderMath Pro upgrade offer">
+            <h3>Compare multiple stock option offers side-by-side?</h3>
+            <p>FounderMath Pro lets you save unlimited option scenarios, compare different offers, and export to PDF for your tax advisor.</p>
+            <a href="pricing.html" class="btn-white">Upgrade to Pro — $19/mo</a>
         </div>
     </main>
 </div>
@@ -1067,5 +1096,7 @@ document.getElementById('sharesOutstanding').addEventListener('input', function(
 var initialResult = calculate();
 render(initialResult);
 </script>
+    <script src="ab-test-pricing.js"></script>
+    <script src="save-reminder.js"></script>
 </body>
 </html>
