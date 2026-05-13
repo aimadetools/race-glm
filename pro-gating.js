@@ -198,7 +198,55 @@
         return null;
     }
 
-    // Init: add pro badge to nav if pro user
+    // Floating CTA for Pro upgrade (bottom bar on calculator pages)
+    function initFloatingCTA() {
+        if (isProUser()) return;
+        // Only show on calculator pages
+        var calcPages = ['dilution.html','runway.html','safe.html','vesting.html','unit-economics.html','cap-table.html','equity-split.html','valuation.html','stock-options.html','equity-vs-salary.html','compare-offers.html'];
+        var path = window.location.pathname;
+        var isCalc = calcPages.some(function(p) { return path.endsWith('/' + p) || path === '/' + p; });
+        if (!isCalc) return;
+        // Check if dismissed this session
+        if (sessionStorage.getItem('fm_floating_cta_dismissed')) return;
+
+        var shown = false;
+        var bar = document.createElement('div');
+        bar.id = 'fm-floating-cta';
+        bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;transform:translateY(100%);transition:transform 0.4s ease;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;';
+        bar.innerHTML =
+            '<div style="background:linear-gradient(135deg,#6c5ce7,#a29bfe);padding:12px 20px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">' +
+                '<span style="color:white;font-size:0.9rem;font-weight:600;">Save scenarios, export PDFs, compare side-by-side</span>' +
+                '<a href="' + STRIPE_PRO_LINK + '" target="_blank" style="background:white;color:#6c5ce7;padding:8px 20px;border-radius:6px;font-weight:700;font-size:0.85rem;text-decoration:none;white-space:nowrap;" onclick="if(typeof gtag===\'function\')gtag(\'event\',\'floating_cta_click\',{source:window.location.pathname})">Upgrade Pro — $9.50/mo</a>' +
+                '<button id="fm-floating-cta-close" style="background:none;border:none;color:rgba(255,255,255,0.7);font-size:18px;cursor:pointer;padding:4px;line-height:1;" aria-label="Dismiss">&times;</button>' +
+            '</div>';
+        document.body.appendChild(bar);
+
+        function showBar() {
+            if (shown) return;
+            shown = true;
+            bar.style.transform = 'translateY(0)';
+            document.body.style.paddingBottom = '56px';
+            if (typeof gtag === 'function') gtag('event', 'floating_cta_shown', { source: window.location.pathname });
+        }
+        function hideBar() {
+            bar.style.transform = 'translateY(100%)';
+            document.body.style.paddingBottom = '';
+            sessionStorage.setItem('fm_floating_cta_dismissed', '1');
+        }
+        document.getElementById('fm-floating-cta-close').onclick = hideBar;
+
+        // Show after scrolling 50% of viewport height
+        var threshold = window.innerHeight * 0.5;
+        function onScroll() {
+            if (window.scrollY > threshold) {
+                showBar();
+                window.removeEventListener('scroll', onScroll);
+            }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    // Init: add pro badge to nav if pro user, and init floating CTA
     function init() {
         if (isProUser()) {
             var logoLink = document.querySelector('nav a[href="index.html"], nav a[href="/"]');
@@ -208,6 +256,7 @@
                 if (badge) logoLink.appendChild(badge);
             }
         }
+        initFloatingCTA();
     }
 
     // Run init on DOMContentLoaded

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Exit Scenarios: What Happens to Your Equity | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+    </script>
+    <meta name="description" content="What happens to your startup equity in an acquisition, IPO, or shutdown? Learn how exits affect vested and unvested shares, liquidation preferences, and your payout.">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Startup Exit Scenarios: What Happens to Your Equity",
+        "url": "https://founder-math.com/blog/startup-exit-scenarios-equity.html",
+        "description": "What happens to your startup equity in an acquisition, IPO, or shutdown? Learn how exits affect vested and unvested shares, liquidation preferences, and your payout.",
+        "datePublished": "2026-05-13",
+        "dateModified": "2026-05-13",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        }
+    }
+    </script>
+    <meta property="og:title" content="Startup Exit Scenarios: What Happens to Your Equity | FounderMath">
+    <meta property="og:description" content="What happens to your startup equity in an acquisition, IPO, or shutdown? Learn how exits affect vested and unvested shares, liquidation preferences, and your payout.">
+    <meta property="og:image" content="/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/startup-exit-scenarios-equity.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 900px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links {
+            display: flex; align-items: center; gap: 32px; list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer; padding: 8px;
+        }
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 8px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; width: 36px; height: 36px;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+
+        .article-layout {
+            max-width: 720px; margin: 100px auto 60px; padding: 0 24px;
+        }
+        .article-header {
+            margin-bottom: 40px; text-align: center;
+        }
+        .article-meta {
+            display: flex; gap: 16px; justify-content: center;
+            flex-wrap: wrap; margin-bottom: 16px; font-size: 0.85rem;
+        }
+        .article-meta span { color: var(--text-muted); }
+        .tag {
+            background: var(--accent); color: white; padding: 4px 12px;
+            border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+        }
+        .article-layout h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800; letter-spacing: -0.03em;
+            margin-bottom: 24px; line-height: 1.2;
+        }
+        .article-layout h2 {
+            font-size: 1.6rem; font-weight: 700; margin-top: 48px; margin-bottom: 20px;
+        }
+        .article-layout h3 {
+            font-size: 1.3rem; font-weight: 600; margin-top: 32px; margin-bottom: 16px;
+        }
+        .article-layout p {
+            margin-bottom: 20px; color: var(--text-secondary);
+        }
+        .article-layout ul, .article-layout ol {
+            margin-bottom: 20px; padding-left: 28px;
+        }
+        .article-layout li {
+            margin-bottom: 12px; color: var(--text-secondary);
+        }
+        .lead {
+            font-size: 1.15rem; color: var(--text-primary);
+            line-height: 1.7; font-weight: 500;
+        }
+        .inline-cta {
+            display: block; background: var(--bg-card); border: 1px solid var(--accent);
+            padding: 20px; border-radius: 12px; text-align: center;
+            text-decoration: none; margin: 24px 0; transition: all 0.2s;
+        }
+        .inline-cta:hover { border-color: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .inline-cta strong { color: var(--accent-light); font-size: 1rem; }
+        .callout {
+            background: var(--bg-card); border-left: 4px solid var(--accent);
+            border-radius: 8px; padding: 20px; margin: 24px 0;
+        }
+        .callout p { margin: 0; }
+        .callout.formula {
+            text-align: center; font-size: 1.1rem; font-weight: 600;
+            background: var(--bg-secondary); border-radius: 8px; padding: 16px;
+            margin: 12px 0;
+        }
+        .callout.warning { border-left-color: var(--orange); }
+        .callout.tip { border-left-color: var(--green); }
+        .callout.example {
+            background: var(--bg-input); border-left-color: var(--accent-light);
+        }
+        .toc {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px 24px; margin: 32px 0;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin: 0 0 12px 0;
+        }
+        .toc ol {
+            padding-left: 20px;
+            counter-reset: toc;
+        }
+        .toc li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent-light); }
+        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
+        .related-posts a:hover { text-decoration: underline; }
+        .author-bio {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .author-avatar {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .author-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .author-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .author-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .author-content a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .article-meta { flex-wrap: wrap; }
+        }
+        .newsletter {
+            max-width: 600px; margin: 40px auto 60px; padding: 32px; text-align: center;
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+        }
+        .newsletter h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .newsletter p { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem; }
+        .newsletter-form {
+            display: flex; gap: 10px; max-width: 420px; margin: 0 auto;
+        }
+        .newsletter-form input {
+            flex: 1; padding: 12px 16px; background: var(--bg-input);
+            border: 1px solid var(--border); border-radius: 10px;
+            color: var(--text-primary); font-size: 0.9rem; outline: none;
+        }
+        .newsletter-form input:focus { border-color: var(--accent); }
+        .newsletter-form input::placeholder { color: var(--text-muted); }
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .callout.cta { border-left-color: var(--green); background: rgba(0,184,148,0.08); }
+        .callout.cta .cta-button { display: inline-block; margin-top: 0.75rem; padding: 0.6rem 1.5rem; background: var(--green); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .callout.cta .cta-button:hover { opacity: 0.9; }</style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+        <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+                <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+                <li role="none"><a href="../vesting.html" role="menuitem">Vesting</a></li>
+                <li role="none"><a href="../unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="../cap-table.html" role="menuitem">Cap Table</a></li>
+                <li role="none"><a href="../equity-split.html" role="menuitem">Equity Split</a></li>
+                <li role="none"><a href="../valuation.html" role="menuitem">Valuation</a></li>
+                <li role="none"><a href="../stock-options.html" role="menuitem">Options</a></li>
+                <li role="none"><a href="../equity-vs-salary.html" role="menuitem">Equity vs Salary</a></li>
+                <li role="none"><a href="../compare-offers.html" role="menuitem">Compare</a></li>
+                <li role="none"><a href="../equity-glossary.html" role="menuitem">Glossary</a></li>
+                <li role="none"><a href="../pricing.html" role="menuitem">Pricing</a></li>
+                <li><a href="../pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <article class="article-layout" id="main-content">
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="tag">Exits</span>
+                <span>May 13, 2026</span>
+                <span>11 min read</span>
+            </div>
+            <h1>Startup Exit Scenarios: What Happens to Your Equity?</h1>
+        </header>
+
+        <div class="article-body">
+            <p class="lead">You've been vesting equity for years. Now the company is being acquired. What actually happens to your shares? The answer depends on your vesting status, the type of equity you hold, and the terms of the deal.</p>
+
+            <a href="../cap-table.html" class="inline-cta">
+                <strong>Model Your Cap Table and Exit Scenarios →</strong>
+            </a>
+
+                <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#types-of-exits">Types of Startup Exits</a></li>
+                <li><a href="#vested-equity">What Happens to Vested Equity</a></li>
+                <li><a href="#unvested-equity">What Happens to Unvested Equity</a></li>
+                <li><a href="#liquidation-preferences">How Liquidation Preferences Work</a></li>
+                <li><a href="#waterfall">The Waterfall: Who Gets Paid First</a></li>
+                <li><a href="#acquisition-numbers">Acquisition Scenarios with Numbers</a></li>
+                <li><a href="#ipo-scenarios">IPO Scenarios</a></li>
+                <li><a href="#down-round-shutdown">What Happens in a Down Round or Shutdown</a></li>
+                <li><a href="#calculate-payout">Calculate Your Exit Payout</a></li>
+                <li><a href="#key-takeaways">Key Takeaways</a></li>
+            </ol>
+        </nav>
+
+        <h2 id="types-of-exits">Types of Startup Exits</h2>
+
+        <p>A startup exit is any event that converts equity into cash, public stock, or another liquid asset. Not all exits are created equal. Here are the four main types:</p>
+
+        <h3>Acquisition (Good)</h3>
+        <p>A larger company buys the startup at a valuation that exceeds the total capital raised. Investors get their money back with a return, and common shareholders (employees and founders) receive a meaningful payout. These are the exits everyone hopes for.</p>
+
+        <h3>Acquisition (Bad)</h3>
+        <p>The company is sold, but the acquisition price is less than or barely above the total capital raised. After investors take their liquidation preferences, there may be little or nothing left for common shareholders. This is often called a "fire sale" and is far more common than the good outcome.</p>
+
+        <h3>IPO (Initial Public Offering)</h3>
+        <p>The company goes public, listing its shares on a stock exchange. This is the most celebrated exit type, but it comes with lock-up periods (usually 180 days) during which employees cannot sell their shares. IPOs typically generate the highest returns for all shareholders because they often imply a premium valuation.</p>
+
+        <h3>Secondary Sale</h3>
+        <p>Employees or founders sell some of their vested shares to outside investors before a formal exit event. This is increasingly common in late-stage startups. Companies like Stripe and SpaceX have facilitated secondary transactions so employees can access liquidity without waiting for an IPO or acquisition.</p>
+
+        <h3>Shutdown</h3>
+        <p>The company runs out of money and closes its doors. After paying creditors, any remaining assets are distributed according to the liquidation waterfall. In most shutdowns, common shareholders receive nothing.</p>
+
+        <div class="callout warning">
+            <p><strong>Reality Check:</strong> According to data from PitchBook and CB Insights, roughly 70% of startups that raise venture capital fail to return capital to investors. For common shareholders, the odds of a life-changing payout are even lower because of liquidation preferences.</p>
+        </div>
+
+        <h2 id="vested-equity">What Happens to Vested Equity</h2>
+
+        <p>Your vested equity is yours. You have earned it, and no exit can take it away without compensation. But how it gets converted depends on the deal structure:</p>
+
+        <h3>In an Acquisition</h3>
+        <ul>
+            <li><strong>Cash-out:</strong> Your shares are purchased for cash at the acquisition price per share. This is the simplest and most favorable outcome for employees.</li>
+            <li><strong>Stock conversion:</strong> Your shares are converted into shares of the acquiring company, typically at a negotiated exchange ratio. For example, 1 share of the startup might convert to 0.3 shares of the acquirer.</li>
+            <li><strong>Mixed deal:</strong> A combination of cash and acquirer stock. Common in larger acquisitions where the acquirer wants to retain employees by giving them equity in the new entity.</li>
+        </ul>
+
+        <h3>How Different Equity Types Are Treated</h3>
+        <ul>
+            <li><strong>Stock Options (ISOs/NSOs):</strong> You must exercise your vested options before or at the time of the exit. If you don't exercise, you lose them. Many acquisitions include a "cashless exercise" provision where the company buys your options for the spread between the strike price and the acquisition price.</li>
+            <li><strong>RSUs (Restricted Stock Units):</strong> Vested RSUs convert to cash or acquirer stock automatically. No exercise step required. This is one reason RSUs have become more popular at late-stage startups.</li>
+            <li><strong>Restricted Stock (Founders):</strong> Vested restricted stock is treated like any other common stock. You receive your pro-rata share of the proceeds after the waterfall.</li>
+        </ul>
+
+        <div class="callout tip">
+            <p><strong>Tip:</strong> If you hold vested options, understand your company's exercise window. Some companies give you as little as 90 days after leaving to exercise. During an acquisition, you may get a shorter window. Use our <a href="../dilution.html" style="color: var(--accent-light);">Dilution Calculator</a> to understand your ownership percentage.</p>
+        </div>
+
+        <h2 id="unvested-equity">What Happens to Unvested Equity</h2>
+
+        <p>Unvested equity is the portion of your grant you haven't earned yet. During an exit, there are three common outcomes:</p>
+
+        <h3>1. Assumed by the Acquirer</h3>
+        <p>The acquiring company takes over your unvested equity and replaces it with equivalent equity in the new company. Your vesting schedule continues as before, but now your shares convert to the acquirer's stock. This is the most common outcome for employees the acquirer wants to retain.</p>
+
+        <h3>2. Accelerated (Full or Partial)</h3>
+        <p>Your unvested shares vest immediately as part of the deal. This typically happens through:</p>
+        <ul>
+            <li><strong>Single-trigger acceleration:</strong> Your shares accelerate upon the closing of the acquisition. This is relatively rare for employees but common for founders.</li>
+            <li><strong>Double-trigger acceleration:</strong> Your shares accelerate only if two conditions are met: (1) the acquisition closes, AND (2) you are terminated or have your role materially changed within a set period (usually 12 months). This is more common for executives and key employees.</li>
+        </ul>
+
+        <h3>3. Cancelled</h3>
+        <p>Your unvested equity is cancelled entirely. You receive nothing for it. This happens most often when the acquirer does not want to retain the employee or when the deal terms specifically exclude unvested equity. If the exit price is below the liquidation preference, cancelled unvested equity is essentially worthless anyway.</p>
+
+        <div class="callout warning">
+            <p><strong>Golden Parachutes and Change of Control:</strong> Some executive employment contracts include "golden parachute" clauses that guarantee accelerated vesting and cash bonuses upon a change of control. These are typically reserved for C-suite executives and are negotiated at the time of hire.</p>
+        </div>
+
+        <a href="../cap-table.html" class="inline-cta">
+            <strong>Build Your Cap Table to See Who Owns What at Exit →</strong>
+        </a>
+
+        <h2 id="liquidation-preferences">How Liquidation Preferences Work</h2>
+
+        <p>Liquidation preferences determine who gets paid first and how much when a startup exits. They are the single most important term in determining whether common shareholders (employees and founders) make money in an exit.</p>
+
+        <h3>1x Non-Participating Preferred</h3>
+        <p>Investors get back exactly their original investment amount first. Then they must choose: take their preference amount, OR convert to common stock and take their pro-rata share of the total proceeds. They pick whichever is higher.</p>
+
+        <div class="callout example">
+            <p><strong>Example:</strong> Investor put in $10M for 20% of the company. At a $100M exit, the investor can either take $10M off the top (their 1x preference) or convert to common and take 20% of $100M = $20M. The investor chooses the common conversion, because $20M > $10M.</p>
+        </div>
+
+        <h3>1x Participating Preferred</h3>
+        <p>Investors get their money back first AND then also participate in the remaining proceeds alongside common shareholders. This is called "double dipping" and significantly reduces payouts to common shareholders.</p>
+
+        <div class="callout example">
+            <p><strong>Example:</strong> Same investor: $10M invested for 20%. At a $100M exit, the investor takes $10M off the top, then also takes 20% of the remaining $90M = $18M. Total to investor: $28M. Total to common: $72M. Compare to non-participating where common got $80M.</p>
+        </div>
+
+        <h3>2x+ Preferences</h3>
+        <p>Some investors negotiate for a multiple of their investment. A 2x liquidation preference means the investor gets back 2x their original investment before anyone else sees a dime. These were common during the 2008-2010 downturn and have reappeared in down markets.</p>
+
+        <div class="callout warning">
+            <p><strong>Warning:</strong> A 2x preference can wipe out common shareholder value entirely at moderate exit prices. If a company raised $50M with 2x preferences and exits at $100M, investors take $100M and common shareholders get zero. The company could have "succeeded" and employees still get nothing.</p>
+        </div>
+
+        <h2 id="waterfall">The Waterfall: Who Gets Paid First</h2>
+
+        <p>The exit payout follows a strict order called the "liquidation waterfall." Understanding this order is critical:</p>
+
+        <div class="callout formula">
+            <p><strong>1. Debt and Creditors</strong><br>
+            <span style="font-size: 0.9rem; color: var(--text-muted);">Outstanding loans, unpaid wages, taxes</span></p>
+        </div>
+        <div class="callout formula">
+            <p><strong>2. Preferred Stockholders (Liquidation Preferences)</strong><br>
+            <span style="font-size: 0.9rem; color: var(--text-muted);">Investors get their preference amounts</span></p>
+        </div>
+        <div class="callout formula">
+            <p><strong>3. Participation (if applicable)</strong><br>
+            <span style="font-size: 0.9rem; color: var(--text-muted);">Participating preferred holders share in remaining proceeds</span></p>
+        </div>
+        <div class="callout formula">
+            <p><strong>4. Common Stockholders</strong><br>
+            <span style="font-size: 0.9rem; color: var(--text-muted);">Founders, employees, advisors</span></p>
+        </div>
+
+        <p>This is why early employees with 0.5% of a company might receive far less than 0.5% of the exit price. By the time the waterfall reaches common stockholders, the remaining pool could be much smaller than expected.</p>
+
+        <a href="../dilution.html" class="inline-cta">
+            <strong>See How Dilution Affects Your Exit Payout →</strong>
+        </a>
+
+        <h2 id="acquisition-numbers">Acquisition Scenarios with Numbers</h2>
+
+        <p>Let's walk through three concrete examples to illustrate how exits work in practice.</p>
+
+        <h3>Example 1: Good Exit ($100M Acquisition, 1x Non-Participating Preferred)</h3>
+        <div class="callout example">
+            <p><strong>Company details:</strong><br>
+            Total capital raised: $20M (Series A investors own 25% of the company with 1x non-participating preferred)<br>
+            Founders own: 35%<br>
+            Employee option pool: 15%<br>
+            Other common: 25%<br><br>
+            <strong>Exit price:</strong> $100M<br><br>
+            <strong>Waterfall:</strong><br>
+            1. Investors choose between $20M (1x preference) or $25M (25% of $100M as common). They convert to common and take $25M.<br>
+            2. Remaining $75M distributed pro-rata among all common shareholders (75% of total).<br>
+            3. Founders receive: 35% of $100M = $35M<br>
+            4. Employee pool receives: 15% of $100M = $15M<br><br>
+            <strong>Result:</strong> A strong outcome. Employees and founders share in the upside alongside investors.</p>
+        </div>
+
+        <h3>Example 2: Bad Exit ($20M Acquisition, 2x Participating Preferred, $50M Raised)</h3>
+        <div class="callout example">
+            <p><strong>Company details:</strong><br>
+            Total capital raised: $50M (Investors own 60% with 2x participating preferred)<br>
+            Founders own: 20%<br>
+            Employee option pool: 10%<br>
+            Other common: 10%<br><br>
+            <strong>Exit price:</strong> $20M<br><br>
+            <strong>Waterfall:</strong><br>
+            1. Investors take 2x preference: $50M x 2 = $100M owed to investors.<br>
+            2. But exit is only $20M. Investors take ALL $20M.<br>
+            3. Remaining for common shareholders: $0.<br><br>
+            <strong>Result:</strong> Investors lose money but common shareholders get absolutely nothing. The company sold for $20M and employees walk away with zero.</p>
+        </div>
+
+        <div class="callout warning">
+            <p><strong>The 2x Trap:</strong> This scenario is more common than most people think. When a company raises $50M+ with aggressive terms and then exits for less than the total raised, employees are often left with worthless options. Always understand the liquidation preference stack before joining a late-stage startup.</p>
+        </div>
+
+        <h3>Example 3: Shutdown ($0 Left After Investors)</h3>
+        <div class="callout example">
+            <p><strong>Company details:</strong><br>
+            Total capital raised: $15M (Investors have 1x non-participating preferred)<br>
+            Remaining cash at shutdown: $3M<br>
+            Outstanding debts: $2M (unpaid vendor invoices, final payroll)<br><br>
+            <strong>Waterfall:</strong><br>
+            1. Creditors paid: $2M<br>
+            2. Remaining: $1M<br>
+            3. Investors take $1M (toward their $15M preference)<br>
+            4. Common shareholders: $0<br><br>
+            <strong>Result:</strong> Investors recover only $1M of their $15M. Employees and founders receive nothing. Any unexercised options are cancelled.</p>
+        </div>
+
+        <h2 id="ipo-scenarios">IPO Scenarios</h2>
+
+        <p>An IPO changes the dynamics compared to an acquisition. Here's what happens to your equity:</p>
+
+        <h3>Lock-Up Period</h3>
+        <p>After an IPO, there is typically a 180-day lock-up period during which insiders (employees, founders, and early investors) cannot sell their shares. This prevents a flood of shares from hitting the market and crashing the stock price. The lock-up period begins on the IPO date, not when you vested.</p>
+
+        <h3>Options and RSUs After IPO</h3>
+        <ul>
+            <li><strong>Stock options:</strong> After the lock-up expires, you can exercise your options and sell the shares on the open market. Some companies offer early exercise before the lock-up, but you still can't sell until it expires.</li>
+            <li><strong>RSUs:</strong> If your RSUs vest during the lock-up period, you own the shares but can't sell them. Many companies time RSU vesting to align with the lock-up expiration to avoid this issue.</li>
+        </ul>
+
+        <h3>Tax Implications</h3>
+        <p>IPOs create significant tax events. Exercising options at the time of IPO triggers taxes based on the fair market value of the shares. Even if you can't sell during lock-up, you may owe taxes on "paper gains." This is a well-known problem that has caught many startup employees off guard.</p>
+
+        <div class="callout tip">
+            <p><strong>Planning Tip:</strong> Before an IPO, consider exercising options early (if you can afford it) to start the long-term capital gains holding period. The earlier you exercise, the lower your potential tax burden. Consult a tax advisor who specializes in startup equity.</p>
+        </div>
+
+        <h2 id="down-round-shutdown">What Happens in a Down Round or Shutdown</h2>
+
+        <p>Not every startup story ends with a celebration. Here is what happens when things go wrong:</p>
+
+        <h3>Down Rounds</h3>
+        <p>A down round occurs when a company raises money at a lower valuation than the previous round. This can trigger anti-dilution protections for preferred shareholders, which further dilutes common shareholders. For employees, a down round often means:</p>
+        <ul>
+            <li>Your options are likely underwater (strike price higher than current fair market value)</li>
+            <li>The company may reprice options (lower the strike price) to retain employees</li>
+            <li>Your effective ownership percentage decreases significantly</li>
+        </ul>
+
+        <h3>Shutdown / Dissolution</h3>
+        <p>When a startup shuts down, the process is:</p>
+        <ol>
+            <li><strong>Board votes to dissolve</strong> the company</li>
+            <li><strong>Creditors are paid first</strong> from remaining assets</li>
+            <li><strong>Preferred shareholders</strong> receive any remaining cash up to their preference amount</li>
+            <li><strong>Common shareholders</strong> receive whatever is left (usually nothing)</li>
+        </ol>
+
+        <p>All unvested equity is cancelled immediately. Vested options that are underwater (strike price above zero value) are worthless. Any exercised shares may have minor value if there are remaining assets.</p>
+
+        <div class="callout">
+            <p><strong>Key Insight:</strong> In a shutdown, the order of who gets paid matters enormously. Debt holders are first in line, followed by preferred shareholders, and common shareholders are last. This is why understanding your cap table and investor terms is essential, not just at hiring, but throughout your tenure. Use our <a href="../cap-table.html" style="color: var(--accent-light);">Cap Table Calculator</a> to model different scenarios.</p>
+        </div>
+
+        <h2 id="calculate-payout">Calculate Your Exit Payout</h2>
+
+        <p>Want to know what your equity would be worth in different exit scenarios? Here's a simplified framework:</p>
+
+        <div class="callout formula">
+            <p><strong>Your Payout = (Exit Price - Liquidation Preferences) x Your Ownership %</strong><br>
+            <span style="font-size: 0.9rem; color: var(--text-muted);">Simplified for non-participating preferred</span></p>
+        </div>
+
+        <p>For a more accurate calculation, you need to know:</p>
+        <ul>
+            <li>Your fully diluted ownership percentage</li>
+            <li>The total liquidation preference stack (how much investors are owed)</li>
+            <li>Whether preferences are participating or non-participating</li>
+            <li>Any senior/subordination structure between investor rounds</li>
+        </ul>
+
+        <a href="../dilution.html" class="inline-cta">
+            <strong>Calculate Your Dilution and Ownership Percentage →</strong>
+        </a>
+
+        <a href="../cap-table.html" class="inline-cta">
+            <strong>Model Exit Waterfalls with Our Cap Table Tool →</strong>
+        </a>
+
+        <h2 id="key-takeaways">Key Takeaways</h2>
+
+        <ul>
+            <li><strong>Vested equity is yours</strong> -- no exit can take it without compensation, but the form of compensation varies by deal structure</li>
+            <li><strong>Unvested equity has three fates</strong> at exit: assumed by the acquirer, accelerated, or cancelled</li>
+            <li><strong>Liquidation preferences determine</strong> whether common shareholders see any money at all</li>
+            <li><strong>The payout waterfall</strong> pays creditors first, then preferred, then common</li>
+            <li><strong>2x+ participating preferred</strong> can wipe out all common shareholder value at moderate exit prices</li>
+            <li><strong>Options must be exercised</strong> before you receive exit proceeds; RSUs convert automatically</li>
+            <li><strong>IPOs have lock-up periods</strong> (usually 180 days) where you cannot sell your shares</li>
+            <li><strong>Double-trigger acceleration</strong> protects you if you're fired after an acquisition</li>
+            <li><strong>Always understand the cap table</strong> before joining a startup -- the terms matter as much as your grant size</li>
+            <li><strong>Shutdowns leave common shareholders</strong> with nothing in almost all cases</li>
+        </ul>
+
+        <div class="callout cta">
+            <p><strong>Ready to model your exit?</strong> Use our free <a href="../cap-table.html" style="color: var(--accent-light);">Cap Table Calculator</a> and <a href="../dilution.html" style="color: var(--accent-light);">Dilution Calculator</a> to see exactly what your equity would be worth under different exit scenarios.</p>
+        </div>
+        </div>
+
+        <div class="related-posts">
+            <h3>Related Articles</h3>
+            <a href="equity-glossary.html">Startup Equity Glossary — 50+ Terms Explained</a>
+            <a href="liquidation-preference-guide.html">Liquidation Preferences Explained</a>
+            <a href="participating-preferred-guide.html">Participating Preferred Stock: What Founders Need to Know</a>
+            <a href="vesting-acceleration-single-double-trigger.html">Vesting Acceleration: Single vs Double Trigger</a>
+            <a href="safe-note-stacking.html">SAFE Note Stacking: How Multiple SAFEs Convert</a>
+        </div>
+    </article>
+
+    <section class="newsletter">
+        <h2>Get weekly founder insights</h2>
+        <p>Equity breakdowns, fundraising math, and calculator tips. No spam.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" id="newsletterEmail" placeholder="founder@startup.com" required>
+            <button type="submit" style="background:var(--accent);color:white;border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer;">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../cap-table.html">Cap Table</a></li>
+                <li><a href="../equity-split.html">Equity Split</a></li>
+                <li><a href="../valuation.html">Valuation</a></li>
+                <li><a href="../stock-options.html">Stock Options</a></li>
+                <li><a href="../equity-glossary.html">Glossary</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+    function toggleTheme() {
+        const body = document.body;
+        const current = body.getAttribute('data-theme');
+        body.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+        localStorage.setItem('foundermath_theme', current === 'light' ? 'dark' : 'light');
+    }
+
+    async function handleNewsletter(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value;
+        const btn = e.target.querySelector('button');
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+        try {
+            const response = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, source: 'blog' })
+            });
+            if (response.ok) {
+                alert('Subscribed! Check your inbox.');
+                document.getElementById('newsletterEmail').value = '';
+            } else {
+                throw new Error('Failed to subscribe');
+            }
+        } catch (err) {
+            alert('Something went wrong. Please try again.');
+        }
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
+    }
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem('foundermath_theme');
+    if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
+    </script>
+</body>
+</html>

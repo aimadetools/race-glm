@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Calculate Your Stock Option Cost Basis | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+    </script>
+    <meta name="description" content="What is cost basis for stock options? Learn how to calculate your cost basis for ISOs and NSOs, understand tax implications, and know what you'll owe when you exercise.">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Calculate Your Stock Option Cost Basis",
+        "url": "https://founder-math.com/blog/stock-option-cost-basis.html",
+        "description": "What is cost basis for stock options? Learn how to calculate your cost basis for ISOs and NSOs, understand tax implications, and know what you'll owe when you exercise.",
+        "datePublished": "2026-05-13",
+        "dateModified": "2026-05-13",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        }
+    }
+    </script>
+    <meta property="og:title" content="How to Calculate Your Stock Option Cost Basis | FounderMath">
+    <meta property="og:description" content="What is cost basis for stock options? Learn how to calculate your cost basis for ISOs and NSOs, understand tax implications, and know what you'll owe when you exercise.">
+    <meta property="og:image" content="/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/stock-option-cost-basis.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 900px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links {
+            display: flex; align-items: center; gap: 32px; list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer; padding: 8px;
+        }
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 8px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; width: 36px; height: 36px;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+
+        .article-layout {
+            max-width: 720px; margin: 100px auto 60px; padding: 0 24px;
+        }
+        .article-header {
+            margin-bottom: 40px; text-align: center;
+        }
+        .article-meta {
+            display: flex; gap: 16px; justify-content: center;
+            flex-wrap: wrap; margin-bottom: 16px; font-size: 0.85rem;
+        }
+        .article-meta span { color: var(--text-muted); }
+        .tag {
+            background: var(--accent); color: white; padding: 4px 12px;
+            border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+        }
+        .article-layout h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800; letter-spacing: -0.03em;
+            margin-bottom: 24px; line-height: 1.2;
+        }
+        .article-layout h2 {
+            font-size: 1.6rem; font-weight: 700; margin-top: 48px; margin-bottom: 20px;
+        }
+        .article-layout h3 {
+            font-size: 1.3rem; font-weight: 600; margin-top: 32px; margin-bottom: 16px;
+        }
+        .article-layout p {
+            margin-bottom: 20px; color: var(--text-secondary);
+        }
+        .article-layout ul, .article-layout ol {
+            margin-bottom: 20px; padding-left: 28px;
+        }
+        .article-layout li {
+            margin-bottom: 12px; color: var(--text-secondary);
+        }
+        .lead {
+            font-size: 1.15rem; color: var(--text-primary);
+            line-height: 1.7; font-weight: 500;
+        }
+        .inline-cta {
+            display: block; background: var(--bg-card); border: 1px solid var(--accent);
+            padding: 20px; border-radius: 12px; text-align: center;
+            text-decoration: none; margin: 24px 0; transition: all 0.2s;
+        }
+        .inline-cta:hover { border-color: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .inline-cta strong { color: var(--accent-light); font-size: 1rem; }
+        .callout {
+            background: var(--bg-card); border-left: 4px solid var(--accent);
+            border-radius: 8px; padding: 20px; margin: 24px 0;
+        }
+        .callout p { margin: 0; }
+        .callout.formula {
+            text-align: center; font-size: 1.1rem; font-weight: 600;
+            background: var(--bg-secondary); border-radius: 8px; padding: 16px;
+            margin: 12px 0;
+        }
+        .callout.warning { border-left-color: var(--orange); }
+        .callout.tip { border-left-color: var(--green); }
+        .callout.example {
+            background: var(--bg-input); border-left-color: var(--accent-light);
+        }
+        .toc {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px 24px; margin: 32px 0;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin: 0 0 12px 0;
+        }
+        .toc ol {
+            padding-left: 20px;
+            counter-reset: toc;
+        }
+        .toc li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent-light); }
+        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
+        .related-posts a:hover { text-decoration: underline; }
+        .author-bio {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .author-avatar {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .author-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .author-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .author-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .author-content a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .article-meta { flex-wrap: wrap; }
+        }
+        .newsletter {
+            max-width: 600px; margin: 40px auto 60px; padding: 32px; text-align: center;
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+        }
+        .newsletter h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .newsletter p { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem; }
+        .newsletter-form {
+            display: flex; gap: 10px; max-width: 420px; margin: 0 auto;
+        }
+        .newsletter-form input {
+            flex: 1; padding: 12px 16px; background: var(--bg-input);
+            border: 1px solid var(--border); border-radius: 10px;
+            color: var(--text-primary); font-size: 0.9rem; outline: none;
+        }
+        .newsletter-form input:focus { border-color: var(--accent); }
+        .newsletter-form input::placeholder { color: var(--text-muted); }
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .callout.cta { border-left-color: var(--green); background: rgba(0,184,148,0.08); }
+        .callout.cta .cta-button { display: inline-block; margin-top: 0.75rem; padding: 0.6rem 1.5rem; background: var(--green); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .callout.cta .cta-button:hover { opacity: 0.9; }</style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+        <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+                <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+                <li role="none"><a href="../vesting.html" role="menuitem">Vesting</a></li>
+                <li role="none"><a href="../unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="../cap-table.html" role="menuitem">Cap Table</a></li>
+                <li role="none"><a href="../equity-split.html" role="menuitem">Equity Split</a></li>
+                <li role="none"><a href="../valuation.html" role="menuitem">Valuation</a></li>
+                <li role="none"><a href="../stock-options.html" role="menuitem">Options</a></li>
+                <li role="none"><a href="../equity-vs-salary.html" role="menuitem">Equity vs Salary</a></li>
+                <li role="none"><a href="../compare-offers.html" role="menuitem">Compare</a></li>
+                <li role="none"><a href="../equity-glossary.html" role="menuitem">Glossary</a></li>
+                <li role="none"><a href="../pricing.html" role="menuitem">Pricing</a></li>
+                <li><a href="../pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <article class="article-layout" id="main-content">
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="tag">Taxes</span>
+                <span>May 13, 2026</span>
+                <span>12 min read</span>
+            </div>
+            <h1>How to Calculate Your Stock Option Cost Basis</h1>
+        </header>
+
+        <div class="article-body">
+            <p class="lead">When you exercise startup stock options, your cost basis determines how much tax you'll owe when you eventually sell. Getting this wrong can cost you thousands. Here's how to calculate it correctly.</p>
+
+            <a href="../stock-options.html" class="inline-cta">
+                <strong>Calculate Your Stock Options →</strong>
+            </a>
+
+                <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#what-is-cost-basis">What is Cost Basis?</a></li>
+                <li><a href="#strike-price-vs-cost-basis">Strike Price vs Cost Basis</a></li>
+                <li><a href="#iso-cost-basis">ISO Cost Basis Calculation</a></li>
+                <li><a href="#nso-cost-basis">NSO Cost Basis Calculation</a></li>
+                <li><a href="#amt-trap">The AMT Trap for ISOs</a></li>
+                <li><a href="#exercise-timing">How Exercise Timing Affects Cost Basis</a></li>
+                <li><a href="#cost-basis-when-you-sell">Cost Basis When You Sell</a></li>
+                <li><a href="#real-world-examples">Real-World Calculation Examples</a></li>
+                <li><a href="#calculator">Calculate Your Stock Options</a></li>
+                <li><a href="#key-takeaways">Key Takeaways</a></li>
+            </ol>
+        </nav>
+
+        <h2 id="what-is-cost-basis">What is Cost Basis?</h2>
+
+        <p>Your <strong>cost basis</strong> is the total amount you've invested in your stock options plus any income you've already been taxed on. It's the benchmark the IRS uses to calculate your profit (or loss) when you eventually sell your shares. Think of it as the line between "money I already paid for" and "money that counts as a gain."</p>
+
+        <p>Cost basis matters because it directly determines how much tax you owe when you sell. A higher cost basis means a smaller taxable gain. A lower cost basis means you'll owe more taxes on the same sale proceeds.</p>
+
+        <div class="callout formula">
+            <p><strong>Cost Basis = Strike Price x Number of Shares + Fees</strong><br>
+            <span style="font-size: 0.9rem; color: var(--text-muted);">For ISOs, add any amount included in AMT income</span></p>
+        </div>
+
+        <p>But here's where it gets complicated: your cost basis isn't just what you paid to exercise. For tax purposes, your cost basis has two components:</p>
+
+        <ul>
+            <li><strong>Exercise cost:</strong> The strike price multiplied by the number of shares you exercised, plus any brokerage or legal fees</li>
+            <li><strong>Previously taxed income:</strong> For NSOs, the spread at exercise was already taxed as ordinary income. For ISOs, the spread may have been included in AMT income</li>
+        </ul>
+
+        <p>This second component is where most people get confused and overpay on taxes.</p>
+
+        <h2 id="strike-price-vs-cost-basis">Strike Price vs Cost Basis</h2>
+
+        <p>The <strong>strike price</strong> (also called the exercise price) is what you pay per share to convert your options into actual stock. It's set when your options are granted and doesn't change.</p>
+
+        <p>Your <strong>cost basis</strong> starts with the strike price but often includes more:</p>
+
+        <div class="callout example">
+            <p><strong>Strike price:</strong> What you pay per share to exercise your options<br>
+            <strong>Exercise cost:</strong> Strike price x number of shares + fees<br>
+            <strong>Tax cost basis:</strong> Exercise cost + any income already reported to the IRS</p>
+        </div>
+
+        <h3>Why the Difference Matters</h3>
+
+        <p>When you report a stock sale on your tax return, the IRS expects your cost basis to reflect the full economic cost to you. If you already paid ordinary income tax on the spread at exercise (which happens with NSOs), that taxed amount gets added to your basis so you aren't taxed on it again when you sell.</p>
+
+        <p>If you use just the strike price as your cost basis instead of the correct, higher amount, you'll overpay your capital gains tax. This mistake is surprisingly common and can cost thousands of dollars.</p>
+
+        <div class="callout tip">
+            <p><strong>Tip:</strong> Always check your Form 1099-B from your broker. Brokers sometimes report an incorrect (too low) cost basis for employee stock options. You may need to adjust it on your tax return using Form 8949.</p>
+        </div>
+
+        <h2 id="iso-cost-basis">ISO Cost Basis Calculation</h2>
+
+        <p>Incentive Stock Options (ISOs) have a unique tax structure. When you exercise ISOs, you generally don't owe regular income tax on the spread between the strike price and the fair market value (FMV). However, that spread may trigger the Alternative Minimum Tax (AMT).</p>
+
+        <h3>Regular Tax Cost Basis for ISOs</h3>
+
+        <p>For regular income tax purposes, your ISO cost basis is straightforward:</p>
+
+        <div class="callout formula">
+            <p><strong>ISO Regular Tax Basis = Strike Price x Shares + Fees</strong></p>
+        </div>
+
+        <p>If you exercise 10,000 ISOs with a $0.50 strike price and pay $100 in fees:</p>
+
+        <div class="callout example">
+            <p><strong>ISO Regular Tax Basis</strong> = $0.50 x 10,000 + $100 = <strong>$5,100</strong></p>
+        </div>
+
+        <h3>AMT Cost Basis for ISOs</h3>
+
+        <p>For AMT purposes, your cost basis is higher because the spread at exercise is included in AMT income:</p>
+
+        <div class="callout formula">
+            <p><strong>ISO AMT Basis = Strike Price x Shares + Spread (FMV - Strike) x Shares + Fees</strong><br>
+            <span style="font-size: 0.9rem; color: var(--text-muted);">= FMV at Exercise x Shares + Fees</span></p>
+        </div>
+
+        <p>Using the same example with a $2.00 FMV at exercise:</p>
+
+        <div class="callout example">
+            <p><strong>ISO AMT Basis</strong> = $2.00 x 10,000 + $100 = <strong>$20,100</strong></p>
+        </div>
+
+        <p>This dual basis system means you may need to track two different cost bases for the same shares: one for regular tax and one for AMT. When you eventually sell, the applicable basis depends on whether you're calculating regular tax or AMT.</p>
+
+        <div class="callout warning">
+            <p><strong>Warning:</strong> If you paid AMT in the year you exercised your ISOs, you may be entitled to an AMT credit in future years. Keep detailed records of your exercise date, FMV at exercise, and AMT paid. Many people leave money on the table by not claiming their AMT credit.</p>
+        </div>
+
+        <a href="../stock-options.html" class="inline-cta">
+            <strong>Use Our Stock Options Calculator to Model Your Exercise →</strong>
+        </a>
+
+        <h2 id="nso-cost-basis">NSO Cost Basis Calculation</h2>
+
+        <p>Non-Qualified Stock Options (NSOs) are simpler but more immediately expensive. When you exercise NSOs, the spread between the strike price and the fair market value is taxed as <strong>ordinary income</strong> in the year of exercise. This income is reported on your W-2.</p>
+
+        <p>Because you've already paid income tax on that spread, your cost basis for future capital gains calculations includes it:</p>
+
+        <div class="callout formula">
+            <p><strong>NSO Cost Basis = Strike Price x Shares + Spread (FMV - Strike) x Shares + Fees</strong><br>
+            <span style="font-size: 0.9rem; color: var(--text-muted);">= FMV at Exercise x Shares + Fees</span></p>
+        </div>
+
+        <p>With the same numbers (10,000 options, $0.50 strike, $2.00 FMV at exercise, $100 fees):</p>
+
+        <div class="callout example">
+            <p><strong>NSO Cost Basis</strong> = $0.50 x 10,000 + ($2.00 - $0.50) x 10,000 + $100<br>
+            = $5,000 + $15,000 + $100 = <strong>$20,100</strong></p>
+            <p style="margin-top: 8px; font-size: 0.9rem; color: var(--text-muted);">The $15,000 spread was already taxed as ordinary income on your W-2.</p>
+        </div>
+
+        <h3>ISO vs NSO Cost Basis Summary</h3>
+
+        <ul>
+            <li><strong>ISO regular tax basis:</strong> Only the strike price (lower basis, but no income tax at exercise)</li>
+            <li><strong>ISO AMT basis:</strong> FMV at exercise (higher basis for AMT calculations)</li>
+            <li><strong>NSO cost basis:</strong> FMV at exercise (same as ISO AMT basis, because the spread was already taxed as ordinary income)</li>
+        </ul>
+
+        <p>The key takeaway: NSO cost basis is typically higher than ISO cost basis for regular tax purposes, because you already paid income tax on the spread. This means less capital gains tax when you sell.</p>
+
+        <h2 id="amt-trap">The AMT Trap for ISOs</h2>
+
+        <p>The Alternative Minimum Tax (AMT) is a parallel tax system designed to ensure high-income taxpayers pay a minimum amount of tax. For ISO holders, it can create a nasty surprise.</p>
+
+        <h3>How AMT Works for ISOs</h3>
+
+        <p>When you exercise ISOs, the spread between the strike price and FMV isn't taxed under the regular tax system. But it <strong>is</strong> included as income under the AMT system. If your AMT liability exceeds your regular tax liability, you pay the difference.</p>
+
+        <h3>Regular Tax vs AMT Comparison</h3>
+
+        <div class="callout example">
+            <p><strong>Scenario:</strong> 10,000 ISOs exercised at $0.50 strike, FMV = $2.00<br>
+            <strong>Income:</strong> $100,000 salary, married filing jointly</p>
+            <p style="margin-top: 12px;"><strong>Regular Tax Calculation:</strong><br>
+            Exercise spread not included in income<br>
+            Taxable income: ~$100,000<br>
+            Regular tax: ~$13,200</p>
+            <p style="margin-top: 12px;"><strong>AMT Calculation:</strong><br>
+            AMT income: ~$100,000 + $15,000 (ISO spread) = $115,000<br>
+            AMT exemption: ~$133,300 (2026, married)<br>
+            Since AMT income is below the exemption, AMT = $0</p>
+            <p style="margin-top: 12px;"><strong>Result:</strong> No AMT owed in this scenario. The spread is small enough relative to income.</p>
+        </div>
+
+        <p>But consider what happens with a larger spread:</p>
+
+        <div class="callout example">
+            <p><strong>Scenario:</strong> 50,000 ISOs exercised at $0.50 strike, FMV = $8.00<br>
+            <strong>ISO spread:</strong> ($8.00 - $0.50) x 50,000 = $375,000<br>
+            <strong>Income:</strong> $150,000 salary, married filing jointly</p>
+            <p style="margin-top: 12px;"><strong>Regular Tax:</strong> ~$22,800<br>
+            <strong>AMT Income:</strong> $150,000 + $375,000 = $525,000<br>
+            <strong>AMT (after exemption):</strong> ~$48,000</p>
+            <p style="margin-top: 12px;"><strong>Result:</strong> You owe ~$25,200 in additional AMT. On shares you haven't sold yet.</p>
+        </div>
+
+        <div class="callout warning">
+            <p><strong>The AMT Timing Trap:</strong> You can owe AMT on paper gains that disappear if the stock price drops before you sell. Imagine exercising when FMV is $8/share, owing $25,000 in AMT, then the stock drops to $2/share before you can sell. You've paid tax on gains that no longer exist. Always model the AMT impact before exercising a large ISO grant.</p>
+        </div>
+
+        <a href="../stock-options.html" class="inline-cta">
+            <strong>Model Your Exercise Tax Impact With Our Calculator →</strong>
+        </a>
+
+        <h2 id="exercise-timing">How Exercise Timing Affects Cost Basis</h2>
+
+        <p>When you exercise relative to the 409A valuation matters because the FMV at exercise determines your cost basis (for NSOs) and your AMT exposure (for ISOs).</p>
+
+        <h3>Early Exercise (Before Significant FMV Increase)</h3>
+
+        <p>Exercising early, when the 409A valuation is close to your strike price, minimizes both your cost basis and your tax exposure:</p>
+
+        <ul>
+            <li><strong>NSO:</strong> The spread (FMV - strike) is small, so less ordinary income tax at exercise</li>
+            <li><strong>ISO:</strong> The spread is small, so little or no AMT exposure</li>
+            <li><strong>Cost basis:</strong> Remains low, but so does the immediate tax bill</li>
+        </ul>
+
+        <h3>Late Exercise (After Significant FMV Increase)</h3>
+
+        <p>Waiting to exercise until the 409A valuation has increased significantly creates a larger gap between your strike price and FMV:</p>
+
+        <ul>
+            <li><strong>NSO:</strong> Large spread = large ordinary income tax bill at exercise</li>
+            <li><strong>ISO:</strong> Large spread = potential AMT liability on paper gains</li>
+            <li><strong>Cost basis:</strong> Higher, which reduces future capital gains tax, but the upfront tax cost can be substantial</li>
+        </ul>
+
+        <h3>The 83(b) Election</h3>
+
+        <p>If your company allows <strong>early exercise</strong> of unvested options, you can file an <a href="83b-election-guide.html" style="color: var(--accent-light);">83(b) election</a> within 30 days. This lets you pay tax on the spread at exercise time rather than at vesting time. If the FMV equals your strike price at exercise, the spread is zero and you owe no tax.</p>
+
+        <div class="callout tip">
+            <p><strong>83(b) Impact on Cost Basis:</strong> Filing an 83(b) election doesn't change your cost basis formula, but it locks in your tax basis at the early exercise date. If you early exercise when FMV = strike price, your taxable income at exercise is $0, and your holding period for long-term capital gains starts immediately.</p>
+        </div>
+
+        <h2 id="cost-basis-when-you-sell">Cost Basis When You Sell</h2>
+
+        <p>When you sell shares acquired from stock options, your gain or loss is calculated as:</p>
+
+        <div class="callout formula">
+            <p><strong>Gain (or Loss) = Sale Price x Shares - Cost Basis</strong></p>
+        </div>
+
+        <p>Your cost basis depends on your option type and what was already taxed:</p>
+
+        <h3>Selling ISO Shares</h3>
+
+        <p>ISO shares can qualify for <strong>long-term capital gains</strong> treatment if you meet both holding period requirements:</p>
+
+        <ul>
+            <li><strong>Holding period 1:</strong> Hold the shares for at least 1 year after exercise</li>
+            <li><strong>Holding period 2:</strong> Hold the shares for at least 2 years after the grant date</li>
+        </ul>
+
+        <p>If you meet both requirements, your entire gain above the strike price is taxed at long-term capital gains rates (0%, 15%, or 20%, depending on your income). Your cost basis for this calculation is the strike price x shares.</p>
+
+        <p>If you fail either holding period (a "disqualifying disposition"), some of your gain may be taxed as ordinary income instead of capital gains. The ordinary income portion equals the lesser of the spread at exercise or the gain at sale.</p>
+
+        <h3>Selling NSO Shares</h3>
+
+        <p>NSO shares are simpler. You already paid ordinary income tax on the spread at exercise, so your cost basis is the FMV at exercise (which includes that already-taxed spread). When you sell:</p>
+
+        <ul>
+            <li><strong>Gain:</strong> Sale proceeds minus cost basis (FMV at exercise x shares)</li>
+            <li><strong>Short-term gain</strong> (held less than 1 year): Taxed as ordinary income</li>
+            <li><strong>Long-term gain</strong> (held more than 1 year): Taxed at capital gains rates</li>
+        </ul>
+
+        <h3>Long-Term Capital Gains vs Ordinary Income</h3>
+
+        <div class="callout example">
+            <p><strong>2026 Long-Term Capital Gains Rates (Single Filer):</strong><br>
+            0% on income up to ~$48,350<br>
+            15% on income $48,351 - ~$533,400<br>
+            20% on income above ~$533,400<br>
+            <span style="font-size: 0.9rem; color: var(--text-muted);">Plus 3.8% Net Investment Income Tax above $200,000</span></p>
+        </div>
+
+        <p>Compare this to ordinary income rates, which can reach 37%. The difference between long-term capital gains and ordinary income tax on a $100,000 gain could be $22,000 or more. This is why meeting the ISO holding periods is so valuable.</p>
+
+        <h2 id="real-world-examples">Real-World Calculation Examples</h2>
+
+        <h3>Example 1: ISO Exercise</h3>
+
+        <div class="callout example">
+            <p><strong>Grant:</strong> 10,000 ISOs at $0.50 strike price<br>
+            <strong>409A FMV at exercise:</strong> $2.00/share<br>
+            <strong>Exercise cost:</strong> 10,000 x $0.50 = $5,000<br>
+            <strong>Fees:</strong> $50</p>
+            <p style="margin-top: 12px;"><strong>ISO Spread:</strong> ($2.00 - $0.50) x 10,000 = $15,000<br>
+            This $15,000 is included in AMT income but NOT regular income.</p>
+            <p style="margin-top: 12px;"><strong>Regular Tax Cost Basis:</strong> $5,000 + $50 = $5,050<br>
+            <strong>AMT Cost Basis:</strong> $2.00 x 10,000 + $50 = $20,050</p>
+            <p style="margin-top: 12px;"><strong>AMT Impact:</strong> If your regular tax already exceeds your AMT, you owe nothing extra. If AMT is higher, you pay the difference.</p>
+        </div>
+
+        <h3>Example 2: NSO Exercise</h3>
+
+        <div class="callout example">
+            <p><strong>Grant:</strong> 10,000 NSOs at $0.50 strike price<br>
+            <strong>409A FMV at exercise:</strong> $2.00/share<br>
+            <strong>Exercise cost:</strong> 10,000 x $0.50 = $5,000<br>
+            <strong>Fees:</strong> $50</p>
+            <p style="margin-top: 12px;"><strong>NSO Spread (Taxed as Ordinary Income):</strong><br>
+            ($2.00 - $0.50) x 10,000 = $15,000<br>
+            This $15,000 appears on your W-2 as supplemental income.<br>
+            Withheld at exercise: ~$3,750 (25% federal supplemental rate)</p>
+            <p style="margin-top: 12px;"><strong>Cost Basis:</strong> $5,000 + $15,000 + $50 = $20,050<br>
+            <span style="font-size: 0.9rem; color: var(--text-muted);">Includes the already-taxed $15,000 spread</span></p>
+            <p style="margin-top: 12px;"><strong>Upfront Cash Required:</strong> $5,000 (exercise) + $3,750 (tax withholding) + $50 (fees) = $8,800</p>
+        </div>
+
+        <h3>Example 3: Selling Shares After Holding Period</h3>
+
+        <p>Now let's say you held your shares for more than a year and the company goes public at $10/share. Here's how the tax differs:</p>
+
+        <div class="callout example">
+            <p><strong>Sale:</strong> 10,000 shares at $10.00/share = $100,000 proceeds</p>
+            <p style="margin-top: 12px;"><strong>ISO Shares (met both holding periods):</strong><br>
+            Cost basis: $5,050<br>
+            Long-term capital gain: $100,000 - $5,050 = $94,950<br>
+            Tax at 15%: $14,243<br>
+            <strong>Total tax paid over exercise + sale: $14,243</strong> (+ any AMT at exercise)</p>
+            <p style="margin-top: 12px;"><strong>NSO Shares (held more than 1 year after exercise):</strong><br>
+            Cost basis: $20,050 (includes already-taxed spread)<br>
+            Long-term capital gain: $100,000 - $20,050 = $79,950<br>
+            Tax at 15%: $11,993<br>
+            <strong>Total tax paid over exercise + sale:</strong> $3,750 (income tax at exercise) + $11,993 = <strong>$15,743</strong></p>
+        </div>
+
+        <p>In this example, the ISO holder comes out ahead by about $1,500 because they deferred the tax and paid only capital gains rates on the full gain. But the ISO holder also bore AMT risk during the holding period.</p>
+
+        <div class="callout warning">
+            <p><strong>Warning:</strong> These examples assume a rising stock price. If the stock drops from $2.00 to $0.50 after exercise, the NSO holder already paid income tax on $15,000 of gains that no longer exist. The ISO holder may have paid AMT on phantom gains. Exercise timing matters enormously.</p>
+        </div>
+
+        <h2 id="calculator">Calculate Your Stock Options</h2>
+
+        <p>Understanding cost basis is critical, but you also need to know the full picture: exercise cost, tax implications, and potential gains. Use our free Stock Options Calculator to model your specific scenario:</p>
+
+        <a href="../stock-options.html" class="inline-cta">
+            <strong>Open Stock Options Calculator →</strong>
+        </a>
+
+        <p>The calculator helps you:</p>
+
+        <ul>
+            <li>Model your exercise cost based on your strike price and number of shares</li>
+            <li>See the tax difference between ISOs and NSOs</li>
+            <li>Estimate your potential gains at different exit prices</li>
+            <li>Understand the impact of exercise timing on your total return</li>
+        </ul>
+
+        <h2 id="key-takeaways">Key Takeaways</h2>
+
+        <ul>
+            <li><strong>Cost basis = strike price x shares + fees</strong> for ISO regular tax, but <strong>FMV at exercise x shares + fees</strong> for NSO (and ISO AMT) calculations</li>
+            <li><strong>NSO cost basis includes the already-taxed spread</strong>, so you don't pay capital gains on money that was already taxed as ordinary income</li>
+            <li><strong>ISOs can trigger AMT</strong> even though you owe no regular income tax at exercise. Model this before exercising large grants</li>
+            <li><strong>The AMT timing trap</strong> can leave you owing tax on gains that vanish before you sell</li>
+            <li><strong>Early exercise with an 83(b) election</strong> can minimize taxes if your company allows it and the spread is small</li>
+            <li><strong>Meeting ISO holding periods</strong> (1 year from exercise + 2 years from grant) converts all gains to long-term capital gains, saving up to 19% in taxes</li>
+            <li><strong>Check your 1099-B</strong> for incorrect cost basis reporting from your broker. Adjust it on Form 8949 if needed</li>
+            <li><strong>Track two bases for ISOs:</strong> one for regular tax and one for AMT. You'll need both when you sell</li>
+        </ul>
+
+        <div class="callout cta">
+            <p><strong>Ready to model your exercise?</strong> Use our free <a href="../stock-options.html" style="color: var(--accent-light);">Stock Options Calculator</a> to see your exact exercise cost, tax implications, and potential returns at different exit prices.</p>
+        </div>
+        </div>
+
+        <div class="related-posts">
+            <h3>Related Articles</h3>
+            <a href="equity-glossary.html">Startup Equity Glossary — 50+ Terms Explained</a>
+            <a href="iso-vs-nso-guide.html">ISO vs NSO: Which Stock Option Type Is Better?</a>
+            <a href="83b-election-guide.html">83(b) Election Guide: When and Why to File</a>
+            <a href="stock-options-worth-guide.html">How Much Are My Stock Options Worth?</a>
+            <a href="employee-equity-grants-guide.html">Employee Equity Grants: The Complete Guide</a>
+        </div>
+    </article>
+
+    <section class="newsletter">
+        <h2>Get weekly founder insights</h2>
+        <p>Equity breakdowns, fundraising math, and calculator tips. No spam.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" id="newsletterEmail" placeholder="founder@startup.com" required>
+            <button type="submit" style="background:var(--accent);color:white;border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer;">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../cap-table.html">Cap Table</a></li>
+                <li><a href="../equity-split.html">Equity Split</a></li>
+                <li><a href="../valuation.html">Valuation</a></li>
+                <li><a href="../stock-options.html">Stock Options</a></li>
+                <li><a href="../equity-glossary.html">Glossary</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+    function toggleTheme() {
+        const body = document.body;
+        const current = body.getAttribute('data-theme');
+        body.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+        localStorage.setItem('foundermath_theme', current === 'light' ? 'dark' : 'light');
+    }
+
+    async function handleNewsletter(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value;
+        const btn = e.target.querySelector('button');
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+        try {
+            const response = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, source: 'blog' })
+            });
+            if (response.ok) {
+                alert('Subscribed! Check your inbox.');
+                document.getElementById('newsletterEmail').value = '';
+            } else {
+                throw new Error('Failed to subscribe');
+            }
+        } catch (err) {
+            alert('Something went wrong. Please try again.');
+        }
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
+    }
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem('foundermath_theme');
+    if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
+    </script>
+</body>
+</html>
