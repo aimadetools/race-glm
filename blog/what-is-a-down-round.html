@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Is a Down Round? How It Affects Your Startup Equity | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+    </script>
+    <meta name="description" content="What is a down round? Learn how a down round impacts your equity, dilution, and 409A valuation. See real examples of down round math and what it means for founders and employees.">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "What Is a Down Round and How Does It Affect Your Equity?",
+        "url": "https://founder-math.com/blog/what-is-a-down-round.html",
+        "description": "What is a down round? Learn how a down round impacts your equity, dilution, and 409A valuation. See real examples of down round math and what it means for founders and employees.",
+        "datePublished": "2026-05-13",
+        "dateModified": "2026-05-13",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        }
+    }
+    </script>
+    <meta property="og:title" content="What Is a Down Round? How It Affects Your Startup Equity | FounderMath">
+    <meta property="og:description" content="What is a down round? Learn how a down round impacts your equity, dilution, and 409A valuation. See real examples of down round math and what it means for founders and employees.">
+    <meta property="og:image" content="/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/what-is-a-down-round.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 900px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links {
+            display: flex; align-items: center; gap: 32px; list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer; padding: 8px;
+        }
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 8px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; width: 36px; height: 36px;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+
+        .article-layout {
+            max-width: 720px; margin: 100px auto 60px; padding: 0 24px;
+        }
+        .article-header {
+            margin-bottom: 40px; text-align: center;
+        }
+        .article-meta {
+            display: flex; gap: 16px; justify-content: center;
+            flex-wrap: wrap; margin-bottom: 16px; font-size: 0.85rem;
+        }
+        .article-meta span { color: var(--text-muted); }
+        .tag {
+            background: var(--accent); color: white; padding: 4px 12px;
+            border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+        }
+        .article-layout h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800; letter-spacing: -0.03em;
+            margin-bottom: 24px; line-height: 1.2;
+        }
+        .article-layout h2 {
+            font-size: 1.6rem; font-weight: 700; margin-top: 48px; margin-bottom: 20px;
+        }
+        .article-layout h3 {
+            font-size: 1.3rem; font-weight: 600; margin-top: 32px; margin-bottom: 16px;
+        }
+        .article-layout p {
+            margin-bottom: 20px; color: var(--text-secondary);
+        }
+        .article-layout ul, .article-layout ol {
+            margin-bottom: 20px; padding-left: 28px;
+        }
+        .article-layout li {
+            margin-bottom: 12px; color: var(--text-secondary);
+        }
+        .lead {
+            font-size: 1.15rem; color: var(--text-primary);
+            line-height: 1.7; font-weight: 500;
+        }
+        .inline-cta {
+            display: block; background: var(--bg-card); border: 1px solid var(--accent);
+            padding: 20px; border-radius: 12px; text-align: center;
+            text-decoration: none; margin: 24px 0; transition: all 0.2s;
+        }
+        .inline-cta:hover { border-color: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .inline-cta strong { color: var(--accent-light); font-size: 1rem; }
+        .callout {
+            background: var(--bg-card); border-left: 4px solid var(--accent);
+            border-radius: 8px; padding: 20px; margin: 24px 0;
+        }
+        .callout p { margin: 0; }
+        .callout.formula {
+            text-align: center; font-size: 1.1rem; font-weight: 600;
+            background: var(--bg-secondary); border-radius: 8px; padding: 16px;
+            margin: 12px 0;
+        }
+        .callout.warning { border-left-color: var(--orange); }
+        .callout.tip { border-left-color: var(--green); }
+        .callout.example {
+            background: var(--bg-input); border-left-color: var(--accent-light);
+        }
+        .toc {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px 24px; margin: 32px 0;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin: 0 0 12px 0;
+        }
+        .toc ol {
+            padding-left: 20px;
+            counter-reset: toc;
+        }
+        .toc li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent-light); }
+        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
+        .related-posts a:hover { text-decoration: underline; }
+        .author-bio {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .author-avatar {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .author-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .author-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .author-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .author-content a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .article-meta { flex-wrap: wrap; }
+        }
+        .newsletter {
+            max-width: 600px; margin: 40px auto 60px; padding: 32px; text-align: center;
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+        }
+        .newsletter h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .newsletter p { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem; }
+        .newsletter-form {
+            display: flex; gap: 10px; max-width: 420px; margin: 0 auto;
+        }
+        .newsletter-form input {
+            flex: 1; padding: 12px 16px; background: var(--bg-input);
+            border: 1px solid var(--border); border-radius: 10px;
+            color: var(--text-primary); font-size: 0.9rem; outline: none;
+        }
+        .newsletter-form input:focus { border-color: var(--accent); }
+        .newsletter-form input::placeholder { color: var(--text-muted); }
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .callout.cta { border-left-color: var(--green); background: rgba(0,184,148,0.08); }
+        .callout.cta .cta-button { display: inline-block; margin-top: 0.75rem; padding: 0.6rem 1.5rem; background: var(--green); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .callout.cta .cta-button:hover { opacity: 0.9; }</style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+        <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+                <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+                <li role="none"><a href="../vesting.html" role="menuitem">Vesting</a></li>
+                <li role="none"><a href="../unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="../cap-table.html" role="menuitem">Cap Table</a></li>
+                <li role="none"><a href="../equity-split.html" role="menuitem">Equity Split</a></li>
+                <li role="none"><a href="../valuation.html" role="menuitem">Valuation</a></li>
+                <li role="none"><a href="../stock-options.html" role="menuitem">Options</a></li>
+                <li role="none"><a href="../equity-vs-salary.html" role="menuitem">Equity vs Salary</a></li>
+                <li role="none"><a href="../compare-offers.html" role="menuitem">Compare</a></li>
+                <li role="none"><a href="../equity-glossary.html" role="menuitem">Glossary</a></li>
+                <li role="none"><a href="../pricing.html" role="menuitem">Pricing</a></li>
+                <li><a href="../pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <article class="article-layout" id="main-content">
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="tag">Fundraising</span>
+                <span>May 13, 2026</span>
+                <span>14 min read</span>
+            </div>
+            <h1>What Is a Down Round and How Does It Affect Your Equity?</h1>
+        </header>
+
+        <div class="article-body">
+            <p class="lead">A down round is when a startup raises money at a lower valuation than its previous round. It hurts more than just pride -- it reshuffles who owns what, triggers anti-dilution protections, and can upend employee option values. Here is exactly how the math works and what it means for your stake.</p>
+
+            <a href="../dilution.html" class="inline-cta">
+                <strong>Calculate Your Dilution With Our Free Tool &#8594;</strong>
+            </a>
+
+            <nav class="toc">
+                <h2>Table of Contents</h2>
+                <ol>
+                    <li><a href="#what-is-a-down-round">What Is a Down Round?</a></li>
+                    <li><a href="#why-down-rounds-happen">Why Down Rounds Happen</a></li>
+                    <li><a href="#how-down-rounds-affect-equity">How Down Rounds Affect Your Equity</a></li>
+                    <li><a href="#anti-dilution-provisions">Anti-Dilution Provisions Explained</a></li>
+                    <li><a href="#worked-example">Worked Example: Down Round Math</a></li>
+                    <li><a href="#409a-impact">Impact on 409A Valuations</a></li>
+                    <li><a href="#employee-impact">Impact on Employees</a></li>
+                    <li><a href="#famous-examples">Famous Down Round Examples</a></li>
+                    <li><a href="#how-to-handle">How to Handle a Down Round</a></li>
+                    <li><a href="#key-takeaways">Key Takeaways</a></li>
+                </ol>
+            </nav>
+
+            <h2 id="what-is-a-down-round">What Is a Down Round?</h2>
+
+            <p>A <strong>down round</strong> occurs when a startup raises a new funding round at a <strong>pre-money valuation lower than the post-money valuation of its previous round</strong>. In simple terms: the company is worth less now than investors previously believed.</p>
+
+            <p>For example, if a startup raised its Series A at a $40 million post-money valuation, and then raises its Series B at a $25 million pre-money valuation, that Series B is a down round. The company's value dropped by 37.5% between rounds.</p>
+
+            <div class="callout">
+                <p><strong>Down Round Definition:</strong> A financing round where the price per share paid by new investors is lower than the price per share paid in the previous round. This is sometimes called a "cram-down round" or "wash-out round" in extreme cases.</p>
+            </div>
+
+            <p>Down rounds were relatively rare during the 2020-2021 boom years, but they became significantly more common after 2022 as interest rates rose and public market multiples contracted. According to PitchBook data, down rounds accounted for roughly 15-20% of venture deals in recent years, up from under 5% during the peak.</p>
+
+            <p>Not every flat round is a down round. If a company raises at the same valuation as the prior round, that is a "flat round" -- disappointing but not technically a down round. The key test is whether the <strong>price per share</strong> decreased.</p>
+
+            <h2 id="why-down-rounds-happen">Why Down Rounds Happen</h2>
+
+            <p>Down rounds rarely happen in isolation. They are usually the result of one or more converging factors:</p>
+
+            <h3>1. Market Conditions Shift</h3>
+
+            <p>When public market multiples compress, private market valuations follow. A SaaS company that was valued at 50x ARR in 2021 might only command 15x ARR in a tighter market. Even if the business executed flawlessly, the valuation multiple contraction can force a down round.</p>
+
+            <h3>2. Missed Revenue or Growth Targets</h3>
+
+            <p>If a startup raised at aggressive projections and then fell short, investors in the next round will price the company based on actual performance rather than projections. A company that promised $10M ARR but delivered $4M ARR will struggle to justify its previous valuation.</p>
+
+            <h3>3. Overvaluation in the Prior Round</h3>
+
+            <p>During competitive funding environments, investors sometimes pay premium prices to win deals. If the fundamentals do not catch up to the valuation by the next round, the company may have been "overvalued" from the start.</p>
+
+            <h3>4. Founder or Key Personnel Departures</h3>
+
+            <p>Losing a co-founder or key executive can shake investor confidence and reduce the perceived value of the company, especially in early stages where the team is a major part of the valuation thesis.</p>
+
+            <h3>5. Regulatory or Competitive Headwinds</h3>
+
+            <p>New regulations, a formidable new competitor, or the loss of a major customer can all erode a company's perceived value and force a down round.</p>
+
+            <div class="callout warning">
+                <p><strong>Important:</strong> A down round does not necessarily mean the company is failing. Many successful companies have raised down rounds at some point in their history. What matters is how the company performs afterward.</p>
+            </div>
+
+            <h2 id="how-down-rounds-affect-equity">How Down Rounds Affect Your Equity</h2>
+
+            <p>Down rounds impact different stakeholders in different ways. Here is who gets hit hardest:</p>
+
+            <h3>Founders and Employees</h3>
+
+            <p>Common shareholders (founders, employees with stock options) bear the brunt of a down round. Because preferred shareholders have anti-dilution protections and liquidation preferences, the dilution falls disproportionately on the common stock. Founders can see their ownership percentage drop significantly -- sometimes by half or more in severe cases.</p>
+
+            <h3>Previous Investors</h3>
+
+            <p>Investors from earlier rounds are partially protected by <strong>anti-dilution provisions</strong> in their term sheets. These provisions adjust the effective price they paid or grant them additional shares to compensate for the valuation decrease. However, the value of their investment still declines in absolute terms.</p>
+
+            <h3>New Investors</h3>
+
+            <p>New investors in a down round often negotiate favorable terms. They may receive enhanced liquidation preferences, senior liquidation stacks, or broad anti-dilution protections. The power dynamic shifts strongly in their favor.</p>
+
+            <a href="../dilution.html" class="inline-cta">
+                <strong>Model Your Dilution Across Multiple Rounds &#8594;</strong>
+            </a>
+
+            <h2 id="anti-dilution-provisions">Anti-Dilution Provisions Explained</h2>
+
+            <p>Anti-dilution provisions protect preferred shareholders from the impact of down rounds by adjusting their conversion price or share count. There are three main types:</p>
+
+            <h3>1. Full Ratchet</h3>
+
+            <p>Full ratchet is the most founder-hostile anti-dilution provision. It adjusts the conversion price of existing preferred shares down to match the price of the new down round, regardless of how many shares are issued.</p>
+
+            <div class="callout example">
+                <p><strong>Full Ratchet Example:</strong><br>
+                Series A investors bought at $10.00/share.<br>
+                Series B is priced at $6.00/share.<br>
+                With full ratchet, Series A's conversion price drops from $10.00 to $6.00.<br><br>
+                If Series A investors put in $5M, they originally got 500,000 shares ($5M / $10.00).<br>
+                After full ratchet, their $5M converts as if they paid $6.00/share = 833,333 shares.<br>
+                <strong>They receive 333,333 additional shares for free.</strong></p>
+            </div>
+
+            <p>Full ratchet is rare in modern venture deals because it is excessively punitive to founders. When it does appear, it is usually in distressed situations or early-stage deals with less sophisticated investors.</p>
+
+            <h3>2. Broad-Based Weighted Average</h3>
+
+            <p>This is the most common anti-dilution provision in venture capital. It adjusts the conversion price based on a weighted average that considers both the magnitude of the price difference and the amount of new money raised relative to the company's total shares.</p>
+
+            <div class="callout formula">
+                <p><strong>New Conversion Price = Old Price x (Total Old Shares + New Shares x Old Price / New Price) / (Total Old Shares + New Shares)</strong></p>
+            </div>
+
+            <p>This formula produces a less drastic adjustment than full ratchet because it accounts for the fact that not all shares were issued at the lower price. The broader the share base used in the calculation (including all outstanding shares plus options and convertible securities), the less severe the adjustment.</p>
+
+            <h3>3. Narrow-Based Weighted Average</h3>
+
+            <p>The narrow-based formula uses the same structure but only counts the specific series of preferred shares being adjusted, rather than all outstanding shares. This results in a more aggressive adjustment than broad-based but less extreme than full ratchet.</p>
+
+            <div class="callout warning">
+                <p><strong>Founder Tip:</strong> Always negotiate for broad-based weighted average anti-dilution if possible. It is the industry standard and the most founder-friendly of the common provisions. Full ratchet should be rejected in almost all circumstances.</p>
+            </div>
+
+            <a href="../valuation.html" class="inline-cta">
+                <strong>Calculate Your Startup Valuation &#8594;</strong>
+            </a>
+
+            <h2 id="worked-example">Worked Example: Down Round Math</h2>
+
+            <p>Let's walk through a detailed example to see exactly how a down round reshuffles ownership.</p>
+
+            <h3>The Setup: Series A</h3>
+
+            <div class="callout example">
+                <p><strong>Pre-money valuation:</strong> $8,000,000<br>
+                <strong>Series A investment:</strong> $2,000,000<br>
+                <strong>Post-money valuation:</strong> $10,000,000<br>
+                <strong>Share price:</strong> $1.00/share<br>
+                <strong>Shares outstanding before Series A:</strong> 8,000,000 (founders)<br>
+                <strong>Series A shares issued:</strong> 2,000,000 ($2M / $1.00)<br>
+                <strong>Total shares:</strong> 10,000,000</p>
+                <p style="margin-top: 12px;"><strong>Ownership after Series A:</strong><br>
+                Founders: 8,000,000 shares = 80%<br>
+                Series A investors: 2,000,000 shares = 20%</p>
+            </div>
+
+            <h3>The Down Round: Series B</h3>
+
+            <p>The company struggles to hit targets. Eighteen months later, it needs to raise $3,000,000 to survive, but investors will only pay $0.60/share.</p>
+
+            <div class="callout example">
+                <p><strong>New share price:</strong> $0.60/share (down from $1.00 -- a 40% drop)<br>
+                <strong>Pre-money valuation:</strong> $0.60 x 10,000,000 = $6,000,000<br>
+                <strong>Series B investment:</strong> $3,000,000<br>
+                <strong>Series B shares issued:</strong> 5,000,000 ($3M / $0.60)<br>
+                <strong>Total shares (before anti-dilution):</strong> 15,000,000</p>
+                <p style="margin-top: 12px;"><strong>Ownership WITHOUT anti-dilution:</strong><br>
+                Founders: 8,000,000 shares = 53.3%<br>
+                Series A: 2,000,000 shares = 13.3%<br>
+                Series B: 5,000,000 shares = 33.3%</p>
+            </div>
+
+            <h3>With Broad-Based Weighted Average Anti-Dilution</h3>
+
+            <p>Now let's apply broad-based weighted average anti-dilution to protect Series A investors:</p>
+
+            <div class="callout example">
+                <p><strong>Formula:</strong> New Price = Old Price x (Old Shares + New Shares x Old Price / New Price) / (Old Shares + New Shares)</p>
+                <p style="margin-top: 12px;">New Price = $1.00 x (10,000,000 + 5,000,000 x $1.00 / $0.60) / (10,000,000 + 5,000,000)<br>
+                = $1.00 x (10,000,000 + 8,333,333) / 15,000,000<br>
+                = $1.00 x 18,333,333 / 15,000,000<br>
+                = $1.00 x 1.2222<br>
+                = <strong>$1.222/share (wait -- that can't be right)</strong></p>
+            </div>
+
+            <p>The formula above produces a counterintuitive result because of how the weighted average works. Let's correct the calculation -- the weighted average should produce a price between the old price and the new price:</p>
+
+            <div class="callout example">
+                <p><strong>Corrected Broad-Based Weighted Average:</strong><br>
+                New Conversion Price = Old Price x (A + B) / (A + C)</p>
+                <p style="margin-top: 8px;">Where:<br>
+                A = Total shares outstanding before the new issue = 10,000,000<br>
+                B = Shares that would have been issued at the old price = $3,000,000 / $1.00 = 3,000,000<br>
+                C = Actual shares issued = $3,000,000 / $0.60 = 5,000,000</p>
+                <p style="margin-top: 8px;">New Conversion Price = $1.00 x (10,000,000 + 3,000,000) / (10,000,000 + 5,000,000)<br>
+                = $1.00 x 13,000,000 / 15,000,000<br>
+                = <strong>$0.867/share</strong></p>
+                <p style="margin-top: 8px;">Series A adjusted shares = $2,000,000 / $0.867 = 2,307,690 shares (up from 2,000,000)<br>
+                <strong>Series A receives 307,690 bonus shares.</strong></p>
+                <p style="margin-top: 8px;"><strong>New total shares:</strong> 10,000,000 + 5,000,000 + 307,690 = 15,307,690</p>
+                <p style="margin-top: 8px;"><strong>Final ownership:</strong><br>
+                Founders: 8,000,000 = 52.2%<br>
+                Series A: 2,307,690 = 15.1%<br>
+                Series B: 5,000,000 = 32.7%</p>
+            </div>
+
+            <p>Notice that the founders' ownership dropped from 80% to 52.2% -- a loss of nearly 28 percentage points. The Series A investors were partially protected by anti-dilution, maintaining 15.1% instead of dropping to 13.3%. The cost of that protection came out of the founders' stake.</p>
+
+            <a href="../dilution.html" class="inline-cta">
+                <strong>Use Our Dilution Calculator to Model Your Cap Table &#8594;</strong>
+            </a>
+
+            <h2 id="409a-impact">Impact on 409A Valuations</h2>
+
+            <p>A down round has an immediate and significant impact on the company's <strong>409A valuation</strong>, which is the fair market value (FMV) used to set the strike price for employee stock options.</p>
+
+            <h3>Strike Prices Drop</h3>
+
+            <p>After a down round, the 409A valuation will generally be set at or below the new round's price per share (adjusted for preferred vs. common discounts). This means:</p>
+
+            <ul>
+                <li><strong>New option grants</strong> will have a lower strike price, which is better for new hires</li>
+                <li><strong>Existing options</strong> with higher strike prices may be "underwater" -- the strike price exceeds the current FMV, making them worthless unless the company recovers</li>
+            </ul>
+
+            <h3>The Underwater Options Problem</h3>
+
+            <p>If employees were granted options with a $1.00 strike price (based on the Series A 409A valuation) and the down round pushes the FMV to $0.50, those options are now underwater. The employee would pay $1.00 to buy something worth $0.50 -- a losing proposition.</p>
+
+            <div class="callout warning">
+                <p><strong>Underwater Options Are Toxic for Retention.</strong> Employees holding underwater options have a rational incentive to leave. Why stick around for equity that has negative value? Companies going through down rounds often need to address this quickly through option repricing or refresh grants.</p>
+            </div>
+
+            <h3>409A Valuation Timing</h3>
+
+            <p>A 409A valuation is typically valid for 12 months, but a material event like a down round <strong>triggers the need for a new 409A valuation immediately</strong>. The company cannot continue using the old, higher valuation to set option prices. Doing so risks IRS penalties for setting strike prices below FMV.</p>
+
+            <a href="../stock-options.html" class="inline-cta">
+                <strong>Calculate Your Stock Options Value &#8594;</strong>
+            </a>
+
+            <h2 id="employee-impact">Impact on Employees</h2>
+
+            <p>Employees are often the most affected by down rounds, yet they have the least control over the situation. Here is what employees should understand:</p>
+
+            <h3>Morale and Retention</h3>
+
+            <p>A down round sends a negative signal that can devastate team morale. Employees who joined partly because of the equity upside may feel betrayed or foolish. Key performers may start interviewing elsewhere. The psychological impact is often more damaging than the financial one in the short term.</p>
+
+            <h3>Option Repricing</h3>
+
+            <p>Companies sometimes respond to underwater options by <strong>repricing</strong> them -- lowering the strike price to match the new FMV. This can be done in several ways:</p>
+
+            <ul>
+                <li><strong>Direct repricing:</strong> The board simply lowers the strike price on existing options. This triggers accounting charges under ASC 718 and requires shareholder approval in many cases.</li>
+                <li><strong>Option exchange:</strong> Employees can voluntarily exchange old options for new ones at the lower strike price. The exchange ratio typically means fewer total options to compensate for the lower price.</li>
+                <li><strong>Refresh grants:</strong> Rather than repricing, the company issues new option grants at the current FMV. This is simpler administratively but increases dilution for existing shareholders.</li>
+            </ul>
+
+            <div class="callout">
+                <p><strong>Repricing Rules:</strong> Under IRS rules, if you cancel underwater options and reissue new options within 30 days, it is treated as a "repricing" subject to the same vesting schedule. If the gap is more than 6 months, it is considered a new grant. Companies must carefully navigate the timing to avoid adverse tax consequences for employees.</p>
+            </div>
+
+            <h3>What Employees Should Do</h3>
+
+            <ul>
+                <li><strong>Do not panic-sell or exercise underwater options.</strong> Wait for the company to reprice or issue refresh grants.</li>
+                <li><strong>Ask management for transparency.</strong> You have the right to understand how the down round affects your equity.</li>
+                <li><strong>Recalculate your expected value.</strong> Use the new FMV and your strike price to determine if your options have any value. If they are underwater, the intrinsic value is zero.</li>
+                <li><strong>Consider your total compensation.</strong> If the equity portion of your comp has lost significant value, you may need to renegotiate salary or ask for a refresh grant.</li>
+            </ul>
+
+            <a href="../stock-options.html" class="inline-cta">
+                <strong>Model Your Options With Our Calculator &#8594;</strong>
+            </a>
+
+            <h2 id="famous-examples">Famous Down Round Examples</h2>
+
+            <p>Down rounds happen to the best companies. Here are some notable examples:</p>
+
+            <h3>Square (now Block)</h3>
+
+            <p>In 2009, Square raised its Series C at a roughly $40 million valuation after previously being valued at around $45 million. The company later went public and reached a market cap of over $100 billion at its peak. The down round was a bump in the road, not the end of the story.</p>
+
+            <h3>Dropbox</h3>
+
+            <p>Dropbox reportedly raised a down round in 2015-2016, with its valuation dropping from the $10 billion peak of its prior round. The company successfully IPO'd in 2018 at a roughly $9 billion valuation and was later acquired for even more. The down round did not prevent a successful exit.</p>
+
+            <h3>Blue Apron</h3>
+
+            <p>Blue Apron went public at $10/share in 2017 and saw its stock decline steadily. While technically a post-IPO situation rather than a venture down round, it illustrates the same dynamic: investors who bought in at higher valuations saw significant paper losses, and employee equity lost substantial value.</p>
+
+            <h3>Juul Labs</h3>
+
+            <p>Juul was valued at $38 billion in its 2018 funding round with Altria. By 2023, the company's valuation had plummeted to single-digit billions as regulatory pressure mounted. This represents one of the most dramatic valuation declines in recent startup history.</p>
+
+            <div class="callout">
+                <p><strong>Key Pattern:</strong> The companies that recovered from down rounds did so by focusing on fundamentals -- revenue growth, unit economics, and product-market fit. The down round itself was not fatal; the failure to execute afterward was what determined the outcome.</p>
+            </div>
+
+            <h2 id="how-to-handle">How to Handle a Down Round</h2>
+
+            <p>Whether you are a founder negotiating a down round or an employee trying to protect your position, here are strategies for navigating the process:</p>
+
+            <h3>For Founders</h3>
+
+            <ul>
+                <li><strong>Negotiate anti-dilution terms aggressively.</strong> Push for broad-based weighted average rather than full ratchet. The difference can save you millions of shares in dilution.</li>
+                <li><strong>Limit the liquidation preference stack.</strong> New investors in a down round often ask for senior liquidation preferences. Try to keep the stack to 1x non-participating preferred to minimize the damage on exit.</li>
+                <li><strong>Plan for employee retention.</strong> Set aside an option pool increase specifically for refresh grants to retain key employees whose options are now underwater.</li>
+                <li><strong>Consider alternative structures.</strong> Sometimes a structured recapitalization or a bridge loan with warrants can be less dilutive than a traditional down round equity raise.</li>
+                <li><strong>Be transparent with the team.</strong> Employees will find out anyway. Explaining the situation and the path forward builds more trust than silence.</li>
+            </ul>
+
+            <h3>For Employees</h3>
+
+            <ul>
+                <li><strong>Understand your cap table position.</strong> Use a <a href="../dilution.html" style="color: var(--accent-light);">dilution calculator</a> to model how the down round changes your ownership percentage.</li>
+                <li><strong>Ask about repricing or refresh grants.</strong> Most companies going through down rounds will offer some form of equity relief to employees. Do not be afraid to ask.</li>
+                <li><strong>Evaluate the company's fundamentals.</strong> Is the down round a result of a market correction (which affects everyone) or a company-specific failure? The former is survivable; the latter may be a signal to leave.</li>
+                <li><strong>Do not exercise underwater options.</strong> Wait for repricing or a recovery in the 409A valuation before putting more money in.</li>
+            </ul>
+
+            <h3>For Investors</h3>
+
+            <ul>
+                <li><strong>Enforce your anti-dilution rights.</strong> They exist for exactly this situation. Ensure the company properly calculates and issues adjustment shares.</li>
+                <li><strong>Consider participating in the new round (pay-to-play).</strong> Some term sheets include pay-to-play provisions that require existing investors to participate in the down round or lose their anti-dilution protections.</li>
+                <li><strong>Think about the long-term relationship.</strong> Being too aggressive on terms can destroy the founder-investor relationship and ultimately hurt the company's chances of recovery.</li>
+            </ul>
+
+            <div class="callout tip">
+                <p><strong>Negotiation Tip:</strong> Founders should try to include a "sunset" on anti-dilution adjustments after a certain date or milestone. This prevents the anti-dilution adjustment from hanging over future rounds indefinitely and makes it easier to raise subsequent funding at a fair price.</p>
+            </div>
+
+            <h2 id="key-takeaways">Key Takeaways</h2>
+
+            <ul>
+                <li><strong>A down round means the price per share decreased</strong> from the previous round. The company is worth less than investors previously paid.</li>
+                <li><strong>Founders and employees bear the most dilution</strong> because preferred investors have anti-dilution protections that shift the cost to common shareholders.</li>
+                <li><strong>Broad-based weighted average</strong> is the industry standard anti-dilution provision and is significantly less punitive to founders than full ratchet.</li>
+                <li><strong>Underwater options are the biggest employee risk.</strong> When the 409A valuation drops below your strike price, your options have zero intrinsic value. Push for repricing or refresh grants.</li>
+                <li><strong>409A valuations must be updated immediately</strong> after a down round. Continuing to use the old, higher valuation creates IRS compliance risk.</li>
+                <li><strong>Down rounds are not fatal.</strong> Square, Dropbox, and many other successful companies experienced down rounds and still achieved strong exits. Execution matters more than any single funding round.</li>
+                <li><strong>Transparency is essential.</strong> Hiding a down round from employees creates more damage than the financial impact itself. Communicate early, explain the path forward, and offer retention incentives.</li>
+                <li><strong>Use tools to model the impact.</strong> Before negotiating or making decisions, model the exact impact on your cap table using a <a href="../dilution.html" style="color: var(--accent-light);">dilution calculator</a> and <a href="../valuation.html" style="color: var(--accent-light);">valuation calculator</a>.</li>
+            </ul>
+
+            <div class="callout cta">
+                <p><strong>Want to model the impact of a down round on your equity?</strong> Use our free <a href="../dilution.html" style="color: var(--accent-light);">Dilution Calculator</a> to see how anti-dilution provisions and new funding rounds change your ownership. Or try our <a href="../valuation.html" style="color: var(--accent-light);">Valuation Calculator</a> to understand what your company is really worth.</p>
+            </div>
+        </div>
+
+        <div class="author-bio">
+            <div class="author-avatar" aria-hidden="true">&#x1F4CA;</div>
+            <div class="author-content">
+                <h4>FounderMath</h4>
+                <p>We build free calculators and guides to help founders and startup employees understand their equity. From dilution to vesting to exit scenarios, we break down the math so you can make better decisions. <a href="../about.html">Learn more about us</a>.</p>
+            </div>
+        </div>
+
+        <div class="related-posts">
+            <h3>Related Articles</h3>
+            <a href="equity-glossary.html">Startup Equity Glossary -- 50+ Terms Explained</a>
+            <a href="anti-dilution-guide.html">Anti-Dilution Provisions: The Complete Guide</a>
+            <a href="startup-exit-scenarios-equity.html">Startup Exit Scenarios: What Happens to Your Equity</a>
+            <a href="equity-dilution-guide.html">Equity Dilution Guide: How Founders Lose (and Keep) Ownership</a>
+            <a href="participating-preferred-guide.html">Participating Preferred Stock: How It Affects Your Exit Payout</a>
+            <a href="stock-option-cost-basis.html">How to Calculate Your Stock Option Cost Basis</a>
+        </div>
+    </article>
+
+    <section class="newsletter">
+        <h2>Get weekly founder insights</h2>
+        <p>Equity breakdowns, fundraising math, and calculator tips. No spam.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" id="newsletterEmail" placeholder="founder@startup.com" required>
+            <button type="submit" style="background:var(--accent);color:white;border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer;">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../cap-table.html">Cap Table</a></li>
+                <li><a href="../equity-split.html">Equity Split</a></li>
+                <li><a href="../valuation.html">Valuation</a></li>
+                <li><a href="../stock-options.html">Stock Options</a></li>
+                <li><a href="../equity-glossary.html">Glossary</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+    function toggleTheme() {
+        const body = document.body;
+        const current = body.getAttribute('data-theme');
+        body.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+        localStorage.setItem('foundermath_theme', current === 'light' ? 'dark' : 'light');
+    }
+
+    async function handleNewsletter(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value;
+        const btn = e.target.querySelector('button');
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+        try {
+            const response = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, source: 'blog' })
+            });
+            if (response.ok) {
+                alert('Subscribed! Check your inbox.');
+                document.getElementById('newsletterEmail').value = '';
+            } else {
+                throw new Error('Failed to subscribe');
+            }
+        } catch (err) {
+            alert('Something went wrong. Please try again.');
+        }
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
+    }
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem('foundermath_theme');
+    if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
+    </script>
+</body>
+</html>

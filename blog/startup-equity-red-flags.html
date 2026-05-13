@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Red Flags in Your Startup Equity Offer Letter | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+    </script>
+    <meta name="description" content="Spot the 7 biggest red flags in startup equity offer letters. Learn what to watch for in vesting terms, exercise windows, clawback clauses, and more before you sign.">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "7 Red Flags in Your Startup Equity Offer Letter",
+        "url": "https://founder-math.com/blog/startup-equity-red-flags.html",
+        "description": "Spot the 7 biggest red flags in startup equity offer letters. Learn what to watch for in vesting terms, exercise windows, clawback clauses, and more before you sign.",
+        "datePublished": "2026-05-13",
+        "dateModified": "2026-05-13",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        }
+    }
+    </script>
+    <meta property="og:title" content="7 Red Flags in Your Startup Equity Offer Letter | FounderMath">
+    <meta property="og:description" content="Spot the 7 biggest red flags in startup equity offer letters. Learn what to watch for in vesting terms, exercise windows, clawback clauses, and more before you sign.">
+    <meta property="og:image" content="/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/startup-equity-red-flags.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 900px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links {
+            display: flex; align-items: center; gap: 32px; list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer; padding: 8px;
+        }
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 8px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; width: 36px; height: 36px;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+
+        .article-layout {
+            max-width: 720px; margin: 100px auto 60px; padding: 0 24px;
+        }
+        .article-header {
+            margin-bottom: 40px; text-align: center;
+        }
+        .article-meta {
+            display: flex; gap: 16px; justify-content: center;
+            flex-wrap: wrap; margin-bottom: 16px; font-size: 0.85rem;
+        }
+        .article-meta span { color: var(--text-muted); }
+        .tag {
+            background: var(--accent); color: white; padding: 4px 12px;
+            border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+        }
+        .article-layout h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800; letter-spacing: -0.03em;
+            margin-bottom: 24px; line-height: 1.2;
+        }
+        .article-layout h2 {
+            font-size: 1.6rem; font-weight: 700; margin-top: 48px; margin-bottom: 20px;
+        }
+        .article-layout h3 {
+            font-size: 1.3rem; font-weight: 600; margin-top: 32px; margin-bottom: 16px;
+        }
+        .article-layout p {
+            margin-bottom: 20px; color: var(--text-secondary);
+        }
+        .article-layout ul, .article-layout ol {
+            margin-bottom: 20px; padding-left: 28px;
+        }
+        .article-layout li {
+            margin-bottom: 12px; color: var(--text-secondary);
+        }
+        .lead {
+            font-size: 1.15rem; color: var(--text-primary);
+            line-height: 1.7; font-weight: 500;
+        }
+        .inline-cta {
+            display: block; background: var(--bg-card); border: 1px solid var(--accent);
+            padding: 20px; border-radius: 12px; text-align: center;
+            text-decoration: none; margin: 24px 0; transition: all 0.2s;
+        }
+        .inline-cta:hover { border-color: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .inline-cta strong { color: var(--accent-light); font-size: 1rem; }
+        .callout {
+            background: var(--bg-card); border-left: 4px solid var(--accent);
+            border-radius: 8px; padding: 20px; margin: 24px 0;
+        }
+        .callout p { margin: 0; }
+        .callout.formula {
+            text-align: center; font-size: 1.1rem; font-weight: 600;
+            background: var(--bg-secondary); border-radius: 8px; padding: 16px;
+            margin: 12px 0;
+        }
+        .callout.warning { border-left-color: var(--orange); }
+        .callout.tip { border-left-color: var(--green); }
+        .callout.example {
+            background: var(--bg-input); border-left-color: var(--accent-light);
+        }
+        .toc {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px 24px; margin: 32px 0;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin: 0 0 12px 0;
+        }
+        .toc ol {
+            padding-left: 20px;
+            counter-reset: toc;
+        }
+        .toc li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent-light); }
+        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
+        .related-posts a:hover { text-decoration: underline; }
+        .author-bio {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .author-avatar {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .author-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .author-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .author-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .author-content a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .article-meta { flex-wrap: wrap; }
+        }
+        .newsletter {
+            max-width: 600px; margin: 40px auto 60px; padding: 32px; text-align: center;
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+        }
+        .newsletter h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .newsletter p { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem; }
+        .newsletter-form {
+            display: flex; gap: 10px; max-width: 420px; margin: 0 auto;
+        }
+        .newsletter-form input {
+            flex: 1; padding: 12px 16px; background: var(--bg-input);
+            border: 1px solid var(--border); border-radius: 10px;
+            color: var(--text-primary); font-size: 0.9rem; outline: none;
+        }
+        .newsletter-form input:focus { border-color: var(--accent); }
+        .newsletter-form input::placeholder { color: var(--text-muted); }
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .callout.cta { border-left-color: var(--green); background: rgba(0,184,148,0.08); }
+        .callout.cta .cta-button { display: inline-block; margin-top: 0.75rem; padding: 0.6rem 1.5rem; background: var(--green); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .callout.cta .cta-button:hover { opacity: 0.9; }</style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+        <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+                <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+                <li role="none"><a href="../vesting.html" role="menuitem">Vesting</a></li>
+                <li role="none"><a href="../unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="../cap-table.html" role="menuitem">Cap Table</a></li>
+                <li role="none"><a href="../equity-split.html" role="menuitem">Equity Split</a></li>
+                <li role="none"><a href="../valuation.html" role="menuitem">Valuation</a></li>
+                <li role="none"><a href="../stock-options.html" role="menuitem">Options</a></li>
+                <li role="none"><a href="../equity-vs-salary.html" role="menuitem">Equity vs Salary</a></li>
+                <li role="none"><a href="../compare-offers.html" role="menuitem">Compare</a></li>
+                <li role="none"><a href="../equity-glossary.html" role="menuitem">Glossary</a></li>
+                <li role="none"><a href="../pricing.html" role="menuitem">Pricing</a></li>
+                <li><a href="../pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <article class="article-layout" id="main-content">
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="tag">Negotiation</span>
+                <span>May 13, 2026</span>
+                <span>14 min read</span>
+            </div>
+            <h1>Startup Equity Negotiation: 7 Red Flags in Your Offer Letter</h1>
+        </header>
+
+        <div class="article-body">
+            <p class="lead">Your startup offer letter might look generous on paper, but buried in the fine print are clauses that can wipe out years of equity value. Here are the 7 most dangerous red flags to catch before you sign.</p>
+
+            <a href="../compare-offers.html" class="inline-cta">
+                <strong>Compare Your Offers Side by Side →</strong>
+            </a>
+
+                <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#no-acceleration-clause">No Acceleration Clause (or Weak Double-Trigger Only)</a></li>
+                <li><a href="#short-exercise-window">Exercise Window Shorter Than 90 Days Post-Termination</a></li>
+                <li><a href="#clawback-provisions">Clawback Provisions (Company Can Buy Back Vested Shares)</a></li>
+                <li><a href="#unclear-409a">Unclear 409A Valuation / Strike Price</a></li>
+                <li><a href="#single-trigger-executives">Single-Trigger Acceleration That Only Protects Executives</a></li>
+                <li><a href="#no-information-rights">No Information Rights (Can't See Cap Table or Financials)</a></li>
+                <li><a href="#vague-change-of-control">Vague Language Around "Change of Control" or "Good Reason"</a></li>
+                <li><a href="#before-you-sign">Before You Sign: A Quick Checklist</a></li>
+            </ol>
+        </nav>
+
+        <p>You negotiated your salary, you picked your start date, and you're excited about the equity grant. But before you sign that offer letter, you need to read every word of the stock option agreement carefully. The equity portion of your startup compensation is where the most damaging clauses hide.</p>
+
+        <p>Unlike salary, equity comes with a web of legal terms that determine whether your options are actually worth anything. A "generous" grant of 50,000 options can be effectively worthless if the terms are structured against you. These seven red flags show up in offer letters more often than most people realize, and each one can cost you tens or hundreds of thousands of dollars.</p>
+
+        <div class="callout warning">
+            <p><strong>Why this matters:</strong> According to data from the National Bureau of Economic Research, the average startup employee holds their equity for 4.7 years before a liquidity event. That's nearly half a decade of your career riding on terms you probably skimmed in 15 minutes. Negotiate before you sign, because after you join, your leverage disappears.</p>
+        </div>
+
+        <h2 id="no-acceleration-clause">Red Flag #1: No Acceleration Clause (or Weak Double-Trigger Only)</h2>
+
+        <h3>What It Means</h3>
+
+        <p><strong>Vesting acceleration</strong> is a provision that speeds up your vesting schedule under certain conditions, most commonly when the company is acquired. Without an acceleration clause, your four-year vesting clock resets or continues unchanged even if the company is sold and your role is eliminated.</p>
+
+        <p>There are two main types:</p>
+
+        <ul>
+            <li><strong>Single-trigger acceleration:</strong> Your remaining unvested shares vest immediately upon a qualifying event (like an acquisition).</li>
+            <li><strong>Double-trigger acceleration:</strong> Your shares vest only if two conditions are met: (1) a qualifying event occurs, AND (2) you are terminated without cause or resign for good reason within a specified window (typically 12 months).</li>
+        </ul>
+
+        <h3>Why It's Dangerous</h3>
+
+        <div class="callout example">
+            <p><strong>Scenario:</strong> You join a startup with a standard 4-year vest (1-year cliff). You're granted 40,000 options. After 2.5 years, the company is acquired and your role is eliminated in the restructuring.</p>
+            <p style="margin-top: 12px;"><strong>Without acceleration:</strong> You've vested 25,000 options (2.5 of 4 years). The remaining 15,000 options vanish. If the acquisition price is $10/share, you just lost <strong>$150,000</strong> in potential equity value.</p>
+            <p style="margin-top: 12px;"><strong>With double-trigger acceleration:</strong> You're terminated without cause, so all 40,000 options vest immediately. You capture the full <strong>$400,000</strong>.</p>
+        </div>
+
+        <h3>What to Counter-Propose</h3>
+
+        <p>Ask for <strong>double-trigger acceleration</strong> with a 12-month post-closing window. This is the market-standard protection and is reasonable for any employee at any level. Specifically request:</p>
+
+        <ul>
+            <li>Acceleration upon termination without cause OR resignation for good reason within 12 months of a change of control</li>
+            <li>A clear definition of "good reason" (see Red Flag #7)</li>
+            <li>That the acceleration covers 100% of your remaining unvested shares, not a pro-rated portion</li>
+        </ul>
+
+        <h3>How Common Is It?</h3>
+
+        <p>Double-trigger acceleration is standard at most venture-backed startups for senior roles (director and above). For mid-level employees, it's present roughly 40-50% of the time. Complete absence of any acceleration clause is a genuine red flag, especially at companies that are likely acquisition targets.</p>
+
+        <h2 id="short-exercise-window">Red Flag #2: Exercise Window Shorter Than 90 Days Post-Termination</h2>
+
+        <h3>What It Means</h3>
+
+        <p>When you leave a company (voluntarily or involuntarily), you have a limited window to exercise your <strong>vested</strong> stock options. The industry standard is 90 days from your termination date. Some companies push for shorter windows of 30 or 60 days, and a few have started experimenting with longer windows (up to 10 years), but the default remains 90 days.</p>
+
+        <h3>Why It's Dangerous</h3>
+
+        <div class="callout example">
+            <p><strong>Scenario:</strong> You've vested 30,000 options at a $0.75 strike price. The current 409A valuation is $4.00/share. You're laid off and given a 30-day exercise window.</p>
+            <p style="margin-top: 12px;"><strong>Exercise cost:</strong> 30,000 x $0.75 = <strong>$22,500</strong></p>
+            <p><strong>AMT exposure (if ISOs):</strong> ($4.00 - $0.75) x 30,000 = $97,500 in AMT income. If you're in AMT territory, this could mean an additional <strong>$15,000-$27,000</strong> in taxes.</p>
+            <p style="margin-top: 12px;">You now have 30 days to come up with $22,500 to $49,500 in cash, on top of losing your income. A 90-day window at least gives you time to plan finances, explore loans, or negotiate. Thirty days creates a forced liquidation scenario where many employees simply walk away from their equity.</p>
+        </div>
+
+        <h3>What to Counter-Propose</h3>
+
+        <p>Push for a <strong>minimum 90-day exercise window</strong>. This is the industry standard and anything shorter should be flagged. If you're a senior hire, consider asking for a <strong>6-month or 12-month window</strong> for vested options. An increasing number of companies (Pinterest, Square, and others) have moved to 10-year exercise windows for vested options, though this is still the exception rather than the rule.</p>
+
+        <h3>How Common Is It?</h3>
+
+        <p>The vast majority of startups use a 90-day window. Windows shorter than 90 days appear in roughly 10-15% of offers, typically at earlier-stage companies or companies that have had issues with departed employees holding large option pools. It's worth noting that a 30-day window is actually the legal minimum for ISOs to maintain their tax status; beyond 90 days, exercised shares convert from ISOs to NSOs, which changes the tax treatment.</p>
+
+        <h2 id="clawback-provisions">Red Flag #3: Clawback Provisions (Company Can Buy Back Vested Shares)</h2>
+
+        <h3>What It Means</h3>
+
+        <p>A <strong>clawback provision</strong> (also called a "right of first refusal" or "repurchase right") allows the company to buy back your vested shares when you leave, often at the original strike price or the current fair market value. This effectively means your "vested" shares aren't truly yours.</p>
+
+        <p>These clauses come in several flavors:</p>
+
+        <ul>
+            <li><strong>Right of First Refusal (ROFR):</strong> The company can match any offer you receive for your shares. This is common and relatively benign.</li>
+            <li><strong>Repurchase right at cost:</strong> The company can buy back your vested shares at what you paid for them. This is dangerous because it eliminates your upside.</li>
+            <li><strong>Repurchase right at FMV:</strong> The company can buy back at the current 409A valuation. Less damaging but still limits your ability to hold for a potential exit.</li>
+        </ul>
+
+        <h3>Why It's Dangerous</h3>
+
+        <div class="callout example">
+            <p><strong>Scenario:</strong> You exercised 20,000 vested options at $1.00/share ($20,000 cost). The company's 409A valuation is now $5.00/share, so your shares are worth $100,000 on paper. You leave the company.</p>
+            <p style="margin-top: 12px;"><strong>With a repurchase right at cost:</strong> The company buys back your shares for $20,000. You get your money back but lose $80,000 in appreciation. The company keeps the upside you paid for and waited years to realize.</p>
+            <p style="margin-top: 12px;"><strong>With a repurchase right at FMV:</strong> The company buys back at $5.00/share = $100,000. You capture current value but lose the potential upside if the company eventually exits at $20/share ($400,000).</p>
+        </div>
+
+        <h3>What to Counter-Propose</h3>
+
+        <p>Push to remove any repurchase rights on <strong>vested and exercised shares</strong>. At minimum, ensure that:</p>
+
+        <ul>
+            <li>The company's right of first refusal applies only to transfers to third parties, not a blanket buyback right</li>
+            <li>There is no repurchase right at cost for vested, exercised shares</li>
+            <li>Any ROFR is limited to a reasonable period (e.g., 90 days) and requires the company to match the actual third-party offer terms</li>
+        </ul>
+
+        <h3>How Common Is It?</h3>
+
+        <p>ROFRs on transfers are nearly universal (present in 90%+ of stock option agreements). Full repurchase rights on vested shares are less common but show up in roughly 15-20% of early-stage company offers. They are more prevalent when the company has restrictive transfer provisions in its certificate of incorporation.</p>
+
+        <a href="../vesting.html" class="inline-cta">
+            <strong>Model Your Vesting Timeline With Our Calculator →</strong>
+        </a>
+
+        <h2 id="unclear-409a">Red Flag #4: Unclear 409A Valuation / Strike Price</h2>
+
+        <h3>What It Means</h3>
+
+        <p>The <strong>409A valuation</strong> is an independent appraisal of the company's fair market value (FMV) per share, required by the IRS for setting stock option strike prices. Your strike price must equal or exceed the 409A FMV on the date of grant. If the offer letter doesn't clearly state the strike price, the 409A valuation used to set it, or the date of that valuation, you're flying blind.</p>
+
+        <h3>Why It's Dangerous</h3>
+
+        <div class="callout example">
+            <p><strong>Scenario:</strong> Your offer says you'll receive 25,000 options but doesn't specify the strike price. You assume it'll be around $1.00 based on the company's last known valuation. When you receive the actual grant documents weeks after starting, the strike price is $3.50 because the company raised a new round and got a fresh 409A but didn't update your offer.</p>
+            <p style="margin-top: 12px;"><strong>Expected exercise cost:</strong> 25,000 x $1.00 = $25,000<br>
+            <strong>Actual exercise cost:</strong> 25,000 x $3.50 = $87,500</p>
+            <p style="margin-top: 12px;">That's a $62,500 difference you weren't counting on. And since the 409A is $3.50, your options are already underwater if the company's preferred price isn't significantly higher than that.</p>
+        </div>
+
+        <h3>What to Counter-Propose</h3>
+
+        <p>Before signing, request the following in writing:</p>
+
+        <ul>
+            <li>The exact strike price per share for your grant</li>
+            <li>The date of the 409A valuation used to set that strike price</li>
+            <li>Confirmation that the strike price won't change if a new 409A is completed before your grant date</li>
+            <li>The total number of shares outstanding (so you can calculate your ownership percentage)</li>
+        </ul>
+
+        <p>If the company won't provide the strike price, ask for a commitment that it will be based on the most recent 409A valuation as of the offer date, not the grant date.</p>
+
+        <h3>How Common Is It?</h3>
+
+        <p>Offer letters that omit the exact strike price are surprisingly common, appearing in roughly 30-40% of startup offers. Most companies include language like "strike price will be set at the FMV as determined by the board" without specifying the number. This is less of a problem at early-stage companies (where the 409A is typically very low) and more of a risk at growth-stage companies where 409A values can swing significantly between funding rounds.</p>
+
+        <div class="callout warning">
+            <p><strong>Warning:</strong> If the strike price in your grant is lower than the 409A FMV on the grant date, you may owe taxes on the discount as income under IRS Section 409A. This is a serious compliance issue that can result in a 20% penalty tax plus interest. Always verify that your strike price matches or exceeds the 409A.</p>
+        </div>
+
+        <h2 id="single-trigger-executives">Red Flag #5: Single-Trigger Acceleration That Only Protects Executives</h2>
+
+        <h3>What It Means</h3>
+
+        <p>Some companies include acceleration provisions in their stock option plans, but structure them so that only C-suite executives and sometimes vice presidents qualify. The offer letter may reference the company's "acceleration policy" without making clear that it doesn't apply to your role.</p>
+
+        <p>This creates a two-tier system where the people with the most leverage at negotiation time (executives) protect themselves, while rank-and-file employees bear all the downside risk of an acquisition.</p>
+
+        <h3>Why It's Dangerous</h3>
+
+        <div class="callout example">
+            <p><strong>Scenario:</strong> A Series B startup is acquired for $200 million. The company's acceleration policy provides single-trigger acceleration for "officers of the company" (defined as C-suite and SVPs).</p>
+            <p style="margin-top: 12px;"><strong>VP of Engineering</strong> (2 years into 4-year vest, 100,000 option grant):<br>
+            Vested shares: 50,000. With acceleration: 100,000.<br>
+            At $2.00/share acquisition price: Acceleration is worth an extra <strong>$100,000</strong>.</p>
+            <p style="margin-top: 12px;"><strong>Senior Engineer</strong> (2 years into 4-year vest, 40,000 option grant):<br>
+            Vested shares: 20,000. No acceleration applies.<br>
+            Lost unvested shares: 20,000 x $2.00 = <strong>$40,000</strong> gone.</p>
+        </div>
+
+        <h3>What to Counter-Propose</h3>
+
+        <p>Ask that any acceleration provisions in the company's equity plan apply to <strong>all employees</strong>, not just executives. At minimum, request that the acceleration eligibility threshold includes your role level. You can also negotiate an individual acceleration clause in your own offer letter that applies regardless of the company's general policy.</p>
+
+        <p>Specific language to propose: "In the event of a Change of Control, any unvested portion of the Optionee's options shall accelerate and become fully vested if the Optionee's employment is terminated without Cause or the Optionee resigns for Good Reason within twelve (12) months following such Change of Control."</p>
+
+        <h3>How Common Is It?</h3>
+
+        <p>Acceleration that's limited to executives is very common. A Stanford Venture Capital Initiative study found that roughly 70% of venture-backed startups have some form of acceleration, but it's typically available only to the top 5-10% of employees by title. Having it extend to all employees is rare (under 10% of companies). This makes it a harder clause to negotiate, but worth raising during the offer stage.</p>
+
+        <h2 id="no-information-rights">Red Flag #6: No Information Rights (Can't See Cap Table or Financials)</h2>
+
+        <h3>What It Means</h3>
+
+        <p>As a stock option holder, you're not a shareholder until you exercise. Until then, you have no legal right to see the company's financial statements, cap table, or 409A valuations. Even after exercising, your rights as a common shareholder are extremely limited compared to preferred shareholders.</p>
+
+        <p>Some companies voluntarily share this information with employees; others treat it as strictly confidential. If your offer letter or stock option agreement doesn't mention information rights, assume you won't have access.</p>
+
+        <h3>Why It's Dangerous</h3>
+
+        <div class="callout example">
+            <p><strong>Scenario:</strong> You're evaluating whether to exercise 50,000 vested options at a $2.00 strike price. The cost is $100,000. You need to know the company's financial health to assess the likelihood of a successful exit.</p>
+            <p style="margin-top: 12px;"><strong>What you don't know without information rights:</strong></p>
+            <ul style="margin-top: 8px;">
+                <li>The company has 18 months of runway left and is struggling to raise a new round</li>
+                <li>The cap table shows 2x liquidation preferences from the Series B investors, meaning common shareholders get nothing in a sale under $150 million</li>
+                <li>A new 409A valuation just came in at $1.50/share, below your $2.00 strike price (your options are underwater)</li>
+                <li>Outstanding option pool is already 25% of fully diluted shares, meaning heavy future dilution</li>
+            </ul>
+            <p style="margin-top: 12px;">Without this information, you might spend $100,000 exercising options that have minimal or negative expected value.</p>
+        </div>
+
+        <h3>What to Counter-Propose</h3>
+
+        <p>Request the following information rights in writing:</p>
+
+        <ul>
+            <li><strong>Annual cap table access:</strong> The fully diluted cap table showing all share classes, option pools, and liquidation preferences</li>
+            <li><strong>Quarterly financial updates:</strong> Revenue, burn rate, runway, and key business metrics</li>
+            <li><strong>409A valuation reports:</strong> Access to each new 409A valuation so you can track FMV changes</li>
+            <li><strong>Material event notification:</strong> Advance notice of fundraising rounds, acquisitions, or IPO plans</li>
+        </ul>
+
+        <p>Most companies won't agree to all of these, but getting access to the cap table and annual financial summaries is a reasonable ask, especially for senior hires.</p>
+
+        <h3>How Common Is It?</h3>
+
+        <p>Very few companies (under 5%) formally grant information rights to option holders. However, many startups informally share financial updates at all-hands meetings or via email. The gap between formal rights and informal practice is significant. Early-stage companies (Series A and earlier) tend to be more transparent; later-stage companies are more likely to restrict financial information to executives and board members.</p>
+
+        <a href="../compare-offers.html" class="inline-cta">
+            <strong>Use Our Compare Offers Tool to Evaluate Your Equity →</strong>
+        </a>
+
+        <h2 id="vague-change-of-control">Red Flag #7: Vague Language Around "Change of Control" or "Good Reason"</h2>
+
+        <h3>What It Means</h3>
+
+        <p>Your option agreement may reference important protections that only trigger upon a "Change of Control" or when you resign for "Good Reason." If these terms are not clearly defined, the company has enormous discretion to argue that the triggering event never occurred, leaving your acceleration, severance, or other protections effectively useless.</p>
+
+        <h3>Why It's Dangerous</h3>
+
+        <div class="callout example">
+            <p><strong>Scenario:</strong> Your option agreement includes double-trigger acceleration upon a "Change of Control." The term is not defined. The company sells substantially all of its assets to a larger corporation in an asset purchase agreement, but the shell entity continues to exist.</p>
+            <p style="margin-top: 12px;"><strong>With a clear definition:</strong> "Change of Control means (a) any acquisition of more than 50% of the voting securities, (b) any merger, consolidation, or sale of substantially all assets, or (c) a change in the majority of the board of directors." The asset sale clearly qualifies under (b). Your shares accelerate.</p>
+            <p style="margin-top: 12px;"><strong>With a vague definition:</strong> The company argues that since the legal entity still exists and there was no formal merger, no "Change of Control" occurred. You're now in a legal gray area. Litigating this costs $50,000-$200,000 in legal fees with uncertain outcomes.</p>
+        </div>
+
+        <p>The same problem applies to "Good Reason" resignations. If "Good Reason" is undefined, the company can claim that a 40% pay cut, relocation to another state, or demotion in title doesn't qualify, forcing you to either accept the change or quit without acceleration protection.</p>
+
+        <h3>What to Counter-Propose</h3>
+
+        <p>Request that the option agreement include explicit definitions. For <strong>Change of Control</strong>, ask for language that covers:</p>
+
+        <ul>
+            <li>Any merger or consolidation where the company's stockholders hold less than 50% of the surviving entity</li>
+            <li>Sale of substantially all assets</li>
+            <li>Acquisition of more than 50% of voting securities by a single entity or group</li>
+            <li>Change in majority of board members within a 12-month period</li>
+        </ul>
+
+        <p>For <strong>Good Reason</strong>, ask for language that includes:</p>
+
+        <ul>
+            <li>Material reduction in base salary or target bonus (typically defined as 10% or more)</li>
+            <li>Relocation of your primary office by more than 50 miles</li>
+            <li>Material diminution of title, responsibilities, or reporting structure</li>
+            <li>Requirement to provide 30 days' written notice before resigning for Good Reason</li>
+        </ul>
+
+        <h3>How Common Is It?</h3>
+
+        <p>Vague or undefined terms show up in roughly 25-35% of startup stock option agreements. The problem is more acute at early-stage companies that use boilerplate legal templates and less common at later-stage companies with professional HR and legal teams. Even at well-organized companies, the definitions are often buried in a separate "Equity Incentive Plan" document that employees never read.</p>
+
+        <div class="callout tip">
+            <p><strong>Tip:</strong> Always ask for the full Equity Incentive Plan document and the individual Stock Option Agreement before signing your offer. The definitions in the plan document supersede any verbal assurances from the recruiter or hiring manager. Read the definitions section carefully, and if key terms are missing, request that they be added to your individual agreement.</p>
+        </div>
+
+        <a href="../stock-options.html" class="inline-cta">
+            <strong>Calculate Your Stock Option Value →</strong>
+        </a>
+
+        <h2 id="before-you-sign">Before You Sign: A Quick Checklist</h2>
+
+        <p>Use this checklist to evaluate your equity offer before accepting:</p>
+
+        <ul>
+            <li><strong>Acceleration:</strong> Does the agreement include double-trigger acceleration? Does it apply to your role level, not just executives?</li>
+            <li><strong>Exercise window:</strong> How long do you have to exercise vested options after leaving? Is it at least 90 days?</li>
+            <li><strong>Clawback:</strong> Can the company buy back your vested, exercised shares? At what price?</li>
+            <li><strong>Strike price:</strong> Is the exact strike price stated in the offer? When was the 409A valuation performed?</li>
+            <li><strong>Definitions:</strong> Are "Change of Control," "Good Reason," and "Cause" clearly defined?</li>
+            <li><strong>Information access:</strong> Will you receive cap table access, financial updates, and 409A reports?</li>
+            <li><strong>Total shares outstanding:</strong> Do you know the fully diluted share count so you can calculate your ownership percentage?</li>
+            <li><strong>Liquidation preferences:</strong> Do you know how much preferred stock is ahead of your common shares in a liquidation waterfall?</li>
+        </ul>
+
+        <div class="callout">
+            <p><strong>The single most important negotiation tip:</strong> Get everything in writing. Verbal promises from recruiters about acceleration, exercise windows, or future grants are not legally binding. If it matters to you, it needs to be in the stock option agreement itself, not just the offer letter. Offer letters are typically non-binding on equity terms; the actual Stock Option Agreement controls.</p>
+        </div>
+
+        <div class="callout cta">
+            <p><strong>Evaluating multiple offers?</strong> Use our free <a href="../compare-offers.html" style="color: var(--accent-light);">Compare Offers Tool</a> to see your total compensation including equity at different exit scenarios. And our <a href="../vesting.html" style="color: var(--accent-light);">Vesting Calculator</a> can model exactly what you'll own at each point in your vesting schedule.</p>
+        </div>
+        </div>
+
+        <div class="related-posts">
+            <h3>Related Articles</h3>
+            <a href="equity-glossary.html">Startup Equity Glossary — 50+ Terms Explained</a>
+            <a href="how-to-negotiate-startup-job-offer.html">How to Negotiate a Startup Job Offer</a>
+            <a href="evaluate-equity-offer.html">How to Evaluate a Startup Equity Offer</a>
+            <a href="vesting-acceleration-single-double-trigger.html">Vesting Acceleration: Single-Trigger vs Double-Trigger</a>
+            <a href="stock-options-worth-guide.html">How Much Are My Stock Options Worth?</a>
+            <a href="iso-vs-nso-guide.html">ISO vs NSO: Which Stock Option Type Is Better?</a>
+        </div>
+    </article>
+
+    <section class="newsletter">
+        <h2>Get weekly founder insights</h2>
+        <p>Equity breakdowns, fundraising math, and calculator tips. No spam.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" id="newsletterEmail" placeholder="founder@startup.com" required>
+            <button type="submit" style="background:var(--accent);color:white;border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer;">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../cap-table.html">Cap Table</a></li>
+                <li><a href="../equity-split.html">Equity Split</a></li>
+                <li><a href="../valuation.html">Valuation</a></li>
+                <li><a href="../stock-options.html">Stock Options</a></li>
+                <li><a href="../equity-glossary.html">Glossary</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+    function toggleTheme() {
+        const body = document.body;
+        const current = body.getAttribute('data-theme');
+        body.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+        localStorage.setItem('foundermath_theme', current === 'light' ? 'dark' : 'light');
+    }
+
+    async function handleNewsletter(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value;
+        const btn = e.target.querySelector('button');
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+        try {
+            const response = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, source: 'blog' })
+            });
+            if (response.ok) {
+                alert('Subscribed! Check your inbox.');
+                document.getElementById('newsletterEmail').value = '';
+            } else {
+                throw new Error('Failed to subscribe');
+            }
+        } catch (err) {
+            alert('Something went wrong. Please try again.');
+        }
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
+    }
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem('foundermath_theme');
+    if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
+    </script>
+</body>
+</html>
