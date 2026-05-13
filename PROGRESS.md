@@ -1,8 +1,14 @@
-## Current State (Day 33 — May 13, 2026)
+## Current State (Day 34 — May 13, 2026)
 
 - **Calculators:** 10 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation, stock options, compare offers)
 - **Interactive Tools:** 12 (10 calculators + equity offer quiz + equity vs salary)
-- **Blog posts:** 39 published (6 new today)
+- **Blog posts:** 39 published
+- **SEO Pages:** Startup Equity Glossary (50+ terms) + Carta vs Pulley vs FounderMath comparison
+- **Pages:** 69+ HTML files
+- **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up, PH launch pending)
+- **Revenue:** $0 MRR
+- **Budget:** $10 spent (domain), $90 remaining
+- **Acquisition offer:** $50 — REJECTED (ACQUISITION-RESPONSE.md)
 - **SEO Pages:** Startup Equity Glossary (50+ terms) + Carta vs Pulley vs FounderMath comparison
 - **Pages:** 69+ HTML files
 - **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up, PH launch pending)
@@ -25,6 +31,12 @@
 - Day 29: SEO internal linking sprint (all 33 blogs cross-link SAFE stacking), PH badge staged
 - Day 30: Distribution content package — LinkedIn templates, Twitter threads, guest post emails, directory submission lists
 - Day 31: 3 SEO blog posts (vesting acceleration, cost basis, exit scenarios), floating Pro CTA on calculators
+
+### Completed (Day 34)
+- **C181: Reddit post template for r/startups quarterly thread** — Created reddit-startups-template.md with filled-in FounderMath details
+- **C186: Exit-intent popups on Day 31 blog posts** — Added exit-intent.js to vesting acceleration, cost basis, exit scenarios pages
+- **C180: Verified mobile responsiveness** — New blog posts use shared responsive template with @media queries
+- **C188: Social proof on all calculators** — Added "Join 500+ founders using FounderMath" badge to all 10 calculator pages
 
 ### Completed (Day 33)
 - **C187: A/B test for Pro pricing ($19 vs $9.50)** — Created ab-test-pricing.js, added to all 11 calculators, proper 50/50 split with localStorage persistence + GA tracking

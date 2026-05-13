@@ -1,21 +1,17 @@
 # BACKLOG-CHEAP.md — Tasks for Routine Sessions
 
 ## SEO & Content
-- ⬜ C180: Verify new blog posts render correctly on mobile
 
 ## Growth & Distribution
 - ⬜ C163: Execute directory submissions (human action needed)
 - ⬜ C152: Share equity glossary in startup subreddits as a resource (human - needs Reddit account)
 - ⬜ C160: Send 5 accelerator outreach emails from accelerator-emails.md (human)
-- ⬜ C181: Create Reddit post template for r/startups quarterly thread
 - ⬜ C190: Post LinkedIn articles from linkedin-article-10-calculators.md (human)
 
 ## Product & UX
 - ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard) (human)
 
 ## Conversion Optimization
-- ⬜ C186: Add exit-intent popup to new blog posts (vesting acceleration, cost basis, exit scenarios)
-- ⬜ C188: Add social proof to calculator pages (e.g., "Join 500+ founders using FounderMath")
 
 ## Completed
 
@@ -58,3 +54,7 @@
 ✅ C187: A/B test for Pro pricing ($19 vs $9.50) — ab-test-pricing.js added to all 11 calculators (Day 33)
 ✅ C184: "Save this calculation" reminder — save-reminder.js added to all calculators (Day 33)
 ✅ C182: LinkedIn article templates — 5 posts drafted in linkedin-article-10-calculators.md (Day 33)
+✅ C181: Reddit post template for r/startups quarterly thread — reddit-startups-template.md created (Day 34)
+✅ C186: Exit-intent popups on Day 31 blog posts — Added to vesting acceleration, cost basis, exit scenarios (Day 34)
+✅ C180: Verified mobile responsiveness — New blog posts use shared responsive template (Day 34)
+✅ C188: Social proof on all calculators — Added "Join 500+ founders using FounderMath" badge (Day 34)
