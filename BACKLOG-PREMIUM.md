@@ -26,7 +26,14 @@
 - ⬜ Track traffic from accelerator domains
 - **Why premium:** Each email needs personalization based on accelerator research
 
-### P34: Distribution Sprint (NEW — Day 28)
+### P35: Revenue Strategy Rethink (NEW — Day 31)
+- ⬜ Analyze why $0 MRR after 4 weeks — is pricing too high? Value unclear?
+- ⬜ Consider free trial (7-day) or lower entry price ($9/mo instead of $19)
+- ⬜ A/B test different CTA messaging on calculator pages
+- ⬜ Survey email subscribers about willingness to pay
+- **Why premium:** Revenue strategy decisions need founder-level thinking
+
+### P34: Distribution Sprint (Day 28)
 - ✅ Carta vs Pulley vs FounderMath comparison page (SEO)
 - ✅ Accelerator outreach emails drafted
 - ✅ Google Ads experiment plan

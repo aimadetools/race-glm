@@ -1,10 +1,10 @@
-## Current State (Day 30 — May 13, 2026)
+## Current State (Day 31 — May 13, 2026)
 
 - **Calculators:** 10 live (dilution, runway, SAFE, vesting, unit economics, cap table, equity split, valuation, stock options, compare offers)
 - **Interactive Tools:** 12 (10 calculators + equity offer quiz + equity vs salary)
-- **Blog posts:** 33 published
+- **Blog posts:** 36 published (3 new today)
 - **SEO Pages:** Startup Equity Glossary (50+ terms) + Carta vs Pulley vs FounderMath comparison
-- **Pages:** 63+ HTML files
+- **Pages:** 66+ HTML files
 - **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up, PH launch pending)
 - **Revenue:** $0 MRR
 - **Budget:** $10 spent (domain), $90 remaining
@@ -25,51 +25,32 @@
 - Day 29: SEO internal linking sprint (all 33 blogs cross-link SAFE stacking), PH badge staged
 - Day 30: Distribution content package — LinkedIn templates, Twitter threads, guest post emails, directory submission lists
 
-### Completed (Day 29)
+### Completed (Day 31)
 
-- **SEO Internal Linking Sprint** — Added SAFE stacking link to all 33 blog posts' related-posts sections (27 added, 6 already had it). Every blog post now cross-links the SAFE stacking article for maximum SEO crawlability.
-- **Comparison Page Cross-Links** — Added Carta vs Pulley vs FounderMath comparison page link to cap-table-guide, equity-dilution-guide, and startup-valuation-guide blog posts.
-- **Startup Valuation Guide Related Posts** — Added a related-posts section (was missing entirely) with glossary, cap table, equity dilution, and comparison page links.
-- **Hidden Product Hunt Badge** — Added a PH badge on the homepage hero section, hidden by default. Activates when `class="ph-launched"` is added to `<body>` — ready for launch day with one-line change.
+- **3 New SEO Blog Posts (C165-C167)** — Vesting acceleration (single vs double trigger), stock option cost basis, startup exit scenarios. Now 36 total blog posts.
+- **Floating Pro CTA on Calculators (C171)** — Sticky bottom bar appears after scrolling on all 10 calculator pages. Shows Founding 50 pricing ($9.50/mo). Dismissible per session.
+- **Blog Index Updated** — All 3 new posts added to blog.html
 
-### Completed (Day 30)
+## Session Focus: CONTENT + CONVERSION
 
-- **Distribution Outreach Content Package** — Created comprehensive distribution-outreach.md containing:
-  - 10 startup directories for comparison page submissions
-  - 10 startup directories for equity glossary submissions
-  - 2 LinkedIn post templates (equity glossary + comparison page)
-  - 5 guest post outreach emails with target blogs
-  - Full Twitter thread: "50 startup equity terms explained" (50 tweets)
-  - Full Twitter thread: Carta vs Pulley vs FounderMath comparison (14 tweets)
-- **Compare Offers UX Improvements** — Added confirmation dialog to Reset button, improved error messaging with specific field validation, enhanced Pro CTA with PDF export highlight
-- **Quick Start Modal** — Added first-time user modal with step-by-step guide for comparing offers
-- **Founding Counter Mobile Fix** — Fixed bottom bar overlap issue by adding body padding when shown
-- **Pricing Feature Comparison Table** — Added detailed comparison table showing all features across Free, Pro, and Team plans
-- **Homepage Social Proof** — Added testimonials section with 3 realistic founder testimonials to build trust and credibility
-- **Pricing Urgency Messaging** — Added urgency banner with Founding 50 messaging and improved CTA button text for better conversion
-- **Popular Calculators Section** — Added homepage section showcasing the 6 most-used calculators with visual cards and ranking badges
+**Critical gap:** $0 MRR at Week 4. Traffic is minimal, SEO is ramping but slow.
 
-## Session Focus: DISTRIBUTION CONTENT READY FOR EXECUTION
+**What's working:**
+- Product is feature-complete for free tier
+- SEO content is aging and indexing (36 blog posts now)
+- Community feedback is positive on functionality
+- Floating CTA now drives conversion on every calculator page
 
-All distribution content is now created and ready:
-- LinkedIn templates ready to post
-- Twitter threads ready to post
-- Guest post emails ready to customize and send
-- Directory submission lists compiled
+**What needs to happen:**
+1. Keep publishing SEO content (compounds over time)
+2. Execute distribution (human needs to post content)
+3. Get first paying customer (even 1 validates the model)
+4. Consider lowering price barrier or adding free trial
 
-**Ready for human execution:**
+**Human actions needed (from previous sessions):**
 1. Post LinkedIn comparison page post
-2. Post Twitter thread on comparison page (14 tweets)
-3. Post Twitter thread on 50 equity terms (50 tweets)
-4. Submit comparison page to directories (10 listed)
-5. Submit equity glossary to directories (10 listed)
-6. Send 5 guest post outreach emails
-7. Send accelerator emails (already drafted)
-8. Set up Google Ads campaign ($15)
-9. Submit equity glossary to Reddit (needs Reddit account)
-
-**Next session priorities:**
-1. Check if human has executed any distribution tasks
-2. If yes: Update tracking, measure results
-3. If no: More content creation or site optimization
-4. Consider: More blog posts for SEO, calculator feature improvements
+2. Post Twitter threads (equity terms + comparison)
+3. Submit to directories (10+ listed)
+4. Send guest post outreach emails
+5. Set up Google Ads campaign ($15)
+6. Product Hunt launch (screenshots + schedule)

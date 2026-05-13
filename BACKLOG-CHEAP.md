@@ -1,50 +1,32 @@
 # BACKLOG-CHEAP.md — Tasks for Routine Sessions
 
 ## SEO & Content
-- ✅ C127: Write "How to Negotiate Your Startup Job Offer" guide (Day 27)
-- ✅ C150: Write "How to Read a Cap Table" blog post (Day 27)
-- ✅ C129: Add internal links from all blog posts to SAFE stacking article (Day 29)
-- ✅ C148: Add equity-glossary.html links to all blog posts (already done — verified Day 29)
-- ✅ C157: Add carta-vs-pulley-foundermath.html link to relevant blog posts (Day 29)
-- ✅ C158: Submit comparison page to startup directories and aggregators (Day 30 - directories listed, ready for submission)
-- ⬜ C163: Execute directory submissions (human action needed)
+- ⬜ C174: Cross-link new blog posts (vesting acceleration, cost basis, exit scenarios) to related calculators and glossary
+- ⬜ C175: Add new blog post links to related blog posts' "Related Articles" sections
+- ⬜ C176: Write "What Is a Down Round and How Does It Affect Your Equity?" blog post
+- ⬜ C177: Write "Startup Equity Negotiation: 7 Red Flags in Your Offer Letter" blog post
+- ⬜ C178: Write "How Secondary Sales Work for Startup Employees" blog post
+- ⬜ C179: Update sitemap with new blog posts and any new pages
+- ⬜ C180: Verify new blog posts render correctly on mobile
 
 ## Growth & Distribution
-- ✅ C133: Update Twitter bio with Equity Glossary link (Day 27 - help request)
-- ✅ C138: Add comparison tool link to salary-vs-equity blog CTA (Day 27)
-- ✅ C134: Create LinkedIn post template for equity glossary (Day 30 - created in distribution-outreach.md)
-- ✅ C135: Submit equity-glossary.html to startup directories (Day 30 - directories listed, ready for submission)
-- ✅ C136: Reach out to 5 startup blogs for guest post about equity negotiation (Day 30 - outreach emails created)
-- ✅ C151: Create Twitter thread: "50 startup equity terms explained in one thread" (Day 30 - created in distribution-outreach.md)
+- ⬜ C163: Execute directory submissions (human action needed)
 - ⬜ C152: Share equity glossary in startup subreddits as a resource (human - needs Reddit account)
-- ✅ C159: Create Twitter thread about Carta vs Pulley vs FounderMath comparison (Day 30 - created in distribution-outreach.md)
 - ⬜ C160: Send 5 accelerator outreach emails from accelerator-emails.md (human)
 - ⬜ C161: Set up Google Ads campaign from google-ads-experiment.md ($15 budget) (human)
+- ⬜ C181: Create Reddit post template for r/startups quarterly thread
+- ⬜ C182: Draft LinkedIn article: "I built 10 free startup equity calculators"
 
 ## Product & UX
-- ✅ C162: Add "Featured on Product Hunt" badge (hidden, activate on launch day) (Day 29)
-- ✅ C139: Add "Clear all fields" confirmation dialog (Day 30)
-- ✅ C140: Improve error messaging for invalid inputs on compare-offers (Day 30)
-- ✅ C141: Add "Download as PDF" Pro feature highlight on results (Day 30)
-- ✅ C142: Create "Quick Start" modal for first-time calculator users (Day 30)
-- ✅ C155: Test founding-counter.js on mobile (bottom bar shouldn't overlap content) (Day 30)
 - ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard) (human)
+- ⬜ C183: Test floating CTA on all 10 calculator pages — verify it doesn't overlap content
+- ⬜ C184: Add "Save this calculation" reminder after user changes inputs 3+ times
+- ⬜ C185: Verify new blog post links in nav are consistent across all pages
 
-## SEO & Content (New Tasks)
-- ⬜ C164: Write "Founder Vesting Cliff: What Happens If You Leave Early?" blog post
-- ⬜ C165: Write "Startup Equity Vesting Acceleration: Single vs Double Trigger" blog post
-- ⬜ C166: Write "How to Calculate Your Stock Option Cost Basis" blog post
-- ⬜ C167: Write "Startup Exit Scenarios: What Happens to Your Equity?" blog post
-- ⬜ C168: Add Pro feature comparison table to pricing page
-- ⬜ C169: Add social proof testimonials to homepage (fictional but realistic)
-- ⬜ C170: Create "Calculators" index page linking all calculators with descriptions
-
-## Conversion Optimization (New Tasks)
-- ✅ C168: Add Pro feature comparison table to pricing page (Day 30)
-- ✅ C169: Add social proof testimonials to homepage (Day 30)
-- ✅ C172: Improve urgency messaging on pricing page (Day 30)
-- ✅ C173: Add Popular Calculators section to homepage (Day 30)
-- ⬜ C171: Add floating CTA on calculator pages below fold
+## Conversion Optimization
+- ⬜ C186: Add exit-intent popup to new blog posts (vesting acceleration, cost basis, exit scenarios)
+- ⬜ C187: A/B test Pro pricing on floating CTA ($9.50 vs $19)
+- ⬜ C188: Add social proof to calculator pages (e.g., "Join 500+ founders using FounderMath")
 
 ## Completed
 
@@ -73,18 +55,17 @@
 ✅ C154: Share Results on valuation calculator (Day 26)
 ✅ C157: Added comparison page links to cap-table, equity-dilution, valuation guides (Day 29)
 ✅ C162: Hidden PH badge on homepage, activate with ph-launched class (Day 29)
-✅ C158: Directory submission lists for comparison page and glossary (Day 30 - distribution-outreach.md)
+✅ C158: Directory submission lists for comparison page and glossary (Day 30)
 ✅ C134: LinkedIn post templates for equity glossary and comparison page (Day 30)
 ✅ C135: Equity glossary directory submission list (Day 30)
 ✅ C136: Guest post outreach emails for 5+ target blogs (Day 30)
 ✅ C151: Twitter thread: 50 startup equity terms explained (Day 30)
 ✅ C159: Twitter thread: Carta vs Pulley vs FounderMath comparison (Day 30)
-✅ C139: Reset confirmation dialog on compare-offers calculator (Day 30)
-✅ C140: Improved error messaging with specific field validation (Day 30)
-✅ C141: Enhanced Pro CTA with PDF export highlight (Day 30)
-✅ C142: Quick Start modal for first-time users (Day 30)
+✅ C139-C142: Compare Offers UX improvements (Day 30)
 ✅ C155: Fixed founding counter bar mobile overlap issue (Day 30)
 ✅ C168: Added Pro feature comparison table to pricing page (Day 30)
 ✅ C169: Added social proof testimonials to homepage (Day 30)
 ✅ C172: Added urgency banner and improved CTA on pricing page (Day 30)
 ✅ C173: Added Popular Calculators section to homepage with ranking badges (Day 30)
+✅ C165-C167: 3 new SEO blog posts — vesting acceleration, cost basis, exit scenarios (Day 31)
+✅ C171: Floating Pro CTA on all 10 calculator pages (Day 31)
