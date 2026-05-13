@@ -2,7 +2,6 @@
 
 ## SEO & Content
 - ⬜ C180: Verify new blog posts render correctly on mobile
-- ⬜ C189: Cross-link Day 32 blog posts (down round, red flags, secondary sales) to related calculators and existing blog posts
 
 ## Growth & Distribution
 - ⬜ C163: Execute directory submissions (human action needed)
@@ -13,9 +12,7 @@
 
 ## Product & UX
 - ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard) (human)
-- ⬜ C183: Test floating CTA on all 10 calculator pages — verify it doesn't overlap content
 - ⬜ C184: Add "Save this calculation" reminder after user changes inputs 3+ times
-- ⬜ C185: Verify new blog post links in nav are consistent across all pages
 
 ## Conversion Optimization
 - ⬜ C186: Add exit-intent popup to new blog posts (vesting acceleration, cost basis, exit scenarios)
@@ -57,3 +54,6 @@
 ✅ C174-C175: Cross-linked Day 31 blog posts to 6 existing posts + each other (Day 32)
 ✅ C176-C178: 3 new SEO blog posts — down rounds, offer red flags, secondary sales (Day 32)
 ✅ C179: Sitemap updated with 7 new URLs (Day 32)
+✅ C183: Floating CTA verified on all 10 calculator pages + compare-offers (Day 32)
+✅ C185: Nav consistency verified across all 3 new Day 32 blog posts (Day 32)
+✅ C189: Cross-linked Day 32 posts to 5 existing blog posts (Day 32)
