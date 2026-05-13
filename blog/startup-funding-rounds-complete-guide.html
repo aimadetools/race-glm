@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Funding Rounds Complete Guide: Pre-Seed to IPO | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+    </script>
+    <meta name="description" content="Complete guide to startup funding rounds: pre-seed, seed, Series A, B, and C. Learn typical raise amounts, valuations, dilution, and what changes at each stage.">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Startup Funding Rounds Complete Guide: Pre-Seed to IPO",
+        "url": "https://founder-math.com/blog/startup-funding-rounds-complete-guide.html",
+        "description": "Complete guide to startup funding rounds: pre-seed, seed, Series A, B, and C. Learn typical raise amounts, valuations, dilution, and what changes at each stage.",
+        "datePublished": "2026-05-14",
+        "dateModified": "2026-05-14",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        }
+    }
+    </script>
+    <meta property="og:title" content="Startup Funding Rounds Complete Guide: Pre-Seed to IPO | FounderMath">
+    <meta property="og:description" content="Complete guide to startup funding rounds: pre-seed, seed, Series A, B, and C. Learn typical raise amounts, valuations, dilution, and what changes at each stage.">
+    <meta property="og:image" content="/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/startup-funding-rounds-complete-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 900px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links {
+            display: flex; align-items: center; gap: 32px; list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer; padding: 8px;
+        }
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 8px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; width: 36px; height: 36px;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+
+        .article-layout {
+            max-width: 720px; margin: 100px auto 60px; padding: 0 24px;
+        }
+        .article-header {
+            margin-bottom: 40px; text-align: center;
+        }
+        .article-meta {
+            display: flex; gap: 16px; justify-content: center;
+            flex-wrap: wrap; margin-bottom: 16px; font-size: 0.85rem;
+        }
+        .article-meta span { color: var(--text-muted); }
+        .tag {
+            background: var(--accent); color: white; padding: 4px 12px;
+            border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+        }
+        .article-layout h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800; letter-spacing: -0.03em;
+            margin-bottom: 24px; line-height: 1.2;
+        }
+        .article-layout h2 {
+            font-size: 1.6rem; font-weight: 700; margin-top: 48px; margin-bottom: 20px;
+        }
+        .article-layout h3 {
+            font-size: 1.3rem; font-weight: 600; margin-top: 32px; margin-bottom: 16px;
+        }
+        .article-layout p {
+            margin-bottom: 20px; color: var(--text-secondary);
+        }
+        .article-layout ul, .article-layout ol {
+            margin-bottom: 20px; padding-left: 28px;
+        }
+        .article-layout li {
+            margin-bottom: 12px; color: var(--text-secondary);
+        }
+        .lead {
+            font-size: 1.15rem; color: var(--text-primary);
+            line-height: 1.7; font-weight: 500;
+        }
+        .inline-cta {
+            display: block; background: var(--bg-card); border: 1px solid var(--accent);
+            padding: 20px; border-radius: 12px; text-align: center;
+            text-decoration: none; margin: 24px 0; transition: all 0.2s;
+        }
+        .inline-cta:hover { border-color: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .inline-cta strong { color: var(--accent-light); font-size: 1rem; }
+        .callout {
+            background: var(--bg-card); border-left: 4px solid var(--accent);
+            border-radius: 8px; padding: 20px; margin: 24px 0;
+        }
+        .callout p { margin: 0; }
+        .callout.formula {
+            text-align: center; font-size: 1.1rem; font-weight: 600;
+            background: var(--bg-secondary); border-radius: 8px; padding: 16px;
+            margin: 12px 0;
+        }
+        .callout.warning { border-left-color: var(--orange); }
+        .callout.tip { border-left-color: var(--green); }
+        .callout.example {
+            background: var(--bg-input); border-left-color: var(--accent-light);
+        }
+        .toc {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px 24px; margin: 32px 0;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin: 0 0 12px 0;
+        }
+        .toc ol {
+            padding-left: 20px;
+            counter-reset: toc;
+        }
+        .toc li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent-light); }
+        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
+        .related-posts a:hover { text-decoration: underline; }
+        .author-bio {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .author-avatar {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .author-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .author-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .author-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .author-content a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .article-meta { flex-wrap: wrap; }
+        }
+        .newsletter {
+            max-width: 600px; margin: 40px auto 60px; padding: 32px; text-align: center;
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+        }
+        .newsletter h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .newsletter p { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem; }
+        .newsletter-form {
+            display: flex; gap: 10px; max-width: 420px; margin: 0 auto;
+        }
+        .newsletter-form input {
+            flex: 1; padding: 12px 16px; background: var(--bg-input);
+            border: 1px solid var(--border); border-radius: 10px;
+            color: var(--text-primary); font-size: 0.9rem; outline: none;
+        }
+        .newsletter-form input:focus { border-color: var(--accent); }
+        .newsletter-form input::placeholder { color: var(--text-muted); }
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .callout.cta { border-left-color: var(--green); background: rgba(0,184,148,0.08); }
+        .callout.cta .cta-button { display: inline-block; margin-top: 0.75rem; padding: 0.6rem 1.5rem; background: var(--green); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .callout.cta .cta-button:hover { opacity: 0.9; }</style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+        <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+                <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+                <li role="none"><a href="../vesting.html" role="menuitem">Vesting</a></li>
+                <li role="none"><a href="../unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="../cap-table.html" role="menuitem">Cap Table</a></li>
+                <li role="none"><a href="../equity-split.html" role="menuitem">Equity Split</a></li>
+                <li role="none"><a href="../valuation.html" role="menuitem">Valuation</a></li>
+                <li role="none"><a href="../stock-options.html" role="menuitem">Options</a></li>
+                <li role="none"><a href="../equity-vs-salary.html" role="menuitem">Equity vs Salary</a></li>
+                <li role="none"><a href="../compare-offers.html" role="menuitem">Compare</a></li>
+                <li role="none"><a href="../equity-glossary.html" role="menuitem">Glossary</a></li>
+                <li role="none"><a href="../pricing.html" role="menuitem">Pricing</a></li>
+                <li><a href="../pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <article class="article-layout" id="main-content">
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="tag">Fundraising</span>
+                <span>May 14, 2026</span>
+                <span>13 min read</span>
+            </div>
+            <h1>Startup Funding Rounds Complete Guide: Pre-Seed to IPO</h1>
+        </header>
+
+        <div class="article-body">
+            <p class="lead">Startup funding has a vocabulary all its own: pre-seed, seed, Series A, Series B, Series C, and beyond. Each round serves a different purpose, comes with different expectations, and typically brings different investor types. This guide explains what happens at each stage and how ownership changes as you grow.</p>
+
+            <a href="../dilution.html" class="inline-cta">
+                <strong>Model Your Dilution Across All Funding Rounds &#8594;</strong>
+            </a>
+
+            <nav class="toc">
+                <h2>Table of Contents</h2>
+                <ol>
+                    <li><a href="#pre-seed-stage">Pre-Seed Stage</a></li>
+                    <li><a href="#seed-stage">Seed Stage</a></li>
+                    <li><a href="#series-a">Series A</a></li>
+                    <li><a href="#series-b">Series B</a></li>
+                    <li><a href="#series-c-and-beyond">Series C and Beyond</a></li>
+                    <li><a href="#how-rounds-work">How Funding Rounds Work</a></li>
+                    <li><a href="#investor-types">Investor Types by Stage</a></li>
+                    <li><a href="#term-sheet-changes">How Term Sheets Change Across Rounds</a></li>
+                    <li><a href="#founder-ownership">Founder Ownership Through the Stages</a></li>
+                    <li><a href="#key-takeaways">Key Takeaways</a></li>
+                </ol>
+            </nav>
+
+            <h2 id="pre-seed-stage">Pre-Seed Stage</h2>
+
+            <p><strong>Pre-seed funding</strong> is often called "friends and family" or "angel" financing. It happens before the company has significant traction, revenue, or a product in market. Pre-seed is the most founder-friendly stage -- you're selling vision and potential rather than results.</p>
+
+            <h3>Typical Pre-Seed Metrics</h3>
+
+            <ul>
+                <li><strong>Raise amount:</strong> $50,000 to $500,000</li>
+                <li><strong>Valuation:</strong> $2M to $5M pre-money</li>
+                <li><strong>Ownership sold:</strong> 5% to 20%</li>
+                <li><strong>Investors:</strong> Friends, family, angels, micro-VCs</li>
+                <li><strong>Traction:</strong> Often just an idea, MVP, or early user feedback</li>
+            </ul>
+
+            <h3>What Pre-Seed Investors Want</h3>
+
+            <ul>
+                <li><strong>Team:</strong> Who are the founders and what's their background?</li>
+                <li><strong>Problem:</strong> What problem are you solving and for whom?</li>
+                <li><strong>Market:</strong> How big is the opportunity and who are competitors?</li>
+                <li><strong>Vision:</strong> Can this become a meaningful company?</li>
+            </ul>
+
+            <div class="callout tip">
+                <p><strong>Founder Advantage:</strong> Pre-seed investors rarely take board seats or demand aggressive terms. The term sheet is often simple: X amount of money for Y percent of company. The main concession is usually a small option pool (10-15%).</p>
+            </div>
+
+            <h2 id="seed-stage">Seed Stage</h2>
+
+            <p><strong>Seed funding</strong> is where most startups raise their first institutional capital. By seed, you should have some traction -- early revenue, user growth, or a validated product. Seed investors are betting on your ability to execute.</p>
+
+            <h3>Typical Seed Metrics</h3>
+
+            <ul>
+                <li><strong>Raise amount:</strong> $750,000 to $3,000,000</li>
+                <li><strong>Valuation:</strong> $5M to $12M pre-money</li>
+                <li><strong>Ownership sold:</strong> 10% to 25%</li>
+                <li><strong>Investors:</strong> Seed funds, angel syndicates, some micro-VCs</li>
+                <li><strong>Traction:</strong> $1K-$10K MRR, 1K-50K users, or strong pilot customers</li>
+            </ul>
+
+            <h3>What Seed Investors Want</h3>
+
+            <ul>
+                <li><strong>Traction evidence:</strong> Real metrics showing product-market fit</li>
+                <li><strong>Unit economics:</strong> CAC, LTV, and retention data</li>
+                <li><strong>Team completeness:</strong> Do you have the right team to scale?</li>
+                <li><strong>Market size:</strong> Is this opportunity large enough to justify VC returns?</li>
+            </ul>
+
+            <div class="callout example">
+                <p><strong>Seed Round Example:</strong><br>
+                Raise: $1,500,000<br>
+                Pre-money valuation: $6,000,000<br>
+                Post-money valuation: $7,500,000<br>
+                Ownership sold: 20% ($1.5M / $7.5M)<br>
+                Founders: 80% remaining<br>
+                Option pool: 15% (typical seed requirement)</li>
+            </div>
+
+            <h2 id="series-a">Series A</h2>
+
+            <p><strong>Series A</strong> is the first "institutional" round where significant VC funds lead investments. By Series A, you should have a growing product, measurable revenue, and a path to scale. Series A is about accelerating growth, not finding product-market fit.</p>
+
+            <h3>Typical Series A Metrics</h3>
+
+            <ul>
+                <li><strong>Raise amount:</strong> $3M to $15M</li>
+                <li><strong>Valuation:</strong> $10M to $40M pre-money</li>
+                <li><strong>Ownership sold:</strong> 15% to 30%</li>
+                <li><strong>Investors:</strong> Tier-2 and tier-3 VC firms</li>
+                <li><strong>Traction:</strong> $50K-$500K MRR, clear growth trajectory</li>
+            </ul>
+
+            <h3>What Series A Investors Want</h3>
+
+            <ul>
+                <li><strong>Growth rate:</strong> Month-over-month or year-over-year expansion</li>
+                <li><strong>Retention:</strong> Churn, cohort analysis, LTV:CAC ratio</li>
+                <li><strong>Market leadership:</strong> Can you win in your segment?</li>
+                <li><strong>Team scaling:</strong> Can you deploy capital effectively to grow?</li>
+            </ul>
+
+            <div class="callout warning">
+                <p><strong>Series A Term Sheet Complexity:</strong> Series A is where term sheets get complex. Investors negotiate board seats, liquidation preferences, anti-dilution provisions, pro-rata rights, and protective provisions. Founders need legal counsel to negotiate Series A.</p>
+            </div>
+
+            <a href="../dilution.html" class="inline-cta">
+                <strong>Model Series A Dilution With Our Calculator &#8594;</strong>
+            </a>
+
+            <h2 id="series-b">Series B</h2>
+
+            <p><strong>Series B</strong> is for companies that have found product-market fit and are scaling aggressively. The company likely has meaningful revenue ($1M-$10M ARR) and is hiring rapidly. Series B investors are funding market expansion, product development, and competitive positioning.</p>
+
+            <h3>Typical Series B Metrics</h3>
+
+            <ul>
+                <li><strong>Raise amount:</strong> $15M to $50M</li>
+                <li><strong>Valuation:</strong> $50M to $150M pre-money</li>
+                <li><strong>Ownership sold:</strong> 10% to 20%</li>
+                <li><strong>Investors:</strong> Tier-1 VC firms</li>
+                <li><strong>Traction:</strong> $1M-$10M ARR, 50-500 employees</li>
+            </ul>
+
+            <h3>What Series B Investors Want</h3>
+
+            <ul>
+                <li><strong>Market expansion:</strong> New geographies, customer segments, products</li>
+                <li><strong>Competitive moat:</strong> Why can't competitors easily copy you?</li>
+                <li><strong>Unit economics:</strong> Healthy margins at scale</li>
+                <li><strong>Execution track record:</strong> Can you deploy tens of millions effectively?</li>
+            </ul>
+
+            <div class="callout tip">
+                <p><strong>Series B Reality:</strong> At this stage, dilution is significant but absolute dollar amounts are large. Founders may own 30-40% of the company but their stake is worth tens of millions. The trade-off is more ownership for a much more valuable company.</p>
+            </div>
+
+            <h2 id="series-c-and-beyond">Series C and Beyond</h2>
+
+            <p><strong>Series C</strong> and subsequent rounds (Series D, E, etc.) are for late-stage companies preparing for IPO or acquisition. These rounds are about becoming a dominant market leader, not proving the business works.</p>
+
+            <h3>Typical Series C+ Metrics</h3>
+
+            <ul>
+                <li><strong>Raise amount:</strong> $50M to $200M+</li>
+                <li><strong>Valuation:</strong> $200M to $1B+ pre-money</li>
+                <li><strong>Ownership sold:</strong> 5% to 15%</li>
+                <li><strong>Investors:</strong> Late-stage VCs, growth equity, crossover investors</li>
+                <li><strong>Traction:</strong> $10M-$100M+ ARR, 200-2000+ employees</li>
+            </ul>
+
+            <h3>What Late-Stage Investors Want</h3>
+
+            <ul>
+                <li><strong>Path to liquidity:</strong> Clear IPO or acquisition strategy</li>
+                <li><strong>Market dominance:</strong> #1 or #2 in your category</li>
+                <li><strong>Profitability:</strong> When will you be cash-flow positive?</li>
+                <li><strong>International expansion:</strong> Global footprint and revenue diversification</li>
+            </ul>
+
+            <div class="callout warning">
+                <p><strong>Founder Dilution:</strong> By Series C, founders typically own 15-25% of the company. However, because valuations are much higher, this smaller percentage is worth significantly more than the 50-70% they owned at seed. Focus on percentage less and value more.</p>
+            </div>
+
+            <h2 id="how-rounds-work">How Funding Rounds Work</h2>
+
+            <p>Understanding the mechanics of funding rounds is essential for founders to negotiate effectively and plan ahead.</p>
+
+            <h3>Pre-Money vs Post-Money Valuation</h3>
+
+            <p>The <strong>pre-money valuation</strong> is what investors say your company is worth before they invest. The <strong>post-money valuation</strong> is pre-money plus the investment amount. Your ownership dilution is based on the post-money valuation.</p>
+
+            <div class="callout formula">
+                <p><strong>Post-Money = Pre-Money + Investment Amount</strong></p>
+                <p><strong>Ownership Sold = Investment Amount / Post-Money Valuation</strong></p>
+            </div>
+
+            <div class="callout example">
+                <p><strong>Valuation Calculation:</strong><br>
+                Pre-money valuation: $10,000,000<br>
+                Investment: $2,500,000<br>
+                Post-money valuation: $12,500,000<br>
+                Ownership sold: 20% ($2.5M / $12.5M)<br>
+                Founders dilute from 100% to 80%</p>
+            </div>
+
+            <h3>The Option Pool</h3>
+
+            <p>Most term sheets require creating or expanding an <strong>option pool</strong> for future hires. This pool dilutes all existing shareholders proportionally and is separate from the new investor's ownership.</p>
+
+            <ul>
+                <li><strong>Typical pool size:</strong> 10-20% of post-money capitalization</li>
+                <li><strong>Who pays:</strong> The pool dilutes existing shareholders, not the new investor</li>
+                <li><strong>Purpose:</strong> Reserved for future employee grants</li>
+                <li><strong>Refresh:</strong> Pools can be expanded later with investor approval</li>
+            </ul>
+
+            <a href="../option-pool-management-guide.html" class="inline-cta">
+                <strong>Learn More About Option Pool Management &#8594;</strong>
+            </a>
+
+            <h2 id="investor-types">Investor Types by Stage</h2>
+
+            <p>Different types of investors participate at different funding stages. Knowing who you're pitching helps you tailor your approach.</p>
+
+            <h3>Friends and Family</h3>
+
+            <ul>
+                <li><strong>Stage:</strong> Pre-seed</li>
+                <li><strong>Decision criteria:</strong> Personal relationship, trust in founder</li>
+                <li><strong>Check size:</strong> $5K-$100K</li>
+                <li><strong>Terms:</strong> Very founder-friendly, simple notes</li>
+                <li><strong>Pros:</strong> Fast, low pressure, personal support</li>
+                <li><strong>Cons:</strong> Limited amount, relationship risk if things go wrong</li>
+            </ul>
+
+            <h3>Angels</h3>
+
+            <ul>
+                <li><strong>Stage:</strong> Pre-seed to seed</li>
+                <li><strong>Decision criteria:</strong> Founder quality, market opportunity, early traction</li>
+                <li><strong>Check size:</strong> $25K-$500K</li>
+                <li><strong>Terms:</strong> Convertible notes or SAFEs preferred</li>
+                <li><strong>Pros:</strong> Smart money, introductions, strategic advice</li>
+                <li><strong>Cons:</strong> May want significant ownership, require reporting</li>
+            </ul>
+
+            <h3>Micro-VCs and Seed Funds</h3>
+
+            <ul>
+                <li><strong>Stage:</strong> Seed</li>
+                <li><strong>Decision criteria:</strong> Early metrics, team composition, market size</li>
+                <li><strong>Check size:</strong> $500K-$2M</li>
+                <li><strong>Terms:</strong> Priced equity rounds with standard protections</li>
+                <li><strong>Pros:</strong> Institutional credibility, larger checks, follow-on potential</li>
+                <li><strong>Cons:</strong> More complex terms, board oversight required</li>
+            </ul>
+
+            <h3>Tier-2 and Tier-3 VCs</h3>
+
+            <ul>
+                <li><strong>Stage:</strong> Series A</li>
+                <li><strong>Decision criteria:</strong> Growth rate, retention, competitive positioning</li>
+                <li><strong>Check size:</strong> $3M-$15M</li>
+                <li><strong>Terms:</strong> Full term sheet with multiple investors</li>
+                <li><strong>Pros:</strong> Largest checks, follow-on capital, brand association</li>
+                <li><strong>Cons:</strong> Heavy dilution, significant control concessions</li>
+            </ul>
+
+            <h3>Tier-1 VCs and Growth Equity</h3>
+
+            <ul>
+                <li><strong>Stage:</strong> Series B and beyond</li>
+                <li><strong>Decision criteria:</strong> Market dominance, unit economics, path to exit</li>
+                <li><strong>Check size:</strong> $15M-$200M+</li>
+                <li><strong>Terms:</strong> Complex, seniority stacks, governance provisions</li>
+                <li><strong>Pros:</strong> Massive capital, exit connections, IPO expertise</li>
+                <li><strong>Cons:</strong> Valuation pressure, aggressive governance, founder displacement risk</li>
+            </ul>
+
+            <a href="../series-a-vs-seed-guide.html" class="inline-cta">
+                <strong>Compare Seed vs Series A Requirements &#8594;</strong>
+            </a>
+
+            <h2 id="term-sheet-changes">How Term Sheets Change Across Rounds</h2>
+
+            <p>Term sheet complexity and founder-friendliness change significantly as you progress through funding rounds. What's acceptable at seed may be rejected at Series A, and what's standard at Series B may be impossible at Series C.</p>
+
+            <h3>Board Composition</h3>
+
+            <ul>
+                <li><strong>Pre-seed:</strong> No board or founder-only board</li>
+                <li><strong>Seed:</strong> 1-2 investor board seats, founders maintain control</li>
+                <li><strong>Series A:</strong> 2-3 investor seats, founders may lose voting majority</li>
+                <li><strong>Series B+:</strong> Independent directors added, founders lose board control</li>
+            </ul>
+
+            <h3>Liquidation Preference</h3>
+
+            <ul>
+                <li><strong>Pre-seed:</strong> 1x non-participating preferred (founder-friendly)</li>
+                <li><strong>Seed:</strong> 1x non-participating or 1x participating</li>
+                <li><strong>Series A:</strong> 1x participating with anti-dilution</li>
+                <li><strong>Series B+:</strong> 1x-2x participating, senior stacks common</li>
+            </ul>
+
+            <h3>Anti-Dilution Provisions</h3>
+
+            <ul>
+                <li><strong>Pre-seed:</strong> Rare, if any</li>
+                <li><strong>Seed:</strong> Weighted average (negotiated)</li>
+                <li><strong>Series A:</strong> Broad-based weighted average (standard)</li>
+                <li><strong>Series B+:</strong> Broad-based weighted average, full ratchet in distress</li>
+            </ul>
+
+            <h3>Pro-Rata Rights</h3>
+
+            <ul>
+                <li><strong>Pre-seed:</strong> Almost never granted</li>
+                <li><strong>Seed:</strong> Sometimes granted to lead investors</li>
+                <li><strong>Series A:</strong> Standard for most investors</li>
+                <li><strong>Series B+:</strong> Expected, pay-to-play common</li>
+            </ul>
+
+            <div class="callout tip">
+                <p><strong>Negotiation Insight:</strong> Use your current round's leverage to negotiate better terms for future rounds. For example, at seed, try to get commitments about reasonable anti-dilution and liquidation preferences at Series A. VCs rarely commit far in advance, but asking creates favorable baseline.</p>
+            </div>
+
+            <h2 id="founder-ownership">Founder Ownership Through the Stages</h2>
+
+            <p>The most important metric for founders to track is ownership percentage through each round. Here's how typical dilution accumulates:</p>
+
+            <h3>Ownership Journey Example</h3>
+
+            <div class="callout example">
+                <p><strong>Starting:</strong> 2 founders, 50% each = 100% total</p>
+                <p style="margin-top: 12px;"><strong>Pre-seed ($500K @ $2M pre-money):</strong><br>
+                Sold: 25% ($500K / $2M)<br>
+                Each founder: 37.5% remaining</p>
+                <p style="margin-top: 12px;"><strong>Seed ($2M @ $8M pre-money):</strong><br>
+                Pre-money: $10M ($2M + previous)<br>
+                Sold: 20% ($2M / $10M)<br>
+                Each founder: 30% remaining<br>
+                Plus 15% option pool added</p>
+                <p style="margin-top: 12px;"><strong>Series A ($5M @ $25M pre-money):</strong><br>
+                Pre-money: $30M ($25M + previous)<br>
+                Sold: 16.7% ($5M / $30M)<br>
+                Each founder: 20% remaining<br>
+                Plus 10% additional option pool</p>
+                <p style="margin-top: 12px;"><strong>Series B ($20M @ $80M pre-money):</strong><br>
+                Pre-money: $100M ($80M + previous)<br>
+                Sold: 20% ($20M / $100M)<br>
+                Each founder: 12.5% remaining</p>
+                <p style="margin-top: 12px;"><strong>Result:</strong> Each founder owns 12.5% after Series B.<br>
+                At $500M exit, each founder gets $62.5M.</p>
+            </div>
+
+            <div class="callout tip">
+                <p><strong>Dilution Reality:</strong> By Series B, each founder's 12.5% stake is worth $62.5 million at a $500M exit. The percentage is lower than at seed, but the value is much higher. Focus less on percentage owned and more on the value of your stake at exit.</p>
+            </div>
+
+            <h3>When Founders Lose Control</h3>
+
+            <p>Founder voting control typically transitions between Series A and Series B:</p>
+
+            <ul>
+                <li><strong>Pre-seed to seed:</strong> Founders maintain control</li>
+                <li><strong>Seed to Series A:</strong> Founders may lose voting majority</li>
+                <li><strong>Series A to Series B:</strong> Founders typically lose board control</li>
+                <li><strong>Series B to Series C:</strong> Founders may lose CEO role</li>
+            </ul>
+
+            <div class="callout warning">
+                <p><strong>Founder Warning:</strong> The point at which you lose control depends on board composition, not just ownership. Even with 40% ownership, if investors hold 60% and act as a block, you're outvoted. Negotiate board seats and voting thresholds carefully at each round.</p>
+            </div>
+
+            <a href="../dilution.html" class="inline-cta">
+                <strong>Model Your Founder Ownership Journey &#8594;</strong>
+            </a>
+
+            <h2 id="key-takeaways">Key Takeaways</h2>
+
+            <ul>
+                <li><strong>Pre-seed is friends, family, and angels.</strong> Raise $50K-$500K at $2M-$5M valuation selling 5-20% for vision and potential.</li>
+                <li><strong>Seed requires traction evidence.</strong> Raise $750K-$3M at $5M-$12M valuation selling 10-25% for early growth and product-market fit signals.</li>
+                <li><strong>Series A funds scaling.</strong> Raise $3M-$15M at $10M-$40M valuation selling 15-30% for growth acceleration and competitive positioning.</li>
+                <li><strong>Series B funds market expansion.</strong> Raise $15M-$50M at $50M-$150M valuation selling 10-20% for dominance and international expansion.</li>
+                <li><strong>Series C+ funds IPO preparation.</strong> Raise $50M-$200M+ at $200M-$1B+ valuation selling 5-15% for public market leadership.</li>
+                <li><strong>Term sheets get more complex with each round.</strong> Board control, liquidation preferences, anti-dilution, and governance provisions all increase in investor favor.</li>
+                <li><strong>Focus on exit value, not ownership percentage.</strong> Your 12.5% at Series B is worth more than your 50% at seed. Value > Percentage.</li>
+                <li><strong>Model your dilution before raising.</strong> Use a <a href="../dilution.html" style="color: var(--accent-light);">dilution calculator</a> to see exactly how each round changes your ownership percentage.</li>
+                <li><strong>Understand investor expectations at each stage.</strong> Pre-seed investors want vision and team. Series A investors want growth and retention. Series B+ investors want market dominance and path to liquidity. Match expectations to your stage.</li>
+                <li><strong>Negotiate for future rounds while raising current one.</strong> The leverage you have in one round is the strongest leverage you'll have for the next. Use it to set favorable baselines for later terms.</li>
+            </ul>
+
+            <div class="callout cta">
+                <p><strong>Preparing for a funding round?</strong> Use our free <a href="../dilution.html" style="color: var(--accent-light);">Dilution Calculator</a> to model your ownership through multiple rounds, our <a href="../valuation.html" style="color: var(--accent-light);">Valuation Calculator</a> to understand what your company is worth, and our <a href="../safe.html" style="color: var(--accent-light);">SAFE Calculator</a> for pre-seed planning.</p>
+            </div>
+        </div>
+
+        <div class="author-bio">
+            <div class="author-avatar" aria-hidden="true">&#x1F4CA;</div>
+            <div class="author-content">
+                <h4>FounderMath</h4>
+                <p>We build free calculators and guides to help founders and startup employees understand their equity. From dilution to valuation to funding rounds, we break down the math so you can make better decisions. <a href="../about.html">Learn more about us</a>.</p>
+            </div>
+        </div>
+
+        <div class="related-posts">
+            <h3>Related Articles</h3>
+            <a href="equity-glossary.html">Startup Equity Glossary -- 50+ Terms Explained</a>
+            <a href="pre-money-post-money-valuation-guide.html">Pre-Money vs Post-Money Valuation: The Startup Funding Guide</a>
+            <a href="safe-note-guide.html">SAFE Note Conversion Explained: Cap vs. Discount vs. MFN</a>
+            <a href="equity-dilution-guide.html">How Equity Dilution Works Across Funding Rounds: A Visual Guide</a>
+            <a href="option-pool-management-guide.html">Option Pool Management: How to Avoid Surprise Dilution</a>
+            <a href="term-sheet-guide.html">Startup Term Sheet Guide: Every Clause Explained for Founders</a>
+        </div>
+    </article>
+
+    <section class="newsletter">
+        <h2>Get weekly founder insights</h2>
+        <p>Equity breakdowns, fundraising math, and calculator tips. No spam.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" id="newsletterEmail" placeholder="founder@startup.com" required>
+            <button type="submit" style="background:var(--accent);color:white;border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer;">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../cap-table.html">Cap Table</a></li>
+                <li><a href="../equity-split.html">Equity Split</a></li>
+                <li><a href="../valuation.html">Valuation</a></li>
+                <li><a href="../stock-options.html">Stock Options</a></li>
+                <li><a href="../equity-glossary.html">Glossary</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+    function toggleTheme() {
+        const body = document.body;
+        const current = body.getAttribute('data-theme');
+        body.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+        localStorage.setItem('foundermath_theme', current === 'light' ? 'dark' : 'light');
+    }
+
+    async function handleNewsletter(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value;
+        const btn = e.target.querySelector('button');
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+        try {
+            const response = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, source: 'blog' })
+            });
+            if (response.ok) {
+                alert('Subscribed! Check your inbox.');
+                document.getElementById('newsletterEmail').value = '';
+            } else {
+                throw new Error('Failed to subscribe');
+            }
+        } catch (err) {
+            alert('Something went wrong. Please try again.');
+        }
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
+    }
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem('foundermath_theme');
+    if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
+    </script>
+</body>
+</html>

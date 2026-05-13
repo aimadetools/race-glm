@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advisor Equity Grants: How to Compensate Startup Advisors | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+    </script>
+    <meta name="description" content="How to grant equity to startup advisors. Learn about FAST agreements, standard advisor equity benchmarks, vesting schedules, and common mistakes founders make when compensating advisors.">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Advisor Equity Grants: How to Compensate Startup Advisors",
+        "url": "https://founder-math.com/blog/advisor-equity-grants-guide.html",
+        "description": "How to grant equity to startup advisors. Learn about FAST agreements, standard advisor equity benchmarks, vesting schedules, and common mistakes founders make when compensating advisors.",
+        "datePublished": "2026-05-14",
+        "dateModified": "2026-05-14",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        }
+    }
+    </script>
+    <meta property="og:title" content="Advisor Equity Grants: How to Compensate Startup Advisors | FounderMath">
+    <meta property="og:description" content="How to grant equity to startup advisors. Learn about FAST agreements, standard advisor equity benchmarks, vesting schedules, and common mistakes founders make when compensating advisors.">
+    <meta property="og:image" content="/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/advisor-equity-grants-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 900px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links {
+            display: flex; align-items: center; gap: 32px; list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer; padding: 8px;
+        }
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 8px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; width: 36px; height: 36px;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+
+        .article-layout {
+            max-width: 720px; margin: 100px auto 60px; padding: 0 24px;
+        }
+        .article-header {
+            margin-bottom: 40px; text-align: center;
+        }
+        .article-meta {
+            display: flex; gap: 16px; justify-content: center;
+            flex-wrap: wrap; margin-bottom: 16px; font-size: 0.85rem;
+        }
+        .article-meta span { color: var(--text-muted); }
+        .tag {
+            background: var(--accent); color: white; padding: 4px 12px;
+            border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+        }
+        .article-layout h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800; letter-spacing: -0.03em;
+            margin-bottom: 24px; line-height: 1.2;
+        }
+        .article-layout h2 {
+            font-size: 1.6rem; font-weight: 700; margin-top: 48px; margin-bottom: 20px;
+        }
+        .article-layout h3 {
+            font-size: 1.3rem; font-weight: 600; margin-top: 32px; margin-bottom: 16px;
+        }
+        .article-layout p {
+            margin-bottom: 20px; color: var(--text-secondary);
+        }
+        .article-layout ul, .article-layout ol {
+            margin-bottom: 20px; padding-left: 28px;
+        }
+        .article-layout li {
+            margin-bottom: 12px; color: var(--text-secondary);
+        }
+        .lead {
+            font-size: 1.15rem; color: var(--text-primary);
+            line-height: 1.7; font-weight: 500;
+        }
+        .inline-cta {
+            display: block; background: var(--bg-card); border: 1px solid var(--accent);
+            padding: 20px; border-radius: 12px; text-align: center;
+            text-decoration: none; margin: 24px 0; transition: all 0.2s;
+        }
+        .inline-cta:hover { border-color: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .inline-cta strong { color: var(--accent-light); font-size: 1rem; }
+        .callout {
+            background: var(--bg-card); border-left: 4px solid var(--accent);
+            border-radius: 8px; padding: 20px; margin: 24px 0;
+        }
+        .callout p { margin: 0; }
+        .callout.formula {
+            text-align: center; font-size: 1.1rem; font-weight: 600;
+            background: var(--bg-secondary); border-radius: 8px; padding: 16px;
+            margin: 12px 0;
+        }
+        .callout.warning { border-left-color: var(--orange); }
+        .callout.tip { border-left-color: var(--green); }
+        .callout.example {
+            background: var(--bg-input); border-left-color: var(--accent-light);
+        }
+        .toc {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px 24px; margin: 32px 0;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin: 0 0 12px 0;
+        }
+        .toc ol {
+            padding-left: 20px;
+            counter-reset: toc;
+        }
+        .toc li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent-light); }
+        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
+        .related-posts a:hover { text-decoration: underline; }
+        .author-bio {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .author-avatar {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .author-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .author-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .author-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .author-content a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .article-meta { flex-wrap: wrap; }
+        }
+        .newsletter {
+            max-width: 600px; margin: 40px auto 60px; padding: 32px; text-align: center;
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+        }
+        .newsletter h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .newsletter p { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem; }
+        .newsletter-form {
+            display: flex; gap: 10px; max-width: 420px; margin: 0 auto;
+        }
+        .newsletter-form input {
+            flex: 1; padding: 12px 16px; background: var(--bg-input);
+            border: 1px solid var(--border); border-radius: 10px;
+            color: var(--text-primary); font-size: 0.9rem; outline: none;
+        }
+        .newsletter-form input:focus { border-color: var(--accent); }
+        .newsletter-form input::placeholder { color: var(--text-muted); }
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .callout.cta { border-left-color: var(--green); background: rgba(0,184,148,0.08); }
+        .callout.cta .cta-button { display: inline-block; margin-top: 0.75rem; padding: 0.6rem 1.5rem; background: var(--green); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .callout.cta .cta-button:hover { opacity: 0.9; }</style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+        <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+                <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+                <li role="none"><a href="../vesting.html" role="menuitem">Vesting</a></li>
+                <li role="none"><a href="../unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="../cap-table.html" role="menuitem">Cap Table</a></li>
+                <li role="none"><a href="../equity-split.html" role="menuitem">Equity Split</a></li>
+                <li role="none"><a href="../valuation.html" role="menuitem">Valuation</a></li>
+                <li role="none"><a href="../stock-options.html" role="menuitem">Options</a></li>
+                <li role="none"><a href="../equity-vs-salary.html" role="menuitem">Equity vs Salary</a></li>
+                <li role="none"><a href="../compare-offers.html" role="menuitem">Compare</a></li>
+                <li role="none"><a href="../equity-glossary.html" role="menuitem">Glossary</a></li>
+                <li role="none"><a href="../pricing.html" role="menuitem">Pricing</a></li>
+                <li><a href="../pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <article class="article-layout" id="main-content">
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="tag">Compensation</span>
+                <span>May 14, 2026</span>
+                <span>11 min read</span>
+            </div>
+            <h1>Advisor Equity Grants: How to Compensate Startup Advisors</h1>
+        </header>
+
+        <div class="article-body">
+            <p class="lead">Startup advisors provide expertise, connections, and credibility -- but how do you compensate them without over-diluting your cap table? This guide covers FAST agreements, standard equity benchmarks, vesting schedules, and common mistakes founders make when granting advisor equity.</p>
+
+            <a href="../dilution.html" class="inline-cta">
+                <strong>Calculate Your Advisor Grant Impact on Dilution &#8594;</strong>
+            </a>
+
+            <nav class="toc">
+                <h2>Table of Contents</h2>
+                <ol>
+                    <li><a href="#what-is-advisor-equity">What Is Advisor Equity?</a></li>
+                    <li><a href="#standard-equity-amounts">Standard Advisor Equity Amounts</a></li>
+                    <li><a href="#fast-agreements">FAST Agreements Explained</a></li>
+                    <li><a href="#vesting-for-advisors">Vesting Schedules for Advisors</a></li>
+                    <li><a href="#advisor-boards">Advisor Boards vs Individual Grants</a></li>
+                    <li><a href="#tax-considerations">Tax Considerations for Advisors</a></li>
+                    <li><a href="#common-mistakes">Common Mistakes to Avoid</a></li>
+                    <li><a href="#when-to-grant">When to Grant Advisor Equity</a></li>
+                    <li><a href="#how-to-structure">How to Structure Advisor Grants</a></li>
+                    <li><a href="#key-takeaways">Key Takeaways</a></li>
+                </ol>
+            </nav>
+
+            <h2 id="what-is-advisor-equity">What Is Advisor Equity?</h2>
+
+            <p><strong>Advisor equity</strong> is compensation given to individuals who provide ongoing strategic guidance to a startup in exchange for company ownership. Unlike employees, advisors typically work part-time or on an informal basis, contributing expertise, industry connections, or domain knowledge rather than daily operational work.</p>
+
+            <p>Advisors are different from board members (who have fiduciary duties and legal responsibilities) and consultants (who typically get paid cash fees). Advisor equity is a way to align incentives and recognize the value of strategic guidance without creating a formal employment relationship.</p>
+
+            <div class="callout">
+                <p><strong>Why Advisors Matter:</strong> Advisors can fill gaps in founder expertise (finance, marketing, sales, technical), open doors to customers or investors, and provide credibility through their reputation. The right advisor at the right stage can accelerate a startup's trajectory significantly.</p>
+            </div>
+
+            <h2 id="standard-equity-amounts">Standard Advisor Equity Amounts</h2>
+
+            <p>Advisor equity grants vary significantly based on advisor involvement level, stage of company, and value provided. Here are industry benchmarks:</p>
+
+            <h3>By Involvement Level</h3>
+
+            <ul>
+                <li><strong>Casual advisors (1-2 hours/month):</strong> 0.05% to 0.15% total</li>
+                <li><strong>Active advisors (4-8 hours/month):</strong> 0.15% to 0.5% total</li>
+                <li><strong>High-engagement advisors (10+ hours/month):</strong> 0.25% to 1.0% total</li>
+                <li><strong>Board-level advisors:</strong> 0.5% to 2.0% total (with formal board duties)</li>
+            </ul>
+
+            <h3>By Company Stage</h3>
+
+            <ul>
+                <li><strong>Pre-seed / Idea stage:</strong> 0.5% to 2.0% (high impact, high risk)</li>
+                <li><strong>Seed stage:</strong> 0.25% to 1.0% (company has some traction)</li>
+                <li><strong>Series A and beyond:</strong> 0.1% to 0.5% (later stage, lower impact per advisor)</li>
+            </ul>
+
+            <div class="callout example">
+                <p><strong>Example Calculation:</strong><br>
+                A Series A startup grants 0.5% equity to a technical advisor.<br>
+                Current valuation: $20,000,000<br>
+                Advisor grant value: $20,000,000 x 0.005 = <strong>$100,000</strong><br><br>
+                This advisor would earn this $100,000 in value over their vesting period in exchange for their guidance and connections.</p>
+            </div>
+
+            <h3>Total Advisor Pool</h3>
+
+            <p>Most startups allocate a total <strong>0.5% to 3.0%</strong> of their cap table for advisor equity. Going above 3% is rare and suggests the founder is over-relying on advisors or granting too generously. The advisor pool is typically separate from the employee option pool.</p>
+
+            <div class="callout warning">
+                <p><strong>Critical Dilution Warning:</strong> Advisor grants dilute founders directly. Before granting advisor equity, model the impact on your <a href="../dilution.html" style="color: var(--accent-light);">dilution</a> and future funding rounds. Many founders unknowingly grant 5%+ to advisors, which becomes painful at Series A.</p>
+            </div>
+
+            <h2 id="fast-agreements">FAST Agreements Explained</h2>
+
+            <p>The <strong>Founder/Advisor Standard Template (FAST)</strong> is the industry-standard agreement for advisor equity grants. Originally developed by Y Combinator, FAST provides a balanced framework that protects both founders and advisors.</p>
+
+            <h3>Key Components of FAST</h3>
+
+            <ul>
+                <li><strong>Grant amount:</strong> Clearly defines total equity being granted</li>
+                <li><strong>Vesting schedule:</strong> Typically 2-year vesting with monthly or quarterly milestones</li>
+                <li><strong>Advisor responsibilities:</strong> Outlines what the advisor is expected to do (introductions, strategy, feedback)</li>
+                <li><strong>Clawback provision:</strong> Company can reclaim unvested shares if advisor stops providing value</li>
+                <li><strong>Intellectual property assignment:</strong> Advisor's work product belongs to the company</li>
+                <li><strong>Termination clause:</strong> Conditions under which the agreement can be ended by either party</li>
+                <li><strong>Confidentiality:</strong> Standard NDA protecting company information</li>
+            </ul>
+
+            <h3>Why Use FAST?</h3>
+
+            <ul>
+                <li><strong>Legal costs:</strong> Custom attorney-drafted agreements cost $2,000-$5,000. FAST is free.</li>
+                <li><strong>Standard terms:</strong> Advisors are familiar with FAST, reducing negotiation friction.</li>
+                <li><strong>Balanced protections:</strong> Neither party gets unfair advantages. Terms are reasonable.</li>
+                <li><strong>Founder network approval:</strong> If your company is YC-backed, investors are comfortable with FAST grants.</li>
+            </ul>
+
+            <div class="callout tip">
+                <p><strong>Founder Tip:</strong> Use FAST as your starting point, but customize it for your situation. If an advisor requests changes, evaluate whether the request is reasonable. Common modifications include extending vesting to 3 years, adding acceleration on acquisition, or defining specific deliverables.</p>
+            </div>
+
+            <h2 id="vesting-for-advisors">Vesting Schedules for Advisors</h2>
+
+            <p>Advisor equity should always vest. Never grant unvested advisor equity -- it's a mistake even experienced founders make.</p>
+
+            <h3>Standard Advisor Vesting</h3>
+
+            <ul>
+                <li><strong>Duration:</strong> 2 years (industry standard)</li>
+                <li><strong>Cliff:</strong> Usually 3-6 months (no vesting until cliff is reached)</li>
+                <li><strong>Frequency:</strong> Monthly vesting is most common (more granular than quarterly)</li>
+                <li><strong>Total vesting:</strong> 100% of granted amount vests over 2 years</li>
+            </ul>
+
+            <h3>Why Vesting Matters for Advisors</h3>
+
+            <p>Even though advisors aren't employees, vesting serves critical purposes:</p>
+
+            <ul>
+                <li><strong>Performance alignment:</strong> Advisor must continue providing value to earn their equity</li>
+                <li><strong>Company protection:</strong> If advisor stops contributing, company can reclaim unvested shares</li>
+                <li><strong>Cap table hygiene:</strong> Prevents "dead equity" from accumulating -- equity owned by people no longer involved</li>
+                <li><strong>Investor expectations:</strong> VCs expect vesting on all grants, including advisors</li>
+            </ul>
+
+            <h3>Milestone-Based Vesting</h3>
+
+            <p>Some startups use milestone-based vesting for advisors instead of time-based vesting:</p>
+
+            <div class="callout example">
+                <p><strong>Milestone Example:</strong><br>
+                Advisor gets 0.5% total, vesting on:<br>
+                - 0.125% after first 3 intros to potential customers<br>
+                - 0.125% after product roadmap review complete<br>
+                - 0.125% after first investor introduction meeting<br>
+                - 0.125% after 12 months of active participation</p>
+            </div>
+
+            <p>Milestone vesting can be more motivating and directly ties equity to value delivered. However, it requires defining clear, measurable milestones upfront, which can be challenging for strategic advice.</p>
+
+            <div class="callout warning">
+                <p><strong>Caution:</strong> If you use milestone vesting, ensure milestones are objectively measurable. Disputes over whether an advisor "completed" a milestone can damage relationships and lead to legal conflict. Time-based vesting is simpler and reduces conflict risk.</p>
+            </div>
+
+            <a href="../vesting.html" class="inline-cta">
+                <strong>Visualize Advisor Vesting With Our Calculator &#8594;</strong>
+            </a>
+
+            <h2 id="advisor-boards">Advisor Boards vs Individual Grants</h2>
+
+            <p>Founders often confuse two structures: advisor boards and individual advisor grants. They serve different purposes.</p>
+
+            <h3>Individual Advisor Grants</h3>
+
+            <ul>
+                <li><strong>Structure:</strong> One-on-one relationship between founder and advisor</li>
+                <li><strong>Equity:</strong> Typically 0.1% to 1.0% per advisor</li>
+                <li><strong>Relationship:</strong> Informal, flexible, advisor helps as needed</li>
+                <li><strong>FAST use:</strong> Standard individual FAST agreement</li>
+                <li><strong>Best for:</strong> Domain expertise, specific introductions, ongoing guidance</li>
+            </ul>
+
+            <h3>Formal Advisor Boards</h3>
+
+            <ul>
+                <li><strong>Structure:</strong> Group of 3-5 advisors with regular meetings</li>
+                <li><strong>Equity:</strong> Each member gets 0.25% to 2.0%</li>
+                <li><strong>Relationship:</strong> Quarterly board meetings, formal agenda, meeting minutes</li>
+                <li><strong>FAST use:</strong> Board advisor FAST agreement (different template)</li>
+                <li><strong>Best for:</strong> Early-stage companies needing ongoing strategic oversight, multiple perspectives, structured accountability</li>
+            </ul>
+
+            <div class="callout tip">
+                <p><strong>Founder Insight:</strong> Advisor boards are valuable but time-consuming. Before committing to a formal board, start with individual grants and see which advisors are actually providing value. You can always formalize the most helpful advisors into a board later.</p>
+            </div>
+
+            <h2 id="tax-considerations">Tax Considerations for Advisors</h2>
+
+            <p>Advisors receiving equity need to understand the tax implications. Unlike cash compensation, equity triggers specific tax events.</p>
+
+            <h3>Grant Type: Options vs. Restricted Stock</h3>
+
+            <ul>
+                <li><strong>Stock Options (ISOs or NSOs):</strong> Most common for advisors. No tax at grant. Tax triggered at exercise (and sale). ISOs qualify for long-term capital gains if held 1+ year after exercise.</li>
+                <li><strong>Restricted Stock (RSAs):</strong> Less common for advisors. Immediate tax on grant value at <a href="../83b-election-guide.html" style="color: var(--accent-light);">83(b)</a> filing deadline. Favorable if expecting high appreciation.</li>
+            </ul>
+
+            <h3>Section 83(b) Election</h3>
+
+            <p>Advisors granted restricted stock should file a <strong>Section 83(b) election</strong> within 30 days of grant. This election taxes the grant value immediately at income tax rates (often low for early-stage companies), with all future appreciation taxed as capital gains.</p>
+
+            <div class="callout warning">
+                <p><strong>Missed 83(b) Deadline:</strong> The IRS is strict on the 30-day deadline. Late filings are rejected. If an advisor misses the window, they'll pay ordinary income tax on all appreciation when the stock vests -- potentially much higher total tax.</p>
+            </div>
+
+            <h3>Reporting Requirements</h3>
+
+            <p>Advisor equity grants should be reported on Form 3921 if exercised or on Schedule D if restricted stock is sold. Advisors should maintain records of their FAST agreement, vesting schedule, and any 83(b) filings for tax purposes.</p>
+
+            <a href="../stock-options.html" class="inline-cta">
+                <strong>Calculate Option Tax Implications With Our Calculator &#8594;</strong>
+            </a>
+
+            <h2 id="common-mistakes">Common Mistakes to Avoid</h2>
+
+            <p>Founders frequently make these advisor equity mistakes. Avoid them to protect your cap table.</p>
+
+            <h3>Mistake 1: Granting Without Vesting</h3>
+
+            <p>Granting unvested equity to advisors is one of the most common founder errors. If the advisor stops contributing or the relationship sours, you have no recourse. The equity is theirs forever.</p>
+
+            <div class="callout warning">
+                <p><strong>Fix It Now:</strong> If you have existing unvested advisor grants, ask advisors to sign FAST agreements with retroactive vesting. Most will agree because vesting is standard.</p>
+            </div>
+
+            <h3>Mistake 2: Over-granting Total Advisor Equity</h3>
+
+            <p>Accumulating 5% or more in advisor equity creates future problems. VCs will question why so much equity went to advisors rather than the team. It reduces your flexibility for future hires and option pool refreshes.</p>
+
+            <h3>Mistake 3: Unclear Expectations</h3>
+
+            <p>Granting equity without defining what the advisor is supposed to do leads to disappointment on both sides. The advisor expects one thing; the founder expects another. Neither is satisfied.</p>
+
+            <div class="callout tip">
+                <p><strong>Best Practice:</strong> Before granting, write down what you want from the advisor. Share this with them. If they agree, put it in the FAST agreement's responsibilities section. Clear expectations prevent disappointment.</p>
+            </div>
+
+            <h3>Mistake 4: Grants After Significant Traction</h3>
+
+            <p>Once your company has raised a Series A or reached significant milestones, advisor impact diminishes. Granting 0.5% equity at $50M valuation costs $250,000 in value -- is the advisor worth that much at this stage?</p>
+
+            <h3>Mistake 5: Ignoring Conflicts of Interest</h3>
+
+            <p>Advisors sometimes work with multiple startups in the same space. This creates conflicts: they may share your strategy with competitors or prioritize other opportunities. VCs flag this as a red flag during due diligence.</p>
+
+            <div class="callout warning">
+                <p><strong>VC Due Diligence:</strong> When VCs review your cap table, they'll ask about advisor grants. Be prepared to explain who each advisor is, what value they provide, and why their equity percentage is justified. Unclear or excessive advisor grants raise questions about founder judgment.</p>
+            </div>
+
+            <h2 id="when-to-grant">When to Grant Advisor Equity</h2>
+
+            <p>Timing advisor grants appropriately maximizes their value while minimizing dilution cost.</p>
+
+            <h3>Ideal Granting Windows</h3>
+
+            <ul>
+                <li><strong>Pre-seed:</strong> Grant advisor equity when guidance has the highest impact. Advisors helping you find product-market fit or raise seed funding are worth more than those joining later.</li>
+                <li><strong>Before seed raise:</strong> Grants made before seed fundraising are "clean" in investor eyes. Grants after seed raise require approval and create dilution that investors will scrutinize.</li>
+                <li><strong>At specific milestones:</strong> Tie some advisor equity to achievements. "You get 0.25% now, another 0.25% after you introduce us to 3 investors."</li>
+            </ul>
+
+            <h3>When NOT to Grant Advisor Equity</h3>
+
+            <ul>
+                <li><strong>After Series A:</strong> Advisor impact decreases significantly. Consider cash consulting fees instead.</li>
+                <li><strong>For one-off introductions:</strong> A single introduction isn't worth ongoing equity. A finder's fee or cash payment is more appropriate.</li>
+                <li><strong>To anyone who asks:</strong> Grant advisor equity selectively. Not every well-meaning person deserves ownership.</li>
+            </ul>
+
+            <a href="../dilution.html" class="inline-cta">
+                <strong>Model Advisor Grant Impact on Your Cap Table &#8594;</strong>
+            </a>
+
+            <h2 id="how-to-structure">How to Structure Advisor Grants</h2>
+
+            <p>Here's a step-by-step process for structuring advisor equity grants correctly:</p>
+
+            <h3>Step 1: Identify Advisor Value</h3>
+
+            <ul>
+                <li>What specific expertise do they bring?</li>
+                <li>What introductions can they make?</li>
+                <li>How much time will they commit?</li>
+                <li>What stage of your startup benefits most from their help?</li>
+            </ul>
+
+            <h3>Step 2: Determine Grant Percentage</h3>
+
+            <p>Use these guidelines:</p>
+
+            <ul>
+                <li>Pre-seed stage: 0.5% to 2.0%</li>
+                <li>Seed to Series A: 0.15% to 0.75%</li>
+                <li>Series A+: 0.1% to 0.5%</li>
+                <li>High engagement: Multiply by 1.5x</li>
+                <li>Low engagement: Multiply by 0.5x</li>
+            </ul>
+
+            <h3>Step 3: Prepare FAST Agreement</h3>
+
+            <ul>
+                <li>Download the YC FAST template</li>
+                <li>Fill in company details</li>
+                <li>Define grant percentage</li>
+                <li>Set vesting terms (2 years, monthly, 3-month cliff)</li>
+                <li>List advisor responsibilities</li>
+                <li>Include clawback language</li>
+            </ul>
+
+            <h3>Step 4: Grant and Document</h3>
+
+            <ul>
+                <li>Have advisor sign FAST agreement</li>
+                <li>File cap table entry with vesting schedule</li>
+                <li>Issue stock certificate or option grant notice</li>
+                <li>Send advisor welcome email with grant summary</li>
+                <li>Track vesting monthly (use <a href="../vesting.html" style="color: var(--accent-light);">vesting calculator</a>)</li>
+            </ul>
+
+            <div class="callout example">
+                <p><strong>Example Advisor Grant Summary:</strong><br>
+                Grant Type: Non-qualified Stock Options (NSOs)<br>
+                Total Grant: 0.5% of company<br>
+                Vesting: 2 years, monthly, 3-month cliff<br>
+                Strike Price: FMV at grant ($0.10/share)<br>
+                Responsibilities: Product strategy review, investor introductions, technical guidance<br>
+                FAST Agreement: Signed and on file</p>
+            </div>
+
+            <h3>Step 5: Ongoing Management</h3>
+
+            <ul>
+                <li>Track vesting progress monthly</li>
+                <li>Schedule regular advisor check-ins (quarterly)</li>
+                <li>Document value received (intros made, feedback given)</li>
+                <li>Reassess value annually (extend if advisor remains valuable)</li>
+                <li>Handle terminations gracefully if relationship ends</li>
+            </ul>
+
+            <h2 id="key-takeaways">Key Takeaways</h2>
+
+            <ul>
+                <li><strong>Advisor equity ranges from 0.05% to 2.0%</strong> depending on involvement level and company stage. Keep total advisor pool under 3% of your cap table.</li>
+                <li><strong>Always vest advisor equity.</strong> Never grant unvested shares. Use 2-year vesting with 3-month cliff as the standard.</li>
+                <li><strong>Use FAST agreements.</strong> The Founder/Advisor Standard Template provides balanced terms, saves legal costs, and is familiar to advisors and investors.</li>
+                <li><strong>Define expectations clearly.</strong> Put advisor responsibilities in the FAST agreement. Unclear expectations lead to disappointment on both sides.</li>
+                <li><strong>Grant early or not at all.</strong> Advisor impact is highest pre-seed and early seed. After Series A, consider cash consulting fees instead.</li>
+                <li><strong>Watch your total advisor pool.</strong> Many founders accidentally accumulate 5%+ in advisor equity, which VCs will question. Model the impact of each grant on your <a href="../dilution.html" style="color: var(--accent-light);">dilution</a> before committing.</li>
+                <li><strong>Advisor 83(b) elections matter.</strong> If granting restricted stock, advisors must file within 30 days or pay significantly more tax later.</li>
+                <li><strong>Document everything.</strong> Keep FAST agreements, vesting schedules, and value receipts organized. VCs will review advisor grants during due diligence.</li>
+                <li><strong>Value exchange must be real.</strong> Grant equity for actual contributions (expertise, intros, guidance), not just titles or perceived status.</li>
+            </ul>
+
+            <div class="callout cta">
+                <p><strong>Ready to grant advisor equity?</strong> Use our free <a href="../dilution.html" style="color: var(--accent-light);">Dilution Calculator</a> to model the impact on your cap table, and our <a href="../vesting.html" style="color: var(--accent-light);">Vesting Calculator</a> to track advisor vesting progress. Get the math right before you grant.</p>
+            </div>
+        </div>
+
+        <div class="author-bio">
+            <div class="author-avatar" aria-hidden="true">&#x1F4CA;</div>
+            <div class="author-content">
+                <h4>FounderMath</h4>
+                <p>We build free calculators and guides to help founders and startup employees understand their equity. From dilution to vesting to advisor grants, we break down the math so you can make better decisions. <a href="../about.html">Learn more about us</a>.</p>
+            </div>
+        </div>
+
+        <div class="related-posts">
+            <h3>Related Articles</h3>
+            <a href="equity-glossary.html">Startup Equity Glossary -- 50+ Terms Explained</a>
+            <a href="vesting-schedules-guide.html">Vesting Schedules Explained: Cliff, Acceleration, and 83(b)</a>
+            <a href="stock-options-worth-guide.html">How Much Are My Stock Options Worth?</a>
+            <a href="employee-equity-grants-guide.html">How to Grant Equity to Employees: A Founder's Complete Guide</a>
+            <a href="cap-table-guide.html">Cap Table 101 for Founders: A Beginner's Complete Guide</a>
+            <a href="equity-dilution-guide.html">Equity Dilution Guide: How Founders Lose (and Keep) Ownership</a>
+        </div>
+    </article>
+
+    <section class="newsletter">
+        <h2>Get weekly founder insights</h2>
+        <p>Equity breakdowns, fundraising math, and calculator tips. No spam.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" id="newsletterEmail" placeholder="founder@startup.com" required>
+            <button type="submit" style="background:var(--accent);color:white;border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer;">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../unit-economics.html">Unit Econ</a></li>
+                <li><a href="../cap-table.html">Cap Table</a></li>
+                <li><a href="../equity-split.html">Equity Split</a></li>
+                <li><a href="../valuation.html">Valuation</a></li>
+                <li><a href="../stock-options.html">Stock Options</a></li>
+                <li><a href="../equity-glossary.html">Glossary</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+    function toggleTheme() {
+        const body = document.body;
+        const current = body.getAttribute('data-theme');
+        body.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+        localStorage.setItem('foundermath_theme', current === 'light' ? 'dark' : 'light');
+    }
+
+    async function handleNewsletter(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value;
+        const btn = e.target.querySelector('button');
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+        try {
+            const response = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, source: 'blog' })
+            });
+            if (response.ok) {
+                alert('Subscribed! Check your inbox.');
+                document.getElementById('newsletterEmail').value = '';
+            } else {
+                throw new Error('Failed to subscribe');
+            }
+        } catch (err) {
+            alert('Something went wrong. Please try again.');
+        }
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
+    }
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem('foundermath_theme');
+    if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
+    </script>
+</body>
+</html>

@@ -331,3 +331,19 @@
     <priority>0.8</priority>
   </url>
 </urlset>
+  <url>
+    <loc>https://founder-math.com/blog/advisor-equity-grants-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://founder-math.com/blog/early-exercise-options-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://founder-math.com/blog/startup-funding-rounds-complete-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
