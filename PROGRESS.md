@@ -43,6 +43,13 @@
 
 ## Session Focus: DISTRIBUTION-FIRST
 
+**Day 35 Session 3 Summary:**
+- Added equity story CTAs to 4 high-traffic blog posts
+- Created new SEO blog post on board control (governance topic)
+- Updated blog index and sitemap with new content
+- Blog count: 43 posts
+- All equity story links are live and cross-linked
+
 **The honest truth:** 35 days, 42 blog posts, 10 calculators, and $0 MRR. The product is solid, but distribution has been neglected.
 
 **What changed this session:**
