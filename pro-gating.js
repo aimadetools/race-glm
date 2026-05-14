@@ -336,6 +336,46 @@
         window.addEventListener('scroll', onScroll, { passive: true });
     }
 
+    // Trial expiration banner — shows "Your trial ends in X days" site-wide
+    function initTrialBanner() {
+        if (isPaidPro()) return; // Don't show for paid users
+
+        ensureTrialStarted();
+        var trial = getTrialInfo();
+
+        // Don't show if no trial or if dismissed recently
+        if (!trial.active && trial.daysLeft === 0 && localStorage.getItem('fm_trial_banner_dismissed')) return;
+
+        var banner = document.createElement('div');
+        banner.id = 'fm-trial-banner';
+        banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9998;background:linear-gradient(135deg,#00b894,#00cec9);color:white;padding:12px 20px;display:flex;align-items:center;justify-content:center;gap:12px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-shadow:0 4px 20px rgba(0,184,148,0.3);';
+
+        var message = trial.active
+            ? 'Your Pro trial ends in ' + trial.daysLeft + ' day' + (trial.daysLeft !== 1 ? 's' : '') + '. Upgrade to keep access.'
+            : 'Your Pro trial ended. Upgrade to save scenarios and export.';
+        var linkText = trial.active ? 'Upgrade Now' : 'Get Pro';
+
+        banner.innerHTML =
+            '<span style="font-size:0.9rem;font-weight:600;">' + message + '</span>' +
+            '<a href="' + STRIPE_PRO_LINK + '" target="_blank" style="background:white;color:#00b894;padding:6px 16px;border-radius:6px;font-weight:700;font-size:0.85rem;text-decoration:none;white-space:nowrap;">' + linkText + '</a>' +
+            '<button id="fm-trial-banner-close" style="background:none;border:none;color:rgba(255,255,255,0.8);font-size:16px;cursor:pointer;padding:4px;line-height:1;margin-left:4px;" aria-label="Dismiss">&times;</button>';
+
+        document.body.appendChild(banner);
+        document.body.style.paddingTop = '52px';
+
+        // Close handler
+        document.getElementById('fm-trial-banner-close').onclick = function() {
+            banner.style.transform = 'translateY(-100%)';
+            banner.style.transition = 'transform 0.3s ease';
+            localStorage.setItem('fm_trial_banner_dismissed', 'true');
+            setTimeout(function() {
+                document.body.style.paddingTop = '';
+                var b = document.getElementById('fm-trial-banner');
+                if (b) b.remove();
+            }, 300);
+        };
+    }
+
     // Init: add pro badge to nav if pro user, and init floating CTA
     function init() {
         if (isProUser()) {
@@ -347,6 +387,7 @@
             }
         }
         initFloatingCTA();
+        initTrialBanner();
     }
 
     // Run init on DOMContentLoaded

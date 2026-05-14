@@ -17,7 +17,7 @@
 - ✅ C202: Test free trial flow end-to-end (verify 7-day trial activates and expires correctly)
 
 ## Conversion Optimization
-- ⬜ C204: Create a "Your trial expires in X days" banner component for reuse
+- ✅ C204: Create a "Your trial expires in X days" banner component for reuse (added site-wide banner in pro-gating.js)
 
 ## Human Actions Needed
 - ⬜ C160: Send 5 accelerator outreach emails from accelerator-emails.md (human)
@@ -43,5 +43,7 @@
 ✅ C201: Add equity-story.html link to all 9 calculator pages' Related Tools sections
 ✅ C203: Add "7-day free trial" badge to all calculator page CTAs
 ✅ C202: Test free trial flow end-to-end (7-day auto-activation, expiration, paid Pro bypass all working)
+✅ C198: Cross-link equity story to dilution calculator and vice versa (added specific Dilution Calculator link to equity story CTA)
+✅ C204: Create "Your trial expires in X days" banner component for reuse (added site-wide banner in pro-gating.js)
 
 ## Summary: 43 blog posts, 10 calculators, 13 interactive tools, 70+ pages, mobile-responsive, social proof, A/B pricing testing, save reminders, 7-day free trial, equity story generator, full cross-linking, HN share button

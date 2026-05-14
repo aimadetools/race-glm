@@ -41,6 +41,8 @@
 - **C202**: Tested free trial flow end-to-end — auto-activation, expiration tracking, paid Pro bypass all verified working
 - Created TRIAL-TEST-REPORT.md documenting trial system behavior
 - Created test-trial.html for manual testing (not deployed, dev tool)
+- **C198**: Enhanced cross-links between equity story generator and dilution calculator
+- **C204**: Added site-wide trial expiration banner ("Your trial ends in X days")
 
 ### Completed (Day 35 — Session 3)
 - **C195**: Added equity story links to 4 high-traffic blog posts (equity-dilution-guide, startup-funding-rounds-complete-guide, salary-vs-equity-guide, stock-options-worth-guide)
@@ -53,6 +55,8 @@
 - Tested 7-day free trial flow end-to-end
 - Verified auto-activation, expiration tracking, and paid Pro bypass
 - Created comprehensive test report (TRIAL-TEST-REPORT.md)
+- Enhanced cross-links between equity story and dilution calculator
+- Added site-wide trial expiration banner with days remaining
 - Trial system is working correctly; no bugs found
 - Blog count: 43 posts
 
