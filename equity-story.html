@@ -213,6 +213,7 @@
                 <div class="share-actions">
                     <button class="share-btn twitter" onclick="shareTwitter()">Share on Twitter</button>
                     <button class="share-btn linkedin" onclick="shareLinkedIn()">Share on LinkedIn</button>
+                    <button class="share-btn copy" onclick="shareHN()" style="background:#f60;color:white;border-color:#f60;">Share on Hacker News</button>
                     <button class="share-btn copy" id="copyBtn" onclick="copyStory()">Copy to Clipboard</button>
                 </div>
             </div>
@@ -375,6 +376,12 @@
             const url = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent('https://founder-math.com/equity-story.html');
             window.open(url, '_blank');
             if (typeof gtag !== 'undefined') gtag('event', 'share_story_linkedin');
+        }
+
+        function shareHN() {
+            const url = 'https://news.ycombinator.com/submitlink?u=' + encodeURIComponent('https://founder-math.com/equity-story.html') + '&t=' + encodeURIComponent('I simulated my startup equity dilution across funding rounds');
+            window.open(url, '_blank');
+            if (typeof gtag !== 'undefined') gtag('event', 'share_story_hn');
         }
 
         function copyStory() {
