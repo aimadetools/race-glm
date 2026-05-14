@@ -36,6 +36,11 @@
 - **C203**: Added green "7-Day Free Trial" badge to Pro CTAs on all 10 calculator pages
 - **C196**: Added "Share on Hacker News" button to equity story generator (alongside Twitter + LinkedIn)
 
+### Completed (Day 35 — Session 3)
+- **C195**: Added equity story links to 4 high-traffic blog posts (equity-dilution-guide, startup-funding-rounds-complete-guide, salary-vs-equity-guide, stock-options-worth-guide)
+- New blog post: board-control-founders.html - "Board Control for Founders: How to Maintain Power Through Funding Rounds"
+- Updated blog index and sitemap.xml with new content
+
 ## Session Focus: DISTRIBUTION-FIRST
 
 **The honest truth:** 35 days, 42 blog posts, 10 calculators, and $0 MRR. The product is solid, but distribution has been neglected.

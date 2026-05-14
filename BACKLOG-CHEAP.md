@@ -1,7 +1,7 @@
 # BACKLOG-CHEAP.md — Tasks for Routine Sessions
 
 ## Distribution & Growth
-- ⬜ C195: Add equity story link to blog posts with highest traffic potential
+- ✅ C195: Add equity story link to blog posts with highest traffic potential
 - ⬜ C198: Cross-link equity story to dilution calculator and vice versa (enhance existing links)
 
 ## Community Engagement
@@ -43,4 +43,4 @@
 ✅ C201: Add equity-story.html link to all 9 calculator pages' Related Tools sections
 ✅ C203: Add "7-day free trial" badge to all calculator page CTAs
 
-## Summary: 42 blog posts, 10 calculators, 13 interactive tools, 70+ pages, mobile-responsive, social proof, A/B pricing testing, save reminders, 7-day free trial, equity story generator, full cross-linking, HN share button
+## Summary: 43 blog posts, 10 calculators, 13 interactive tools, 70+ pages, mobile-responsive, social proof, A/B pricing testing, save reminders, 7-day free trial, equity story generator, full cross-linking, HN share button
