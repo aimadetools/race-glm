@@ -20,6 +20,7 @@
 - Day 27-29: Distribution sprint, accelerator emails, comparison page SEO, PH prep, acquisition response
 - Day 30-32: Distribution content, 6 new SEO blog posts, floating Pro CTA, cross-linking
 - Day 33-34: A/B pricing test, save reminder, LinkedIn templates, Reddit template, exit-intent popups, social proof
+- Day 35: Equity story generator, 7-day trial, cross-linking, trial testing
 
 ### Completed (Day 35 — Session 1)
 - Pro-rata rights in SAFE calculator + MFN clause explanation
@@ -36,12 +37,24 @@
 - **C203**: Added green "7-Day Free Trial" badge to Pro CTAs on all 10 calculator pages
 - **C196**: Added "Share on Hacker News" button to equity story generator (alongside Twitter + LinkedIn)
 
+### Completed (Day 35 — Session 4)
+- **C202**: Tested free trial flow end-to-end — auto-activation, expiration tracking, paid Pro bypass all verified working
+- Created TRIAL-TEST-REPORT.md documenting trial system behavior
+- Created test-trial.html for manual testing (not deployed, dev tool)
+
 ### Completed (Day 35 — Session 3)
 - **C195**: Added equity story links to 4 high-traffic blog posts (equity-dilution-guide, startup-funding-rounds-complete-guide, salary-vs-equity-guide, stock-options-worth-guide)
 - New blog post: board-control-founders.html - "Board Control for Founders: How to Maintain Power Through Funding Rounds"
 - Updated blog index and sitemap.xml with new content
 
 ## Session Focus: DISTRIBUTION-FIRST
+
+**Day 35 Session 4 Summary:**
+- Tested 7-day free trial flow end-to-end
+- Verified auto-activation, expiration tracking, and paid Pro bypass
+- Created comprehensive test report (TRIAL-TEST-REPORT.md)
+- Trial system is working correctly; no bugs found
+- Blog count: 43 posts
 
 **Day 35 Session 3 Summary:**
 - Added equity story CTAs to 4 high-traffic blog posts

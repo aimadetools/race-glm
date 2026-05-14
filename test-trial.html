@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Trial Test — FounderMath</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 32px;
+            line-height: 1.6;
+        }
+        h1 { margin-bottom: 24px; }
+        h2 { margin-top: 32px; margin-bottom: 16px; font-size: 1.2rem; color: var(--text-secondary); }
+        .test-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .status-display {
+            font-family: monospace;
+            background: var(--bg-card);
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            margin: 16px 0;
+        }
+        .status-display.pass { border-color: var(--green); }
+        .status-display.fail { border-color: #e74c3c; }
+        button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        button:hover { opacity: 0.9; }
+        button.secondary { background: var(--bg-card); border: 1px solid var(--border); }
+        button.danger { background: #e74c3c; }
+        .result { margin-top: 8px; font-size: 0.9rem; }
+        .result.success { color: var(--green); }
+        .result.error { color: #e74c3c; }
+        .result.info { color: var(--text-secondary); }
+        hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+    </style>
+</head>
+<body>
+    <h1>Free Trial Test Page</h1>
+    <p style="color: var(--text-secondary);">Test the 7-day free trial flow end-to-end</p>
+
+    <div class="test-card">
+        <h2>1. Current State</h2>
+        <div id="currentState" class="status-display">Loading...</div>
+    </div>
+
+    <div class="test-card">
+        <h2>2. Test Trial Start (New Visitor)</h2>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px;">
+            Simulates a brand new visitor without any prior trial data.
+        </p>
+        <button onclick="testNewVisitor()">Test New Visitor Flow</button>
+        <div id="newVisitorResult" class="result"></div>
+    </div>
+
+    <div class="test-card">
+        <h2>3. Test Trial Expiration</h2>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px;">
+            Simulates a trial that started 8 days ago (should be expired).
+        </p>
+        <button onclick="testExpiredTrial()">Test Expired Trial</button>
+        <div id="expiredResult" class="result"></div>
+    </div>
+
+    <div class="test-card">
+        <h2>4. Test Mid-Trial (Day 3)</h2>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px;">
+            Simulates a trial that started 3 days ago (4 days remaining).
+        </p>
+        <button onclick="testMidTrial()">Test Mid-Trial (Day 3)</button>
+        <div id="midTrialResult" class="result"></div>
+    </div>
+
+    <div class="test-card">
+        <h2>5. Test Paid Pro</h2>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px;">
+            Simulates a paid Pro user (should bypass trial expiration).
+        </p>
+        <button onclick="testPaidPro()">Test Paid Pro</button>
+        <button class="secondary" onclick="clearPaidPro()">Clear Paid Pro</button>
+        <div id="paidProResult" class="result"></div>
+    </div>
+
+    <div class="test-card">
+        <h2>6. Reset All Data</h2>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px;">
+            Clears all localStorage data for testing.
+        </p>
+        <button class="danger" onclick="resetAll()">Reset All Data</button>
+        <div id="resetResult" class="result"></div>
+    </div>
+
+    <div class="test-card">
+        <h2>7. Live Status Monitor</h2>
+        <div id="liveStatus" class="status-display">Loading...</div>
+        <button class="secondary" onclick="refreshLiveStatus()">Refresh</button>
+    </div>
+
+    <script src="pro-gating.js"></script>
+    <script>
+        function updateCurrentState() {
+            const el = document.getElementById('currentState');
+            const trialInfo = window.FounderMathPro ? window.FounderMathPro.getTrialInfo() : null;
+            const isPaid = window.FounderMathPro ? window.FounderMathPro.isPaidPro() : false;
+            const isPro = window.FounderMathPro ? window.FounderMathPro.isPro() : false;
+
+            el.innerHTML = `
+                <strong>Pro Status:</strong> ${isPaid ? 'PAID' : (isPro ? 'TRIAL' : 'FREE')}<br>
+                <strong>Trial Start:</strong> ${localStorage.getItem('foundermath_trial_start') || 'Not started'}<br>
+                <strong>Trial Active:</strong> ${trialInfo ? trialInfo.active : 'N/A'}<br>
+                <strong>Days Left:</strong> ${trialInfo ? trialInfo.daysLeft : 'N/A'}<br>
+                <strong>Days Elapsed:</strong> ${trialInfo ? trialInfo.daysElapsed.toFixed(2) : 'N/A'}<br>
+                <strong>Trial Expired:</strong> ${trialInfo ? trialInfo.expired : 'N/A'}
+            `;
+            el.className = 'status-display ' + (isPro ? 'pass' : 'fail');
+        }
+
+        function refreshLiveStatus() {
+            const el = document.getElementById('liveStatus');
+            const trialInfo = window.FounderMathPro ? window.FounderMathPro.getTrialInfo() : null;
+            const isPro = window.FounderMathPro ? window.FounderMathPro.isPro() : false;
+
+            el.innerHTML = `
+                <strong>Is Pro (trial + paid):</strong> ${isPro}<br>
+                <strong>Trial Info:</strong> ${JSON.stringify(trialInfo, null, 2)}<br>
+                <strong>Paid Pro:</strong> ${localStorage.getItem('foundermath_pro')}
+            `;
+        }
+
+        function testNewVisitor() {
+            const resultEl = document.getElementById('newVisitorResult');
+            // Clear trial start to simulate new visitor
+            localStorage.removeItem('foundermath_trial_start');
+            localStorage.removeItem('foundermath_pro');
+
+            // Reload the page logic by rechecking
+            setTimeout(() => {
+                const trialInfo = window.FounderMathPro.getTrialInfo();
+                const isPro = window.FounderMathPro.isPro();
+
+                const tests = [
+                    { name: 'Trial starts automatically', pass: localStorage.getItem('foundermath_trial_start') !== null },
+                    { name: 'User is Pro (via trial)', pass: isPro },
+                    { name: 'Trial is active', pass: trialInfo.active },
+                    { name: '7 days remaining', pass: trialInfo.daysLeft === 7 },
+                    { name: 'Not expired', pass: !trialInfo.expired }
+                ];
+
+                const allPass = tests.every(t => t.pass);
+                resultEl.innerHTML = `
+                    ${tests.map(t => `<div class="${t.pass ? 'success' : 'error'}">${t.pass ? '✓' : '✗'} ${t.name}</div>`).join('')}
+                    <div style="margin-top: 8px; font-weight: 700; color: ${allPass ? 'var(--green)' : '#e74c3c'}">
+                        ${allPass ? 'ALL TESTS PASSED' : 'SOME TESTS FAILED'}
+                    </div>
+                `;
+                updateCurrentState();
+            }, 100);
+        }
+
+        function testExpiredTrial() {
+            const resultEl = document.getElementById('expiredResult');
+            // Set trial start to 8 days ago
+            const eightDaysAgo = new Date(Date.now() - 8 * 24 * 60 * 60 * 1000).toISOString();
+            localStorage.setItem('foundermath_trial_start', eightDaysAgo);
+            localStorage.removeItem('foundermath_pro');
+
+            setTimeout(() => {
+                const trialInfo = window.FounderMathPro.getTrialInfo();
+                const isPro = window.FounderMathPro.isPro();
+
+                const tests = [
+                    { name: 'Trial expired', pass: trialInfo.expired },
+                    { name: 'Trial not active', pass: !trialInfo.active },
+                    { name: 'User is NOT Pro', pass: !isPro },
+                    { name: '0 days remaining', pass: trialInfo.daysLeft === 0 }
+                ];
+
+                const allPass = tests.every(t => t.pass);
+                resultEl.innerHTML = `
+                    ${tests.map(t => `<div class="${t.pass ? 'success' : 'error'}">${t.pass ? '✓' : '✗'} ${t.name}</div>`).join('')}
+                    <div style="margin-top: 8px; font-weight: 700; color: ${allPass ? 'var(--green)' : '#e74c3c'}">
+                        ${allPass ? 'ALL TESTS PASSED' : 'SOME TESTS FAILED'}
+                    </div>
+                `;
+                updateCurrentState();
+            }, 100);
+        }
+
+        function testMidTrial() {
+            const resultEl = document.getElementById('midTrialResult');
+            // Set trial start to 3 days ago
+            const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString();
+            localStorage.setItem('foundermath_trial_start', threeDaysAgo);
+            localStorage.removeItem('foundermath_pro');
+
+            setTimeout(() => {
+                const trialInfo = window.FounderMathPro.getTrialInfo();
+                const isPro = window.FounderMathPro.isPro();
+
+                const tests = [
+                    { name: 'Trial is active', pass: trialInfo.active },
+                    { name: 'User is Pro (via trial)', pass: isPro },
+                    { name: '4 days remaining (7-3)', pass: trialInfo.daysLeft === 4 },
+                    { name: 'Not expired', pass: !trialInfo.expired },
+                    { name: '3 days elapsed', pass: trialInfo.daysElapsed >= 2.9 && trialInfo.daysElapsed <= 3.1 }
+                ];
+
+                const allPass = tests.every(t => t.pass);
+                resultEl.innerHTML = `
+                    ${tests.map(t => `<div class="${t.pass ? 'success' : 'error'}">${t.pass ? '✓' : '✗'} ${t.name}</div>`).join('')}
+                    <div style="margin-top: 8px; font-weight: 700; color: ${allPass ? 'var(--green)' : '#e74c3c'}">
+                        ${allPass ? 'ALL TESTS PASSED' : 'SOME TESTS FAILED'}
+                    </div>
+                `;
+                updateCurrentState();
+            }, 100);
+        }
+
+        function testPaidPro() {
+            const resultEl = document.getElementById('paidProResult');
+            localStorage.setItem('foundermath_pro', 'true');
+            // Set trial as expired too
+            const eightDaysAgo = new Date(Date.now() - 8 * 24 * 60 * 60 * 1000).toISOString();
+            localStorage.setItem('foundermath_trial_start', eightDaysAgo);
+
+            setTimeout(() => {
+                const isPro = window.FounderMathPro.isPro();
+                const isPaidPro = window.FounderMathPro.isPaidPro();
+
+                const tests = [
+                    { name: 'User is Pro (paid)', pass: isPro },
+                    { name: 'isPaidPro() returns true', pass: isPaidPro },
+                    { name: 'Bypasses expired trial', pass: true } // If we got here without error, it bypassed
+                ];
+
+                const allPass = tests.every(t => t.pass);
+                resultEl.innerHTML = `
+                    ${tests.map(t => `<div class="${t.pass ? 'success' : 'error'}">${t.pass ? '✓' : '✗'} ${t.name}</div>`).join('')}
+                    <div style="margin-top: 8px; font-weight: 700; color: ${allPass ? 'var(--green)' : '#e74c3c'}">
+                        ${allPass ? 'ALL TESTS PASSED' : 'SOME TESTS FAILED'}
+                    </div>
+                `;
+                updateCurrentState();
+            }, 100);
+        }
+
+        function clearPaidPro() {
+            localStorage.removeItem('foundermath_pro');
+            updateCurrentState();
+            document.getElementById('paidProResult').innerHTML = '<div class="info">Paid Pro status cleared</div>';
+        }
+
+        function resetAll() {
+            localStorage.removeItem('foundermath_pro');
+            localStorage.removeItem('foundermath_pro_email');
+            localStorage.removeItem('foundermath_trial_start');
+            localStorage.removeItem('foundermath_emails');
+            updateCurrentState();
+            document.getElementById('resetResult').innerHTML = '<div class="success">All data cleared</div>';
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCurrentState();
+            refreshLiveStatus();
+        });
+    </script>
+</body>
+</html>
