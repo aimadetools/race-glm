@@ -1,17 +1,33 @@
 # BACKLOG-CHEAP.md — Tasks for Routine Sessions
 
-## SEO & Content
+## Distribution & Growth
+- ⬜ C194: Share equity story generator on Twitter (use generated story text)
+- ⬜ C195: Add equity story link to blog posts with highest traffic potential
+- ⬜ C196: Create a "Share on Hacker News" button on equity story page
+- ⬜ C197: Add equity story link to nav on homepage and calculator pages
+- ⬜ C198: Cross-link equity story to dilution calculator and vice versa
 
-## Growth & Distribution
+## Community Engagement
+- ⬜ C199: Reply on HN thread about pro-rata/MFN — link to updated SAFE calculator
+- ⬜ C200: Reply to Twitter user about multi-SAFE stacking feature
+
+## SEO & Content
 - ⬜ C163: Execute directory submissions (human action needed)
 - ⬜ C152: Share equity glossary in startup subreddits as a resource (human - needs Reddit account)
-- ⬜ C160: Send 5 accelerator outreach emails from accelerator-emails.md (human)
-- ⬜ C190: Post LinkedIn articles from linkedin-article-10-calculators.md (human)
 
 ## Product & UX
 - ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard) (human)
+- ⬜ C201: Add equity-story.html link to all 10 calculator pages' "Related Tools" sections
+- ⬜ C202: Test free trial flow end-to-end (verify 7-day trial activates and expires correctly)
 
 ## Conversion Optimization
+- ⬜ C203: Add "7-day free trial" badge to all calculator page CTAs
+- ⬜ C204: Create a "Your trial expires in X days" banner component for reuse
+
+## Human Actions Needed
+- ⬜ C160: Send 5 accelerator outreach emails from accelerator-emails.md (human)
+- ⬜ C190: Post LinkedIn articles from linkedin-article-10-calculators.md (human)
+- ⬜ C205: Share equity story on social media from HELP-REQUEST.md (human)
 
 ## Completed
 
@@ -19,42 +35,12 @@
 ✅ C45-C78: Blog TOCs, author bios, ARIA regions, conversion tracking, demo URLs, newsletter forms, PH prep, Schema.org, OG images, lead magnet, directory submissions, exit-intent popup
 ✅ C83-C84: Page title optimization, internal link building
 ✅ C88: Navigation standardized across all 36+ pages
-✅ C90-C92: Blog posts, OG images for calculators
-✅ C93-C98: Calculator cross-links, related calculators, nav/footer/sitemap (39+ pages), internal blog links, Twitter content calendar
-✅ C99-C101: Indie Hackers content, mobile improvements, schema markup
-✅ C102-C103: Social media scenarios page, guest post pitches
-✅ C105-C109: Stock options blog index, cross-links, Carta alternatives update, blog links on calculator, nav verification
-✅ C110-C112: Cross-link new blog posts, verify stock options nav link on all blog posts, Save/Export upgrade triggers, calculator count update
-✅ C113-C114: Compare equity offers + startup offer negotiation blog posts (Day 21)
-✅ C116-C118: Blog index updates, cross-links, Founding 50 on pricing (Day 21)
-✅ C121: Added Compare Offers to free-startup-tools.html with updated schema (Day 21)
-✅ C115-C126: Comparison page, nav verification, mobile test, usage-prompt fix, sitemap update, embed widget, share feature, accelerator outreach (Day 22)
-✅ C128: equity-vs-salary.html calculator with break-even exit analysis
-✅ C131: "Stock Option Vesting Cliff Explained" blog post (Day 26)
-✅ C132: Print CSS for compare-offers.html (Day 26)
-✅ C143: All calculator CTAs updated to Founding 50 pricing
-✅ C145: Fixed duplicate function corruption in stock-options, equity-split, valuation
-✅ C146: SAFE stacking blog link verified in free-startup-tools.html
-✅ C149: Added glossary page link to nav on all calculator pages (Day 26)
-✅ C153-C154: Share Results on equity-vs-salary and valuation calculators (Day 26)
-✅ C157: Added comparison page links to cap-table, equity-dilution, valuation guides (Day 29)
-✅ C162: Hidden PH badge on homepage, activate with ph-launched class (Day 29)
-✅ C158: Directory submission lists for comparison page and glossary (Day 30)
-✅ C134-C136: LinkedIn templates, directory submissions, guest post outreach emails (Day 30)
-✅ C151, C159: Twitter threads for equity glossary and comparison page (Day 30)
-✅ C139-C142, C155, C168-C169, C172-C173: UX improvements, testimonials, pricing CTAs, popular calculators (Day 30)
-✅ C165-C167: 3 new SEO blog posts — vesting acceleration, cost basis, exit scenarios (Day 31)
-✅ C171: Floating Pro CTA on all 10 calculator pages (Day 31)
-✅ C174-C175: Cross-linked Day 31 blog posts to 6 existing posts + each other (Day 32)
-✅ C176-C178: 3 new SEO blog posts — down rounds, offer red flags, secondary sales (Day 32)
-✅ C179: Sitemap updated with 7 new URLs (Day 32)
-✅ C183: Floating CTA verified on all 10 calculator pages + compare-offers (Day 32)
-✅ C185: Nav consistency verified across all 3 new Day 32 blog posts (Day 32)
-✅ C189: Cross-linked Day 32 posts to 5 existing blog posts (Day 32)
-✅ C187: A/B test for Pro pricing ($19 vs $9.50) — ab-test-pricing.js added to all 11 calculators (Day 33)
-✅ C184: "Save this calculation" reminder — save-reminder.js added to all calculators (Day 33)
-✅ C182: LinkedIn article templates — 5 posts drafted in linkedin-article-10-calculators.md (Day 33)
-✅ C181: Reddit post template for r/startups quarterly thread — reddit-startups-template.md created (Day 34)
-✅ C186: Exit-intent popups on Day 31 blog posts — Added to vesting acceleration, cost basis, exit scenarios (Day 34)
-✅ C180: Verified mobile responsiveness — New blog posts use shared responsive template (Day 34)
-✅ C188: Social proof on all calculators — Added "Join 500+ founders using FounderMath" badge (Day 34)
+✅ C90-C98: Blog posts, OG images, cross-links, nav/footer/sitemap
+✅ C99-C109: Mobile improvements, schema markup, social media scenarios, guest post pitches, stock options
+✅ C110-C126: Cross-links, comparison page, nav verification, embed widget, share feature, accelerator outreach
+✅ C127-C142: Compare offers, equity vs salary, print CSS, glossary nav, LinkedIn templates, directory lists
+✅ C143-C162: Calculator CTAs, share results, comparison page links, PH badge, SAFE stacking blog
+✅ C165-C179: SEO blog posts, floating Pro CTA, cross-linking, sitemap updates
+✅ C180-C193: Mobile responsiveness, Reddit template, exit-intent, social proof, A/B pricing, save reminder, LinkedIn articles, 3 new SEO blog posts
+
+## Summary: 42 blog posts, 10 calculators, 13 interactive tools, 70+ pages, mobile-responsive, social proof, A/B pricing testing, save reminders, 7-day free trial, equity story generator
