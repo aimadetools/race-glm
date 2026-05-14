@@ -700,6 +700,29 @@
                 <div class="waterfall-steps" id="waterfallSteps"></div>
             </section>
 
+            <!-- Pro-Rata Rights Section -->
+            <section class="waterfall-section" aria-labelledby="prorataTitle">
+                <h3 id="prorataTitle">Pro-Rata & Next Round Preview</h3>
+                <p class="chart-subtitle">See what each SAFE investor would need to invest in your next priced round to maintain their ownership.</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+                    <div class="safe-input-group">
+                        <label>Next Round Pre-Money ($M)</label>
+                        <input type="number" id="nextRoundPreMoney" value="40" min="0" step="5"
+                            oninput="renderProRata(lastCalcData)">
+                    </div>
+                    <div class="safe-input-group">
+                        <label>Next Round Raise ($M)</label>
+                        <input type="number" id="nextRoundRaise" value="8" min="0" step="1"
+                            oninput="renderProRata(lastCalcData)">
+                    </div>
+                </div>
+                <div id="prorataContent"></div>
+                <div class="callout" style="margin-top:16px;margin-bottom:0;">
+                    <h4>What are Pro-Rata Rights?</h4>
+                    <p>Pro-rata rights allow an investor to maintain their ownership percentage in future rounds by investing additional capital. For example, if an investor owns 5% after your SAFE round and you raise a new round, they have the right to buy enough shares to stay at 5%. Without pro-rata rights, their percentage would shrink (dilute) with each new round.</p>
+                </div>
+            </section>
+
             <!-- Conversion Table -->
             <section class="table-section" aria-labelledby="tableTitle">
                 <h3 id="tableTitle">Conversion Details</h3>
@@ -1426,12 +1449,94 @@
     }
 
     // ============================================================
+    // PRO-RATA RIGHTS
+    // ============================================================
+    function renderProRata(data) {
+        if (!data || !data.results.length) {
+            document.getElementById('prorataContent').innerHTML = '<p style="color:var(--text-muted);font-size:0.85rem;">Add SAFE notes to see pro-rata calculations.</p>';
+            return;
+        }
+
+        const nextRoundPre = (parseFloat(document.getElementById('nextRoundPreMoney').value) || 40) * 1e6;
+        const nextRoundRaise = (parseFloat(document.getElementById('nextRoundRaise').value) || 8) * 1e6;
+        const nextRoundPost = nextRoundPre + nextRoundRaise;
+        const pps = Math.max(state.pricePerShare, 0.01);
+        const currentTotalShares = data.preMoneyShares + data.totalSAFEShares;
+
+        let html = '<div style="overflow-x:auto;"><table class="conv-table" style="margin-bottom:16px;">';
+        html += '<thead><tr><th>Investor</th><th>Current Ownership</th><th>Pro-Rata Investment Needed</th><th>Ownership After Next Round</th><th>Without Pro-Rata</th></tr></thead><tbody>';
+
+        data.results.forEach((r, i) => {
+            const currentPct = r.ownershipPct / 100;
+            // Pro-rata: investor needs to buy enough shares in next round to maintain their %
+            // Their target shares = currentPct * (nextRoundPost / pps) -- simplified
+            // Actually: after next round, total shares = currentTotalShares + (nextRoundRaise / pps)
+            const nextRoundNewShares = nextRoundRaise / pps;
+            const totalSharesAfterNextRound = currentTotalShares + nextRoundNewShares;
+            const targetShares = currentPct * totalSharesAfterNextRound;
+            const currentShares = r.shares;
+            const proRataAdditionalShares = targetShares - currentShares;
+            const proRataInvestment = Math.max(proRataAdditionalShares * pps, 0);
+            const ownershipAfterWithProRata = currentPct * 100; // maintains same %
+
+            // Without pro-rata: their shares stay same, total increases
+            const ownershipWithoutProRata = (currentShares / totalSharesAfterNextRound) * 100;
+            const dilutionRisk = currentPct * 100 - ownershipWithoutProRata;
+
+            const color = SAFE_COLORS[i % SAFE_COLORS.length];
+            html += `<tr>
+                <td class="label-cell" style="color:${color}">${escHtml(r.name)}</td>
+                <td>${(currentPct * 100).toFixed(2)}%</td>
+                <td style="color:${proRataInvestment > 0 ? 'var(--green)' : 'var(--text-muted)'}">${proRataInvestment > 0 ? formatCurrency(proRataInvestment) : 'N/A'}</td>
+                <td style="color:var(--green)">${ownershipAfterWithProRata.toFixed(2)}%</td>
+                <td style="color:var(--red)">${ownershipWithoutProRata.toFixed(2)}% <span style="font-size:0.75rem;color:var(--red);">(-${dilutionRisk.toFixed(2)}%)</span></td>
+            </tr>`;
+        });
+
+        // Founder row
+        const founderShares = data.preMoneyShares;
+        const founderPct = (founderShares / (data.preMoneyShares + data.totalSAFEShares)) * 100;
+        const nextRoundNewShares = nextRoundRaise / pps;
+        const totalSharesAfterNextRound = currentTotalShares + nextRoundNewShares;
+        const founderWithoutProRata = (founderShares / totalSharesAfterNextRound) * 100;
+        const founderDilution = founderPct - founderWithoutProRata;
+
+        html += `<tr class="total-row">
+            <td class="label-cell">Founders</td>
+            <td>${founderPct.toFixed(2)}%</td>
+            <td style="color:var(--text-muted)">—</td>
+            <td style="color:var(--red)">${founderWithoutProRata.toFixed(2)}%</td>
+            <td style="color:var(--red)">${founderWithoutProRata.toFixed(2)}% <span style="font-size:0.75rem;">(-${founderDilution.toFixed(2)}%)</span></td>
+        </tr>`;
+
+        html += '</tbody></table></div>';
+
+        // MFN explanation if any MFN SAFEs exist
+        const mfnSafes = data.results.filter(r => r.type === 'MFN');
+        if (mfnSafes.length > 0) {
+            html += `<div class="callout" style="margin-top:12px;margin-bottom:0;">
+                <h4>How MFN Clauses Work in Your Scenario</h4>
+                <p>Your MFN SAFE(s) automatically get the best conversion price from your other SAFE notes. `;
+            mfnSafes.forEach((m, i) => {
+                html += `<strong>${escHtml(m.name)}</strong> converts at $${m.conversionPrice.toFixed(4)}/share (matching the best available terms). `;
+            });
+            html += `This means the MFN investor is protected — if you give any other investor a better deal, the MFN investor automatically gets it too.</p>
+            </div>`;
+        }
+
+        document.getElementById('prorataContent').innerHTML = html;
+    }
+
+    // ============================================================
     // MAIN RECALCULATE
     // ============================================================
+    let lastCalcData = null;
+
     function recalculate() {
         state.preMoney = parseFloat(document.getElementById('preMoney').value) || 0;
         state.pricePerShare = parseFloat(document.getElementById('pricePerShare').value) || 0.01;
         const data = calculate();
+        lastCalcData = data;
         // Save state to localStorage
         try { localStorage.setItem('foundermath_safe_state', JSON.stringify(getState())); } catch(e) {}
 
@@ -1439,6 +1544,7 @@
         renderTable(data.results);
         renderSummary(data);
         renderWaterfall(data);
+        renderProRata(data);
 
         // Track calculation (debounced)
         trackCalculationDebounced();

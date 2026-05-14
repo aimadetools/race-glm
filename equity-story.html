@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Much Equity Will You Have After Raising? | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Visualize how your startup equity changes across funding rounds. Generate a shareable equity dilution story for Twitter and LinkedIn.">
+    <meta name="keywords" content="equity dilution story, startup equity visualization, how much equity after funding, founder dilution calculator">
+    <meta property="og:title" content="How Much Equity Will You Have After Raising?">
+    <meta property="og:description" content="I just simulated my startup equity dilution across funding rounds. Here's what happens to my ownership.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-safe.svg">
+    <meta property="og:url" content="https://founder-math.com/equity-story.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Equity Dilution Story Generator — FounderMath",
+        "url": "https://founder-math.com/equity-story.html",
+        "description": "Visualize how your startup equity changes across funding rounds and generate a shareable story.",
+        "isPartOf": { "@type": "WebSite", "name": "FounderMath", "url": "https://founder-math.com" }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --pink: #ff6b9d;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+
+        /* HERO */
+        .hero { padding: 120px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%); animation: heroGlow 15s ease-in-out infinite alternate; pointer-events: none; }
+        @keyframes heroGlow { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-5%, 5%) scale(1.1); } }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 12px; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; position: relative; }
+        .hero .subtitle { font-size: 0.9rem; color: var(--text-muted); margin-top: 8px; }
+
+        /* LAYOUT */
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px 80px; }
+
+        /* STEPS */
+        .step-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 24px; position: relative; }
+        .step-card h3 { font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+        .step-number { width: 32px; height: 32px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; color: white; flex-shrink: 0; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .form-row:last-child { margin-bottom: 0; }
+        .form-group label { display: block; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+        .form-group input, .form-group select { width: 100%; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-primary); padding: 12px 16px; border-radius: 8px; font-size: 0.9rem; font-family: var(--font-mono); transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent); }
+        .form-group select { font-family: var(--font-sans); cursor: pointer; }
+        .form-group select option { background: var(--bg-card); color: var(--text-primary); }
+        .form-group .hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
+        /* ROUND ROWS */
+        .round-row { display: grid; grid-template-columns: 1fr 1fr 40px; gap: 12px; margin-bottom: 12px; align-items: end; }
+        .remove-round { background: none; border: none; color: var(--text-muted); font-size: 1.2rem; cursor: pointer; padding: 12px 0; transition: color 0.2s; }
+        .remove-round:hover { color: var(--red); }
+
+        .add-round-btn { background: var(--bg-card); border: 1px dashed var(--border); color: var(--text-secondary); padding: 12px; border-radius: 8px; font-size: 0.9rem; cursor: pointer; width: 100%; transition: all 0.2s; }
+        .add-round-btn:hover { border-color: var(--accent); color: var(--text-primary); }
+
+        .generate-btn { background: linear-gradient(135deg, var(--accent), #8b5cf6); color: white; border: none; padding: 16px 32px; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; width: 100%; transition: transform 0.2s, box-shadow 0.2s; }
+        .generate-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+
+        /* RESULTS */
+        .results { display: none; }
+        .results.show { display: block; }
+
+        .story-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 24px; }
+        .story-card h3 { font-size: 1.2rem; margin-bottom: 20px; }
+
+        /* Timeline */
+        .timeline { position: relative; padding-left: 32px; }
+        .timeline::before { content: ''; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+        .timeline-item { position: relative; margin-bottom: 28px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-dot { position: absolute; left: -26px; top: 6px; width: 16px; height: 16px; border-radius: 50%; border: 3px solid; }
+        .timeline-round { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+        .timeline-detail { font-size: 1rem; color: var(--text-secondary); margin-top: 4px; }
+        .timeline-ownership { font-family: var(--font-mono); font-size: 1.3rem; font-weight: 800; margin-top: 4px; }
+        .timeline-change { font-family: var(--font-mono); font-size: 0.85rem; margin-top: 2px; }
+        .timeline-bar { height: 8px; border-radius: 4px; margin-top: 8px; transition: width 0.5s ease; }
+
+        /* Shareable Story Box */
+        .share-box { background: var(--bg-card); border: 2px solid var(--accent); border-radius: 16px; padding: 32px; margin-bottom: 24px; position: relative; }
+        .share-box h3 { font-size: 1.1rem; margin-bottom: 16px; color: var(--accent-light); }
+        .share-text { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8; white-space: pre-wrap; background: var(--bg-primary); padding: 20px; border-radius: 8px; border: 1px solid var(--border); }
+        .share-actions { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+        .share-btn { flex: 1; min-width: 140px; padding: 12px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: 1px solid var(--border); transition: all 0.2s; text-align: center; text-decoration: none; }
+        .share-btn.twitter { background: #1da1f2; color: white; border-color: #1da1f2; }
+        .share-btn.twitter:hover { background: #1a8cd8; }
+        .share-btn.linkedin { background: #0077b5; color: white; border-color: #0077b5; }
+        .share-btn.linkedin:hover { background: #00669c; }
+        .share-btn.copy { background: var(--bg-secondary); color: var(--text-primary); }
+        .share-btn.copy:hover { border-color: var(--accent); }
+        .share-btn.copied { border-color: var(--green); color: var(--green); }
+
+        /* CTA */
+        .cta-card { background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 16px; padding: 32px; text-align: center; margin-top: 32px; }
+        .cta-card h3 { font-size: 1.3rem; margin-bottom: 8px; }
+        .cta-card p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 20px; }
+        .cta-card .btn-white { background: white; color: var(--accent); padding: 12px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: transform 0.2s; display: inline-block; }
+        .cta-card .btn-white:hover { transform: translateY(-2px); }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .form-row { grid-template-columns: 1fr; }
+            .round-row { grid-template-columns: 1fr 1fr 40px; }
+            .share-actions { flex-direction: column; }
+            .share-btn { min-width: auto; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo"><span class="logo-icon">F</span>FounderMath</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Calculators</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="glossary.html">Glossary</a></li>
+                <li><a href="pricing.html" class="nav-cta">Get Pro</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>How Much Equity Will You <span class="gradient">Have After Raising</span>?</h1>
+        <p>Generate your equity dilution story. See how your ownership changes across funding rounds — then share it.</p>
+        <p class="subtitle">Free. No signup. Takes 60 seconds.</p>
+    </div>
+
+    <div class="container">
+        <!-- STEP 1: Starting Equity -->
+        <div class="step-card">
+            <h3><span class="step-number">1</span> Your Starting Equity</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Number of Co-Founders</label>
+                    <select id="cofounders" onchange="updateFounderEquity()">
+                        <option value="1">Solo founder (100%)</option>
+                        <option value="2" selected>2 Co-founders (50/50)</option>
+                        <option value="3">3 Co-founders (33/33/33)</option>
+                        <option value="4">4 Co-founders (25/25/25/25)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Your Ownership %</label>
+                    <input type="number" id="yourEquity" value="50" min="1" max="100" step="1" oninput="updatePreview()">
+                    <div class="hint">Your starting percentage</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 2: Funding Rounds -->
+        <div class="step-card">
+            <h3><span class="step-number">2</span> Your Funding Rounds</h3>
+            <div id="roundsContainer"></div>
+            <button class="add-round-btn" onclick="addRound()">+ Add Another Round</button>
+        </div>
+
+        <!-- STEP 3: Generate -->
+        <button class="generate-btn" onclick="generateStory()">Generate My Equity Story</button>
+
+        <!-- RESULTS -->
+        <div class="results" id="results">
+            <!-- Timeline -->
+            <div class="story-card">
+                <h3>Your Equity Journey</h3>
+                <div class="timeline" id="timeline"></div>
+            </div>
+
+            <!-- Shareable Story -->
+            <div class="share-box">
+                <h3>Your Shareable Story</h3>
+                <div class="share-text" id="shareText"></div>
+                <div class="share-actions">
+                    <button class="share-btn twitter" onclick="shareTwitter()">Share on Twitter</button>
+                    <button class="share-btn linkedin" onclick="shareLinkedIn()">Share on LinkedIn</button>
+                    <button class="share-btn copy" id="copyBtn" onclick="copyStory()">Copy to Clipboard</button>
+                </div>
+            </div>
+
+            <!-- CTA to calculators -->
+            <div class="cta-card">
+                <h3>Want to Go Deeper?</h3>
+                <p>Use our free calculators to model exact dilution, SAFE conversions, vesting schedules, and cap tables.</p>
+                <a href="index.html" class="btn-white">Try All 10 Calculators Free &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding:48px 24px;border-top:1px solid var(--border);text-align:center;">
+        <p style="color:var(--text-muted);font-size:0.85rem;">Built by <a href="index.html" style="color:var(--accent-light);text-decoration:none;">FounderMath</a> — Free startup equity calculators for founders.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+    <script>
+        // Default rounds
+        const DEFAULT_ROUNDS = [
+            { name: 'Pre-Seed', raise: 1.5, dilution: 15 },
+            { name: 'Seed', raise: 5, dilution: 20 },
+            { name: 'Series A', raise: 15, dilution: 25 },
+        ];
+
+        const ROUND_COLORS = ['#6c5ce7', '#00b894', '#ff6b6b', '#ffa502', '#54a0ff', '#ff6b9d'];
+        let rounds = JSON.parse(JSON.stringify(DEFAULT_ROUNDS));
+        let storyData = null;
+
+        function renderRounds() {
+            const container = document.getElementById('roundsContainer');
+            container.innerHTML = '';
+            rounds.forEach((round, i) => {
+                const div = document.createElement('div');
+                div.className = 'round-row';
+                div.innerHTML = `
+                    <div class="form-group">
+                        <label>${i === 0 ? 'Round Name' : ''}</label>
+                        <input type="text" value="${round.name}" placeholder="Round name"
+                            oninput="rounds[${i}].name=this.value">
+                    </div>
+                    <div class="form-group">
+                        <label>${i === 0 ? 'Amount Raised ($M)' : ''}</label>
+                        <input type="number" value="${round.raise}" min="0" step="0.5" placeholder="5"
+                            oninput="rounds[${i}].raise=parseFloat(this.value)||0">
+                    </div>
+                    <button class="remove-round" onclick="removeRound(${i})" title="Remove round">&times;</button>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function addRound() {
+            const names = ['Pre-Seed', 'Seed', 'Series A', 'Series B', 'Series C'];
+            const nextName = names[rounds.length] || `Round ${rounds.length + 1}`;
+            rounds.push({ name: nextName, raise: 10, dilution: 20 });
+            renderRounds();
+        }
+
+        function removeRound(i) {
+            if (rounds.length <= 1) return;
+            rounds.splice(i, 1);
+            renderRounds();
+        }
+
+        function updateFounderEquity() {
+            const n = parseInt(document.getElementById('cofounders').value);
+            document.getElementById('yourEquity').value = Math.round(100 / n);
+        }
+
+        function generateStory() {
+            const startingEquity = parseFloat(document.getElementById('yourEquity').value) || 50;
+            let currentEquity = startingEquity;
+            const journey = [{ name: 'Start', equity: currentEquity, change: 0, type: 'start' }];
+
+            rounds.forEach((round, i) => {
+                // Standard dilution: new investor gets ~20-25%, founders dilute proportionally
+                const dilutionPct = round.dilution || 20;
+                const newEquity = currentEquity * (1 - dilutionPct / 100);
+                const change = newEquity - currentEquity;
+                journey.push({
+                    name: round.name,
+                    equity: newEquity,
+                    change: change,
+                    raise: round.raise,
+                    type: 'round',
+                    dilution: dilutionPct
+                });
+                currentEquity = newEquity;
+            });
+
+            storyData = { startingEquity, journey, currentEquity };
+
+            renderTimeline(journey, startingEquity);
+            renderShareText(storyData);
+
+            document.getElementById('results').classList.add('show');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Track
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'generate_equity_story', {
+                    starting_equity: startingEquity,
+                    num_rounds: rounds.length,
+                    final_equity: currentEquity.toFixed(1)
+                });
+            }
+        }
+
+        function renderTimeline(journey, maxEquity) {
+            const container = document.getElementById('timeline');
+            container.innerHTML = '';
+
+            journey.forEach((step, i) => {
+                const div = document.createElement('div');
+                div.className = 'timeline-item';
+
+                const color = step.type === 'start' ? 'var(--accent-light)' : ROUND_COLORS[(i - 1) % ROUND_COLORS.length];
+                const barWidth = (step.equity / maxEquity) * 100;
+                const changeText = step.change === 0 ? '' :
+                    step.change < 0 ? `<span style="color:var(--red)">${step.change.toFixed(1)}pp</span>` :
+                    `<span style="color:var(--green)">+${step.change.toFixed(1)}pp</span>`;
+
+                div.innerHTML = `
+                    <div class="timeline-dot" style="border-color:${color};background:${color}20"></div>
+                    <div class="timeline-round">${step.type === 'start' ? 'You start here' : step.name + (step.raise ? ` — $${step.raise}M raised` : '')}</div>
+                    <div class="timeline-ownership" style="color:${color}">${step.equity.toFixed(1)}%</div>
+                    <div class="timeline-change">${changeText}${step.dilution ? ` (${step.dilution}% dilution)` : ''}</div>
+                    <div class="timeline-bar" style="width:${barWidth}%;background:${color}"></div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderShareText(data) {
+            const { startingEquity, journey, currentEquity } = data;
+            const totalRaised = rounds.reduce((s, r) => s + (r.raise || 0), 0);
+
+            let text = `I started with ${startingEquity}% of my startup.\n\n`;
+            rounds.forEach((round, i) => {
+                const step = journey[i + 1];
+                text += `${round.name}: Raised $${round.raise}M → My equity drops to ${step.equity.toFixed(1)}%\n`;
+            });
+            text += `\nAfter raising $${totalRaised.toFixed(1)}M across ${rounds.length} rounds, I own ${currentEquity.toFixed(1)}%.`;
+            text += `\n\nSimulate your equity journey at founder-math.com/equity-story`;
+
+            document.getElementById('shareText').textContent = text;
+        }
+
+        function shareTwitter() {
+            const text = document.getElementById('shareText').textContent;
+            const url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
+            window.open(url, '_blank');
+            if (typeof gtag !== 'undefined') gtag('event', 'share_story_twitter');
+        }
+
+        function shareLinkedIn() {
+            const text = document.getElementById('shareText').textContent;
+            const url = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent('https://founder-math.com/equity-story.html');
+            window.open(url, '_blank');
+            if (typeof gtag !== 'undefined') gtag('event', 'share_story_linkedin');
+        }
+
+        function copyStory() {
+            const text = document.getElementById('shareText').textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => { btn.textContent = 'Copy to Clipboard'; btn.classList.remove('copied'); }, 2000);
+            });
+            if (typeof gtag !== 'undefined') gtag('event', 'copy_story');
+        }
+
+        // Init
+        renderRounds();
+    </script>
+</body>
+</html>
