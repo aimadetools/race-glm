@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Stock Options Work at Early-Stage Startups — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Complete beginner's guide to stock options at early-stage startups. Learn what options are, how they vest, strike price, 83(b) election, and when to exercise.">
+    <meta name="keywords" content="stock options for beginners, startup equity for beginners, how stock options work, early-stage startup equity, first tech job equity">
+    <meta property="og:title" content="How Stock Options Work at Early-Stage Startups">
+    <meta property="og:description" content="Complete beginner's guide to stock options. Learn what options are, vesting, strike price, and when to exercise.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-safe.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/stock-options-early-stage-startups.html">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://founder-math.com/blog/stock-options-early-stage-startups.html">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How Stock Options Work at Early-Stage Startups",
+        "description": "Complete beginner's guide to stock options at early-stage startups.",
+        "author": { "@type": "Organization", "name": "FounderMath" },
+        "publisher": { "@type": "Organization", "name": "FounderMath", "url": "https://founder-math.com" },
+        "url": "https://founder-math.com/blog/stock-options-early-stage-startups.html",
+        "datePublished": "2026-05-14"
+    }
+    </script>
+    <style>
+        :root { --bg-primary:#0a0a0f;--bg-secondary:#12121a;--accent:#6c5ce7;--accent-light:#a29bfe;--green:#00b894;--red:#ff6b6b;--text-primary:#f0f0f5;--text-secondary:#a0a0b5;--text-muted:#666680;--border:#2a2a40; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; background:var(--bg-primary); color:var(--text-primary); line-height:1.7; }
+        nav { position:fixed; top:0; width:100%; z-index:100; backdrop-filter:blur(20px); background:rgba(10,10,15,0.85); border-bottom:1px solid var(--border); }
+        .nav-inner { max-width:1000px; margin:0 auto; padding:0 24px; height:64px; display:flex; align-items:center; justify-content:space-between; }
+        .logo { font-size:1.2rem; font-weight:700; color:var(--text-primary); text-decoration:none; }
+        .nav-links { display:flex; gap:24px; }
+        .nav-links a { color:var(--text-secondary); text-decoration:none; font-size:0.9rem; }
+        .nav-links a:hover { color:var(--text-primary); }
+        article { max-width:700px; margin:100px auto 60px; padding:0 24px 60px; }
+        h1 { font-size:2.2rem; font-weight:800; margin-bottom:16px; line-height:1.2; }
+        .meta { color:var(--text-muted); font-size:0.9rem; margin-bottom:32px; }
+        h2 { font-size:1.5rem; margin-top:48px; margin-bottom:16px; }
+        h3 { font-size:1.2rem; margin-top:32px; margin-bottom:12px; }
+        p { margin-bottom:16px; color:var(--text-secondary); }
+        ul { margin-bottom:16px; padding-left:24px; color:var(--text-secondary); }
+        li { margin-bottom:8px; }
+        strong { color:var(--text-primary); }
+        code { background:var(--bg-secondary); padding:2px 6px; border-radius:4px; font-family:'SF Mono',monospace; font-size:0.9em; }
+        .example { background:var(--bg-secondary); border:1px solid var(--border); border-radius:12px; padding:20px; margin:16px 0; }
+        .example h4 { color:var(--accent-light); margin-bottom:12px; }
+        .example-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); }
+        .example-row:last-child { border-bottom:none; }
+        .warning { border-left:3px solid var(--red); padding:12px 16px; background:var(--bg-secondary); margin:16px 0; }
+        .cta { background:linear-gradient(135deg,var(--accent),#8b5cf6); border-radius:12px; padding:32px; margin-top:48px; text-align:center; }
+        .cta h3 { margin-top:0; }
+        .cta a { color:white; text-decoration:none; font-weight:700; }
+        .back-link { display:inline-block; margin-top:32px; color:var(--text-muted); text-decoration:none; }
+        .back-link:hover { color:var(--text-primary); }
+        @media (max-width:768px) { .nav-links { display:none; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">FounderMath</a>
+            <div class="nav-links">
+                <a href="../index.html">Calculators</a>
+                <a href="blog.html">Blog</a>
+                <a href="../glossary.html">Glossary</a>
+            </div>
+        </div>
+    </nav>
+
+    <article>
+        <h1>How Stock Options Work at Early-Stage Startups</h1>
+        <div class="meta">Published May 14, 2026 • 8 min read</div>
+
+        <p><strong>You just got a job offer at an early-stage startup.</strong> The salary looks good, but there's also something about "10,000 stock options" with a "strike price of $0.10." What does that actually mean? Will you make money? When?</p>
+
+        <p>This guide breaks down stock options in plain English—no jargon, no hype, just what you need to know before you sign.</p>
+
+        <h2>What Are Stock Options?</h2>
+
+        <p>Stock options are the right to buy company stock at a fixed price (the <strong>strike price</strong>) in the future. They're not stock—they're an option to buy stock later.</p>
+
+        <p>The idea: if the company grows and the stock becomes valuable, you can buy shares at your low strike price and sell them at a higher price for a profit.</p>
+
+        <div class="example">
+            <h4>Simple Example</h4>
+            <div class="example-row"><span>Your strike price:</span><span>$0.10/share</span></div>
+            <div class="example-row"><span>Company's stock value at exit:</span><span>$10.00/share</span></div>
+            <div class="example-row"><span>Your profit per share:</span><span><strong>$9.90/share</strong></span></div>
+        </div>
+
+        <h2>The Key Parts of Your Option Grant</h2>
+
+        <p>Your offer letter should specify these details. If anything is missing, ask before you sign.</p>
+
+        <ul>
+            <li><strong>Number of options:</strong> How many options you're granted (e.g., 10,000)</li>
+            <li><strong>Strike price:</strong> The price you pay per share when you exercise</li>
+            <li><strong>Vesting schedule:</strong> How fast you earn the right to exercise</li>
+            <li><strong>Cliff:</strong> How long before any options vest (usually 1 year)</li>
+            <li><strong>Expiration:</strong> How long you have to exercise after leaving</li>
+        </ul>
+
+        <h2>Vesting: Earning Your Options Over Time</h2>
+
+        <p>You don't get all your options on day one. They <strong>vest</strong> over time. The most common schedule is <strong>4 years with a 1-year cliff</strong>:</p>
+
+        <ul>
+            <li><strong>Cliff (Year 1):</strong> 0% vests until you hit 1 year, then 25% vests</li>
+            <li><strong>Years 2-4:</strong> Remaining 75% vests monthly (~1.56% per month)</li>
+        </ul>
+
+        <div class="example">
+            <h4>10,000 Options Example</h4>
+            <div class="example-row"><span>After 1 year:</span><span>2,500 options vested</span></div>
+            <div class="example-row"><span>After 2 years:</span><span>5,000 options vested</span></div>
+            <div class="example-row"><span>After 3 years:</span><span>7,500 options vested</span></div>
+            <div class="example-row"><span>After 4 years:</span><span>10,000 options vested</span></div>
+        </div>
+
+        <h2>The Cliff: Why It Matters</h2>
+
+        <p>The 1-year cliff means <strong>if you leave before 12 months, you get nothing</strong>. It's protection for the company—they don't want to grant equity to someone who leaves quickly.</p>
+
+        <div class="warning">
+            <strong>Warning:</strong> If you're considering leaving before your cliff, check if you'll forfeit your options. Most startup option grants have a 1-year cliff.
+        </div>
+
+        <h2>Strike Price: What You Pay to Exercise</h2>
+
+        <p>The strike price is set based on the company's <strong>409A valuation</strong>—an independent appraisal of the company's fair market value. At early-stage startups, this is often low (cents to a few dollars per share).</p>
+
+        <p>The strike price is fixed when your options are granted. Even if the company's valuation increases 10x next year, your strike price stays the same.</p>
+
+        <div class="example">
+            <h4>Strike Price Doesn't Change</h4>
+            <div class="example-row"><span>Year 1 (grant):</span><span>Strike price = $0.10/share</span></div>
+            <div class="example-row"><span>Year 2 (company raises Series A):</span><span>Strike price still = $0.10/share</span></div>
+            <div class="example-row"><span>Year 5 (exit at $50/share):</span><span>Your profit = $49.90/share</span></div>
+        </div>
+
+        <h2>Exercising: When Do You Actually Buy the Stock?</h2>
+
+        <p>Exercising means paying your strike price to convert options into actual stock. You can exercise:</p>
+
+        <ul>
+            <li><strong>When fully vested:</strong> Many people wait until all options vest</li>
+            <li><strong>While employed:</strong> Exercise vested options anytime</li>
+            <li><strong>After leaving:</strong> You have a window (usually 90 days for early startups)</li>
+        </ul>
+
+        <div class="warning">
+            <strong>Important:</strong> Most startup options expire 90 days after you leave the company. If you don't exercise within that window, you lose them.
+        </div>
+
+        <h2>What Does It Cost to Exercise?</h2>
+
+        <p>To exercise, you pay: <strong>Strike price × Number of options</strong></p>
+
+        <p><strong>Example:</strong> 10,000 options with $0.10 strike = $1,000 to exercise all options.</p>
+
+        <p>At early-stage startups, this is often affordable. But remember: you're paying cash upfront for something that may or may not pay off.</p>
+
+        <h2>What Happens When the Company Exits?</h2>
+
+        <p>Your options become valuable only if the company has a <strong>liquidity event</strong>—an acquisition or IPO. Here's what happens:</p>
+
+        <ul>
+            <li><strong>If exercised:</strong> You already own shares, so you sell them at the exit price</li>
+            <li><strong>If not exercised:</strong> You must exercise first, then sell (but you may need cash to exercise)</li>
+        </ul>
+
+        <p><strong>Scenario:</strong> The company gets acquired at $50/share, and you have 10,000 options:</p>
+
+        <ul>
+            <li>Exercise cost: 10,000 × $0.10 = $1,000</li>
+            <li>Sale proceeds: 10,000 × $50 = $500,000</li>
+            <li>Your profit: $500,000 - $1,000 = $499,000</li>
+        </ul>
+
+        <h2>What If the Company Fails?</h2>
+
+        <p>Here's the hard truth: <strong>most startups fail</strong>. If the company shuts down without an exit, your options are worth zero.</p>
+
+        <p>The money you spent exercising is lost. This is why options are high-risk, high-reward.</p>
+
+        <h2>Taxes: The Complicated Part</h2>
+
+        <p>Taxes on options are complex. There are two main types:</p>
+
+        <ul>
+            <li><strong>ISOs (Incentive Stock Options):</strong> Potential tax advantages if you hold shares long-term</li>
+            <li><strong>NSOs (Non-qualified Stock Options):</strong> Treated as ordinary income when you exercise</li>
+        </ul>
+
+        <p><strong>83(b) election:</strong> For early employees, filing an 83(b) election within 30 days of exercising can reduce taxes—but it means paying taxes now on potential future gains. Talk to a tax professional.</p>
+
+        <h2>Common Mistakes to Avoid</h2>
+
+        <ul>
+            <li><strong>Not understanding the cliff:</strong> Leaving before 12 months often means losing everything</li>
+            <li><strong>Waiting too long to exercise:</strong> If you leave, you typically have 90 days</li>
+            <li><strong>Ignoring taxes:</strong> Exercise + exit can trigger big tax bills</li>
+            <li><strong>Assuming options = guaranteed money:</strong> Most startups don't exit successfully</li>
+        </ul>
+
+        <h2>Should You Exercise Early?</h2>
+
+        <p>Exercising early (before an exit) means you:</p>
+
+        <ul>
+            <li>Lock in a low strike price</li>
+            <li>Start the clock on long-term capital gains (for ISOs)</li>
+            <li>Pay cash upfront with no guarantee of return</li>
+        </ul>
+
+        <p><strong>When it makes sense:</strong> You believe in the company, have cash to spare, and want long-term tax advantages.</p>
+
+        <p><strong>When it doesn't:</strong> You're risk-averse, need cash, or the company's future is uncertain.</p>
+
+        <h2>Key Takeaways</h2>
+
+        <ul>
+            <li>Options are the right to buy stock later at a fixed strike price</li>
+            <li>Most vest over 4 years with a 1-year cliff (nothing before 12 months)</li>
+            <li>You only make money if the company has a successful exit</li>
+            <li>Exercising requires paying cash (strike price × options)</li>
+            <li>Most options expire 90 days after you leave</li>
+            <li>Taxes are complex—consult a professional</li>
+        </ul>
+
+        <div class="cta">
+            <h3>Calculate Your Option Potential</h3>
+            <p>Use our free stock options calculator to see what your offer could be worth at different exit scenarios.</p>
+            <a href="../stock-options.html">Stock Options Calculator &rarr;</a>
+        </div>
+
+        <a href="blog.html" class="back-link">&larr; Back to Blog</a>
+    </article>
+
+    <footer style="padding:48px 24px;border-top:1px solid var(--border);text-align:center;">
+        <p style="color:var(--text-muted);font-size:0.85rem;">Built by <a href="../index.html" style="color:var(--accent-light);text-decoration:none;">FounderMath</a> — Free startup equity calculators for founders.</p>
+    </footer>
+</body>
+</html>

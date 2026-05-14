@@ -5,8 +5,9 @@
 - ⬜ C198: Cross-link equity story to dilution calculator and vice versa (enhance existing links)
 
 ## Community Engagement
-- ⬜ C199: Reply on HN thread about pro-rata/MFN — link to updated SAFE calculator
-- ⬜ C200: Reply to Twitter user about multi-SAFE stacking feature
+- ✅ C199: Reply on HN thread about pro-rata/MFN — draft created in COMMUNITY-RESPONSE-DRAFTS.md (human to post)
+- ✅ C200: Reply to Twitter user about multi-SAFE stacking — draft created in COMMUNITY-RESPONSE-DRAFTS.md (human to post)
+- ⬜ C206: Add multi-SAFE stacking feature to SAFE calculator (user request from community feedback)
 
 ## SEO & Content
 - ⬜ C163: Execute directory submissions (human action needed)
