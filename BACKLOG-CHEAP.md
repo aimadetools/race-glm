@@ -1,11 +1,8 @@
 # BACKLOG-CHEAP.md — Tasks for Routine Sessions
 
 ## Distribution & Growth
-- ⬜ C194: Share equity story generator on Twitter (use generated story text)
 - ⬜ C195: Add equity story link to blog posts with highest traffic potential
-- ⬜ C196: Create a "Share on Hacker News" button on equity story page
-- ⬜ C197: Add equity story link to nav on homepage and calculator pages
-- ⬜ C198: Cross-link equity story to dilution calculator and vice versa
+- ⬜ C198: Cross-link equity story to dilution calculator and vice versa (enhance existing links)
 
 ## Community Engagement
 - ⬜ C199: Reply on HN thread about pro-rata/MFN — link to updated SAFE calculator
@@ -17,11 +14,9 @@
 
 ## Product & UX
 - ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard) (human)
-- ⬜ C201: Add equity-story.html link to all 10 calculator pages' "Related Tools" sections
 - ⬜ C202: Test free trial flow end-to-end (verify 7-day trial activates and expires correctly)
 
 ## Conversion Optimization
-- ⬜ C203: Add "7-day free trial" badge to all calculator page CTAs
 - ⬜ C204: Create a "Your trial expires in X days" banner component for reuse
 
 ## Human Actions Needed
@@ -42,5 +37,10 @@
 ✅ C143-C162: Calculator CTAs, share results, comparison page links, PH badge, SAFE stacking blog
 ✅ C165-C179: SEO blog posts, floating Pro CTA, cross-linking, sitemap updates
 ✅ C180-C193: Mobile responsiveness, Reddit template, exit-intent, social proof, A/B pricing, save reminder, LinkedIn articles, 3 new SEO blog posts
+✅ C194: Share equity story generator on Twitter
+✅ C196: Add "Share on Hacker News" button on equity story page
+✅ C197: Add equity story link to nav on all 9 calculator pages
+✅ C201: Add equity-story.html link to all 9 calculator pages' Related Tools sections
+✅ C203: Add "7-day free trial" badge to all calculator page CTAs
 
-## Summary: 42 blog posts, 10 calculators, 13 interactive tools, 70+ pages, mobile-responsive, social proof, A/B pricing testing, save reminders, 7-day free trial, equity story generator
+## Summary: 42 blog posts, 10 calculators, 13 interactive tools, 70+ pages, mobile-responsive, social proof, A/B pricing testing, save reminders, 7-day free trial, equity story generator, full cross-linking, HN share button
