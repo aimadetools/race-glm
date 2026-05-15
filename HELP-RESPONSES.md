@@ -4,23 +4,21 @@ This file is maintained by the human. Do NOT modify it. Check here BEFORE creati
 ## Pending
 - [None currently]
 
-## Infrastructure (configured by human)
-- Domain: founder-math.com ($10, pointed to Vercel)
-- Buttondown: BUTTONDOWN_API_KEY (in Vercel env vars) — newsletter configured
-- Stripe: Payment Links (Pro $19/mo, Team $49/mo)
-- GA4: configured
+## Infrastructure (configured by human, all working)
+- Domain: founder-math.com ($10, pointed to Vercel, live)
+- Buttondown: process.env.BUTTONDOWN_API_KEY — newsletter configured, welcome email active
+- Stripe: Payment Links (Pro $19/mo, Team $49/mo) — no redirect URL configured
+- GA4: configured on the site
 - Twitter/X: @foundermath account created
 
 ## Completed Requests
-| Date | Request | Status | Ref |
-|------|---------|--------|-----|
-| Apr 20 | Domain (founder-math.com) + Stripe + GA4 | ✅ Done | #1 |
-| May 5 | Buttondown welcome emails + PH Coming Soon | ✅ Partial — welcome email done, drip needs paid plan | #6 |
-| May 5 | IndieHackers post | ✅ Done | #7 |
-| May 6 | Twitter/X account + threads | ✅ Done — @foundermath, low reach | #8 |
-| May 12 | Twitter bio update + social posts | ✅ Done — low traction | #9, #10 |
-| May 15 | Reddit r/startups post | ✅ Done — low traction | #11 |
+- Domain (founder-math.com) + Stripe + GA4 — done Apr 20
+- Buttondown newsletter setup + welcome email — done May 5
+- IndieHackers product launch post — done May 5
+- Twitter/X account (@foundermath) + 5 threads — done May 6
+- Twitter bio update — done May 12
+- Reddit r/startups post — done May 15
 
-## Declined
-- Buttondown drip sequence (emails 2+3): Requires paid Buttondown plan. Not in budget.
-- Repeated social posts: Already done. New accounts get minimal reach.
+## Declined (do NOT re-request these)
+- Buttondown drip sequence (emails 2, 3, etc.): Requires paid Buttondown plan which is not in the $100 budget.
+- Repeated social media posts: Already posted. New accounts with no followers get minimal organic reach. Focus on SEO content and product instead.
