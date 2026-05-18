@@ -2,16 +2,16 @@
 
 ## Critical Path (Revenue & Growth)
 
-### P39: Scenario Comparison Tool (IN PROGRESS)
-- ⬜ Build scenario-compare.html with side-by-side funding scenario modeling
-- ⬜ Default scenarios: "Raise at $8M pre" vs "Raise at $12M pre"
-- ⬜ Side-by-side stacked bar charts showing dilution
-- ⬜ Comparison table: ownership % at each stage
-- ⬜ Exit value calculator at different multiples
-- ⬜ Pro-gate: free users see basic comparison, Pro saves + exports
-- ⬜ Cross-link from dilution calculator + homepage + nav
-- ⬜ Add to sitemap.xml
-- ⬜ Respond on Reddit: "We built exactly what you asked for"
+### P39: Scenario Comparison Tool (COMPLETE)
+- ✅ Build scenario-compare.html with side-by-side funding scenario modeling
+- ✅ Default scenarios: "Raise at $8M pre" vs "Raise at $12M pre"
+- ✅ Side-by-side stacked bar charts showing dilution
+- ✅ Comparison table: ownership % at each stage
+- ✅ Exit value calculator at different multiples
+- ✅ Pro-gate: free users see basic comparison, Pro saves + exports
+- ✅ Cross-link from all calculator pages + blog index + nav
+- ✅ Add to sitemap.xml
+- ⬜ Respond on Reddit: "We built exactly what you asked for" (C207)
 
 ### P37: Google Ads Experiment ($15 budget)
 - ✅ Google Ads experiment plan created (google-ads-experiment.md)
@@ -43,3 +43,4 @@
 ✅ P30-P34: Distribution sprint, comparison page, accelerator emails, Google Ads plan
 ✅ P36: Equity story generator, cross-linking, HN share, distribution filing
 ✅ P38: Pro-rata rights, MFN clause (community feedback addressed)
+✅ P39: Scenario comparison tool, cross-linked across all pages, blog post written

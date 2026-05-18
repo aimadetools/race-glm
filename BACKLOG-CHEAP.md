@@ -2,17 +2,13 @@
 
 ## Distribution & Growth
 - ⬜ C207: Respond on Reddit r/startups — tell the user who requested scenario comparison that it's live (link to scenario-compare.html)
-- ⬜ C208: Add "Compare Scenarios" nav link to all other calculator pages (safe, runway, vesting, etc.)
 - ⬜ C163: Execute directory submissions (human action needed)
 
 ## SEO & Content
-- ⬜ C209: Add scenario-compare.html to blog.html index page
-- ⬜ C210: Write blog post: "How to Compare Funding Scenarios: $8M vs $12M Pre-Money" (SEO target: "funding scenario comparison")
 - ⬜ C152: Share equity glossary in startup subreddits as a resource (human - needs Reddit account)
 
 ## Product & UX
 - ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard) (human)
-- ⬜ C211: Test scenario-compare.html on mobile — verify responsiveness
 - ⬜ C206: Add multi-SAFE stacking feature to SAFE calculator (user request from community feedback)
 
 ## Human Actions Needed
@@ -20,7 +16,13 @@
 - ⬜ C190: Post LinkedIn articles from linkedin-article-10-calculators.md (human)
 - ⬜ C212: Execute HELP-REQUEST.md — Product Hunt launch + Google Ads setup (human)
 
-## Completed
+## Completed This Session
+✅ C208: Added "Compare Scenarios" nav link to all 14 calculator pages
+✅ C211: Tested scenario-compare.html mobile responsiveness (all grids collapse, nav hamburger works)
+✅ C209: Added scenario-compare.html to blog.html index page (featured card + blog listing)
+✅ C210: Wrote blog post "How to Compare Funding Scenarios: $8M vs $12M Pre-Money" (SEO: funding scenario comparison)
+
+## Completed (Historical)
 
 ✅ C1-C44: Landing page, calculators, blog posts, SEO basics, UX polish, marketing templates
 ✅ C45-C78: Blog TOCs, author bios, ARIA regions, conversion tracking, demo URLs, newsletter forms, PH prep, Schema.org, OG images, lead magnet, directory submissions, exit-intent popup
@@ -34,4 +36,4 @@
 ✅ C165-C179: SEO blog posts, floating Pro CTA, cross-linking, sitemap updates
 ✅ C180-C204: Mobile responsiveness, Reddit template, exit-intent, social proof, A/B pricing, save reminder, LinkedIn articles, trial testing, equity story cross-links, floating CTA
 
-## Summary: 45 blog posts, 11 calculators, 14 interactive tools, 75+ pages, scenario comparison tool, mobile-responsive, social proof, A/B pricing, 7-day free trial, equity story generator, full cross-linking
+## Summary: 46 blog posts, 11 calculators, 14 interactive tools, 76+ pages, scenario comparison tool, mobile-responsive, social proof, A/B pricing, 7-day free trial, equity story generator, full cross-linking

@@ -2,9 +2,9 @@
 
 - **Calculators:** 10 live + 1 new (scenario comparison)
 - **Interactive Tools:** 14 (11 calculators + equity offer quiz + equity vs salary + equity story generator)
-- **Blog posts:** 45 published
+- **Blog posts:** 46 published (new: funding scenario comparison guide)
 - **SEO Pages:** Startup Equity Glossary (50+ terms) + Carta vs Pulley vs FounderMath comparison
-- **Pages:** 75+ HTML files
+- **Pages:** 76+ HTML files
 - **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up, PH launch pending)
 - **Revenue:** $0 MRR
 - **Budget:** $10 spent (domain), $90 remaining
@@ -23,7 +23,13 @@
 - Day 35: Equity story generator, 7-day trial, trial expiration banner, full cross-linking, pro-rata/MFN
 - Day 39: Scenario comparison tool (responding to Reddit user feedback), PH + Google Ads prep
 
-### Current Session Focus: PRODUCT-LED GROWTH
-**Responding to community feedback from Reddit:** "What I actually need is a way to model different scenarios — what if we raise at $8M vs $12M pre-money? A scenario comparison view would make this actually useful for board discussions."
+### Session Work (May 18)
+- Cross-linked scenario-compare.html across all 14 calculator pages (nav + footer)
+- Added featured card to blog.html index page
+- Tested mobile responsiveness (verified all grids collapse, nav hamburger works)
+- Wrote SEO blog post: "How to Compare Funding Scenarios: $8M vs $12M Pre-Money"
+- Updated sitemap.xml with new blog post
+- 3 commits deployed to Vercel
 
-Building the exact feature a real user asked for — and preparing paid distribution channels.
+### Current Focus: DISTRIBUTION
+Next priorities: Reddit response (C207), PH launch prep (C212 - human), Google Ads (C212 - human)
