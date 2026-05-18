@@ -14,6 +14,7 @@
 ## Completed This Session
 ✅ C206: Fixed missing addSAFE() function in SAFE calculator
 ✅ C214: Wrote "Tag-Along and Drag-Along Rights Explained" blog post (47th post)
+✅ C215: Wrote "Voting Rights in Startups" blog post (48th post)
 ✅ C207: Drafted Reddit response for scenario comparison feedback
 
 ## Human Actions Needed
@@ -41,4 +42,4 @@
 ✅ C165-C179: SEO blog posts, floating Pro CTA, cross-linking, sitemap updates
 ✅ C180-C204: Mobile responsiveness, Reddit template, exit-intent, social proof, A/B pricing, save reminder, LinkedIn articles, trial testing, equity story cross-links, floating CTA
 
-## Summary: 46 blog posts, 11 calculators, 14 interactive tools, 76+ pages, scenario comparison tool, mobile-responsive, social proof, A/B pricing, 7-day free trial, equity story generator, full cross-linking
+## Summary: 48 blog posts, 11 calculators, 14 interactive tools, 76+ pages, scenario comparison tool, mobile-responsive, social proof, A/B pricing, 7-day free trial, equity story generator, full cross-linking

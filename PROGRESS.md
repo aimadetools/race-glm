@@ -2,7 +2,7 @@
 
 - **Calculators:** 10 live + 1 new (scenario comparison)
 - **Interactive Tools:** 14 (11 calculators + equity offer quiz + equity vs salary + equity story generator)
-- **Blog posts:** 47 published (new: Tag-Along/Drag-Along Rights guide)
+- **Blog posts:** 48 published (new: Voting Rights guide)
 - **SEO Pages:** Startup Equity Glossary (50+ terms) + Carta vs Pulley vs FounderMath comparison
 - **Pages:** 76+ HTML files
 - **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up, PH launch pending)
@@ -31,8 +31,9 @@
 - Updated sitemap.xml with new blog post
 - Fixed critical bug: addSAFE() function missing in SAFE calculator (C206)
 - Wrote SEO blog post: "Tag-Along and Drag-Along Rights Explained" (47th post)
+- Wrote SEO blog post: "Voting Rights in Startups: What Founders and Employees Need to Know" (48th post)
 - Created Reddit response draft for scenario comparison feedback (C207)
-- 5 commits deployed to Vercel
+- 6 commits deployed to Vercel
 
 ### Current Focus: DISTRIBUTION
 Next priorities: Reddit response (C207), PH launch prep (C212 - human), Google Ads (C212 - human)
