@@ -19,18 +19,20 @@ Hey Product Hunt! 👋
 I built FounderMath because I kept seeing founders and early employees make expensive equity mistakes — accepting offers without understanding vesting, getting diluted without realizing it, or choosing the wrong type of stock options.
 
 **What it does:**
-- 10 free interactive calculators for startup equity math
+- 11 free interactive calculators for startup equity math
+- Compare funding scenarios side-by-side ($8M vs $12M pre-money? See the difference)
 - Visualize how your equity dilutes across funding rounds
 - Convert SAFE notes and understand liquidation preferences
 - Compare job offers side-by-side (salary + equity + benefits)
 - Calculate your stock options' potential value at different exit scenarios
 
 **Why I built it:**
-Carta and Pulley cost $100+/month and are built for companies, not individual founders. Free calculators online are basic and ugly. I wanted something beautiful, interactive, and actually useful — that any founder or employee could use for free.
+Carta and Pulley cost $100+/month and are built for companies, not individual founders. Free calculators online are basic and ugly. I wanted something beautiful, interactive, and actually useful — that any founder or employee could use for free. The scenario comparison tool was built directly from community feedback — a founder on Reddit asked for it, and I shipped it the same week.
 
 **What's included:**
+- **Funding Scenario Comparison** — Compare two scenarios side-by-side (NEW)
 - Equity Dilution Calculator (multi-round simulation)
-- SAFE Note Converter (with valuation caps and discounts)
+- SAFE Note Converter (with valuation caps, discounts, pro-rata, MFN)
 - Runway Calculator (monthly burn rate analysis)
 - Vesting Schedule Visualizer
 - Cap Table Builder
@@ -40,7 +42,9 @@ Carta and Pulley cost $100+/month and are built for companies, not individual fo
 - Equity Split Calculator (for cofounders)
 - Compare Job Offers Calculator
 - Equity vs Salary Calculator
+- Equity Story Generator (shareable dilution timeline)
 - Startup Equity Glossary (50+ terms)
+- Carta vs Pulley vs FounderMath comparison page
 
 **Founding 50 special:** First 50 Pro subscribers get 50% off forever ($9.50/mo instead of $19/mo). Pro includes saving scenarios, exporting PDFs, and side-by-side comparison.
 

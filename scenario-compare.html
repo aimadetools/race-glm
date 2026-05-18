@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funding Scenario Comparison Tool | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    <meta name="description" content="Compare funding scenarios side-by-side. See how different valuations, investment amounts, and option pools affect your equity dilution. Free tool for startup founders.">
+    <meta name="keywords" content="funding scenario comparison, equity dilution comparison, startup valuation comparison, pre-money valuation, founder ownership">
+    <meta property="og:title" content="Funding Scenario Comparison — FounderMath">
+    <meta property="og:description" content="Compare two funding scenarios side-by-side. See exactly how different valuations affect your equity.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-dilution.svg">
+    <meta property="og:url" content="https://founder-math.com/scenario-compare.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Funding Scenario Comparison Tool — FounderMath",
+        "url": "https://founder-math.com/scenario-compare.html",
+        "description": "Compare funding scenarios side-by-side. See how different valuations and deal terms affect your equity dilution.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Funding Scenario Comparison Tool",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Side-by-side funding scenario comparison for startup founders. See how different valuations and deal terms affect equity dilution."
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --pink: #ff6b9d;
+            --yellow: #feca57;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+            --scenario-a: #6c5ce7;
+            --scenario-b: #00b894;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* NAV */
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem !important; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        /* HERO */
+        .page-header {
+            padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden;
+        }
+        .page-header::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%);
+            animation: heroGlow 15s ease-in-out infinite alternate; pointer-events: none;
+        }
+        @keyframes heroGlow { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-5%,5%) scale(1.1); } }
+        .page-header h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 12px; }
+        .page-header h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; position: relative; }
+        .page-header .reddit-quote {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px;
+            max-width: 600px; margin: 20px auto 0; text-align: left; position: relative; font-style: italic;
+            color: var(--text-secondary); font-size: 0.9rem; border-left: 3px solid var(--accent);
+        }
+        .reddit-quote .source { font-style: normal; color: var(--text-muted); font-size: 0.8rem; margin-top: 8px; display: block; }
+
+        /* MAIN CONTAINER */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px 60px; }
+
+        /* SCENARIO INPUTS */
+        .scenarios-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px;
+        }
+        .scenario-panel {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px;
+            padding: 24px; position: relative;
+        }
+        .scenario-panel.panel-a { border-top: 3px solid var(--scenario-a); }
+        .scenario-panel.panel-b { border-top: 3px solid var(--scenario-b); }
+        .scenario-header {
+            display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;
+        }
+        .scenario-label {
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+            padding: 4px 12px; border-radius: 6px;
+        }
+        .panel-a .scenario-label { background: rgba(108,92,231,0.15); color: var(--scenario-a); }
+        .panel-b .scenario-label { background: rgba(0,184,148,0.15); color: var(--scenario-b); }
+        .scenario-name-input {
+            background: transparent; border: none; color: var(--text-primary); font-size: 1.1rem;
+            font-weight: 700; font-family: var(--font-sans); outline: none; width: 100%; max-width: 200px;
+            border-bottom: 1px solid transparent; transition: border-color 0.2s;
+        }
+        .scenario-name-input:focus { border-bottom-color: var(--accent); }
+        .section-title {
+            font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--text-muted); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+        }
+        .founder-row {
+            display: grid; grid-template-columns: 1fr 70px 32px; gap: 8px; margin-bottom: 8px;
+            align-items: center;
+        }
+        .founder-row input, .round-input input {
+            background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary);
+            padding: 8px 12px; border-radius: 6px; font-size: 0.85rem; font-family: var(--font-sans);
+            outline: none; transition: border-color 0.2s;
+        }
+        .founder-row input:focus, .round-input input:focus { border-color: var(--accent-light); }
+        .founder-row input[type="number"], .round-input input[type="number"] { font-family: var(--font-mono); }
+        .remove-btn {
+            background: none; border: none; color: var(--text-muted); font-size: 1.2rem; cursor: pointer;
+            padding: 4px; line-height: 1; transition: color 0.2s; border-radius: 4px;
+        }
+        .remove-btn:hover { color: var(--red); }
+        .add-btn {
+            background: none; border: 1px dashed var(--border); color: var(--text-secondary);
+            padding: 8px 16px; border-radius: 6px; font-size: 0.8rem; cursor: pointer;
+            width: 100%; transition: all 0.2s; font-family: var(--font-sans);
+        }
+        .add-btn:hover { border-color: var(--accent); color: var(--accent-light); background: rgba(108,92,231,0.05); }
+
+        .round-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+            padding: 16px; margin-bottom: 12px;
+        }
+        .round-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .round-header input {
+            background: transparent; border: none; color: var(--text-primary); font-size: 0.95rem;
+            font-weight: 600; font-family: var(--font-sans); outline: none; width: 100%;
+        }
+        .round-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .round-input label { display: block; font-size: 0.7rem; color: var(--text-muted); margin-bottom: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .split-warning {
+            background: rgba(255,165,2,0.1); border: 1px solid rgba(255,165,2,0.3); color: var(--orange);
+            padding: 8px 12px; border-radius: 6px; font-size: 0.8rem; margin-top: 8px; display: none;
+        }
+        .split-warning.visible { display: block; }
+
+        /* COMPARE BUTTON */
+        .compare-section { text-align: center; margin-bottom: 40px; }
+        .compare-btn {
+            background: linear-gradient(135deg, var(--scenario-a), var(--scenario-b));
+            color: white; border: none; padding: 16px 48px; border-radius: 12px;
+            font-size: 1.1rem; font-weight: 700; cursor: pointer; font-family: var(--font-sans);
+            transition: transform 0.2s, box-shadow 0.2s; letter-spacing: -0.01em;
+        }
+        .compare-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(108,92,231,0.4); }
+        .compare-btn:active { transform: translateY(0); }
+
+        /* RESULTS */
+        .results { display: none; }
+        .results.visible { display: block; }
+
+        .comparison-summary {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px;
+        }
+        .summary-card {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+            padding: 20px; text-align: center;
+        }
+        .summary-card .label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+        .summary-card .values { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 12px 0 4px; }
+        .summary-card .value-a { color: var(--scenario-a); font-size: 1.6rem; font-weight: 800; font-family: var(--font-mono); }
+        .summary-card .value-b { color: var(--scenario-b); font-size: 1.6rem; font-weight: 800; font-family: var(--font-mono); }
+        .summary-card .vs { color: var(--text-muted); font-size: 0.8rem; font-weight: 600; }
+        .summary-card .delta { font-size: 0.85rem; font-weight: 700; }
+        .delta.positive { color: var(--green); }
+        .delta.negative { color: var(--red); }
+        .delta.neutral { color: var(--text-muted); }
+
+        /* CHARTS */
+        .charts-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px;
+        }
+        .chart-section {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+            padding: 24px;
+        }
+        .chart-section h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+        .chart-section .subtitle { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 16px; }
+        .chart-container { height: 300px; position: relative; }
+
+        /* COMPARISON TABLE */
+        .comparison-table-section {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+            padding: 24px; margin-bottom: 32px; overflow-x: auto;
+        }
+        .comparison-table-section h3 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
+        .comparison-table {
+            width: 100%; border-collapse: collapse; font-size: 0.85rem;
+        }
+        .comparison-table th {
+            text-align: left; padding: 10px 12px; color: var(--text-muted); font-size: 0.7rem;
+            text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700;
+            border-bottom: 1px solid var(--border);
+        }
+        .comparison-table th:not(:first-child) { text-align: right; }
+        .comparison-table td {
+            padding: 10px 12px; border-bottom: 1px solid rgba(42,42,64,0.5);
+        }
+        .comparison-table td:not(:first-child) { text-align: right; font-family: var(--font-mono); font-size: 0.85rem; }
+        .comparison-table tr:hover { background: rgba(108,92,231,0.05); }
+        .comparison-table .section-row td { font-weight: 700; color: var(--accent-light); font-size: 0.8rem; padding-top: 16px; }
+        .comparison-table .winner { color: var(--green); font-weight: 700; }
+
+        /* EXIT CALCULATOR */
+        .exit-section {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+            padding: 24px; margin-bottom: 32px;
+        }
+        .exit-section h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+        .exit-section .subtitle { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 16px; }
+        .exit-input-row {
+            display: flex; gap: 12px; align-items: flex-end; margin-bottom: 20px; flex-wrap: wrap;
+        }
+        .exit-input-row label { display: block; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px; font-weight: 600; }
+        .exit-input-row input {
+            background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary);
+            padding: 10px 14px; border-radius: 8px; font-size: 1rem; font-family: var(--font-mono);
+            width: 180px; outline: none;
+        }
+        .exit-input-row input:focus { border-color: var(--accent-light); }
+        .exit-input-row .calc-btn {
+            background: var(--accent); color: white; border: none; padding: 10px 24px;
+            border-radius: 8px; font-weight: 700; cursor: pointer; font-family: var(--font-sans); font-size: 0.9rem;
+        }
+        .exit-results {
+            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
+        }
+        .exit-card {
+            background: var(--bg-card); border-radius: 10px; padding: 16px; text-align: center;
+        }
+        .exit-card .label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
+        .exit-card .amount { font-size: 1.4rem; font-weight: 800; font-family: var(--font-mono); }
+        .exit-card .amount.a-color { color: var(--scenario-a); }
+        .exit-card .amount.b-color { color: var(--scenario-b); }
+        .exit-card .diff { font-size: 0.8rem; margin-top: 4px; }
+
+        /* KEY TAKEAWAY */
+        .takeaway {
+            background: linear-gradient(135deg, rgba(108,92,231,0.1), rgba(0,184,148,0.1));
+            border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 32px;
+        }
+        .takeaway h3 { font-size: 1rem; font-weight: 700; margin-bottom: 12px; }
+        .takeaway ul { list-style: none; padding: 0; }
+        .takeaway li {
+            padding: 8px 0; font-size: 0.9rem; color: var(--text-secondary);
+            display: flex; align-items: flex-start; gap: 10px;
+        }
+        .takeaway li .icon { flex-shrink: 0; font-size: 1rem; }
+
+        /* PRO CTA */
+        .calc-cta {
+            background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(162,155,254,0.1));
+            border: 1px solid var(--accent); border-radius: 12px; padding: 32px;
+            text-align: center; margin-bottom: 32px;
+        }
+        .calc-cta h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+        .calc-cta p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px; }
+        .calc-cta a {
+            display: inline-block; background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white; text-decoration: none; padding: 12px 32px; border-radius: 8px;
+            font-weight: 700; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .calc-cta a:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+
+        /* RELATED TOOLS */
+        .related-tools { margin-bottom: 40px; }
+        .related-tools h3 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+        .tool-card {
+            display: block; background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 10px; padding: 16px; text-decoration: none; transition: border-color 0.2s;
+        }
+        .tool-card:hover { border-color: var(--accent); }
+        .tool-card .tool-name { color: var(--text-primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+        .tool-card .tool-desc { color: var(--text-muted); font-size: 0.8rem; }
+
+        /* FOOTER */
+        footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 40px 24px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+        .footer-brand p { color: var(--text-muted); font-size: 0.85rem; margin-top: 8px; }
+        footer h4 { color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+        footer a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; display: block; padding: 3px 0; transition: color 0.2s; }
+        footer a:hover { color: var(--text-primary); }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); padding: 16px 24px; border-bottom: 1px solid var(--border); gap: 16px; }
+            .scenarios-grid { grid-template-columns: 1fr; }
+            .charts-grid { grid-template-columns: 1fr; }
+            .comparison-summary { grid-template-columns: 1fr; }
+            .exit-results { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+            .round-inputs { grid-template-columns: 1fr; }
+            .founder-row { grid-template-columns: 1fr 60px 28px; }
+        }
+        @media print {
+            nav, .compare-section, .add-btn, .remove-btn, .calc-cta, footer { display: none !important; }
+            .results { display: block !important; }
+            body { background: white; color: black; }
+            .scenario-panel, .chart-section, .comparison-table-section, .exit-section, .takeaway { border: 1px solid #ddd; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">fM</div>
+                <span>FounderMath</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="scenario-compare.html" style="color:var(--accent-light);font-weight:600;">Compare</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="pricing.html" class="nav-cta">7-Day Free Trial</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="page-header">
+        <h1>Compare Funding <span class="gradient">Scenarios</span></h1>
+        <p>What if you raise at $8M vs $12M? What if you give the CTO 2% vs 4%? See exactly how different deal terms change your equity — side by side.</p>
+        <div class="reddit-quote">
+            "What I actually need is a way to model different scenarios: what if we raise at 8M vs 12M pre-money? A scenario comparison view would make this actually useful for board discussions."
+            <span class="source">— r/startups community feedback</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- SCENARIO INPUTS -->
+        <div class="scenarios-grid">
+            <!-- SCENARIO A -->
+            <div class="scenario-panel panel-a">
+                <div class="scenario-header">
+                    <span class="scenario-label">Scenario A</span>
+                    <input type="text" class="scenario-name-input" id="nameA" value="Conservative Valuation" aria-label="Scenario A name">
+                </div>
+
+                <div class="section-title">Founders</div>
+                <div id="foundersA"></div>
+                <button class="add-btn" onclick="addFounder('A')">+ Add Founder</button>
+                <div class="split-warning" id="splitWarningA">Founder percentages should total 100%</div>
+
+                <div style="margin-top:20px;">
+                    <div class="section-title">Funding Rounds</div>
+                    <div id="roundsA"></div>
+                    <button class="add-btn" onclick="addRound('A')">+ Add Round</button>
+                </div>
+            </div>
+
+            <!-- SCENARIO B -->
+            <div class="scenario-panel panel-b">
+                <div class="scenario-header">
+                    <span class="scenario-label">Scenario B</span>
+                    <input type="text" class="scenario-name-input" id="nameB" value="Strong Valuation" aria-label="Scenario B name">
+                </div>
+
+                <div class="section-title">Founders</div>
+                <div id="foundersB"></div>
+                <button class="add-btn" onclick="addFounder('B')">+ Add Founder</button>
+                <div class="split-warning" id="splitWarningB">Founder percentages should total 100%</div>
+
+                <div style="margin-top:20px;">
+                    <div class="section-title">Funding Rounds</div>
+                    <div id="roundsB"></div>
+                    <button class="add-btn" onclick="addRound('B')">+ Add Round</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPARE BUTTON -->
+        <div class="compare-section">
+            <button class="compare-btn" onclick="runComparison()">Compare Scenarios</button>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="results" id="results">
+            <!-- Summary Cards -->
+            <div class="comparison-summary" id="summaryCards"></div>
+
+            <!-- Charts -->
+            <div class="charts-grid">
+                <div class="chart-section">
+                    <h3 id="chartTitleA">Scenario A</h3>
+                    <p class="subtitle">Ownership across funding rounds</p>
+                    <div class="chart-container"><canvas id="chartA"></canvas></div>
+                </div>
+                <div class="chart-section">
+                    <h3 id="chartTitleB">Scenario B</h3>
+                    <p class="subtitle">Ownership across funding rounds</p>
+                    <div class="chart-container"><canvas id="chartB"></canvas></div>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="comparison-table-section">
+                <h3>Detailed Comparison</h3>
+                <table class="comparison-table" id="compTable"></table>
+            </div>
+
+            <!-- Exit Value Calculator -->
+            <div class="exit-section">
+                <h3>Exit Value Calculator</h3>
+                <p class="subtitle">How much would each founder walk away with at different exit valuations?</p>
+                <div class="exit-input-row">
+                    <div>
+                        <label for="exitVal">Exit Valuation ($M)</label>
+                        <input type="number" id="exitVal" value="100" min="0" step="10">
+                    </div>
+                    <div>
+                        <label for="exitFounder">Founder</label>
+                        <select id="exitFounder" style="background:var(--bg-input);border:1px solid var(--border);color:var(--text-primary);padding:10px 14px;border-radius:8px;font-size:0.9rem;">
+                        </select>
+                    </div>
+                    <button class="calc-btn" onclick="calcExit()">Calculate</button>
+                </div>
+                <div class="exit-results" id="exitResults"></div>
+            </div>
+
+            <!-- Key Takeaway -->
+            <div class="takeaway" id="takeaway"></div>
+
+            <!-- Pro CTA -->
+            <div class="calc-cta">
+                <h3>Save & Export This Comparison</h3>
+                <p>Upgrade to Pro to save unlimited scenarios, export charts as PDF, and share with your cofounders.</p>
+                <a href="pricing.html">Start 7-Day Free Trial</a>
+            </div>
+
+            <!-- Related Tools -->
+            <div class="related-tools">
+                <h3>Related Tools</h3>
+                <div class="tools-grid">
+                    <a href="dilution.html" class="tool-card">
+                        <div class="tool-name">Equity Dilution Calculator</div>
+                        <div class="tool-desc">Full multi-round dilution simulator</div>
+                    </a>
+                    <a href="safe.html" class="tool-card">
+                        <div class="tool-name">SAFE Note Calculator</div>
+                        <div class="tool-desc">Model SAFE conversions and stacking</div>
+                    </a>
+                    <a href="cap-table.html" class="tool-card">
+                        <div class="tool-name">Cap Table Builder</div>
+                        <div class="tool-desc">Build and visualize your cap table</div>
+                    </a>
+                    <a href="compare-offers.html" class="tool-card">
+                        <div class="tool-name">Compare Job Offers</div>
+                        <div class="tool-desc">Side-by-side offer comparison with equity</div>
+                    </a>
+                    <a href="equity-story.html" class="tool-card">
+                        <div class="tool-name">Equity Story Generator</div>
+                        <div class="tool-desc">Shareable dilution timeline visualization</div>
+                    </a>
+                    <a href="equity-split.html" class="tool-card">
+                        <div class="tool-name">Equity Split Calculator</div>
+                        <div class="tool-desc">Fair cofounder equity distribution</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="logo"><div class="logo-icon">fM</div><span>FounderMath</span></a>
+                <p>The startup calculator suite founders actually need.</p>
+            </div>
+            <div>
+                <h4>Calculators</h4>
+                <a href="dilution.html">Dilution</a>
+                <a href="safe.html">SAFE Notes</a>
+                <a href="runway.html">Runway</a>
+                <a href="vesting.html">Vesting</a>
+                <a href="scenario-compare.html">Compare</a>
+            </div>
+            <div>
+                <h4>Resources</h4>
+                <a href="blog.html">Blog</a>
+                <a href="equity-glossary.html">Glossary</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <a href="about.html">About</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+    <script src="pro-gating.js"></script>
+
+    <script>
+    // ============================================================
+    // STATE
+    // ============================================================
+    const COLORS = ['#6c5ce7','#00b894','#ff6b6b','#ffa502','#54a0ff','#ff6b9d','#feca57','#a29bfe','#00cec9','#fd79a8'];
+
+    const state = {
+        A: {
+            founders: [
+                { name: 'You', pct: 60 },
+                { name: 'Co-founder', pct: 40 }
+            ],
+            rounds: [
+                { name: 'Seed', preMoney: 8, investment: 2, optionPool: 10 }
+            ]
+        },
+        B: {
+            founders: [
+                { name: 'You', pct: 60 },
+                { name: 'Co-founder', pct: 40 }
+            ],
+            rounds: [
+                { name: 'Seed', preMoney: 12, investment: 3, optionPool: 10 }
+            ]
+        }
+    };
+
+    let chartA = null, chartB = null;
+
+    // ============================================================
+    // UI RENDERING
+    // ============================================================
+    function renderFounders(side) {
+        const container = document.getElementById('founders' + side);
+        container.innerHTML = state[side].founders.map((f, i) => `
+            <div class="founder-row">
+                <input type="text" value="${f.name}" onchange="state.${side}.founders[${i}].name=this.value" placeholder="Name" aria-label="Founder name">
+                <input type="number" value="${f.pct}" onchange="updateFounderPct('${side}',${i},this.value)" min="0" max="100" step="1" placeholder="%" aria-label="Percentage">
+                ${state[side].founders.length > 1 ? `<button class="remove-btn" onclick="removeFounder('${side}',${i})" aria-label="Remove founder">&times;</button>` : '<span></span>'}
+            </div>
+        `).join('');
+        validateSplit(side);
+    }
+
+    function renderRounds(side) {
+        const container = document.getElementById('rounds' + side);
+        container.innerHTML = state[side].rounds.map((r, i) => `
+            <div class="round-card">
+                <div class="round-header">
+                    <input type="text" value="${r.name}" onchange="state.${side}.rounds[${i}].name=this.value" placeholder="Round name">
+                    <button class="remove-btn" onclick="removeRound('${side}',${i})" aria-label="Remove round">&times;</button>
+                </div>
+                <div class="round-inputs">
+                    <div class="round-input">
+                        <label>Pre-money ($M)</label>
+                        <input type="number" value="${r.preMoney}" onchange="state.${side}.rounds[${i}].preMoney=parseFloat(this.value)||0" min="0" step="0.5">
+                    </div>
+                    <div class="round-input">
+                        <label>Investment ($M)</label>
+                        <input type="number" value="${r.investment}" onchange="state.${side}.rounds[${i}].investment=parseFloat(this.value)||0" min="0" step="0.5">
+                    </div>
+                    <div class="round-input">
+                        <label>Option Pool (%)</label>
+                        <input type="number" value="${r.optionPool}" onchange="state.${side}.rounds[${i}].optionPool=parseFloat(this.value)||0" min="0" max="50" step="1">
+                    </div>
+                    <div class="round-input">
+                        <label>Post-money ($M)</label>
+                        <input type="number" value="${(r.preMoney + r.investment).toFixed(1)}" disabled style="opacity:0.6">
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function addFounder(side) {
+        state[side].founders.push({ name: 'Founder ' + (state[side].founders.length + 1), pct: 0 });
+        renderFounders(side);
+    }
+    function removeFounder(side, i) {
+        if (state[side].founders.length <= 1) return;
+        state[side].founders.splice(i, 1);
+        renderFounders(side);
+    }
+    function updateFounderPct(side, i, val) {
+        state[side].founders[i].pct = parseFloat(val) || 0;
+        validateSplit(side);
+    }
+    function addRound(side) {
+        const names = ['Seed','Series A','Series B','Series C','Series D'];
+        const name = names[state[side].rounds.length] || 'Round ' + (state[side].rounds.length + 1);
+        state[side].rounds.push({ name: name, preMoney: 0, investment: 0, optionPool: 0 });
+        renderRounds(side);
+    }
+    function removeRound(side, i) {
+        state[side].rounds.splice(i, 1);
+        renderRounds(side);
+    }
+
+    function validateSplit(side) {
+        const total = state[side].founders.reduce((s, f) => s + f.pct, 0);
+        const warn = document.getElementById('splitWarning' + side);
+        if (Math.abs(total - 100) >= 0.5) {
+            warn.classList.add('visible');
+            warn.textContent = `Founders total ${total.toFixed(1)}% — should be 100%. Values will be normalized.`;
+        } else {
+            warn.classList.remove('visible');
+        }
+    }
+
+    // ============================================================
+    // CALCULATION ENGINE
+    // ============================================================
+    function calculateScenario(scenario) {
+        const founders = scenario.founders;
+        const rounds = scenario.rounds;
+        const totalPct = founders.reduce((s, f) => s + f.pct, 0);
+        const normFactor = Math.abs(totalPct - 100) < 0.5 ? 1 : (100 / Math.max(totalPct, 0.01));
+
+        const stakeholders = founders.map((f, i) => ({
+            name: f.name, type: 'founder', colorIndex: i,
+            ownership: f.pct * normFactor,
+            shares: f.pct * normFactor * 100
+        }));
+
+        const stages = [{
+            label: 'Founding',
+            stakeholders: stakeholders.map(s => ({...s})),
+            preMoney: 0, postMoney: 0,
+            totalShares: stakeholders.reduce((s, st) => s + st.shares, 0)
+        }];
+
+        rounds.forEach((round, ri) => {
+            const preMoney = round.preMoney;
+            const investment = round.investment;
+            const poolPct = round.optionPool;
+            const postMoney = preMoney + investment;
+            if (postMoney <= 0 && poolPct <= 0) return;
+
+            const investorPct = postMoney > 0 ? (investment / postMoney) * 100 : 0;
+            const existingPct = 100 - investorPct - poolPct;
+            const dilutionFactor = existingPct / 100;
+
+            const prevTotal = stages[stages.length - 1].totalShares;
+            const investorShares = (investorPct / 100) * (prevTotal / (dilutionFactor || 0.001));
+            const poolShares = (poolPct / 100) * (prevTotal / (dilutionFactor || 0.001));
+
+            const newStakeholders = [];
+            stages[stages.length - 1].stakeholders.forEach(s => {
+                const newShares = s.shares * dilutionFactor;
+                const newOwn = (newShares / (prevTotal + investorShares + poolShares)) * 100;
+                newStakeholders.push({...s, shares: newShares, ownership: newOwn});
+            });
+            newStakeholders.push({
+                name: round.name + ' Investor', type: 'investor',
+                colorIndex: founders.length + ri,
+                shares: investorShares, ownership: investorPct
+            });
+            if (poolPct > 0) {
+                newStakeholders.push({
+                    name: 'Option Pool', type: 'pool', colorIndex: 9,
+                    shares: poolShares, ownership: poolPct
+                });
+            }
+            const totalShares = newStakeholders.reduce((s, st) => s + st.shares, 0);
+            stages.push({
+                label: 'After ' + round.name,
+                stakeholders: newStakeholders,
+                preMoney, postMoney, totalShares
+            });
+        });
+
+        return stages;
+    }
+
+    function getFinalFounderOwnership(stages) {
+        const last = stages[stages.length - 1];
+        const result = {};
+        last.stakeholders.forEach(s => {
+            if (s.type === 'founder') result[s.name] = s.ownership;
+        });
+        return result;
+    }
+
+    function getTotalFounderOwnership(stages) {
+        const last = stages[stages.length - 1];
+        return last.stakeholders
+            .filter(s => s.type === 'founder')
+            .reduce((s, st) => s + st.ownership, 0);
+    }
+
+    function getTotalDilution(stages) {
+        const first = stages[0].stakeholders.filter(s => s.type === 'founder').reduce((s, st) => s + st.ownership, 0);
+        const last = getTotalFounderOwnership(stages);
+        return first - last;
+    }
+
+    // ============================================================
+    // COMPARISON
+    // ============================================================
+    function runComparison() {
+        const nameA = document.getElementById('nameA').value || 'Scenario A';
+        const nameB = document.getElementById('nameB').value || 'Scenario B';
+
+        const stagesA = calculateScenario(state.A);
+        const stagesB = calculateScenario(state.B);
+
+        // Show results
+        document.getElementById('results').classList.add('visible');
+
+        // Summary cards
+        renderSummary(stagesA, stagesB, nameA, nameB);
+
+        // Charts
+        document.getElementById('chartTitleA').textContent = nameA;
+        document.getElementById('chartTitleB').textContent = nameB;
+        renderChart('chartA', stagesA, chartA, c => { chartA = c; });
+        renderChart('chartB', stagesB, chartB, c => { chartB = c; });
+
+        // Table
+        renderComparisonTable(stagesA, stagesB, nameA, nameB);
+
+        // Exit founder dropdown
+        const sel = document.getElementById('exitFounder');
+        sel.innerHTML = state.A.founders.map((f, i) =>
+            `<option value="${i}">${f.name}</option>`
+        ).join('');
+
+        // Takeaway
+        renderTakeaway(stagesA, stagesB, nameA, nameB);
+
+        // Calculate exit with default
+        calcExit();
+
+        // Scroll to results
+        document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Track
+        if (typeof gtag === 'function') {
+            gtag('event', 'scenario_compare', {
+                scenario_a_rounds: state.A.rounds.length,
+                scenario_b_rounds: state.B.rounds.length
+            });
+        }
+    }
+
+    function renderSummary(stagesA, stagesB, nameA, nameB) {
+        const founderA = getTotalFounderOwnership(stagesA);
+        const founderB = getTotalFounderOwnership(stagesB);
+        const dilutionA = getTotalDilution(stagesA);
+        const dilutionB = getTotalDilution(stagesB);
+        const postA = stagesA[stagesA.length - 1].postMoney;
+        const postB = stagesB[stagesB.length - 1].postMoney;
+
+        const ownDiff = founderB - founderA;
+        const dilDiff = dilutionB - dilutionA;
+
+        document.getElementById('summaryCards').innerHTML = `
+            <div class="summary-card">
+                <div class="label">Total Founder Ownership</div>
+                <div class="values">
+                    <span class="value-a">${founderA.toFixed(1)}%</span>
+                    <span class="vs">vs</span>
+                    <span class="value-b">${founderB.toFixed(1)}%</span>
+                </div>
+                <div class="delta ${ownDiff > 0 ? 'positive' : ownDiff < 0 ? 'negative' : 'neutral'}">
+                    ${ownDiff > 0 ? '+' : ''}${ownDiff.toFixed(1)}% points for ${nameB}
+                </div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Total Dilution</div>
+                <div class="values">
+                    <span class="value-a">${dilutionA.toFixed(1)}%</span>
+                    <span class="vs">vs</span>
+                    <span class="value-b">${dilutionB.toFixed(1)}%</span>
+                </div>
+                <div class="delta ${dilDiff < 0 ? 'positive' : dilDiff > 0 ? 'negative' : 'neutral'}">
+                    ${dilDiff > 0 ? '+' : ''}${dilDiff.toFixed(1)}% points ${nameB === 'Scenario B' ? 'in B' : 'for ' + nameB}
+                </div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Final Post-Money Valuation</div>
+                <div class="values">
+                    <span class="value-a">$${formatM(postA)}</span>
+                    <span class="vs">vs</span>
+                    <span class="value-b">$${formatM(postB)}</span>
+                </div>
+                <div class="delta ${postB > postA ? 'positive' : 'neutral'}">
+                    ${postB > postA ? '+$' + (postB - postA).toFixed(1) + 'M' : 'Same'}
+                </div>
+            </div>
+        `;
+    }
+
+    function renderChart(canvasId, stages, existingChart, setChart) {
+        const ctx = document.getElementById(canvasId).getContext('2d');
+
+        const allNames = [];
+        const nameSet = new Set();
+        stages.forEach(st => st.stakeholders.forEach(s => {
+            if (!nameSet.has(s.name)) { nameSet.add(s.name); allNames.push(s.name); }
+        }));
+
+        const labels = stages.map(s => s.label);
+        const datasets = allNames.map((name) => {
+            const data = stages.map(st => {
+                const s = st.stakeholders.find(x => x.name === name);
+                return s ? Math.round(s.ownership * 100) / 100 : 0;
+            });
+            const first = stages.find(st => st.stakeholders.find(x => x.name === name));
+            const sh = first.stakeholders.find(x => x.name === name);
+            const color = COLORS[sh.colorIndex % COLORS.length];
+            return { label: name, data, backgroundColor: color + 'cc', borderColor: color, borderWidth: 1, borderRadius: 4 };
+        });
+
+        if (existingChart) existingChart.destroy();
+
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: { labels, datasets },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: '#8888a0', padding: 12, usePointStyle: true, pointStyle: 'rectRounded', font: { size: 11 } } },
+                    tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y.toFixed(1) + '%' } }
+                },
+                scales: {
+                    x: { stacked: true, ticks: { color: '#8888a0', font: { size: 10 } }, grid: { display: false } },
+                    y: { stacked: true, max: 100, ticks: { color: '#8888a0', callback: v => v + '%' }, grid: { color: 'rgba(42,42,64,0.5)' } }
+                }
+            }
+        });
+        setChart(chart);
+    }
+
+    function renderComparisonTable(stagesA, stagesB, nameA, nameB) {
+        // Build per-stage comparison
+        const maxStages = Math.max(stagesA.length, stagesB.length);
+        let html = `<thead><tr>
+            <th>Stage</th>
+            <th>${nameA}</th>
+            <th>${nameB}</th>
+            <th>Difference</th>
+        </tr></thead><tbody>`;
+
+        for (let i = 0; i < maxStages; i++) {
+            const sA = stagesA[i];
+            const sB = stagesB[i];
+            if (!sA && !sB) continue;
+            const label = (sA || sB).label;
+
+            html += `<tr class="section-row"><td colspan="4">${label}</td></tr>`;
+
+            // Get all stakeholder names at this stage
+            const names = new Set();
+            if (sA) sA.stakeholders.forEach(s => names.add(s.name));
+            if (sB) sB.stakeholders.forEach(s => names.add(s.name));
+
+            names.forEach(name => {
+                const ownA = sA ? (sA.stakeholders.find(s => s.name === name)?.ownership || 0) : 0;
+                const ownB = sB ? (sB.stakeholders.find(s => s.name === name)?.ownership || 0) : 0;
+                const diff = ownB - ownA;
+                const cls = diff > 0.01 ? 'winner' : diff < -0.01 ? 'style="color:var(--red)"' : '';
+                html += `<tr>
+                    <td>${name}</td>
+                    <td>${ownA.toFixed(1)}%</td>
+                    <td>${ownB.toFixed(1)}%</td>
+                    <td class="${cls}">${diff > 0 ? '+' : ''}${diff.toFixed(1)}%</td>
+                </tr>`;
+            });
+
+            // Valuation row
+            const valA = sA ? sA.postMoney : 0;
+            const valB = sB ? sB.postMoney : 0;
+            if (i > 0) {
+                html += `<tr style="font-weight:700;color:var(--accent-light)">
+                    <td>Post-money</td>
+                    <td>$${formatM(valA)}</td>
+                    <td>$${formatM(valB)}</td>
+                    <td>${valB > valA ? '+$' + (valB - valA).toFixed(1) + 'M' : valB < valA ? '-$' + (valA - valB).toFixed(1) + 'M' : '—'}</td>
+                </tr>`;
+            }
+        }
+        html += '</tbody>';
+        document.getElementById('compTable').innerHTML = html;
+    }
+
+    function calcExit() {
+        const exitVal = parseFloat(document.getElementById('exitVal').value) || 0;
+        const founderIdx = parseInt(document.getElementById('exitFounder').value) || 0;
+        const stagesA = calculateScenario(state.A);
+        const stagesB = calculateScenario(state.B);
+
+        const nameA = document.getElementById('nameA').value || 'Scenario A';
+        const nameB = document.getElementById('nameB').value || 'Scenario B';
+
+        const lastA = stagesA[stagesA.length - 1];
+        const lastB = stagesB[stagesB.length - 1];
+
+        // Find the founder's ownership at last stage
+        const founderName = state.A.founders[founderIdx]?.name || 'Founder';
+        const ownA = lastA.stakeholders.find(s => s.name === founderName)?.ownership || 0;
+        const ownB = lastB.stakeholders.find(s => s.name === founderName)?.ownership || 0;
+
+        const payoutA = (ownA / 100) * exitVal;
+        const payoutB = (ownB / 100) * exitVal;
+        const diff = payoutB - payoutA;
+
+        document.getElementById('exitResults').innerHTML = `
+            <div class="exit-card">
+                <div class="label">${nameA}</div>
+                <div class="amount a-color">$${formatM(payoutA)}</div>
+                <div class="diff" style="color:var(--text-muted)">${ownA.toFixed(1)}% ownership</div>
+            </div>
+            <div class="exit-card">
+                <div class="label">${nameB}</div>
+                <div class="amount b-color">$${formatM(payoutB)}</div>
+                <div class="diff" style="color:var(--text-muted)">${ownB.toFixed(1)}% ownership</div>
+            </div>
+            <div class="exit-card">
+                <div class="label">Difference</div>
+                <div class="amount" style="color:${diff >= 0 ? 'var(--green)' : 'var(--red)'}">
+                    ${diff >= 0 ? '+' : ''}$${formatM(diff)}
+                </div>
+                <div class="diff" style="color:var(--text-muted)">
+                    ${diff >= 0 ? nameB : nameA} is better for ${founderName}
+                </div>
+            </div>
+        `;
+    }
+
+    function renderTakeaway(stagesA, stagesB, nameA, nameB) {
+        const founderA = getTotalFounderOwnership(stagesA);
+        const founderB = getTotalFounderOwnership(stagesB);
+        const dilutionA = getTotalDilution(stagesA);
+        const dilutionB = getTotalDilution(stagesB);
+        const postA = stagesA[stagesA.length - 1].postMoney;
+        const postB = stagesB[stagesB.length - 1].postMoney;
+
+        const better = founderB > founderA ? nameB : nameA;
+        const worse = founderB > founderA ? nameA : nameB;
+        const ownDiff = Math.abs(founderB - founderA).toFixed(1);
+
+        const items = [];
+        items.push(`<li><span class="icon">&#128200;</span><span><strong>${better}</strong> gives founders ${ownDiff}% points more ownership than ${worse}.</span></li>`);
+
+        if (Math.abs(postB - postA) > 0.1) {
+            const higher = postB > postA ? nameB : nameA;
+            items.push(`<li><span class="icon">&#128176;</span><span><strong>${higher}</strong> has a higher post-money valuation ($${formatM(Math.max(postA, postB))} vs $${formatM(Math.min(postA, postB))}).</span></li>`);
+        }
+
+        // Exit value insight
+        const founderName = state.A.founders[0]?.name || 'You';
+        const lastA = stagesA[stagesA.length - 1];
+        const lastB = stagesB[stagesB.length - 1];
+        const ownA0 = lastA.stakeholders.find(s => s.name === founderName)?.ownership || 0;
+        const ownB0 = lastB.stakeholders.find(s => s.name === founderName)?.ownership || 0;
+        const exitDiff100 = ((Math.max(ownA0, ownB0) - Math.min(ownA0, ownB0)) / 100 * 100).toFixed(1);
+        items.push(`<li><span class="icon">&#127919;</span><span>At a $100M exit, ${founderName} makes $${formatM((Math.max(ownA0, ownB0) / 100) * 100)} vs $${formatM((Math.min(ownA0, ownB0) / 100) * 100)} — a $${formatM(Math.abs((ownB0 - ownA0) / 100) * 100)} difference.</span></li>`);
+
+        items.push(`<li><span class="icon">&#128161;</span><span>Higher valuations mean less dilution per dollar raised, but ensure the valuation is defensible — down rounds hurt more.</span></li>`);
+
+        document.getElementById('takeaway').innerHTML = `<h3>Key Takeaways</h3><ul>${items.join('')}</ul>`;
+    }
+
+    function formatM(val) {
+        if (val >= 1000) return (val / 1000).toFixed(1) + 'B';
+        if (val >= 1) return val.toFixed(1) + 'M';
+        return (val * 1000).toFixed(0) + 'K';
+    }
+
+    // ============================================================
+    // INIT
+    // ============================================================
+    renderFounders('A');
+    renderFounders('B');
+    renderRounds('A');
+    renderRounds('B');
+
+    // Auto-compare on load
+    setTimeout(runComparison, 300);
+    </script>
+</body>
+</html>
