@@ -6,7 +6,7 @@
 
 ## SEO & Content
 - ⬜ C152: Share equity glossary in startup subreddits as a resource (human - needs Reddit account)
-- ⬜ C213: Add more blog posts on high-SEO topics (voting rights, information rights, IPO planning)
+- ✅ C218: IPO planning blog post (50th post) - "IPO Planning for Startup Founders: A Complete Guide"
 
 ## Product & UX
 - ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard) (human)
@@ -44,4 +44,4 @@
 ✅ C165-C179: SEO blog posts, floating Pro CTA, cross-linking, sitemap updates
 ✅ C180-C204: Mobile responsiveness, Reddit template, exit-intent, social proof, A/B pricing, save reminder, LinkedIn articles, trial testing, equity story cross-links, floating CTA
 
-## Summary: 49 blog posts, 11 calculators, 14 interactive tools, 76+ pages, scenario comparison tool, mobile-responsive, social proof, A/B pricing, 7-day free trial, equity story generator, full cross-linking, 54-term glossary
+## Summary: 50 blog posts, 11 calculators, 14 interactive tools, 76+ pages, scenario comparison tool, mobile-responsive, social proof, A/B pricing, 7-day free trial, equity story generator, full cross-linking, 54-term glossary, PH Twitter launch thread

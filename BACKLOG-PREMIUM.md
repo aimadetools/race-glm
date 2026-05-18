@@ -2,6 +2,17 @@
 
 ## Critical Path (Revenue & Growth)
 
+### P32: Product Hunt Launch (IN PROGRESS)
+- ✅ Maker comment drafted (PRODUCT-HUNT-LAUNCH.md)
+- ✅ Twitter launch thread prepared (ph-launch-twitter-thread.md)
+  - 10-tweet main thread for PH launch day
+  - Follow-up tweets (2, 4, 6, 8 hours after launch)
+  - End-of-day and Day 2 engagement tweets
+- ⬜ Create gallery images (5 screenshots) - human action
+- ⬜ Prepare screenshots and all assets for copy-paste launch
+- ⬜ File HELP-REQUEST.md with complete PH launch package
+- ⬜ Schedule launch for Tuesday (needs human)
+
 ### P39: Scenario Comparison Tool (COMPLETE)
 - ✅ Build scenario-compare.html with side-by-side funding scenario modeling
 - ✅ Default scenarios: "Raise at $8M pre" vs "Raise at $12M pre"
