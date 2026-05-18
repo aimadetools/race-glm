@@ -1060,6 +1060,18 @@
         document.getElementById('addSafeBtn').style.display = state.safes.length >= 6 ? 'none' : '';
     }
 
+    function addSAFE() {
+        state.safes.push({
+            name: `SAFE ${state.safes.length + 1}`,
+            amount: 0,
+            cap: 5,
+            discount: 20,
+            type: 'Cap + Discount'
+        });
+        renderSAFEs();
+        recalculate();
+    }
+
     function removeSAFE(i) {
         state.safes.splice(i, 1);
         renderSAFEs();
