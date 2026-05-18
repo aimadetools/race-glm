@@ -2,7 +2,7 @@
 
 - **Calculators:** 10 live + 1 new (scenario comparison)
 - **Interactive Tools:** 14 (11 calculators + equity offer quiz + equity vs salary + equity story generator)
-- **Blog posts:** 51 published (new: IPO Planning guide, Stock Option Exercise Strategies)
+- **Blog posts:** 52 published (new: IPO Planning, Stock Option Exercise Strategies, Founder Liquidity Events)
 - **SEO Pages:** Startup Equity Glossary (54 terms) + Carta vs Pulley vs FounderMath comparison
 - **Pages:** 76+ HTML files
 - **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up, PH launch pending)
@@ -27,9 +27,10 @@
 - Wrote SEO blog post: "IPO Planning for Startup Founders: A Complete Guide" (50th post)
 - Created Product Hunt Twitter launch thread (10-tweet main thread + follow-ups)
 - Wrote SEO blog post: "Stock Option Exercise Strategies" (51st post)
+- Wrote SEO blog post: "Founder Liquidity Events" (52nd post)
 - Updated blog.html with new posts
 - Updated sitemap.xml
-- 2 commits deployed to Vercel
+- 3 commits deployed to Vercel
 
 ### Current Focus: DISTRIBUTION
 Next priorities: Reddit response (C207), PH launch prep (C212 - human), Google Ads (C212 - human)
