@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Compare Funding Scenarios: $8M vs $12M Pre-Money | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="Learn how to compare funding scenarios side-by-side. See how an $8M vs $12M pre-money valuation affects your dilution, founder ownership, and exit value with real calculations.">
+    <meta name="keywords" content="funding scenario comparison, equity dilution comparison, pre-money valuation comparison, startup funding scenarios, compare funding rounds">
+    <meta property="og:title" content="How to Compare Funding Scenarios: $8M vs $12M Pre-Money">
+    <meta property="og:description" content="Side-by-side funding scenario comparison. See exactly how different valuations affect your equity with real numbers.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/funding-scenario-comparison-guide.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Compare Funding Scenarios: $8M vs $12M Pre-Money",
+        "url": "https://founder-math.com/blog/funding-scenario-comparison-guide.html",
+        "description": "Learn how to compare funding scenarios side-by-side. See how different pre-money valuations affect dilution, founder ownership, and exit value.",
+        "datePublished": "2026-05-18",
+        "dateModified": "2026-05-18",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/funding-scenario-comparison-guide.html"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+
+        .article-layout {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        .article-header { margin-bottom: 48px; }
+        .article-meta {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted);
+        }
+        .article-meta .tag {
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 4px 12px; border-radius: 100px; font-size: 0.75rem;
+            color: var(--accent-light); font-weight: 600;
+        }
+        .article-header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800;
+            letter-spacing: -0.03em; margin-bottom: 16px; line-height: 1.3;
+        }
+        .article-header p {
+            color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;
+        }
+
+        .toc {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px 28px; margin-bottom: 48px;
+        }
+        .toc h2 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 12px; }
+        .toc ol { padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: var(--accent-light); text-decoration: none; font-size: 0.9rem; }
+        .toc a:hover { text-decoration: underline; }
+
+        .article-content h2 {
+            font-size: 1.5rem; font-weight: 700; margin-top: 48px; margin-bottom: 16px;
+            letter-spacing: -0.02em; scroll-margin-top: 80px;
+        }
+        .article-content h3 {
+            font-size: 1.15rem; font-weight: 700; margin-top: 32px; margin-bottom: 12px;
+        }
+        .article-content p {
+            color: var(--text-secondary); margin-bottom: 16px; font-size: 0.95rem;
+        }
+        .article-content ul, .article-content ol {
+            color: var(--text-secondary); margin-bottom: 16px; padding-left: 24px;
+        }
+        .article-content li { margin-bottom: 6px; font-size: 0.95rem; }
+        .article-content strong { color: var(--text-primary); }
+
+        .callout {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-left: 3px solid var(--accent); border-radius: 8px;
+            padding: 20px 24px; margin: 24px 0;
+        }
+        .callout p { color: var(--text-secondary); margin-bottom: 0; }
+
+        .example-box {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px; margin: 24px 0;
+        }
+        .example-box h3 { margin-top: 0; color: var(--accent-light); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .example-table {
+            width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem;
+        }
+        .example-table th {
+            text-align: left; padding: 10px 12px; color: var(--text-muted);
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border);
+        }
+        .example-table th:not(:first-child) { text-align: right; }
+        .example-table td {
+            padding: 10px 12px; border-bottom: 1px solid rgba(42,42,64,0.5);
+            color: var(--text-secondary);
+        }
+        .example-table td:not(:first-child) { text-align: right; font-family: var(--font-mono); }
+        .example-table .highlight { color: var(--green); font-weight: 700; }
+        .example-table .winner { background: rgba(0,184,148,0.05); }
+
+        .tool-cta {
+            background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.1));
+            border: 1px solid var(--accent); border-radius: 12px; padding: 32px;
+            text-align: center; margin: 40px 0;
+        }
+        .tool-cta h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+        .tool-cta p { color: var(--text-secondary); margin-bottom: 16px; }
+        .tool-cta a {
+            display: inline-block; background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white; text-decoration: none; padding: 12px 32px; border-radius: 8px;
+            font-weight: 700; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .tool-cta a:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+
+        .related-articles {
+            margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--border);
+        }
+        .related-articles h2 { font-size: 1.2rem; margin-bottom: 16px; }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .related-card {
+            display: block; background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 10px; padding: 20px; text-decoration: none; transition: border-color 0.2s;
+        }
+        .related-card:hover { border-color: var(--accent); }
+        .related-card .title { color: var(--text-primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+        .related-card .desc { color: var(--text-muted); font-size: 0.8rem; }
+
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0; background: var(--bg-primary);
+                border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100;
+            }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .related-grid { grid-template-columns: 1fr; }
+            .example-table { font-size: 0.8rem; }
+        }
+        @media print {
+            nav, .tool-cta, footer { display: none !important; }
+            body { background: white; color: black; }
+            .article-layout { padding-top: 0; }
+        }
+    </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="/" class="logo" aria-label="FounderMath home">
+            <div class="logo-icon" aria-hidden="true">%</div>
+            FounderMath
+        </a>
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+            <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+            <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+            <li role="none"><a href="../scenario-compare.html" role="menuitem">Compare Scenarios</a></li>
+            <li role="none"><a href="../blog.html" role="menuitem">Blog</a></li>
+            <li><a href="../pricing.html" class="nav-cta" role="menuitem">7-Day Free Trial</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+    </div>
+</nav>
+
+<main id="main-content">
+<article class="article-layout">
+    <header class="article-header">
+        <div class="article-meta">
+            <span class="tag">Fundraising</span>
+            <span>May 18, 2026</span>
+            <span>12 min read</span>
+        </div>
+        <h1>How to Compare Funding Scenarios: $8M vs $12M Pre-Money</h1>
+        <p>You're negotiating your seed round. The investor offers $8M pre-money. You think you can push to $12M. What does that $4M difference actually mean for your equity over the life of your company? Let's run the numbers.</p>
+    </header>
+
+    <nav class="toc" aria-label="Table of contents">
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#why-scenario-comparison">Why Compare Funding Scenarios?</a></li>
+            <li><a href="#the-setup">The Setup: Two Seed Round Scenarios</a></li>
+            <li><a href="#round-1">Round 1: What Happens at the Seed</a></li>
+            <li><a href="#round-2">Round 2: The Series A Effect</a></li>
+            <li><a href="#exit">Exit Value: What You Actually Walk Away With</a></li>
+            <li><a href="#option-pool">The Option Pool Factor</a></li>
+            <li><a href="#defensible">Is the Higher Valuation Defensible?</a></li>
+            <li><a href="#try-it">Try the Scenario Comparison Tool</a></li>
+        </ol>
+    </nav>
+
+    <div class="article-content">
+        <h2 id="why-scenario-comparison">Why Compare Funding Scenarios?</h2>
+        <p>Most founders negotiate valuation in a vacuum. You hear "$10M pre-money is standard for seed" and accept it. But the valuation you agree to today cascades through every future round and directly determines how much of your company you own at exit.</p>
+        <p>A <strong>$4M difference in pre-money valuation</strong> might sound like a rounding error when you're dreaming about a $1B outcome. But when you model it through dilution across multiple rounds, that $4M can translate to <strong>hundreds of thousands or millions of dollars</strong> difference in your personal exit.</p>
+        <p>Scenario comparison lets you model "what if" before you sign the term sheet.</p>
+
+        <h2 id="the-setup">The Setup: Two Seed Round Scenarios</h2>
+        <p>Let's set up two realistic scenarios with the same two cofounders:</p>
+        <ul>
+            <li><strong>You:</strong> 60% ownership</li>
+            <li><strong>Co-founder:</strong> 40% ownership</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Scenario A: Conservative Valuation</h3>
+            <table class="example-table">
+                <tr><th></th><th>Value</th></tr>
+                <tr><td>Pre-money valuation</td><td>$8M</td></tr>
+                <tr><td>Investment</td><td>$2M</td></tr>
+                <tr><td>Option pool</td><td>10%</td></tr>
+                <tr><td>Post-money valuation</td><td>$10M</td></tr>
+            </table>
+        </div>
+
+        <div class="example-box">
+            <h3>Scenario B: Strong Valuation</h3>
+            <table class="example-table">
+                <tr><th></th><th>Value</th></tr>
+                <tr><td>Pre-money valuation</td><td>$12M</td></tr>
+                <tr><td>Investment</td><td>$3M</td></tr>
+                <tr><td>Option pool</td><td>10%</td></tr>
+                <tr><td>Post-money valuation</td><td>$15M</td></tr>
+            </table>
+        </div>
+
+        <p>Scenario B raises more money ($3M vs $2M) at a higher valuation. But does raising more money mean more dilution? Let's see.</p>
+
+        <h2 id="round-1">Round 1: What Happens at the Seed</h2>
+        <p>Here's what founder ownership looks like immediately after the seed round closes:</p>
+
+        <div class="example-box">
+            <table class="example-table">
+                <tr>
+                    <th>Stakeholder</th>
+                    <th>Scenario A ($8M pre)</th>
+                    <th>Scenario B ($12M pre)</th>
+                </tr>
+                <tr>
+                    <td>You</td>
+                    <td>48.0%</td>
+                    <td class="highlight">48.0%</td>
+                </tr>
+                <tr>
+                    <td>Co-founder</td>
+                    <td>32.0%</td>
+                    <td class="highlight">32.0%</td>
+                </tr>
+                <tr>
+                    <td>Seed Investor</td>
+                    <td>20.0%</td>
+                    <td>20.0%</td>
+                </tr>
+                <tr>
+                    <td>Option Pool</td>
+                    <td>10.0%</td>
+                    <td>10.0%</td>
+                </tr>
+                <tr class="winner">
+                    <td><strong>Total Founder Ownership</strong></td>
+                    <td><strong>70.0%</strong></td>
+                    <td class="highlight"><strong>70.0%</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="callout">
+            <p><strong>Surprise:</strong> Founder ownership is identical after the seed round! Why? Because in both scenarios, the investor buys 20% of the company ($2M/$10M = 20%, $3M/$15M = 20%). The option pool also takes the same 10%. So founder dilution is the same.</p>
+        </div>
+
+        <p>The difference emerges later. In Scenario B, you raised 50% more cash ($3M vs $2M). That extra capital might let you hit stronger milestones, command a better Series A valuation, and ultimately dilute less in future rounds.</p>
+
+        <h2 id="round-2">Round 2: The Series A Effect</h2>
+        <p>Now let's model a Series A. Because Scenario B raised more seed money and hit better milestones, assume a higher Series A valuation:</p>
+
+        <div class="example-box">
+            <h3>Series A Assumptions</h3>
+            <table class="example-table">
+                <tr><th></th><th>Scenario A</th><th>Scenario B</th></tr>
+                <tr><td>Series A pre-money</td><td>$30M</td><td>$50M</td></tr>
+                <tr><td>Investment</td><td>$8M</td><td>$10M</td></tr>
+                <tr><td>Option pool refresh</td><td>5%</td><td>5%</td></tr>
+            </table>
+        </div>
+
+        <p>After the Series A:</p>
+
+        <div class="example-box">
+            <table class="example-table">
+                <tr>
+                    <th>Stakeholder</th>
+                    <th>Scenario A</th>
+                    <th>Scenario B</th>
+                </tr>
+                <tr>
+                    <td>You</td>
+                    <td>33.6%</td>
+                    <td class="highlight">35.3%</td>
+                </tr>
+                <tr>
+                    <td>Co-founder</td>
+                    <td>22.4%</td>
+                    <td class="highlight">23.5%</td>
+                </tr>
+                <tr>
+                    <td>Total Founders</td>
+                    <td>56.0%</td>
+                    <td class="highlight">58.8%</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="callout">
+            <p><strong>The gap appears:</strong> After the Series A, founders in Scenario B own 2.8 percentage points more. That's because the higher Series A valuation ($50M vs $30M) means the investor takes a smaller percentage for the same dollar amount.</p>
+        </div>
+
+        <h2 id="exit">Exit Value: What You Actually Walk Away With</h2>
+        <p>Here's where it gets real. At a $100M exit:</p>
+
+        <div class="example-box">
+            <table class="example-table">
+                <tr>
+                    <th></th>
+                    <th>Scenario A</th>
+                    <th>Scenario B</th>
+                    <th>Difference</th>
+                </tr>
+                <tr>
+                    <td>Your payout</td>
+                    <td>$33.6M</td>
+                    <td class="highlight">$35.3M</td>
+                    <td class="highlight">+$1.7M</td>
+                </tr>
+                <tr>
+                    <td>Co-founder payout</td>
+                    <td>$22.4M</td>
+                    <td class="highlight">$23.5M</td>
+                    <td class="highlight">+$1.1M</td>
+                </tr>
+            </table>
+        </div>
+
+        <p>At a $200M exit, the difference doubles. At a $500M exit, that 2.8% is worth <strong>$14M extra</strong>. The valuation difference that seemed small at seed compounds through every round.</p>
+
+        <h2 id="option-pool">The Option Pool Factor</h2>
+        <p>The option pool is one of the most overlooked dilution drivers. A 10% option pool created <strong>before</strong> the investment comes entirely out of founder ownership. A 10% pool created <strong>after</strong> (where the investor shares the dilution) saves founders significant equity.</p>
+        <p>When comparing scenarios, always model the option pool. A $12M pre-money valuation with a 15% option pool might actually be worse than $8M pre-money with a 5% pool. The raw number doesn't tell the whole story.</p>
+
+        <h2 id="defensible">Is the Higher Valuation Defensible?</h2>
+        <p>There's a catch. A higher valuation only helps if you can grow into it.</p>
+        <p>If you raise at $12M pre-money but only hit milestones worthy of $8M, your Series A becomes a down round. Down rounds trigger anti-dilution protections that further dilute founders — sometimes catastrophically.</p>
+        <p><strong>The rule of thumb:</strong> Take the highest valuation where you're confident you can 3-5x it before the next round. If you're not sure you can grow to $30-60M in value, the $8M pre-money might actually be the safer bet.</p>
+
+        <h2 id="try-it">Try the Scenario Comparison Tool</h2>
+        <p>Don't take our word for it. Model your own scenarios with the <strong>free Funding Scenario Comparison Tool</strong>:</p>
+
+        <div class="tool-cta">
+            <h3>Compare Your Funding Scenarios</h3>
+            <p>Side-by-side comparison with dilution charts, ownership tables, and exit value calculator. Free, no signup required.</p>
+            <a href="../scenario-compare.html">Compare Scenarios Now →</a>
+        </div>
+
+        <h3>Related Guides</h3>
+        <div class="related-articles">
+            <div class="related-grid">
+                <a href="../blog/equity-dilution-guide.html" class="related-card">
+                    <div class="title">How Equity Dilution Works</div>
+                    <div class="desc">A visual guide to dilution across funding rounds</div>
+                </a>
+                <a href="../blog/pre-money-post-money-valuation-guide.html" class="related-card">
+                    <div class="title">Pre-Money vs Post-Money Valuation</div>
+                    <div class="desc">The formula and common mistakes founders make</div>
+                </a>
+                <a href="../blog/option-pool-management-guide.html" class="related-card">
+                    <div class="title">Option Pool Management</div>
+                    <div class="desc">How to avoid surprise dilution from option pools</div>
+                </a>
+                <a href="../blog/term-sheet-guide.html" class="related-card">
+                    <div class="title">Term Sheet Guide</div>
+                    <div class="desc">Every clause explained for founders</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</article>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="../dilution.html">Dilution</a></li>
+            <li><a href="../safe.html">SAFE</a></li>
+            <li><a href="../runway.html">Runway</a></li>
+            <li><a href="../scenario-compare.html">Compare Scenarios</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../equity-glossary.html">Glossary</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a href="../about.html">About</a></li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>
