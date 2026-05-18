@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Rights in Startups: What Investors Demand and What It Means for You (2026) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('navLinks').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="Information rights in startups: what they are, what investors demand, and how they affect founders and employees. Learn about financial reporting requirements and transparency obligations.">
+    <meta name="keywords" content="information rights startup, investor reporting, startup financial statements, information rights term sheet, investor transparency rights">
+    <meta property="og:title" content="Information Rights in Startups: What Investors Demand and What It Means for You">
+    <meta property="og:description" content="Information rights in startups: what they are, what investors demand, and how they affect founders and employees.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/information-rights-startups.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Information Rights in Startups: What Investors Demand and What It Means for You">
+    <meta name="twitter:description" content="Information rights in startups: what they are, what investors demand, and how they affect founders and employees.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Information Rights in Startups: What Investors Demand and What It Means for You",
+        "url": "https://founder-math.com/blog/information-rights-startups.html",
+        "description": "Information rights in startups: what they are, what investors demand, and how they affect founders and employees.",
+        "datePublished": "2026-05-18",
+        "dateModified": "2026-05-18",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/favicon.svg"
+            }
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://founder-math.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://founder-math.com/blog.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Information Rights in Startups Guide",
+                "item": "https://founder-math.com/blog/information-rights-startups.html"
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        a { color: var(--accent-light); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+        header {
+            position: sticky; top: 0; z-index: 1000;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--accent-light); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-secondary); }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            background: var(--accent); color: white;
+            padding: 0.5rem 1.5rem; border-radius: 8px; font-weight: 600;
+        }
+        .nav-cta:hover { text-decoration: none; background: var(--accent-light); color: var(--bg-primary); }
+        #mobileToggle { display: none; background: none; border: none; color: var(--text-primary); cursor: pointer; }
+        .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-secondary); padding: 1rem; border-bottom: 1px solid var(--border); }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            #mobileToggle { display: block; }
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.2; }
+        .meta {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .read-time { display: flex; align-items: center; gap: 0.3rem; }
+        h2 { font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--accent-light); }
+        h3 { font-size: 1.3rem; margin: 1.5rem 0 0.8rem; }
+        p { margin-bottom: 1.2rem; }
+        .example-box {
+            background: var(--bg-card);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box strong { color: var(--accent-light); }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th { background: var(--bg-card); color: var(--accent-light); }
+        .toc {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .toc h3 { margin-top: 0; }
+        .toc ul { padding-left: 1.5rem; }
+        .toc li { margin-bottom: 0.5rem; }
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
+        .cta-section {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        .cta-btn:hover { text-decoration: none; background: var(--accent-light); }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <a href="/" class="logo" aria-label="FounderMath home">FounderMath</a>
+        <button id="mobileToggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+        <nav aria-label="Main navigation">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="vesting.html">Vesting</a></li>
+                <li><a href="cap-table.html">Cap Table</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="pricing.html" class="nav-cta">Start Free</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <article>
+            <h1>Information Rights in Startups: What Investors Demand and What It Means for You</h1>
+            <div class="meta">
+                <span class="read-time">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    5 min read
+                </span>
+                <span>May 18, 2026</span>
+            </div>
+
+            <p>Information rights are a standard part of startup financing. They grant investors the right to receive regular updates and financial statements. But what exactly do these rights include, and how do they affect you as a founder or employee?</p>
+
+            <p>This guide explains information rights, what investors typically demand, and how to manage reporting obligations without getting overwhelmed.</p>
+
+            <nav class="toc" aria-label="Table of contents">
+                <h3>Contents</h3>
+                <ul>
+                    <li><a href="#what-are-information-rights">What Are Information Rights?</a></li>
+                    <li><a href="#what-investors-demand">What Investors Typically Demand</a></li>
+                    <li><a href="#reporting-requirements-by-stage">Reporting Requirements by Funding Stage</a></li>
+                    <li><a href="#for-founders">For Founders: Managing Reporting</a></li>
+                    <li><a href="#for-employees">For Employees: What This Means</a></li>
+                </ul>
+            </nav>
+
+            <h2 id="what-are-information-rights">What Are Information Rights?</h2>
+
+            <p>Information rights are contractual rights granted to investors in exchange for their investment. They specify what information the company must provide, how often, and in what format.</p>
+
+            <p>Key characteristics:</p>
+            <ul>
+                <li><strong>Not tied to equity:</strong> Investors get these rights regardless of ownership percentage</li>
+                <li><strong>Contractual obligation:</strong> Violating information rights is a breach of contract</li>
+                <li><strong>Different from board rights:</strong> You can have information rights without a board seat</li>
+                <li><strong>Standard term:</strong> Most investors expect them as part of any deal</li>
+            </ul>
+
+            <h2 id="what-investors-demand">What Investors Typically Demand</h2>
+
+            <p>Information rights fall into three categories:</p>
+
+            <h3>1. Financial Statements</h3>
+            <p>Investors want to see the numbers. Standard requirements:</p>
+            <ul>
+                <li><strong>Monthly:</strong> Burn rate, cash position, key metrics</li>
+                <li><strong>Quarterly:</strong> Income statement, balance sheet, cash flow statement</li>
+                <li><strong>Annually:</strong> Audited financials (if available)</li>
+            </ul>
+
+            <h3>2. Operational Updates</h3>
+            <p>Investors want to understand what's happening in the business:</p>
+            <ul>
+                <li>Product roadmap progress</li>
+                <li>Key hires and departures</li>
+                <li>Customer wins and losses</li>
+                <li>Competitive landscape changes</li>
+            </ul>
+
+            <h3>3. Material Event Notifications</h3>
+            <p>Investors must be notified of significant events:</p>
+            <ul>
+                <li>New financing rounds</li>
+                <li>Changes in control (acquisition, merger)</li>
+                <li>Legal proceedings or lawsuits</li>
+                <li>Changes in senior management</li>
+                <li>Bankruptcy or insolvency</li>
+            </ul>
+
+            <div class="example-box">
+                <strong>Example:</strong> You raise $2M from two investors. Your term sheet specifies quarterly financial statements within 45 days of quarter end, monthly burn rate updates, and immediate notification of any material events. These are your information rights obligations.
+            </div>
+
+            <h2 id="reporting-requirements-by-stage">Reporting Requirements by Funding Stage</h2>
+
+            <h3>Pre-Seed</h3>
+            <p>Minimal formal requirements. Most investors expect monthly emails with:</p>
+            <ul>
+                <li>Cash on hand</li>
+                <li>Monthly burn rate</li>
+                <li>Key metrics (revenue, users, etc.)</li>
+                <li>Any major updates</li>
+            </ul>
+
+            <h3>Seed</h3>
+            <p>More formal. Information rights typically include:</p>
+            <ul>
+                <li>Quarterly financial statements</li>
+                <li>Annual budget</li>
+                <li>Monthly investor update emails</li>
+                <li>Board meeting minutes (for board observers)</li>
+            </ul>
+
+            <h3>Series A</h3>
+            <p>Significant increase in reporting obligations:</p>
+            <ul>
+                <li>Quarterly financial statements (GAAP preferred)</li>
+                <li>Annual audited financials</li>
+                <li>Board-approved annual budget</li>
+                <li>Board meeting attendance and materials</li>
+                <li>Written quarterly updates</li>
+            </ul>
+
+            <h3>Series B and Beyond</h3>
+            <p>Near-public-company level of reporting:</p>
+            <ul>
+                <li>Quarterly financial statements with metrics analysis</li>
+                <li>Annual audited financials</li>
+                <li>Formal board meetings with minutes</li>
+                <li>Cap table updates</li>
+                <li>Monthly or quarterly business reviews</li>
+            </ul>
+
+            <h2 id="for-founders">For Founders: Managing Reporting</h2>
+
+            <h3>1. Set Up Systems Early</h3>
+            <p>Don't wait until you have investors. Set up:</p>
+            <ul>
+                <li>Accounting software (QuickBooks, Xero, etc.)</li>
+                <li>Financial reporting templates</li>
+                <li>Cap table management system</li>
+                <li>Regular reporting schedule</li>
+            </ul>
+
+            <h3>2. Be Proactive, Not Reactive</h3>
+            <p>Send updates before investors ask. It shows you're organized and builds trust. A monthly investor email template:</p>
+
+            <div class="example-box">
+                <strong>Template:</strong><br><br>
+                <strong>XYZ Company — Monthly Update (May 2026)</strong><br><br>
+                <strong>Headlines:</strong><br>
+                - Closed Series A: $10M at $40M pre-money<br>
+                - Hired VP of Engineering from Google<br>
+                - Lost key customer ABC Corp<br><br>
+                <strong>Key Metrics:</strong><br>
+                - MRR: $120K (up 15% from April)<br>
+                - Users: 45K (up 10%)<br>
+                - Churn: 2.1% (flat)<br><br>
+                <strong>Financials:</strong><br>
+                - Cash on hand: $8.5M<br>
+                - Monthly burn: $280K<br>
+                - Runway: 30 months<br><br>
+                <strong>What We're Focused On:</strong><br>
+                - Launching new product feature next week<br>
+                - Scaling sales team (hiring in progress)<br>
+                - Customer acquisition campaign starting June 1
+            </div>
+
+            <h3>3. Don't Overpromise</h3>
+            <p>Be honest about challenges. Investors prefer bad news delivered early to surprises. If metrics are down, explain why and what you're doing about it.</p>
+
+            <h3>4. Protect Confidential Information</h3>
+            <p>Information rights come with confidentiality obligations. Investors can't share sensitive information with competitors or other parties. Ensure your information rights clause includes this protection.</p>
+
+            <h2 id="for-employees">For Employees: What This Means</h2>
+
+            <p>As an employee, information rights don't directly apply to you. But they affect your experience:</p>
+
+            <h3>Transparency Culture</h3>
+            <p>Companies with strong investor reporting tend to be more transparent with employees. You're more likely to get:</p>
+            <ul>
+                <li>Regular all-hands updates</li>
+                <li>Visibility into company performance</li>
+                <li>Clear communication about funding rounds</li>
+            </ul>
+
+            <h3>Performance Pressure</h3>
+            <p>Investor reporting creates pressure to perform. This can mean:</p>
+            <ul>
+                <li>Aggressive targets and goals</li>
+                <li>Regular performance reviews</li>
+                <li>Focus on metrics that investors care about</li>
+            </ul>
+
+            <h3>Equity Value Transparency</h3>
+            <p>Investors want to see the cap table regularly. This means:</p>
+            <ul>
+                <li>More accurate valuations for your equity</li>
+                <li>Clearer picture of dilution</li>
+                <li>Better information for exercising options</li>
+            </ul>
+
+            <h2>Bottom Line</h2>
+
+            <p>Information rights are a standard part of startup financing. They create transparency and build trust between companies and investors.</p>
+
+            <p>For founders, manage reporting by setting up systems early, being proactive, and maintaining honest communication. For employees, information rights generally mean more transparency about company performance and equity value.</p>
+
+            <p>Use our <a href="runway.html">runway calculator</a> to track your cash position, and our <a href="cap-table.html">cap table builder</a> to maintain accurate ownership records for investor reporting.</p>
+
+            <div class="cta-section">
+                <h3>Track your key metrics</h3>
+                <p>Use our free calculators to model your runway, dilution, and equity value.</p>
+                <a href="runway.html" class="cta-btn">Calculate Runway</a>
+            </div>
+
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 FounderMath. Interactive equity calculators for startup founders.</p>
+        <p style="margin-top: 1rem;">
+            <a href="blog.html">Blog</a> •
+            <a href="about.html">About</a> •
+            <a href="contact.html">Contact</a> •
+            <a href="pricing.html">Pricing</a>
+        </p>
+    </footer>
+</body>
+</html>
