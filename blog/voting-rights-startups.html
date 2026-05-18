@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Rights in Startups: What Founders and Employees Need to Know (2026) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('navLinks').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="Learn about voting rights in startups: common vs preferred stock, founder voting control, protective provisions, and how equity grants affect your voting power.">
+    <meta name="keywords" content="voting rights startup, founder voting control, common vs preferred stock voting, shareholder voting rights, voting classes startup, super voting shares">
+    <meta property="og:title" content="Voting Rights in Startups: What Founders and Employees Need to Know">
+    <meta property="og:description" content="Learn about voting rights in startups: common vs preferred stock, founder voting control, and protective provisions.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/voting-rights-startups.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Voting Rights in Startups: What Founders and Employees Need to Know">
+    <meta name="twitter:description" content="Learn about voting rights in startups: common vs preferred stock, founder voting control, and protective provisions.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Voting Rights in Startups: What Founders and Employees Need to Know",
+        "url": "https://founder-math.com/blog/voting-rights-startups.html",
+        "description": "Learn about voting rights in startups: common vs preferred stock, founder voting control, protective provisions, and how equity grants affect your voting power.",
+        "datePublished": "2026-05-18",
+        "dateModified": "2026-05-18",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/favicon.svg"
+            }
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://founder-math.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://founder-math.com/blog.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Voting Rights in Startups Guide",
+                "item": "https://founder-math.com/blog/voting-rights-startups.html"
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        a { color: var(--accent-light); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+        header {
+            position: sticky; top: 0; z-index: 1000;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--accent-light); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-secondary); }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            background: var(--accent); color: white;
+            padding: 0.5rem 1.5rem; border-radius: 8px; font-weight: 600;
+        }
+        .nav-cta:hover { text-decoration: none; background: var(--accent-light); color: var(--bg-primary); }
+        #mobileToggle { display: none; background: none; border: none; color: var(--text-primary); cursor: pointer; }
+        .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-secondary); padding: 1rem; border-bottom: 1px solid var(--border); }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            #mobileToggle { display: block; }
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.2; }
+        .meta {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .read-time { display: flex; align-items: center; gap: 0.3rem; }
+        h2 { font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--accent-light); }
+        h3 { font-size: 1.3rem; margin: 1.5rem 0 0.8rem; }
+        p { margin-bottom: 1.2rem; }
+        .example-box {
+            background: var(--bg-card);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box strong { color: var(--accent-light); }
+        .warning {
+            background: rgba(255, 107, 107, 0.1);
+            border-left: 4px solid #ff6b6b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th { background: var(--bg-card); color: var(--accent-light); }
+        .toc {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .toc h3 { margin-top: 0; }
+        .toc ul { padding-left: 1.5rem; }
+        .toc li { margin-bottom: 0.5rem; }
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
+        .cta-section {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        .cta-btn:hover { text-decoration: none; background: var(--accent-light); }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <a href="/" class="logo" aria-label="FounderMath home">FounderMath</a>
+        <button id="mobileToggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+        <nav aria-label="Main navigation">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="vesting.html">Vesting</a></li>
+                <li><a href="cap-table.html">Cap Table</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="pricing.html" class="nav-cta">Start Free</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <article>
+            <h1>Voting Rights in Startups: What Founders and Employees Need to Know</h1>
+            <div class="meta">
+                <span class="read-time">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    6 min read
+                </span>
+                <span>May 18, 2026</span>
+            </div>
+
+            <p>Voting rights determine who controls your startup. They're different from equity ownership — you can own 30% of a company but have zero voting power, or own 5% and control the board.</p>
+
+            <p>This guide explains how voting rights work, what to negotiate, and how they affect both founders and employees.</p>
+
+            <nav class="toc" aria-label="Table of contents">
+                <h3>Contents</h3>
+                <ul>
+                    <li><a href="#common-vs-preferred-stock">Common vs. Preferred Stock: Who Gets the Votes?</a></li>
+                    <li><a href="#one-share-one-vote">One Share, One Vote: The Standard</a></li>
+                    <li><a href="#multiple-share-classes">Multiple Share Classes: Founders Control Everything</a></li>
+                    <li><a href="#protective-provisions">Protective Provisions: Minority Shareholder Vetoes</a></li>
+                    <li><a href="#voting-at-funding-stages">Voting Rights at Different Funding Stages</a></li>
+                    <li><a href="#for-employees">What This Means for Employees</a></li>
+                </ul>
+            </nav>
+
+            <h2 id="common-vs-preferred-stock">Common vs. Preferred Stock: Who Gets the Votes?</h2>
+
+            <p>Every startup issues at least two classes of stock:</p>
+
+            <h3>Common Stock</h3>
+            <ul>
+                <li><strong>Who gets it:</strong> Founders, employees, advisors</li>
+                <li><strong>Voting rights:</strong> One vote per share</li>
+                <li><strong>Priority:</strong> Last in line during liquidation (after preferred shareholders)</li>
+            </ul>
+
+            <h3>Preferred Stock</h3>
+            <ul>
+                <li><strong>Who gets it:</strong> Investors (venture capitalists, angels)</li>
+                <li><strong>Voting rights:</strong> One vote per share (typically)</li>
+                <li><strong>Priority:</strong> First in line during liquidation</li>
+            </ul>
+
+            <p>Standard startups use "one share, one vote" — every share gets equal voting power regardless of class. This is common at seed stage and most Series A rounds.</p>
+
+            <h2 id="one-share-one-vote">One Share, One Vote: The Standard</h2>
+
+            <p>Under this structure, voting power equals your ownership percentage:</p>
+
+            <div class="example-box">
+                <strong>Example:</strong> You own 40% of your startup. Your co-founder owns 30%. Investors own 30%. In a shareholder vote:
+                <ul>
+                    <li>You get 40% of the votes</li>
+                    <li>Your co-founder gets 30%</li>
+                    <li>Investors get 30%</li>
+                </ul>
+                Any decision requires 51% of votes. You need at least one other party on your side.
+            </div>
+
+            <p>This structure is fair and transparent — everyone's voting power reflects their economic ownership. But it means founders lose control as they dilute.</p>
+
+            <h2 id="multiple-share-classes">Multiple Share Classes: Founders Control Everything</h2>
+
+            <p>Some startups create multiple share classes with different voting rights. This allows founders to maintain control even after giving up most of their economic ownership.</p>
+
+            <p>Common structures:</p>
+
+            <h3>Class A (Common)</h3>
+            <ul>
+                <li><strong>Who gets it:</strong> Founders (sometimes), employees, advisors</li>
+                <li><strong>Voting rights:</strong> One vote per share</li>
+            </ul>
+
+            <h3>Class B (Super-Voting)</h3>
+            <ul>
+                <li><strong>Who gets it:</strong> Founders only</li>
+                <li><strong>Voting rights:</strong> 10 votes per share (common ratios: 3:1, 5:1, 10:1)</li>
+            </ul>
+
+            <h3>Class C (Preferred)</h3>
+            <ul>
+                <li><strong>Who gets it:</strong> Investors</li>
+                <li><strong>Voting rights:</strong> One vote per share</li>
+            </ul>
+
+            <div class="example-box">
+                <strong>Example:</strong> You own 10 Class B shares (10 votes each) = 100 votes. Investors own 1,000 Class C shares (1 vote each) = 1,000 votes. You own 10% of the company economically but have 9% of voting power. If you had 100 Class B shares (1,000 votes), you'd control voting despite owning only ~50% economically.
+            </div>
+
+            <p>Famous examples:</p>
+            <ul>
+                <li><strong>Google/Alphabet:</strong> Founders own 11% but control 51%+ of votes</li>
+                <li><strong>Meta (Facebook):</strong> Mark Zuckerberg owns 13% but controls 55%+ of votes</li>
+                <li><strong>Snap:</strong> Co-founders have zero economic ownership after IPO but total voting control</li>
+            </ul>
+
+            <div class="warning">
+                <strong>Reality check:</strong> Super-voting shares are controversial. Many institutional investors (public markets, large VCs) refuse to invest in companies with dual-class structures. Use them only if you're confident you can raise capital without them.
+            </div>
+
+            <h2 id="protective-provisions">Protective Provisions: Minority Shareholder Vetoes</h2>
+
+            <p>Even when you lose voting control, protective provisions give minority shareholders veto power over specific actions. These require supermajority approval (often 60-75%) to override.</p>
+
+            <p>Common protective provisions:</p>
+            <ul>
+                <li>Selling the company (M&A)</li>
+                <li>Changing the company's business</li>
+                <li>Issuing new securities</li>
+                <li>Changing voting rights</li>
+                <li>Dilution of preferred shareholders</li>
+                <li>Declaring dividends</li>
+                <li>Amending the charter</li>
+            </ul>
+
+            <p>Protective provisions are your safety net. If investors control the board but you own 40% with protective provisions, you can still block actions like selling the company cheap.</p>
+
+            <h2 id="voting-at-funding-stages">Voting Rights at Different Funding Stages</h2>
+
+            <h3>Pre-Seed</h3>
+            <p>Voting is simple. Founders and maybe a small group of angels. Everyone votes on major decisions, but founders control 100%+ of votes.</p>
+
+            <h3>Seed</h3>
+            <p>Preferred shareholders get standard one-vote-per-share rights. Protective provisions typically cover selling the company and major capital raises.</p>
+
+            <h3>Series A</h3>
+            <p>Investors may negotiate additional protective provisions. Board composition matters more than shareholder voting at this stage — board decisions don't require shareholder votes.</p>
+
+            <h3>Series B and Beyond</h3>
+            <p>Founders are often in the minority both economically and on voting. Protective provisions become your primary protection. If you want to maintain control, negotiate super-voting shares early.</p>
+
+            <h2 id="for-employees">What This Means for Employees</h2>
+
+            <p>As an employee with stock options or equity grants, your voting rights depend on what type of stock you receive:</p>
+
+            <h3>Stock Options (Incentive Stock Options or NSOs)</h3>
+            <p>When you exercise options, you receive common stock. This gives you voting rights once you exercise.</p>
+
+            <div class="example-box">
+                <strong>Example:</strong> You have 10,000 ISO options vesting over 4 years. You exercise 2,500 after 1 year. You now own 2,500 shares of common stock with voting rights. The remaining 7,500 unexercised options give you no voting power.
+            </div>
+
+            <h3>RSUs (Restricted Stock Units)</h3>
+            <p>RSUs convert to common stock upon vesting. You get voting rights as RSUs vest, even if you haven't yet paid taxes on them.</p>
+
+            <h3>Reality Check</h3>
+            <p>Even if you exercise all your options and hold common stock, your voting power is usually minimal. Founders and early investors control tens of millions of shares. Your 10,000-100,000 shares represent less than 1% of votes in most Series B+ companies.</p>
+
+            <p>Voting rights matter less for employees than equity value. Focus on:</p>
+            <ul>
+                <li><strong>Total ownership:</strong> What percentage of the company will you own after dilution?</li>
+                <li><strong>Liquidation preference:</strong> Will you get paid if the company sells?</li>
+                <li><strong>Exit value:</strong> What's your equity worth at various exit scenarios?</li>
+            </ul>
+
+            <p>Use our <a href="stock-options.html">stock options calculator</a> to model what your options might be worth at different exit values.</p>
+
+            <h2>Bottom Line</h2>
+
+            <p>Voting rights determine control, not economics. Founders who want to maintain control after significant dilution should consider:</p>
+
+            <ul>
+                <li>Negotiating super-voting shares early (before Series A)</li>
+                <li>Ensuring protective provisions cover key decisions</li>
+                <li>Understanding that board control often matters more than shareholder voting</li>
+            </ul>
+
+            <p>For employees, focus on equity value rather than voting rights. Your voting power is minimal regardless, so prioritize total ownership and exit scenarios instead.</p>
+
+            <div class="cta-section">
+                <h3>Model your dilution and voting power</h3>
+                <p>Use our free <a href="dilution.html">dilution calculator</a> to see how your ownership and voting power change across funding rounds.</p>
+                <a href="dilution.html" class="cta-btn">Calculate Dilution</a>
+            </div>
+
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 FounderMath. Interactive equity calculators for startup founders.</p>
+        <p style="margin-top: 1rem;">
+            <a href="blog.html">Blog</a> •
+            <a href="about.html">About</a> •
+            <a href="contact.html">Contact</a> •
+            <a href="pricing.html">Pricing</a>
+        </p>
+    </footer>
+</body>
+</html>
