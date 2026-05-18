@@ -2,7 +2,7 @@
 
 - **Calculators:** 10 live + 1 new (scenario comparison)
 - **Interactive Tools:** 14 (11 calculators + equity offer quiz + equity vs salary + equity story generator)
-- **Blog posts:** 46 published (new: funding scenario comparison guide)
+- **Blog posts:** 47 published (new: Tag-Along/Drag-Along Rights guide)
 - **SEO Pages:** Startup Equity Glossary (50+ terms) + Carta vs Pulley vs FounderMath comparison
 - **Pages:** 76+ HTML files
 - **Visitors:** Minimal (Reddit/IH posts live, SEO ramping up, PH launch pending)
@@ -29,7 +29,10 @@
 - Tested mobile responsiveness (verified all grids collapse, nav hamburger works)
 - Wrote SEO blog post: "How to Compare Funding Scenarios: $8M vs $12M Pre-Money"
 - Updated sitemap.xml with new blog post
-- 3 commits deployed to Vercel
+- Fixed critical bug: addSAFE() function missing in SAFE calculator (C206)
+- Wrote SEO blog post: "Tag-Along and Drag-Along Rights Explained" (47th post)
+- Created Reddit response draft for scenario comparison feedback (C207)
+- 5 commits deployed to Vercel
 
 ### Current Focus: DISTRIBUTION
 Next priorities: Reddit response (C207), PH launch prep (C212 - human), Google Ads (C212 - human)

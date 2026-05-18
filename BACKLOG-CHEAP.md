@@ -1,15 +1,20 @@
 # BACKLOG-CHEAP.md — Tasks for Routine Sessions
 
 ## Distribution & Growth
-- ⬜ C207: Respond on Reddit r/startups — tell the user who requested scenario comparison that it's live (link to scenario-compare.html)
+- ⬜ C207: Post Reddit response (draft ready in reddit-response-scenario-compare.md)
 - ⬜ C163: Execute directory submissions (human action needed)
 
 ## SEO & Content
 - ⬜ C152: Share equity glossary in startup subreddits as a resource (human - needs Reddit account)
+- ⬜ C213: Add more blog posts on high-SEO topics (voting rights, information rights, IPO planning)
 
 ## Product & UX
 - ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard) (human)
-- ⬜ C206: Add multi-SAFE stacking feature to SAFE calculator (user request from community feedback)
+
+## Completed This Session
+✅ C206: Fixed missing addSAFE() function in SAFE calculator
+✅ C214: Wrote "Tag-Along and Drag-Along Rights Explained" blog post (47th post)
+✅ C207: Drafted Reddit response for scenario comparison feedback
 
 ## Human Actions Needed
 - ⬜ C160: Send 5 accelerator outreach emails from accelerator-emails.md (human)
