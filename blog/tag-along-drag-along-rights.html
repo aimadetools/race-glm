@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag-Along and Drag-Along Rights Explained (2026) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('navToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="Tag-along rights protect minority shareholders by letting them sell alongside majority owners. Drag-along rights let majority owners force minority shareholders to sell in an acquisition. Learn how both work.">
+    <meta name="keywords" content="tag-along rights, drag-along rights, minority shareholder rights, startup acquisition, co-founder exit, selling equity, term sheet rights">
+    <meta property="og:title" content="Tag-Along and Drag-Along Rights Explained">
+    <meta property="og:description" content="Tag-along rights protect minority shareholders. Drag-along rights protect majority owners. Learn how both affect your exit options.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/tag-along-drag-along-rights.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tag-Along and Drag-Along Rights Explained">
+    <meta name="twitter:description" content="Tag-along rights protect minority shareholders. Drag-along rights protect majority owners. Learn how both affect your exit options.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Tag-Along and Drag-Along Rights Explained",
+        "url": "https://founder-math.com/blog/tag-along-drag-along-rights.html",
+        "description": "Tag-along rights protect minority shareholders by letting them sell alongside majority owners. Drag-along rights let majority owners force minority shareholders to sell in an acquisition.",
+        "datePublished": "2026-05-18",
+        "dateModified": "2026-05-18",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/favicon.svg"
+            }
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://founder-math.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://founder-math.com/blog.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Tag-Along and Drag-Along Rights Guide",
+                "item": "https://founder-math.com/blog/tag-along-drag-along-rights.html"
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        a { color: var(--accent-light); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+        header {
+            position: sticky; top: 0; z-index: 1000;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--accent-light); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-secondary); }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            background: var(--accent); color: white;
+            padding: 0.5rem 1.5rem; border-radius: 8px; font-weight: 600;
+        }
+        .nav-cta:hover { text-decoration: none; background: var(--accent-light); color: var(--bg-primary); }
+        #mobileToggle { display: none; background: none; border: none; color: var(--text-primary); cursor: pointer; }
+        .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-secondary); padding: 1rem; border-bottom: 1px solid var(--border); }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            #mobileToggle { display: block; }
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.2; }
+        .meta {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .read-time { display: flex; align-items: center; gap: 0.3rem; }
+        h2 { font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--accent-light); }
+        h3 { font-size: 1.3rem; margin: 1.5rem 0 0.8rem; }
+        p { margin-bottom: 1.2rem; }
+        .example-box {
+            background: var(--bg-card);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box strong { color: var(--accent-light); }
+        .warning {
+            background: rgba(255, 107, 107, 0.1);
+            border-left: 4px solid #ff6b6b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th { background: var(--bg-card); color: var(--accent-light); }
+        .toc {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .toc h3 { margin-top: 0; }
+        .toc ul { padding-left: 1.5rem; }
+        .toc li { margin-bottom: 0.5rem; }
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
+        .cta-section {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        .cta-btn:hover { text-decoration: none; background: var(--accent-light); }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <a href="/" class="logo" aria-label="FounderMath home">FounderMath</a>
+        <button id="mobileToggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+        <nav aria-label="Main navigation">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="vesting.html">Vesting</a></li>
+                <li><a href="cap-table.html">Cap Table</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="pricing.html" class="nav-cta">Start Free</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <article>
+            <h1>Tag-Along and Drag-Along Rights Explained</h1>
+            <div class="meta">
+                <span class="read-time">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    7 min read
+                </span>
+                <span>May 18, 2026</span>
+            </div>
+
+            <p>Tag-along and drag-along rights are among the most misunderstood terms in startup financing. They sound like legal jargon, but they determine who gets to sell when — and who gets stuck holding shares in a company they can't exit.</p>
+
+            <p>Whether you're a founder negotiating a term sheet or an employee evaluating an equity offer, understanding these rights protects your exit options.</p>
+
+            <nav class="toc" aria-label="Table of contents">
+                <h3>Contents</h3>
+                <ul>
+                    <li><a href="#what-are-tag-along-rights">What Are Tag-Along Rights?</a></li>
+                    <li><a href="#what-are-drag-along-rights">What Are Drag-Along Rights?</a></li>
+                    <li><a href="#comparison-table">Tag-Along vs. Drag-Along: Quick Comparison</a></li>
+                    <li><a href="#negotiation-tips">Negotiation Tips for Founders</a></li>
+                    <li><a href="#employee-considerations">What This Means for Employees</a></li>
+                </ul>
+            </nav>
+
+            <h2 id="what-are-tag-along-rights">What Are Tag-Along Rights?</h2>
+
+            <p>Tag-along rights protect minority shareholders. They give minority owners the right to join a sale initiated by majority shareholders.</p>
+
+            <p>In plain English: If a majority shareholder wants to sell, they have to offer the same deal to minority shareholders.</p>
+
+            <div class="example-box">
+                <strong>Example:</strong> You're a co-founder with 30% of your company. Your co-founder (70%) sells to a strategic acquirer for $100M. With tag-along rights, you can sell your 30% on the same terms — you get $30M. Without tag-along rights, you might be stuck owning shares in a company you no longer control.
+            </div>
+
+            <h3>Why Tag-Along Rights Matter</h3>
+
+            <p>Without tag-along rights, majority shareholders could:</p>
+            <ul>
+                <li>Sell to a buyer you don't trust</li>
+                <li>Exit while you remain stuck with illiquid shares</li>
+                <li>Leave you in a company with new owners who might fire you</li>
+            </ul>
+
+            <p>Tag-along rights are standard for founders and early investors. They protect your ability to exit on favorable terms.</p>
+
+            <h2 id="what-are-drag-along-rights">What Are Drag-Along Rights?</h2>
+
+            <p>Drag-along rights protect majority shareholders. They allow majority owners to force minority shareholders to sell in an acquisition.</p>
+
+            <p>In plain English: If majority shareholders want to sell, everyone else has to sell too.</p>
+
+            <div class="example-box">
+                <strong>Example:</strong> You own 10% of your startup. The majority shareholders (the other 90%) negotiate a $200M acquisition. With drag-along rights, you're required to sell your 10% for $20M. You can't hold out for a better deal later.
+            </div>
+
+            <h3>Why Drag-Along Rights Matter</h3>
+
+            <p>Without drag-along rights, minority shareholders could:</p>
+            <ul>
+                <li>Block an acquisition everyone else wants</li>
+                <li>Hold out for a higher price, killing deals</li>
+                <li>Make the company unattractive to buyers who need 100% control</li>
+            </ul>
+
+            <p>Buyers almost always require drag-along rights. They don't want to acquire 90% of a company and deal with a disgruntled 10% owner later.</p>
+
+            <h2 id="comparison-table">Tag-Along vs. Drag-Along: Quick Comparison</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Tag-Along Rights</th>
+                        <th>Drag-Along Rights</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Who it protects</strong></td>
+                        <td>Minority shareholders</td>
+                        <td>Majority shareholders</td>
+                    </tr>
+                    <tr>
+                        <td><strong>What it does</strong></td>
+                        <td>Right to sell alongside majority</td>
+                        <td>Obligation to sell when majority sells</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Who triggers it</strong></td>
+                        <td>Majority shareholder's sale</td>
+                        <td>Majority shareholder's sale</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Effect on exit</strong></td>
+                        <td>Enables exit at same terms</td>
+                        <td>Forces exit at current terms</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Typical for</strong></td>
+                        <td>Founders, early investors</td>
+                        <td>Venture investors, majority owners</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="negotiation-tips">Negotiation Tips for Founders</h2>
+
+            <h3>1. Get Tag-Along Rights</h3>
+            <p>If you're taking investment from multiple parties, negotiate tag-along rights. This protects you from being left behind if one of your investors exits early.</p>
+
+            <h3>2. Understand Drag-Along Thresholds</h3>
+            <p>Drag-along rights usually trigger when a certain percentage of shareholders approve a sale. Typical thresholds:</p>
+            <ul>
+                <li>50% of voting power (uncommon, protects founders)</li>
+                <li>66.7% (supermajority, standard)</li>
+                <li>75%+ (high threshold, hard to trigger)</li>
+            </ul>
+
+            <p>As a founder, push for a higher threshold. If you own 35%, you want drag-along rights to require at least 66.7% approval — otherwise, a coalition of other shareholders could force you out.</p>
+
+            <h3>3. Check Exemptions</h3>
+            <p>Some drag-along clauses exempt certain shareholders (usually founders holding a minimum percentage). Negotiate to be exempt if you're below a certain threshold.</p>
+
+            <h3>4. Payoff Terms</h3>
+            <p>Drag-along rights typically specify that minority shareholders receive the same price per share and the same payment terms as majority shareholders. Ensure this is explicitly stated.</p>
+
+            <div class="warning">
+                <strong>Warning:</strong> Some term sheets include "participation" rights that let investors get both their preferred liquidation preference AND participate pro-rata with common shareholders. This significantly reduces founder payouts. Read the liquidation preference section carefully.
+            </div>
+
+            <h2 id="employee-considerations">What This Means for Employees</h2>
+
+            <p>As an employee with stock options or equity, these rights affect you indirectly:</p>
+
+            <h3>With Tag-Along Rights</h3>
+            <p>If early investors or founders exit, tag-along rights don't directly apply to employee options. However, the acquisition structure determines how options are handled. In most acquisitions:</p>
+            <ul>
+                <li>Vested options are cashed out or converted to acquiring company stock</li>
+                <li>Unvested options may be accelerated or canceled</li>
+            </ul>
+
+            <h3>With Drag-Along Rights</h3>
+            <p>When drag-along triggers, the acquisition typically includes provisions for employee equity. Your options are usually handled according to your grant agreement — not the tag/drag rights.</p>
+
+            <h3>The Real Impact</h3>
+            <p>Tag-along and drag-along rights don't change the <strong>value</strong> of your equity. But they affect the <strong>timing</strong> and <strong>certainty</strong> of exits:</p>
+            <ul>
+                <li>Tag-along rights make exits more likely (majority holders know they can bring everyone along)</li>
+                <li>Drag-along rights prevent deal blockers (one person can't hold the company hostage)</li>
+            </ul>
+
+            <h2>Bottom Line</h2>
+
+            <p>Tag-along rights let you ride the exit train. Drag-along rights keep the train moving. Both are standard in venture-backed companies, and understanding them helps you:</p>
+
+            <ul>
+                <li>Negotiate better terms as a founder</li>
+                <li>Evaluate exit scenarios realistically</li>
+                <li>Understand what your equity is really worth</li>
+            </ul>
+
+            <p>Use our <a href="dilution.html">dilution calculator</a> to model how your ownership changes across funding rounds. And if you're evaluating a job offer, use our <a href="stock-options.html">stock options calculator</a> to understand what your equity might be worth in different exit scenarios.</p>
+
+            <div class="cta-section">
+                <h3>Model your exit scenarios</h3>
+                <p>Use our free calculators to understand how equity dilution and exits affect your ownership.</p>
+                <a href="dilution.html" class="cta-btn">Calculate Dilution</a>
+            </div>
+
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 FounderMath. Interactive equity calculators for startup founders.</p>
+        <p style="margin-top: 1rem;">
+            <a href="blog.html">Blog</a> •
+            <a href="about.html">About</a> •
+            <a href="contact.html">Contact</a> •
+            <a href="pricing.html">Pricing</a>
+        </p>
+    </footer>
+</body>
+</html>
