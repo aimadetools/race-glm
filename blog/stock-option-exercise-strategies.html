@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Option Exercise Strategies: When and How to Exercise Startup Options</title>
+    <meta name="description" content="Strategies for exercising startup stock options: when to exercise, how to minimize taxes, ISO vs NSO strategies, 83(b) election timing, and real scenarios. Free calculator included.">
+    <link rel="canonical" href="https://founder-math.com/blog/stock-option-exercise-strategies.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .blog-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 4rem 1rem; text-align: center; }
+        .blog-content { max-width: 720px; margin: 0 auto; padding: 3rem 1rem; line-height: 1.8; }
+        .blog-content h2 { font-size: 1.8rem; margin: 3rem 0 1rem; color: #1a202c; }
+        .blog-content h3 { font-size: 1.4rem; margin: 2rem 0 1rem; color: #2d3748; }
+        .blog-content p { margin-bottom: 1.5rem; color: #4a5568; }
+        .blog-content ul, .blog-content ol { margin-bottom: 1.5rem; padding-left: 1.5rem; color: #4a5568; }
+        .blog-content li { margin-bottom: 0.75rem; }
+        .blog-content code { background: #edf2f7; padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.9rem; }
+        .blog-content blockquote { border-left: 4px solid #667eea; padding-left: 1.5rem; margin: 2rem 0; color: #718096; font-style: italic; }
+        .blog-content .cta-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; padding: 2rem; margin: 3rem 0; color: white; text-align: center; }
+        .blog-content .cta-box a { color: white; font-weight: bold; text-decoration: underline; }
+        .blog-content .toc { background: #f7fafc; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+        .blog-content .toc h3 { margin: 0 0 1rem 0; font-size: 1.2rem; }
+        .blog-content .toc ul { margin: 0; padding-left: 1rem; }
+        .blog-content .toc a { color: #667eea; text-decoration: none; }
+        .blog-content .toc a:hover { text-decoration: underline; }
+        .author-bio { border-top: 1px solid #e2e8f0; padding-top: 2rem; margin-top: 3rem; display: flex; align-items: center; gap: 1rem; }
+        .author-bio img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+        .example-box { background: #f7fafc; border-left: 4px solid #00b894; padding: 1.5rem; margin: 2rem 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #00b894; margin: 0 0 0.5rem 0; font-size: 1rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../" class="nav-logo">FounderMath</a>
+        <div class="nav-links">
+            <a href="../#calculators">Calculators</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../glossary.html">Glossary</a>
+            <a href="../pricing.html">Pro</a>
+        </div>
+    </nav>
+
+    <header class="blog-header">
+        <h1>Stock Option Exercise Strategies: When and How to Exercise Startup Options</h1>
+        <p style="opacity: 0.9; margin-top: 1rem;">Timing, tax optimization, and real scenarios for startup employees</p>
+    </header>
+
+    <article class="blog-content">
+        <p><strong>May 18, 2026 • 14 min read</strong></p>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#when-to-exercise-your-options">When to Exercise Your Options</a></li>
+                <li><a href="#exercise-strategies-by-company-stage">Exercise Strategies by Company Stage</a></li>
+                <li><a href="#iso-vs-nso-exercise-strategies">ISO vs NSO Exercise Strategies</a></li>
+                <li><a href="#the-83b-election-timing">The 83(b) Election Timing</a></li>
+                <li><a href="#funding-your-exercise">Funding Your Exercise</a></li>
+                <li><a href="#common-mistakes-to-avoid">Common Mistakes to Avoid</a></li>
+            </ul>
+        </div>
+
+        <p>You have 50,000 stock options at $1 strike price. Your company's 409A valuation is now $10/share. The spread is $9 per option — that's $450,000 in potential value.</p>
+
+        <p>But when should you exercise? Today? At IPO? Never?</p>
+
+        <p>The wrong timing can cost you tens of thousands in taxes. The right timing can maximize your after-tax return and minimize risk. This guide shows you the strategies.</p>
+
+        <h2 id="when-to-exercise-your-options">When to Exercise Your Options</h2>
+
+        <p>There are four main times when employees consider exercising:</p>
+
+        <ol>
+            <li><strong>Early</strong> — Immediately after grant (within 30 days)</li>
+            <li><strong>Mid-stage</strong> — After some vesting, before major valuation jumps</li>
+            <li><strong>Late-stage</strong> — Near IPO or acquisition</li>
+            <li><strong>Never</strong> — Let options expire</li>
+        </ol>
+
+        <p>Each strategy has different tax implications and risk profiles. Here's when each makes sense.</p>
+
+        <div class="example-box">
+            <h4>Key Principle</h4>
+            <p>The longer you hold exercised shares, the better your tax outcome. For ISOs, holding for 1+ year from exercise AND 2+ years from grant means qualifying disposition (long-term capital gains). This is the holy grail of stock option taxation.</p>
+        </div>
+
+        <h2 id="exercise-strategies-by-company-stage">Exercise Strategies by Company Stage</h2>
+
+        <h3>Early Stage (Seed/Series A)</h3>
+
+        <p><strong>Best strategy: Exercise early with 83(b) election.</strong></p>
+
+        <p>At early stage, your strike price is close to FMV. The spread is small. Exercise cost is minimal, but the tax benefits are huge:</p>
+
+        <ul>
+            <li><strong>Low cost</strong> — If strike is $0.10 and FMV is $0.10, you pay $0.10 per share but owe $0 tax (no spread)</li>
+            <li><strong>83(b) benefit</strong> — Pay tax on $0 spread now, lock in your basis for long-term capital gains later</li>
+            <li><strong>Capital gains timing</strong> — Clock starts at grant, not exercise</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Early Stage Example</h4>
+            <p>Series A company. You get 50,000 options at $0.10 strike. FMV is $0.10.<br><br>Exercise cost: $5,000<br>Tax with 83(b): $0 (no spread)<br><br>5 years later, company IPOs at $10/share. Your shares are worth $500,000. You pay long-term capital gains on $495,000 (15-20% tax) instead of ordinary income (up to 37% + state tax).<br><br>Savings: Up to $110,000 in taxes.</p>
+        </div>
+
+        <h3>Mid Stage (Series B/C)</h3>
+
+        <p><strong>Best strategy: Exercise before FMV jumps significantly.</strong></p>
+
+        <p>At Series B/C, valuations are climbing fast. Your 409A valuation may jump from $5 to $15 to $40 in 12-18 months. Exercise before these jumps to lock in a lower spread.</p>
+
+        <ul>
+            <li><strong>Before valuation jumps</strong> — Exercise at current FMV to avoid paying tax on future increases</li>
+            <li><strong>Avoid AMT trap</strong> — For ISOs, exercise gradually if spread is large to stay under AMT threshold</li>
+            <li><strong>Consider cash vs credit</strong> — If you can't pay cash, explore exercise loans or sell-to-cover</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Mid Stage Example</h4>
+            <p>Series B company. You have 50,000 vested options at $1 strike. FMV is $8.<br><br>If you exercise NOW: Cost = $50,000. Spread = $350,000. AMT exposure = $98,000 (28%).<br><br>If you WAIT until Series C (FMV jumps to $20): Cost = $50,000. Spread = $950,000. AMT exposure = $266,000 (28%).<br><br>Waiting cost you $168,000 in extra AMT.</p>
+        </div>
+
+        <h3>Late Stage (Pre-IPO)</h3>
+
+        <p><strong>Best strategy: Exercise as late as possible for ISOs, or consider NSO cashless exercise.</strong></p>
+
+        <p>Near IPO, FMV is high. Spread is massive. Exercise cost and taxes can be substantial:</p>
+
+        <ul>
+            <li><strong>ISOs: File 83(b) for unvested</strong> — Only makes sense if you joined very early with low strike</li>
+            <li><strong>NSOs: Cashless exercise</strong> — Sell enough shares to cover exercise cost + taxes</li>
+            <li><strong>ISOs: Gradual exercise</strong> — Exercise over multiple tax years to manage AMT</li>
+            <li><strong>Wait for IPO</strong> — Sometimes better to wait for liquidity before exercising</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Late Stage Example</h4>
+            <p>Pre-IPO company. You have 50,000 vested ISOs at $1 strike. FMV is $25.<br><br>Exercise cost: $50,000<br>Spread: $1,200,000<br>AMT exposure: $336,000 (28%)<br><br>That's $386,000 in cash needed now. Can you afford it? If not, consider:<br><br>• Wait for IPO, exercise post-IPO when you can sell shares<br>• Exercise a portion now, rest later<br>• Explore exercise loans (high interest rates)<br>• Cashless exercise (not available for ISOs in same year)</p>
+        </div>
+
+        <h2 id="iso-vs-nso-exercise-strategies">ISO vs NSO Exercise Strategies</h2>
+
+        <p>The type of options you have dramatically affects your strategy:</p>
+
+        <h3>Incentive Stock Options (ISOs)</h3>
+
+        <p>ISOs offer preferential tax treatment but come with restrictions:</p>
+
+        <ul>
+            <li><strong>Qualifying disposition</strong>: Hold 1 year after exercise + 2 years after grant → Long-term capital gains (15-20% federal tax)</li>
+            <li><strong>Disqualifying disposition</strong>: Sell before holding periods met → Ordinary income + capital gains</li>
+            <li><strong>AMT risk</strong>: Spread triggers AMT in exercise year (unless 83(b) filed)</li>
+            <li><strong>$100K limit</strong>: Only $100K of ISOs can vest per year (excess become NSOs)</li>
+        </ul>
+
+        <h4>ISO Exercise Strategy:</h4>
+        <ol>
+            <li><strong>Early employees</strong>: Exercise immediately after grant, file 83(b)</li>
+            <li><strong>Mid-stage</strong>: Exercise gradually to manage AMT, hold >1 year after exercise</li>
+            <li><strong>Late-stage</strong>: Consider cashless exercise not possible; wait for IPO liquidity</li>
+        </ol>
+
+        <h3>Non-Qualified Stock Options (NSOs)</h3>
+
+        <p>NSOs have simpler taxation but worse rates:</p>
+
+        <ul>
+            <li><strong>Exercise</strong>: Spread taxed as ordinary income immediately (up to 37% federal + state)</li>
+            <li><strong>Capital gains</strong>: Future appreciation taxed at capital gains rates</li>
+            <li><strong>No AMT</strong>: No AMT complications</li>
+            <li><strong>No limits</strong>: No $100K annual vesting limit</li>
+        </ul>
+
+        <h4>NSO Exercise Strategy:</h4>
+        <ol>
+            <li><strong>Early-stage</strong>: Exercise early, file 83(b) to lock in long-term capital gains</li>
+            <li><strong>Mid-late stage</strong>: Cashless exercise (sell shares to cover cost + taxes)</li>
+            <li><strong>Wait for liquidity</strong>: Exercise after IPO/acquisition when you can sell</li>
+        </ol>
+
+        <div class="example-box">
+            <h4>ISO vs NSO Comparison</h4>
+            <p>You have 50,000 options at $1 strike. FMV is $10. You exercise and hold for 2 years, then sell at $20.<br><br><strong>ISO (qualifying disposition):</strong><br>Exercise cost: $50,000<br>Tax at exercise: $0 (no AMT, filed 83(b) early)<br>Sell at $20: $950,000 gain taxed at 20% = $190,000<br>After-tax profit: $710,000<br><br><strong>NSO (no 83(b)):</strong><br>Exercise cost: $50,000<br>Tax at exercise: $342,000 (37% ordinary income on $925,000 spread)<br>Sell at $20: $500,000 gain taxed at 20% = $100,000<br>After-tax profit: $8,000<br><br>Difference: $702,000 saved with ISO + 83(b) strategy.</p>
+        </div>
+
+        <h2 id="the-83b-election-timing">The 83(b) Election Timing</h2>
+
+        <p>The 83(b) election is the most powerful tool for startup employees, but timing is critical:</p>
+
+        <ul>
+            <li><strong>File within 30 days</strong>: Must file within 30 days of grant OR within 30 days of early exercise</li>
+            <li><strong>Pays tax upfront</strong>: You pay ordinary income tax on the spread at grant, not when shares vest</li>
+            <li><strong>Locks in basis</strong>: Your cost basis becomes (strike + spread), reducing future capital gains</li>
+            <li><strong>Starts capital gains clock</strong>: Holding period starts at grant, not exercise</li>
+        </ul>
+
+        <h3>When to File 83(b)</h3>
+
+        <p><strong>File 83(b) when:</strong></p>
+        <ul>
+            <li>You have ISOs or NSOs with very low spread (early stage)</li>
+            <li>You plan to hold shares long-term (>2 years)</li>
+            <li>You have cash to pay the tax (even if tax is small)</li>
+            <li>Your strike price is significantly below FMV</li>
+        </ul>
+
+        <p><strong>Don't file 83(b) when:</strong></p>
+        <ul>
+            <li>Spread is large (late-stage options)</li>
+            <li>You can't afford the upfront tax</li>
+            <li>You might leave before full vesting (you lose unvested shares)</li>
+            <li>Company might not succeed (you lose everything)</li>
+        </ul>
+
+        <div class="cta-box">
+            <h3>Calculate Your Exercise Cost</h3>
+            <p>Use our <a href="../stock-options.html">Stock Options Calculator</a> to model your exercise cost, tax impact, and after-tax value at different exit scenarios.</p>
+            <a href="../stock-options.html">Calculate Now →</a>
+        </div>
+
+        <h2 id="funding-your-exercise">Funding Your Exercise</h2>
+
+        <p>Most employees don't have $50,000-$200,000 in cash to exercise. Here are options:</p>
+
+        <h3>Cash Exercise</h3>
+        <ul>
+            <li><strong>Best for</strong>: Early-stage, low spread options</li>
+            <li><strong>Cost</strong>: Strike price × number of options</li>
+            <li><strong>Tax</strong>: AMT for ISOs, ordinary income for NSOs (unless 83(b))</li>
+            <li><strong>Pros</strong>: Simple, no debt</li>
+            <li><strong>Cons</strong>: Requires substantial cash</li>
+        </ul>
+
+        <h3>Cashless Exercise (Sell-to-Cover)</h3>
+        <ul>
+            <li><strong>Best for</strong>: NSOs, or ISOs held >1 year</li>
+            <li><strong>How it works</strong>: You sell enough shares to cover exercise cost + taxes, keep the rest</li>
+            <li><strong>Pros</strong>: No upfront cash needed</li>
+            <li><strong>Cons</strong>: Reduces share count, complex for ISOs</li>
+        </ul>
+
+        <h3>Exercise Loans</h3>
+        <ul>
+            <li><strong>Best for</strong>: Late-stage employees with substantial vested options</li>
+            <li><strong>How it works</strong>: Borrow money to exercise, repay with interest</li>
+            <li><strong>Pros</strong>: Preserve cash, hold shares</li>
+            <li><strong>Cons</strong>: High interest (10-15%), risk if company fails</li>
+        </ul>
+
+        <h3>Early Exercise Window</h3>
+        <ul>
+            <li><strong>Best for</strong>: Very early employees</li>
+            <li><strong>How it works</strong>: Exercise unvested options, file 83(b), hold shares</li>
+            <li><strong>Pros</strong>: Lock in lowest possible cost basis, start capital gains clock</li>
+            <li><strong>Cons</strong>: Risk of losing money if you leave early or company fails</li>
+        </ul>
+
+        <h2 id="common-mistakes-to-avoid">Common Mistakes to Avoid</h2>
+
+        <h3>Mistake #1: Missing the 83(b) Deadline</h3>
+        <p>The IRS does NOT grant extensions. If you miss the 30-day window, you lose the 83(b) benefit forever. Set a calendar reminder on grant day.</p>
+
+        <h3>Mistake #2: Exercising Too Late</h3>
+        <p>Waiting until FMV is massive means paying huge AMT or ordinary income tax. Exercise before valuation jumps, especially for ISOs.</p>
+
+        <h3>Mistake #3: Not Understanding AMT</h3>
+        <p>ISOs trigger AMT. If you have $500K spread and exercise, you might owe $140K in AMT. Most people don't realize this until tax season.</p>
+
+        <h3>Mistake #4: Letting Options Expire</h3>
+        <p>Most employment contracts give 90 days to exercise after termination. If you leave and forget to exercise, your options expire worthless. Set reminders.</p>
+
+        <h3>Mistake #5: Exercising Without Liquidity Plan</h3>
+        <p>If you exercise but can't afford to hold until exit, and there's no secondary market, you're stuck. Understand your liquidity options before exercising.</p>
+
+        <h3>Mistake #6: Ignoring State Taxes</h3>
+        <p>California taxes ordinary income up to 13.3%. Your federal AMT calculation might not account for this. Factor in state taxes.</p>
+
+        <div class="example-box">
+            <h4>Real-World Mistake</h4>
+            <p>A Series C employee had 100,000 ISOs at $0.50 strike. FMV was $20. They waited until IPO prep to exercise.<br><br>Exercise cost: $50,000<br>Spread: $1,950,000<br>AMT: $546,000 (28%)<br><br>They couldn't afford $596,000. IPO was delayed 18 months. Options lost 40% value. They ended up selling 60% of shares at IPO to cover taxes. Lost $400,000+ vs exercising earlier.</p>
+        </div>
+
+        <div class="cta-box">
+            <h3>Plan Your Exercise Strategy</h3>
+            <p>Use our <a href="../stock-options.html">Stock Options Calculator</a> to model different exercise scenarios. See your after-tax outcome at various exit valuations and timing.</p>
+            <a href="../stock-options.html">Model Your Scenarios →</a>
+        </div>
+
+        <hr>
+
+        <h2>Related Reading</h2>
+        <ul>
+            <li><a href="stock-options-worth-guide.html">How Much Are Your Stock Options Worth?</a></li>
+            <li><a href="iso-vs-nso-guide.html">ISO vs NSO: Which Type Is Better?</a></li>
+            <li><a href="83b-election-guide.html">Section 83(b) Election: The Tax Move That Saves Thousands</a></li>
+            <li><a href="stock-option-cost-basis.html">How to Calculate Your Stock Option Cost Basis</a></li>
+            <li><a href="early-exercise-options-guide.html">Early Exercise Stock Options: Should You Exercise Before Vesting?</a></li>
+        </ul>
+
+        <div class="author-bio">
+            <img src="https://founder-math.com/author-avatar.png" alt="Founder">
+            <div>
+                <strong>About the Author</strong>
+                <p>I built FounderMath because startup equity math shouldn't require spreadsheets or expensive tools. These calculators are free because equity literacy should be baseline knowledge for every founder.</p>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>&copy; 2026 FounderMath. Free startup equity calculators.</p>
+        <div class="footer-links">
+            <a href="../">Home</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../glossary.html">Glossary</a>
+            <a href="../pricing.html">Pro</a>
+        </div>
+    </footer>
+</body>
+</html>
