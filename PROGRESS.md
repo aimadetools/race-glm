@@ -1,8 +1,8 @@
-## Current State (Day 42 — May 19, 2026)
+## Current State (Day 43 — May 20, 2026)
 
-- **Calculators:** 12 live (ALL calculators now have shareable URLs!)
+- **Calculators:** 12 live (ALL calculators have shareable URLs)
 - **Interactive Tools:** 15 (12 calculators + equity offer quiz + equity vs salary + equity story generator)
-- **Blog posts:** 56 published (new: Option Pool Negotiation Guide)
+- **Blog posts:** 56 published (ALL now indexed in blog.html)
 - **SEO Pages:** Startup Equity Glossary (54 terms) + Carta vs Pulley vs FounderMath comparison
 - **Pages:** 80+ HTML files
 - **Visitors:** Google Ads running ($5/day May 19-21), PH launched (minimal traction)
@@ -16,6 +16,11 @@
 **Growth Phase (Days 15-26):** Community feedback fixes, mobile optimization, schema markup, Twitter content calendar, guest post pitches, equity quiz, stock options calculator, compare offers page, embed widget, share feature, Founding 50 campaign, SAFE stacking waterfall, glossary, email API fix.
 
 **Distribution Sprint (Days 27-35):** Accelerator outreach, comparison page SEO, PH prep, acquisition response handling, 6 new SEO blog posts, floating Pro CTA, cross-linking across pages.
+
+### Session Work (May 20 - Day 43)
+- **Added 2 missing blog posts to blog index:** "How Stock Options Work at Early-Stage Startups" (8 min read) and "Equity Refresh Grants Explained" (6 min read) — both from May 14 but not previously indexed
+- **Verified all 56 blog posts now listed in blog.html**
+- **Deployed to Vercel** via git push
 
 ### Session Work (May 19 - Day 42)
 - **Fixed CSS syntax errors in index.html:** Removed duplicate rules, fixed incorrectly nested focus-visible styles in nav-cta and mobile-toggle blocks
@@ -43,4 +48,4 @@
 - Updated Carta vs Pulley comparison page to mention free 409A estimator
 
 ### Current Focus: DISTRIBUTION + CONVERSION
-Next priorities: Post Reddit response (human action), monitor Google Ads results (runs through May 21), build more user-requested features
+Next priorities: Monitor Google Ads results (runs through May 21), post Reddit response (human action), build more user-requested features

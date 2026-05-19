@@ -35,11 +35,4 @@
 - ⬜ Post Reddit response about new shareable links feature
 
 ## Completed
-✅ P1-P15: Core calculators, pro gating, email capture, monitoring
-✅ P17-P28: Valuation calculator, equity quiz, compare offers, founding 50, content sprints
-✅ P30-P34: Distribution sprint, comparison page, accelerator emails, Google Ads plan
-✅ P36-P38: Equity story generator, cross-linking, HN share, pro-rata/MFN
-✅ P39: Scenario comparison tool, cross-linked, blog post
-✅ P40a: 409A Valuation Estimator with backsolve/scorecard/Berkus methods
-✅ P40b: Shareable URLs for scenario-compare (viral growth feature)
-✅ P40c: Shareable URLs for ALL 12 calculators (valuation, stock-options, 409a-valuation) — complete viral feature set
+✅ P1-P40c: Core calculators, pro gating, email capture, monitoring, valuation calculator, equity quiz, compare offers, distribution sprint, equity story generator, 409A Valuation Estimator, shareable URLs on ALL 12 calculators, blog index fixes (all 56 posts indexed)
