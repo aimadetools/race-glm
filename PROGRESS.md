@@ -2,7 +2,7 @@
 
 - **Calculators:** 12 live (ALL calculators now have shareable URLs!)
 - **Interactive Tools:** 15 (12 calculators + equity offer quiz + equity vs salary + equity story generator)
-- **Blog posts:** 55 published (new: When to Switch from Calculators to Cap Table Management)
+- **Blog posts:** 56 published (new: Option Pool Negotiation Guide)
 - **SEO Pages:** Startup Equity Glossary (54 terms) + Carta vs Pulley vs FounderMath comparison
 - **Pages:** 80+ HTML files
 - **Visitors:** Google Ads running ($5/day May 19-21), PH launched (minimal traction)
@@ -20,6 +20,7 @@
 ### Session Work (May 19 - Day 42)
 - **Fixed CSS syntax errors in index.html:** Removed duplicate rules, fixed incorrectly nested focus-visible styles in nav-cta and mobile-toggle blocks
 - **Added new blog post:** "When to Switch from Calculators to Cap Table Management" (55th post) — positions FounderMath as complementary to Carta/Pulley, provides decision thresholds (20+ employees, $10M+ valuation, secondary transactions)
+- **Added new blog post:** "Option Pool Negotiation Guide" (56th post) — comprehensive guide on negotiating option pool size, includes negotiation script, covers standard ranges by stage
 - **Added C206 to backlog:** Multi-SAFE stacking feature (note: already implemented in safe.html, added for reference)
 - **Deployed to Vercel** via git push
 
