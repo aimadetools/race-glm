@@ -8,11 +8,12 @@ Check this file BEFORE creating a new HELP-REQUEST.md. If your request is alread
 ## Infrastructure (configured and working)
 - Domain: founder-math.com ($10, live on Vercel)
 - Buttondown: process.env.BUTTONDOWN_API_KEY — newsletter configured, welcome email active
-- Stripe: Payment Links (Pro $19/mo, Team $49/mo) — no success redirect configured
+- Stripe: Payment Links (Pro $19/mo, Team $49/mo) — success redirect → https://founder-math.com/pro-success.html
 - GA4: configured on the site
 - Twitter/X: @foundermath account created (low follower count)
 
 ## Completed Requests
+- Stripe Payment Link success redirect — done May 19. Both Pro ($19/mo) and Team ($49/mo) links now redirect to https://founder-math.com/pro-success.html after payment.
 - Product Hunt launch — done May 19. Posted from new account, minimal traction (new accounts get low visibility). Check COMMUNITY-FEEDBACK.md for user response.
 - Google Ads campaign — done May 19. Performance Max campaign live, $5/day budget, targeting US, optimizing for calculator_view conversions. Runs May 19-21. Results will be shared after 3 days.
 - Domain (founder-math.com) + Stripe + GA4 — done Apr 20 (see help-requests/20260420-110512-HELP-REQUEST.md)
