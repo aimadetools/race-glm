@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>409A Valuation Methods Compared: Backsolve vs Scorecard vs Berkus | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="Compare the three main 409A valuation methods — Backsolve, Scorecard, and Berkus. Learn which method fits your startup stage, what discounts to apply, and how to estimate common stock fair market value.">
+    <meta name="keywords" content="409A valuation methods, backsolve method 409A, scorecard valuation method, berkus method startup, how to estimate 409A, common stock fair market value">
+    <meta property="og:title" content="409A Valuation Methods Compared: Backsolve vs Scorecard vs Berkus">
+    <meta property="og:description" content="Which 409A valuation method is right for your startup? A practical comparison of Backsolve, Scorecard, and Berkus methods with real numbers and examples.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/409a-valuation-methods-compared.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "409A Valuation Methods Compared: Backsolve vs Scorecard vs Berkus",
+        "url": "https://founder-math.com/blog/409a-valuation-methods-compared.html",
+        "description": "Compare the three main 409A valuation methods — Backsolve, Scorecard, and Berkus. Learn which method fits your startup stage and how to estimate common stock fair market value.",
+        "datePublished": "2026-05-19",
+        "dateModified": "2026-05-19",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/409a-valuation-methods-compared.html"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+
+        .article-layout {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        .article-header { margin-bottom: 48px; }
+        .article-meta {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted);
+        }
+        .article-meta .tag {
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 4px 12px; border-radius: 100px; font-size: 0.75rem;
+            color: var(--accent-light); font-weight: 600;
+        }
+        .article-header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800;
+            letter-spacing: -0.03em; margin-bottom: 16px; line-height: 1.3;
+        }
+        .article-header p {
+            color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;
+        }
+
+        .toc {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px 28px; margin-bottom: 48px;
+        }
+        .toc h2 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 12px; }
+        .toc ol { padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: var(--accent-light); text-decoration: none; font-size: 0.9rem; }
+        .toc a:hover { text-decoration: underline; }
+
+        .article-content h2 {
+            font-size: 1.5rem; font-weight: 700; margin-top: 48px; margin-bottom: 16px;
+            letter-spacing: -0.02em; scroll-margin-top: 80px;
+        }
+        .article-content h3 {
+            font-size: 1.15rem; font-weight: 700; margin-top: 32px; margin-bottom: 12px;
+        }
+        .article-content p {
+            color: var(--text-secondary); margin-bottom: 16px; font-size: 0.95rem;
+        }
+        .article-content ul, .article-content ol {
+            color: var(--text-secondary); margin-bottom: 16px; padding-left: 24px;
+        }
+        .article-content li { margin-bottom: 6px; font-size: 0.95rem; }
+        .article-content strong { color: var(--text-primary); }
+
+        .callout {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-left: 3px solid var(--accent); border-radius: 8px;
+            padding: 20px 24px; margin: 24px 0;
+        }
+        .callout p { color: var(--text-secondary); margin-bottom: 0; }
+
+        .example-box {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px; margin: 24px 0;
+        }
+        .example-box h3 { margin-top: 0; color: var(--accent-light); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .example-table {
+            width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem;
+        }
+        .example-table th {
+            text-align: left; padding: 10px 12px; color: var(--text-muted);
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border);
+        }
+        .example-table th:not(:first-child) { text-align: right; }
+        .example-table td {
+            padding: 10px 12px; border-bottom: 1px solid rgba(42,42,64,0.5);
+            color: var(--text-secondary);
+        }
+        .example-table td:not(:first-child) { text-align: right; font-family: var(--font-mono); }
+        .example-table .highlight { color: var(--green); font-weight: 700; }
+        .example-table .winner { background: rgba(0,184,148,0.05); }
+
+        .tool-cta {
+            background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.1));
+            border: 1px solid var(--accent); border-radius: 12px; padding: 32px;
+            text-align: center; margin: 40px 0;
+        }
+        .tool-cta h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+        .tool-cta p { color: var(--text-secondary); margin-bottom: 16px; }
+        .tool-cta a {
+            display: inline-block; background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white; text-decoration: none; padding: 12px 32px; border-radius: 8px;
+            font-weight: 700; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .tool-cta a:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+
+        .related-articles {
+            margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--border);
+        }
+        .related-articles h2 { font-size: 1.2rem; margin-bottom: 16px; }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .related-card {
+            display: block; background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 10px; padding: 20px; text-decoration: none; transition: border-color 0.2s;
+        }
+        .related-card:hover { border-color: var(--accent); }
+        .related-card .title { color: var(--text-primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+        .related-card .desc { color: var(--text-muted); font-size: 0.8rem; }
+
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0; background: var(--bg-primary);
+                border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100;
+            }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .related-grid { grid-template-columns: 1fr; }
+            .example-table { font-size: 0.8rem; }
+        }
+        @media print {
+            nav, .tool-cta, footer { display: none !important; }
+            body { background: white; color: black; }
+            .article-layout { padding-top: 0; }
+        }
+    </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="/" class="logo" aria-label="FounderMath home">
+            <div class="logo-icon" aria-hidden="true">%</div>
+            FounderMath
+        </a>
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+            <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+            <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+            <li role="none"><a href="../scenario-compare.html" role="menuitem">Compare Scenarios</a></li>
+            <li role="none"><a href="../409a-valuation.html" role="menuitem">409A</a></li>
+                <li role="none"><a href="../blog.html" role="menuitem">Blog</a></li>
+            <li><a href="../pricing.html" class="nav-cta" role="menuitem">7-Day Free Trial</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+    </div>
+</nav>
+
+<main id="main-content">
+<article class="article-layout">
+    <header class="article-header">
+        <div class="article-meta">
+            <span class="tag">409A Valuations</span>
+            <span>May 19, 2026</span>
+            <span>14 min read</span>
+        </div>
+        <h1>409A Valuation Methods Compared: Backsolve vs Scorecard vs Berkus</h1>
+        <p>Your 409A valuation determines the strike price for every <a href="stock-options.html">stock option</a> you grant. Pick the wrong valuation method and you could overprice your options (making them unattractive to hires) or underprice them (triggering IRS penalties). Here is a practical comparison of the three most common methods — and which one you actually need.</p>
+    </header>
+
+    <nav class="toc" aria-label="Table of contents">
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#why-methods-matter">Why Your 409A Valuation Method Matters</a></li>
+            <li><a href="#backsolve">Method 1: The Backsolve Method (VC-Backed Startups)</a></li>
+            <li><a href="#scorecard">Method 2: The Scorecard Method (Pre-Revenue)</a></li>
+            <li><a href="#berkus">Method 3: The Berkus Method (Idea-Stage)</a></li>
+            <li><a href="#comparison">Side-by-Side Comparison Table</a></li>
+            <li><a href="#which-method">Which Method Should You Use?</a></li>
+            <li><a href="#discounts">What Discount to Apply (by Stage)</a></li>
+            <li><a href="#try-calculator">Estimate Your 409A Valuation</a></li>
+        </ol>
+    </nav>
+
+    <div class="article-content">
+        <h2 id="why-methods-matter">Why Your 409A Valuation Method Matters</h2>
+        <p>Section 409A of the Internal Revenue Code requires that every stock option you grant has a strike price at or above the <strong>fair market value (FMV)</strong> of your common stock on the grant date. Set the strike price too low and your employees owe taxes and a 20% penalty on the difference. Set it too high and your options become underwater on day one.</p>
+        <p>The challenge? Private companies do not have a public stock price. You have to <strong>estimate</strong> what your common stock is worth, and the IRS wants a defensible methodology. That is where the three standard approaches come in: Backsolve, Scorecard, and Berkus. Each one produces a different <a href="valuation.html">startup valuation</a> depending on your stage.</p>
+        <p>Most valuation firms use one primary method and cross-check with another. The method they choose depends almost entirely on your <strong>stage</strong> and whether you have raised priced equity.</p>
+        <p>If you are new to 409A valuations entirely, read our <a href="409a-valuation.html">complete guide to 409A valuations</a> first, then come back here to understand the methods.</p>
+
+        <h2 id="backsolve">Method 1: The Backsolve Method (VC-Backed Startups)</h2>
+        <p>The <strong>backsolve method</strong> is by far the most common approach for startups that have raised a priced round. Over 80% of venture-backed companies use this method. It works by working backwards from the most recent investment to determine what the common stock must be worth.</p>
+
+        <h3>How It Works</h3>
+        <p>When a VC invests $3M at a $12M pre-money valuation, they are buying preferred stock at a specific per-share price. The backsolve method starts from that preferred stock price and applies a <strong>discount</strong> to arrive at the common stock price. The discount reflects the reality that common stock has fewer rights than preferred stock — no liquidation preference, no anti-dilution protection, no participation rights.</p>
+        <p>Here is the step-by-step logic:</p>
+        <ol>
+            <li>Determine the per-share price of the most recent preferred stock round</li>
+            <li>Model the company's full capital structure (preferred, common, options, SAFEs, <a href="convertible-notes-vs-safe.html">convertible notes</a>)</li>
+            <li>Allocate value across all share classes using an allocation method (usually the Option Pricing Method or Probability-Weighted Expected Return Method)</li>
+            <li>Read off the implied per-share value of common stock</li>
+        </ol>
+
+        <div class="example-box">
+            <h3>Backsolve Example: Series A Company</h3>
+            <table class="example-table">
+                <tr><th>Input</th><th>Value</th></tr>
+                <tr><td>Series A price per share</td><td>$4.00</td></tr>
+                <tr><td>Total fully diluted shares</td><td>10,000,000</td></tr>
+                <tr><td>Post-money valuation</td><td>$40M</td></tr>
+                <tr><td>Common stock discount (OPM)</td><td>~30%</td></tr>
+                <tr><td><strong>Implied common stock FMV</strong></td><td class="highlight">~$2.80</td></tr>
+            </table>
+        </div>
+
+        <h3>When to Use the Backsolve Method</h3>
+        <ul>
+            <li>You have raised a priced equity round (Seed preferred, Series A, Series B, etc.)</li>
+            <li>Your most recent round closed within the last 12 months</li>
+            <li>The round was an arm's-length transaction (not a friends-and-family deal at a sweetheart price)</li>
+        </ul>
+
+        <h3>Strengths and Weaknesses</h3>
+        <p><strong>Strengths:</strong> Highly defensible to the IRS because it is grounded in an actual market transaction. Widely accepted by auditors. Easy to explain to your board.</p>
+        <p><strong>Weaknesses:</strong> Only works if you have a priced round to work from. The discount is subjective — a 25% discount vs a 40% discount can swing your common stock FMV by thousands of dollars per share. Requires an OPM model that most founders cannot build themselves.</p>
+
+        <div class="callout">
+            <p><strong>Key insight:</strong> The backsolve method assumes the preferred stock price is the "truth." If you raised at a high valuation from a strategic investor who was paying for synergy rather than standalone value, the backsolve will overstate your common stock FMV. This is one reason companies sometimes get a lower 409A value than expected after a hot round.</p>
+        </div>
+
+        <h2 id="scorecard">Method 2: The Scorecard Method (Pre-Revenue)</h2>
+        <p>The <strong>scorecard valuation method</strong> is the standard approach for pre-revenue startups that have not yet raised a priced round. Instead of working backwards from a transaction, it compares your startup to similar companies and adjusts for key differences.</p>
+
+        <h3>How It Works</h3>
+        <p>The scorecard method starts with the average pre-money valuation of comparable startups at your stage (usually pulled from AngelList, PitchBook, or similar databases). Then it adjusts that baseline up or down based on how your company compares across several dimensions:</p>
+
+        <div class="example-box">
+            <h3>Scorecard Adjustment Factors</h3>
+            <table class="example-table">
+                <tr><th>Factor</th><th>Typical Weight</th></tr>
+                <tr><td>Strength of the founding team</td><td>30%</td></tr>
+                <tr><td>Market size and opportunity</td><td>25%</td></tr>
+                <tr><td>Product and technology</td><td>15%</td></tr>
+                <tr><td>Competitive environment</td><td>10%</td></tr>
+                <tr><td>Sales and marketing traction</td><td>10%</td></tr>
+                <tr><td>Other (IP, advisors, location)</td><td>10%</td></tr>
+            </table>
+        </div>
+
+        <p>Each factor gets a comparative rating, typically ranging from +50% (exceptional) to -50% (below average). The weighted average of all adjustments gives you a multiplier that you apply to the baseline valuation.</p>
+
+        <div class="example-box">
+            <h3>Scorecard Example: Pre-Revenue SaaS Startup</h3>
+            <table class="example-table">
+                <tr><th>Factor</th><th>Weight</th><th>Your Rating</th><th>Adjustment</th></tr>
+                <tr><td>Team (ex-Google, 2nd startup)</td><td>30%</td><td>+30%</td><td>+9.0%</td></tr>
+                <tr><td>Market ($5B TAM)</td><td>25%</td><td>+20%</td><td>+5.0%</td></tr>
+                <tr><td>Product (MVP built)</td><td>15%</td><td>+10%</td><td>+1.5%</td></tr>
+                <tr><td>Competition (moderate)</td><td>10%</td><td>-10%</td><td>-1.0%</td></tr>
+                <tr><td>Sales (pilot customers)</td><td>10%</td><td>+20%</td><td>+2.0%</td></tr>
+                <tr><td>Other (strong advisors)</td><td>10%</td><td>+10%</td><td>+1.0%</td></tr>
+                <tr class="winner"><td><strong>Weighted average adjustment</strong></td><td></td><td></td><td class="highlight"><strong>+17.5%</strong></td></tr>
+            </table>
+            <p style="margin-top: 16px; font-size: 0.9rem; color: var(--text-secondary);">
+                If the average pre-revenue SaaS startup in your region raises at a $6M pre-money valuation, your adjusted valuation is $6M x 1.175 = <strong>$7.05M</strong>.
+            </p>
+        </div>
+
+        <h3>When to Use the Scorecard Method</h3>
+        <ul>
+            <li>You are pre-revenue and have not raised a priced equity round</li>
+            <li>You have raised on SAFEs or <a href="convertible-notes-vs-safe.html">convertible notes</a> but not preferred stock</li>
+            <li>You need a 409A valuation before your first institutional round</li>
+            <li>There is enough comparable data for your sector and geography</li>
+        </ul>
+
+        <h3>Strengths and Weaknesses</h3>
+        <p><strong>Strengths:</strong> Works when no priced round exists. Incorporates qualitative factors that matter. Well-understood by valuation professionals and the IRS.</p>
+        <p><strong>Weaknesses:</strong> Subjective — two analysts can rate the same team very differently. Depends heavily on the quality of comparable data. Does not produce a per-share value directly (you still need to allocate the total equity value across share classes). The final number is sensitive to which comparables you choose.</p>
+
+        <h2 id="berkus">Method 3: The Berkus Method (Idea-Stage)</h2>
+        <p>The <strong>Berkus method</strong> is the simplest and most conservative valuation approach. Created by angel investor Dave Berkus, it was designed for pre-seed companies that have little more than an idea and a team. Instead of projecting revenue or comparing to market data, it assigns fixed dollar values to specific milestones.</p>
+
+        <h3>How It Works</h3>
+        <p>The Berkus method starts with a maximum valuation cap (historically $2M-$2.5M, though some practitioners use higher figures) and allocates value across five key milestones:</p>
+
+        <div class="example-box">
+            <h3>Berkus Method Milestones and Values</h3>
+            <table class="example-table">
+                <tr><th>Milestone</th><th>Maximum Value</th></tr>
+                <tr><td>Sound idea (basic business plan)</td><td>$0 - $500K</td></tr>
+                <tr><td>Working prototype (functional product)</td><td>$0 - $500K</td></tr>
+                <tr><td>Quality management team (complete founding team)</td><td>$0 - $500K</td></tr>
+                <tr><td>Strategic relationships (partnerships, LOIs)</td><td>$0 - $500K</td></tr>
+                <tr><td>Product launch or initial sales</td><td>$0 - $500K</td></tr>
+                <tr class="winner"><td><strong>Maximum pre-revenue valuation</strong></td><td class="highlight"><strong>$2.5M</strong></td></tr>
+            </table>
+        </div>
+
+        <p>You do not get credit for partially hitting a milestone. Either you have a working prototype or you do not. The valuator exercises judgment on whether each milestone is truly met.</p>
+
+        <div class="example-box">
+            <h3>Berkus Example: Idea-Stage Startup</h3>
+            <table class="example-table">
+                <tr><th>Milestone</th><th>Status</th><th>Value Assigned</th></tr>
+                <tr><td>Sound idea</td><td>Yes — detailed business plan</td><td>$400K</td></tr>
+                <tr><td>Working prototype</td><td>Yes — functional MVP</td><td>$500K</td></tr>
+                <tr><td>Quality management team</td><td>Partial — 2 of 3 roles filled</td><td>$300K</td></tr>
+                <tr><td>Strategic relationships</td><td>No</td><td>$0</td></tr>
+                <tr><td>Product launch</td><td>No</td><td>$0</td></tr>
+                <tr class="winner"><td><strong>Total pre-money valuation</strong></td><td></td><td class="highlight"><strong>$1.2M</strong></td></tr>
+            </table>
+        </div>
+
+        <h3>When to Use the Berkus Method</h3>
+        <ul>
+            <li>You are pre-seed or idea-stage with zero revenue</li>
+            <li>You have not raised any outside capital, or only friends-and-family money</li>
+            <li>There is no meaningful comparable data for your specific niche</li>
+            <li>You need a quick, defensible number for early <a href="vesting.html">option grants</a></li>
+        </ul>
+
+        <h3>Strengths and Weaknesses</h3>
+        <p><strong>Strengths:</strong> Extremely simple and transparent. Hard to argue with — the milestones are binary. Very conservative, which means a low common stock FMV and attractive option strike prices. Fast and cheap to produce.</p>
+        <p><strong>Weaknesses:</strong> The $2.5M cap is too low for many startups, especially in high-cost markets or hot sectors. It ignores industry, market size, and team quality beyond the binary milestones. Most professional 409A firms only use it as a cross-check, not a primary method. The IRS may scrutinize it more closely for companies with significant traction.</p>
+
+        <div class="callout">
+            <p><strong>When Berkus breaks down:</strong> If you have raised $2M on SAFEs at a $10M cap, the Berkus method will produce a valuation that contradicts your fundraising reality. In that case, the scorecard or a hybrid approach is more appropriate. The 409A needs to reflect economic reality, and a $1.2M Berkus valuation does not survive scrutiny when investors just valued you at $10M.</p>
+        </div>
+
+        <h2 id="comparison">Side-by-Side Comparison Table</h2>
+        <p>Here is how the three methods stack up across the dimensions that matter most:</p>
+
+        <div class="example-box">
+            <table class="example-table">
+                <tr>
+                    <th>Dimension</th>
+                    <th>Backsolve</th>
+                    <th>Scorecard</th>
+                    <th>Berkus</th>
+                </tr>
+                <tr>
+                    <td><strong>Best for</strong></td>
+                    <td>VC-backed companies</td>
+                    <td>Pre-revenue startups</td>
+                    <td>Idea-stage companies</td>
+                </tr>
+                <tr>
+                    <td><strong>Required input</strong></td>
+                    <td>Recent priced round</td>
+                    <td>Comparable data</td>
+                    <td>Milestone checklist</td>
+                </tr>
+                <tr>
+                    <td><strong>Key output</strong></td>
+                    <td>Per-share common FMV</td>
+                    <td>Total equity value</td>
+                    <td>Total equity value</td>
+                </tr>
+                <tr>
+                    <td><strong>Typical valuation range</strong></td>
+                    <td>$5M - $500M+</td>
+                    <td>$3M - $25M</td>
+                    <td>$0 - $2.5M</td>
+                </tr>
+                <tr>
+                    <td><strong>Subjectivity</strong></td>
+                    <td>Medium (discount rate)</td>
+                    <td>High (ratings)</td>
+                    <td>Low (binary milestones)</td>
+                </tr>
+                <tr>
+                    <td><strong>IRS defensibility</strong></td>
+                    <td class="highlight">Very high</td>
+                    <td>High</td>
+                    <td>Moderate</td>
+                </tr>
+                <tr>
+                    <td><strong>Complexity</strong></td>
+                    <td>High (needs OPM model)</td>
+                    <td>Medium</td>
+                    <td>Low</td>
+                </tr>
+                <tr>
+                    <td><strong>Typical cost</strong></td>
+                    <td>$3K - $10K</td>
+                    <td>$2K - $5K</td>
+                    <td>$1K - $3K</td>
+                </tr>
+                <tr>
+                    <td><strong>Time to complete</strong></td>
+                    <td>2-4 weeks</td>
+                    <td>1-2 weeks</td>
+                    <td>Days</td>
+                </tr>
+            </table>
+        </div>
+
+        <p>The method you need depends on your stage. But here is the practical reality: if you have raised a priced round, your valuation firm will almost certainly use the backsolve method. The scorecard and Berkus methods are for companies that do not yet have a market transaction to anchor on.</p>
+
+        <h2 id="which-method">Which Method Should You Use?</h2>
+        <p>Use this decision flow to figure out which method applies to your situation:</p>
+
+        <div class="example-box">
+            <h3>409A Method Decision Flow</h3>
+            <table class="example-table">
+                <tr>
+                    <th>Your Situation</th>
+                    <th>Primary Method</th>
+                    <th>Cross-Check</th>
+                </tr>
+                <tr>
+                    <td>Raised a priced round in the last 12 months</td>
+                    <td class="highlight">Backsolve</td>
+                    <td>Scorecard (optional)</td>
+                </tr>
+                <tr>
+                    <td>Raised SAFEs/notes but no priced round, have traction</td>
+                    <td class="highlight">Scorecard</td>
+                    <td>Berkus (sanity check)</td>
+                </tr>
+                <tr>
+                    <td>Pre-seed, no SAFEs, idea or prototype stage</td>
+                    <td class="highlight">Berkus</td>
+                    <td>Scorecard (if data available)</td>
+                </tr>
+                <tr>
+                    <td>Raised a priced round 12+ months ago, material changes since</td>
+                    <td class="highlight">Backsolve (adjusted)</td>
+                    <td>Scorecard</td>
+                </tr>
+                <tr>
+                    <td>Generating revenue but no priced round</td>
+                    <td class="highlight">Scorecard + DCF</td>
+                    <td>Comparable transactions</td>
+                </tr>
+                <tr>
+                    <td>Raised at a very high valuation, want lower 409A</td>
+                    <td>Backsolve</td>
+                    <td>Scorecard (to justify higher discount)</td>
+                </tr>
+            </table>
+        </div>
+
+        <p>Notice a pattern: <strong>the backsolve method is almost always preferred when it is available</strong>. That is because the IRS gives the most weight to actual market transactions. If an investor paid $5.00 per share for preferred stock, that is strong evidence of what the company is worth. The valuation firm just needs to quantify the discount from preferred to common.</p>
+
+        <p>When you do not have a priced round, the scorecard method is the next best option. It is more rigorous than Berkus and can handle a wider range of situations. Most 409A providers use the scorecard as their primary method for pre-priced companies.</p>
+
+        <p>The Berkus method is a fallback for very early companies where even the scorecard is hard to apply. It is useful, but its low caps can be a limitation.</p>
+
+        <h3>What If Multiple Methods Apply?</h3>
+        <p>If you are between stages — say you raised a small priced seed round two years ago and have grown significantly — your valuation firm will likely use multiple methods and weight them. A typical approach:</p>
+        <ul>
+            <li><strong>60% Backsolve</strong> (from the old round, adjusted for time and growth)</li>
+            <li><strong>30% Scorecard</strong> (reflecting current traction and market comps)</li>
+            <li><strong>10% Berkus</strong> (as a floor or sanity check)</li>
+        </ul>
+        <p>The weighted average gives a defensible number that accounts for both the historical transaction and current conditions.</p>
+
+        <h2 id="discounts">What Discount to Apply (by Stage)</h2>
+        <p>Regardless of which method you use, the final step is applying a <strong>discount for lack of marketability (DLOM)</strong> and a <strong>discount for lack of control (DLOC)</strong> to convert from preferred stock value to common stock FMV. These discounts are what make your 409A price lower than your investors' price — and what makes your options attractive to employees.</p>
+        <p>Here are typical discount ranges by stage, based on common industry practice:</p>
+
+        <div class="example-box">
+            <h3>Common Stock Discount Ranges by Stage</h3>
+            <table class="example-table">
+                <tr>
+                    <th>Company Stage</th>
+                    <th>Preferred-to-Common Discount</th>
+                    <th>Typical FMV as % of Preferred Price</th>
+                </tr>
+                <tr>
+                    <td>Pre-seed / Idea (no priced round)</td>
+                    <td>N/A (Berkus or Scorecard)</td>
+                    <td class="highlight">N/A</td>
+                </tr>
+                <tr>
+                    <td>Seed (recently raised)</td>
+                    <td>25% - 40%</td>
+                    <td class="highlight">60% - 75%</td>
+                </tr>
+                <tr>
+                    <td>Series A</td>
+                    <td>20% - 35%</td>
+                    <td class="highlight">65% - 80%</td>
+                </tr>
+                <tr>
+                    <td>Series B</td>
+                    <td>15% - 30%</td>
+                    <td class="highlight">70% - 85%</td>
+                </tr>
+                <tr>
+                    <td>Series C+</td>
+                    <td>10% - 25%</td>
+                    <td class="highlight">75% - 90%</td>
+                </tr>
+                <tr>
+                    <td>Late-stage / Pre-IPO</td>
+                    <td>5% - 20%</td>
+                    <td class="highlight">80% - 95%</td>
+                </tr>
+            </table>
+        </div>
+
+        <p>Why does the discount shrink as the company matures? Because common stock becomes more valuable relative to preferred as the company grows. The liquidation preference matters less when the company is worth $500M versus $10M. The <a href="dilution.html">dilution</a> risk decreases. The likelihood of a positive exit increases. All of these factors narrow the gap between preferred and common.</p>
+
+        <h3>What Drives a Higher Discount</h3>
+        <p>If you want a lower 409A valuation (which means lower option strike prices, which employees love), you want a higher discount. Factors that push the discount up:</p>
+        <ul>
+            <li><strong>High uncertainty about future outcomes</strong> — if the business model is unproven, common stock is riskier</li>
+            <li><strong>Strong liquidation preferences</strong> — 2x or participating preferred means common gets less in a sale</li>
+            <li><strong>Large option pool</strong> — future <a href="stock-options.html">stock option</a> grants dilute common holders</li>
+            <li><strong>Recent down round</strong> — signals that the company may be worth less than the last round implied</li>
+            <li><strong>Limited time since last round</strong> — less time for the company to grow into its valuation</li>
+        </ul>
+
+        <h3>What Drives a Lower Discount</h3>
+        <p>Factors that narrow the gap between preferred and common:</p>
+        <ul>
+            <li><strong>Strong revenue growth</strong> — reduces the risk that common ends up worthless</li>
+            <li><strong>Clean cap table</strong> — simple preferred structure (1x non-participating)</li>
+            <li><strong>Multiple rounds of growth</strong> — the company has cleared significant de-risking milestones</li>
+            <li><strong>Clear path to profitability or exit</strong> — the "option value" of common is higher</li>
+        </ul>
+
+        <div class="callout">
+            <p><strong>Practical tip:</strong> If your 409A comes back at 90% of your preferred price and you are an early-stage company, question it. That suggests the valuation firm used a very small discount, which means your employees are getting options with a strike price barely below what investors paid for preferred. Most early-stage companies should see a 30-40% discount. If you are seeing 10%, push back or get a second opinion.</p>
+        </div>
+
+        <h3>The Option Pricing Method (OPM)</h3>
+        <p>Behind the scenes, most backsolve valuations use the <strong>Option Pricing Method</strong> to allocate value across share classes. OPM treats each share class as a call option on the company's total equity value. Preferred stock with a $10M liquidation preference is modeled as holding a call option struck at $10M. Common stock only has value if the company is worth more than all the preferred claims stacked above it.</p>
+        <p>This is why the discount is not a flat percentage — it is a function of the entire capital structure. A company with $50M in stacked liquidation preferences will have a much deeper discount on common stock than a company with $5M in preferences, even if both have the same headline valuation.</p>
+        <p>Understanding OPM is not required to get a 409A valuation, but it helps you understand why your discount is what it is. If your valuation report shows a surprisingly small or large discount, the OPM assumptions are where to look first.</p>
+
+        <h2 id="try-calculator">Estimate Your 409A Valuation</h2>
+        <p>Understanding the methods is the first step. The next step is running the numbers for your actual company. Use our free 409A valuation calculator to estimate your common stock FMV based on your most recent round, cap table, and stage.</p>
+
+        <div class="tool-cta">
+            <h3>Estimate Your 409A Valuation Free</h3>
+            <p>Enter your latest round details, cap table, and stage. Get an estimated common stock FMV in seconds. No signup required.</p>
+            <a href="../409a-valuation.html">Try the 409A Calculator Now &rarr;</a>
+        </div>
+
+        <h3>Related Guides</h3>
+        <div class="related-articles">
+            <div class="related-grid">
+                <a href="409a-valuation.html" class="related-card">
+                    <div class="title">409A Valuation Guide</div>
+                    <div class="desc">Everything founders need to know about 409A valuations</div>
+                </a>
+                <a href="equity-dilution-guide.html" class="related-card">
+                    <div class="title">How Equity Dilution Works</div>
+                    <div class="desc">Visual guide to dilution across funding rounds</div>
+                </a>
+                <a href="stock-options.html" class="related-card">
+                    <div class="title">Stock Options Guide</div>
+                    <div class="desc">ISOs, NSOs, strike prices, and what employees actually keep</div>
+                </a>
+                <a href="vesting.html" class="related-card">
+                    <div class="title">Equity Vesting Explained</div>
+                    <div class="desc">How vesting schedules work and what happens when you leave</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</article>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="../dilution.html">Dilution</a></li>
+            <li><a href="../safe.html">SAFE</a></li>
+            <li><a href="../runway.html">Runway</a></li>
+            <li><a href="../scenario-compare.html">Compare Scenarios</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../equity-glossary.html">Glossary</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a href="../about.html">About</a></li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>
