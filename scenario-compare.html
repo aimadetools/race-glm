@@ -474,6 +474,12 @@
                 <div class="exit-results" id="exitResults"></div>
             </div>
 
+            <!-- Share Section -->
+            <div class="share-section" style="text-align:center;margin:24px 0;padding:20px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;">
+                <p style="color:var(--text-secondary);margin-bottom:12px;font-size:0.9rem">Share this scenario with your co-founder</p>
+                <button id="shareBtn" onclick="copyShareLink()" style="padding:12px 28px;background:var(--accent);color:white;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:var(--font-sans);transition:all 0.2s">Share with Co-founder</button>
+            </div>
+
             <!-- Key Takeaway -->
             <div class="takeaway" id="takeaway"></div>
 
@@ -1021,8 +1027,46 @@
     }
 
     // ============================================================
+    // SHAREABLE URLS
+    // ============================================================
+    function encodeStateToURL() {
+        try {
+            const data = {
+                nA: document.getElementById('nameA').value,
+                nB: document.getElementById('nameB').value,
+                A: state.A,
+                B: state.B
+            };
+            return window.location.origin + window.location.pathname + '?s=' + encodeURIComponent(btoa(JSON.stringify(data)));
+        } catch(e) { return window.location.href; }
+    }
+
+    function loadFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        const encoded = params.get('s');
+        if (!encoded) return false;
+        try {
+            const data = JSON.parse(atob(decodeURIComponent(encoded)));
+            if (data.A) { state.A = data.A; document.getElementById('nameA').value = data.nA || 'Scenario A'; }
+            if (data.B) { state.B = data.B; document.getElementById('nameB').value = data.nB || 'Scenario B'; }
+            return true;
+        } catch(e) { return false; }
+    }
+
+    function copyShareLink() {
+        const url = encodeStateToURL();
+        navigator.clipboard.writeText(url).then(() => {
+            const btn = document.getElementById('shareBtn');
+            btn.textContent = 'Copied!';
+            btn.style.background = 'var(--green)';
+            setTimeout(() => { btn.textContent = 'Share with Co-founder'; btn.style.background = ''; }, 2000);
+        }).catch(() => { prompt('Copy this link:', url); });
+    }
+
+    // ============================================================
     // INIT
     // ============================================================
+    const loadedFromURL = loadFromURL();
     renderFounders('A');
     renderFounders('B');
     renderRounds('A');

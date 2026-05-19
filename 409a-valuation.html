@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>409A Valuation Calculator | Estimate Your Startup's Fair Market Value</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    <meta name="description" content="Free 409A valuation calculator for startups. Estimate fair market value, option strike prices, and the discount to preferred stock using backsolve, scorecard, and Berkus methods.">
+    <meta name="keywords" content="409A valuation calculator, startup 409A, fair market value calculator, stock option strike price, backsolve method, 409A valuation estimator">
+    <meta property="og:title" content="409A Valuation Calculator — FounderMath">
+    <meta property="og:description" content="Estimate your startup's 409A fair market value and option strike prices. Free calculator using backsolve, scorecard, and Berkus methods.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-dilution.svg">
+    <meta property="og:url" content="https://founder-math.com/409a-valuation.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "409A Valuation Calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Free 409A valuation estimator for startups. Calculate fair market value and option strike prices using backsolve, scorecard, and Berkus methods."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            { "@type": "Question", "name": "What is a 409A valuation?", "acceptedAnswer": { "@type": "Answer", "text": "A 409A valuation is an independent appraisal of a private company's common stock fair market value (FMV). It sets the strike price for employee stock options and is required by the IRS to avoid penalties." } },
+            { "@type": "Question", "name": "Why is 409A valuation lower than preferred stock price?", "acceptedAnswer": { "@type": "Answer", "text": "Common stock has fewer rights than preferred stock — no liquidation preference, no anti-dilution protection, no dividend rights. This makes common stock less valuable, typically 30-60% of the preferred price." } },
+            { "@type": "Question", "name": "How often do I need a 409A valuation?", "acceptedAnswer": { "@type": "Answer", "text": "You need a new 409A valuation every 12 months, or whenever a material event occurs (new funding round, major revenue milestone, acquisition offer)." } }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --pink: #ff6b9d;
+            --yellow: #feca57;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s !important; }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; padding: 8px; }
+
+        /* PAGE HEADER */
+        .page-header { padding: 120px 24px 48px; text-align: center; position: relative; }
+        .page-header::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-glow), transparent 70%); pointer-events: none; opacity: 0.3; }
+        .page-header h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 16px; position: relative; }
+        .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-header p { color: var(--text-secondary); max-width: 640px; margin: 0 auto 24px; font-size: 1.05rem; position: relative; }
+        .badge { display: inline-block; background: var(--bg-card); border: 1px solid var(--border); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; color: var(--accent-light); margin-bottom: 16px; }
+
+        /* CONTAINER */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
+
+        /* METHOD TABS */
+        .method-tabs { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
+        .method-tab { padding: 10px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; color: var(--text-secondary); cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; font-family: var(--font-sans); }
+        .method-tab:hover { border-color: var(--accent); color: var(--text-primary); }
+        .method-tab.active { background: var(--accent); border-color: var(--accent); color: white; }
+        .method-tab .tab-tag { display: block; font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
+        .method-tab.active .tab-tag { color: rgba(255,255,255,0.7); }
+
+        /* CALCULATOR GRID */
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+        .card h2 { font-size: 1.15rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .card h2 .icon { font-size: 1.3rem; }
+
+        /* FORM INPUTS */
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 6px; font-weight: 500; }
+        .form-group input, .form-group select { width: 100%; padding: 10px 14px; background: var(--bg-input); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: var(--font-sans); transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+        .form-group .hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+        /* SLIDER */
+        .slider-group { margin-bottom: 18px; }
+        .slider-group label { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 6px; }
+        .slider-group label span { color: var(--accent-light); font-weight: 600; font-family: var(--font-mono); font-size: 0.85rem; }
+        input[type="range"] { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; background: var(--border); border-radius: 3px; outline: none; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); cursor: pointer; box-shadow: 0 0 8px var(--accent-glow); }
+        input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--accent); cursor: pointer; border: none; }
+
+        /* RESULTS */
+        .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+        .result-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; }
+        .result-card.primary { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+        .result-card .label { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+        .result-card .value { font-size: 1.5rem; font-weight: 700; font-family: var(--font-mono); color: var(--accent-light); }
+        .result-card.primary .value { color: var(--green); font-size: 1.8rem; }
+        .result-card .sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
+        /* CHART */
+        .chart-container { position: relative; width: 100%; max-height: 320px; margin-bottom: 24px; }
+
+        /* DISCOUNT BAR */
+        .discount-bar { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 24px; }
+        .discount-bar h3 { font-size: 0.95rem; margin-bottom: 16px; color: var(--text-secondary); }
+        .bar-track { height: 40px; background: var(--bg-input); border-radius: 8px; position: relative; overflow: hidden; margin-bottom: 12px; }
+        .bar-fill-preferred { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 600; color: white; transition: width 0.5s ease; }
+        .bar-fill-common { position: absolute; left: 0; top: 0; height: 100%; background: linear-gradient(90deg, var(--green), #55efc4); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 600; color: var(--bg-primary); transition: width 0.5s ease; }
+        .bar-legend { display: flex; gap: 24px; font-size: 0.8rem; color: var(--text-muted); }
+        .bar-legend span::before { content: ''; display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: middle; }
+        .bar-legend .legend-preferred::before { background: var(--accent); }
+        .bar-legend .legend-common::before { background: var(--green); }
+
+        /* STRIKE PRICE TABLE */
+        .strike-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+        .strike-table th { text-align: left; padding: 10px 14px; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); }
+        .strike-table td { padding: 10px 14px; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+        .strike-table tr:last-child td { border-bottom: none; }
+        .strike-table .highlight { color: var(--green); font-weight: 600; font-family: var(--font-mono); }
+        .strike-table .muted { color: var(--text-muted); }
+
+        /* BUTTONS */
+        .btn { padding: 12px 24px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; font-family: var(--font-sans); }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-primary:hover { background: #7c6cf7; transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .btn-secondary { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--accent); }
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; }
+
+        /* FAQ */
+        .faq-section { margin-top: 48px; }
+        .faq-section h2 { font-size: 1.5rem; margin-bottom: 24px; text-align: center; }
+        .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+        .faq-q { padding: 16px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 500; }
+        .faq-q:hover { color: var(--accent-light); }
+        .faq-q .arrow { transition: transform 0.2s; color: var(--text-muted); }
+        .faq-a { padding: 0 20px; max-height: 0; overflow: hidden; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; transition: all 0.3s; }
+        .faq-item.open .faq-a { padding: 0 20px 16px; max-height: 400px; }
+        .faq-item.open .arrow { transform: rotate(180deg); }
+
+        /* CTA */
+        .cta-banner { background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.1)); border: 1px solid var(--accent); border-radius: 12px; padding: 32px; text-align: center; margin: 48px 0; }
+        .cta-banner h3 { font-size: 1.3rem; margin-bottom: 8px; }
+        .cta-banner p { color: var(--text-secondary); margin-bottom: 20px; }
+        .cta-banner a { display: inline-block; padding: 12px 32px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.2s; }
+        .cta-banner a:hover { transform: translateY(-2px); box-shadow: 0 4px 20px var(--accent-glow); }
+
+        /* FOOTER */
+        footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 48px 24px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+        .footer-col h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 12px; }
+        .footer-col a { display: block; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; padding: 4px 0; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--accent-light); }
+        .footer-bottom { max-width: 1200px; margin: 24px auto 0; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.8rem; }
+
+        /* PRO GATE NOTICE */
+        .pro-notice { background: linear-gradient(135deg, rgba(108,92,231,0.1), rgba(0,184,148,0.05)); border: 1px solid var(--accent); border-radius: 10px; padding: 16px 20px; margin-bottom: 20px; font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 10px; }
+        .pro-notice .lock { color: var(--accent-light); }
+
+        /* DISCLAIMER */
+        .disclaimer { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-top: 24px; font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+        .disclaimer strong { color: var(--text-secondary); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .calc-grid { grid-template-columns: 1fr; }
+            .result-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: repeat(2, 1fr); }
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); padding: 16px 24px; border-bottom: 1px solid var(--border); gap: 16px; }
+            .mobile-toggle { display: block; }
+        }
+        @media (max-width: 480px) {
+            .method-tabs { gap: 6px; }
+            .method-tab { padding: 8px 14px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">fM</div>
+                <span>FounderMath</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="scenario-compare.html">Compare</a></li>
+                <li><a href="409a-valuation.html" style="color:var(--accent-light);font-weight:600;">409A</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="pricing.html" class="nav-cta">7-Day Free Trial</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="page-header">
+        <div class="badge">Requested by Community</div>
+        <h1>409A Valuation <span class="gradient">Estimator</span></h1>
+        <p>Estimate your startup's common stock fair market value and option strike prices. Understand the discount between preferred and common — before paying $1,000+ for a formal 409A.</p>
+    </div>
+
+    <div class="container">
+        <!-- METHOD TABS -->
+        <div class="method-tabs">
+            <button class="method-tab active" onclick="switchMethod('backsolve')">
+                Backsolve Method
+                <span class="tab-tag">VC-backed startups</span>
+            </button>
+            <button class="method-tab" onclick="switchMethod('scorecard')">
+                Scorecard Method
+                <span class="tab-tag">Pre-revenue startups</span>
+            </button>
+            <button class="method-tab" onclick="switchMethod('berkus')">
+                Berkus Method
+                <span class="tab-tag">Idea-stage startups</span>
+            </button>
+        </div>
+
+        <div class="calc-grid">
+            <!-- INPUTS COLUMN -->
+            <div class="card">
+                <h2><span class="icon">&#128202;</span> Inputs</h2>
+
+                <!-- BACKSOLVE INPUTS -->
+                <div id="backsolve-inputs">
+                    <div class="form-group">
+                        <label>Latest Funding Round</label>
+                        <select id="fundingStage" onchange="calculate()">
+                            <option value="seed">Seed</option>
+                            <option value="series-a" selected>Series A</option>
+                            <option value="series-b">Series B</option>
+                            <option value="series-c">Series C+</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Pre-Money Valuation ($)</label>
+                            <input type="number" id="preMoneyVal" value="20000000" onchange="calculate()" oninput="calculate()">
+                            <div class="hint">e.g. 20000000 = $20M</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Amount Raised ($)</label>
+                            <input type="number" id="amountRaised" value="5000000" onchange="calculate()" oninput="calculate()">
+                            <div class="hint">e.g. 5000000 = $5M</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Total Fully Diluted Shares</label>
+                            <input type="number" id="totalShares" value="10000000" onchange="calculate()" oninput="calculate()">
+                            <div class="hint">All shares outstanding</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Price per Share ($)</label>
+                            <input type="number" id="preferredPrice" value="2.50" step="0.01" onchange="calculate()" oninput="calculate()" readonly>
+                            <div class="hint">Auto-calculated from valuation</div>
+                        </div>
+                    </div>
+                    <div class="slider-group">
+                        <label>Common Stock Discount <span id="discountLabel">40%</span></label>
+                        <input type="range" id="discountSlider" min="20" max="70" value="40" oninput="updateDiscount(); calculate()">
+                        <div class="hint" style="display:flex;justify-content:space-between"><span>20% (low risk)</span><span>70% (high risk)</span></div>
+                    </div>
+                </div>
+
+                <!-- SCORECARD INPUTS -->
+                <div id="scorecard-inputs" style="display:none">
+                    <div class="form-group">
+                        <label>Average Valuation of Comparable Startups ($)</label>
+                        <input type="number" id="compAvgVal" value="5000000" onchange="calculate()" oninput="calculate()">
+                        <div class="hint">Average pre-money of similar companies at same stage</div>
+                    </div>
+                    <div class="slider-group">
+                        <label>Team Strength <span id="teamLabel">1.0x</span></label>
+                        <input type="range" id="teamFactor" min="50" max="200" value="100" oninput="updateSlider('team'); calculate()">
+                    </div>
+                    <div class="slider-group">
+                        <label>Market Size <span id="marketLabel">1.0x</span></label>
+                        <input type="range" id="marketFactor" min="50" max="200" value="100" oninput="updateSlider('market'); calculate()">
+                    </div>
+                    <div class="slider-group">
+                        <label>Product / Technology <span id="productLabel">1.0x</span></label>
+                        <input type="range" id="productFactor" min="50" max="200" value="100" oninput="updateSlider('product'); calculate()">
+                    </div>
+                    <div class="slider-group">
+                        <label>Competitive Environment <span id="compLabel">1.0x</span></label>
+                        <input type="range" id="compFactor" min="50" max="200" value="100" oninput="updateSlider('comp'); calculate()">
+                    </div>
+                    <div class="slider-group">
+                        <label>Sales / Marketing <span id="salesLabel">1.0x</span></label>
+                        <input type="range" id="salesFactor" min="50" max="200" value="100" oninput="updateSlider('sales'); calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Fully Diluted Shares</label>
+                        <input type="number" id="scorecardShares" value="10000000" onchange="calculate()" oninput="calculate()">
+                    </div>
+                </div>
+
+                <!-- BERKUS INPUTS -->
+                <div id="berkus-inputs" style="display:none">
+                    <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:16px">Assign value for each milestone achieved (max $500K each):</p>
+                    <div class="slider-group">
+                        <label>Sound Idea <span id="ideaLabel">$0</span></label>
+                        <input type="range" id="ideaValue" min="0" max="500" value="0" oninput="updateBerkus(); calculate()">
+                    </div>
+                    <div class="slider-group">
+                        <label>Working Prototype <span id="protoLabel">$0</span></label>
+                        <input type="range" id="protoValue" min="0" max="500" value="0" oninput="updateBerkus(); calculate()">
+                    </div>
+                    <div class="slider-group">
+                        <label>Quality Management Team <span id="teamBLabel">$0</span></label>
+                        <input type="range" id="teamBValue" min="0" max="500" value="0" oninput="updateBerkus(); calculate()">
+                    </div>
+                    <div class="slider-group">
+                        <label>Strategic Relationships <span id="relLabel">$0</span></label>
+                        <input type="range" id="relValue" min="0" max="500" value="0" oninput="updateBerkus(); calculate()">
+                    </div>
+                    <div class="slider-group">
+                        <label>Product Launch or Sales <span id="launchLabel">$0</span></label>
+                        <input type="range" id="launchValue" min="0" max="500" value="0" oninput="updateBerkus(); calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Fully Diluted Shares</label>
+                        <input type="number" id="berkusShares" value="10000000" onchange="calculate()" oninput="calculate()">
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="calculate()">Calculate 409A</button>
+                    <button class="btn btn-secondary" onclick="resetForm()">Reset</button>
+                </div>
+            </div>
+
+            <!-- RESULTS COLUMN -->
+            <div class="card">
+                <h2><span class="icon">&#128176;</span> 409A Valuation Results</h2>
+
+                <div class="result-grid">
+                    <div class="result-card primary">
+                        <div class="label">Common Stock FMV</div>
+                        <div class="value" id="fmvValue">$1.50</div>
+                        <div class="sub" id="fmvPerShare">per share</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="label">Preferred Price</div>
+                        <div class="value" id="prefValue">$2.50</div>
+                        <div class="sub">per share</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="label">Discount</div>
+                        <div class="value" id="discValue">40%</div>
+                        <div class="sub" id="discMethod">Backsolve method</div>
+                    </div>
+                </div>
+
+                <!-- VALUATION GAP BAR -->
+                <div class="discount-bar">
+                    <h3>Preferred vs Common Stock Price Gap</h3>
+                    <div class="bar-track">
+                        <div class="bar-fill-preferred" id="preferredBar" style="width:100%">Preferred: $2.50</div>
+                        <div class="bar-fill-common" id="commonBar" style="width:60%">Common: $1.50</div>
+                    </div>
+                    <div class="bar-legend">
+                        <span class="legend-preferred">Preferred (investors pay)</span>
+                        <span class="legend-common">Common / 409A (options use)</span>
+                    </div>
+                </div>
+
+                <!-- CHART -->
+                <div class="chart-container">
+                    <canvas id="valuationChart"></canvas>
+                </div>
+
+                <!-- STRIKE PRICE TABLE -->
+                <h3 style="font-size:1rem;margin:20px 0 12px">Option Grant Examples</h3>
+                <table class="strike-table">
+                    <thead>
+                        <tr>
+                            <th>Grant Size</th>
+                            <th>Strike Price</th>
+                            <th>409A Value</th>
+                            <th>Preferred Value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="grantTable">
+                    </tbody>
+                </table>
+
+                <div class="disclaimer">
+                    <strong>Disclaimer:</strong> This is an estimation tool for educational purposes. A formal 409A valuation must be performed by a qualified independent appraiser. Carta charges $1,000+ and Pulley $3,500+/yr for formal 409A valuations. Use this calculator to understand the math before paying for the real thing.
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA BANNER -->
+        <div class="cta-banner">
+            <h3>Need the full picture?</h3>
+            <p>Combine your 409A estimate with dilution modeling, scenario comparison, and SAFE note stacking. Try FounderMath Pro free for 7 days.</p>
+            <a href="pricing.html">Start Free Trial</a>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">What is a 409A valuation? <span class="arrow">&#9660;</span></div>
+                <div class="faq-a">A 409A valuation is an independent appraisal of a private company's common stock fair market value (FMV). Named after Section 409A of the Internal Revenue Code, it determines the strike price for employee stock options. The IRS requires companies to set option exercise prices at or above FMV to avoid penalties (20% excise tax + interest).</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">Why is the 409A price lower than the preferred stock price? <span class="arrow">&#9660;</span></div>
+                <div class="faq-a">Preferred stock has superior rights: liquidation preference (they get paid first in a sale), anti-dilution protection, dividend rights, and voting preferences. Common stock has none of these protections, making it inherently less valuable. The discount typically ranges from 30-60% depending on stage — earlier companies have larger discounts due to higher risk.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">How often do I need a new 409A valuation? <span class="arrow">&#9660;</span></div>
+                <div class="faq-a">Every 12 months, or whenever a "material event" occurs. Material events include: closing a new funding round, reaching a major revenue milestone, receiving an acquisition offer, or significant changes to the business model. After raising a priced round, you should get a new 409A within 60 days.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">What is the backsolve method? <span class="arrow">&#9660;</span></div>
+                <div class="faq-a">The backsolve method is the most common approach for VC-backed startups. It starts with the price per share of the most recent preferred stock round and works backward to determine the common stock value by applying a discount that reflects the inferior rights of common stock. This method is preferred because it's based on an actual market transaction.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">What discount should I use? <span class="arrow">&#9660;</span></div>
+                <div class="faq-a">Typical discounts by stage: Seed (50-70%), Series A (35-50%), Series B (25-40%), Series C+ (20-30%). Earlier stage = higher discount because common stock is riskier. Companies with predictable revenue tend to have lower discounts. This is a simplified estimate — a formal 409A will use option pricing models (Black-Scholes) to derive the exact discount.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">Can I use this instead of paying for a formal 409A? <span class="arrow">&#9660;</span></div>
+                <div class="faq-a">No. This tool provides estimates to help you understand the math and prepare for conversations with appraisers. The IRS requires a formal, independent 409A valuation from a qualified appraiser. However, using this calculator first helps you understand what to expect and verify that your appraiser's numbers make sense.</div>
+            </div>
+        </div>
+
+        <!-- RELATED TOOLS -->
+        <div style="margin-top:48px">
+            <h2 style="text-align:center;margin-bottom:24px">Related Calculators</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+                <a href="dilution.html" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px;text-decoration:none;color:var(--text-primary);transition:border-color 0.2s">
+                    <div style="font-size:1.5rem;margin-bottom:8px">&#128200;</div>
+                    <div style="font-weight:600;margin-bottom:4px">Dilution Calculator</div>
+                    <div style="font-size:0.8rem;color:var(--text-muted)">Model equity dilution across rounds</div>
+                </a>
+                <a href="stock-options.html" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px;text-decoration:none;color:var(--text-primary);transition:border-color 0.2s">
+                    <div style="font-size:1.5rem;margin-bottom:8px">&#127919;</div>
+                    <div style="font-weight:600;margin-bottom:4px">Stock Options</div>
+                    <div style="font-size:0.8rem;color:var(--text-muted)">Evaluate employee stock options</div>
+                </a>
+                <a href="scenario-compare.html" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px;text-decoration:none;color:var(--text-primary);transition:border-color 0.2s">
+                    <div style="font-size:1.5rem;margin-bottom:8px">&#9878;</div>
+                    <div style="font-weight:600;margin-bottom:4px">Compare Scenarios</div>
+                    <div style="font-size:0.8rem;color:var(--text-muted)">Side-by-side funding comparison</div>
+                </a>
+                <a href="valuation.html" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px;text-decoration:none;color:var(--text-primary);transition:border-color 0.2s">
+                    <div style="font-size:1.5rem;margin-bottom:8px">&#128188;</div>
+                    <div style="font-weight:600;margin-bottom:4px">Startup Valuation</div>
+                    <div style="font-size:0.8rem;color:var(--text-muted)">Multiple valuation methods</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <a href="dilution.html">Equity Dilution</a>
+                <a href="safe.html">SAFE Note</a>
+                <a href="runway.html">Runway</a>
+                <a href="409a-valuation.html">409A Valuation</a>
+                <a href="stock-options.html">Stock Options</a>
+                <a href="valuation.html">Startup Valuation</a>
+            </div>
+            <div class="footer-col">
+                <h4>Tools</h4>
+                <a href="scenario-compare.html">Compare Scenarios</a>
+                <a href="compare-offers.html">Compare Offers</a>
+                <a href="equity-quiz.html">Equity Quiz</a>
+                <a href="equity-story.html">Equity Story</a>
+                <a href="equity-vs-salary.html">Equity vs Salary</a>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="blog.html">Blog</a>
+                <a href="equity-glossary.html">Equity Glossary</a>
+                <a href="equity-cheat-sheet.html">Cheat Sheet</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="about.html">About</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 FounderMath. For educational purposes only. Not financial or legal advice.</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let currentMethod = 'backsolve';
+        let chart = null;
+
+        function switchMethod(method) {
+            currentMethod = method;
+            document.querySelectorAll('.method-tab').forEach(t => t.classList.remove('active'));
+            event.target.closest('.method-tab').classList.add('active');
+            document.getElementById('backsolve-inputs').style.display = method === 'backsolve' ? 'block' : 'none';
+            document.getElementById('scorecard-inputs').style.display = method === 'scorecard' ? 'block' : 'none';
+            document.getElementById('berkus-inputs').style.display = method === 'berkus' ? 'block' : 'none';
+            document.getElementById('discMethod').textContent = method === 'backsolve' ? 'Backsolve method' : method === 'scorecard' ? 'Scorecard method' : 'Berkus method';
+            calculate();
+        }
+
+        function updateDiscount() {
+            document.getElementById('discountLabel').textContent = document.getElementById('discountSlider').value + '%';
+        }
+
+        function updateSlider(name) {
+            const val = document.getElementById(name + 'Factor').value;
+            document.getElementById(name + 'Label').textContent = (val / 100).toFixed(1) + 'x';
+        }
+
+        function updateBerkus() {
+            ['idea', 'proto', 'teamB', 'rel', 'launch'].forEach(id => {
+                const el = document.getElementById(id + 'Value');
+                document.getElementById(id + 'Label').textContent = '$' + parseInt(el.value).toLocaleString() + 'K';
+            });
+        }
+
+        function formatCurrency(num) {
+            if (num >= 1e9) return '$' + (num / 1e9).toFixed(2) + 'B';
+            if (num >= 1e6) return '$' + (num / 1e6).toFixed(2) + 'M';
+            if (num >= 1e3) return '$' + (num / 1e3).toFixed(1) + 'K';
+            if (num >= 1) return '$' + num.toFixed(2);
+            if (num >= 0.01) return '$' + num.toFixed(4);
+            return '$' + num.toFixed(6);
+        }
+
+        function calculate() {
+            let commonPrice, preferredPrice, discount, totalFMV, totalShares;
+
+            if (currentMethod === 'backsolve') {
+                const preMoney = parseFloat(document.getElementById('preMoneyVal').value) || 0;
+                const raised = parseFloat(document.getElementById('amountRaised').value) || 0;
+                totalShares = parseFloat(document.getElementById('totalShares').value) || 1;
+                discount = parseInt(document.getElementById('discountSlider').value) / 100;
+
+                const postMoney = preMoney + raised;
+                preferredPrice = postMoney / totalShares;
+                commonPrice = preferredPrice * (1 - discount);
+                totalFMV = commonPrice * totalShares;
+
+                document.getElementById('preferredPrice').value = preferredPrice.toFixed(4);
+            } else if (currentMethod === 'scorecard') {
+                const compAvg = parseFloat(document.getElementById('compAvgVal').value) || 0;
+                totalShares = parseFloat(document.getElementById('scorecardShares').value) || 1;
+                const team = parseInt(document.getElementById('teamFactor').value) / 100;
+                const market = parseInt(document.getElementById('marketFactor').value) / 100;
+                const product = parseInt(document.getElementById('productFactor').value) / 100;
+                const comp = parseInt(document.getElementById('compFactor').value) / 100;
+                const sales = parseInt(document.getElementById('salesFactor').value) / 100;
+
+                const avgFactor = (team + market + product + comp + sales) / 5;
+                totalFMV = compAvg * avgFactor;
+                commonPrice = totalFMV / totalShares;
+                preferredPrice = commonPrice; // Scorecard gives pre-money directly
+                discount = 0;
+            } else { // berkus
+                const idea = parseInt(document.getElementById('ideaValue').value) * 1000;
+                const proto = parseInt(document.getElementById('protoValue').value) * 1000;
+                const team = parseInt(document.getElementById('teamBValue').value) * 1000;
+                const rel = parseInt(document.getElementById('relValue').value) * 1000;
+                const launch = parseInt(document.getElementById('launchValue').value) * 1000;
+                totalShares = parseFloat(document.getElementById('berkusShares').value) || 1;
+
+                totalFMV = idea + proto + team + rel + launch;
+                commonPrice = totalFMV / totalShares;
+                preferredPrice = commonPrice;
+                discount = 0;
+            }
+
+            // Update results
+            document.getElementById('fmvValue').textContent = commonPrice >= 1 ? '$' + commonPrice.toFixed(2) : '$' + commonPrice.toFixed(4);
+            document.getElementById('prefValue').textContent = preferredPrice >= 1 ? '$' + preferredPrice.toFixed(2) : '$' + preferredPrice.toFixed(4);
+            document.getElementById('discValue').textContent = discount > 0 ? Math.round(discount * 100) + '%' : 'N/A';
+
+            // Update gap bar
+            const maxPrice = Math.max(preferredPrice, commonPrice, 0.01);
+            document.getElementById('preferredBar').style.width = '100%';
+            document.getElementById('preferredBar').textContent = 'Preferred: ' + formatCurrency(preferredPrice);
+            document.getElementById('commonBar').style.width = Math.max((commonPrice / preferredPrice) * 100, 5) + '%';
+            document.getElementById('commonBar').textContent = 'Common: ' + formatCurrency(commonPrice);
+
+            // Update grant table
+            const grants = [10000, 25000, 50000, 100000, 250000];
+            const tbody = document.getElementById('grantTable');
+            tbody.innerHTML = grants.map(grant => {
+                const strike409a = commonPrice;
+                const total409a = strike409a * grant;
+                const totalPref = preferredPrice * grant;
+                return `<tr>
+                    <td>${grant.toLocaleString()} options</td>
+                    <td class="highlight">${strike409a >= 1 ? '$' + strike409a.toFixed(2) : '$' + strike409a.toFixed(4)}</td>
+                    <td>${formatCurrency(total409a)}</td>
+                    <td class="muted">${formatCurrency(totalPref)}</td>
+                </tr>`;
+            }).join('');
+
+            // Update chart
+            updateChart(commonPrice, preferredPrice, totalFMV, totalShares);
+        }
+
+        function updateChart(commonPrice, preferredPrice, totalFMV, totalShares) {
+            const ctx = document.getElementById('valuationChart').getContext('2d');
+            if (chart) chart.destroy();
+
+            if (currentMethod === 'backsolve') {
+                const discount = 1 - (commonPrice / preferredPrice);
+                chart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Preferred Price', 'Common (409A) Price', 'Gap'],
+                        datasets: [{
+                            data: [preferredPrice, commonPrice, preferredPrice - commonPrice],
+                            backgroundColor: ['rgba(108,92,231,0.7)', 'rgba(0,184,148,0.7)', 'rgba(255,107,107,0.3)'],
+                            borderColor: ['#6c5ce7', '#00b894', '#ff6b6b'],
+                            borderWidth: 1,
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: ctx => '$' + ctx.parsed.y.toFixed(4) + '/share'
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: { color: '#666680', callback: v => '$' + v.toFixed(2) },
+                                grid: { color: 'rgba(42,42,64,0.5)' }
+                            },
+                            x: { ticks: { color: '#a0a0b5' }, grid: { display: false } }
+                        }
+                    }
+                });
+            } else if (currentMethod === 'scorecard') {
+                const factors = ['Team', 'Market', 'Product', 'Competition', 'Sales'];
+                const values = [
+                    parseInt(document.getElementById('teamFactor').value) / 100,
+                    parseInt(document.getElementById('marketFactor').value) / 100,
+                    parseInt(document.getElementById('productFactor').value) / 100,
+                    parseInt(document.getElementById('compFactor').value) / 100,
+                    parseInt(document.getElementById('salesFactor').value) / 100,
+                ];
+                chart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: factors,
+                        datasets: [{
+                            label: 'Factor (1.0x = average)',
+                            data: values,
+                            backgroundColor: values.map(v => v >= 1 ? 'rgba(0,184,148,0.7)' : 'rgba(255,107,107,0.5)'),
+                            borderColor: values.map(v => v >= 1 ? '#00b894' : '#ff6b6b'),
+                            borderWidth: 1,
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            y: {
+                                ticks: { color: '#666680', callback: v => v.toFixed(1) + 'x' },
+                                grid: { color: 'rgba(42,42,64,0.5)' }
+                            },
+                            x: { ticks: { color: '#a0a0b5' }, grid: { display: false } }
+                        }
+                    }
+                });
+            } else { // berkus
+                const categories = ['Sound Idea', 'Prototype', 'Team', 'Relationships', 'Launch'];
+                const values = [
+                    parseInt(document.getElementById('ideaValue').value),
+                    parseInt(document.getElementById('protoValue').value),
+                    parseInt(document.getElementById('teamBValue').value),
+                    parseInt(document.getElementById('relValue').value),
+                    parseInt(document.getElementById('launchValue').value),
+                ];
+                chart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: categories,
+                        datasets: [{
+                            label: 'Value ($K)',
+                            data: values,
+                            backgroundColor: values.map(v => v > 0 ? 'rgba(108,92,231,0.7)' : 'rgba(42,42,64,0.3)'),
+                            borderColor: values.map(v => v > 0 ? '#6c5ce7' : '#2a2a40'),
+                            borderWidth: 1,
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 500,
+                                ticks: { color: '#666680', callback: v => '$' + v + 'K' },
+                                grid: { color: 'rgba(42,42,64,0.5)' }
+                            },
+                            x: { ticks: { color: '#a0a0b5' }, grid: { display: false } }
+                        }
+                    }
+                });
+            }
+        }
+
+        function resetForm() {
+            if (currentMethod === 'backsolve') {
+                document.getElementById('preMoneyVal').value = 20000000;
+                document.getElementById('amountRaised').value = 5000000;
+                document.getElementById('totalShares').value = 10000000;
+                document.getElementById('discountSlider').value = 40;
+                document.getElementById('fundingStage').value = 'series-a';
+                updateDiscount();
+            } else if (currentMethod === 'scorecard') {
+                document.getElementById('compAvgVal').value = 5000000;
+                ['team','market','product','comp','sales'].forEach(n => {
+                    document.getElementById(n + 'Factor').value = 100;
+                    updateSlider(n);
+                });
+            } else {
+                ['idea','proto','teamB','rel','launch'].forEach(n => {
+                    document.getElementById(n + 'Value').value = 0;
+                });
+                updateBerkus();
+            }
+            calculate();
+        }
+
+        // Auto-update preferred price when valuation changes
+        document.getElementById('preMoneyVal').addEventListener('input', function() {
+            const preMoney = parseFloat(this.value) || 0;
+            const raised = parseFloat(document.getElementById('amountRaised').value) || 0;
+            const shares = parseFloat(document.getElementById('totalShares').value) || 1;
+            document.getElementById('preferredPrice').value = ((preMoney + raised) / shares).toFixed(4);
+        });
+        document.getElementById('amountRaised').addEventListener('input', function() {
+            const preMoney = parseFloat(document.getElementById('preMoneyVal').value) || 0;
+            const raised = parseFloat(this.value) || 0;
+            const shares = parseFloat(document.getElementById('totalShares').value) || 1;
+            document.getElementById('preferredPrice').value = ((preMoney + raised) / shares).toFixed(4);
+        });
+
+        // Set default discount based on stage
+        document.getElementById('fundingStage').addEventListener('change', function() {
+            const defaults = { 'seed': 55, 'series-a': 40, 'series-b': 30, 'series-c': 25 };
+            const d = defaults[this.value] || 40;
+            document.getElementById('discountSlider').value = d;
+            updateDiscount();
+            calculate();
+        });
+
+        // Init
+        calculate();
+    </script>
+</body>
+</html>
