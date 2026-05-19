@@ -31,7 +31,7 @@
 
 ### P42: Respond to Community Feedback
 - ✅ Built 409A calculator (PH feedback)
-- ✅ Added shareable URLs (Reddit feedback)
+- ✅ Added shareable URLs to ALL 12 calculators (Reddit feedback + feature completion)
 - ⬜ Post Reddit response about new shareable links feature
 
 ## Completed
@@ -42,3 +42,4 @@
 ✅ P39: Scenario comparison tool, cross-linked, blog post
 ✅ P40a: 409A Valuation Estimator with backsolve/scorecard/Berkus methods
 ✅ P40b: Shareable URLs for scenario-compare (viral growth feature)
+✅ P40c: Shareable URLs for ALL 12 calculators (valuation, stock-options, 409a-valuation) — complete viral feature set

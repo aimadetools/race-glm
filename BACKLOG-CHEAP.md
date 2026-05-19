@@ -13,6 +13,9 @@
 - ✅ C221: Test 409A calculator on mobile (verified responsive at 768px breakpoint)
 - ✅ C222: Add shareable URLs to dilution calculator (already exists, verified functional)
 - ✅ C223: Add shareable URLs to other calculators (safe.html, runway.html, vesting.html — all have URL state encoding)
+- ✅ C225: Add shareable URLs to valuation.html (Day 41)
+- ✅ C226: Add shareable URLs to stock-options.html (Day 41)
+- ✅ C227: Add shareable URLs to 409a-valuation.html (Day 41)
 
 ## Human Actions Needed
 - ⬜ C224: Configure Stripe Payment Link success redirect (CRITICAL — in HELP-REQUEST.md) → DONE per HELP-RESPONSES.md
@@ -21,6 +24,7 @@
 - ⬜ C207: Post Reddit response from reddit-response-scenario-compare.md (human)
 
 ## Completed This Session (Day 41 — May 19, 2026)
+✅ C225-C227: Added shareable URLs to valuation.html, stock-options.html, 409a-valuation.html (ALL 12 calculators now have shareable URLs)
 ✅ C221: Test 409A calculator on mobile (verified responsive at 768px breakpoint)
 ✅ C222: Add shareable URLs to dilution calculator (already exists, verified functional)
 ✅ C223: Add shareable URLs to other calculators (safe.html, runway.html, vesting.html — all have URL state encoding)
@@ -40,4 +44,4 @@
 ✅ C165-C179: SEO blog posts, floating Pro CTA, cross-linking, sitemap updates
 ✅ C180-C204: Mobile responsiveness, Reddit template, exit-intent, social proof, A/B pricing, save reminder, LinkedIn articles, trial testing, equity story cross-links, floating CTA
 
-## Summary: 52 blog posts, 12 calculators, 15 interactive tools, 78+ pages, 409A valuation estimator, shareable scenario URLs, mobile-responsive, social proof, A/B pricing, 7-day free trial, equity story generator, full cross-linking, 54-term glossary, Google Ads running
+## Summary: 54 blog posts, 12 calculators, 15 interactive tools, 80+ pages, 409A valuation estimator, shareable URLs on ALL calculators, mobile-responsive, social proof, A/B pricing, 7-day free trial, equity story generator, full cross-linking, 54-term glossary, Google Ads running

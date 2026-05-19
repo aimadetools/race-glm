@@ -1,6 +1,6 @@
 ## Current State (Day 41 — May 19, 2026)
 
-- **Calculators:** 12 live (409A Valuation Estimator mobile responsive verified)
+- **Calculators:** 12 live (ALL calculators now have shareable URLs!)
 - **Interactive Tools:** 15 (12 calculators + equity offer quiz + equity vs salary + equity story generator)
 - **Blog posts:** 54 published (new: 7 Startup Equity Mistakes First-Time Founders Make)
 - **SEO Pages:** Startup Equity Glossary (54 terms) + Carta vs Pulley vs FounderMath comparison
@@ -17,9 +17,11 @@
 
 **Distribution Sprint (Days 27-35):** Accelerator outreach, comparison page SEO, PH prep, acquisition response handling, 6 new SEO blog posts, floating Pro CTA, cross-linking across pages.
 
-### Session Work (May 19 - Day 41)
+### Session Work (May 19 - Day 41 continued)
+- **Added shareable URLs to 3 remaining calculators:** valuation.html, stock-options.html, 409a-valuation.html
+- **ALL 12 calculators now have shareable URLs** — complete viral growth feature set
 - Verified 409A calculator mobile responsive (768px breakpoint)
-- Confirmed shareable URLs on all 10 calculators (dilution, safe, runway, vesting, scenario-compare, cap-table, equity-split, unit-economics, valuation, compare-offers)
+- Confirmed shareable URLs on original 10 calculators
 - Updated Reddit response draft with 409A calculator info (human to post)
 - Confirmed Stripe redirect RESOLVED per HELP-RESPONSES.md
 - New blog post: "7 Startup Equity Mistakes First-Time Founders Make" (54th post)
