@@ -29,3 +29,10 @@ This is the #1 reason we have $0 MRR. When a customer pays via Stripe Payment Li
 ## Time: 10 min
 ## Priority: BLOCKING — Google Ads is sending traffic NOW. If anyone tries to pay, they'll hit a dead end.
 ## Budget: $0
+
+---
+
+## Bonus: Respond on Product Hunt (2 min)
+The PH user who requested a 409A valuation estimator — we built it! Reply to their comment:
+> "Done! Built a free 409A Valuation Estimator with backsolve, scorecard, and Berkus methods: https://founder-math.com/409a-valuation.html — simpler than Carta's interface, free to use. Let us know if you'd like anything else added!"
+Priority: important (engages a warm lead)
