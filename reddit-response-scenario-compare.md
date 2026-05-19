@@ -1,4 +1,4 @@
-# Reddit Response Draft — Scenario Comparison Feature
+# Reddit Response Draft — Scenario Comparison + 409A Calculator
 
 ## Context
 User on r/startups (May 15, 2026) provided feedback:
@@ -15,6 +15,10 @@ User on r/startups (May 15, 2026) provided feedback:
 > The waterfall charts show the ownership after each round (Pre-seed → Seed → Series A → B → C), so you can actually use this in board discussions to justify why 8M vs 12M pre-money matters.
 >
 > Also added a "Share with Co-founder" button — it encodes your entire scenario into a shareable URL so you can send it to your cofounder and they see exactly what you modeled. No signup needed.
+>
+> In case you need it for your Series A planning, I also just launched a free 409A valuation estimator: https://founder-math.com/409a-valuation.html
+>
+> It uses the backsolve method (most common for VC-backed startups) to estimate common stock FMV and option strike prices. Helps you understand the discount before you get hit with a $1,000+ bill from a formal appraiser.
 >
 > Would love to hear what you think — if there's anything missing for your use case, I can add it.
 

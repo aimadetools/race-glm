@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Startup Equity Mistakes First-Time Founders Make (and How to Avoid Them) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="The 7 most common equity mistakes first-time founders make: ignoring dilution, skipping vesting, not modeling SAFEs, and more. Each mistake includes real numbers and a free calculator to avoid it.">
+    <meta name="keywords" content="startup equity mistakes, founder equity mistakes, dilution mistakes, vesting mistakes, SAFE note mistakes, cap table errors, equity split mistakes, common founder mistakes">
+    <meta property="og:title" content="7 Startup Equity Mistakes First-Time Founders Make">
+    <meta property="og:description" content="The equity mistakes that cost founders the most: ignoring dilution, skipping vesting, bad SAFE terms, and more. Real examples with numbers.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/startup-equity-mistakes-guide.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "7 Startup Equity Mistakes First-Time Founders Make (and How to Avoid Them)",
+        "url": "https://founder-math.com/blog/startup-equity-mistakes-guide.html",
+        "description": "The 7 most common equity mistakes first-time founders make, with real numbers and free calculators to avoid each one.",
+        "datePublished": "2026-05-19",
+        "dateModified": "2026-05-19",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/startup-equity-mistakes-guide.html"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+
+        .article-layout {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        .article-header { margin-bottom: 48px; }
+        .article-meta {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted);
+        }
+        .article-meta .tag {
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 4px 12px; border-radius: 100px; font-size: 0.75rem;
+            color: var(--accent-light); font-weight: 600;
+        }
+        .article-header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800;
+            letter-spacing: -0.03em; margin-bottom: 16px; line-height: 1.3;
+        }
+        .article-header p {
+            color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;
+        }
+
+        .toc {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px 28px; margin-bottom: 48px;
+        }
+        .toc h2 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 12px; }
+        .toc ol { padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: var(--accent-light); text-decoration: none; font-size: 0.9rem; }
+        .toc a:hover { text-decoration: underline; }
+
+        .article-content h2 {
+            font-size: 1.5rem; font-weight: 700; margin-top: 48px; margin-bottom: 16px;
+            letter-spacing: -0.02em; scroll-margin-top: 80px;
+        }
+        .article-content h3 {
+            font-size: 1.15rem; font-weight: 700; margin-top: 32px; margin-bottom: 12px;
+        }
+        .article-content p {
+            color: var(--text-secondary); margin-bottom: 16px; font-size: 0.95rem;
+        }
+        .article-content ul, .article-content ol {
+            color: var(--text-secondary); margin-bottom: 16px; padding-left: 24px;
+        }
+        .article-content li { margin-bottom: 6px; font-size: 0.95rem; }
+        .article-content strong { color: var(--text-primary); }
+        .article-content a { color: var(--accent-light); text-decoration: none; }
+        .article-content a:hover { text-decoration: underline; }
+
+        .callout {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-left: 3px solid var(--accent); border-radius: 8px;
+            padding: 20px 24px; margin: 24px 0;
+        }
+        .callout p { color: var(--text-secondary); margin-bottom: 0; }
+
+        .callout.red { border-left-color: var(--red); }
+        .callout.green { border-left-color: var(--green); }
+        .callout.orange { border-left-color: var(--orange); }
+
+        .example-box {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px; margin: 24px 0;
+        }
+        .example-box h3 { margin-top: 0; color: var(--accent-light); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .example-table {
+            width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem;
+        }
+        .example-table th {
+            text-align: left; padding: 10px 12px; color: var(--text-muted);
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border);
+        }
+        .example-table th:not(:first-child) { text-align: right; }
+        .example-table td {
+            padding: 10px 12px; border-bottom: 1px solid rgba(42,42,64,0.5);
+            color: var(--text-secondary);
+        }
+        .example-table td:not(:first-child) { text-align: right; font-family: var(--font-mono); }
+        .example-table .highlight { color: var(--green); font-weight: 700; }
+        .example-table .warning { color: var(--red); font-weight: 700; }
+
+        .tool-cta {
+            background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.1));
+            border: 1px solid var(--accent); border-radius: 12px; padding: 32px;
+            text-align: center; margin: 40px 0;
+        }
+        .tool-cta h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+        .tool-cta p { color: var(--text-secondary); margin-bottom: 16px; }
+        .tool-cta a {
+            display: inline-block; background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white; text-decoration: none; padding: 12px 32px; border-radius: 8px;
+            font-weight: 700; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .tool-cta a:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+
+        .related-articles {
+            margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--border);
+        }
+        .related-articles h2 { font-size: 1.2rem; margin-bottom: 16px; }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .related-card {
+            display: block; background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 10px; padding: 20px; text-decoration: none; transition: border-color 0.2s;
+        }
+        .related-card:hover { border-color: var(--accent); }
+        .related-card .title { color: var(--text-primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+        .related-card .desc { color: var(--text-muted); font-size: 0.8rem; }
+
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0; background: var(--bg-primary);
+                border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100;
+            }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .related-grid { grid-template-columns: 1fr; }
+            .example-table { font-size: 0.8rem; }
+        }
+        @media print {
+            nav, .tool-cta, footer { display: none !important; }
+            body { background: white; color: black; }
+            .article-layout { padding-top: 0; }
+        }
+    </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="/" class="logo" aria-label="FounderMath home">
+            <div class="logo-icon" aria-hidden="true">%</div>
+            FounderMath
+        </a>
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+            <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+            <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+            <li role="none"><a href="../scenario-compare.html" role="menuitem">Compare</a></li>
+            <li role="none"><a href="../409a-valuation.html" role="menuitem">409A</a></li>
+            <li role="none"><a href="../blog.html" role="menuitem">Blog</a></li>
+            <li><a href="../pricing.html" class="nav-cta" role="menuitem">7-Day Free Trial</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+    </div>
+</nav>
+
+<main id="main-content">
+<article class="article-layout">
+    <header class="article-header">
+        <div class="article-meta">
+            <span class="tag">Founder Equity</span>
+            <span>May 19, 2026</span>
+            <span>12 min read</span>
+        </div>
+        <h1>7 Startup Equity Mistakes First-Time Founders Make (and How to Avoid Them)</h1>
+        <p>Every first-time founder makes equity mistakes. The good ones catch them early. Here are the seven that cost the most money, with real numbers from actual startup outcomes and free <a href="../dilution.html">calculators</a> to help you avoid each one.</p>
+    </header>
+
+    <nav class="toc" aria-label="Table of contents">
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#not-modeling-dilution">Mistake 1: Not Modeling Dilution Before You Raise</a></li>
+            <li><a href="#skipping-vesting">Mistake 2: Skipping Founder Vesting</a></li>
+            <li><a href="#not-understanding-safes">Mistake 3: Not Understanding How SAFEs Convert</a></li>
+            <li><a href="#bad-split">Mistake 4: The 50/50 Co-Founder Split</a></li>
+            <li><a href="#ignoring-runway">Mistake 5: Ignoring Runway Until It's Too Late</a></li>
+            <li><a href="#option-pool">Mistake 6: Underestimating the Option Pool</a></li>
+            <li><a href="#no-cap-table">Mistake 7: Not Building a Cap Table Until You Need One</a></li>
+        </ol>
+    </nav>
+
+    <div class="article-content">
+        <p>I have talked to hundreds of founders about their equity. The same seven mistakes come up over and over. Not because founders are careless — but because nobody teaches you this stuff. Y Combinator's <a href="https://www.ycombinator.com/library">library</a> covers some of it, but most founders learn these lessons the hard way. This guide is the one I wish I had on day one.</p>
+
+        <h2 id="not-modeling-dilution">Mistake 1: Not Modeling Dilution Before You Raise</h2>
+        <p>This is the single most expensive mistake. Founders raise a Seed round and a Series A and are shocked to find themselves owning 30% of the company they started. It happens because they never modeled the math upfront.</p>
+
+        <p>Here is what typical dilution looks like across three rounds:</p>
+
+        <div class="example-box">
+            <h3>Founder Dilution Across 3 Rounds</h3>
+            <table class="example-table">
+                <tr><th>Stage</th><th>Founder Ownership</th><th>Dilution This Round</th></tr>
+                <tr><td>Founding</td><td>100%</td><td>—</td></tr>
+                <tr><td>After Seed ($2M at $8M pre)</td><td>80%</td><td>20%</td></tr>
+                <tr><td>After Series A ($8M at $25M pre)</td><td>57.6%</td><td>28%</td></tr>
+                <tr><td>After Series B ($20M at $80M pre)</td><td>43.5%</td><td>24.4%</td></tr>
+                <tr><td>After Series C ($50M at $200M pre)</td><td>34.8%</td><td>20%</td></tr>
+            </table>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-top:12px;">Includes 10% option pool at each round. Assumes two equal co-founders splitting 100% at founding.</p>
+        </div>
+
+        <p>After four rounds, each co-founder owns roughly <strong>17%</strong> of the company. That is normal. But if you had modeled this on day one, you could have made different decisions about how much to raise, when to raise, and what terms to accept.</p>
+
+        <div class="callout red">
+            <p><strong>The expensive version:</strong> A founder who does not model dilution might accept a $5M Seed round at a $10M pre when they only needed $2M. That extra $3M of dilution costs them 15% of the company — worth $15M on a $100M exit.</p>
+        </div>
+
+        <p><strong>How to avoid it:</strong> Use the <a href="../dilution.html">equity dilution calculator</a> before you sign any term sheet. Model your ownership at each round, including option pools. Compare scenarios with the <a href="../scenario-compare.html">funding scenario comparison tool</a> — what happens if you raise at $8M vs $12M? The 30 seconds it takes to model could save you millions.</p>
+
+        <h2 id="skipping-vesting">Mistake 2: Skipping Founder Vesting</h2>
+        <p>About 65% of founding teams eventually split up. When that happens without a vesting agreement, the departing founder walks away with their full equity stake — often 50% of the company — while doing zero future work. The remaining founder is left building value for someone who quit.</p>
+
+        <p>Investors know this. If you show up to a Seed pitch without founder vesting, most VCs will require it as a closing condition. But the terms you negotiate now are better than the terms an investor forces on you later.</p>
+
+        <div class="example-box">
+            <h3>What Happens Without Vesting</h3>
+            <table class="example-table">
+                <tr><th>Scenario</th><th>Departing Founder</th><th>Remaining Founder</th></tr>
+                <tr><td>No vesting (50/50 split)</td><td class="warning">50% forever</td><td>50%</td></tr>
+                <tr><td>4-year vesting, quits at year 2</td><td class="highlight">25%</td><td>75%</td></tr>
+                <tr><td>4-year vesting + 1-year cliff, quits at month 6</td><td class="highlight">0%</td><td>100%</td></tr>
+            </table>
+        </div>
+
+        <p><strong>The standard terms:</strong> 4-year vesting with a 1-year cliff. 25% of shares vest at the 1-year anniversary, then monthly (or quarterly) after that. Some founders negotiate a shorter cliff (6 months) or acceleration triggers on exit.</p>
+
+        <div class="callout">
+            <p><strong>Pro tip:</strong> VCs sometimes ask founders with existing companies to "restart" vesting on their already-earned equity. Push back. Your past contributions should be vested. Only future equity should be subject to new vesting.</p>
+        </div>
+
+        <p><strong>How to avoid it:</strong> Set up founder vesting from day one. Use the <a href="../vesting.html">vesting schedule calculator</a> to model different vesting timelines and see exactly what happens if a co-founder leaves at month 6, month 18, or month 36.</p>
+
+        <h2 id="not-understanding-safes">Mistake 3: Not Understanding How SAFEs Convert</h2>
+        <p><a href="safe-note-guide.html">SAFE notes</a> are simple, right? You take money now, it converts later. The problem is what happens when you stack multiple SAFEs with different terms. I have seen founders accidentally give away 40% of their company in SAFE conversions because they did not model the math.</p>
+
+        <div class="example-box">
+            <h3>SAFE Stacking Problem: Three Rounds</h3>
+            <table class="example-table">
+                <tr><th>SAFE Round</th><th>Amount</th><th>Cap</th><th>Discount</th></tr>
+                <tr><td>SAFE 1 (early)</td><td>$200K</td><td>$4M</td><td>20%</td></tr>
+                <tr><td>SAFE 2 (mid)</td><td>$500K</td><td>$8M</td><td>15%</td></tr>
+                <tr><td>SAFE 3 (late)</td><td>$1M</td><td>$12M</td><td>10%</td></tr>
+            </table>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-top:12px;">If the Series A prices at $15M pre-money, SAFE 1 converts at $3.2M (cap with discount), SAFE 2 at $6.8M, SAFE 3 at $10.8M. Total SAFE conversion: ~$1.7M worth of equity for $1.7M invested — but at dramatically different share counts.</p>
+        </div>
+
+        <p>The earlier SAFEs with lower caps convert at much better prices for the investors. The founders take more dilution than they expected because they did not realize SAFEs convert in order from lowest cap to highest. This is called the <a href="safe-note-stacking.html">SAFE stacking waterfall</a>.</p>
+
+        <div class="callout red">
+            <p><strong>The expensive version:</strong> A founder raises $2M in SAFEs across three angels with caps ranging from $3M to $10M. When the Series A prices at $15M, the $3M cap investor gets 2.5x their investment in equity. The founder's dilution is 5% more than they budgeted. At a $200M exit, that 5% is worth $10M.</p>
+        </div>
+
+        <p><strong>How to avoid it:</strong> Use the <a href="../safe.html">SAFE note calculator</a> before accepting any SAFE. Model how each SAFE converts at your expected Series A price. Pay attention to the cap — that is the maximum valuation at which the SAFE converts, regardless of how high the actual round prices.</p>
+
+        <h2 id="bad-split">Mistake 4: The 50/50 Co-Founder Split</h2>
+        <p>The 50/50 split feels fair. It is not. Equal splits rarely reflect reality because co-founders rarely contribute equally over time. One person might work full-time while the other keeps a day job. One might have the domain expertise; the other brings the technical skills. One might have invested $50K; the other invested nothing.</p>
+
+        <p>More importantly, 50/50 splits create <strong>deadlock</strong>. When two equal owners disagree, there is no tiebreaker. This kills startups. I have seen it happen.</p>
+
+        <p>A better approach is to split equity based on contributions across several dimensions:</p>
+
+        <div class="example-box">
+            <h3>Equity Split Factors</h3>
+            <table class="example-table">
+                <tr><th>Factor</th><th>Why It Matters</th></tr>
+                <tr><td>Time commitment</td><td>Full-time vs part-time is a huge difference</td></tr>
+                <tr><td>Cash investment</td><td>Who funded the early days?</td></tr>
+                <tr><td>Idea / IP</td><td>Who brought the core concept?</td></tr>
+                <tr><td>Domain expertise</td><td>Industry knowledge that de-risks the business</td></tr>
+                <tr><td>Network</td><td>Who brings customers, investors, hires?</td></tr>
+                <tr><td>Opportunity cost</td><td>Who left a higher-paying job?</td></tr>
+            </table>
+        </div>
+
+        <p>A typical healthy split might be 55/45 or 60/40, with the larger share going to the CEO who works full-time, contributed the idea, and has the domain expertise. The key is having the conversation early — before money is on the line.</p>
+
+        <p><strong>How to avoid it:</strong> Use the <a href="../equity-split.html">equity split calculator</a> to score each founder's contributions across these dimensions. It gives you an objective starting point for the negotiation. Then add <a href="vesting-schedules-guide.html">vesting</a> on top so the split adjusts if someone leaves early.</p>
+
+        <h2 id="ignoring-runway">Mistake 5: Ignoring Runway Until It's Too Late</h2>
+        <p>The most dangerous number in your startup is not your burn rate — it is your <strong>runway</strong>. Burn rate tells you how fast you are spending. Runway tells you how long you have left. And most founders only start thinking about runway when they have 3 months left.</p>
+
+        <p>Here is the math: if your monthly burn is $40K and you have $500K in the bank, your runway is 12.5 months. But fundraising takes 3-6 months. So you need to start raising when you have 18+ months of runway, not when you have 6 months left.</p>
+
+        <div class="example-box">
+            <h3>Runway Timelines by Stage</h3>
+            <table class="example-table">
+                <tr><th>Stage</th><th>Target Runway</th><th>When to Start Raising</th></tr>
+                <tr><td>Pre-Seed</td><td>18 months</td><td>Month 6</td></tr>
+                <tr><td>Seed</td><td>24 months</td><td>Month 12</td></tr>
+                <tr><td>Series A</td><td>24+ months</td><td>Month 12-18</td></tr>
+            </table>
+        </div>
+
+        <p>The mistake compounds when founders do not factor in revenue growth. If your revenue is growing 10% month-over-month, your runway stretches significantly. A company with 12 months of runway at current burn might actually have 16-18 months when you account for growing revenue. This changes your fundraising timeline entirely.</p>
+
+        <div class="callout orange">
+            <p><strong>Warning:</strong> The "raise when you have 6 months of runway" advice is a trap. By the time you have 6 months left, you are desperate. Investors can smell desperation. Start fundraising when you still have leverage — 12-18 months of runway.</p>
+        </div>
+
+        <p><strong>How to avoid it:</strong> Use the <a href="../runway.html">runway calculator</a> monthly. Factor in your revenue growth rate. Set a calendar reminder to start fundraising when you hit 18 months of runway, not when you hit 6.</p>
+
+        <h2 id="option-pool">Mistake 6: Underestimating the Option Pool</h2>
+        <p>When investors ask for a 20% option pool, most founders think "that's fine, 20% of the company for future employees." But they forget that the option pool comes out of the <strong>pre-money</strong> valuation — which means the founders pay for it, not the investors.</p>
+
+        <div class="example-box">
+            <h3>Who Pays for the Option Pool?</h3>
+            <table class="example-table">
+                <tr><th>Scenario</th><th>Pre-Money</th><th>Investment</th><th>Post-Money</th><th>Founders</th><th>Investors</th><th>Pool</th></tr>
+                <tr><td>No pool</td><td>$10M</td><td>$2M</td><td>$12M</td><td>83.3%</td><td>16.7%</td><td>0%</td></tr>
+                <tr><td>10% pool</td><td>$10M</td><td>$2M</td><td>$12M</td><td>73.3%</td><td>16.7%</td><td>10%</td></tr>
+                <tr><td>20% pool</td><td>$10M</td><td>$2M</td><td>$12M</td><td class="warning">63.3%</td><td>16.7%</td><td>20%</td></tr>
+            </table>
+        </div>
+
+        <p>Notice what happened: the investors still own 16.7% in every scenario. The option pool comes entirely from the founders' share. A 20% pool costs the founders 20 percentage points of ownership.</p>
+
+        <p>This is why negotiating the option pool size is one of the most important things you can do in a term sheet. The standard is 10% for a Seed round and 10-15% for a Series A. If an investor asks for 20%, push back.</p>
+
+        <div class="callout">
+            <p><strong>Negotiation tip:</strong> Ask for the option pool to be sized based on your actual hiring plan. If you plan to hire 5 people in the next 18 months, and each gets 0.5-1.5%, you need a 5-8% pool — not 20%. Show investors your hiring plan and justify a smaller pool.</p>
+        </div>
+
+        <p><strong>How to avoid it:</strong> Model your option pool in the <a href="../dilution.html">dilution calculator</a> before negotiating. See exactly how a 10%, 15%, or 20% pool affects your ownership at each stage. Read our full guide to <a href="option-pool-management-guide.html">option pool management</a> for the negotiation framework.</p>
+
+        <h2 id="no-cap-table">Mistake 7: Not Building a Cap Table Until You Need One</h2>
+        <p>Most founders keep their cap table in their head (or a rough spreadsheet) until their first investor asks to see it. By that point, the cap table is often a mess — multiple SAFEs, verbal promises of equity to advisors, a co-founder who left but still owns 25%, and no documentation for any of it.</p>
+
+        <p>A clean cap table is a signal. It tells investors you are professional, organized, and serious. A messy cap table is a red flag. It delays closings, creates legal fees, and sometimes kills deals entirely.</p>
+
+        <div class="example-box">
+            <h3>What a Clean Cap Table Looks Like (Post-Seed)</h3>
+            <table class="example-table">
+                <tr><th>Stakeholder</th><th>Shares</th><th>Ownership</th><th>Notes</th></tr>
+                <tr><td>Founder A</td><td>4,500,000</td><td>45%</td><td>4-year vesting, 1-year cliff</td></tr>
+                <tr><td>Founder B</td><td>3,500,000</td><td>35%</td><td>4-year vesting, 1-year cliff</td></tr>
+                <tr><td>Seed Investor</td><td>1,000,000</td><td>10%</td><td>Preferred, 1x liquidation preference</td></tr>
+                <tr><td>Option Pool</td><td>1,000,000</td><td>10%</td><td>Unallocated</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>10,000,000</strong></td><td><strong>100%</strong></td><td></td></tr>
+            </table>
+        </div>
+
+        <p><strong>The key principles:</strong></p>
+        <ul>
+            <li><strong>Everyone with equity should be in the cap table</strong> — founders, employees, advisors, investors, SAFE holders, and option holders</li>
+            <li><strong>Document everything</strong> — stock option agreements, SAFE notes, vesting schedules, 83(b) elections</li>
+            <li><strong>Update it after every transaction</strong> — every new hire with options, every SAFE, every priced round</li>
+            <li><strong>Keep it simple</strong> — avoid complicated structures like multiple classes of common stock unless your lawyer insists</li>
+        </ul>
+
+        <p><strong>How to avoid it:</strong> Build your cap table on day one using the <a href="../cap-table.html">cap table builder</a>. It takes 10 minutes and gives you a professional-looking cap table you can share with investors. Update it every time you issue equity. Read our <a href="cap-table-guide.html">complete cap table guide</a> for the framework.</p>
+
+        <div class="tool-cta">
+            <h3>Avoid These Mistakes With Free Calculators</h3>
+            <p>FounderMath gives you 12 free calculators to model your equity, runway, SAFEs, vesting, and cap table — before you make expensive mistakes.</p>
+            <a href="../dilution.html">Start Modeling Your Equity</a>
+        </div>
+
+        <h2>The Bottom Line</h2>
+        <p>Equity mistakes are expensive because they compound. A bad SAFE cap in your pre-seed does not just cost you at that round — it costs you at every future round, and at exit. The good news is that all seven of these mistakes are preventable with a few hours of modeling and a spreadsheet (or a <a href="../dilution.html">free calculator</a>).</p>
+
+        <p>The founders who avoid these mistakes are not smarter. They just did the math before signing the paperwork. You can too.</p>
+
+        <div class="callout green">
+            <p><strong>Before your next round:</strong> Model your dilution, understand your SAFEs, check your runway, update your cap table, and make sure every founder has a vesting agreement. It takes an afternoon and it could save you millions.</p>
+        </div>
+
+        <div class="related-articles">
+            <h2>Related Guides</h2>
+            <div class="related-grid">
+                <a href="equity-dilution-guide.html" class="related-card">
+                    <div class="title">Equity Dilution Guide</div>
+                    <div class="desc">How dilution works at each funding round with real examples</div>
+                </a>
+                <a href="safe-note-guide.html" class="related-card">
+                    <div class="title">SAFE Note Guide</div>
+                    <div class="desc">Everything you need to know about SAFE notes before signing</div>
+                </a>
+                <a href="startup-equity-red-flags.html" class="related-card">
+                    <div class="title">Startup Equity Red Flags</div>
+                    <div class="desc">Warning signs in term sheets and equity offers</div>
+                </a>
+                <a href="vesting-schedules-guide.html" class="related-card">
+                    <div class="title">Vesting Schedules Guide</div>
+                    <div class="desc">How vesting works, cliffs, acceleration, and negotiation tips</div>
+                </a>
+                <a href="cap-table-guide.html" class="related-card">
+                    <div class="title">Cap Table Guide</div>
+                    <div class="desc">How to read and maintain your startup's cap table</div>
+                </a>
+                <a href="safe-note-stacking.html" class="related-card">
+                    <div class="title">SAFE Stacking Waterfall</div>
+                    <div class="desc">How multiple SAFEs convert and the dilution impact</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</article>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="../dilution.html">Dilution</a></li>
+            <li><a href="../safe.html">SAFE</a></li>
+            <li><a href="../runway.html">Runway</a></li>
+            <li><a href="../vesting.html">Vesting</a></li>
+            <li><a href="../409a-valuation.html">409A</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a href="../about.html">About</a></li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>
