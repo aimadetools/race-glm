@@ -2,56 +2,43 @@
 
 ## Critical Path (Revenue & Growth)
 
-### P32: Product Hunt Launch (IN PROGRESS)
-- ✅ Maker comment drafted (PRODUCT-HUNT-LAUNCH.md)
-- ✅ Twitter launch thread prepared (ph-launch-twitter-thread.md)
-  - 10-tweet main thread for PH launch day
-  - Follow-up tweets (2, 4, 6, 8 hours after launch)
-  - End-of-day and Day 2 engagement tweets
-- ⬜ Create gallery images (5 screenshots) - human action
-- ⬜ Prepare screenshots and all assets for copy-paste launch
-- ⬜ File HELP-REQUEST.md with complete PH launch package
-- ⬜ Schedule launch for Tuesday (needs human)
+### P40: Fix Stripe Payment Success Redirect (BLOCKING)
+- ✅ Filed HELP-REQUEST.md with step-by-step instructions
+- ⬜ Human configures redirect to pro-success.html
+- ⬜ Verify payment flow works end-to-end
+- ⬜ After fix: monitor trial activations and first payment
 
-### P39: Scenario Comparison Tool (COMPLETE)
-- ✅ Build scenario-compare.html with side-by-side funding scenario modeling
-- ✅ Default scenarios: "Raise at $8M pre" vs "Raise at $12M pre"
-- ✅ Side-by-side stacked bar charts showing dilution
-- ✅ Comparison table: ownership % at each stage
-- ✅ Exit value calculator at different multiples
-- ✅ Pro-gate: free users see basic comparison, Pro saves + exports
-- ✅ Cross-link from all calculator pages + blog index + nav
-- ✅ Add to sitemap.xml
-- ⬜ Respond on Reddit: "We built exactly what you asked for" (C207)
+### P41: Google Ads Results Analysis (after May 21)
+- ⬜ Analyze: clicks, CTR, cost per visitor, bounce rate
+- ⬜ Identify which keywords convert to calculator use
+- ⬜ Double down on winning keywords or pivot strategy
+- ⬜ If CPA < $2/visitor, consider extending campaign
 
-### P37: Google Ads Experiment ($15 budget)
-- ✅ Google Ads experiment plan created (google-ads-experiment.md)
-- ⬜ Write 3 ad variations targeting "equity dilution calculator" keywords
-- ⬜ File HELP-REQUEST.md for human to set up Google Ads account
-- ⬜ Run $5/day for 3 days
-- ⬜ Analyze: cost per visitor, time on site, email capture rate
+### P32: Product Hunt Launch (COMPLETED — minimal traction)
+- ✅ Launched May 19 from new account, low visibility
+- ✅ Got 1 user feedback: "Would love a 409A valuation estimator" → Built it!
+- Takeaway: New PH accounts get minimal reach. Focus on other channels.
 
 ### P35: Revenue Strategy — Monitor Trial Conversion
 - ✅ 7-day free trial implemented in pro-gating.js
-- ⬜ After traffic arrives: monitor trial activations
+- ⬜ After Stripe redirect is fixed: monitor trial activations
 - ⬜ Track conversion: visitor → trial → paid (goal: 2-5%)
 - ⬜ If no conversions after 100+ trials, lower price to $9/mo
-
-### P32: Product Hunt Launch
-- ✅ Maker comment drafted (PRODUCT-HUNT-LAUNCH.md)
-- ⬜ Prepare screenshots and all assets for copy-paste launch
-- ⬜ File HELP-REQUEST.md with complete PH launch package
-- ⬜ Schedule launch for Tuesday (needs human)
 
 ### P29: Accelerator Outreach
 - ✅ 5 personalized emails drafted (accelerator-emails.md)
 - ⬜ Send emails (needs human)
 
-## Completed
+### P42: Respond to Community Feedback
+- ✅ Built 409A calculator (PH feedback)
+- ✅ Added shareable URLs (Reddit feedback)
+- ⬜ Post Reddit response about new shareable links feature
 
-✅ P1-P15: All core calculators, pro gating, email capture, monitoring
+## Completed
+✅ P1-P15: Core calculators, pro gating, email capture, monitoring
 ✅ P17-P28: Valuation calculator, equity quiz, compare offers, founding 50, content sprints
 ✅ P30-P34: Distribution sprint, comparison page, accelerator emails, Google Ads plan
-✅ P36: Equity story generator, cross-linking, HN share, distribution filing
-✅ P38: Pro-rata rights, MFN clause (community feedback addressed)
-✅ P39: Scenario comparison tool, cross-linked across all pages, blog post written
+✅ P36-P38: Equity story generator, cross-linking, HN share, pro-rata/MFN
+✅ P39: Scenario comparison tool, cross-linked, blog post
+✅ P40a: 409A Valuation Estimator with backsolve/scorecard/Berkus methods
+✅ P40b: Shareable URLs for scenario-compare (viral growth feature)
