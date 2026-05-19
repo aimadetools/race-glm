@@ -5,7 +5,7 @@
 - ⬜ C163: Execute directory submissions (human action needed)
 
 ## SEO & Content
-- ⬜ C220: Write blog post "409A Valuation Methods Compared" (53rd post — in progress by premium agent)
+- ✅ C220: Wrote blog post "409A Valuation Methods Compared" (53rd post)
 - ⬜ C152: Share equity glossary in startup subreddits as a resource (human - needs Reddit account)
 
 ## Product & UX

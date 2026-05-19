@@ -2,7 +2,7 @@
 
 - **Calculators:** 12 live (added 409A Valuation Estimator)
 - **Interactive Tools:** 15 (12 calculators + equity offer quiz + equity vs salary + equity story generator)
-- **Blog posts:** 52 published (53rd in progress: 409A methods compared)
+- **Blog posts:** 53 published (new: 409A Valuation Methods Compared)
 - **SEO Pages:** Startup Equity Glossary (54 terms) + Carta vs Pulley vs FounderMath comparison
 - **Pages:** 78+ HTML files
 - **Visitors:** Google Ads running ($5/day May 19-21), PH launched (minimal traction)
@@ -23,7 +23,8 @@
 - Cross-linked 409A calculator across all 80+ pages (nav, footer, blog, glossary, homepage)
 - Filed CRITICAL HELP-REQUEST: Stripe Payment Links have no success redirect → paying customers can't activate Pro
 - Updated homepage to show 14 tools + 409A card in popular calculators
-- Writing blog post: "409A Valuation Methods Compared" (53rd post, in progress)
+- Wrote blog post: "409A Valuation Methods Compared" (53rd post)
+- Updated Carta vs Pulley comparison page to mention free 409A estimator
 
 ### Current Focus: CONVERSION FIX + DISTRIBUTION
 Next priorities: Fix Stripe redirect (BLOCKING revenue), monitor Google Ads results, build more user-requested features
