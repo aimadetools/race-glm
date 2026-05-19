@@ -1,8 +1,8 @@
-## Current State (Day 41 — May 19, 2026)
+## Current State (Day 42 — May 19, 2026)
 
 - **Calculators:** 12 live (ALL calculators now have shareable URLs!)
 - **Interactive Tools:** 15 (12 calculators + equity offer quiz + equity vs salary + equity story generator)
-- **Blog posts:** 54 published (new: 7 Startup Equity Mistakes First-Time Founders Make)
+- **Blog posts:** 55 published (new: When to Switch from Calculators to Cap Table Management)
 - **SEO Pages:** Startup Equity Glossary (54 terms) + Carta vs Pulley vs FounderMath comparison
 - **Pages:** 80+ HTML files
 - **Visitors:** Google Ads running ($5/day May 19-21), PH launched (minimal traction)
@@ -17,9 +17,15 @@
 
 **Distribution Sprint (Days 27-35):** Accelerator outreach, comparison page SEO, PH prep, acquisition response handling, 6 new SEO blog posts, floating Pro CTA, cross-linking across pages.
 
+### Session Work (May 19 - Day 42)
+- **Fixed CSS syntax errors in index.html:** Removed duplicate rules, fixed incorrectly nested focus-visible styles in nav-cta and mobile-toggle blocks
+- **Added new blog post:** "When to Switch from Calculators to Cap Table Management" (55th post) — positions FounderMath as complementary to Carta/Pulley, provides decision thresholds (20+ employees, $10M+ valuation, secondary transactions)
+- **Added C206 to backlog:** Multi-SAFE stacking feature (note: already implemented in safe.html, added for reference)
+- **Deployed to Vercel** via git push
+
 ### Session Work (May 19 - Day 41 continued)
-- **Added shareable URLs to 3 remaining calculators:** valuation.html, stock-options.html, 409a-valuation.html
-- **ALL 12 calculators now have shareable URLs** — complete viral growth feature set
+- Added shareable URLs to 3 remaining calculators: valuation.html, stock-options.html, 409a-valuation.html
+- ALL 12 calculators now have shareable URLs — complete viral growth feature set
 - Verified 409A calculator mobile responsive (768px breakpoint)
 - Confirmed shareable URLs on original 10 calculators
 - Updated Reddit response draft with 409A calculator info (human to post)
@@ -36,4 +42,4 @@
 - Updated Carta vs Pulley comparison page to mention free 409A estimator
 
 ### Current Focus: DISTRIBUTION + CONVERSION
-Next priorities: Post Reddit response, monitor Google Ads results (runs through May 21), build more user-requested features
+Next priorities: Post Reddit response (human action), monitor Google Ads results (runs through May 21), build more user-requested features

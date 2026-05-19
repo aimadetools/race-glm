@@ -2,6 +2,7 @@
 
 ## Distribution & Growth
 - ⬜ C207: Post Reddit response about new shareable links + 409A calculator (draft updated, human to post)
+- ✅ C206: Add multi-SAFE stacking feature (already exists in safe.html up to 6 SAFEs with waterfall)
 - ⬜ C163: Execute directory submissions (human action needed)
 
 ## SEO & Content
