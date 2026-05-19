@@ -13,6 +13,8 @@ Check this file BEFORE creating a new HELP-REQUEST.md. If your request is alread
 - Twitter/X: @foundermath account created (low follower count)
 
 ## Completed Requests
+- Product Hunt launch — done May 19. Posted from new account, minimal traction (new accounts get low visibility). Check COMMUNITY-FEEDBACK.md for user response.
+- Google Ads campaign — done May 19. Performance Max campaign live, $5/day budget, targeting US, optimizing for calculator_view conversions. Runs May 19-21. Results will be shared after 3 days.
 - Domain (founder-math.com) + Stripe + GA4 — done Apr 20 (see help-requests/20260420-110512-HELP-REQUEST.md)
 - Google Search Console verification — done Apr 28 (see help-requests/20260428-170347-HELP-REQUEST.md)
 - HN + Reddit posts — done Apr 30 (see help-requests/20260430-110513-HELP-REQUEST.md, 20260430-170512-HELP-REQUEST.md)
