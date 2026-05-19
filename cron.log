@@ -1522,3 +1522,248 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 === cheap Run 3 at Thu May 14 04:49:53 PM UTC 2026 ===
+=== Run 3 finished at Thu May 14 04:58:37 PM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+[main dedf350] glm cheap session end
+ 4 files changed, 474 insertions(+), 2 deletions(-)
+ create mode 100644 COMMUNITY-RESPONSE-DRAFTS.md
+ create mode 100644 blog/equity-refresh-grants-guide.html
+ create mode 100644 blog/stock-options-early-stage-startups.html
+
+=============================================
+  Session complete
+  Runs: 2
+  Duration: 28 minutes
+  Files changed: 5
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-05-15 10:30:01 UTC
+=============================================
+[orchestrator] Updated HELP-STATUS.md for agent
+[orchestrator] Found approved community feedback for agent
+=== premium Run 1 at Fri May 15 10:30:02 AM UTC 2026 ===
+=== Run 1 finished at Fri May 15 10:33:36 AM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-05-15 16:30:01 UTC
+=============================================
+[orchestrator] HELP-RESPONSES.md exists
+[orchestrator] Found approved community feedback for agent
+=== cheap Run 1 at Fri May 15 04:30:03 PM UTC 2026 ===
+=== Run 1 finished at Fri May 15 04:33:31 PM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-05-16 10:30:01 UTC
+=============================================
+[orchestrator] HELP-RESPONSES.md exists
+[orchestrator] Found approved community feedback for agent
+=== premium Run 1 at Sat May 16 10:30:03 AM UTC 2026 ===
+=== Run 1 finished at Sat May 16 10:33:34 AM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-05-16 16:30:01 UTC
+=============================================
+[orchestrator] HELP-RESPONSES.md exists
+[orchestrator] Found approved community feedback for agent
+=== cheap Run 1 at Sat May 16 04:30:03 PM UTC 2026 ===
+=== Run 1 finished at Sat May 16 04:33:35 PM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-05-17 10:30:01 UTC
+=============================================
+[orchestrator] HELP-RESPONSES.md exists
+[orchestrator] Found approved community feedback for agent
+=== premium Run 1 at Sun May 17 10:30:04 AM UTC 2026 ===
+=== Run 1 finished at Sun May 17 10:33:39 AM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-05-17 16:30:01 UTC
+=============================================
+[orchestrator] HELP-RESPONSES.md exists
+[orchestrator] Found approved community feedback for agent
+=== cheap Run 1 at Sun May 17 04:30:03 PM UTC 2026 ===
+=== Run 1 finished at Sun May 17 04:33:22 PM UTC 2026, exit=1 ===
+=== RATE LIMITED — resets  ===
+
+=============================================
+  Session complete
+  Runs: 0
+  Duration: 3 minutes
+  Files changed: 0
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-05-18 10:30:01 UTC
+=============================================
+[orchestrator] HELP-RESPONSES.md exists
+[orchestrator] Found approved community feedback for agent
+=== premium Run 1 at Mon May 18 10:30:03 AM UTC 2026 ===
+=== Run 1 finished at Mon May 18 10:47:09 AM UTC 2026, exit=0 ===
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/runs.jsonl
+
+no changes added to commit (use "git add" and/or "git commit -a")
+=== premium Run 2 at Mon May 18 10:47:11 AM UTC 2026 ===
+=== Run 2 finished at Mon May 18 11:01:29 AM UTC 2026, exit=0 ===
+On branch main
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/runs.jsonl
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[orchestrator] Found HELP-REQUEST.md — creating GitHub Issue
+Created: https://github.com/aimadetools/race-glm/issues/12
+[main 0741778] Help request submitted as GitHub Issue [skip ci]
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename HELP-REQUEST.md => help-requests/20260518-110138-HELP-REQUEST.md (100%)
+sed: -e expression #1, char 100: unknown option to `s'
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/runs.jsonl
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+=============================================
+  Session complete
+  Runs: 2
+  Duration: 31 minutes
+  Files changed: 4
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — cheap session
+  Model: glm-4.7
+  Duration: 30 minutes
+  Started: 2026-05-18 16:30:01 UTC
+=============================================
+[orchestrator] HELP-RESPONSES.md exists
+[orchestrator] Found approved community feedback for agent
+=== cheap Run 1 at Mon May 18 04:30:03 PM UTC 2026 ===
+=== Run 1 finished at Mon May 18 04:48:15 PM UTC 2026, exit=0 ===
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/runs.jsonl
+
+no changes added to commit (use "git add" and/or "git commit -a")
+=== cheap Run 2 at Mon May 18 04:48:18 PM UTC 2026 ===
+=== Run 2 finished at Mon May 18 05:03:34 PM UTC 2026, exit=0 ===
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cron.log
+	modified:   logs/runs.jsonl
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+=============================================
+  Session complete
+  Runs: 2
+  Duration: 33 minutes
+  Files changed: 5
+=============================================
+Logged run: glm week0 block0
+Deploy check done
+=============================================
+  glm — premium session
+  Model: glm-5.1
+  Duration: 30 minutes
+  Started: 2026-05-19 10:30:01 UTC
+=============================================
+[orchestrator] HELP-RESPONSES.md exists
+[orchestrator] Found approved community feedback for agent
+=== premium Run 1 at Tue May 19 10:30:03 AM UTC 2026 ===
