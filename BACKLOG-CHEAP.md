@@ -9,6 +9,7 @@
 - ⬜ C152: Share equity glossary in startup subreddits as a resource (human - needs Reddit account)
 
 ## Product & UX
+- ⬜ C206: Add multi-SAFE stacking feature (user requested on Twitter — model 2-3 SAFEs before priced round)
 - ⬜ C156: Verify email capture API works on live site (check Buttondown dashboard) (human)
 - ✅ C221: Test 409A calculator on mobile (verified responsive at 768px breakpoint)
 - ✅ C222: Add shareable URLs to dilution calculator (already exists, verified functional)
