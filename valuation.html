@@ -782,9 +782,7 @@
             <div class="panel-section">
                 <div class="panel-section-title">Share</div>
                 <div class="share-bar">
-                    <button class="btn-share" onclick="FounderMathPro.requirePro('Save Scenarios', function(){alert('Scenario saved!')})">Save Scenario</button>
-                    <button class="btn-share" onclick="FounderMathPro.requirePro('Export PDF', function(){window.print()})">Export PDF</button>
-                    <button class="btn-share" onclick="copyShareLink()">Copy Link</button>
+                    <button class="btn-share" id="shareBtn" onclick="copyShareLink()">Copy Link</button>
                     <button class="btn-share" onclick="shareToTwitter()">Twitter</button>
                     <button class="btn-share" onclick="window.print()">Print</button>
                 </div>
@@ -1252,6 +1250,90 @@
         localStorage.setItem('foundermath_valuation', JSON.stringify(data));
     }
 
+    // ============================================================
+    // URL STATE (share links)
+    // ============================================================
+    function getState() {
+        return {
+            method: currentMethod,
+            berkus: {
+                idea: document.getElementById('berkusIdea').value,
+                prototype: document.getElementById('berkusPrototype').value,
+                team: document.getElementById('berkusTeam').value,
+                partners: document.getElementById('berkusPartners').value,
+                launch: document.getElementById('berkusLaunch').value,
+            },
+            scorecard: {
+                avgValuation: document.getElementById('scAvgValuation').value,
+                team: document.getElementById('scTeam').value,
+                market: document.getElementById('scMarket').value,
+                product: document.getElementById('scProduct').value,
+                competition: document.getElementById('scCompetition').value,
+                sales: document.getElementById('scSales').value,
+                capital: document.getElementById('scCapital').value,
+            },
+            vc: {
+                revenue: document.getElementById('vcRevenue').value,
+                multiple: document.getElementById('vcMultiple').value,
+                roi: document.getElementById('vcROI').value,
+                investment: document.getElementById('vcInvestment').value,
+            }
+        };
+    }
+
+    function loadFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        const encoded = params.get('s');
+        if (!encoded) return;
+        try {
+            const data = JSON.parse(atob(encoded));
+            if (data.method) setMethod(data.method);
+            if (data.berkus) {
+                Object.entries(data.berkus).forEach(([key, val]) => {
+                    const el = document.getElementById('berkus' + key.charAt(0).toUpperCase() + key.slice(1));
+                    if (el) { el.value = val; updateSlider(el); }
+                });
+            }
+            if (data.scorecard) {
+                Object.entries(data.scorecard).forEach(([key, val]) => {
+                    const el = document.getElementById('sc' + key.charAt(0).toUpperCase() + key.slice(1));
+                    if (el) {
+                        el.value = val;
+                        updateScorecardSlider(el);
+                        updateScorecardMultiplier(key, val);
+                    }
+                });
+            }
+            if (data.vc) {
+                document.getElementById('vcRevenue').value = data.vc.revenue;
+                document.getElementById('vcMultiple').value = data.vc.multiple;
+                document.getElementById('vcROI').value = data.vc.roi;
+                document.getElementById('vcInvestment').value = data.vc.investment;
+            }
+            calculate();
+        } catch (e) { /* ignore */ }
+    }
+
+    function encodeStateToURL() {
+        return window.location.origin + window.location.pathname + '?s=' + btoa(JSON.stringify(getState()));
+    }
+
+    function copyShareLink() {
+        const url = encodeStateToURL();
+        navigator.clipboard.writeText(url).then(() => {
+            showToast('Link copied!');
+            trackEvent('copy_share_link');
+        }).catch(() => { prompt('Copy this link:', url); });
+    }
+
+    function shareToTwitter() {
+        const url = encodeStateToURL();
+        const valuation = document.getElementById('mainValuation').textContent;
+        const text = `My startup valuation: ${valuation} Calculate yours: ${url} #startup #valuation`;
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+        trackEvent('share_twitter');
+    }
+
     function loadFromLocalStorage() {
         const saved = localStorage.getItem('foundermath_valuation');
         if (!saved) return;
@@ -1453,7 +1535,10 @@
     function init() {
         const savedTheme = localStorage.getItem('foundermath_theme');
         if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
-        loadFromLocalStorage();
+        loadFromURL();
+        if (!new URLSearchParams(window.location.search).get('s')) {
+            loadFromLocalStorage();
+        }
         calculate();
 
         // Check for shared results

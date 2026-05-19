@@ -644,10 +644,9 @@
 
         <!-- Share & Export -->
         <div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap;">
-            <button onclick="FounderMathPro.requirePro('Save Scenarios', function(){alert('Scenario saved!')})" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:inherit;">Save Scenario</button>
-            <button onclick="FounderMathPro.requirePro('Export PDF', function(){window.print()})" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:inherit;">Export PDF</button>
+            <button onclick="copyShareLink()" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:inherit;">Copy Link</button>
+            <button onclick="shareToTwitter()" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:inherit;">Share on Twitter</button>
             <button onclick="window.print()" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:inherit;">Print</button>
-            <button onclick="if(window.FMShare){var s=getInputs();FMShare.showShareModal('stock-options',{grant:s.numOptions+' options at $'+s.currentFMV+'/share',valuation:'$'+(s.companyValuation||0)+'M',value:document.getElementById('totalValue')?.textContent||''},'Stock Options: '+s.numOptions+' options at $'+s.currentFMV+'/share')}" style="background:var(--accent);border:none;color:white;padding:10px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:inherit;font-weight:600;">Share Results</button>
         </div>
             </div>
         </div>
@@ -1107,6 +1106,48 @@ function renderExitChart(r) {
 }
 
 // ============================================================
+// URL STATE (share links)
+// ============================================================
+function loadFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const encoded = params.get('s');
+    if (!encoded) return;
+    try {
+        const data = JSON.parse(atob(encoded));
+        document.getElementById('numOptions').value = data.numOptions || 10000;
+        document.getElementById('strikePrice').value = data.strikePrice || 1.00;
+        document.getElementById('currentFMV').value = data.currentFMV || 5.00;
+        document.getElementById('sharesOutstanding').value = data.sharesOutstanding || 10000000;
+        document.getElementById('companyValuation').value = data.companyValuation / 1e6 || 50;
+        document.getElementById('vestingYears').value = data.vestingYears || 4;
+        document.getElementById('cliffMonths').value = data.cliffMonths || 12;
+        document.getElementById('monthsVested').value = data.monthsVested || 0;
+        document.getElementById('optionType').value = data.optionType || 'iso';
+        document.getElementById('taxRate').value = data.taxRate * 100 || 37;
+        return true;
+    } catch (e) { /* ignore */ }
+    return false;
+}
+
+function encodeStateToURL() {
+    return window.location.origin + window.location.pathname + '?s=' + btoa(JSON.stringify(getState()));
+}
+
+function copyShareLink() {
+    const url = encodeStateToURL();
+    navigator.clipboard.writeText(url).then(() => {
+        alert('Link copied to clipboard!');
+    }).catch(() => { prompt('Copy this link:', url); });
+}
+
+function shareToTwitter() {
+    const url = encodeStateToURL();
+    const numOpts = document.getElementById('numOptions').value;
+    const text = `I have ${parseInt(numOpts).toLocaleString()} startup options. Check what they're worth: ${url} #startup #equity`;
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+}
+
+// ============================================================
 // EVENT LISTENERS
 // ============================================================
 var inputs = document.querySelectorAll('.input-panel input, .input-panel select');
@@ -1137,6 +1178,7 @@ document.getElementById('sharesOutstanding').addEventListener('input', function(
 });
 
 // Initial render
+loadFromURL();
 var initialResult = calculate();
 render(initialResult);
 </script>

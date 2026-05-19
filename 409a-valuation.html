@@ -367,6 +367,10 @@
                     <button class="btn btn-primary" onclick="calculate()">Calculate 409A</button>
                     <button class="btn btn-secondary" onclick="resetForm()">Reset</button>
                 </div>
+                <div class="btn-group" style="margin-top:12px;">
+                    <button class="btn btn-secondary" onclick="copyShareLink()">Copy Link</button>
+                    <button class="btn btn-secondary" onclick="shareToTwitter()">Share on Twitter</button>
+                </div>
             </div>
 
             <!-- RESULTS COLUMN -->
@@ -571,6 +575,94 @@
             if (num >= 1) return '$' + num.toFixed(2);
             if (num >= 0.01) return '$' + num.toFixed(4);
             return '$' + num.toFixed(6);
+        }
+
+        // ============================================================
+        // URL STATE (share links)
+        // ============================================================
+        function getState() {
+            return {
+                method: currentMethod,
+                backsolve: {
+                    preMoney: document.getElementById('preMoneyVal').value,
+                    amountRaised: document.getElementById('amountRaised').value,
+                    totalShares: document.getElementById('totalShares').value,
+                    discountSlider: document.getElementById('discountSlider').value,
+                    fundingStage: document.getElementById('fundingStage').value
+                },
+                scorecard: {
+                    compAvgVal: document.getElementById('compAvgVal').value,
+                    scorecardShares: document.getElementById('scorecardShares').value,
+                    teamFactor: document.getElementById('teamFactor').value,
+                    marketFactor: document.getElementById('marketFactor').value,
+                    productFactor: document.getElementById('productFactor').value,
+                    compFactor: document.getElementById('compFactor').value,
+                    salesFactor: document.getElementById('salesFactor').value
+                },
+                berkus: {
+                    ideaValue: document.getElementById('ideaValue').value,
+                    protoValue: document.getElementById('protoValue').value,
+                    teamBValue: document.getElementById('teamBValue').value,
+                    relValue: document.getElementById('relValue').value,
+                    launchValue: document.getElementById('launchValue').value,
+                    berkusShares: document.getElementById('berkusShares').value
+                }
+            };
+        }
+
+        function loadFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            const encoded = params.get('s');
+            if (!encoded) return;
+            try {
+                const data = JSON.parse(atob(encoded));
+                if (data.method) {
+                    setMethod(data.method);
+                    if (data.method === 'backsolve') {
+                        document.getElementById('preMoneyVal').value = data.backsolve?.preMoney || 20000000;
+                        document.getElementById('amountRaised').value = data.backsolve?.amountRaised || 5000000;
+                        document.getElementById('totalShares').value = data.backsolve?.totalShares || 10000000;
+                        document.getElementById('discountSlider').value = data.backsolve?.discountSlider || 40;
+                        document.getElementById('fundingStage').value = data.backsolve?.fundingStage || 'series-a';
+                        updateDiscount();
+                    } else if (data.method === 'scorecard') {
+                        document.getElementById('compAvgVal').value = data.scorecard?.compAvgVal || 5000000;
+                        document.getElementById('scorecardShares').value = data.scorecard?.scorecardShares || 10000000;
+                        document.getElementById('teamFactor').value = data.scorecard?.teamFactor || 100;
+                        document.getElementById('marketFactor').value = data.scorecard?.marketFactor || 100;
+                        document.getElementById('productFactor').value = data.scorecard?.productFactor || 100;
+                        document.getElementById('compFactor').value = data.scorecard?.compFactor || 100;
+                        document.getElementById('salesFactor').value = data.scorecard?.salesFactor || 100;
+                        ['team','market','product','comp','sales'].forEach(n => updateSlider(n));
+                    } else if (data.method === 'berkus') {
+                        document.getElementById('berkusShares').value = data.berkus?.berkusShares || 10000000;
+                        document.getElementById('ideaValue').value = data.berkus?.ideaValue || 0;
+                        document.getElementById('protoValue').value = data.berkus?.protoValue || 0;
+                        document.getElementById('teamBValue').value = data.berkus?.teamBValue || 0;
+                        document.getElementById('relValue').value = data.berkus?.relValue || 0;
+                        document.getElementById('launchValue').value = data.berkus?.launchValue || 0;
+                        updateBerkus();
+                    }
+                }
+            } catch (e) { /* ignore */ }
+        }
+
+        function encodeStateToURL() {
+            return window.location.origin + window.location.pathname + '?s=' + btoa(JSON.stringify(getState()));
+        }
+
+        function copyShareLink() {
+            const url = encodeStateToURL();
+            navigator.clipboard.writeText(url).then(() => {
+                alert('Link copied to clipboard!');
+            }).catch(() => { prompt('Copy this link:', url); });
+        }
+
+        function shareToTwitter() {
+            const url = encodeStateToURL();
+            const fmv = document.getElementById('fmvValue').textContent;
+            const text = `My startup's 409A FMV: ${fmv}/share. Calculate yours: ${url} #startup #409A`;
+            window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
         }
 
         function calculate() {
@@ -808,6 +900,7 @@
         });
 
         // Init
+        loadFromURL();
         calculate();
     </script>
 </body>
