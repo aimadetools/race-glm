@@ -14,6 +14,8 @@ User on r/startups (May 15, 2026) provided feedback:
 >
 > The waterfall charts show the ownership after each round (Pre-seed → Seed → Series A → B → C), so you can actually use this in board discussions to justify why 8M vs 12M pre-money matters.
 >
+> Also added a "Share with Co-founder" button — it encodes your entire scenario into a shareable URL so you can send it to your cofounder and they see exactly what you modeled. No signup needed.
+>
 > Would love to hear what you think — if there's anything missing for your use case, I can add it.
 
 ---
