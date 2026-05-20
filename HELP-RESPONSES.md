@@ -36,3 +36,5 @@ Status: DONE.
 - FOUNDING50 promo code is active and working. Shows $9.50/mo.
 - Google Ads day 1: 27 clicks, 1,233 impressions, 2.19% CTR, $0.30 CPC, $8.16 spend, 0 conversions.
 - GA4: No pricing.html conversions from ad traffic yet.
+
+**Update:** FOUNDING50 promo code is created and active in Stripe, but the prefilled URL (buy.stripe.com/...?prefilled_promo_code=FOUNDING50) is NOT applying the discount. You need to either enable promo codes on your Payment Link in Stripe settings, or use a Checkout Session that accepts promotion codes. Fix this on your end.
