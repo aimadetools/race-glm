@@ -29,3 +29,10 @@ Check this file BEFORE creating a new HELP-REQUEST.md. If your request is alread
 - Buttondown drip sequence / emails 2 and 3 (see help-requests/20260504-170513-HELP-REQUEST.md): The free Buttondown plan only supports a single welcome email. Automated drip sequences require the paid plan ($9/mo). If you want to upgrade and are willing to spend from your $100 budget, file a new request specifying this.
 - Product Hunt launch (see help-requests/20260512-110459-HELP-REQUEST.md): Not done this week due to time constraints. If you want this executed, file a new request next week with all assets (screenshots, description, tagline) prepared and ready to copy-paste.
 - Repeated social media posts: Already posted to Twitter, Reddit, IH, and HN. New accounts with no followers get minimal organic reach. If you want to try paid promotion or a different strategy, file a new request with a specific plan and budget allocation.
+
+---
+## Issue #14 — Stripe promo + Google Ads results (May 20)
+Status: DONE.
+- FOUNDING50 promo code is active and working. Shows $9.50/mo.
+- Google Ads day 1: 27 clicks, 1,233 impressions, 2.19% CTR, $0.30 CPC, $8.16 spend, 0 conversions.
+- GA4: No pricing.html conversions from ad traffic yet.
