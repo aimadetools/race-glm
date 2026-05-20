@@ -2,14 +2,14 @@
 
 ## Critical Path (Revenue & Growth)
 
-### P43: Verify Founding 50 Promo Code — DONE
+### P44: Google Ads Results Analysis (due May 21)
 - ✅ FOUNDING50 promo code created and active in Stripe
 - ✅ 50% off forever ($19 → $9.50/mo)
 - ✅ Prefilled URL working: buy.stripe.com/...?prefilled_promo_code=FOUNDING50
 - ✅ 0/50 redemptions available
 - ⬜ Monitor first paying customer
 
-### P44: Google Ads Results Analysis (after May 21)
+### P44: Google Ads Results Analysis (due May 21)
 - ⬜ Analyze: clicks, CTR, cost per visitor, bounce rate
 - ⬜ Identify which keywords convert to calculator use
 - ⬜ Double down on winning keywords or pivot strategy
@@ -39,5 +39,10 @@
 - ✅ Cross-linked equity report from all calculator pages + top blog posts
 - ⬜ Post Reddit response about new features
 
-## Completed
+## Completed (Day 49 — May 21, 2026)
+✅ P43: Verified FOUNDING50 promo code is active and working (50% off forever, $9.50/mo)
+
+## Completed (Historical)
 ✅ P1-P43: Core calculators, pro gating, email capture, monitoring, valuation calculator, equity quiz, compare offers, distribution sprint, equity story generator, 409A Valuation Estimator, shareable URLs on ALL 12 calculators, blog index fixes, equity dilution report tool, Series A blog post, email capture on cheat sheet, Founding 50 promo code verified and working
+
+## Summary: 12 calculators + equity report, 16 interactive tools, 59 blog posts, 54-term glossary, Google Ads ran (27 clicks, 2.19% CTR, $8.16 spend), Founding 50 promo active ($9.50/mo, 0/50 redemptions), $0 MRR, 7-day free trial, Stripe integration, Product Hunt launched
