@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Negotiate Startup Equity: The Complete Guide (2026) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="Learn how to negotiate startup equity offers like a pro. Understand equity benchmarks, negotiation tactics, and what to ask for by role and stage.">
+    <meta name="keywords" content="negotiate equity offer, startup equity negotiation, how to negotiate startup compensation, equity benchmarks by role, employee equity negotiation, ask for more equity">
+    <meta property="og:title" content="How to Negotiate Startup Equity: The Complete Guide">
+    <meta property="og:description" content="Learn how to negotiate startup equity offers like a pro. Includes benchmarks by role, negotiation tactics, and what to ask for by stage.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/negotiate-equity-offer.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Negotiate Startup Equity: The Complete Guide">
+    <meta name="twitter:description" content="Learn how to negotiate startup equity offers like a pro. Includes benchmarks by role, negotiation tactics, and what to ask for by stage.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Negotiate Startup Equity: The Complete Guide",
+        "url": "https://founder-math.com/blog/negotiate-equity-offer.html",
+        "description": "Learn how to negotiate startup equity offers like a pro. Understand equity benchmarks, negotiation tactics, and what to ask for by role and stage.",
+        "datePublished": "2026-05-20",
+        "dateModified": "2026-05-20",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00b894;
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+        }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --bg-card: #f9f9fb;
+            --text-primary: #1a1a2e;
+            --text-secondary: #555570;
+            --border: #e0e0e0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85); border-bottom: 1px solid var(--border); }
+        body[data-theme="light"] nav { background: rgba(255, 255, 255, 0.9); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.25rem; font-weight: 700; text-decoration: none; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+        .theme-toggle { background: none; border: none; color: var(--text-secondary); cursor: pointer; padding: 8px; display: flex; align-items: center; justify-content: center; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        @media (max-width: 768px) { .nav-links { display: none; } .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); padding: 20px; gap: 16px; border-bottom: 1px solid var(--border); } .mobile-toggle { display: block; } }
+        .hero { max-width: 800px; margin: 0 auto; padding: 140px 24px 60px; text-align: center; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.2; margin-bottom: 24px; letter-spacing: -0.02em; }
+        .hero h1 .highlight { background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero .meta { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 32px; }
+        .hero p { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; }
+        .article { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+        .article h2 { font-size: 1.6rem; font-weight: 700; margin: 48px 0 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .article h3 { font-size: 1.25rem; font-weight: 700; margin: 32px 0 16px; }
+        .article p { margin-bottom: 20px; }
+        .article ul, .article ol { margin-bottom: 20px; padding-left: 24px; }
+        .article li { margin-bottom: 8px; }
+        .article a { color: var(--accent-light); text-decoration: none; }
+        .article a:hover { text-decoration: underline; }
+        .article strong { color: var(--text-primary); font-weight: 700; }
+        .article code { background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.9em; }
+        .callout { background: var(--bg-card); border-left: 4px solid var(--accent); padding: 20px 24px; margin: 32px 0; border-radius: 0 12px 12px 0; }
+        .callout h4 { font-size: 1rem; margin-bottom: 8px; color: var(--accent-light); }
+        .callout p { font-size: 0.95rem; margin-bottom: 0; }
+        .cta { border-left-color: var(--green); }
+        .cta h4 { color: var(--green); }
+        .cta-button { display: inline-block; background: var(--accent); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; margin-top: 12px; transition: transform 0.2s; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .table-wrap { overflow-x: auto; margin: 32px 0; }
+        table { width: 100%; border-collapse: collapse; min-width: 500px; }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); background: var(--bg-card); }
+        tr:last-child td { border-bottom: none; }
+        .author-bio { display: flex; gap: 16px; background: var(--bg-card); padding: 24px; border-radius: 12px; margin: 48px 0; }
+        .author-avatar { width: 50px; height: 50px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .author-bio h4 { font-size: 1.1rem; margin-bottom: 4px; }
+        .author-bio p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0; }
+        .related-posts { background: var(--bg-secondary); padding: 24px; border-radius: 12px; margin: 48px 0; }
+        .related-posts h3 { font-size: 1rem; margin-bottom: 16px; }
+        .related-posts a { display: block; color: var(--text-secondary); text-decoration: none; padding: 8px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+        .related-posts a:hover { color: var(--accent); }
+        .related-posts a:last-child { border-bottom: none; }
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-secondary); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo">
+                Founder<span>Math</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../vesting.html">Vesting</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><button class="theme-toggle" onclick="document.body.toggleAttribute('data-theme')" aria-label="Toggle theme">◐</button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>How to <span class="highlight">Negotiate Startup Equity</span> Like a Pro</h1>
+        <div class="meta">Published May 20, 2026 &bull; 12 min read</div>
+        <p>Most startup employees accept their equity offer without negotiation — leaving 20-50% more equity on the table. This guide shows you exactly how to negotiate, what benchmarks to use, and what to ask for by role and stage.</p>
+    </header>
+
+    <main class="article">
+        <div class="callout">
+            <h4>Key Takeaway</h4>
+            <p>Startup equity offers are <strong>not fixed</strong>. Companies budget equity with a 20-30% negotiation buffer built in. If you don't ask, you leave that money on the table. The right approach: research benchmarks, know your value, and negotiate from a position of data, not emotion.</p>
+        </div>
+
+        <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#why-negotiate">Why Equity Negotiation Matters</a></li>
+                <li><a href="#benchmarks">Equity Benchmarks by Role & Stage</a></li>
+                <li><a href="#prep">Preparation: Know Your Numbers</a></li>
+                <li><a href="#tactics">Negotiation Tactics That Work</a></li>
+                <li><a href="#what-to-ask">What to Ask For (Beyond More Equity)</a></li>
+                <li><a href="#red-flags">Red Flags in Equity Offers</a></li>
+                <li><a href="#counter-offer">How to Counter Offer</a></li>
+            </ol>
+        </nav>
+
+        <h2 id="why-negotiate">Why Equity Negotiation Matters</h2>
+        <p>Let's start with the math. A seed-stage startup might offer you 0.1% equity. If that company exits at $100M, that's worth <strong>$100,000</strong>. But if you negotiate to 0.15% — a 50% increase — your stake is worth <strong>$150,000</strong> at the same exit.</p>
+        <p>The difference compounds. At a $500M exit, 0.1% is $500,000. 0.15% is $750,000. That $50,000 difference in equity becomes a <strong>$250,000 difference in outcome</strong>.</p>
+        <p>Yet most employees don't negotiate. Why?</p>
+        <ul>
+            <li><strong>Fear of rejection:</strong> They think asking for more equity might lose them the offer entirely.</li>
+            <li><strong>Information asymmetry:</strong> They don't know what's reasonable to ask for.</li>
+            <li><strong>Imposter syndrome:</strong> They don't feel "senior enough" to negotiate.</li>
+            <li><strong>Lack of practice:</strong> Most people have only negotiated salary, not equity.</li>
+        </ul>
+        <p>Here's the reality: <strong>Equity offers are negotiable</strong>. Founders know this. They budget for it. In fact, they'd be surprised if you didn't negotiate.</p>
+
+        <h2 id="benchmarks">Equity Benchmarks by Role & Stage</h2>
+        <p>The first rule of negotiation is knowing your baseline. Here are industry benchmarks for common roles at different stages:</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Seed Stage</th>
+                        <th>Series A</th>
+                        <th>Series B+</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Founding Engineer</strong></td>
+                        <td>1-3%</td>
+                        <td>0.5-1.5%</td>
+                        <td>0.25-0.75%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Senior Engineer</strong></td>
+                        <td>0.5-1.5%</td>
+                        <td>0.25-0.75%</td>
+                        <td>0.1-0.4%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mid-Level Engineer</strong></td>
+                        <td>0.25-0.75%</td>
+                        <td>0.1-0.4%</td>
+                        <td>0.05-0.2%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Head of Product</strong></td>
+                        <td>1-2.5%</td>
+                        <td>0.5-1.5%</td>
+                        <td>0.25-0.75%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Senior PM</strong></td>
+                        <td>0.5-1.5%</td>
+                        <td>0.25-0.75%</td>
+                        <td>0.1-0.4%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Head of Sales</strong></td>
+                        <td>1-2%</td>
+                        <td>0.5-1.25%</td>
+                        <td>0.25-0.6%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Senior Account Executive</strong></td>
+                        <td>0.25-0.75%</td>
+                        <td>0.1-0.4%</td>
+                        <td>0.05-0.2%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VP Marketing</strong></td>
+                        <td>0.75-1.5%</td>
+                        <td>0.4-1%</td>
+                        <td>0.2-0.5%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Senior Marketing</strong></td>
+                        <td>0.25-0.75%</td>
+                        <td>0.1-0.4%</td>
+                        <td>0.05-0.2%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Head of Operations</strong></td>
+                        <td>0.75-1.5%</td>
+                        <td>0.4-1%</td>
+                        <td>0.2-0.5%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout">
+            <h4>Understanding the Ranges</h4>
+            <p>Within each range, the higher end goes to candidates with: more experience, stronger track records, unique skills, and more leverage (other offers, current role). The lower end goes to earlier-career candidates or those with less negotiating leverage.</p>
+        </div>
+
+        <p><strong>Stage Definitions:</strong></p>
+        <ul>
+            <li><strong>Seed:</strong> 0-25 employees, < $10M raised, product likely MVP or early traction</li>
+            <li><strong>Series A:</strong> 25-100 employees, $10-50M raised, product-market fit emerging</li>
+            <li><strong>Series B+:</strong> 100+ employees, $50M+ raised, scaling growth, established market</li>
+        </ul>
+
+        <h2 id="prep">Preparation: Know Your Numbers</h2>
+        <p>Before you negotiate, gather this information:</p>
+
+        <h3>1. Calculate Your Current Equity Value</h3>
+        <p>If you're currently at a startup, calculate what your existing equity is worth:</p>
+        <ul>
+            <li>Number of options/shares</li>
+            <li>Strike price (for options)</li>
+            <li>Current 409A valuation</li>
+            <li>Vested vs unvested</li>
+        </ul>
+        <p>Use our <a href="../stock-options.html">Stock Options Calculator</a> to see your current stake's potential value.</p>
+
+        <h3>2. Research the Company</h3>
+        <p>Understand what you're joining:</p>
+        <ul>
+            <li><strong>Funding history:</strong> How much have they raised? At what valuations?</li>
+            <li><strong>Cap table:</strong> How much equity is outstanding? What's the employee pool size?</li>
+            <li><strong>Traction:</strong> Revenue, customers, growth metrics</li>
+            <li><strong>Competitive landscape:</strong> Who are they competing with? How are they differentiated?</li>
+        </ul>
+
+        <h3>3. Know Your Leverage</h3>
+        <p>What makes you valuable to them?</p>
+        <ul>
+            <li><strong>Rare skills:</strong> AI/ML expertise, security, specialized domain knowledge</li>
+            <li><strong>Track record:</strong> Previous successful exits, strong references</li>
+            <li><strong>Timing:</strong> They need someone yesterday (hiring urgency)</li>
+            <li><strong>Alternatives:</strong> Other offers, strong counteroffer from current employer</li>
+        </ul>
+
+        <h3>4. Model the Offer</h3>
+        <p>Plug the numbers into our <a href="../evaluate-equity-offer.html">Equity Offer Calculator</a>:</p>
+        <ul>
+            <li>Grant size in options/shares</li>
+            <li>Strike price</li>
+            <li>Current valuation</li>
+            <li>Projected exit scenarios</li>
+            <li>Your tax situation</li>
+        </ul>
+        <p>See what the offer is actually worth in different exit scenarios. This is your negotiation baseline.</p>
+
+        <h2 id="tactics">Negotiation Tactics That Work</h2>
+
+        <h3>1. Ask, Don't Demand</h3>
+        <p>Bad: "I need 1% equity or I can't accept."</p>
+        <p>Good: "I'm very excited about the role. I've done some research on equity benchmarks for senior engineers at Series A companies, and the typical range is 0.25-0.75%. The current offer of 0.2% is below this range. Is there flexibility to get closer to 0.4%?"</p>
+        <p>The difference: The second approach uses data, acknowledges excitement, and frames it as a collaborative question rather than an ultimatum.</p>
+
+        <h3>2. Focus on Total Compensation</h3>
+        <p>Don't negotiate in isolation. Frame equity as part of the total package:</p>
+        <p>"I understand the salary is competitive, but when I look at the total package including equity, I'd love to see that balanced a bit differently. What if we kept the salary where it is and increased the equity to 0.4%?"</p>
+
+        <h3>3. Get Multiple Offers</h3>
+        <p>The best leverage you have is an alternative. Having another offer (even if it's lower overall) shows you're in demand and gives you a baseline to compare.</p>
+        <p>"I have another offer for a similar role at a different Series A company. They're offering 0.5% equity. I'm more excited about your company and mission — would you be open to matching the equity component?"</p>
+
+        <h3>3.5. Time Your Ask</h3>
+        <p>Negotiate <strong>after</strong> you have an offer, not before. Once they've made the decision to hire you, they have skin in the game and are more motivated to make it work.</p>
+        <p>Good response when they extend an offer: "Thank you for the offer! I'm very excited about the opportunity. I'd like a day or two to review everything and discuss it with my family. When should I get back to you?"</p>
+        <p>This gives you time to prepare your counter without pressure.</p>
+
+        <h3>4. Use the "Sandwich" Method</h3>
+        <p>Frame your counter between positive statements:</p>
+        <ol>
+            <li><strong>Positive:</strong> "I'm genuinely excited about this role and the team."</li>
+            <li><strong>Counter:</strong> "However, the equity offer is below the 0.25-0.75% benchmark for senior engineers at Series A companies. Would you be open to increasing to 0.4%?"</li>
+            <li><strong>Positive:</strong> "I really want to make this work and am eager to contribute."</li>
+        </ol>
+
+        <h3>5. Get It in Writing</h3>
+        <p>Verbal agreements don't count. Any change to the offer — equity, salary, benefits — must be in the written offer letter or employment agreement.</p>
+
+        <h2 id="what-to-ask">What to Ask For (Beyond More Equity)</h2>
+        <p>Sometimes they can't give you more equity (option pool limits, founder constraints). Ask for these instead:</p>
+
+        <h3>1. Better Equity Type</h3>
+        <p>If they're offering NSOs and you're eligible for ISOs (W-2 employee, under $100K grant), ask for ISOs. The tax savings are significant.</p>
+        <p>"I noticed the offer is for NSOs. Given the tax advantages of ISOs, would it be possible to structure this as ISOs instead?"</p>
+
+        <h3>2. Lower Strike Price</h3>
+        <p>A lower strike price increases your upside. Ask if they can set the strike at the current 409A valuation rather than a higher number.</p>
+
+        <h3>3. Accelerated Vesting on Change of Control</h3>
+        <p>If the company gets acquired, you want your unvested equity to accelerate (typically 50% or 100% vesting).</p>
+        <p>"I'd like to have a single-trigger acceleration clause — if the company is acquired, 50% of my unvested equity vests immediately."</p>
+
+        <h3>4. Longer Exercise Window</h3>
+        <p>Standard is 90 days after leaving. Ask for more time if you expect to leave and want flexibility.</p>
+        <p>"Can we extend the post-termination exercise window to 6 months or 1 year?"</p>
+
+        <h3>5. Salary Instead</h3>
+        <p>If equity is non-negotiable, push for higher salary. At early stages, cash might be more valuable than high-risk equity.</p>
+        <p>"If the equity is fixed, is there flexibility on the base salary? I'd love to see that increased by $15K."</p>
+
+        <h3>6. Signing Bonus</h3>
+        <p>A one-time cash bonus doesn't affect ongoing payroll and can help offset a lower equity grant.</p>
+        <p>"Would you consider a $20K signing bonus to help with the transition?"</p>
+
+        <h3>7. Benefits Perks</h3>
+        <p>Remote work stipend, health insurance coverage, learning budget, equipment allowance.</p>
+
+        <h2 id="red-flags">Red Flags in Equity Offers</h2>
+        <p>Walk away (or negotiate hard) if you see these:</p>
+
+        <ul>
+            <li><strong>No 409A valuation:</strong> They're issuing equity without an independent valuation. This is risky and may indicate poor financial management.</li>
+            <li><strike>Strike price above 409A:</strike> You're buying equity at a premium. That defeats the purpose of equity compensation.</li>
+            <li><strong>Unreasonable vesting:</strong> Cliff longer than 1 year, total vesting longer than 4 years, or no acceleration on acquisition.</li>
+            <li><strong>Vague equity terms:</strong> They won't tell you the total outstanding shares, current valuation, or option pool size.</li>
+            <li><strong>Promise of future grants:</strong> "We'll give you more equity later." Get it in writing now.</li>
+            <li><strong>Massive option pool dilution:</strong> 20%+ option pool that dilutes you, not investors.</li>
+            <li><strong>No cap table transparency:</strong> They won't share who owns what percentage of the company.</li>
+        </ul>
+
+        <h2 id="counter-offer">How to Counter Offer: Script Examples</h2>
+
+        <h3>Counter for More Equity</h3>
+        <p><em>Scenario:</em> Offered 0.2% at Series A, benchmark is 0.25-0.75%</p>
+        <p>"Thank you for the offer — I'm genuinely excited about this role and the mission. I've done some research on equity benchmarks for senior engineers at Series A companies, and the typical range is 0.25-0.75%. The current offer of 0.2% is below this range. Is there flexibility to get closer to 0.4%? I really want to make this work."</p>
+
+        <h3>Counter Using Alternative Offer</h3>
+        <p><em>Scenario:</em> Other offer at similar company for 0.5%</p>
+        <p>"I have another offer for a similar role at [Competitor] for 0.5% equity. I'm more excited about your company and the team — the mission aligns better with my interests. Would you be open to matching the 0.5%? I'd prefer to join your team."</p>
+
+        <h3>Counter When Equity Is Fixed</h3>
+        <p><em>Scenario:</em> They can't increase equity</p>
+        <p>"I understand the equity grant is fixed. Given that, is there flexibility on the base salary? I'd love to see that increased by $15K to better align with my total compensation expectations."</p>
+
+        <h3>Counter for Better Terms</h3>
+        <p><em>Scenario:</em> Everything is fixed except minor terms</p>
+        <p>"If the equity and salary are set, I'd love to discuss vesting terms. Would you be open to adding a single-trigger acceleration clause? If the company is acquired, I'd like 50% of my unvested equity to vest immediately."</p>
+
+        <div class="callout cta">
+            <strong>Try it yourself</strong>
+            <p>Use our free <a href="../evaluate-equity-offer.html">Equity Offer Calculator</a> to model your offer across different exit scenarios. See what your equity could be worth at various valuations.</p>
+            <a href="../evaluate-equity-offer.html" class="cta-button">Try Equity Offer Calculator Free &rarr;</a>
+        </div>
+
+        <div class="callout cta">
+            <strong>Free Equity Dilution Report</strong>
+            <p>Founders: See exactly how much equity you'll keep after each funding round. Get personalized analysis in 30 seconds.</p>
+            <a href="../equity-report.html" style="display:inline-block;background:var(--accent);color:white;padding:10px 24px;border-radius:8px;font-weight:700;text-decoration:none;font-size:0.9rem;">Generate Free Report &rarr;</a>
+        </div>
+
+        <div class="author-bio">
+            <div class="author-avatar">📊</div>
+            <div class="author-content">
+                <h4>About FounderMath</h4>
+                <p>We build the calculators founders and employees actually need. No spreadsheets, no confusion — just interactive tools that make startup equity math visual and intuitive. Join 500+ founders who get our weekly equity insights.</p>
+            </div>
+        </div>
+
+        <div class="related-posts">
+            <h3>Related Posts</h3>
+            <a href="../equity-glossary.html">Startup Equity Glossary — 50+ Terms →</a>
+            <a href="evaluate-equity-offer.html">How to Evaluate a Startup Equity Offer</a>
+            <a href="stock-options-worth-guide.html">How Much Are My Stock Options Worth?</a>
+            <a href="iso-vs-nso-guide.html">ISO vs NSO: Which Stock Option Type Is Better?</a>
+            <a href="rsus-vs-stock-options-guide.html">RSUs vs Stock Options: What Startup Employees Need to Know</a>
+            <a href="salary-vs-equity-guide.html">Employee Salary vs Equity: How to Structure Startup Compensation</a>
+            <a href="compare-equity-offers.html">How to Compare Startup Equity Offers</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="../dilution.html">Dilution Calculator</a></li>
+                <li><a href="../safe.html">SAFE Calculator</a></li>
+                <li><a href="../runway.html">Runway Calculator</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
