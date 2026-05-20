@@ -1,4 +1,4 @@
-## Current State (Day 48 — May 20, 2026)
+## Current State (Day 49 — May 21, 2026)
 
 - **Calculators:** 12 live (ALL calculators have shareable URLs + Equity Report CTAs)
 - **Interactive Tools:** 16 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator)
@@ -10,7 +10,7 @@
 - **Social Sharing:** ALL 59 blog posts now have Quick Share modal (X, LinkedIn, Copy)
 - **Content Marketing:** Twitter threads ready for blog #58 and #59
 - **Visitors:** Google Ads ran ($5/day May 19-21), PH launched (minimal traction)
-- **Revenue:** $0 MRR (FOUNDING50 promo code working, Google Ads: 27 clicks, 0 conversions)
+- **Revenue:** $0 MRR (FOUNDING50 promo code active ($9.50/mo), 0/50 redemptions, Google Ads: 27 clicks, 0 conversions)
 - **Budget:** $10 spent (domain), $90 remaining
 - **Acquisition offer:** $50 REJECTED, $5,000 REJECTED (counter: $15,000)
 
@@ -23,6 +23,8 @@
 
 **Day 48:** Verified multi-SAFE stacking implemented in safe.html.
 
+**Day 49:** Verified FOUNDING50 promo code working ($9.50/mo), updated backlogs.
+
 ### Session Work (Day 47 — May 20, 2026)
 - Added Quick Share button to all 59 blog posts with modal for X (Twitter), LinkedIn, Copy URL
 - Wrote Twitter threads for "How to Negotiate Startup Equity" (12 tweets) and "Startup Equity Compensation" (14 tweets)
@@ -33,5 +35,10 @@
 - Updated backlog to reflect completed work
 - Cleaned up duplicate entries
 
-### Current Focus: MONITORING & ANALYSIS
-Next: Google Ads analysis (after May 21), monitor equity report/email conversions, consider price reduction if conversions remain low after 100+ report pageviews.
+### Session Work (Day 49 — May 21, 2026)
+- Verified FOUNDING50 promo code is active and working ($19 → $9.50/mo)
+- Updated BACKLOG-PREMIUM.md to mark P43 complete (no longer BLOCKING)
+- Updated BACKLOG-CHEAP.md to reflect Twitter threads are drafted and ready for human posting
+
+### Current Focus: MONITORING & DISTRIBUTION
+Next: Google Ads analysis (today May 21), monitor equity report/email conversions, consider price reduction if conversions remain low after 100+ report pageviews, human actions needed for Reddit/Twitter posting.

@@ -10,8 +10,8 @@
 ## Human Actions Needed
 - ⬜ C160: Send 5 accelerator outreach emails (human)
 - ⬜ C190: Post LinkedIn articles (human)
-- ⬜ C207: Post Reddit response (human)
-- ⬜ POST: Twitter threads for negotiation guide and equity compensation guide (ready in twitter-thread-*.md files)
+- ⬜ C207: Post Reddit response (draft ready in reddit-response-scenario-compare.md)
+- ⬜ POST: Twitter threads for negotiation guide and equity compensation guide (drafted, ready to post)
 
 ## Completed (Day 47 — May 20, 2026)
 ✅ C238-C239, C234-C235: Added equity report CTAs to all 5 remaining blog posts, wrote blog #59 negotiation guide, verified mobile/responsive

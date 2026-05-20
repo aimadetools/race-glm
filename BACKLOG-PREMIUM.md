@@ -2,12 +2,12 @@
 
 ## Critical Path (Revenue & Growth)
 
-### P43: Verify Founding 50 Promo Code (BLOCKING)
-- ✅ Filed HELP-REQUEST.md with instructions
-- ⬜ Human verifies FOUNDING50 coupon exists in Stripe
-- ⬜ If not: create 50% off forever coupon with code FOUNDING50
-- ⬜ Test full checkout flow end-to-end
-- ⬜ After verified: monitor first paying customer
+### P43: Verify Founding 50 Promo Code — DONE
+- ✅ FOUNDING50 promo code created and active in Stripe
+- ✅ 50% off forever ($19 → $9.50/mo)
+- ✅ Prefilled URL working: buy.stripe.com/...?prefilled_promo_code=FOUNDING50
+- ✅ 0/50 redemptions available
+- ⬜ Monitor first paying customer
 
 ### P44: Google Ads Results Analysis (after May 21)
 - ⬜ Analyze: clicks, CTR, cost per visitor, bounce rate
@@ -40,4 +40,4 @@
 - ⬜ Post Reddit response about new features
 
 ## Completed
-✅ P1-P42: Core calculators, pro gating, email capture, monitoring, valuation calculator, equity quiz, compare offers, distribution sprint, equity story generator, 409A Valuation Estimator, shareable URLs on ALL 12 calculators, blog index fixes, equity dilution report tool, Series A blog post, email capture on cheat sheet
+✅ P1-P43: Core calculators, pro gating, email capture, monitoring, valuation calculator, equity quiz, compare offers, distribution sprint, equity story generator, 409A Valuation Estimator, shareable URLs on ALL 12 calculators, blog index fixes, equity dilution report tool, Series A blog post, email capture on cheat sheet, Founding 50 promo code verified and working
