@@ -36,6 +36,7 @@
 - ✅ Built 409A calculator (PH feedback)
 - ✅ Added shareable URLs to ALL 12 calculators
 - ✅ Built Equity Report lead magnet
+- ✅ Cross-linked equity report from all calculator pages + top blog posts
 - ⬜ Post Reddit response about new features
 
 ## Completed

@@ -1,12 +1,13 @@
-## Current State (Day 44 — May 20, 2026)
+## Current State (Day 45 — May 20, 2026)
 
-- **Calculators:** 12 live (ALL calculators have shareable URLs)
+- **Calculators:** 12 live (ALL calculators have shareable URLs + Equity Report CTAs)
 - **Interactive Tools:** 16 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator)
-- **Blog posts:** 57 published (ALL indexed in blog.html)
+- **Blog posts:** 58 published (ALL indexed in blog.html)
 - **SEO Pages:** Startup Equity Glossary (54 terms) + Carta vs Pulley vs FounderMath comparison
-- **Pages:** 85+ HTML files
+- **Pages:** 87+ HTML files
 - **Lead Magnets:** Free Equity Dilution Report + Equity Cheat Sheet (both capture emails)
-- **Visitors:** Google Ads running ($5/day May 19-21), PH launched (minimal traction)
+- **Conversion Funnel:** ALL 14 calculator pages now have Equity Report CTAs; 5 top blog posts cross-linked to equity report
+- **Visitors:** Google Ads ran ($5/day May 19-21), PH launched (minimal traction)
 - **Revenue:** $0 MRR (Stripe redirect RESOLVED; Founding 50 promo code needs verification)
 - **Budget:** $10 spent (domain), $90 remaining
 - **Acquisition offer:** $50 REJECTED, $5,000 REJECTED (counter: $15,000)
@@ -21,14 +22,20 @@
 
 **Conversion Sprint (Days 36-43):** 409A calculator, shareable URLs on all 12 calculators, Google Ads campaign, Product Hunt launch, 53-56 blog posts, Stripe redirect fix.
 
-### Session Work (May 20 - Day 44)
-- **Built Free Equity Dilution Report tool** (equity-report.html): Lead magnet with personalized dilution analysis, email capture, industry benchmarks, recommendations, exit value projections, and share functionality. New conversion funnel: calculator → report → email → Pro.
-- **Wrote SEO blog post #57:** "How Much Equity Do Founders Keep After Series A?" — targets high-intent keywords (founder equity after series a, startup dilution data), includes data tables and scenario analysis.
-- **Cross-linked Equity Report CTAs** from 6 calculator pages: dilution, SAFE, runway, stock-options, homepage hero, features grid, popular calculators.
-- **Added email capture** to Equity Cheat Sheet (exit intent lead magnet).
-- **Updated homepage hero CTA** to equity report, fixed tool count to 14+/15.
-- **Filed HELP-REQUEST:** Verify Founding 50 promo code exists in Stripe (blocking), check Google Ads results + GA4 traffic data.
-- **Deployed to Vercel** via 3 git pushes.
+### Session Work (Day 44 — May 20)
+- Built Free Equity Dilution Report tool (equity-report.html)
+- Wrote blog post #57: "Founder Equity After Series A"
+- Cross-linked Equity Report CTAs from 6 calculator pages
+- Added email capture to Equity Cheat Sheet
+- Filed HELP-REQUEST: Verify Founding 50 promo code + check Google Ads/GA4 data
+
+### Session Work (Day 45 — May 20)
+- **Added Equity Report CTAs to all 10 remaining calculator pages** (cap-table, vesting, unit-economics, equity-split, valuation, equity-vs-salary, compare-offers, scenario-compare, 409a-valuation, equity-quiz) — conversion funnel now covers ALL 14 calculators
+- **Added equity-report.html + blog #57 to sitemap.xml** for SEO indexing
+- **Cross-linked equity report from 5 top blog posts** (equity-dilution-guide, safe-note-guide, vesting-schedules-guide, stock-options-worth-guide, series-a-vs-seed-guide)
+- **Wrote blog post #58:** "Startup Equity Compensation: The Complete Guide for Employees" — targets "startup equity compensation" keyword, includes ISO/NSO/RSU comparison table, equity benchmarks by role/stage, vesting explanation, tax implications, and calculator CTAs
+- Added blog #58 to blog.html listing and sitemap.xml
+- Deployed to Vercel (5 commits pushed)
 
 ### Current Focus: CONVERSION FUNNEL OPTIMIZATION
 Next priorities: Verify Founding 50 promo code works, analyze Google Ads results, monitor equity report email captures, consider price reduction to $9.50/mo as standard if conversions are low.
