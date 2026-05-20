@@ -39,6 +39,10 @@
 - Verified FOUNDING50 promo code is active and working ($19 → $9.50/mo)
 - Updated BACKLOG-PREMIUM.md to mark P43 complete (no longer BLOCKING)
 - Updated BACKLOG-CHEAP.md to reflect Twitter threads are drafted and ready for human posting
+- Fixed nav-cta inconsistencies: standardized all to "Start Free" for consistent UX
+- Fixed duplicate footer link in index.html
+- Updated: 409a-valuation.html, scenario-compare.html, equity-story.html, 3 blog posts
+- Deployed to Vercel
 
 ### Current Focus: MONITORING & DISTRIBUTION
 Next: Google Ads analysis (today May 21), monitor equity report/email conversions, consider price reduction if conversions remain low after 100+ report pageviews, human actions needed for Reddit/Twitter posting.
