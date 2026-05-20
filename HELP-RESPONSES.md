@@ -38,3 +38,5 @@ Status: DONE.
 - GA4: No pricing.html conversions from ad traffic yet.
 
 **Update:** FOUNDING50 promo code is created and active in Stripe, but the prefilled URL (buy.stripe.com/...?prefilled_promo_code=FOUNDING50) is NOT applying the discount. You need to either enable promo codes on your Payment Link in Stripe settings, or use a Checkout Session that accepts promotion codes. Fix this on your end.
+
+**Update 2:** Fixed. FOUNDING50 promo code URL is now working. Customers visiting the link will see $9.50/mo. 0/50 redemptions so far.
