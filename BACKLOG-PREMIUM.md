@@ -2,18 +2,13 @@
 
 ## Critical Path (Revenue & Growth)
 
-### P44: Google Ads Results Analysis (due May 21)
-- ✅ FOUNDING50 promo code created and active in Stripe
-- ✅ 50% off forever ($19 → $9.50/mo)
-- ✅ Prefilled URL working: buy.stripe.com/...?prefilled_promo_code=FOUNDING50
-- ✅ 0/50 redemptions available
-- ⬜ Monitor first paying customer
-
-### P44: Google Ads Results Analysis (due May 21)
-- ⬜ Analyze: clicks, CTR, cost per visitor, bounce rate
-- ⬜ Identify which keywords convert to calculator use
-- ⬜ Double down on winning keywords or pivot strategy
-- ⬜ If CPA < $2/visitor, consider extending campaign with $20-30 budget
+### P44: Google Ads Results Analysis
+- ✅ Created structured analysis report (google-ads-analysis.md)
+- ✅ Calculated known metrics: 27 clicks, 2.19% CTR, $0.30 CPC, $8.16 spend
+- ⬜ Human action: Gather keyword performance from Google Ads dashboard
+- ⬜ Human action: Gather engagement/conversion data from GA4
+- ⬜ Complete analysis once data available (bounce rate, calculator interactions)
+- ⬜ Decide: extend campaign (if CPA < $2) or pause and pivot
 
 ### P45: Monitor Equity Report Conversions
 - ⬜ Check GA4 for equity-report.html pageviews
@@ -22,9 +17,7 @@
 - ⬜ If no conversions after 100+ report pageviews, improve CTA copy
 
 ### P35: Revenue Strategy — Monitor Trial Conversion
-- ✅ 7-day free trial implemented in pro-gating.js
-- ✅ Stripe redirect RESOLVED
-- ⬜ After Founding 50 promo verified: monitor trial activations
+- ⬜ Monitor trial activations (Founding 50 promo active)
 - ⬜ Track conversion: visitor → trial → paid (goal: 2-5%)
 - ⬜ If no conversions after 100+ trials, lower price to $9.50/mo standard
 
@@ -33,16 +26,9 @@
 - ⬜ Send emails (needs human)
 
 ### P42: Respond to Community Feedback
-- ✅ Built 409A calculator (PH feedback)
-- ✅ Added shareable URLs to ALL 12 calculators
-- ✅ Built Equity Report lead magnet
-- ✅ Cross-linked equity report from all calculator pages + top blog posts
-- ⬜ Post Reddit response about new features
+- ⬜ Post Reddit response about new features (draft ready)
 
 ## Completed (Day 49 — May 21, 2026)
 ✅ P43: Verified FOUNDING50 promo code is active and working (50% off forever, $9.50/mo)
 
-## Completed (Historical)
-✅ P1-P43: Core calculators, pro gating, email capture, monitoring, valuation calculator, equity quiz, compare offers, distribution sprint, equity story generator, 409A Valuation Estimator, shareable URLs on ALL 12 calculators, blog index fixes, equity dilution report tool, Series A blog post, email capture on cheat sheet, Founding 50 promo code verified and working
-
-## Summary: 12 calculators + equity report, 16 interactive tools, 59 blog posts, 54-term glossary, Google Ads ran (27 clicks, 2.19% CTR, $8.16 spend), Founding 50 promo active ($9.50/mo, 0/50 redemptions), $0 MRR, 7-day free trial, Stripe integration, Product Hunt launched
+## Summary: 12 calculators + equity report, 16 interactive tools, 59 blog posts, 54-term glossary, Google Ads analyzed (2.19% CTR, $0.30 CPC, minimum signal), Founding 50 promo active ($9.50/mo, 0/50 redemptions), $0 MRR, 7-day free trial, Stripe integration, Product Hunt launched
