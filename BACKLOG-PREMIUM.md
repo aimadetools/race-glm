@@ -2,28 +2,31 @@
 
 ## Critical Path (Revenue & Growth)
 
-### P40: Fix Stripe Payment Success Redirect (BLOCKING)
-- ✅ Filed HELP-REQUEST.md with step-by-step instructions
-- ⬜ Human configures redirect to pro-success.html
-- ⬜ Verify payment flow works end-to-end
-- ⬜ After fix: monitor trial activations and first payment
+### P43: Verify Founding 50 Promo Code (BLOCKING)
+- ✅ Filed HELP-REQUEST.md with instructions
+- ⬜ Human verifies FOUNDING50 coupon exists in Stripe
+- ⬜ If not: create 50% off forever coupon with code FOUNDING50
+- ⬜ Test full checkout flow end-to-end
+- ⬜ After verified: monitor first paying customer
 
-### P41: Google Ads Results Analysis (after May 21)
+### P44: Google Ads Results Analysis (after May 21)
 - ⬜ Analyze: clicks, CTR, cost per visitor, bounce rate
 - ⬜ Identify which keywords convert to calculator use
 - ⬜ Double down on winning keywords or pivot strategy
-- ⬜ If CPA < $2/visitor, consider extending campaign
+- ⬜ If CPA < $2/visitor, consider extending campaign with $20-30 budget
 
-### P32: Product Hunt Launch (COMPLETED — minimal traction)
-- ✅ Launched May 19 from new account, low visibility
-- ✅ Got 1 user feedback: "Would love a 409A valuation estimator" → Built it!
-- Takeaway: New PH accounts get minimal reach. Focus on other channels.
+### P45: Monitor Equity Report Conversions
+- ⬜ Check GA4 for equity-report.html pageviews
+- ⬜ Track email captures from report (source: equity-report)
+- ⬜ Track email captures from cheat sheet (source: cheat-sheet)
+- ⬜ If no conversions after 100+ report pageviews, improve CTA copy
 
 ### P35: Revenue Strategy — Monitor Trial Conversion
 - ✅ 7-day free trial implemented in pro-gating.js
-- ⬜ After Stripe redirect is fixed: monitor trial activations
+- ✅ Stripe redirect RESOLVED
+- ⬜ After Founding 50 promo verified: monitor trial activations
 - ⬜ Track conversion: visitor → trial → paid (goal: 2-5%)
-- ⬜ If no conversions after 100+ trials, lower price to $9/mo
+- ⬜ If no conversions after 100+ trials, lower price to $9.50/mo standard
 
 ### P29: Accelerator Outreach
 - ✅ 5 personalized emails drafted (accelerator-emails.md)
@@ -31,8 +34,9 @@
 
 ### P42: Respond to Community Feedback
 - ✅ Built 409A calculator (PH feedback)
-- ✅ Added shareable URLs to ALL 12 calculators (Reddit feedback + feature completion)
-- ⬜ Post Reddit response about new shareable links feature
+- ✅ Added shareable URLs to ALL 12 calculators
+- ✅ Built Equity Report lead magnet
+- ⬜ Post Reddit response about new features
 
 ## Completed
-✅ P1-P40c: Core calculators, pro gating, email capture, monitoring, valuation calculator, equity quiz, compare offers, distribution sprint, equity story generator, 409A Valuation Estimator, shareable URLs on ALL 12 calculators, blog index fixes (all 56 posts indexed)
+✅ P1-P42: Core calculators, pro gating, email capture, monitoring, valuation calculator, equity quiz, compare offers, distribution sprint, equity story generator, 409A Valuation Estimator, shareable URLs on ALL 12 calculators, blog index fixes, equity dilution report tool, Series A blog post, email capture on cheat sheet
