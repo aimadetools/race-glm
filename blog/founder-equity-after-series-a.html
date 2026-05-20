@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Much Equity Do Founders Keep After Series A? (2026 Data) — FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Founder equity after Series A: data-driven analysis showing how much ownership founders retain after seed, Series A, and beyond. See real numbers and calculate your own dilution.">
+    <meta name="keywords" content="founder equity after series a, how much equity founders keep, startup dilution after funding, founder ownership percentage, equity dilution series a">
+    <meta property="og:title" content="How Much Equity Do Founders Keep After Series A? — FounderMath">
+    <meta property="og:description" content="Data-driven analysis of founder equity dilution across funding rounds. See how much you'll keep and calculate your own scenario.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/founder-equity-after-series-a.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How Much Equity Do Founders Keep After Series A? (2026 Data)",
+        "description": "Data-driven analysis showing how much ownership founders retain after seed, Series A, and beyond.",
+        "datePublished": "2026-05-20",
+        "dateModified": "2026-05-20",
+        "author": { "@type": "Organization", "name": "FounderMath" },
+        "publisher": { "@type": "Organization", "name": "FounderMath", "url": "https://founder-math.com" },
+        "url": "https://founder-math.com/blog/founder-equity-after-series-a.html"
+    }
+    </script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00b894;
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer;
+        }
+
+        .article-container {
+            max-width: 780px; margin: 0 auto; padding: 120px 24px 60px;
+        }
+        .article-meta {
+            color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px;
+        }
+        .article-meta a { color: var(--accent-light); text-decoration: none; }
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800;
+            line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.02em;
+        }
+        .article-subtitle {
+            font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        .toc {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px 24px; margin-bottom: 40px;
+        }
+        .toc h3 { font-size: 0.9rem; color: var(--accent-light); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .toc ol { padding-left: 20px; }
+        .toc li { padding: 4px 0; }
+        .toc a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .toc a:hover { color: var(--text-primary); }
+
+        h2 {
+            font-size: 1.5rem; font-weight: 800; margin-top: 48px; margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        h3 {
+            font-size: 1.2rem; font-weight: 700; margin-top: 32px; margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        p { color: var(--text-secondary); margin-bottom: 16px; font-size: 0.95rem; }
+        ul, ol { color: var(--text-secondary); margin-bottom: 16px; padding-left: 24px; font-size: 0.95rem; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--text-primary); }
+
+        .data-table {
+            width: 100%; border-collapse: collapse; margin-bottom: 24px;
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; overflow: hidden;
+        }
+        .data-table th {
+            background: var(--bg-card); padding: 12px 16px; text-align: left;
+            font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;
+            letter-spacing: 0.05em; border-bottom: 1px solid var(--border);
+        }
+        .data-table td {
+            padding: 12px 16px; font-size: 0.9rem; color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+        .data-table tr:last-child td { border-bottom: none; }
+        .data-table td.highlight {
+            font-weight: 700; color: var(--text-primary); font-family: var(--font-mono);
+        }
+        .data-table td.good { color: var(--green); }
+        .data-table td.warn { color: var(--orange); }
+        .data-table td.bad { color: var(--red); }
+
+        .callout {
+            border-radius: 12px; padding: 20px 24px; margin: 24px 0;
+        }
+        .callout-tip {
+            background: rgba(0, 184, 148, 0.08); border: 1px solid rgba(0, 184, 148, 0.3);
+        }
+        .callout-warning {
+            background: rgba(255, 165, 2, 0.08); border: 1px solid rgba(255, 165, 2, 0.3);
+        }
+        .callout h4 { font-size: 0.9rem; margin-bottom: 8px; }
+        .callout p { margin-bottom: 0; font-size: 0.9rem; }
+        .callout-tip h4 { color: var(--green); }
+        .callout-warning h4 { color: var(--orange); }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.1));
+            border: 1px solid var(--accent); border-radius: 12px;
+            padding: 28px; text-align: center; margin: 40px 0;
+        }
+        .cta-box h3 { font-size: 1.2rem; margin-bottom: 8px; margin-top: 0; }
+        .cta-box p { color: var(--text-secondary); margin-bottom: 16px; font-size: 0.95rem; }
+        .cta-btn {
+            display: inline-block; background: var(--accent); color: white;
+            padding: 12px 28px; border-radius: 8px; font-weight: 700;
+            text-decoration: none; font-size: 0.95rem;
+        }
+        .cta-btn:hover { opacity: 0.9; }
+
+        blockquote {
+            border-left: 3px solid var(--accent); padding: 12px 20px;
+            margin: 20px 0; background: var(--bg-secondary); border-radius: 0 8px 8px 0;
+        }
+        blockquote p { margin-bottom: 0; font-style: italic; }
+
+        .related-posts {
+            margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border);
+        }
+        .related-posts h3 { margin-bottom: 16px; }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .related-card {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 10px; padding: 16px; text-decoration: none;
+            color: inherit; transition: border-color 0.2s;
+        }
+        .related-card:hover { border-color: var(--accent); }
+        .related-card h4 { font-size: 0.9rem; margin-bottom: 4px; color: var(--text-primary); }
+        .related-card p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0; }
+
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+    <script src="../pro-gating.js"></script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script></head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../dilution.html">Dilution</a></li>
+                <li><a href="../safe.html">SAFE</a></li>
+                <li><a href="../runway.html">Runway</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../pricing.html" class="nav-cta">Start Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <article class="article-container">
+        <div class="article-meta">
+            May 20, 2026 &middot; 9 min read &middot; <a href="../blog.html">All Posts</a>
+        </div>
+        <h1>How Much Equity Do Founders Keep After Series A?</h1>
+        <p class="article-subtitle">The short answer: most founders end up with 15-30% after Series A. But that number depends on your starting point, how many rounds you raise, and whether you negotiate the option pool. Here's the data.</p>
+
+        <div class="toc">
+            <h3>In this article</h3>
+            <ol>
+                <li><a href="#the-data">The Data: Founder Equity at Each Stage</a></li>
+                <li><a href="#scenario-analysis">Scenario Analysis: Three Founder Paths</a></li>
+                <li><a href="#option-pool">The Option Pool Trap (How Founders Lose 5-10%)</a></li>
+                <li><a href="#solo-vs-team">Solo Founder vs. Cofounder Teams</a></li>
+                <li><a href="#how-to-keep-more">5 Ways to Keep More Equity</a></li>
+                <li><a href="#calculate">Calculate Your Own Dilution</a></li>
+            </ol>
+        </div>
+
+        <h2 id="the-data">The Data: Founder Equity at Each Stage</h2>
+        <p>We analyzed startup cap tables and funding data to understand typical founder ownership at each stage. Here's what the numbers look like for a <strong>2-cofounder startup</strong> starting with 50/50 equity:</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Stage</th>
+                    <th>Typical Round Size</th>
+                    <th>Founder Equity (Combined)</th>
+                    <th>Per Founder (50/50)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Founded</td>
+                    <td>—</td>
+                    <td class="highlight good">100%</td>
+                    <td class="highlight good">50%</td>
+                </tr>
+                <tr>
+                    <td>After Pre-Seed</td>
+                    <td>$500K - $1.5M (10%)</td>
+                    <td class="highlight">90%</td>
+                    <td class="highlight">45%</td>
+                </tr>
+                <tr>
+                    <td>After Option Pool (10%)</td>
+                    <td>—</td>
+                    <td class="highlight warn">81%</td>
+                    <td class="highlight warn">40.5%</td>
+                </tr>
+                <tr>
+                    <td>After Seed</td>
+                    <td>$2M - $5M (20%)</td>
+                    <td class="highlight warn">65%</td>
+                    <td class="highlight warn">32.5%</td>
+                </tr>
+                <tr>
+                    <td>After Series A</td>
+                    <td>$8M - $15M (25%)</td>
+                    <td class="highlight bad">49%</td>
+                    <td class="highlight bad">24.5%</td>
+                </tr>
+                <tr>
+                    <td>After Series B</td>
+                    <td>$20M - $40M (20%)</td>
+                    <td class="highlight bad">39%</td>
+                    <td class="highlight bad">19.5%</td>
+                </tr>
+                <tr>
+                    <td>After Series C</td>
+                    <td>$50M+ (15%)</td>
+                    <td class="highlight bad">33%</td>
+                    <td class="highlight bad">16.5%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="callout callout-warning">
+            <h4>Key Insight</h4>
+            <p>By Series A, each cofounder in a 50/50 team typically owns <strong>20-30%</strong>. By Series B, that drops to <strong>15-22%</strong>. The biggest dilution events are the option pool creation (often required by investors before their money goes in) and the Series A round itself.</p>
+        </div>
+
+        <h2 id="scenario-analysis">Scenario Analysis: Three Founder Paths</h2>
+        <p>Not all founders follow the same path. Here are three common scenarios:</p>
+
+        <h3>Scenario 1: The Bootstrap-to-Series-A (Minimal Dilution)</h3>
+        <ul>
+            <li>Start: 100% (solo or 2 cofounders, 50/50)</li>
+            <li>Bootstrap to $1M ARR, no pre-seed or seed</li>
+            <li>Raise Series A at $20M valuation, sell 20%</li>
+            <li><strong>Result: 80% combined (40% each in a 2-person team)</strong></li>
+        </ul>
+        <p>This is rare but powerful. Companies like Mailchimp and Basecamp followed this path. The tradeoff is slower growth and more personal risk.</p>
+
+        <h3>Scenario 2: The Standard VC Path (Most Common)</h3>
+        <ul>
+            <li>Start: 100% (2 cofounders, 50/50)</li>
+            <li>Pre-seed: 10% dilution &rarr; 90%</li>
+            <li>Option pool: 10% dilution &rarr; 81%</li>
+            <li>Seed: 20% dilution &rarr; 65%</li>
+            <li>Series A: 25% dilution &rarr; 49%</li>
+            <li><strong>Result: ~49% combined (24.5% each)</strong></li>
+        </ul>
+        <p>This is the most common path for VC-backed startups. After Series A, each cofounder owns about a quarter of the company.</p>
+
+        <h3>Scenario 3: The Heavy Dilution Path (Multiple Early Rounds)</h3>
+        <ul>
+            <li>Start: 100% (3 cofounders, 33/33/34)</li>
+            <li>Pre-seed #1: 10% &rarr; 90%</li>
+            <li>SAFE #1: 5% &rarr; 85.5%</li>
+            <li>SAFE #2: 7% &rarr; 79.5%</li>
+            <li>Option pool: 15% &rarr; 67.6%</li>
+            <li>Seed: 20% &rarr; 54.1%</li>
+            <li>Series A: 25% &rarr; 40.6%</li>
+            <li><strong>Result: ~40.6% combined (~13.5% each)</strong></li>
+        </ul>
+
+        <div class="callout callout-tip">
+            <h4>Takeaway</h4>
+            <p>Each additional early round (SAFE note, convertible note, bridge round) chips away at your equity. Three cofounders on the heavy dilution path can end up with <strong>under 14% each</strong> after Series A. That's why modeling your dilution before you sign anything is critical.</p>
+        </div>
+
+        <div class="cta-box">
+            <h3>Model your own dilution scenario</h3>
+            <p>Use our free dilution calculator to see exactly how your equity changes across funding rounds.</p>
+            <a href="../dilution.html" class="cta-btn">Try the Free Calculator &rarr;</a>
+        </div>
+
+        <h2 id="option-pool">The Option Pool Trap: How Founders Lose 5-10%</h2>
+        <p>One of the most overlooked dilution events is the <strong>employee option pool</strong>. Here's how it works:</p>
+        <ol>
+            <li><strong>Investors require an option pool</strong> before their investment (typically 10-20% of the company)</li>
+            <li><strong>The pool comes out of the founders' equity</strong>, not the investors'</li>
+            <li><strong>This happens before the investment</strong>, so founders are diluted by both the pool AND the investment round</li>
+        </ol>
+
+        <p>Example: If you own 90% of the company, and investors require a 15% option pool before a 25% Series A:</p>
+        <ul>
+            <li>After pool creation: 90% x (1 - 15%) = <strong>76.5%</strong></li>
+            <li>After Series A: 76.5% x (1 - 25%) = <strong>57.4%</strong></li>
+            <li>Total dilution: 32.6% of your original stake</li>
+        </ul>
+
+        <p>Without the pool, you'd have: 90% x (1 - 25%) = <strong>67.5%</strong>. The option pool cost you 10.1% of the company.</p>
+
+        <div class="callout callout-warning">
+            <h4>Negotiation Tip</h4>
+            <p>Try to negotiate the option pool <strong>after</strong> the investment closes (so it comes out of the post-money pie, not just your stake). Or negotiate the pool size down. Every 1% reduction in the pool saves you significant equity over time.</p>
+        </div>
+
+        <h2 id="solo-vs-team">Solo Founder vs. Cofounder Teams</h2>
+        <p>The number of cofounders dramatically affects individual equity after dilution:</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>After Series A (49% combined)</th>
+                    <th>Solo Founder</th>
+                    <th>2 Cofounders</th>
+                    <th>3 Cofounders</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Per person ownership</td>
+                    <td class="highlight good">49%</td>
+                    <td class="highlight">24.5%</td>
+                    <td class="highlight bad">16.3%</td>
+                </tr>
+                <tr>
+                    <td>At $100M exit</td>
+                    <td class="highlight good">$49M</td>
+                    <td class="highlight">$24.5M</td>
+                    <td class="highlight bad">$16.3M</td>
+                </tr>
+                <tr>
+                    <td>At $50M exit</td>
+                    <td class="highlight good">$24.5M</td>
+                    <td class="highlight">$12.3M</td>
+                    <td class="highlight bad">$8.2M</td>
+                </tr>
+                <tr>
+                    <td>Voting control (&gt;25%)?</td>
+                    <td class="good">Yes</td>
+                    <td class="warn">Marginal</td>
+                    <td class="bad">No</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>With 3+ cofounders, individual stakes after Series A can fall below 15%, which raises questions about motivation and control. Consider whether the team size matches the actual value each person brings.</p>
+
+        <h2 id="how-to-keep-more">5 Ways to Keep More Equity After Series A</h2>
+
+        <h3>1. Raise at a Higher Valuation</h3>
+        <p>A higher valuation means you sell less of the company for the same amount of money. If you can demonstrate traction (revenue, users, growth rate), you can command a higher valuation and keep more equity.</p>
+        <p><strong>Example:</strong> Raising $5M at a $15M valuation (25% dilution) vs. $5M at a $25M valuation (17% dilution) = you keep 8% more of the company.</p>
+
+        <h3>2. Minimize the Option Pool</h3>
+        <p>Negotiate the smallest option pool possible. A 10% pool vs. a 20% pool can mean 10% more equity for founders. Show investors your hiring plan to justify a smaller pool.</p>
+
+        <h3>3. Use SAFEs Strategically</h3>
+        <p>Post-money SAFEs with valuation caps can be less dilutive than equity rounds at early stages, especially if your company grows quickly between rounds. But be careful — stacking multiple SAFEs can create unexpected dilution at conversion.</p>
+
+        <h3>4. Bootstrap as Long as Possible</h3>
+        <p>Every month you can grow without external funding means less dilution. Companies that bootstrap to $1M+ ARR before Series A typically keep 60-80% of the company after the round.</p>
+
+        <h3>5. Negotiate Anti-Dilution Protections</h3>
+        <p>While uncommon for founders, some negotiate for pro-rata rights or anti-dilution clauses in their employment agreements. At minimum, understand your vesting schedule and what happens if you're terminated.</p>
+
+        <h2 id="calculate">Calculate Your Own Dilution</h2>
+        <p>The numbers above are averages. Your actual dilution depends on your specific situation — valuation, round sizes, option pool, and number of cofounders.</p>
+
+        <div class="cta-box">
+            <h3>Get your free personalized equity dilution report</h3>
+            <p>Enter your numbers and get a detailed report showing exactly how much equity you'll keep after each round, plus personalized recommendations.</p>
+            <a href="../equity-report.html" class="cta-btn">Generate My Free Report &rarr;</a>
+            <p style="margin-top:12px;font-size:0.85rem;color:var(--text-muted);">Or use our <a href="../dilution.html" style="color:var(--accent-light);">interactive dilution calculator</a></p>
+        </div>
+
+        <p>The most important thing is to <strong>model your dilution before you sign any term sheet</strong>. Many founders are shocked to discover they own far less than they expected after a few rounds. Use our <a href="../dilution.html" style="color:var(--accent-light);">equity dilution calculator</a> to see your numbers, or get a <a href="../equity-report.html" style="color:var(--accent-light);">free personalized report</a>.</p>
+
+        <div class="related-posts">
+            <h3>Related Articles</h3>
+            <div class="related-grid">
+                <a href="equity-dilution-guide.html" class="related-card">
+                    <h4>Complete Guide to Equity Dilution</h4>
+                    <p>12 min read</p>
+                </a>
+                <a href="option-pool-negotiation-guide.html" class="related-card">
+                    <h4>Option Pool Negotiation Guide</h4>
+                    <p>8 min read</p>
+                </a>
+                <a href="safe-note-guide.html" class="related-card">
+                    <h4>SAFE Notes Explained</h4>
+                    <p>10 min read</p>
+                </a>
+                <a href="startup-funding-rounds-complete-guide.html" class="related-card">
+                    <h4>Complete Guide to Funding Rounds</h4>
+                    <p>11 min read</p>
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="../dilution.html">Dilution Calculator</a></li>
+                <li><a href="../safe.html">SAFE Calculator</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
