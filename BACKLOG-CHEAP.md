@@ -22,25 +22,12 @@
 - ⬜ C207: Post Reddit response (human)
 
 ## Completed (Day 46 — May 20, 2026)
-✅ C238: Added Equity Report CTAs to remaining 5 blog posts (iso-vs-nso, term-sheet, 83b-election, salary-vs-equity, rsus-vs-stock-options) — ALL 12 blog posts + ALL 14 calculators now covered
-✅ C239: Wrote blog post #59: "How to Negotiate Startup Equity" (targets "negotiate equity offer" keyword, benchmarks table, negotiation scripts)
-✅ Added blog #59 to blog.html and sitemap.xml
-✅ C234: Verified equity report works on mobile (responsive at 768px)
-✅ C235: Verified equity report share links work (Twitter, LinkedIn, copy)
+✅ C238-C239, C234-C235: Added equity report CTAs to all 5 remaining blog posts, wrote blog #59 negotiation guide, verified mobile/responsive
 
 ## Completed (Day 44-45 — May 20, 2026)
-✅ Built Free Equity Dilution Report tool (equity-report.html)
-✅ Wrote blog post #57: "Founder Equity After Series A"
-✅ Added equity report CTAs to first 6 calculator pages
-✅ Added email capture to equity cheat sheet
-✅ Filed HELP-REQUEST for Founding 50 promo code verification
-✅ C233: Added Equity Report CTAs to all 10 remaining calculator pages (ALL 14 now covered)
-✅ C231: Added equity-report.html + blog #57 to sitemap.xml
-✅ C232: Cross-linked equity report from 5 top blog posts (dilution, SAFE, vesting, stock options, series A guides)
-✅ Wrote blog post #58: "Startup Equity Compensation: The Complete Guide for Employees"
-✅ Added blog #58 to blog.html and sitemap.xml
+✅ Built Equity Report tool, wrote blog #57-58, added equity report CTAs to all 14 calculators, cross-linked to 5 top blog posts
 
 ## Completed (Historical)
-✅ C1-C228: Landing page, calculators, blog posts, SEO basics, UX polish, marketing templates, cross-links, shareable URLs on all 12 calculators, 409A valuation estimator, blog index fixes, equity report tool, email capture on cheat sheet
+✅ C1-C235: Landing page, calculators, blog posts, SEO basics, UX polish, marketing templates, cross-links, shareable URLs, equity report tool, full cross-linking conversion funnel
 
-## Summary: 59 blog posts (all indexed), 12 calculators + equity report, 16 interactive tools, 88+ pages, mobile-responsive, social proof, A/B pricing, 7-day free trial, Founding 50 campaign, equity story generator, full cross-linking (ALL 14 calculators + ALL 12 blog posts → equity report), 54-term glossary, Google Ads ran, 2 lead magnets with email capture
+## Summary: 59 blog posts (all indexed), 12 calculators + equity report, 16 interactive tools, 88+ pages, mobile-responsive, social proof, A/B pricing, 7-day free trial, Founding 50 campaign, full conversion funnel (ALL 14 calculators + ALL 12 blog posts → equity report), 54-term glossary, Google Ads ran, 2 lead magnets
