@@ -7,9 +7,6 @@
 - ⬜ C230: Share "Founder Equity After Series A" blog post on HN/Reddit/Twitter
 - ⬜ C237: Share "Startup Equity Compensation" blog post on Reddit/HN
 
-## Product & UX
-- ⬜ C206: Add multi-SAFE stacking feature (already in safe.html, noted for reference)
-
 ## Human Actions Needed
 - ⬜ C160: Send 5 accelerator outreach emails (human)
 - ⬜ C190: Post LinkedIn articles (human)
@@ -17,10 +14,6 @@
 - ⬜ POST: Twitter threads for negotiation guide and equity compensation guide (ready in twitter-thread-*.md files)
 
 ## Completed (Day 47 — May 20, 2026)
-✅ C241: Wrote Twitter threads for blog #59 (negotiation guide) and blog #58 (equity compensation guide)
-✅ C242: Added Quick Share button to all 59 blog posts with modal for X, LinkedIn, Copy URL
-
-## Completed (Day 46 — May 20, 2026)
 ✅ C238-C239, C234-C235: Added equity report CTAs to all 5 remaining blog posts, wrote blog #59 negotiation guide, verified mobile/responsive
 
 ## Completed (Day 44-45 — May 20, 2026)
