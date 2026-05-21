@@ -12,7 +12,7 @@
 ## SEO & Content
 - ⬜ C239: Check Google Search Console for pages starting to rank
 - ⬜ Add premium report CTAs to more high-traffic pages (blog posts, calculator pages)
-- ⬜ Add equity-vs-salary and equity-split calculators to Pro gating for scenario save
+- ✅ Added equity-vs-salary calculator to Pro gating for scenario save
 - ⬜ Improve pricing page CTA copy for better conversion
 
 ## Site Quality

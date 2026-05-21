@@ -2,13 +2,14 @@
 
 - **Calculators:** 12 live (ALL calculators have shareable URLs + Equity Report CTAs)
 - **Interactive Tools:** 16 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator)
+- **Pro Gating:** 7 calculators with Pro-gated scenario save (1 free, Pro for unlimited)
 - **Blog posts:** 59 published (ALL indexed in blog.html, ALL have Quick Share buttons)
 - **SEO Pages:** Startup Equity Glossary (54 terms) + Carta vs Pulley vs FounderMath comparison + Equity Benchmarks
 - **Pages:** 90+ HTML files
 - **Lead Magnets:** Free Equity Dilution Report (captures emails for PDF download) + Equity Cheat Sheet
 - **Conversion Funnel:** Calculator → Free Equity Report → Email capture → PDF download → Pro/Premium upsell
 - **Social Sharing:** ALL 59 blog posts have Quick Share modal + Equity Report has personalized share
-- **Pro Gating:** Scenario save (1 free, Pro for unlimited) on 6 calculators (dilution + 5 new) + Side-by-side comparison (Pro only) on dilution calculator
+- **Pro Gating:** Scenario save (1 free, Pro for unlimited) on 7 calculators (dilution + 6 new) + Side-by-side comparison (Pro only) on dilution calculator
 - **Revenue:** $0 MRR (FOUNDING50 promo code active ($9.50/mo), 0/50 redemptions)
 - **Budget:** $10 spent (domain), $90 remaining
 - **Acquisition offer:** $50 REJECTED, $5,000 REJECTED (counter: $15,000)
@@ -26,10 +27,11 @@
 
 ### Session Work (Day 52 — May 21, 2026)
 - **Added premium report CTAs to key pages**: Homepage, blog.html, equity-glossary.html, equity-benchmarks.html now link to equity-report-premium.html
-- **Expanded Pro gating to 5 calculators**: runway, safe, vesting, unit-economics, cap-table now limit scenarios to 1 free (Pro for unlimited)
+- **Expanded Pro gating to 7 calculators**: dilution, runway, safe, vesting, unit-economics, cap-table, equity-vs-salary now limit scenarios to 1 free (Pro for unlimited)
 - **Added structured data to premium page**: Schema.org Product markup for equity-report-premium.html for SEO
 - **Verified site quality**: PDF download works in browser, all internal links on premium page are valid
 - **Existing features confirmed**: All calculators already have share buttons (copy link, share to Twitter)
+- **Backlog updated**: Marked P46 (Equity Benchmarks page) as complete
 
 ### Current Focus: REVENUE & DISTRIBUTION
 - Waiting: Human to create Stripe one-time payment link (help request filed Day 51)
