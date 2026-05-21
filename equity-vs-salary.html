@@ -273,6 +273,107 @@
             }
         }
 
+        /* Scenarios UI */
+        .scenario-controls {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .scenario-select {
+            flex: 1;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-family: var(--font-sans);
+            cursor: pointer;
+        }
+        .scenario-select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .scenario-select option {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .scenario-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .scenario-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .scenario-btn.save {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+        .scenario-btn.save:hover {
+            background: var(--accent-light);
+            border-color: var(--accent-light);
+        }
+        .scenario-btn.delete {
+            color: var(--red);
+        }
+        .scenario-btn.delete:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+        .scenario-input {
+            width: 100%;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            display: none;
+        }
+        .scenario-input.show {
+            display: block;
+        }
+        .scenario-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        @media (max-width: 600px) {
+            .scenario-controls {
+                flex-direction: column;
+            }
+            .scenario-select {
+                width: 100%;
+            }
+        }
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--green);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
     </style>
 </head>
 <body>
@@ -372,6 +473,18 @@
             <div class="input-group">
                 <label for="yearsStay">Years at Company</label>
                 <input type="number" id="yearsStay" value="4" min="1" max="10" step="1" inputmode="numeric">
+            </div>
+        </div>
+
+        <div class="panel-section">
+            <div class="panel-title"><span>Saved Scenarios</span></div>
+            <input type="text" id="scenarioName" class="scenario-input" placeholder="Enter scenario name...">
+            <div class="scenario-controls">
+                <select id="scenarioSelect" class="scenario-select" onchange="loadScenario(this.value)" aria-label="Load saved scenario">
+                    <option value="">-- Load Scenario --</option>
+                </select>
+                <button class="scenario-btn save" onclick="showSaveScenario()" aria-label="Save current inputs as scenario">Save</button>
+                <button class="scenario-btn delete" id="deleteScenarioBtn" onclick="deleteScenario()" aria-label="Delete selected scenario" style="display:none;">Delete</button>
             </div>
         </div>
     </aside>
@@ -745,6 +858,158 @@ inputs.forEach(function(el) {
 // Initial render
 var initialResult = calculate();
 render(initialResult);
+
+// ============================================================
+// SCENARIO MANAGEMENT (Pro Gated)
+// ============================================================
+var SCENARIO_KEY = 'foundermath_evs_scenarios';
+
+function loadScenarios() {
+    var scenarios = [];
+    try {
+        scenarios = JSON.parse(localStorage.getItem(SCENARIO_KEY) || '[]');
+    } catch(e) {}
+    return scenarios;
+}
+
+function updateScenarioSelect() {
+    var select = document.getElementById('scenarioSelect');
+    var deleteBtn = document.getElementById('deleteScenarioBtn');
+    var scenarios = loadScenarios();
+    select.innerHTML = '<option value="">-- Load Scenario --</option>';
+    scenarios.forEach(function(s, i) {
+        select.innerHTML += '<option value="' + i + '">' + escHtml(s.name) + '</option>';
+    });
+    deleteBtn.style.display = scenarios.length > 0 ? '' : 'none';
+}
+
+function showSaveScenario() {
+    var input = document.getElementById('scenarioName');
+    input.classList.toggle('show');
+    if (input.classList.contains('show')) {
+        input.focus();
+        input.onkeydown = function onEnter(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                saveScenario();
+                input.removeEventListener('keydown', onEnter);
+            }
+        };
+    }
+}
+
+function saveScenario() {
+    var input = document.getElementById('scenarioName');
+    var name = input.value.trim();
+    if (!name) {
+        showToast('Please enter a scenario name');
+        return;
+    }
+
+    var scenarios = loadScenarios();
+    var existingIndex = -1;
+    scenarios.forEach(function(s, i) { if (s.name === name) existingIndex = i; });
+
+    // Pro gating: allow 1 saved scenario for free, require Pro for more
+    var isPro = window.FounderMathPro && (window.FounderMathPro.isPro() || window.FounderMathPro.isPaidPro());
+    if (!isPro && existingIndex < 0 && scenarios.length >= 1) {
+        if (window.FounderMathPro) {
+            window.FounderMathPro.requirePro('Save Multiple Scenarios', function() {
+                doSaveScenario(name, scenarios, existingIndex);
+            });
+        }
+        return;
+    }
+
+    doSaveScenario(name, scenarios, existingIndex);
+}
+
+function doSaveScenario(name, scenarios, existingIndex) {
+    var input = document.getElementById('scenarioName');
+    var scenarioData = {
+        name: name,
+        state: {
+            salaryA: parseFloat(document.getElementById('salaryA').value) || 0,
+            equityA: parseFloat(document.getElementById('equityA').value) / 100 || 0,
+            strikeA: parseFloat(document.getElementById('strikePriceA').value) || 0,
+            salaryB: parseFloat(document.getElementById('salaryB').value) || 0,
+            equityB: parseFloat(document.getElementById('equityB').value) / 100 || 0,
+            strikeB: parseFloat(document.getElementById('strikePriceB').value) || 0,
+            companyValue: parseFloat(document.getElementById('companyValue').value) || 50,
+            years: parseInt(document.getElementById('yearsStay').value) || 4
+        },
+        savedAt: new Date().toISOString()
+    };
+
+    if (existingIndex >= 0) {
+        scenarios[existingIndex] = scenarioData;
+    } else {
+        scenarios.push(scenarioData);
+    }
+
+    localStorage.setItem(SCENARIO_KEY, JSON.stringify(scenarios));
+    input.value = '';
+    input.classList.remove('show');
+    updateScenarioSelect();
+    showToast('Scenario saved!');
+    if (typeof gtag === 'function') gtag('event', 'scenario_saved', { calculator: 'equity-vs-salary' });
+}
+
+function loadScenario(index) {
+    if (index === '') return;
+    var scenarios = loadScenarios();
+    var scenario = scenarios[index];
+    if (!scenario) return;
+
+    document.getElementById('salaryA').value = scenario.state.salaryA;
+    document.getElementById('equityA').value = scenario.state.equityA * 100;
+    document.getElementById('strikePriceA').value = scenario.state.strikeA;
+    document.getElementById('salaryB').value = scenario.state.salaryB;
+    document.getElementById('equityB').value = scenario.state.equityB * 100;
+    document.getElementById('strikePriceB').value = scenario.state.strikeB;
+    document.getElementById('companyValue').value = scenario.state.companyValue;
+    document.getElementById('yearsStay').value = scenario.state.years;
+
+    var r = calculate();
+    render(r);
+    showToast('Scenario loaded!');
+    if (typeof gtag === 'function') gtag('event', 'scenario_loaded', { calculator: 'equity-vs-salary' });
+}
+
+function deleteScenario() {
+    var select = document.getElementById('scenarioSelect');
+    var index = select.value;
+    if (index === '') return;
+
+    var scenarios = loadScenarios();
+    scenarios.splice(parseInt(index), 1);
+    localStorage.setItem(SCENARIO_KEY, JSON.stringify(scenarios));
+    select.value = '';
+    updateScenarioSelect();
+    showToast('Scenario deleted!');
+}
+
+function showToast(msg) {
+    var toast = document.getElementById('toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast';
+        toast.className = 'toast';
+        document.body.appendChild(toast);
+    }
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2500);
+}
+
+function escHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+// Initialize scenario dropdown on load
+updateScenarioSelect();
 
 // ============================================================
 // SHARE FUNCTIONALITY
