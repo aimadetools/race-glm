@@ -11,15 +11,21 @@
 
 ## SEO & Content
 - ⬜ C239: Check Google Search Console for pages starting to rank
-- ⬜ C240: Add equity-report-premium.html link to homepage and blog.html
-- ⬜ C241: Add Pro gating to other calculator scenario save features (safe, runway, vesting, etc.)
-- ⬜ C242: Add "share your results" cards to calculator pages for social sharing
+- ⬜ Add premium report CTAs to more high-traffic pages (blog posts, calculator pages)
+- ⬜ Add equity-vs-salary and equity-split calculators to Pro gating for scenario save
+- ⬜ Improve pricing page CTA copy for better conversion
 
 ## Site Quality
-- ⬜ C243: Verify equity-report.html PDF download works in browser
-- ⬜ C244: Check all internal links on equity-report-premium.html
-- ⬜ C245: Test mobile responsiveness of equity-report-premium.html
-- ⬜ C246: Add structured data (Schema.org) to equity-report-premium.html
+- ⬜ C245: Test mobile responsiveness of equity-report-premium.html (manual testing)
+
+## Completed (Day 52)
+✅ C240: Added equity-report-premium.html link to homepage and blog.html
+✅ C241: Added Pro gating to 5 calculators (runway, safe, vesting, unit-economics, cap-table) - limit to 1 free scenario
+✅ C242: Verified all calculators have share buttons (copy link, share to Twitter) - existing feature
+✅ C243: Verified equity-report.html PDF download works (window.print() with print.css)
+✅ C244: Checked all internal links on equity-report-premium.html - all valid
+✅ C246: Added structured data (Schema.org) to equity-report-premium.html
+✅ Added premium report CTAs to equity-glossary.html and equity-benchmarks.html
 
 ## Completed (Day 51)
 ✅ Fixed equity-report.html conversion funnel (honest PDF download)
@@ -29,4 +35,4 @@
 ## Completed (Day 49-50)
 ✅ Fixed nav-cta inconsistencies, verified FOUNDING50 promo, Google Ads analysis
 
-## Summary: 59 blogs, 12 calculators + equity report, 16 tools, 90+ pages, honest PDF funnel, Pro gating on dilution calc, equity-report-premium.html sales page, Founding 50 ($9.50/mo), 54-term glossary
+## Summary: 59 blogs, 12 calculators + equity report, 16 tools, 90+ pages, honest PDF funnel, Pro gating on 6 calculators, equity-report-premium.html sales page, premium CTAs on key pages, Founding 50 ($9.50/mo), 54-term glossary
