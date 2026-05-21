@@ -2,14 +2,36 @@
     nav, footer, .nav-cta, .mobile-toggle, .share-bar,
     .calc-cta, .btn-share, .btn-primary, .btn-secondary,
     .toast, .add-btn, .remove-btn, .hero::before,
-    .page-header::before {
+    .page-header::before, .share-section, .share-buttons,
+    .email-gate, .pro-cta, #pdfDownloadArea,
+    .generate-btn, .form-section, .form-card {
         display: none !important;
     }
 
     body {
         background: white !important;
         color: #1a1a1a !important;
-        font-size: 12pt;
+        font-size: 11pt;
+    }
+
+    /* Report header for printed PDF */
+    .results-section::before {
+        content: "FounderMath Equity Dilution Report";
+        display: block;
+        font-size: 18pt;
+        font-weight: 800;
+        color: #6c5ce7;
+        margin-bottom: 4px;
+        padding-bottom: 8px;
+        border-bottom: 3px solid #6c5ce7;
+    }
+    .results-section::after {
+        content: "Generated on " attr(data-date) " | founder-math.com";
+        display: block;
+        font-size: 9pt;
+        color: #888;
+        margin-top: 4px;
+        margin-bottom: 24px;
     }
 
     .page-header {
@@ -45,7 +67,9 @@
     }
 
     .demo-card, .chart-section, .table-section, .summary-card,
-    .round-card, .milestone-card, .runway-gauge, .input-panel {
+    .round-card, .milestone-card, .runway-gauge, .input-panel,
+    .metric-card, .dilution-table-wrap, .chart-wrap,
+    .recommendations, .comparison-card {
         background: #f8f8f8 !important;
         border: 1px solid #ddd !important;
         break-inside: avoid;
@@ -61,7 +85,7 @@
         margin-bottom: 24px;
     }
 
-    .summary-cards {
+    .summary-cards, .key-metrics {
         grid-template-columns: repeat(2, 1fr) !important;
     }
 
@@ -73,7 +97,14 @@
     .ownership-table th,
     .ownership-table td,
     .breakdown-table th,
-    .breakdown-table td {
+    .breakdown-table td,
+    .dilution-table th,
+    .dilution-table td {
         border: 1px solid #ddd !important;
+    }
+
+    .results-section {
+        display: block !important;
+        max-width: 100% !important;
     }
 }

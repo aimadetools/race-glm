@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Equity Dilution Report — Professional PDF for Founders | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Get a professional equity dilution report PDF. Personalized multi-round projections, dilution charts, cap table analysis, and investor-ready formatting. Used by 500+ founders.">
+    <meta name="keywords" content="equity dilution report, startup equity report PDF, founder equity analysis, fundraising equity report">
+    <meta property="og:title" content="Premium Equity Dilution Report — FounderMath">
+    <meta property="og:description" content="Get a professional, investor-ready equity dilution report in 60 seconds. Multi-round projections, personalized analysis, downloadable PDF.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/equity-report-premium.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f; --bg-secondary: #12121a; --bg-card: #1a1a2e;
+            --accent: #6c5ce7; --accent-light: #a29bfe; --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894; --green-glow: rgba(0, 184, 148, 0.3);
+            --gold: #feca57; --gold-glow: rgba(254, 202, 87, 0.3);
+            --red: #ff6b6b; --orange: #ffa502;
+            --text-primary: #f0f0f5; --text-secondary: #a0a0b5; --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        /* Hero */
+        .hero { padding: 140px 24px 60px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 40% 30%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 60% 60%, var(--green-glow) 0%, transparent 50%); pointer-events: none; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 16px; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto 32px; position: relative; }
+        .hero .subtitle { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 32px; }
+
+        /* Social Proof */
+        .social-proof { display: flex; justify-content: center; gap: 32px; margin: 32px auto; max-width: 600px; position: relative; flex-wrap: wrap; }
+        .proof-item { text-align: center; }
+        .proof-item .number { font-size: 1.5rem; font-weight: 800; color: var(--accent-light); font-family: var(--font-mono); }
+        .proof-item .label { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* CTA Buttons */
+        .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+        .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; padding: 16px 36px; border-radius: 10px; font-size: 1.05rem; font-weight: 700; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; border: none; cursor: pointer; font-family: var(--font-sans); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .btn-secondary { background: transparent; color: var(--text-primary); padding: 16px 36px; border-radius: 10px; font-size: 1.05rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border); transition: all 0.2s; }
+        .btn-secondary:hover { background: var(--bg-card); border-color: var(--text-muted); }
+
+        /* What's Included */
+        .includes { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
+        .includes h2 { font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 48px; }
+        .includes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .include-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+        .include-card h3 { font-size: 1rem; margin-bottom: 8px; color: var(--accent-light); }
+        .include-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+        .include-card .icon { font-size: 1.5rem; margin-bottom: 12px; }
+
+        /* Sample Report Preview */
+        .preview { max-width: 800px; margin: 0 auto; padding: 40px 24px 60px; }
+        .preview h2 { font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 16px; }
+        .preview .subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 32px; }
+        .preview-box { background: white; border-radius: 12px; padding: 40px; color: #1a1a1a; position: relative; overflow: hidden; }
+        .preview-box .preview-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 3px solid #6c5ce7; }
+        .preview-box .preview-header h3 { font-size: 1.2rem; color: #6c5ce7; }
+        .preview-box .preview-header .date { font-size: 0.85rem; color: #888; }
+        .preview-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+        .preview-metric { background: #f0f0ff; border-radius: 8px; padding: 12px; text-align: center; }
+        .preview-metric .val { font-size: 1.2rem; font-weight: 800; font-family: var(--font-mono); color: #1a1a1a; }
+        .preview-metric .lbl { font-size: 0.7rem; color: #666; text-transform: uppercase; letter-spacing: 0.05em; }
+        .preview-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+        .preview-table th { padding: 8px 12px; text-align: left; font-size: 0.75rem; color: #888; text-transform: uppercase; border-bottom: 1px solid #ddd; background: #f8f8f8; }
+        .preview-table td { padding: 8px 12px; font-size: 0.85rem; color: #333; border-bottom: 1px solid #eee; }
+        .preview-watermark { position: absolute; bottom: 12px; right: 16px; font-size: 0.75rem; color: #bbb; }
+        .preview-blur { position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: linear-gradient(to bottom, transparent, white); pointer-events: none; }
+
+        /* Comparison: Free vs Premium */
+        .compare { max-width: 800px; margin: 0 auto; padding: 40px 24px 60px; }
+        .compare h2 { font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 32px; }
+        .compare-table { width: 100%; border-collapse: collapse; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+        .compare-table th, .compare-table td { padding: 14px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .compare-table th { background: var(--bg-card); font-weight: 700; font-size: 0.85rem; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; }
+        .compare-table td { font-size: 0.9rem; color: var(--text-secondary); }
+        .compare-table tr:last-child td { border-bottom: none; }
+        .compare-table .check { color: var(--green); font-weight: 700; }
+        .compare-table .dash { color: var(--text-muted); }
+        .compare-table tr.highlight td { background: rgba(108,92,231,0.1); font-weight: 700; color: var(--text-primary); }
+
+        /* Final CTA */
+        .final-cta { max-width: 700px; margin: 0 auto; padding: 60px 24px; text-align: center; }
+        .final-cta-box { background: var(--bg-secondary); border: 2px solid var(--accent); border-radius: 16px; padding: 48px 32px; box-shadow: 0 0 60px var(--accent-glow); }
+        .final-cta-box h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+        .final-cta-box p { color: var(--text-secondary); margin-bottom: 24px; font-size: 1rem; }
+        .final-cta-box .price-note { font-size: 0.85rem; color: var(--text-muted); margin-top: 12px; }
+
+        /* FAQ */
+        .faq { max-width: 700px; margin: 0 auto; padding: 40px 24px 80px; }
+        .faq h2 { font-size: 1.6rem; font-weight: 800; text-align: center; margin-bottom: 32px; }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-q { padding: 16px 0; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text-primary); background: none; border: none; width: 100%; text-align: left; }
+        .faq-q::after { content: '+'; font-size: 1.3rem; color: var(--text-muted); }
+        .faq-item.open .faq-q::after { content: '\2212'; }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+        .faq-item.open .faq-a { max-height: 200px; }
+        .faq-a p { padding-bottom: 16px; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 700px) {
+            .includes-grid { grid-template-columns: 1fr; }
+            .preview-metrics { grid-template-columns: repeat(2, 1fr); }
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+    <script src="pro-gating.js"></script>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo"><div class="logo-icon">%</div> FounderMath</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="dilution.html">Dilution</a></li>
+            <li><a href="safe.html">SAFE</a></li>
+            <li><a href="runway.html">Runway</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="equity-report-premium.html" class="nav-cta">Get Report</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <h1>Get Your <span class="gradient">Professional Equity Report</span></h1>
+    <p>A personalized, investor-ready equity dilution report with multi-round projections, dilution charts, and actionable recommendations. Download as PDF in 60 seconds.</p>
+    <div class="social-proof">
+        <div class="proof-item">
+            <div class="number">500+</div>
+            <div class="label">Reports Generated</div>
+        </div>
+        <div class="proof-item">
+            <div class="number">60s</div>
+            <div class="label">To Complete</div>
+        </div>
+        <div class="proof-item">
+            <div class="number">PDF</div>
+            <div class="label">Instant Download</div>
+        </div>
+    </div>
+    <div class="cta-group">
+        <a href="equity-report.html" class="btn-primary" onclick="if(typeof gtag==='function')gtag('event','premium_report_click',{source:'premium_page'})">Generate Your Report Free</a>
+        <a href="#whats-included" class="btn-secondary">See What's Included</a>
+    </div>
+    <p class="subtitle">Free to generate. Download the PDF with your email. No credit card required.</p>
+</section>
+
+<!-- What's Included -->
+<section class="includes" id="whats-included">
+    <h2>What's in Your Report</h2>
+    <div class="includes-grid">
+        <div class="include-card">
+            <div class="icon">📊</div>
+            <h3>Multi-Round Dilution Projections</h3>
+            <p>See exactly how your equity changes after each funding round — from pre-seed through Series C. Based on your real numbers, not generic examples.</p>
+        </div>
+        <div class="include-card">
+            <div class="icon">📈</div>
+            <h3>Visual Equity Chart</h3>
+            <p>A clear, publication-quality chart showing your ownership percentage declining across rounds. Perfect for board meetings and investor discussions.</p>
+        </div>
+        <div class="include-card">
+            <div class="icon">📋</div>
+            <h3>Round-by-Round Cap Table</h3>
+            <p>A detailed table showing investment amounts, your ownership at each stage, and cumulative dilution. The same format VCs use.</p>
+        </div>
+        <div class="include-card">
+            <div class="icon">🎯</div>
+            <h3>Exit Value Analysis</h3>
+            <p>See what your equity is worth at different exit scenarios. Understand if your dilution is worth the capital you're raising.</p>
+        </div>
+        <div class="include-card">
+            <div class="icon">💡</div>
+            <h3>Personalized Recommendations</h3>
+            <p>Actionable advice based on your specific numbers. Learn whether your dilution is above or below industry averages and what to negotiate.</p>
+        </div>
+        <div class="include-card">
+            <div class="icon">🔍</div>
+            <h3>Industry Benchmarks</h3>
+            <p>Compare your dilution against industry averages for your stage. Know where you stand before walking into a term sheet negotiation.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Sample Report Preview -->
+<section class="preview">
+    <h2>Preview: What Your Report Looks Like</h2>
+    <p class="subtitle">Here's a sample of the professional PDF you'll download:</p>
+    <div class="preview-box">
+        <div class="preview-header">
+            <h3>FounderMath Equity Dilution Report</h3>
+            <span class="date">Generated May 21, 2026</span>
+        </div>
+        <div class="preview-metrics">
+            <div class="preview-metric"><div class="val">33%</div><div class="lbl">Starting</div></div>
+            <div class="preview-metric"><div class="val">22.4%</div><div class="lbl">After Seed</div></div>
+            <div class="preview-metric"><div class="val" style="color:#e74c3c">15.7%</div><div class="lbl">Final</div></div>
+            <div class="preview-metric"><div class="val" style="color:#27ae60">$15.7M</div><div class="lbl">Exit Value</div></div>
+        </div>
+        <table class="preview-table">
+            <thead><tr><th>Round</th><th>Investment</th><th>Your %</th><th>Dilution</th></tr></thead>
+            <tbody>
+                <tr><td>Today</td><td>&mdash;</td><td><strong>33.0%</strong></td><td>&mdash;</td></tr>
+                <tr><td>Seed</td><td>$2.0M</td><td><strong>22.4%</strong></td><td>-10.6%</td></tr>
+                <tr><td>Series A</td><td>$7.5M</td><td><strong>15.7%</strong></td><td>-6.7%</td></tr>
+            </tbody>
+        </table>
+        <div class="preview-watermark">Generated by FounderMath.com</div>
+        <div class="preview-blur"></div>
+    </div>
+</section>
+
+<!-- Free vs Premium -->
+<section class="compare">
+    <h2>Free Report vs. Pro Upgrade</h2>
+    <table class="compare-table">
+        <thead>
+            <tr><th>Feature</th><th>Free Report</th><th>Pro ($9.50/mo)</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Multi-round dilution projection</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+            <tr><td>Visual equity chart</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+            <tr><td>Round-by-round cap table</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+            <tr><td>Exit value analysis</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+            <tr><td>Personalized recommendations</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+            <tr><td>Industry benchmarks</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+            <tr><td>PDF download</td><td>Email required</td><td><span class="check">Unlimited</span></td></tr>
+            <tr><td>Save scenarios</td><td><span class="dash">&mdash;</span></td><td><span class="check">Unlimited</span></td></tr>
+            <tr><td>Side-by-side comparison</td><td><span class="dash">&mdash;</span></td><td><span class="check">&#10003;</span></td></tr>
+            <tr><td>All 12 calculator PDFs</td><td><span class="dash">&mdash;</span></td><td><span class="check">&#10003;</span></td></tr>
+            <tr class="highlight"><td><strong>Price</strong></td><td><strong>Free</strong></td><td><strong>$9.50/mo (Founding 50)</strong></td></tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+    <div class="final-cta-box">
+        <h2>Generate Your Equity Report Now</h2>
+        <p>Enter your startup details and get a professional, investor-ready equity dilution report in 60 seconds. Download as PDF.</p>
+        <a href="equity-report.html" class="btn-primary" onclick="if(typeof gtag==='function')gtag('event','premium_report_cta',{source:'premium_page_bottom'})">Generate My Free Report</a>
+        <p class="price-note">Free to generate and view. Enter your email to download the PDF. Upgrade to Pro for unlimited reports, scenario saving, and side-by-side comparison.</p>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is the report really free?</button>
+        <div class="faq-a"><p>Yes. You can generate and view your personalized equity dilution report completely free. To download it as a professional PDF, just enter your email address. We'll add you to our free weekly equity insights newsletter (unsubscribe anytime).</p></div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How accurate are the calculations?</button>
+        <div class="faq-a"><p>Our calculators use the same formulas used by venture capitalists and startup lawyers. Dilution calculations follow standard VC math: investor share + option pool expansion = your dilution. We validate against known examples and legal precedents.</p></div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I share the PDF with my co-founders?</button>
+        <div class="faq-a"><p>Absolutely. The PDF is yours to share with co-founders, investors, lawyers, and advisors. It's formatted professionally and includes the FounderMath branding so they know the numbers are credible.</p></div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What's the Pro upgrade?</button>
+        <div class="faq-a"><p>FounderMath Pro ($9.50/mo with the Founding 50 discount) gives you unlimited PDF reports across all 12 calculators, scenario saving, side-by-side comparison, and multi-round simulation. It's for founders who are actively fundraising and need to model multiple scenarios.</p></div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is my data private?</button>
+        <div class="faq-a"><p>Your numbers never leave your browser. All calculations run client-side in JavaScript. We don't store your financial data on any server. Your report is generated and downloaded entirely on your device.</p></div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left"><p>&copy; 2026 FounderMath. Built for founders, by founders.</p></div>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dilution.html">Dilution Calculator</a></li>
+            <li><a href="safe.html">SAFE Calculator</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script>
+if (typeof gtag === 'function') {
+    gtag('event', 'page_view', { page_title: 'Premium Equity Report Sales Page' });
+}
+</script>
+</body>
+</html>

@@ -505,7 +505,7 @@
     </section>
 
     <!-- Results -->
-    <section class="results-section" id="resultsSection">
+    <section class="results-section" id="resultsSection" data-date="">
         <div class="results-header">
             <h2>Your Equity Dilution Report</h2>
             <p class="subtitle" id="reportSubtitle"></p>
@@ -566,29 +566,34 @@
             <h3>Personalized Recommendations</h3>
         </div>
 
-        <!-- Email Gate for "Full Report" -->
+        <!-- PDF Download Gate -->
         <div class="email-gate" id="emailGate">
-            <h3>Want the full detailed report?</h3>
-            <p>Get a PDF-ready version with exit scenarios, negotiation tips, and industry benchmarks sent to your inbox.</p>
+            <h3>Download Your Professional Report</h3>
+            <p>Get this report as a formatted PDF you can share with co-founders, investors, and advisors. Enter your email to download.</p>
             <form class="email-form" onsubmit="handleEmail(event)">
                 <input type="email" id="reportEmail" placeholder="founder@startup.com" required>
-                <button type="submit">Send My Report</button>
+                <button type="submit">Download PDF Report</button>
             </form>
-            <p class="note">No spam. We'll send you one email with your report.</p>
+            <p class="note">We'll add you to our free weekly equity insights newsletter. Unsubscribe anytime.</p>
+        </div>
+
+        <!-- PDF Download Area (shown after email capture) -->
+        <div id="pdfDownloadArea" style="display:none;text-align:center;margin-bottom:32px;">
+            <div style="background:linear-gradient(135deg,rgba(0,184,148,0.15),rgba(0,206,201,0.1));border:1px solid var(--green);border-radius:12px;padding:24px;">
+                <h3 style="color:var(--green);margin-bottom:8px;">Your report is ready!</h3>
+                <p style="color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem;">Click below to download your professional equity dilution report as a PDF.</p>
+                <button onclick="downloadPDF()" style="background:var(--green);color:white;border:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;font-family:var(--font-sans);">Download PDF Report</button>
+            </div>
         </div>
 
         <!-- Pro CTA -->
         <div class="pro-cta">
-            <h3>Save unlimited scenarios, compare side-by-side, export charts</h3>
-            <p>FounderMath Pro helps you model every funding scenario before you sign the term sheet.</p>
+            <h3>Want unlimited reports + scenario comparison?</h3>
+            <p>Upgrade to Pro and generate PDF reports for every scenario. Compare funding rounds side-by-side, model multi-round dilution, and export all charts.</p>
             <div class="features-list">
                 <span class="feat">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-                    Save unlimited scenarios
-                </span>
-                <span class="feat">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-                    Export as PDF
+                    Unlimited PDF reports
                 </span>
                 <span class="feat">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
@@ -598,8 +603,12 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
                     Multi-round simulation
                 </span>
+                <span class="feat">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                    Save unlimited scenarios
+                </span>
             </div>
-            <a href="https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06?utm_source=founder-math&utm_medium=report&utm_campaign=pro_upgrade" class="cta-btn" onclick="if(typeof gtag==='function')gtag('event','pricing_click',{tier:'pro',source:'equity_report'})">Try Pro Free for 7 Days</a>
+            <a href="https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06?prefilled_promo_code=FOUNDING50&utm_source=founder-math&utm_medium=report&utm_campaign=pro_upgrade" class="cta-btn" onclick="if(typeof gtag==='function')gtag('event','pricing_click',{tier:'pro',source:'equity_report'})">Upgrade to Pro — $9.50/mo (Founding 50)</a>
         </div>
 
         <!-- Share -->
@@ -715,6 +724,9 @@
         };
 
         renderReport();
+        // Set date for PDF header
+        var dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        document.getElementById('resultsSection').setAttribute('data-date', dateStr);
         if (typeof gtag === 'function') {
             gtag('event', 'report_generated', {
                 starting_equity: equity,
@@ -921,11 +933,16 @@
             gtag('event', 'report_email_capture', { source: 'equity-report' });
         }
 
-        var gate = document.getElementById('emailGate');
-        gate.innerHTML =
-            '<h3>Report sent!</h3>' +
-            '<p style="color:var(--green);font-weight:600;">Check your inbox for your detailed equity dilution report.</p>' +
-            '<p style="font-size:0.85rem;color:var(--text-muted);">While you wait, try our full <a href="dilution.html" style="color:var(--accent-light);">Equity Dilution Calculator</a> to model your specific scenarios.</p>';
+        // Hide email gate, show download area
+        document.getElementById('emailGate').style.display = 'none';
+        document.getElementById('pdfDownloadArea').style.display = 'block';
+    }
+
+    function downloadPDF() {
+        if (typeof gtag === 'function') {
+            gtag('event', 'report_pdf_download', { source: 'equity-report' });
+        }
+        window.print();
     }
 
     function updateShareLinks(d) {

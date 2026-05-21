@@ -1780,6 +1780,23 @@
 
         const scenarios = JSON.parse(localStorage.getItem('foundermath_dilution_scenarios') || '[]');
         const existingIndex = scenarios.findIndex(s => s.name === name);
+
+        // Pro gating: allow 1 saved scenario for free, require Pro for more
+        const isPro = window.FounderMathPro && (window.FounderMathPro.isPro() || window.FounderMathPro.isPaidPro());
+        if (!isPro && existingIndex < 0 && scenarios.length >= 1) {
+            if (window.FounderMathPro) {
+                window.FounderMathPro.requirePro('Save Multiple Scenarios', function() {
+                    doSaveScenario(name, scenarios, existingIndex);
+                });
+            }
+            return;
+        }
+
+        doSaveScenario(name, scenarios, existingIndex);
+    }
+
+    function doSaveScenario(name, scenarios, existingIndex) {
+        const input = document.getElementById('scenarioName');
         const scenarioData = {
             name: name,
             state: state,
@@ -2660,6 +2677,20 @@
 
     <script>
         function openCompareModal() {
+            // Gate comparison behind Pro
+            if (window.FounderMathPro) {
+                var isPro = window.FounderMathPro.isPro() || window.FounderMathPro.isPaidPro();
+                if (!isPro) {
+                    window.FounderMathPro.requirePro('Side-by-Side Comparison', function() {
+                        doOpenCompareModal();
+                    });
+                    return;
+                }
+            }
+            doOpenCompareModal();
+        }
+
+        function doOpenCompareModal() {
             const scenarios = JSON.parse(localStorage.getItem('foundermath_dilution_scenarios') || '[]');
             const select1 = document.getElementById('compareScenario1');
             const select2 = document.getElementById('compareScenario2');
