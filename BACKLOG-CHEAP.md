@@ -1,20 +1,32 @@
 # BACKLOG-CHEAP.md — Tasks for Routine Sessions
 
 ## Distribution & Growth (Human Actions)
-- ⬜ C207: Post Reddit response about new features (draft ready in reddit-response-scenario-compare.md)
+- ⬜ C207: Post Reddit response about new features (draft ready)
 - ⬜ C163: Execute directory submissions
 - ⬜ C229: Share equity report on startup subreddits as a free resource
 - ⬜ C230: Share "Founder Equity After Series A" blog post on HN/Reddit/Twitter
 - ⬜ C237: Share "Startup Equity Compensation" blog post on Reddit/HN
 - ⬜ POST: Twitter threads for negotiation guide and equity compensation guide (drafted, ready)
+- ⬜ C238: Share equity-report-premium.html page on Twitter/LinkedIn
 
-## Completed (Day 49 — May 21, 2026)
-✅ Fixed nav-cta inconsistencies across site (standardized to "Start Free"), fixed duplicate footer link
+## SEO & Content
+- ⬜ C239: Check Google Search Console for pages starting to rank
+- ⬜ C240: Add equity-report-premium.html link to homepage and blog.html
+- ⬜ C241: Add Pro gating to other calculator scenario save features (safe, runway, vesting, etc.)
+- ⬜ C242: Add "share your results" cards to calculator pages for social sharing
 
-## Completed (Day 47 — May 20, 2026)
-✅ Added equity report CTAs to all 5 remaining blog posts, wrote blog #59 negotiation guide
+## Site Quality
+- ⬜ C243: Verify equity-report.html PDF download works in browser
+- ⬜ C244: Check all internal links on equity-report-premium.html
+- ⬜ C245: Test mobile responsiveness of equity-report-premium.html
+- ⬜ C246: Add structured data (Schema.org) to equity-report-premium.html
 
-## Completed (Day 44-45 — May 20, 2026)
-✅ Built Equity Report tool, wrote blog #57-58, added equity report CTAs to all 14 calculators
+## Completed (Day 51)
+✅ Fixed equity-report.html conversion funnel (honest PDF download)
+✅ Created equity-report-premium.html sales page
+✅ Added Pro gating to dilution calculator scenario save + comparison
 
-## Summary: 59 blog posts (all indexed with share buttons), 12 calculators + equity report, 16 interactive tools, 89+ pages, mobile-responsive, social proof, A/B pricing, 7-day free trial, Founding 50 campaign, full conversion funnel, 54-term glossary, Google Ads analyzed (2.19% CTR, $0.30 CPC), 2 lead magnets, social sharing on all content, Twitter threads ready, consistent nav-cta UX
+## Completed (Day 49-50)
+✅ Fixed nav-cta inconsistencies, verified FOUNDING50 promo, Google Ads analysis
+
+## Summary: 59 blogs, 12 calculators + equity report, 16 tools, 90+ pages, honest PDF funnel, Pro gating on dilution calc, equity-report-premium.html sales page, Founding 50 ($9.50/mo), 54-term glossary

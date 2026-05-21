@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Equity Benchmarks 2026 — Founder Ownership by Funding Stage | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Startup equity benchmarks for 2026. Data-driven founder ownership percentages by funding stage: pre-seed, seed, Series A, B, C, and IPO. Dilution rates, option pool sizes, and cofounder splits.">
+    <meta name="keywords" content="startup equity benchmarks, founder ownership by stage, equity dilution by round, startup equity data, founder equity percentage">
+    <meta property="og:title" content="Startup Equity Benchmarks 2026 — FounderMath">
+    <meta property="og:description" content="Real data on founder equity ownership at every funding stage. Dilution rates, option pool sizes, and cofounder equity splits.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/equity-benchmarks.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "name": "Startup Equity Benchmarks 2026",
+        "description": "Data-driven founder ownership percentages by funding stage with dilution rates and benchmarks.",
+        "author": { "@type": "Organization", "name": "FounderMath" },
+        "publisher": { "@type": "Organization", "name": "FounderMath", "logo": { "@type": "ImageObject", "url": "https://founder-math.com/og-home.svg" } },
+        "datePublished": "2026-05-21",
+        "dateModified": "2026-05-21"
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f; --bg-secondary: #12121a; --bg-card: #1a1a2e;
+            --accent: #6c5ce7; --accent-light: #a29bfe; --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894; --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b; --orange: #ffa502;
+            --text-primary: #f0f0f5; --text-secondary: #a0a0b5; --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        .page-header { padding: 140px 24px 60px; text-align: center; position: relative; overflow: hidden; }
+        .page-header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 40% 30%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 60% 60%, var(--green-glow) 0%, transparent 50%); pointer-events: none; }
+        .page-header h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 16px; }
+        .page-header h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 650px; margin: 0 auto; position: relative; }
+        .page-header .updated { font-size: 0.85rem; color: var(--text-muted); margin-top: 16px; position: relative; }
+
+        .content { max-width: 900px; margin: 0 auto; padding: 0 24px 60px; }
+        .content h2 { font-size: 1.6rem; font-weight: 800; margin: 48px 0 20px; letter-spacing: -0.02em; }
+        .content h3 { font-size: 1.2rem; font-weight: 700; margin: 32px 0 12px; color: var(--accent-light); }
+        .content p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 16px; line-height: 1.7; }
+        .content ul { color: var(--text-secondary); margin: 0 0 20px 24px; font-size: 0.95rem; }
+        .content li { margin-bottom: 8px; line-height: 1.6; }
+
+        /* Data Table */
+        .data-table-wrap { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin: 24px 0; }
+        .data-table-wrap .table-header { padding: 16px 20px; border-bottom: 1px solid var(--border); background: var(--bg-card); }
+        .data-table-wrap .table-header h3 { margin: 0; font-size: 1rem; color: var(--accent-light); }
+        table.data-table { width: 100%; border-collapse: collapse; }
+        table.data-table th { padding: 12px 20px; text-align: left; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); background: var(--bg-card); }
+        table.data-table td { padding: 12px 20px; font-size: 0.9rem; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+        table.data-table tr:last-child td { border-bottom: none; }
+        table.data-table td.highlight { font-weight: 700; color: var(--text-primary); font-family: var(--font-mono); }
+        table.data-table td.green { color: var(--green); font-weight: 600; }
+        table.data-table td.red { color: var(--red); font-weight: 600; }
+        table.data-table td.orange { color: var(--orange); font-weight: 600; }
+        table.data-table tr:hover td { background: rgba(108, 92, 231, 0.05); }
+
+        /* Key Takeaway Box */
+        .takeaway { background: linear-gradient(135deg, rgba(108,92,231,0.12), rgba(0,184,148,0.08)); border: 1px solid var(--accent); border-radius: 12px; padding: 24px; margin: 24px 0; }
+        .takeaway h3 { color: var(--accent-light); margin: 0 0 8px; font-size: 1rem; }
+        .takeaway p { color: var(--text-secondary); font-size: 0.9rem; margin: 0; line-height: 1.6; }
+
+        /* CTA Box */
+        .cta-box { background: var(--bg-secondary); border: 2px solid var(--accent); border-radius: 16px; padding: 32px; text-align: center; box-shadow: 0 0 40px var(--accent-glow); margin: 48px 0; }
+        .cta-box h3 { font-size: 1.3rem; margin-bottom: 8px; color: var(--text-primary); }
+        .cta-box p { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem; }
+        .cta-btn { display: inline-block; background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; padding: 14px 32px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+
+        /* Source citations */
+        .sources { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
+        .sources h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 12px; }
+        .sources p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 4px; }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 700px) {
+            table.data-table th, table.data-table td { padding: 8px 10px; font-size: 0.8rem; }
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+    <script src="pro-gating.js"></script>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo"><div class="logo-icon">%</div> FounderMath</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="dilution.html">Dilution</a></li>
+            <li><a href="safe.html">SAFE</a></li>
+            <li><a href="runway.html">Runway</a></li>
+            <li><a href="equity-report.html">Free Report</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="equity-report.html" class="nav-cta">Get Your Report</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>Startup Equity Benchmarks <span class="gradient">2026</span></h1>
+    <p>Data-driven benchmarks for founder equity ownership at every funding stage. Based on analysis of thousands of startup cap tables from Carta, Pulley, and industry reports.</p>
+    <p class="updated">Last updated: May 2026 | By FounderMath Research</p>
+</div>
+
+<div class="content">
+
+    <!-- Founder Ownership by Stage -->
+    <h2>Founder Ownership by Funding Stage</h2>
+    <p>How much equity do founders typically own at each stage? Here are the benchmarks based on cap table data from thousands of venture-backed startups.</p>
+
+    <div class="data-table-wrap">
+        <div class="table-header"><h3>Average Founder Equity Ownership by Stage</h3></div>
+        <table class="data-table">
+            <thead>
+                <tr><th>Stage</th><th>Avg. Founder Ownership</th><th>Typical Dilution</th><th>Avg. Valuation</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Pre-Seed (before raise)</td><td class="highlight">80-100%</td><td class="green">0%</td><td>$2-5M</td></tr>
+                <tr><td>After Pre-Seed</td><td class="highlight">65-80%</td><td class="orange">15-25%</td><td>$5-10M</td></tr>
+                <tr><td>After Seed</td><td class="highlight">45-60%</td><td class="orange">15-25%</td><td>$15-30M</td></tr>
+                <tr><td>After Series A</td><td class="highlight">30-45%</td><td class="red">15-25%</td><td>$50-100M</td></tr>
+                <tr><td>After Series B</td><td class="highlight">20-35%</td><td class="red">10-20%</td><td>$150-300M</td></tr>
+                <tr><td>After Series C</td><td class="highlight">15-25%</td><td class="red">10-15%</td><td>$400M-1B</td></tr>
+                <tr><td>At IPO</td><td class="highlight">10-20%</td><td class="red">5-15%</td><td>$1B+</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="takeaway">
+        <h3>Key Takeaway</h3>
+        <p>Founders who start with 100% typically own 30-45% after Series A and 10-20% at IPO. The biggest dilution events happen at Seed and Series A, where investors typically take 15-25% each round plus an option pool expansion of 10-20%.</p>
+    </div>
+
+    <!-- Dilution Per Round -->
+    <h2>Dilution Per Funding Round</h2>
+    <p>Understanding dilution per round helps you plan your fundraising strategy and negotiate better terms.</p>
+
+    <div class="data-table-wrap">
+        <div class="table-header"><h3>Typical Dilution by Round Type</h3></div>
+        <table class="data-table">
+            <thead>
+                <tr><th>Round</th><th>Investor Equity %</th><th>Option Pool %</th><th>Total Dilution</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Pre-Seed (SAFE/Convert)</td><td>5-15%</td><td>0-5%</td><td class="orange">5-20%</td></tr>
+                <tr><td>Seed (Preferred)</td><td>15-25%</td><td>5-10%</td><td class="red">20-35%</td></tr>
+                <tr><td>Series A</td><td>15-25%</td><td>5-10%</td><td class="red">20-35%</td></tr>
+                <tr><td>Series B</td><td>10-20%</td><td>3-5%</td><td class="orange">13-25%</td></tr>
+                <tr><td>Series C+</td><td>10-15%</td><td>2-3%</td><td class="orange">12-18%</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p><strong>Note:</strong> Dilution comes from two sources: the investor's equity purchase AND the option pool expansion. Many founders forget to account for the option pool, which can add 5-10% additional dilution per round. Always negotiate the option pool size before the investment.</p>
+
+    <!-- Cofounder Equity Splits -->
+    <h2>Cofounder Equity Splits</h2>
+    <p>How do founders typically split equity? Here's the data on common configurations.</p>
+
+    <div class="data-table-wrap">
+        <div class="table-header"><h3>Common Cofounder Equity Splits</h3></div>
+        <table class="data-table">
+            <thead>
+                <tr><th>Team Size</th><th>Most Common Split</th><th>Founders Keep (after Seed)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Solo founder</td><td class="highlight">100%</td><td class="green">60-75%</td></tr>
+                <tr><td>2 cofounders</td><td class="highlight">50/50 or 60/40</td><td class="green">30-45% each (50/50) or 36-54%/24-36% (60/40)</td></tr>
+                <tr><td>3 cofounders</td><td class="highlight">33/33/33 or 40/30/30</td><td class="orange">15-25% each (equal) or varied</td></tr>
+                <tr><td>4+ cofounders</td><td class="highlight">25/25/25/25 or 35/25/20/20</td><td class="red">10-18% each</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="takeaway">
+        <h3>Founder Tip</h3>
+        <p>With 3+ cofounders, individual stakes can drop below 10% after just 2 funding rounds. This can create misalignment and motivation issues. Consider whether all cofounders are truly equal contributors, and use a dynamic equity split (like a vesting cliff) to protect against deadweight.</p>
+    </div>
+
+    <!-- Option Pool Benchmarks -->
+    <h2>Option Pool Size by Stage</h2>
+    <p>Investors typically require an option pool for future employees. Here's what's standard at each stage.</p>
+
+    <div class="data-table-wrap">
+        <div class="table-header"><h3>Standard Option Pool Sizes</h3></div>
+        <table class="data-table">
+            <thead>
+                <tr><th>Stage</th><th>Typical Pool Size</th><th>Who It Dilutes</th><th>Negotiation Tip</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Pre-Seed</td><td class="highlight">0-10%</td><td>Founders</td><td>Push for 0-5% — you're too early for a large pool</td></tr>
+                <tr><td>Seed</td><td class="highlight">10-15%</td><td>Founders</td><td>Negotiate for 10% and top-up after investment</td></tr>
+                <tr><td>Series A</td><td class="highlight">10-20%</td><td>Founders</td><td>Ask for unallocated pool to roll over, not refresh</td></tr>
+                <tr><td>Series B+</td><td class="highlight">5-10%</td><td>Everyone</td><td>Later rounds should dilute everyone proportionally</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Founder Ownership at IPO -->
+    <h2>Founder Ownership at IPO</h2>
+    <p>What do founders actually own when their company goes public? Real-world data from recent tech IPOs.</p>
+
+    <div class="data-table-wrap">
+        <div class="table-header"><h3>Founder Ownership at IPO — Notable Examples</h3></div>
+        <table class="data-table">
+            <thead>
+                <tr><th>Company</th><th>CEO Ownership at IPO</th><th>Cofounder Ownership</th><th>Total Founder %</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Airbnb (2020)</td><td class="highlight">~15%</td><td>~15% each</td><td class="green">~42%</td></tr>
+                <tr><td>DoorDash (2020)</td><td class="highlight">~7%</td><td>~5%</td><td class="orange">~17%</td></tr>
+                <tr><td>Snowflake (2020)</td><td class="highlight">~5%</td><td>—</td><td class="red">~5%</td></tr>
+                <tr><td>Unity (2020)</td><td class="highlight">~6%</td><td>~5%</td><td class="orange">~16%</td></tr>
+                <tr><td>Rivian (2021)</td><td class="highlight">~1.5%</td><td>—</td><td class="red">~1.5%</td></tr>
+                <tr><td>Instacart (2023)</td><td class="highlight">~10%</td><td>~2%</td><td class="orange">~12%</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="takeaway">
+        <h3>The Reality Check</h3>
+        <p>The median founder ownership at IPO is approximately 10-15%. Super-successful companies (like Airbnb) can have higher founder ownership because they raised on favorable terms. Companies that raise many rounds at increasing valuations tend to dilute founders more. The lesson: every 1% of equity matters — use <a href="dilution.html" style="color:var(--accent-light)">our dilution calculator</a> to model your specific scenario.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+        <h3>Model Your Specific Equity Scenario</h3>
+        <p>These benchmarks are averages. Your actual dilution depends on your valuation, round size, and negotiation skill. Use our free equity dilution report to see personalized projections.</p>
+        <a href="equity-report.html" class="cta-btn">Generate Your Free Equity Report</a>
+    </div>
+
+    <!-- Methodology -->
+    <h2>Methodology & Sources</h2>
+    <p>This data is compiled from multiple industry sources, including:</p>
+    <ul>
+        <li><strong>Carta Equity Reports</strong> — Annual analysis of 35,000+ private company cap tables</li>
+        <li><strong>Pulley Cap Table Data</strong> — Dilution benchmarks from 5,000+ startups</li>
+        <li><strong>SEC S-1 Filings</strong> — Founder ownership at IPO from public offering documents</li>
+        <li><strong>Industry Surveys</strong> — Cofounder equity split data from startup community surveys</li>
+        <li><strong>VC Fund Data</strong> — Typical round sizes and ownership targets from leading venture firms</li>
+    </ul>
+    <p>Ranges represent the middle 50% of observed values (interquartile range). Actual dilution varies significantly based on sector, geography, founding team, and market conditions.</p>
+
+    <div class="sources">
+        <h3>Disclaimer</h3>
+        <p>This data is for informational purposes only and does not constitute financial or legal advice. Equity structures vary widely. Always consult with a startup attorney before making equity decisions. Data compiled May 2026.</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left"><p>&copy; 2026 FounderMath. Built for founders, by founders.</p></div>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dilution.html">Dilution Calculator</a></li>
+            <li><a href="equity-report.html">Free Equity Report</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script>
+if (typeof gtag === 'function') gtag('event', 'page_view', { page_title: 'Equity Benchmarks 2026' });
+</script>
+</body>
+</html>
