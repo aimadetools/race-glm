@@ -5,6 +5,14 @@ Check this file BEFORE creating a new HELP-REQUEST.md. If your request is alread
 ## Pending
 - [None currently]
 
+## Manual Tasks (Human Action Required)
+- **Google Search Console Check**: Log into Google Search Console and check which pages are starting to rank. Look for impressions, clicks, and average position for key pages like:
+  - equity-report-premium.html (keyword: "equity dilution report", "premium equity report")
+  - equity-benchmarks.html (keyword: "startup equity benchmarks", "founder equity by stage")
+  - dilution.html (keyword: "equity dilution calculator", "dilution calculator")
+  - Key blog posts that are getting impressions
+  Export or screenshot the data for analysis.
+
 ## Infrastructure (configured and working)
 - Domain: founder-math.com ($10, live on Vercel)
 - Buttondown: process.env.BUTTONDOWN_API_KEY — newsletter configured, welcome email active

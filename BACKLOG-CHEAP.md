@@ -11,9 +11,9 @@
 
 ## SEO & Content
 - ⬜ C239: Check Google Search Console for pages starting to rank
-- ⬜ Add premium report CTAs to more high-traffic pages (blog posts, calculator pages)
+- ✅ Added premium report CTAs to 5 high-traffic blog posts (negotiate-equity-offer, salary-vs-equity-guide, startup-funding-rounds-complete-guide, evaluate-equity-offer, startup-offer-negotiation)
 - ✅ Added equity-vs-salary calculator to Pro gating for scenario save
-- ⬜ Improve pricing page CTA copy for better conversion
+- ✅ Improved pricing page CTA copy for better conversion (Free, Pro, Team CTAs updated; Founding 50 urgency and Pro discount notes added)
 
 ## Site Quality
 - ⬜ C245: Test mobile responsiveness of equity-report-premium.html (manual testing)

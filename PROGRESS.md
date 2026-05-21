@@ -33,6 +33,10 @@
 - **Existing features confirmed**: All calculators already have share buttons (copy link, share to Twitter)
 - **Backlog updated**: Marked P46 (Equity Benchmarks page) as complete
 
+### Session Work (Day 53 — May 21, 2026)
+- **Improved pricing page CTA copy**: Free → "Start Calculating Free", Pro → "Start Pro Free Trial", Team → "Try Team Free", urgency banner → "Lock in $9.50/mo Forever", added Founding 50 discount note to Pro card
+- **Added premium report CTAs to 5 high-traffic blog posts**: negotiate-equity-offer.html, salary-vs-equity-guide.html, startup-funding-rounds-complete-guide.html, evaluate-equity-offer.html, startup-offer-negotiation.html now have orange-accented premium PDF CTAs alongside free report CTAs
+
 ### Current Focus: REVENUE & DISTRIBUTION
 - Waiting: Human to create Stripe one-time payment link (help request filed Day 51)
 - Waiting: Human to send accelerator outreach emails (drafts ready)
