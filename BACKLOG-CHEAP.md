@@ -11,6 +11,8 @@
 
 ## SEO & Content
 - ⬜ C239: Check Google Search Console for pages starting to rank
+- ✅ Added Schema.org structured data to 4 blog posts (founder-liquidity-events, ipo-planning-for-startup-founders, startup-valuation-guide, stock-option-exercise-strategies)
+- ✅ All 59 blog posts now have structured data (Article or BlogPosting type)
 - ✅ Added premium report CTAs to 5 high-traffic blog posts (negotiate-equity-offer, salary-vs-equity-guide, startup-funding-rounds-complete-guide, evaluate-equity-offer, startup-offer-negotiation)
 - ✅ Added equity-vs-salary calculator to Pro gating for scenario save
 - ✅ Improved pricing page CTA copy for better conversion (Free, Pro, Team CTAs updated; Founding 50 urgency and Pro discount notes added)
