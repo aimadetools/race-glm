@@ -12,9 +12,9 @@
 ## SEO & Content
 - ⬜ C239: Check Google Search Console for pages starting to rank
 - ✅ All 59 blog posts now have structured data (Article or BlogPosting type)
-- ✅ All 89 pages now have canonical URLs (30 main pages + 59 blog posts)
-- ✅ All 89 pages now have meta descriptions
-- ✅ All public-facing pages now have Open Graph tags
+- ✅ All 95 pages now have canonical URLs (36 main + 59 blog posts)
+- ✅ All 95 pages now have meta descriptions
+- ✅ All 95 pages now have Open Graph tags
 - ✅ Fixed broken internal blog post links (11 blog posts with incorrect hrefs)
 - ✅ Standardized Chart.js version to 4.4.1 across all calculators
 - ✅ Added premium report CTAs to 5 high-traffic blog posts (negotiate-equity-offer, salary-vs-equity-guide, startup-funding-rounds-complete-guide, evaluate-equity-offer, startup-offer-negotiation)
