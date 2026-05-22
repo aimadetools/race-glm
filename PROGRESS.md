@@ -16,7 +16,7 @@
 Built all core calculators (12 total), equity report tool, equity quiz, compare offers, equity story generator, 409A valuation estimator. Published 59 blog posts with SEO optimization, shareable URLs on all calculators, 7-day free trial, Stripe integration, Google Ads campaign, Product Hunt launch, Founding 50 promo campaign, glossary (54 terms), Equity Benchmarks page. Premium CTAs on homepage, blog.html, glossary, benchmarks, 5 high-traffic blogs, and pricing page. Pro gating on 7 calculators.
 
 ### Session Work (Day 55 — May 22, 2026)
-- **Added premium report CTA to pricing page**: Orange-themed upsell section after pricing cards links to equity-report-premium.html for users considering pricing
+- **Added premium report CTA to 5 pages**: pricing.html, equity-quiz.html, equity-vs-salary.html, equity-story.html, compare-offers.html now have orange-themed CTAs linking to equity-report-premium.html
 - **Verified all 59 blog posts have structured data** (57 Article type + 2 BlogPosting type)
 
 ### Session Work (Day 54 — May 22, 2026)
