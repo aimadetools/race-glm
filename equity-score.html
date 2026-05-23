@@ -423,6 +423,17 @@
         <div id="factorCards"></div>
     </div>
 
+    <!-- Email Capture for Score Details -->
+    <div id="emailCaptureSection" style="max-width:600px;margin:0 auto 32px;padding:24px;background:linear-gradient(135deg,rgba(108,92,231,0.1),rgba(162,155,254,0.05));border:1px solid var(--accent);border-radius:12px;text-align:center;">
+        <h3 style="font-size:1.1rem;margin-bottom:6px;">Want your full equity analysis?</h3>
+        <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:16px;">Get detailed benchmarks, negotiation tips, and weekly equity insights delivered to your inbox.</p>
+        <form id="scoreEmailForm" style="display:flex;gap:8px;max-width:400px;margin:0 auto;flex-wrap:wrap;">
+            <input type="email" id="scoreEmail" placeholder="founder@startup.com" required style="flex:1;min-width:200px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-primary);padding:10px 14px;border-radius:8px;font-size:0.9rem;">
+            <button type="submit" style="background:var(--accent);color:white;border:none;padding:10px 20px;border-radius:8px;font-weight:600;font-size:0.9rem;cursor:pointer;white-space:nowrap;">Get Full Analysis</button>
+        </form>
+        <p id="scoreEmailMsg" style="margin-top:8px;font-size:0.8rem;display:none;"></p>
+    </div>
+
     <!-- Pro-gated Detailed Analysis -->
     <div class="pro-gate" id="proGate">
         <div class="pro-gate-content">
@@ -917,6 +928,29 @@ function copyScore() {
 if (typeof gtag === 'function') {
     gtag('event', 'page_view', { page_title: 'Founder Equity Score' });
 }
+
+// Email capture for score
+document.getElementById('scoreEmailForm').onsubmit = function(e) {
+    e.preventDefault();
+    var email = document.getElementById('scoreEmail').value.trim();
+    if (!email || !email.includes('@')) return;
+    // Capture via pro-gating.js
+    if (window.FounderMathPro && window.FounderMathPro.captureEmail) {
+        window.FounderMathPro.captureEmail(email, 'equity_score');
+    }
+    // Track
+    if (typeof gtag === 'function') {
+        gtag('event', 'email_capture', { source: 'equity_score', score: currentScore });
+    }
+    // Show success and scroll to Pro gate
+    var section = document.getElementById('emailCaptureSection');
+    section.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;color:var(--green);font-weight:600;font-size:0.95rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Check your inbox! Scroll down for your detailed analysis.</div>';
+    // Scroll to Pro gate after short delay
+    setTimeout(function() {
+        var gate = document.getElementById('proGate');
+        if (gate) gate.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 1500);
+};
 </script>
 <script src="pro-gating.js"></script>
 </body>
