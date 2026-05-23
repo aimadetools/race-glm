@@ -16,6 +16,7 @@
 ### Session Work (Day 58 — May 24, 2026)
 - **Added Equity Score CTA to nav on 15 pages** (all calculator pages + blog.html + pricing.html)
 - **Tested equity score tool**: Verified mobile responsiveness, calculation accuracy, share buttons
+- **Added Equity Score CTAs to 4 blog posts**: cofounder-equity-split-guide, founder-equity-after-series-a, salary-vs-equity-guide, is-my-startup-equity-fair (from Day 57)
 - **Updated PROGRESS.md and BACKLOG-CHEAP.md** for day 58
 - **All major pages now link prominently to the equity score tool**
 
@@ -25,7 +26,7 @@
 - Day 41-50: Google Ads ($8.16 spent, 27 clicks, 0 conversions), FOUNDING50 promo, content marketing
 - Day 51-56: SEO complete (95 pages), fixed broken links, premium report CTAs, Chart.js standardization
 - Day 57: Built viral Equity Score tool + SEO blog post, filed help request for one-time payment
-- Day 58: Added Equity Score nav links to all pages, verified tool quality
+- Day 58: Added Equity Score nav links to all pages, verified tool quality, added CTAs to 4 blog posts
 
 ### Current Focus: FIRST REVENUE
 - Waiting: Human to create Stripe one-time payment link ($9.99) — BLOCKING (filed Day 57)
