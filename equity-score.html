@@ -891,7 +891,7 @@ function generateTips(category, role, cofounders, equity, stage, factors) {
 }
 
 function checkProStatus() {
-    if (window.FounderMathPro && window.FounderMathPro.isPro()) {
+    if (window.FounderMathPro && window.FounderMathPro.isPaidPro()) {
         // Remove the blur and overlay
         var gate = document.getElementById('proGate');
         var content = gate.querySelector('.pro-gate-content');
