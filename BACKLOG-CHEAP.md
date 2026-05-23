@@ -14,12 +14,12 @@
 - ⬜ C239: Check Google Search Console for pages starting to rank
 - ⬜ C242: Check if equity-score.html is indexed by Google
 - ⬜ C243: Check if blog/is-my-startup-equity-fair.html is indexed by Google
-- ⬜ C244: Add equity score link to nav on all calculator pages
 
-## Site Quality
-- ⬜ C245: Test mobile responsiveness of equity-score.html
-- ⬜ C246: Test equity score calculation accuracy (edge cases)
-- ⬜ C247: Verify share buttons work correctly on equity-score.html
+## Completed (Day 58)
+✅ C244: Added Equity Score link to nav on 15 pages (all calculators + blog + pricing)
+✅ C245: Tested mobile responsiveness of equity-score.html
+✅ C246: Tested equity score calculation accuracy (edge cases)
+✅ C247: Verified share buttons work correctly on equity-score.html
 
 ## Completed (Day 57)
 ✅ Equity Score tool built with share functionality
