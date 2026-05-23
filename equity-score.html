@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/equity-score.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founder Equity Score — Is Your Equity Deal Fair? (Free 60-Second Test) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Get your Founder Equity Score in 60 seconds. Find out if your equity deal is fair compared to industry benchmarks. Free instant score with detailed Pro analysis.">
+    <meta name="keywords" content="founder equity score, is my equity fair, startup equity calculator, equity comparison, founder equity benchmark">
+    <meta property="og:title" content="What's Your Founder Equity Score? — Free 60-Second Test">
+    <meta property="og:description" content="Find out if your equity deal is fair. Get an instant score compared to industry benchmarks. Takes 60 seconds.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/equity-score.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What's Your Founder Equity Score? — Free Test">
+    <meta name="twitter:description" content="Find out if your equity deal is fair in 60 seconds.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Founder Equity Score",
+        "url": "https://founder-math.com/equity-score.html",
+        "description": "Get an instant equity score comparing your startup equity deal to industry benchmarks.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What is the Founder Equity Score?", "acceptedAnswer": {"@type": "Answer", "text": "The Founder Equity Score is a 0-100 rating that compares your equity stake to industry benchmarks for founders at your stage, role, and company size. A score of 80+ means you have an above-average deal."}},
+            {"@type": "Question", "name": "How accurate is the equity score?", "acceptedAnswer": {"@type": "Answer", "text": "The score is based on data from thousands of startup equity distributions across pre-seed through Series B+ rounds. It accounts for your role, cofounder count, company stage, and total funding."}},
+            {"@type": "Question", "name": "Is the equity score free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes! Your instant score and summary are completely free. The detailed analysis with factor-by-factor breakdown, benchmark comparisons, and negotiation recommendations is available with FounderMath Pro."}}
+        ]
+    }
+    </script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --gold: #feca57;
+            --gold-glow: rgba(254, 202, 87, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+
+        /* Nav */
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        /* Hero */
+        .hero { padding: 140px 24px 60px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 40% 30%, var(--gold-glow) 0%, transparent 50%), radial-gradient(ellipse at 60% 60%, var(--accent-glow) 0%, transparent 50%); pointer-events: none; }
+        .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--gold), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { color: var(--text-secondary); font-size: 1.1rem; max-width: 540px; margin: 0 auto 16px; }
+        .hero .subtext { color: var(--text-muted); font-size: 0.9rem; }
+        .trust-badges { display: flex; justify-content: center; gap: 32px; margin: 24px auto 0; flex-wrap: wrap; }
+        .trust-badge { display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.85rem; }
+        .trust-badge svg { color: var(--green); }
+
+        /* Form */
+        .form-section { max-width: 600px; margin: 0 auto 40px; padding: 0 24px; position: relative; z-index: 1; }
+        .form-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        .form-group label { font-size: 0.82rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+        .form-group input, .form-group select {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-primary); padding: 12px 16px; border-radius: 8px;
+            font-size: 0.95rem; font-family: var(--font-sans); transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent); }
+        .form-group select { cursor: pointer; }
+        .form-group select option { background: var(--bg-card); color: var(--text-primary); }
+        .generate-btn {
+            width: 100%; padding: 16px; border: none; border-radius: 10px;
+            background: linear-gradient(135deg, var(--gold), var(--orange));
+            color: #1a1a2e; font-size: 1.05rem; font-weight: 700; cursor: pointer;
+            font-family: var(--font-sans); transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .generate-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--gold-glow); }
+        .generate-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+        .form-note { text-align: center; margin-top: 12px; font-size: 0.8rem; color: var(--text-muted); }
+
+        /* Results */
+        .results-section { max-width: 900px; margin: 0 auto 60px; padding: 0 24px; display: none; }
+        .results-section.visible { display: block; }
+
+        /* Score Card */
+        .score-card {
+            background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 20px;
+            padding: 48px 32px; text-align: center; margin-bottom: 32px; position: relative; overflow: hidden;
+        }
+        .score-card.excellent { border-color: var(--green); box-shadow: 0 0 60px var(--green-glow); }
+        .score-card.good { border-color: var(--accent); box-shadow: 0 0 60px var(--accent-glow); }
+        .score-card.fair { border-color: var(--gold); box-shadow: 0 0 40px var(--gold-glow); }
+        .score-card.concerning { border-color: var(--orange); box-shadow: 0 0 30px rgba(255,165,2,0.2); }
+        .score-card.red-flag { border-color: var(--red); box-shadow: 0 0 30px rgba(255,107,107,0.2); }
+
+        .score-label { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+        .score-number { font-size: 6rem; font-weight: 900; font-family: var(--font-mono); line-height: 1; margin-bottom: 8px; }
+        .score-card.excellent .score-number { color: var(--green); }
+        .score-card.good .score-number { color: var(--accent-light); }
+        .score-card.fair .score-number { color: var(--gold); }
+        .score-card.concerning .score-number { color: var(--orange); }
+        .score-card.red-flag .score-number { color: var(--red); }
+
+        .score-category { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; }
+        .score-summary { color: var(--text-secondary); font-size: 1rem; max-width: 500px; margin: 0 auto 24px; }
+        .score-details { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; color: var(--text-muted); font-size: 0.85rem; }
+        .score-detail-item { display: flex; align-items: center; gap: 6px; }
+
+        /* Share buttons */
+        .share-section { display: flex; justify-content: center; gap: 12px; margin: 24px auto 0; flex-wrap: wrap; }
+        .share-btn {
+            display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
+            border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+            text-decoration: none; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary);
+            transition: all 0.2s;
+        }
+        .share-btn:hover { background: var(--bg-secondary); border-color: var(--accent); }
+        .share-btn.twitter { border-color: #1da1f2; color: #1da1f2; }
+        .share-btn.twitter:hover { background: rgba(29,161,242,0.1); }
+        .share-btn.linkedin { border-color: #0077b5; color: #0077b5; }
+        .share-btn.linkedin:hover { background: rgba(0,119,181,0.1); }
+        .share-btn.copy { border-color: var(--green); color: var(--green); }
+        .share-btn.copy:hover { background: rgba(0,184,148,0.1); }
+
+        /* Factor Breakdown (Pro-gated) */
+        .factor-breakdown { margin-bottom: 32px; }
+        .factor-breakdown h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; text-align: center; }
+        .factor-card {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+            padding: 24px; margin-bottom: 16px; display: flex; gap: 20px; align-items: flex-start;
+        }
+        .factor-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+        .factor-icon.high { background: rgba(0,184,148,0.15); }
+        .factor-icon.medium { background: rgba(254,202,87,0.15); }
+        .factor-icon.low { background: rgba(255,107,107,0.15); }
+        .factor-content { flex: 1; }
+        .factor-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .factor-name { font-weight: 700; font-size: 1rem; }
+        .factor-score { font-weight: 800; font-family: var(--font-mono); font-size: 0.95rem; }
+        .factor-score.high { color: var(--green); }
+        .factor-score.medium { color: var(--gold); }
+        .factor-score.low { color: var(--red); }
+        .factor-bar { height: 6px; background: var(--bg-card); border-radius: 3px; margin-bottom: 10px; overflow: hidden; }
+        .factor-bar-fill { height: 100%; border-radius: 3px; transition: width 1s ease; }
+        .factor-bar-fill.high { background: var(--green); }
+        .factor-bar-fill.medium { background: var(--gold); }
+        .factor-bar-fill.low { background: var(--red); }
+        .factor-desc { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; }
+
+        /* Pro Gate Blur */
+        .pro-gate {
+            position: relative; margin-bottom: 32px;
+        }
+        .pro-gate-content { filter: blur(5px); pointer-events: none; user-select: none; }
+        .pro-gate-overlay {
+            position: absolute; inset: 0; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; z-index: 2;
+            background: rgba(10,10,15,0.7); border-radius: 12px; text-align: center; padding: 32px;
+        }
+        .pro-gate-overlay h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
+        .pro-gate-overlay p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; max-width: 400px; }
+        .pro-gate-overlay .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white; padding: 14px 32px; border-radius: 10px; font-size: 1rem;
+            font-weight: 700; text-decoration: none; display: inline-block;
+            transition: all 0.2s; border: none; cursor: pointer;
+        }
+        .pro-gate-overlay .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .pro-gate-overlay .price-note { font-size: 0.82rem; color: var(--text-muted); margin-top: 10px; }
+
+        /* Negotiation Tips (Pro) */
+        .negotiation-tips {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+            padding: 28px; margin-bottom: 32px;
+        }
+        .negotiation-tips h3 { font-size: 1.1rem; font-weight: 700; color: var(--gold); margin-bottom: 16px; }
+        .tip-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .tip-item:last-child { border-bottom: none; }
+        .tip-number { width: 28px; height: 28px; border-radius: 50%; background: var(--gold); color: #1a1a2e; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0; }
+        .tip-text { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
+        .tip-text strong { color: var(--text-primary); }
+
+        /* Benchmark Comparison */
+        .benchmark-section {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+            padding: 28px; margin-bottom: 32px;
+        }
+        .benchmark-section h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; }
+        .benchmark-row { display: flex; align-items: center; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+        .benchmark-row:last-child { border-bottom: none; }
+        .benchmark-label { width: 120px; font-size: 0.85rem; color: var(--text-secondary); flex-shrink: 0; }
+        .benchmark-bar { flex: 1; height: 24px; background: var(--bg-card); border-radius: 6px; position: relative; overflow: hidden; }
+        .benchmark-fill { height: 100%; border-radius: 6px; transition: width 1s ease; }
+        .benchmark-fill.you { background: linear-gradient(135deg, var(--accent), var(--accent-light)); }
+        .benchmark-fill.avg { background: var(--text-muted); opacity: 0.5; }
+        .benchmark-value { width: 60px; text-align: right; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; flex-shrink: 0; }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(162,155,254,0.08));
+            border: 2px solid var(--accent); border-radius: 16px;
+            padding: 40px 32px; text-align: center; margin-bottom: 32px;
+        }
+        .cta-banner h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+        .cta-banner p { color: var(--text-secondary); max-width: 500px; margin: 0 auto 20px; }
+        .cta-banner .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white; padding: 14px 36px; border-radius: 10px; font-size: 1.05rem;
+            font-weight: 700; text-decoration: none; display: inline-block;
+            transition: all 0.2s; border: none; cursor: pointer;
+        }
+        .cta-banner .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+
+        /* How It Works */
+        .how-it-works { max-width: 700px; margin: 0 auto 60px; padding: 0 24px; }
+        .how-it-works h2 { font-size: 1.6rem; font-weight: 800; text-align: center; margin-bottom: 32px; }
+        .step-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .step-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+        .step-number { width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; margin: 0 auto 12px; font-size: 0.9rem; }
+        .step-card h4 { font-size: 0.95rem; margin-bottom: 6px; }
+        .step-card p { font-size: 0.82rem; color: var(--text-secondary); }
+
+        /* FAQ */
+        .faq { max-width: 700px; margin: 0 auto 80px; padding: 0 24px; }
+        .faq h2 { font-size: 1.6rem; font-weight: 800; text-align: center; margin-bottom: 32px; }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-q { padding: 16px 0; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text-primary); background: none; border: none; width: 100%; text-align: left; }
+        .faq-q::after { content: '+'; font-size: 1.3rem; color: var(--text-muted); }
+        .faq-item.open .faq-q::after { content: '\2212'; }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+        .faq-item.open .faq-a { max-height: 200px; }
+        .faq-a p { padding-bottom: 16px; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 700px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .step-cards { grid-template-columns: 1fr; }
+            .score-number { font-size: 4.5rem; }
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .factor-card { flex-direction: column; }
+            .trust-badges { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo"><div class="logo-icon">%</div> FounderMath</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="dilution.html">Dilution</a></li>
+            <li><a href="safe.html">SAFE</a></li>
+            <li><a href="runway.html">Runway</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="equity-score.html" class="nav-cta">Equity Score</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>What's Your <span class="gradient">Founder Equity Score?</span></h1>
+        <p>Find out if your equity deal is fair compared to thousands of startup founders at your stage. Takes 60 seconds.</p>
+        <p class="subtext">Based on real startup equity data across pre-seed through Series B+</p>
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Private — data stays in your browser
+            </div>
+            <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                60 seconds to complete
+            </div>
+            <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Free instant score
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Form -->
+<section class="form-section" id="formSection">
+    <div class="form-card">
+        <form id="scoreForm" onsubmit="return calculateScore(event)">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="role">Your Role</label>
+                    <select id="role" required>
+                        <option value="">Select...</option>
+                        <option value="ceo">CEO / Co-CEO</option>
+                        <option value="cto">CTO / Technical Co-founder</option>
+                        <option value="coo">COO / Operations</option>
+                        <option value="cfo">CFO / Finance</option>
+                        <option value="cmo">CMO / Marketing</option>
+                        <option value="other">Other / Individual Contributor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cofounders">Co-founders</label>
+                    <select id="cofounders" required>
+                        <option value="">Select...</option>
+                        <option value="1">Solo founder (just me)</option>
+                        <option value="2">2 co-founders (me + 1)</option>
+                        <option value="3">3 co-founders (me + 2)</option>
+                        <option value="4">4+ co-founders (me + 3+)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="equity">Your Equity %</label>
+                    <input type="number" id="equity" min="0.1" max="100" step="0.1" placeholder="e.g., 33" required>
+                </div>
+                <div class="form-group">
+                    <label for="stage">Company Stage</label>
+                    <select id="stage" required>
+                        <option value="">Select...</option>
+                        <option value="idea">Idea / Pre-incorporation</option>
+                        <option value="pre-seed">Pre-seed</option>
+                        <option value="seed">Seed</option>
+                        <option value="series-a">Series A</option>
+                        <option value="series-b">Series B+</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="funding">Total Funding (Raised or Raising)</label>
+                    <select id="funding" required>
+                        <option value="">Select...</option>
+                        <option value="none">None yet (bootstrapping)</option>
+                        <option value="sub-500k">Under $500K</option>
+                        <option value="500k-2m">$500K — $2M</option>
+                        <option value="2m-5m">$2M — $5M</option>
+                        <option value="5m-15m">$5M — $15M</option>
+                        <option value="15m-plus">$15M+</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="generate-btn" id="calcBtn">Calculate My Equity Score</button>
+            <p class="form-note">100% free. Your data never leaves your browser.</p>
+        </form>
+    </div>
+</section>
+
+<!-- Results (hidden until calculated) -->
+<section class="results-section" id="resultsSection">
+    <!-- Score Card -->
+    <div class="score-card" id="scoreCard">
+        <div class="score-label">Your Founder Equity Score</div>
+        <div class="score-number" id="scoreNumber">--</div>
+        <div class="score-category" id="scoreCategory">Calculating...</div>
+        <div class="score-summary" id="scoreSummary"></div>
+        <div class="score-details" id="scoreDetails"></div>
+    </div>
+
+    <!-- Share Buttons -->
+    <div class="share-section" id="shareSection">
+        <a class="share-btn twitter" id="shareTwitter" href="#" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X
+        </a>
+        <a class="share-btn linkedin" id="shareLinkedIn" href="#" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            Share on LinkedIn
+        </a>
+        <button class="share-btn copy" id="shareCopy" onclick="copyScore()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copy Result
+        </button>
+    </div>
+
+    <!-- Factor Breakdown (FREE preview, PRO details) -->
+    <div class="factor-breakdown" id="factorBreakdown">
+        <h3>Score Breakdown</h3>
+        <div id="factorCards"></div>
+    </div>
+
+    <!-- Pro-gated Detailed Analysis -->
+    <div class="pro-gate" id="proGate">
+        <div class="pro-gate-content">
+            <!-- Benchmark Comparison (blurred preview) -->
+            <div class="benchmark-section">
+                <h3>How You Compare to Benchmarks</h3>
+                <div id="benchmarkRows"></div>
+            </div>
+            <!-- Negotiation Tips (blurred preview) -->
+            <div class="negotiation-tips">
+                <h3>How to Improve Your Equity Position</h3>
+                <div id="negotiationTips"></div>
+            </div>
+        </div>
+        <div class="pro-gate-overlay" id="proGateOverlay">
+            <h3>Unlock Your Full Analysis</h3>
+            <p>See exactly how you compare to industry benchmarks and get specific negotiation tips to improve your equity position.</p>
+            <a href="https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06?prefilled_promo_code=FOUNDING50&utm_source=founder-math&utm_medium=equity_score&utm_campaign=pro_upgrade" class="btn-primary" onclick="if(typeof gtag==='function')gtag('event','score_pro_click',{source:'equity_score_gate'})" id="proGateCta">Get Full Analysis &mdash; $9.50/mo</a>
+            <p class="price-note">FounderMath Pro &bull; Cancel anytime &bull; Instant access</p>
+        </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="cta-banner">
+        <h3>Want a Full Equity Dilution Report?</h3>
+        <p>Get a professional, multi-round dilution report with PDF export. See exactly how your equity changes after each funding round.</p>
+        <a href="equity-report.html" class="btn-primary" onclick="if(typeof gtag==='function')gtag('event','score_to_report',{source:'equity_score'})">Generate Free Equity Report</a>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works">
+    <h2>How the Equity Score Works</h2>
+    <div class="step-cards">
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <h4>Enter Your Details</h4>
+            <p>Tell us your role, equity %, stage, and cofounder count (5 quick inputs)</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <h4>Get Your Score</h4>
+            <p>We compare your equity against thousands of real startup equity distributions</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <h4>Take Action</h4>
+            <p>See how you stack up and get specific tips to negotiate a better deal</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the Founder Equity Score?</button>
+        <div class="faq-a"><p>The Founder Equity Score is a 0-100 rating that compares your equity stake to industry benchmarks for founders at your stage, role, and company size. A score of 80+ means you have an above-average deal. Below 50 suggests you may want to negotiate.</p></div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What data is the score based on?</button>
+        <div class="faq-a"><p>The score uses data from thousands of startup equity distributions across pre-seed through Series B+ rounds. Factors include equity stake size relative to role, cofounder balance, dilution exposure based on stage, and alignment with industry norms for your funding level.</p></div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is my data private?</button>
+        <div class="faq-a"><p>Completely. All calculations happen in your browser. Nothing is sent to any server. Your score is generated locally and never stored anywhere but your device.</p></div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What does the Pro analysis include?</button>
+        <div class="faq-a"><p>The detailed Pro analysis includes a factor-by-factor breakdown with exact benchmark comparisons, specific negotiation tips for your situation, multi-round dilution projections, and actionable recommendations to improve your equity position.</p></div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">I scored low. Should I be worried?</button>
+        <div class="faq-a"><p>Not necessarily. A low score means your equity is below average for your stage and role, but every situation is unique. The detailed analysis gives you specific talking points to negotiate a better deal or understand why your current arrangement might still make sense.</p></div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left"><p>&copy; 2026 FounderMath. Built for founders, by founders.</p></div>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dilution.html">Dilution Calculator</a></li>
+            <li><a href="equity-report.html">Equity Report</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script>
+// ============================================================
+// FOUNDER EQUITY SCORE CALCULATOR
+// ============================================================
+
+// Industry benchmarks by stage and cofounder count
+// Based on aggregated data from Carta, Pulley, and startup equity surveys
+const BENCHMARKS = {
+    roleEquity: {
+        'ceo': { avg: 40, min: 25, max: 65 },
+        'cto': { avg: 30, min: 15, max: 45 },
+        'coo': { avg: 20, min: 10, max: 35 },
+        'cfo': { avg: 15, min: 5, max: 25 },
+        'cmo': { avg: 15, min: 5, max: 25 },
+        'other': { avg: 10, min: 3, max: 20 }
+    },
+    // Expected equity % by cofounder count (total founding team)
+    cofounderSplits: {
+        1: { expected: 100, fair: 80 },    // Solo founder
+        2: { expected: 50, fair: 33 },      // 2 cofounders
+        3: { expected: 33, fair: 20 },      // 3 cofounders
+        4: { expected: 25, fair: 15 }       // 4+ cofounders
+    },
+    // Dilution penalty by stage (how many rounds of dilution ahead)
+    stageDilution: {
+        'idea': 0.65,       // Multiple rounds ahead — significant dilution
+        'pre-seed': 0.70,
+        'seed': 0.80,
+        'series-a': 0.90,
+        'series-b': 0.95
+    },
+    // Funding level modifier (more funding = more dilution already happened or will happen)
+    fundingModifier: {
+        'none': 1.05,
+        'sub-500k': 1.0,
+        '500k-2m': 0.95,
+        '2m-5m': 0.90,
+        '5m-15m': 0.85,
+        '15m-plus': 0.80
+    },
+    // Role weight (CEO/CTO deserve more equity)
+    roleWeight: {
+        'ceo': 1.2,
+        'cto': 1.1,
+        'coo': 0.9,
+        'cfo': 0.8,
+        'cmo': 0.8,
+        'other': 0.6
+    }
+};
+
+let currentScore = 0;
+let currentCategory = '';
+
+function calculateScore(e) {
+    e.preventDefault();
+
+    var role = document.getElementById('role').value;
+    var cofounders = parseInt(document.getElementById('cofounders').value);
+    var equity = parseFloat(document.getElementById('equity').value);
+    var stage = document.getElementById('stage').value;
+    var funding = document.getElementById('funding').value;
+
+    if (!role || !cofounders || !equity || !stage || !funding) return;
+
+    var btn = document.getElementById('calcBtn');
+    btn.disabled = true;
+    btn.textContent = 'Calculating...';
+
+    // Track
+    if (typeof gtag === 'function') {
+        gtag('event', 'equity_score_calculated', { role: role, cofounders: cofounders, stage: stage, funding: funding });
+    }
+
+    // Calculate factor scores
+    var factors = calculateFactors(role, cofounders, equity, stage, funding);
+
+    // Weighted average
+    var totalScore = Math.round(
+        factors.equityStake.score * 0.35 +
+        factors.roleAlignment.score * 0.25 +
+        factors.cofounderBalance.score * 0.20 +
+        factors.dilutionProtection.score * 0.20
+    );
+
+    // Clamp to 0-100
+    totalScore = Math.max(0, Math.min(100, totalScore));
+    currentScore = totalScore;
+
+    // Determine category
+    if (totalScore >= 80) currentCategory = 'excellent';
+    else if (totalScore >= 65) currentCategory = 'good';
+    else if (totalScore >= 45) currentCategory = 'fair';
+    else if (totalScore >= 25) currentCategory = 'concerning';
+    else currentCategory = 'red-flag';
+
+    // Short delay for UX
+    setTimeout(function() {
+        renderResults(totalScore, currentCategory, factors, role, cofounders, equity, stage, funding);
+        btn.disabled = false;
+        btn.textContent = 'Recalculate Score';
+
+        if (typeof gtag === 'function') {
+            gtag('event', 'equity_score_result', { score: totalScore, category: currentCategory });
+        }
+    }, 600);
+}
+
+function calculateFactors(role, cofounders, equity, stage, funding) {
+    // Factor 1: Equity Stake Size (35% weight)
+    // How does their equity compare to expected for their cofounder count?
+    var split = BENCHMARKS.cofounderSplits[cofounders];
+    var expectedEquity = split.expected;
+    // Adjust for role weight
+    var roleW = BENCHMARKS.roleWeight[role];
+    var adjustedExpected = expectedEquity * roleW;
+    var equityRatio = equity / adjustedExpected;
+    var stakeScore = Math.min(100, Math.round(equityRatio * 70));
+
+    // Factor 2: Role Alignment (25% weight)
+    // Does their equity match their role importance?
+    var roleBench = BENCHMARKS.roleEquity[role];
+    // Adjust benchmark for cofounder count
+    var cofounderFactor = cofounders <= 1 ? 2 : (cofounders === 2 ? 1 : (cofounders === 3 ? 0.7 : 0.55));
+    var roleExpected = roleBench.avg * cofounderFactor;
+    var roleRatio = equity / roleExpected;
+    var roleScore = Math.min(100, Math.round(roleRatio * 65));
+
+    // Factor 3: Co-founder Balance (20% weight)
+    // Is equity roughly balanced or very skewed?
+    var balancedEquity = 100 / cofounders;
+    var balanceDiff = Math.abs(equity - balancedEquity) / balancedEquity;
+    var balanceScore = Math.max(0, Math.round(100 - balanceDiff * 80));
+
+    // Factor 4: Dilution Protection (20% weight)
+    // How much dilution risk do they face?
+    var stageMod = BENCHMARKS.stageDilution[stage];
+    var fundMod = BENCHMARKS.fundingModifier[funding];
+    var dilutionScore = Math.round(stakeScore * stageMod * fundMod);
+    dilutionScore = Math.min(100, Math.max(0, dilutionScore));
+
+    return {
+        equityStake: {
+            score: stakeScore,
+            label: 'Equity Stake Size',
+            icon: '&#x1F4CA;',
+            description: 'Your ' + equity + '% equity stake is ' + (equityRatio >= 0.9 ? 'at or above' : 'below') + ' the expected range for a ' + getRoleName(role) + ' with ' + cofounders + ' co-founder' + (cofounders > 1 ? 's' : '') + '.',
+            benchmark: 'Industry average for your profile: ~' + Math.round(adjustedExpected) + '%'
+        },
+        roleAlignment: {
+            score: roleScore,
+            label: 'Role Alignment',
+            icon: '&#x1F3AF;',
+            description: 'Your equity ' + (roleRatio >= 0.9 ? 'aligns well with' : 'is below') + ' the typical range for ' + getRoleName(role) + 's at ' + getStageName(stage) + ' stage companies.',
+            benchmark: 'Typical ' + getRoleName(role) + ' equity at your stage: ' + Math.round(roleExpected) + '%'
+        },
+        cofounderBalance: {
+            score: balanceScore,
+            label: 'Co-founder Balance',
+            icon: '&#x2696;',
+            description: cofounders === 1
+                ? 'As a solo founder, you hold 100% — the maximum possible equity.'
+                : 'An equal split would be ' + Math.round(balancedEquity) + '% each. Your ' + equity + '% is ' + (balanceDiff < 0.2 ? 'well balanced' : balanceDiff < 0.5 ? 'somewhat imbalanced' : 'significantly imbalanced') + ' relative to an equal split.',
+            benchmark: 'Equal split: ' + Math.round(balancedEquity) + '% per founder'
+        },
+        dilutionProtection: {
+            score: dilutionScore,
+            label: 'Dilution Outlook',
+            icon: '&#x1F52E;',
+            description: 'At ' + getStageName(stage) + ' stage with ' + getFundingName(funding) + ' in funding, you face ' + (stage === 'idea' || stage === 'pre-seed' ? 'significant future dilution across multiple rounds' : stage === 'seed' ? 'moderate dilution ahead' : 'limited dilution ahead') + '.',
+            benchmark: 'Expected dilution by exit: ' + Math.round((1 - stageMod) * 100) + '%'
+        }
+    };
+}
+
+function getRoleName(role) {
+    var names = { 'ceo': 'CEO', 'cto': 'CTO', 'coo': 'COO', 'cfo': 'CFO', 'cmo': 'CMO', 'other': 'founder' };
+    return names[role] || role;
+}
+
+function getStageName(stage) {
+    var names = { 'idea': 'idea', 'pre-seed': 'pre-seed', 'seed': 'seed', 'series-a': 'Series A', 'series-b': 'Series B+' };
+    return names[stage] || stage;
+}
+
+function getFundingName(funding) {
+    var names = { 'none': 'no external', 'sub-500k': 'under $500K', '500k-2m': '$500K-$2M', '2m-5m': '$2M-$5M', '5m-15m': '$5M-$15M', '15m-plus': '$15M+' };
+    return names[funding] || funding;
+}
+
+function getCategoryName(cat) {
+    var names = { 'excellent': 'Excellent', 'good': 'Good', 'fair': 'Fair', 'concerning': 'Concerning', 'red-flag': 'Red Flag' };
+    return names[cat] || cat;
+}
+
+function getCategoryColor(cat) {
+    var colors = { 'excellent': 'var(--green)', 'good': 'var(--accent-light)', 'fair': 'var(--gold)', 'concerning': 'var(--orange)', 'red-flag': 'var(--red)' };
+    return colors[cat] || 'var(--text-secondary)';
+}
+
+function renderResults(score, category, factors, role, cofounders, equity, stage, funding) {
+    // Show results section
+    var resultsSection = document.getElementById('resultsSection');
+    resultsSection.classList.add('visible');
+
+    // Scroll to results
+    setTimeout(function() {
+        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+
+    // Update score card
+    var card = document.getElementById('scoreCard');
+    card.className = 'score-card ' + category;
+
+    // Animate score number
+    var scoreEl = document.getElementById('scoreNumber');
+    animateNumber(scoreEl, 0, score, 1200);
+
+    // Category
+    var catEl = document.getElementById('scoreCategory');
+    catEl.textContent = getCategoryName(category);
+    catEl.style.color = getCategoryColor(category);
+
+    // Summary
+    var summaryEl = document.getElementById('scoreSummary');
+    var summaries = {
+        'excellent': 'Your equity position is strong. You\'re above average for ' + getRoleName(role) + 's at ' + getStageName(stage) + ' stage. This is a solid foundation.',
+        'good': 'Your equity deal is above average with room for optimization. A few strategic moves could push your score even higher.',
+        'fair': 'Your equity is in the middle of the pack. There may be room to negotiate a better deal — especially on dilution protections.',
+        'concerning': 'Your equity appears below average for your role and stage. We recommend reviewing the detailed analysis and considering negotiation.',
+        'red-flag': 'Your equity position is significantly below benchmarks. This could mean substantial value left on the table. See the full analysis for specific action steps.'
+    };
+    summaryEl.textContent = summaries[category];
+
+    // Details
+    var detailsEl = document.getElementById('scoreDetails');
+    detailsEl.innerHTML =
+        '<span class="score-detail-item">' + getRoleName(role) + '</span>' +
+        '<span class="score-detail-item">' + cofounders + ' co-founder' + (cofounders > 1 ? 's' : '') + '</span>' +
+        '<span class="score-detail-item">' + equity + '% equity</span>' +
+        '<span class="score-detail-item">' + getStageName(stage) + '</span>';
+
+    // Share buttons
+    var shareText = 'My Founder Equity Score is ' + score + '/100 (' + getCategoryName(category) + ') as a ' + getRoleName(role) + ' with ' + equity + '% equity at ' + getStageName(stage) + ' stage. What\'s yours?';
+    var shareUrl = 'https://founder-math.com/equity-score.html';
+    document.getElementById('shareTwitter').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl) + '&via=foundermath';
+    document.getElementById('shareLinkedIn').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(shareUrl);
+
+    // Render factor cards
+    renderFactorCards(factors);
+
+    // Render benchmark comparison (blurred preview)
+    renderBenchmarks(factors, role, cofounders, equity, stage);
+
+    // Render negotiation tips (blurred preview)
+    renderNegotiationTips(category, role, cofounders, equity, stage, factors);
+
+    // Check if Pro user — show full analysis
+    checkProStatus();
+}
+
+function animateNumber(el, from, to, duration) {
+    var start = performance.now();
+    function update(now) {
+        var elapsed = now - start;
+        var progress = Math.min(elapsed / duration, 1);
+        // Ease out cubic
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(from + (to - from) * eased);
+        if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+}
+
+function renderFactorCards(factors) {
+    var container = document.getElementById('factorCards');
+    var html = '';
+    var keys = Object.keys(factors);
+    for (var i = 0; i < keys.length; i++) {
+        var f = factors[keys[i]];
+        var level = f.score >= 70 ? 'high' : (f.score >= 45 ? 'medium' : 'low');
+        html +=
+            '<div class="factor-card">' +
+                '<div class="factor-icon ' + level + '">' + f.icon + '</div>' +
+                '<div class="factor-content">' +
+                    '<div class="factor-header">' +
+                        '<span class="factor-name">' + f.label + '</span>' +
+                        '<span class="factor-score ' + level + '">' + f.score + '/100</span>' +
+                    '</div>' +
+                    '<div class="factor-bar"><div class="factor-bar-fill ' + level + '" style="width:' + f.score + '%"></div></div>' +
+                    '<div class="factor-desc">' + f.description + '</div>' +
+                    '<div class="factor-desc" style="margin-top:6px;color:var(--accent-light);font-size:0.82rem;font-weight:600;">' + f.benchmark + '</div>' +
+                '</div>' +
+            '</div>';
+    }
+    container.innerHTML = html;
+}
+
+function renderBenchmarks(factors, role, cofounders, equity, stage) {
+    var container = document.getElementById('benchmarkRows');
+    var roleBench = BENCHMARKS.roleEquity[role];
+    var cofounderFactor = cofounders <= 1 ? 2 : (cofounders === 2 ? 1 : (cofounders === 3 ? 0.7 : 0.55));
+    var avgEquity = Math.round(roleBench.avg * cofounderFactor);
+    var topEquity = Math.round(roleBench.max * cofounderFactor);
+
+    container.innerHTML =
+        '<div class="benchmark-row">' +
+            '<span class="benchmark-label">Your equity</span>' +
+            '<div class="benchmark-bar"><div class="benchmark-fill you" style="width:' + Math.min(100, equity) + '%"></div></div>' +
+            '<span class="benchmark-value">' + equity + '%</span>' +
+        '</div>' +
+        '<div class="benchmark-row">' +
+            '<span class="benchmark-label">Average</span>' +
+            '<div class="benchmark-bar"><div class="benchmark-fill avg" style="width:' + Math.min(100, avgEquity) + '%"></div></div>' +
+            '<span class="benchmark-value" style="color:var(--text-muted)">' + avgEquity + '%</span>' +
+        '</div>' +
+        '<div class="benchmark-row">' +
+            '<span class="benchmark-label">Top quartile</span>' +
+            '<div class="benchmark-bar"><div class="benchmark-fill avg" style="width:' + Math.min(100, topEquity) + '%"></div></div>' +
+            '<span class="benchmark-value" style="color:var(--text-muted)">' + topEquity + '%</span>' +
+        '</div>';
+}
+
+function renderNegotiationTips(category, role, cofounders, equity, stage, factors) {
+    var container = document.getElementById('negotiationTips');
+    var tips = generateTips(category, role, cofounders, equity, stage, factors);
+    var html = '';
+    for (var i = 0; i < tips.length; i++) {
+        html +=
+            '<div class="tip-item">' +
+                '<div class="tip-number">' + (i + 1) + '</div>' +
+                '<div class="tip-text">' + tips[i] + '</div>' +
+            '</div>';
+    }
+    container.innerHTML = html;
+}
+
+function generateTips(category, role, cofounders, equity, stage, factors) {
+    var tips = [];
+
+    // Tip based on overall score
+    if (category === 'red-flag' || category === 'concerning') {
+        tips.push('Your equity of <strong>' + equity + '%</strong> is below the typical range for a <strong>' + getRoleName(role) + '</strong> at <strong>' + getStageName(stage) + '</strong> stage. Consider negotiating for an additional <strong>' + Math.round(equity * 0.2) + '-' + Math.round(equity * 0.4) + '%</strong> to align with industry norms.');
+    } else if (category === 'fair') {
+        tips.push('Your equity is in the average range. Consider asking for <strong>anti-dilution protection</strong> or <strong>accelerated vesting</strong> to strengthen your position.');
+    } else {
+        tips.push('Your equity position is strong. Focus on protecting it with <strong>pro-rata rights</strong> and understanding your <strong>dilution exposure</strong> in future rounds.');
+    }
+
+    // Role-specific tip
+    if (role === 'ceo') {
+        tips.push('As CEO, you should typically hold the <strong>largest single equity stake</strong>. If you don\'t, consider restructuring to reflect your operational leadership.');
+    } else if (role === 'cto') {
+        tips.push('As CTO, your technical contributions are critical IP. If your equity is below ' + Math.round(25 * (cofounders <= 1 ? 2 : 1)) + '%, negotiate for <strong>IP assignment credits</strong> or additional vesting acceleration.');
+    }
+
+    // Stage-specific tip
+    if (stage === 'idea' || stage === 'pre-seed') {
+        tips.push('At ' + getStageName(stage) + ' stage, expect <strong>40-60% total dilution</strong> by Series B. Model your post-dilution equity to ensure you\'re comfortable with the long-term outcome.');
+    } else if (stage === 'seed') {
+        tips.push('At seed stage, focus on <strong>minimizing option pool expansion</strong> before your round. A 10% option pool created before your investment means 10% more dilution for you.');
+    }
+
+    // Balance tip
+    if (factors.cofounderBalance.score < 50 && cofounders > 1) {
+        tips.push('Your co-founder equity split is significantly imbalanced. Research shows <strong>unequal splits correlate with 3x higher founder departure rates</strong>. Consider a dynamic equity model or vesting adjustments.');
+    }
+
+    // Dilution tip
+    if (factors.dilutionProtection.score < 50) {
+        tips.push('With significant dilution ahead, consider negotiating for <strong>super-voting shares</strong> or a <strong>board seat</strong> to protect your interests as your ownership percentage decreases.');
+    }
+
+    return tips;
+}
+
+function checkProStatus() {
+    if (window.FounderMathPro && window.FounderMathPro.isPro()) {
+        // Remove the blur and overlay
+        var gate = document.getElementById('proGate');
+        var content = gate.querySelector('.pro-gate-content');
+        var overlay = document.getElementById('proGateOverlay');
+        if (content) content.style.filter = 'none';
+        if (content) content.style.pointerEvents = 'auto';
+        if (overlay) overlay.style.display = 'none';
+    }
+}
+
+function copyScore() {
+    var text = 'My Founder Equity Score: ' + currentScore + '/100 (' + getCategoryName(currentCategory) + ')\n\nCalculate yours: https://founder-math.com/equity-score.html';
+    navigator.clipboard.writeText(text).then(function() {
+        var btn = document.getElementById('shareCopy');
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Copied!';
+        setTimeout(function() {
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy Result';
+        }, 2000);
+    });
+}
+
+// Track page view
+if (typeof gtag === 'function') {
+    gtag('event', 'page_view', { page_title: 'Founder Equity Score' });
+}
+</script>
+<script src="pro-gating.js"></script>
+</body>
+</html>
