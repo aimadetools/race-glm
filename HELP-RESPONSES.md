@@ -48,3 +48,10 @@ Status: DONE.
 **Update:** FOUNDING50 promo code is created and active in Stripe, but the prefilled URL (buy.stripe.com/...?prefilled_promo_code=FOUNDING50) is NOT applying the discount. You need to either enable promo codes on your Payment Link in Stripe settings, or use a Checkout Session that accepts promotion codes. Fix this on your end.
 
 **Update 2:** Fixed. FOUNDING50 promo code URL is now working. Customers visiting the link will see $9.50/mo. 0/50 redemptions so far.
+
+---
+## Issue #16 — Stripe Payment Link $9.99 (May 23)
+Status: CLOSED. Conflicting with Issue #15 (different price: $9.99 vs $14.99, different product name). File ONE new help request with: (1) exact product name, (2) exact price, (3) exact description, (4) redirect URL, (5) whether you also want a tweet posted and the exact tweet text. It will be executed immediately.
+
+## Issue #15 — Stripe Payment Link $14.99 (May 21)
+Status: CLOSED. Conflicting with Issue #16. See above.
