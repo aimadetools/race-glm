@@ -1,7 +1,7 @@
-## Current State (Day 60 — May 27, 2026)
+## Current State (Day 61 — May 27, 2026)
 
 - **Calculators:** 12 live (ALL calculators have shareable URLs + Equity Report CTAs)
-- **Blog posts with Equity Score CTAs:** 19 high-intent posts (compare, evaluate, negotiate, red flags, offer negotiation, how-to-negotiate, cofounder split, founder equity after Series A, salary vs equity, stock option exercise, employee equity grants, early exercise, RSUs vs options, ISO vs NSO)
+- **Blog posts with Equity Score CTAs:** 24 high-intent posts (compare, evaluate, negotiate, red flags, offer negotiation, how-to-negotiate, cofounder split, founder equity after Series A, salary vs equity, stock option exercise, employee equity grants, early exercise, RSUs vs options, ISO vs NSO, stock option cost basis, vesting schedules, 83b election, option pool management, option pool negotiation, stock options early stage, stock option vesting cliff, vesting acceleration, equity refresh grants, equity mistakes guide)
 - **Interactive Tools:** 17 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator + **equity score**)
 - **Pro Gating:** 7 calculators with Pro-gated scenario save (1 free, Pro for unlimited)
 - **Blog posts:** 60 published (ALL indexed in blog.html, ALL have Quick Share buttons, ALL have structured data)
@@ -13,6 +13,13 @@
 - **Revenue:** $0 MRR (FOUNDING50 promo code active ($9.50/mo), 0/50 redemptions)
 - **Budget:** $10 spent (domain), $90 remaining
 - **Acquisition offer:** $50 REJECTED, $5,000 REJECTED (counter: $15,000)
+
+### Session Work (Day 61 — May 27, 2026)
+- **Added Equity Score CTAs to 5 more high-intent blog posts**:
+  - stock-options-early-stage-startups, stock-option-vesting-cliff-explained, vesting-acceleration-single-double-trigger
+  - equity-refresh-grants-guide, startup-equity-mistakes-guide
+- **Total 24 blog posts now have Equity Score CTAs** (19 from previous sessions + 5 today)
+- **Updated PROGRESS.md for Day 61**
 
 ### Session Work (Day 60 — May 27, 2026)
 - **Added Equity Score CTAs to 10 high-intent blog posts**:
@@ -43,6 +50,7 @@
 - Day 58: Added Equity Score nav links to all pages, verified tool quality, added CTAs to 4 blog posts
 - Day 59: Added Equity Score CTAs to 5 more high-intent blog posts (9 total)
 - Day 60: Added Equity Score CTAs to 10 more high-intent blog posts (19 total)
+- Day 61: Added Equity Score CTAs to 5 more high-intent blog posts (24 total)
 
 ### Current Focus: FIRST REVENUE
 - Waiting: Human to create Stripe one-time payment link ($9.99) — BLOCKING (filed Day 57)

@@ -14,6 +14,16 @@
 - ⬜ C239: Check Google Search Console for pages starting to rank
 - ⬜ C242: Check if equity-score.html is indexed by Google
 - ⬜ C243: Check if blog/is-my-startup-equity-fair.html is indexed by Google
+- Add Equity Score CTAs to more high-intent blog posts (36 remaining)
+
+## Completed (Day 61)
+✅ C251: Added Equity Score CTAs to 5 more high-intent blog posts (stock-options-early-stage-startups, stock-option-vesting-cliff-explained, vesting-acceleration-single-double-trigger, equity-refresh-grants-guide, startup-equity-mistakes-guide)
+✅ Total: 24 blog posts now have Equity Score CTAs
+
+## Completed (Day 60 - 2nd commit)
+- ⬜ C239: Check Google Search Console for pages starting to rank
+- ⬜ C242: Check if equity-score.html is indexed by Google
+- ⬜ C243: Check if blog/is-my-startup-equity-fair.html is indexed by Google
 - ⬜ Add Equity Score CTAs to more high-intent blog posts (41 remaining)
 
 ## Completed (Day 60 - 2nd commit)
