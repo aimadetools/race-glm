@@ -15,6 +15,10 @@
 - ⬜ C242: Check if equity-score.html is indexed by Google
 - ⬜ C243: Check if blog/is-my-startup-equity-fair.html is indexed by Google
 
+## Completed (Day 59)
+✅ C248: Added Equity Score CTAs to 5 more high-intent blog posts (compare-equity-offers, stock-options-worth-guide, startup-equity-red-flags, startup-offer-negotiation, how-to-negotiate-startup-job-offer)
+✅ Total: 9 blog posts now have Equity Score CTAs
+
 ## Completed (Day 58)
 ✅ C244: Added Equity Score link to nav on 15 pages (all calculators + blog + pricing)
 ✅ C245: Tested mobile responsiveness of equity-score.html
