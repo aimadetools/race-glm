@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/startup-exit-calculator.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Startup Exit Calculator — What's Your Equity Worth at Exit? | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    <meta name="description" content="Free startup exit calculator for founders. See what your equity is worth at different exit valuations. Model liquidation preferences, dilution, and compare to a salary job.">
+    <meta name="keywords" content="startup exit calculator, equity exit calculator, what is my startup equity worth, liquidation preference calculator, founder equity payout, startup acquisition calculator">
+    <meta property="og:title" content="Startup Exit Calculator — What's Your Equity Worth at Exit?">
+    <meta property="og:description" content="Model your startup equity payout at different exit valuations. Free calculator with liquidation preference modeling.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/startup-exit-calculator.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Startup Exit Calculator — What's My Equity Worth?">
+    <meta name="twitter:description" content="Model your equity payout at different exit scenarios. Free instant calculator.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Startup Exit Calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Free startup exit calculator for founders. Model what your equity is worth at different exit valuations including liquidation preference impact."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Calculate Your Startup Equity at Exit",
+        "description": "Calculate what your founder equity is worth at different exit scenarios.",
+        "step": [
+            {"@type": "HowToStep", "text": "Enter your equity ownership percentage and the company's current valuation."},
+            {"@type": "HowToStep", "text": "Enter total preferred stock raised to model liquidation preferences."},
+            {"@type": "HowToStep", "text": "Choose the liquidation preference type (1x non-participating, 1x participating, or 2x)."},
+            {"@type": "HowToStep", "text": "Review your payout at different exit valuations from $10M to $1B."},
+            {"@type": "HowToStep", "text": "Compare your equity upside to a stable salary job over 4 years."}
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://founder-math.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://founder-math.com/"},
+            {"@type": "ListItem", "position": 3, "name": "Startup Exit Calculator", "item": "https://founder-math.com/startup-exit-calculator.html"}
+        ]
+    }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: white; padding: 8px 16px; text-decoration: none; z-index: 1001; transition: top 0.3s; }
+        .skip-link:focus { top: 0; }
+        @media (prefers-contrast: more) { :root { --border: #ffffff; --text-secondary: #e0e0e0; } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s !important; }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; padding: 8px; }
+
+        /* PAGE HEADER */
+        .page-header { padding: 120px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+        .page-header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%); pointer-events: none; }
+        .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 12px; }
+        .page-header h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; position: relative; }
+        .breadcrumbs { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+        .breadcrumb { color: var(--text-muted); font-size: 0.8rem; text-decoration: none; }
+        .breadcrumb:hover { color: var(--accent-light); }
+        .breadcrumb:last-child { color: var(--text-secondary); font-weight: 600; }
+
+        /* CALC LAYOUT */
+        .calc-layout { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 380px 1fr; gap: 32px; align-items: start; }
+
+        /* INPUT PANEL */
+        .input-panel { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 24px; position: sticky; top: 88px; max-height: calc(100vh - 104px); overflow-y: auto; }
+        .input-panel::-webkit-scrollbar { width: 4px; }
+        .input-panel::-webkit-scrollbar-track { background: transparent; }
+        .input-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        .panel-section { margin-bottom: 28px; }
+        .panel-section:last-child { margin-bottom: 0; }
+        .panel-section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-light); margin-bottom: 16px; }
+        .input-group { margin-bottom: 16px; }
+        .input-group label { display: block; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+        .input-group input, .input-group select { width: 100%; background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary); padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; font-family: var(--font-mono); transition: border-color 0.2s; min-height: 44px; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: var(--accent); }
+        .input-group input:focus-visible, .input-group select:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+        .input-group .hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+        /* RESULTS */
+        .results-panel { min-width: 0; }
+        .summary-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+        .summary-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+        .summary-card .metric-value { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 800; }
+        .summary-card .metric-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+        .summary-card.highlight { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+        .summary-card.positive .metric-value { color: var(--green); }
+        .summary-card.negative .metric-value { color: var(--red); }
+
+        .chart-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .chart-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .chart-section .chart-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+        .chart-container { position: relative; height: 350px; }
+        .chart-container canvas { width: 100% !important; height: 100% !important; }
+
+        /* Exit scenario table */
+        .scenario-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        .scenario-table th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        .scenario-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.9rem; }
+        .scenario-table tr:last-child td { border-bottom: none; }
+        .scenario-table .positive { color: var(--green); }
+        .scenario-table .negative { color: var(--red); }
+        .scenario-table tr:hover td { background: rgba(108, 92, 231, 0.05); }
+
+        /* Salary comparison */
+        .comparison-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .comparison-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .comparison-section .chart-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+
+        /* CTA Banner */
+        .cta-banner { background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.1)); border: 2px solid var(--accent); border-radius: 16px; padding: 32px; margin-bottom: 32px; text-align: center; }
+        .cta-banner h3 { font-size: 1.3rem; margin-bottom: 8px; }
+        .cta-banner p { color: var(--text-secondary); margin-bottom: 16px; font-size: 0.95rem; }
+        .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 12px 28px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: all 0.3s; margin: 0 8px; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .cta-btn.secondary { background: transparent; border: 1px solid var(--border); color: var(--text-primary); }
+        .cta-btn.secondary:hover { border-color: var(--accent); box-shadow: none; }
+
+        /* Related calculators */
+        .related { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .related h3 { font-size: 1.1rem; margin-bottom: 16px; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .related a { display: block; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-decoration: none; transition: border-color 0.2s; }
+        .related a:hover { border-color: var(--accent); }
+        .related .rel-title { color: var(--text-primary); font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+        .related .rel-desc { color: var(--text-muted); font-size: 0.8rem; }
+
+        /* FOOTER */
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .nav-overlay { display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: rgba(10, 10, 15, 0.6); z-index: 99; }
+        .nav-overlay.open { display: block; }
+
+        /* Liquidation preference impact box */
+        .liq-impact { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-top: 16px; }
+        .liq-impact h4 { font-size: 0.95rem; margin-bottom: 12px; color: var(--orange); }
+        .liq-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+        .liq-row:last-child { border-bottom: none; }
+        .liq-row .label { color: var(--text-secondary); }
+        .liq-row .value { font-family: var(--font-mono); font-weight: 600; }
+
+        @media (max-width: 900px) {
+            .calc-layout { grid-template-columns: 1fr; }
+            .input-panel { position: static; max-height: none; }
+            .summary-cards { grid-template-columns: 1fr 1fr; }
+            .related-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            .summary-cards { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: 1fr; }
+            .chart-container { height: 260px; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .cta-btn { display: block; margin: 8px 0; }
+        }
+    </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="/" class="logo" aria-label="FounderMath home">
+            <div class="logo-icon" aria-hidden="true">%</div>
+            FounderMath
+        </a>
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <li role="none"><a href="dilution.html" role="menuitem">Dilution</a></li>
+            <li role="none"><a href="runway.html" role="menuitem">Runway</a></li>
+            <li role="none"><a href="safe.html" role="menuitem">SAFE</a></li>
+            <li role="none"><a href="vesting.html" role="menuitem">Vesting</a></li>
+            <li role="none"><a href="stock-options.html" role="menuitem">Options</a></li>
+            <li role="none"><a href="startup-exit-calculator.html" role="menuitem" class="active">Exit Calc</a></li>
+            <li role="none"><a href="offer-analyzer.html" role="menuitem">Offer Analyzer</a></li>
+            <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+            <li role="none"><a href="equity-score.html" class="nav-cta" role="menuitem">Equity Score</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+    </div>
+</nav>
+<div class="nav-overlay" onclick="document.querySelector('.nav-links').classList.remove('open');this.classList.remove('open')"></div>
+
+<div class="page-header">
+    <div class="breadcrumbs">
+        <a href="/" class="breadcrumb">Home</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <span class="breadcrumb">Startup Exit Calculator</span>
+    </div>
+    <h1>Startup Exit Calculator — <span class="gradient">What's Your Equity Worth?</span></h1>
+    <p>Model your founder equity payout at different exit valuations. See how liquidation preferences, dilution, and exit multiples affect your take-home.</p>
+</div>
+
+<main id="main-content">
+<div class="calc-layout">
+    <!-- INPUT PANEL -->
+    <div class="input-panel">
+        <div class="panel-section">
+            <div class="panel-section-title">Your Equity</div>
+            <div class="input-group">
+                <label for="equityPct">Your Ownership %</label>
+                <input type="number" id="equityPct" value="15" min="0.01" max="100" step="0.1" oninput="calculate()">
+                <div class="hint">Your equity stake (e.g. 15%)</div>
+            </div>
+            <div class="input-group">
+                <label for="currentValuation">Current Valuation ($)</label>
+                <input type="number" id="currentValuation" value="20000000" min="0" step="1000000" oninput="calculate()">
+                <div class="hint">Post-money valuation (e.g. $20M)</div>
+            </div>
+        </div>
+
+        <div class="panel-section">
+            <div class="panel-section-title">Investor Preferences</div>
+            <div class="input-group">
+                <label for="preferredRaised">Total Preferred Raised ($)</label>
+                <input type="number" id="preferredRaised" value="5000000" min="0" step="500000" oninput="calculate()">
+                <div class="hint">Total preferred stock invested (e.g. $5M)</div>
+            </div>
+            <div class="input-group">
+                <label for="prefType">Liquidation Preference</label>
+                <select id="prefType" onchange="calculate()">
+                    <option value="1x-non-part">1x Non-Participating</option>
+                    <option value="1x-part">1x Participating Preferred</option>
+                    <option value="2x-non-part">2x Non-Participating</option>
+                    <option value="2x-part">2x Participating Preferred</option>
+                    <option value="none">No Preferences (Common Only)</option>
+                </select>
+                <div class="hint">How investor preferences work at exit</div>
+            </div>
+        </div>
+
+        <div class="panel-section">
+            <div class="panel-section-title">Compare to Salary</div>
+            <div class="input-group">
+                <label for="altSalary">Alternative Annual Salary ($)</label>
+                <input type="number" id="altSalary" value="180000" min="0" step="10000" oninput="calculate()">
+                <div class="hint">What you'd earn at a non-startup job</div>
+            </div>
+            <div class="input-group">
+                <label for="currentSalary">Your Startup Salary ($)</label>
+                <input type="number" id="currentSalary" value="120000" min="0" step="10000" oninput="calculate()">
+                <div class="hint">Your current startup salary</div>
+            </div>
+            <div class="input-group">
+                <label for="yearsToExit">Years to Expected Exit</label>
+                <input type="number" id="yearsToExit" value="5" min="1" max="15" step="1" oninput="calculate()">
+                <div class="hint">Expected time to acquisition/IPO</div>
+            </div>
+        </div>
+
+        <div class="panel-section">
+            <div class="panel-section-title">Future Dilution (Optional)</div>
+            <div class="input-group">
+                <label for="futureDilution">Expected Dilution %</label>
+                <input type="number" id="futureDilution" value="20" min="0" max="80" step="5" oninput="calculate()">
+                <div class="hint">How much more you expect to be diluted (e.g. 20%)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULTS PANEL -->
+    <div class="results-panel">
+        <!-- Summary Cards -->
+        <div class="summary-cards">
+            <div class="summary-card highlight">
+                <div class="metric-value" id="currentValue">$3.0M</div>
+                <div class="metric-label">Current Paper Value</div>
+            </div>
+            <div class="summary-card positive">
+                <div class="metric-value" id="afterDilution">$2.4M</div>
+                <div class="metric-label">After Future Dilution</div>
+            </div>
+            <div class="summary-card">
+                <div class="metric-value" id="salaryGap">$300K</div>
+                <div class="metric-label">Salary Gap / Year</div>
+            </div>
+        </div>
+
+        <!-- Exit Scenario Chart -->
+        <div class="chart-section">
+            <h3>Your Payout at Different Exit Valuations</h3>
+            <div class="chart-subtitle">Net payout to you after liquidation preferences</div>
+            <div class="chart-container">
+                <canvas id="exitChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Exit Scenario Table -->
+        <div class="chart-section">
+            <h3>Exit Scenario Breakdown</h3>
+            <div class="chart-subtitle">Detailed payout at each exit valuation</div>
+            <table class="scenario-table">
+                <thead>
+                    <tr>
+                        <th>Exit Valuation</th>
+                        <th>Your Raw %</th>
+                        <th>After Liq. Pref.</th>
+                        <th>Your Payout</th>
+                        <th>vs Salary Job</th>
+                    </tr>
+                </thead>
+                <tbody id="scenarioBody"></tbody>
+            </table>
+
+            <div class="liq-impact" id="liqImpactBox">
+                <h4>Liquidation Preference Impact</h4>
+                <div id="liqImpactContent"></div>
+            </div>
+        </div>
+
+        <!-- Salary Comparison Chart -->
+        <div class="comparison-section">
+            <h3>Startup Equity vs. Salary Job</h3>
+            <div class="chart-subtitle">Total compensation comparison over <span id="yearsLabel">5</span> years</div>
+            <div class="chart-container">
+                <canvas id="compChart"></canvas>
+            </div>
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="cta-banner">
+            <h3>Is Your Equity Deal Fair?</h3>
+            <p>Get your free Equity Score to see how your deal compares to industry benchmarks. Or scan your full offer letter for 30+ red flags.</p>
+            <a href="equity-score.html" class="cta-btn">Get Your Free Equity Score</a>
+            <a href="offer-analyzer.html" class="cta-btn secondary">Scan Your Offer Letter</a>
+        </div>
+
+        <!-- Related calculators -->
+        <div class="related">
+            <h3>Related Calculators</h3>
+            <div class="related-grid">
+                <a href="dilution.html">
+                    <div class="rel-title">Equity Dilution</div>
+                    <div class="rel-desc">Model dilution across funding rounds</div>
+                </a>
+                <a href="stock-options.html">
+                    <div class="rel-title">Stock Options</div>
+                    <div class="rel-desc">Value your employee stock options</div>
+                </a>
+                <a href="equity-vs-salary.html">
+                    <div class="rel-title">Equity vs Salary</div>
+                    <div class="rel-desc">Compare two job offers side-by-side</div>
+                </a>
+                <a href="vesting.html">
+                    <div class="rel-title">Vesting Calculator</div>
+                    <div class="rel-desc">Track your vesting schedule timeline</div>
+                </a>
+                <a href="valuation.html">
+                    <div class="rel-title">Startup Valuation</div>
+                    <div class="rel-desc">Estimate your company's worth</div>
+                </a>
+                <a href="compare-offers.html">
+                    <div class="rel-title">Compare Offers</div>
+                    <div class="rel-desc">Side-by-side offer comparison</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <p>&copy; 2026 FounderMath. Free startup equity calculators for founders.</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="dilution.html">Dilution</a></li>
+            <li><a href="runway.html">Runway</a></li>
+            <li><a href="safe.html">SAFE</a></li>
+            <li><a href="vesting.html">Vesting</a></li>
+            <li><a href="stock-options.html">Options</a></li>
+            <li><a href="startup-exit-calculator.html">Exit Calc</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script>
+// ============================================================
+// MOBILE MENU
+// ============================================================
+function toggleMobileMenu() {
+    var navLinks = document.getElementById('navLinks');
+    var toggle = document.getElementById('mobileToggle');
+    navLinks.classList.toggle('open');
+    var isOpen = navLinks.classList.contains('open');
+    toggle.setAttribute('aria-expanded', isOpen.toString());
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        var navLinks = document.getElementById('navLinks');
+        if (navLinks && navLinks.classList.contains('open')) {
+            navLinks.classList.remove('open');
+            document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+            document.getElementById('mobileToggle').focus();
+        }
+    }
+});
+
+// ============================================================
+// FORMAT HELPERS
+// ============================================================
+function fmtCurrency(n) {
+    if (n >= 1e9) return '$' + (n / 1e9).toFixed(1) + 'B';
+    if (n >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
+    if (n >= 1e3) return '$' + (n / 1e3).toFixed(0) + 'K';
+    return '$' + n.toFixed(0);
+}
+
+function fmtPct(n) {
+    return n.toFixed(1) + '%';
+}
+
+// ============================================================
+// CHARTS
+// ============================================================
+var exitChart = null;
+var compChart = null;
+
+// ============================================================
+// CALCULATION ENGINE
+// ============================================================
+function getState() {
+    return {
+        equityPct: parseFloat(document.getElementById('equityPct').value) || 0,
+        currentValuation: parseFloat(document.getElementById('currentValuation').value) || 0,
+        preferredRaised: parseFloat(document.getElementById('preferredRaised').value) || 0,
+        prefType: document.getElementById('prefType').value,
+        altSalary: parseFloat(document.getElementById('altSalary').value) || 0,
+        currentSalary: parseFloat(document.getElementById('currentSalary').value) || 0,
+        yearsToExit: parseInt(document.getElementById('yearsToExit').value) || 5,
+        futureDilution: parseFloat(document.getElementById('futureDilution').value) || 0
+    };
+}
+
+function calculatePayout(exitVal, s) {
+    var equityFraction = s.equityPct / 100;
+    var afterDilutionFraction = equityFraction * (1 - s.futureDilution / 100);
+    var rawPayout = exitVal * afterDilutionFraction;
+
+    // Calculate common ownership fraction (simplified: equity % of common)
+    var commonFraction = afterDilutionFraction;
+
+    if (s.prefType === 'none' || s.preferredRaised <= 0) {
+        return { raw: rawPayout, net: rawPayout, liqPref: 0, effectivePct: afterDilutionFraction * 100 };
+    }
+
+    var multiplier = s.prefType.startsWith('2x') ? 2 : 1;
+    var participating = s.prefType.includes('part');
+    var liqPref = s.preferredRaised * multiplier;
+
+    if (participating) {
+        // Participating preferred: investors get their preference PLUS their % of remaining
+        var investorCommonPct = 0; // simplified
+        var investorPrefPayout = Math.min(liqPref, exitVal);
+        var remaining = exitVal - investorPrefPayout;
+        var yourPayout = investorPrefPayout * 0 + remaining * commonFraction;
+        // Investors also get their common share of remaining (simplified: skip for clarity)
+        // More accurate: investor gets pref + (common % of remainder)
+        // For simplicity: your payout = commonFraction of (exitVal - liqPref payout to investors)
+        yourPayout = Math.max(0, remaining) * commonFraction + (exitVal > liqPref ? 0 : 0);
+        return { raw: rawPayout, net: yourPayout, liqPref: investorPrefPayout, effectivePct: (yourPayout / exitVal * 100) };
+    } else {
+        // Non-participating: investors choose between preference or converting to common
+        // If exit > liqPref / investorCommonPct, they convert; otherwise they take preference
+        var investorPrefPayout = Math.min(liqPref, exitVal);
+
+        if (exitVal <= liqPref) {
+            // Investors take their preference, common gets nothing (or remainder)
+            var remainder = exitVal - investorPrefPayout;
+            var yourPayout = Math.max(0, remainder) * commonFraction / (1 - 0); // simplified
+            return { raw: rawPayout, net: Math.max(0, remainder * commonFraction / Math.max(0.01, 1)), liqPref: investorPrefPayout, effectivePct: (yourPayout / exitVal * 100) };
+        } else {
+            // Exit is high enough that investors convert to common
+            // Your payout = your equity % of exit (no preference drag)
+            // This is simplified — in reality, investors choose the better deal
+            var yourPayout = rawPayout;
+            return { raw: rawPayout, net: yourPayout, liqPref: liqPref, effectivePct: afterDilutionFraction * 100 };
+        }
+    }
+}
+
+function calculate() {
+    var s = getState();
+
+    // Current value
+    var currentValue = s.currentValuation * (s.equityPct / 100);
+    var afterDilution = currentValue * (1 - s.futureDilution / 100);
+    var salaryGap = s.altSalary - s.currentSalary;
+
+    // Update summary cards
+    document.getElementById('currentValue').textContent = fmtCurrency(currentValue);
+    document.getElementById('afterDilution').textContent = fmtCurrency(afterDilution);
+    document.getElementById('salaryGap').textContent = salaryGap >= 0 ? '-' + fmtCurrency(salaryGap) + '/yr' : '+' + fmtCurrency(Math.abs(salaryGap)) + '/yr';
+    document.getElementById('yearsLabel').textContent = s.yearsToExit;
+
+    // Exit scenarios
+    var exitMultiples = [0.5, 1, 2, 5, 10, 20];
+    var scenarios = exitMultiples.map(function(m) {
+        var exitVal = s.currentValuation * m;
+        var result = calculatePayout(exitVal, s);
+        var totalSalaryOverYears = s.altSalary * s.yearsToExit;
+        var totalStartupSalary = s.currentSalary * s.yearsToExit;
+        var totalStartupComp = result.net + totalStartupSalary;
+        return {
+            multiple: m,
+            exitVal: exitVal,
+            raw: result.raw,
+            net: result.net,
+            liqPref: result.liqPref,
+            effectivePct: result.effectivePct,
+            vsSalary: totalStartupComp - totalSalaryOverYears
+        };
+    });
+
+    // Render table
+    var tbody = document.getElementById('scenarioBody');
+    tbody.innerHTML = '';
+    scenarios.forEach(function(sc) {
+        var tr = document.createElement('tr');
+        var vsSalaryClass = sc.vsSalary >= 0 ? 'positive' : 'negative';
+        var vsSalaryText = sc.vsSalary >= 0 ? '+' + fmtCurrency(sc.vsSalary) : '-' + fmtCurrency(Math.abs(sc.vsSalary));
+        tr.innerHTML = '<td>' + fmtCurrency(sc.exitVal) + ' (' + sc.multiple + 'x)</td>' +
+            '<td>' + fmtPct(s.equityPct * (1 - s.futureDilution / 100)) + '</td>' +
+            '<td>' + fmtPct(sc.effectivePct) + '</td>' +
+            '<td><strong>' + fmtCurrency(sc.net) + '</strong></td>' +
+            '<td class="' + vsSalaryClass + '">' + vsSalaryText + '</td>';
+        tbody.appendChild(tr);
+    });
+
+    // Liquidation preference impact
+    var liqBox = document.getElementById('liqImpactBox');
+    var liqContent = document.getElementById('liqImpactContent');
+    if (s.prefType === 'none' || s.preferredRaised <= 0) {
+        liqBox.style.display = 'none';
+    } else {
+        liqBox.style.display = 'block';
+        var multiplier = s.prefType.startsWith('2x') ? 2 : 1;
+        var participating = s.prefType.includes('part');
+        var liqPref = s.preferredRaised * multiplier;
+        var breakevenExit = liqPref; // simplified breakeven
+
+        liqContent.innerHTML =
+            '<div class="liq-row"><span class="label">Total Preference Stack</span><span class="value">' + fmtCurrency(liqPref) + '</span></div>' +
+            '<div class="liq-row"><span class="label">Preference Type</span><span class="value">' + (participating ? 'Participating' : 'Non-Participating') + ' ' + multiplier + 'x</span></div>' +
+            '<div class="liq-row"><span class="label">Below ' + fmtCurrency(breakevenExit) + ' Exit</span><span class="value" style="color:var(--red)">Investors take preference first</span></div>' +
+            '<div class="liq-row"><span class="label">Above ' + fmtCurrency(breakevenExit) + ' Exit</span><span class="value" style="color:var(--green)">' + (participating ? 'Investors get pref + common share' : 'Investors convert to common') + '</span></div>';
+    }
+
+    // Render exit chart
+    renderExitChart(scenarios);
+
+    // Render comparison chart
+    renderCompChart(scenarios, s);
+}
+
+function renderExitChart(scenarios) {
+    var labels = scenarios.map(function(s) { return fmtCurrency(s.exitVal); });
+    var netData = scenarios.map(function(s) { return s.net; });
+    var rawData = scenarios.map(function(s) { return s.raw; });
+
+    var ctx = document.getElementById('exitChart').getContext('2d');
+    if (exitChart) exitChart.destroy();
+
+    exitChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'After Liquidation Pref.',
+                    data: netData,
+                    backgroundColor: 'rgba(0, 184, 148, 0.7)',
+                    borderColor: 'rgba(0, 184, 148, 1)',
+                    borderWidth: 1,
+                    borderRadius: 6
+                },
+                {
+                    label: 'Raw Equity Value',
+                    data: rawData,
+                    backgroundColor: 'rgba(108, 92, 231, 0.4)',
+                    borderColor: 'rgba(108, 92, 231, 0.8)',
+                    borderWidth: 1,
+                    borderRadius: 6
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { labels: { color: '#a0a0b5', font: { size: 12 } } },
+                tooltip: {
+                    callbacks: {
+                        label: function(ctx) { return ctx.dataset.label + ': ' + fmtCurrency(ctx.raw); }
+                    }
+                }
+            },
+            scales: {
+                x: { ticks: { color: '#666680', font: { size: 11 } }, grid: { color: 'rgba(42,42,64,0.5)' } },
+                y: {
+                    ticks: { color: '#666680', font: { size: 11 }, callback: function(v) { return fmtCurrency(v); } },
+                    grid: { color: 'rgba(42,42,64,0.5)' }
+                }
+            }
+        }
+    });
+}
+
+function renderCompChart(scenarios, s) {
+    var totalSalaryJob = s.altSalary * s.yearsToExit;
+    var totalStartupSalary = s.currentSalary * s.yearsToExit;
+
+    var labels = scenarios.map(function(sc) { return fmtCurrency(sc.exitVal) + ' exit'; });
+    var startupComp = scenarios.map(function(sc) { return sc.net + totalStartupSalary; });
+    var salaryLine = scenarios.map(function() { return totalSalaryJob; });
+
+    var ctx = document.getElementById('compChart').getContext('2d');
+    if (compChart) compChart.destroy();
+
+    compChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Your Startup Total Comp',
+                    data: startupComp,
+                    backgroundColor: 'rgba(0, 184, 148, 0.7)',
+                    borderColor: 'rgba(0, 184, 148, 1)',
+                    borderWidth: 1,
+                    borderRadius: 6,
+                    order: 2
+                },
+                {
+                    label: 'Salary Job (' + s.yearsToExit + 'yr total)',
+                    data: salaryLine,
+                    type: 'line',
+                    borderColor: 'rgba(255, 107, 107, 0.8)',
+                    borderWidth: 2,
+                    borderDash: [6, 4],
+                    pointRadius: 0,
+                    fill: false,
+                    order: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { labels: { color: '#a0a0b5', font: { size: 12 } } },
+                tooltip: {
+                    callbacks: {
+                        label: function(ctx) { return ctx.dataset.label + ': ' + fmtCurrency(ctx.raw); }
+                    }
+                }
+            },
+            scales: {
+                x: { ticks: { color: '#666680', font: { size: 10 }, maxRotation: 45 }, grid: { color: 'rgba(42,42,64,0.5)' } },
+                y: {
+                    ticks: { color: '#666680', font: { size: 11 }, callback: function(v) { return fmtCurrency(v); } },
+                    grid: { color: 'rgba(42,42,64,0.5)' }
+                }
+            }
+        }
+    });
+}
+
+// Initial calculation
+calculate();
+</script>
+</body>
+</html>
