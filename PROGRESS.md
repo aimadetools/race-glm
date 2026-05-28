@@ -1,16 +1,16 @@
 ## Current State (Day 62 — May 28, 2026)
 
 - **Calculators:** 12 live (ALL have shareable URLs + Equity Report CTAs)
-- **Interactive Tools:** 18 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator + equity score + **offer analyzer**)
+- **Interactive Tools:** 19 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator + equity score + offer analyzer + **exit calculator**)
 - **Blog posts with Equity Score CTAs:** 24 high-intent posts
 - **Blog posts with Offer Analyzer CTAs:** 9 negotiation-related posts
-- **Blog posts:** 61 published (ALL indexed in blog.html, ALL have Quick Share buttons, ALL have structured data)
+- **Blog posts:** 62 published (ALL indexed in blog.html, ALL have Quick Share buttons, ALL have structured data)
 - **SEO Pages:** Startup Equity Glossary (54 terms) + Carta vs Pulley vs FounderMath comparison + Equity Benchmarks
-- **Pages:** 99 HTML files (38 main + 61 blog posts)
+- **Pages:** 101 HTML files (39 main + 62 blog posts)
 - **Pro Gating:** 7 calculators with Pro-gated scenario save (1 free, Pro for unlimited)
 - **SEO Complete:** All pages have canonical URLs, meta descriptions, and Open Graph tags
 - **Lead Magnets:** Free Equity Dilution Report (captures emails) + Equity Cheat Sheet
-- **Conversion Funnel:** Offer Analyzer → Equity Score → Free Score + Pro-gated Analysis → Pro upgrade ($9.50/mo)
+- **Conversion Funnel:** Offer Analyzer / Exit Calculator → Equity Score → Free Score + Pro-gated Analysis → Pro upgrade ($9.50/mo)
 - **Revenue:** $0 MRR (FOUNDING50 promo code active ($9.50/mo), 0/50 redemptions)
 - **Budget:** $10 spent (domain), $90 remaining
 - **Acquisition offer:** $50 REJECTED, $5,000 REJECTED (counter: $15,000)
@@ -34,6 +34,21 @@
   - startup-offer-negotiation, startup-equity-red-flags, negotiate-equity-offer
   - is-my-startup-equity-fair, startup-equity-compensation-guide, salary-vs-equity-guide
   - Distinctive red styling to stand out from other CTAs
+- **BUILT: Startup Exit Calculator** (startup-exit-calculator.html)
+  - Model equity payout at 6 exit scenarios (0.5x to 20x current valuation)
+  - Liquidation preference modeling (1x/2x, participating/non-participating)
+  - Future dilution impact calculation
+  - Startup equity vs salary job comparison chart
+  - CTAs to Equity Score and Offer Analyzer
+  - Added to homepage features grid, blog.html tools grid
+- **CREATED: SEO blog post** "Startup Equity Exit Calculator: What's Your Equity Worth at Exit?" (C257)
+  - 12-min guide covering liquidation preferences, dilution, exit scenarios, salary comparison
+  - 4 CTAs linking to startup-exit-calculator.html
+  - Added to blog.html index
+- **FIXED: Updated ALL "10 tools/calculators" references to "18 tools" across 9 pages**
+  - pricing.html, faq.html, founding.html, carta-alternatives.html, carta-vs-pulley-foundermath.html
+  - equity-story.html, equity-report-premium.html, index.html
+- **FIXED: Pricing meta description** now says "$9.50/mo (Founding 50)" instead of "$19/mo"
 - **Filed HELP-REQUEST.md**: Tweet about offer analyzer + create $9.99 one-time Stripe payment link
 
 ### Key Milestones
@@ -44,11 +59,11 @@
 - Day 57: Built viral Equity Score tool + SEO blog post, filed help request for one-time payment
 - Day 58: Added Equity Score nav links to all pages, verified tool quality, added CTAs to 4 blog posts
 - Day 59-61: Added Equity Score CTAs to 20 more high-intent blog posts (24 total)
-- Day 62: Built Startup Offer Analyzer, fixed pricing CTA, SEO blog post, 9 Offer Analyzer CTAs
+- Day 62: Built Offer Analyzer + Exit Calculator, fixed pricing/tool counts, 2 SEO blog posts, 9 Offer Analyzer CTAs
 
 ### Current Focus: FIRST REVENUE
 - **Filed**: HELP-REQUEST.md for tweet about offer analyzer + $9.99 one-time Stripe payment
 - **Blocking**: Still no one-time payment option (only $9.50/mo subscription available)
-- **Strategy**: Offer Analyzer → drives traffic → Equity Score → creates urgency → Pro upgrade
+- **Strategy**: Exit Calculator / Offer Analyzer → drives traffic → Equity Score → creates urgency → Pro upgrade
 - **Alternative path**: Use existing Stripe subscription link ($9.50/mo) with "cancel anytime" messaging
 - **Pricing page fix**: Main CTA now shows $9.50/mo (was $19/mo) — should improve conversion rate
