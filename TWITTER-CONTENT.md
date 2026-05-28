@@ -124,3 +124,74 @@
 - Engagement rate (likes, replies, retweets)
 - Click-through rate to calculators
 - Hashtag performance
+
+---
+
+### Thread 7: Startup Offer Red Flag Scanner
+**Post:** A thread on hidden red flags in startup offer letters
+
+**Content:**
+1. Most startup offers have hidden terms that silently wipe out 10-30% of your equity. Here's what to look for:
+
+2. Red Flag #1: Double-trigger acceleration — You only vest if acquisition AND termination happen. Most startups only exit once. If you're fired before exit → $0. Negotiate single-trigger.
+
+3. Red Flag #2: "At company discretion" exercise window — Standard is 90 days post-termination. If they can deny your exercise, your options become worthless. Never sign this.
+
+4. Red Flag #3: No cliff provision — Sounds generous but removes leverage for both parties. Standard 4-year vesting with 1-year cliff exists for good reason.
+
+5. Red Flag #4: Narrow-based anti-dilution — Only considers preferred shares. Broad-based includes all outstanding shares. Narrow-based silently dilutes employees more.
+
+6. Red Flag #5: Missing 409A disclosure — You can't verify your strike price discount. Ask for last 409A, date, and next one planned.
+
+**CTA:** I built a free scanner that analyzes 30+ terms in 30 seconds. Paste your offer → instant analysis. foundermath.com/offer-analyzer
+
+---
+
+### Thread 8: Startup Exit Calculator
+**Post:** A thread on what your equity is really worth at exit
+
+**Content:**
+1. Your equity grant says "$100K on paper." At exit, you walk away with $5K. This happens ALL THE TIME. Here's why:
+
+2. Liquidation preference — Investors get paid FIRST. 1x preference means they recover their investment before employees see anything. Participating preferred = get paid back PLUS their share. Everyone else gets diluted twice.
+
+3. Future dilution — 1% at Series A → 0.8% after Series B → 0.64% after Series C → 0.51% after Series D. Your $100K becomes $51K BEFORE liquidation preference.
+
+4. Early exercise deadlines — Option grant: 10,000 shares at $1. Exercise now: $10K cost, $90K profit. Wait too long and miss window → $0. Most people don't realize options expire.
+
+5. Salary tradeoff — What if you took $20K more salary instead of equity? Run the numbers. At certain exit valuations, cash wins.
+
+6. The reality check — Model 6 exit scenarios (0.5x to 20x return). See what you'd actually get paid after preferences and dilution.
+
+**CTA:** Calculate what your equity is REALLY worth at exit. foundermath.com/startup-exit-calculator
+
+---
+
+### Thread 9: Founder Equity Score
+**Post:** A thread on how to score your startup equity package
+
+**Content:**
+1. Is your startup equity offer good or bad? Most people can't tell. Here's a framework to score your equity (0-100):
+
+2. Score component #1: Ownership percentage — 1%+ at seed = 20 points. 0.5%+ = 15 points. Below 0.5% = 10 points. Early employees should own meaningful equity.
+
+3. Score component #2: Strike price discount — 80%+ discount to 409A = 20 points. 50-79% = 15 points. Below 50% = 5 points. You're getting equity for cheap — make sure it's actually cheap.
+
+4. Score component #3: Vesting terms — Standard 4-year/1-year cliff = 15 points. Single-trigger acceleration = +5 points. Double-trigger = -5 points. Know what you're signing.
+
+5. Score component #4: Exercise window — 90+ days = 15 points. Extended (7-10 years) = +5 points. "At discretion" = -15 points. Your options expire fast unless you negotiate.
+
+6. Score component #5: Company quality — Funded by top tier = 10 points. Strong traction = +5 points. Pre-revenue pre-seed = 0 points. High risk needs high upside.
+
+7. Total score breakdown: 80-100 = Excellent offer worth considering. 60-79 = Good with some tradeoffs. 40-59 = Negotiate or decline. Below 40 = Walk away.
+
+**CTA:** Get your equity scored in 60 seconds. foundermath.com/equity-score
+
+---
+
+## Updated Suggested Posting Schedule
+- Week 1: Thread 1 (Valuation) + Thread 2 (Dilution)
+- Week 2: Thread 3 (SAFE) + Thread 4 (Vesting)
+- Week 3: Thread 5 (Runway) + Thread 6 (Cap Table)
+- Week 4: Thread 7 (Offer Scanner) + Thread 8 (Exit Calculator)
+- Week 5: Thread 9 (Equity Score) + Tweet: "New calculator comparison feature"
