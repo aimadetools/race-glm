@@ -198,6 +198,99 @@ Copy-paste ready from TWITTER-CONTENT.md
 
 ---
 
+## Additional Social Content (Equity Score)
+
+### Twitter Thread: "Is My Startup Equity Fair?"
+
+**Post:** A thread on how to tell if your startup equity is fair
+
+**Content:**
+1. Your startup offer says "0.5% equity." Is that good? Bad? Most people have no idea. Here's how to tell in 60 seconds:
+
+2. **Factor 1: Ownership percentage** — At seed stage, early employees should own 1%+ for meaningful upside. Anything below 0.5% and you're not getting enough equity for the risk.
+
+3. **Factor 2: Strike price discount** — You're buying equity at a discount to market. If your strike is $1 and 409A is $5, you have 80% discount. If strike is $4 and 409A is $5, only 20% discount. That's a huge difference in potential profit.
+
+4. **Factor 3: Vesting terms** — Standard is 4 years with 1-year cliff. If they offer double-trigger acceleration (only vest if acquired AND fired), that's unfavorable. Single-trigger is better.
+
+5. **Factor 4: Exercise window** — Standard is 90 days after leaving. If your window is shorter or "at company discretion," your options could expire worthless before you can exercise.
+
+6. **Factor 5: Company quality** — Funded by top-tier VC? Strong traction? Pre-revenue? High risk needs high upside. If the company is risky, you need more equity to compensate.
+
+7. **Score your offer (0-100):** 80+ = excellent, 60-79 = good with tradeoffs, 40-59 = negotiate, below 40 = walk away.
+
+8. I built a free equity score calculator that evaluates your offer in 60 seconds. Get your score + specific recommendations: foundermath.com/equity-score
+
+---
+
+### LinkedIn Post: Equity Score
+
+**Headline:** Is your startup equity offer fair? Here's how to tell in 60 seconds.
+
+**Body:**
+
+Most startup employees get an equity offer with a number like "10,000 options at $1 strike" — but have no idea if it's fair or unfavorable.
+
+Here's the framework I use to evaluate equity offers:
+
+**1. Ownership %**
+- 1%+ at seed = Excellent
+- 0.5-1% = Good
+- Below 0.5% = Likely underpriced for your role
+
+**2. Strike price discount**
+- 80%+ discount to 409A = Great deal
+- 50-79% = Fair
+- Below 50% = Questionable value
+
+**3. Vesting terms**
+- 4-year/1-year cliff = Standard
+- Single-trigger acceleration = Bonus
+- Double-trigger = Unfavorable
+
+**4. Exercise window**
+- 90+ days = Standard
+- Extended (7-10 years) = Excellent
+- "At discretion" = Major red flag
+
+**5. Company quality**
+- Top-tier funding + traction = Lower equity still attractive
+- Pre-revenue pre-seed = Needs higher equity to compensate risk
+
+**Score breakdown:**
+- 80-100: Excellent offer, worth considering
+- 60-79: Good with some tradeoffs
+- 40-59: Negotiate or decline
+- Below 40: Walk away
+
+I built a free tool that scores your equity offer in 60 seconds based on these 5 factors: foundermath.com/equity-score
+
+No signup required. Get your score and see exactly what to negotiate.
+
+---
+
+### Reddit Comment Templates (Equity Score)
+
+**Template 1: Response to "Is this equity offer fair?" posts**
+
+"Quick way to check: Use the free equity score calculator at founder-math.com/equity-score — it evaluates ownership %, strike price discount, vesting terms, exercise window, and company quality, then gives you a 0-100 score with specific recommendations. Takes 60 seconds.
+
+Based on your post, I'd say: [brief analysis]. Run your numbers through the calculator to confirm."
+
+**Template 2: Response to "Should I take this offer?" posts**
+
+"Before deciding, score your equity offer at founder-math.com/equity-score — it's free and breaks down exactly what you're getting across 5 dimensions (ownership, strike price, vesting, exercise window, company quality).
+
+Your offer looks [good/fair/risky] because [specific reason]. But run the full analysis to see what you should negotiate."
+
+**Template 3: Response to "What's typical equity for [role]?" posts**
+
+"Equity varies by role and stage, but here's a quick framework: [brief benchmarks].
+
+For your specific offer, the best way to evaluate is to score it at founder-math.com/equity-score — it compares your deal against benchmarks and gives you a 0-100 score with negotiation tips."
+
+---
+
 ## Posting Schedule
 
 **Week 1: Offer Analyzer Push**
