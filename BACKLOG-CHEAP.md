@@ -16,7 +16,6 @@
 - ⬜ C242: Check if equity-score.html is indexed by Google
 - ⬜ C243: Check if offer-analyzer.html gets indexed by Google
 - ⬜ C260: Check if startup-exit-calculator.html gets indexed by Google
-- ⬜ C261: Add Exit Calculator CTAs to exit-related blog posts (startup-exit-scenarios-equity, founder-liquidity-events, stock-options-worth-guide)
 
 ## Completed (Day 62)
 ✅ Built offer-analyzer.html and added to homepage/blog index
@@ -25,6 +24,7 @@
 ✅ C256: Added Offer Analyzer CTAs to 9 negotiation-related blog posts
 ✅ Built startup-exit-calculator.html with liquidation pref modeling, dilution, salary comparison
 ✅ C257: Created SEO blog post "Startup Equity Exit Calculator" → links to exit calculator
+✅ C261: Added Exit Calculator CTAs to 6 exit-related blog posts
 ✅ Fixed ALL "10 tools/calculators" → "18 tools" across 9 pages
 ✅ Fixed pricing meta description from "$19/mo" to "$9.50/mo (Founding 50)"
 
