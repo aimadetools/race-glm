@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/analyze-startup-offer-letter.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Analyze Your Startup Offer Letter (2026 Checklist) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+    </script>
+    <meta name="description" content="Learn how to analyze your startup offer letter step by step. A complete checklist covering vesting, strike price, exercise windows, acceleration, and 30+ equity terms you need to check before signing.">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Analyze Your Startup Offer Letter (2026 Checklist)",
+        "url": "https://founder-math.com/blog/analyze-startup-offer-letter.html",
+        "description": "Learn how to analyze your startup offer letter step by step. A complete checklist covering vesting, strike price, exercise windows, acceleration, and 30+ equity terms you need to check before signing.",
+        "datePublished": "2026-05-28",
+        "dateModified": "2026-05-28",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        }
+    }
+    </script>
+    <meta property="og:title" content="How to Analyze Your Startup Offer Letter (2026 Checklist) | FounderMath">
+    <meta property="og:description" content="Learn how to analyze your startup offer letter step by step. A complete checklist covering vesting, strike price, exercise windows, acceleration, and 30+ equity terms.">
+    <meta property="og:image" content="/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/analyze-startup-offer-letter.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        @media (prefers-contrast: more) {
+            :root { --border: #ffffff; --text-secondary: #e0e0e0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 900px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: white;
+        }
+        .nav-links {
+            display: flex; align-items: center; gap: 32px; list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:focus-visible { outline: var(--focus-outline); outline-offset: 4px; }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle {
+            display: none; background: none; border: none; color: var(--text-primary);
+            font-size: 1.5rem; cursor: pointer; padding: 8px;
+        }
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 8px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; width: 36px; height: 36px;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        .theme-toggle:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+
+        .article-layout {
+            max-width: 720px; margin: 100px auto 60px; padding: 0 24px;
+        }
+        .article-header {
+            margin-bottom: 40px; text-align: center;
+        }
+        .article-meta {
+            display: flex; gap: 16px; justify-content: center;
+            flex-wrap: wrap; margin-bottom: 16px; font-size: 0.85rem;
+        }
+        .article-meta span { color: var(--text-muted); }
+        .tag {
+            background: var(--accent); color: white; padding: 4px 12px;
+            border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+        }
+        .article-layout h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800; letter-spacing: -0.03em;
+            margin-bottom: 24px; line-height: 1.2;
+        }
+        .article-layout h2 {
+            font-size: 1.6rem; font-weight: 700; margin-top: 48px; margin-bottom: 20px;
+        }
+        .article-layout h3 {
+            font-size: 1.3rem; font-weight: 600; margin-top: 32px; margin-bottom: 16px;
+        }
+        .article-layout p {
+            margin-bottom: 20px; color: var(--text-secondary);
+        }
+        .article-layout ul, .article-layout ol {
+            margin-bottom: 20px; padding-left: 28px;
+        }
+        .article-layout li {
+            margin-bottom: 12px; color: var(--text-secondary);
+        }
+        .lead {
+            font-size: 1.15rem; color: var(--text-primary);
+            line-height: 1.7; font-weight: 500;
+        }
+        .inline-cta {
+            display: block; background: var(--bg-card); border: 1px solid var(--accent);
+            padding: 20px; border-radius: 12px; text-align: center;
+            text-decoration: none; margin: 24px 0; transition: all 0.2s;
+        }
+        .inline-cta:hover { border-color: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .inline-cta strong { color: var(--accent-light); font-size: 1rem; }
+        .callout {
+            background: var(--bg-card); border-left: 4px solid var(--accent);
+            border-radius: 8px; padding: 20px; margin: 24px 0;
+        }
+        .callout p { margin: 0; }
+        .callout.formula {
+            text-align: center; font-size: 1.1rem; font-weight: 600;
+            background: var(--bg-secondary); border-radius: 8px; padding: 16px;
+            margin: 12px 0;
+        }
+        .callout.warning { border-left-color: var(--orange); }
+        .callout.tip { border-left-color: var(--green); }
+        .callout.example {
+            background: var(--bg-input); border-left-color: var(--accent-light);
+        }
+        .toc {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px 24px; margin: 32px 0;
+        }
+        .toc h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin: 0 0 12px 0;
+        }
+        .toc ol {
+            padding-left: 20px;
+        }
+        .toc li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: var(--accent-light); }
+        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
+        .related-posts a:hover { text-decoration: underline; }
+        .author-bio {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .author-avatar {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .author-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .author-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .author-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .author-content a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .article-meta { flex-wrap: wrap; }
+        }
+        .newsletter {
+            max-width: 600px; margin: 40px auto 60px; padding: 32px; text-align: center;
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+        }
+        .newsletter h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .newsletter p { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem; }
+        .newsletter-form {
+            display: flex; gap: 10px; max-width: 420px; margin: 0 auto;
+        }
+        .newsletter-form input {
+            flex: 1; padding: 12px 16px; background: var(--bg-input);
+            border: 1px solid var(--border); border-radius: 10px;
+            color: var(--text-primary); font-size: 0.9rem; outline: none;
+        }
+        .newsletter-form input:focus { border-color: var(--accent); }
+        .newsletter-form input::placeholder { color: var(--text-muted); }
+        footer {
+            padding: 48px 24px; border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .callout.cta { border-left-color: var(--green); background: rgba(0,184,148,0.08); }
+        .callout.cta .cta-button { display: inline-block; margin-top: 0.75rem; padding: 0.6rem 1.5rem; background: var(--green); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .callout.cta .cta-button:hover { opacity: 0.9; }
+
+        /* Checklist styling */
+        .checklist {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .checklist h4 {
+            color: var(--accent-light);
+            margin: 0 0 16px 0;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .checklist li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+        .checklist li:last-child { border-bottom: none; }
+        .checklist li::before {
+            content: "☐";
+            color: var(--accent-light);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .checklist li strong {
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+        <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+                <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+                <li role="none"><a href="../vesting.html" role="menuitem">Vesting</a></li>
+                <li role="none"><a href="../unit-economics.html" role="menuitem">Unit Econ</a></li>
+                <li role="none"><a href="../cap-table.html" role="menuitem">Cap Table</a></li>
+                <li role="none"><a href="../equity-split.html" role="menuitem">Equity Split</a></li>
+                <li role="none"><a href="../valuation.html" role="menuitem">Valuation</a></li>
+                <li role="none"><a href="../stock-options.html" role="menuitem">Options</a></li>
+                <li role="none"><a href="../equity-vs-salary.html" role="menuitem">Equity vs Salary</a></li>
+                <li role="none"><a href="../compare-offers.html" role="menuitem">Compare</a></li>
+                <li role="none"><a href="../equity-glossary.html" role="menuitem">Glossary</a></li>
+                <li role="none"><a href="../409a-valuation.html" role="menuitem">409A</a></li>
+                <li role="none"><a href="../pricing.html" role="menuitem">Pricing</a></li>
+                <li><a href="../pricing.html" class="nav-cta" role="menuitem">Start Free</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <article class="article-layout" id="main-content">
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="tag">Offer Analysis</span>
+                <span>May 28, 2026</span>
+                <span>15 min read</span>
+            </div>
+        <div id="fm-blog-share-container" style="margin-top:12px;"></div>
+            <h1>How to Analyze Your Startup Offer Letter: The Complete 2026 Checklist</h1>
+        </header>
+
+        <div class="article-body">
+            <p class="lead">You got the offer. The salary looks good, the title is a step up, and they're throwing in equity. But do you actually know what you're signing? Here's a step-by-step guide to analyzing every equity term in your startup offer — and a free tool that does it in 30 seconds.</p>
+
+            <a href="../offer-analyzer.html" class="inline-cta">
+                <strong>Scan Your Offer Letter for 30+ Red Flags (Free, 30 Seconds) →</strong>
+            </a>
+
+                <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#why-analyze">Why Most Startup Employees Don't Read Their Offer Letters</a></li>
+                <li><a href="#before-you-start">Before You Start: What to Gather</a></li>
+                <li><a href="#step-1-vesting">Step 1: Check the Vesting Schedule</a></li>
+                <li><a href="#step-2-strike">Step 2: Understand the Strike Price and 409A</a></li>
+                <li><a href="#step-3-exercise">Step 3: Check the Exercise Window</a></li>
+                <li><a href="#step-4-acceleration">Step 4: Look for Acceleration Clauses</a></li>
+                <li><a href="#step-5-option-type">Step 5: Identify ISO vs NSO</a></li>
+                <li><a href="#step-6-red-flags">Step 6: Flag Dangerous Clauses</a></li>
+                <li><a href="#step-7-value">Step 7: Estimate What Your Equity Is Actually Worth</a></li>
+                <li><a href="#quick-scan">The 30-Second Quick Scan</a></li>
+                <li><a href="#complete-checklist">The Complete Offer Analysis Checklist</a></li>
+                <li><a href="#what-next">What to Do After Your Analysis</a></li>
+            </ol>
+        </nav>
+
+        <h2 id="why-analyze">Why Most Startup Employees Don't Read Their Offer Letters</h2>
+
+        <p>A Carta study found that <strong>72% of startup employees don't fully understand their equity compensation</strong> when they accept an offer. It's not because they're careless — it's because offer letters are packed with jargon, and most people are too excited (or too polite) to push back.</p>
+
+        <p>The consequences are real. An employee who joins a Series A startup might receive 0.5%–1.5% in stock options. Over four years, that equity could be worth nothing — or it could be worth $200,000+. The difference often comes down to terms buried in paragraphs you skimmed on your phone while celebrating with friends.</p>
+
+        <div class="callout warning">
+            <p><strong>The expensive mistake:</strong> The most costly equity mistakes aren't about how many shares you get. They're about the terms attached to those shares — vesting schedules, exercise windows, acceleration triggers, and repurchase rights. A "generous" option grant with bad terms can be worth less than a "modest" grant with clean terms.</p>
+        </div>
+
+        <h2 id="before-you-start">Before You Start: What to Gather</h2>
+
+        <p>Before analyzing your offer, collect these documents:</p>
+
+        <ul>
+            <li><strong>The offer letter</strong> — the full document, not a summary email</li>
+            <li><strong>The stock option agreement</strong> — sometimes a separate document, sometimes referenced in the offer letter</li>
+            <li><strong>The company's 409A valuation</strong> — if available; determines your strike price</li>
+            <li><strong>The cap table summary</strong> — ask HR or your hiring manager; you have a right to know the fully diluted share count</li>
+            <li><strong>The company's latest funding round details</strong> — stage, valuation, investors</li>
+        </ul>
+
+        <a href="../offer-analyzer.html" class="inline-cta">
+            <strong>Prefer to skip the manual analysis? Paste your offer letter into our free scanner →</strong>
+        </a>
+
+        <h2 id="step-1-vesting">Step 1: Check the Vesting Schedule</h2>
+
+        <p>Vesting determines when you actually own your equity. The industry standard is <strong>4-year vesting with a 1-year cliff</strong>, meaning:</p>
+
+        <ul>
+            <li>You earn 25% of your options after your first year (the "cliff")</li>
+            <li>The remaining 75% vests monthly or quarterly over the next 3 years</li>
+            <li>If you leave before the 1-year cliff, you get <strong>nothing</strong></li>
+        </ul>
+
+        <h3>What to look for:</h3>
+
+        <ul>
+            <li><strong>Non-standard vesting</strong> — 5-year vesting is becoming more common in later-stage startups. This is a red flag unless the grant size compensates for the extra year.</li>
+            <li><strong>Back-loaded vesting</strong> — some offers vest 15% in year 1, 20% in year 2, 25% in year 3, and 40% in year 4. This means you earn less equity if you leave early.</li>
+            <li><strong>No cliff mentioned</strong> — if the cliff is missing from the offer letter, ask. Some companies use 6-month cliffs or even no cliff, which is actually better for you.</li>
+            <li><strong>Vesting start date</strong> — does vesting start on your start date, the board approval date, or the grant date? Board approval can lag by weeks or months.</li>
+        </ul>
+
+        <div class="callout example">
+            <p><strong>Example:</strong> You're offered 48,000 options with 4-year vesting and a 1-year cliff. After year 1, you own 12,000 options. The remaining 36,000 vest monthly (3,000/month) over years 2–4. If you leave at month 18, you keep 12,000 + (6 × 3,000) = 30,000 options.</p>
+        </div>
+
+        <h2 id="step-2-strike">Step 2: Understand the Strike Price and 409A Valuation</h2>
+
+        <p>Your strike price (also called the exercise price) is what you pay per share when you exercise your options. It's set by the company's <strong>409A valuation</strong> — an independent appraisal of the company's fair market value (FMV).</p>
+
+        <h3>The key formula:</h3>
+
+        <div class="callout formula">
+            <p>Your gain per share = Exit price per share − Strike price per share − Taxes</p>
+        </div>
+
+        <h3>What to check:</h3>
+
+        <ul>
+            <li><strong>Is the strike price stated?</strong> — If it's not in your offer letter, that's a red flag. It means the company hasn't set it yet or is being vague.</li>
+            <li><strong>How old is the 409A?</strong> — A 409A that's 12+ months old may be stale. If the company has grown significantly since the last valuation, your strike price might increase on the next 409A refresh — meaning you'd pay more to exercise.</li>
+            <li><strong>Strike price vs. preferred price</strong> — Your strike price should be significantly lower than what investors paid per share in the last funding round. If they're close, your upside is limited.</li>
+        </ul>
+
+        <div class="callout tip">
+            <p><strong>Pro tip:</strong> Ask your hiring manager for the fully diluted share count and the last preferred price per share. Divide your options by the fully diluted count to get your actual ownership percentage. Then compare your strike price to the preferred price — the bigger the gap, the more upside you have.</p>
+        </div>
+
+        <h2 id="step-3-exercise">Step 3: Check the Exercise Window</h2>
+
+        <p>The exercise window is how long you have to buy your vested options after leaving the company. This is one of the most important — and most overlooked — terms in your offer.</p>
+
+        <h3>The standard vs. what you might see:</h3>
+
+        <table>
+            <tr>
+                <th>Exercise Window</th>
+                <th>How Common</th>
+                <th>What It Means</th>
+            </tr>
+            <tr>
+                <td>90 days</td>
+                <td>Most common (industry standard)</td>
+                <td>You have 3 months after leaving to exercise. For early employees, this can cost $10,000–$100,000+ out of pocket.</td>
+            </tr>
+            <tr>
+                <td>5–7 years</td>
+                <td>Growing trend (Pinterest, Square, Uber)</td>
+                <td>Much better for employees. You have years to decide whether to exercise.</td>
+            </tr>
+            <tr>
+                <td>10 years</td>
+                <td>Rare but best (Carta, some late-stage)</td>
+                <td>Essentially the full option life. Maximum flexibility.</td>
+            </tr>
+            <tr>
+                <td>30 days or less</td>
+                <td>Red flag</td>
+                <td>Very aggressive. Designed to force quick decisions or let options expire.</td>
+            </tr>
+        </table>
+
+        <div class="callout warning">
+            <p><strong>The exercise window trap:</strong> Imagine you've vested 50,000 options at a $2 strike price over 3 years. You leave the company. With a 90-day window, you need to come up with $100,000 in 3 months to keep your equity — or walk away from it entirely. This is why the exercise window matters as much as the number of options.</p>
+        </div>
+
+        <h2 id="step-4-acceleration">Step 4: Look for Acceleration Clauses</h2>
+
+        <p>Acceleration determines what happens to your unvested equity if the company is acquired. Without acceleration, your unvested options disappear in an acquisition — you lose years of potential equity overnight.</p>
+
+        <h3>Types of acceleration:</h3>
+
+        <ul>
+            <li><strong>Single-trigger:</strong> Your unvested equity vests immediately upon acquisition. Rare for non-executives, but the best outcome for employees.</li>
+            <li><strong>Double-trigger:</strong> Your unvested equity vests only if (1) the company is acquired AND (2) you're terminated or your role changes significantly within a set period. This is the industry standard for senior roles.</li>
+            <li><strong>No acceleration:</strong> Your unvested equity converts to the acquirer's plan, or you're re-hired with a new vesting schedule. You effectively restart your clock.</li>
+        </ul>
+
+        <p><strong>Check your offer for:</strong> Any mention of "change of control," "acceleration," "termination following a change of control," or "good reason." If none of these appear, ask explicitly.</p>
+
+        <h2 id="step-5-option-type">Step 5: Identify ISO vs NSO</h2>
+
+        <p>Your options will be either <strong>Incentive Stock Options (ISOs)</strong> or <strong>Non-Qualified Stock Options (NSOs)</strong>. The tax treatment is dramatically different.</p>
+
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>ISO</th>
+                <th>NSO</th>
+            </tr>
+            <tr>
+                <td>Exercise tax</td>
+                <td>No ordinary income tax at exercise (AMT may apply)</td>
+                <td>Ordinary income tax on spread at exercise</td>
+            </tr>
+            <tr>
+                <td>Sale tax</td>
+                <td>Long-term capital gains (if held 1+ year after exercise, 2+ years after grant)</td>
+                <td>Ordinary income on exercise spread + capital gains on additional appreciation</td>
+            </tr>
+            <tr>
+                <td>Who gets them</td>
+                <td>Employees only</td>
+                <td>Employees, contractors, advisors, board members</td>
+            </tr>
+            <tr>
+                <td>$100K limit</td>
+                <td>Yes — max $100K in ISOs vesting per year</td>
+                <td>No limit</td>
+            </tr>
+        </table>
+
+        <p><strong>Why it matters:</strong> If you receive ISOs and exercise early (before the 409A price increases), you can minimize taxes significantly. With NSOs, you owe taxes on the spread at exercise — which means exercising early is cheaper but you'll owe the IRS.</p>
+
+        <div class="callout tip">
+            <p><strong>Pro tip:</strong> If your offer includes ISOs, consider an <strong>83(b) election</strong>. This lets you pay tax on the options' value at grant time (when it's near zero) instead of at vesting. You must file within 30 days of grant — miss this deadline and it's gone forever.</p>
+        </div>
+
+        <h2 id="step-6-red-flags">Step 6: Flag Dangerous Clauses</h2>
+
+        <p>Beyond the main terms above, scan your offer for these clauses that can quietly erode your equity:</p>
+
+        <h3>Repurchase rights</h3>
+        <p>The company can buy back your vested shares if you leave. Common for early employees at pre-seed/seed startups. The repurchase price is usually FMV or the price you paid — meaning you get no upside. Check if there's a time limit on the repurchase right (e.g., "for 12 months after departure").</p>
+
+        <h3>Right of first refusal (ROFR)</h3>
+        <p>The company has the right to buy your shares before you can sell them to a third party. Standard in most agreements, but worth knowing — it limits who you can sell to on the secondary market.</p>
+
+        <h3>Non-compete and non-solicit</h3>
+        <p>These restrict where you can work after leaving. While non-competes are increasingly unenforceable (banned in California, restricted by the FTC), they can still appear in offer letters. A non-compete paired with a short exercise window is especially concerning.</p>
+
+        <h3>Clawback provisions</h3>
+        <p>The company can reclaim vested shares under certain conditions. This is rare but devastating when it happens. Look for language like "company reserves the right to repurchase" or "shares subject to forfeiture."</p>
+
+        <h3>Automatic option cancellation</h3>
+        <p>Some offers specify that unexercised options expire immediately upon termination, even before the standard 90-day window. If your offer says "options expire upon termination of employment," negotiate for the standard 90-day exercise window.</p>
+
+        <a href="../offer-analyzer.html" class="inline-cta">
+            <strong>Want to check all of these automatically? Paste your offer letter into our free scanner →</strong>
+        </a>
+
+        <h2 id="step-7-value">Step 7: Estimate What Your Equity Is Actually Worth</h2>
+
+        <p>After checking all the terms, you need to answer the real question: what is this equity actually worth? Here's a simple framework:</p>
+
+        <h3>The reality check calculation:</h3>
+
+        <ol>
+            <li><strong>Find your ownership percentage:</strong> Your options ÷ fully diluted shares outstanding</li>
+            <li><strong>Estimate dilution:</strong> Assume 15–25% dilution per funding round. If the company is Series A and will raise 2–3 more rounds, your ownership could drop by 40–60%.</li>
+            <li><strong>Estimate exit value:</strong> What could the company sell for? Seed companies: $50M–$500M. Series A: $100M–$1B+. Series B+: $200M–$5B+.</li>
+            <li><strong>Do the math:</strong> Your ownership % × diluted exit value − exercise cost − taxes = your take-home</li>
+        </ol>
+
+        <div class="callout example">
+            <p><strong>Example:</strong> You get 50,000 options out of 10M fully diluted shares (0.5%). Company is Series A with a $30M valuation. You expect one more round (20% dilution → 0.4% post-dilution). Strike price is $1.50. If the company sells for $200M:<br><br>
+            Your shares: 0.4% × $200M = $800,000<br>
+            Exercise cost: 50,000 × $1.50 = $75,000<br>
+            Gross gain: $725,000 (before taxes)<br>
+            Estimated taxes (long-term capital gains): ~$145,000<br>
+            <strong>Estimated take-home: ~$580,000</strong></p>
+        </div>
+
+        <p>Use our <a href="../stock-options.html" style="color:var(--accent-light)">stock options calculator</a> to run your own numbers.</p>
+
+        <h2 id="quick-scan">The 30-Second Quick Scan</h2>
+
+        <p>If you're short on time, here are the 10 most important things to check in any startup offer:</p>
+
+        <div class="checklist">
+            <h4>Quick Scan Checklist</h4>
+            <ul>
+                <li><strong>Total options granted</strong> — and the fully diluted share count to calculate your %</li>
+                <li><strong>Vesting schedule</strong> — 4 years with 1-year cliff is standard; anything else needs scrutiny</li>
+                <li><strong>Strike price</strong> — should be stated and based on a recent 409A</li>
+                <li><strong>Exercise window</strong> — 90 days is standard; 30 days or less is a red flag</li>
+                <li><strong>ISO vs NSO</strong> — affects your tax bill by tens of thousands</li>
+                <li><strong>Acceleration</strong> — double-trigger is reasonable; none at all is concerning</li>
+                <li><strong>Repurchase rights</strong> — can the company buy back your vested shares?</li>
+                <li><strong>Clawback provisions</strong> — can they take back equity you've already earned?</li>
+                <li><strong>Non-compete scope</strong> — how restrictive is it, and is it enforceable in your state?</li>
+                <li><strong>Vesting start date</strong> — when does the clock actually start?</li>
+            </ul>
+        </div>
+
+        <a href="../offer-analyzer.html" class="inline-cta">
+            <strong>Check all 30+ terms in 30 seconds — paste your offer letter into our free analyzer →</strong>
+        </a>
+
+        <h2 id="complete-checklist">The Complete Offer Analysis Checklist</h2>
+
+        <p>For a thorough analysis, check every item below:</p>
+
+        <div class="checklist">
+            <h4>Equity Grant Details</h4>
+            <ul>
+                <li><strong>Total number of options or shares</strong></li>
+                <li><strong>Fully diluted share count</strong> (to calculate ownership %)</li>
+                <li><strong>Option type</strong> (ISO or NSO)</li>
+                <li><strong>Strike price per share</strong></li>
+                <li><strong>409A valuation date</strong> (should be within 12 months)</li>
+                <li><strong>Grant date vs. start date</strong> (when the clock starts)</li>
+            </ul>
+        </div>
+
+        <div class="checklist">
+            <h4>Vesting Terms</h4>
+            <ul>
+                <li><strong>Total vesting period</strong> (4 years is standard)</li>
+                <li><strong>Cliff period</strong> (1 year is standard)</li>
+                <li><strong>Vesting frequency</strong> (monthly after cliff is standard)</li>
+                <li><strong>Any back-loaded vesting</strong> (less equity in early years)</li>
+                <li><strong>Acceleration on change of control</strong> (single-trigger or double-trigger)</li>
+            </ul>
+        </div>
+
+        <div class="checklist">
+            <h4>Exercise and Termination</h4>
+            <ul>
+                <li><strong>Post-termination exercise window</strong> (90 days standard, 5–10 years ideal)</li>
+                <li><strong>Early exercise allowed?</strong> (exercise before vesting)</li>
+                <li><strong>83(b) election possible?</strong> (must file within 30 days)</li>
+                <li><strong>Exercise cost estimate</strong> (total options × strike price)</li>
+            </ul>
+        </div>
+
+        <div class="checklist">
+            <h4>Restrictive Clauses</h4>
+            <ul>
+                <li><strong>Repurchase rights</strong> (company can buy back shares)</li>
+                <li><strong>Right of first refusal</strong> (limits secondary sales)</li>
+                <li><strong>Clawback provisions</strong> (company can reclaim vested shares)</li>
+                <li><strong>Non-compete scope and duration</strong></li>
+                <li><strong>Non-solicit scope and duration</strong></li>
+                <li><strong>IP assignment scope</strong> (beyond company work)</li>
+            </ul>
+        </div>
+
+        <div class="checklist">
+            <h4>Company Context</h4>
+            <ul>
+                <li><strong>Last funding round</strong> (stage, valuation, date)</li>
+                <li><strong>Preferred price per share</strong> vs. your strike price</li>
+                <li><strong>Expected future dilution</strong> (how many more rounds?)</li>
+                <li><strong>Secondary market activity</strong> (can you sell shares early?)</li>
+                <li><strong>Liquidity expectations</strong> (IPO timeline, acquisition rumors)</li>
+            </ul>
+        </div>
+
+        <h2 id="what-next">What to Do After Your Analysis</h2>
+
+        <p>Once you've analyzed your offer, you have three paths:</p>
+
+        <h3>1. The offer looks good</h3>
+        <p>Sign it, but still negotiate for improvements. Even "good" offers often have room for better terms — especially around the exercise window and acceleration. The worst they can say is no.</p>
+
+        <h3>2. The offer has red flags</h3>
+        <p>Negotiate. Use specific language: "I'm excited about the role, but I'd like to discuss the exercise window / acceleration / vesting terms." Point to industry standards. Most founders will negotiate on terms (even if they won't budge on the number of shares).</p>
+
+        <h3>3. You're comparing multiple offers</h3>
+        <p>Use our <a href="../compare-offers.html" style="color:var(--accent-light)">offer comparison tool</a> to normalize equity across different companies, stages, and terms. Don't just compare option counts — a smaller grant at a later-stage company with clean terms can be worth more than a larger grant at an early company with aggressive terms.</p>
+
+        <div class="callout cta">
+            <p><strong>Ready to analyze your offer?</strong> Our free Startup Offer Analyzer scans your offer letter for 30+ red flags in 30 seconds. 100% private — your offer text never leaves your browser.</p>
+            <a href="../offer-analyzer.html" class="cta-button">Scan Your Offer for Free →</a>
+        </div>
+
+        <p>You can also check your equity fairness score with our <a href="../equity-score.html" style="color:var(--accent-light)">Equity Score tool</a> — it benchmarks your grant against market data by role, stage, and company size.</p>
+
+            <div class="related-posts">
+                <h3>Related Guides</h3>
+                <a href="startup-equity-red-flags.html">7 Red Flags in Your Startup Equity Offer Letter →</a>
+                <a href="evaluate-equity-offer.html">How to Evaluate a Startup Equity Offer →</a>
+                <a href="how-to-negotiate-startup-job-offer.html">How to Negotiate Your Startup Job Offer →</a>
+                <a href="compare-equity-offers.html">How to Compare Startup Equity Offers →</a>
+                <a href="startup-equity-compensation-guide.html">Startup Equity Compensation: The Complete Guide →</a>
+            </div>
+        </div>
+
+        <div class="author-bio">
+            <div class="author-avatar">%</div>
+            <div class="author-content">
+                <h4>FounderMath</h4>
+                <p>Free startup equity calculators and tools trusted by 10,000+ founders and employees. <a href="../">Try our calculators →</a></p>
+            </div>
+        </div>
+    </article>
+
+    <section class="newsletter">
+        <h2>Get the Free Equity Cheat Sheet</h2>
+        <p>Everything you need to know about startup equity in one page. Vesting, taxes, negotiation tips, and more.</p>
+        <form class="newsletter-form" action="https://buttondown.email/api/emails/embed-subscribe/foundermath" method="post" target="popupwindow">
+            <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address">
+            <input type="hidden" value="1" name="embed">
+            <button type="submit" style="padding:12px 24px;background:var(--accent);color:white;border:none;border-radius:10px;font-weight:600;cursor:pointer;">Get Cheat Sheet</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. The startup calculator suite founders actually need.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="../equity-glossary.html">Glossary</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../blog-share.js"></script>
+</body>
+</html>
