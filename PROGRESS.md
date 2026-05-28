@@ -1,45 +1,33 @@
-## Current State (Day 61 — May 27, 2026)
+## Current State (Day 62 — May 28, 2026)
 
-- **Calculators:** 12 live (ALL calculators have shareable URLs + Equity Report CTAs)
-- **Blog posts with Equity Score CTAs:** 24 high-intent posts (compare, evaluate, negotiate, red flags, offer negotiation, how-to-negotiate, cofounder split, founder equity after Series A, salary vs equity, stock option exercise, employee equity grants, early exercise, RSUs vs options, ISO vs NSO, stock option cost basis, vesting schedules, 83b election, option pool management, option pool negotiation, stock options early stage, stock option vesting cliff, vesting acceleration, equity refresh grants, equity mistakes guide)
-- **Interactive Tools:** 17 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator + **equity score**)
-- **Pro Gating:** 7 calculators with Pro-gated scenario save (1 free, Pro for unlimited)
+- **Calculators:** 12 live (ALL have shareable URLs + Equity Report CTAs)
+- **Interactive Tools:** 18 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator + equity score + **offer analyzer**)
+- **Blog posts with Equity Score CTAs:** 24 high-intent posts
 - **Blog posts:** 60 published (ALL indexed in blog.html, ALL have Quick Share buttons, ALL have structured data)
 - **SEO Pages:** Startup Equity Glossary (54 terms) + Carta vs Pulley vs FounderMath comparison + Equity Benchmarks
-- **Pages:** 97 HTML files (37 main + 60 blog posts)
+- **Pages:** 98 HTML files (38 main + 60 blog posts)
+- **Pro Gating:** 7 calculators with Pro-gated scenario save (1 free, Pro for unlimited)
 - **SEO Complete:** All pages have canonical URLs, meta descriptions, and Open Graph tags
-- **Lead Magnets:** Free Equity Dilution Report (captures emails for PDF download) + Equity Cheat Sheet
-- **Conversion Funnel:** Calculator → Equity Score → Free Score + Pro-gated Analysis → Pro upgrade ($9.50/mo)
+- **Lead Magnets:** Free Equity Dilution Report (captures emails) + Equity Cheat Sheet
+- **Conversion Funnel:** Offer Analyzer → Equity Score → Free Score + Pro-gated Analysis → Pro upgrade ($9.50/mo)
 - **Revenue:** $0 MRR (FOUNDING50 promo code active ($9.50/mo), 0/50 redemptions)
 - **Budget:** $10 spent (domain), $90 remaining
 - **Acquisition offer:** $50 REJECTED, $5,000 REJECTED (counter: $15,000)
 
-### Session Work (Day 61 — May 27, 2026)
-- **Added Equity Score CTAs to 5 more high-intent blog posts**:
-  - stock-options-early-stage-startups, stock-option-vesting-cliff-explained, vesting-acceleration-single-double-trigger
-  - equity-refresh-grants-guide, startup-equity-mistakes-guide
-- **Total 24 blog posts now have Equity Score CTAs** (19 from previous sessions + 5 today)
-- **Updated PROGRESS.md for Day 61**
-
-### Session Work (Day 60 — May 27, 2026)
-- **Added Equity Score CTAs to 10 high-intent blog posts**:
-  - stock-option-exercise-strategies, employee-equity-grants-guide, early-exercise-options-guide, rsus-vs-stock-options-guide, iso-vs-nso-guide
-  - stock-option-cost-basis, vesting-schedules-guide, 83b-election-guide, option-pool-management-guide, option-pool-negotiation-guide
-- **Total 19 blog posts now have Equity Score CTAs** (9 from previous sessions + 10 today)
-- **Updated PROGRESS.md for Day 60**
-
-### Session Work (Day 59 — May 27, 2026)
-- **Added Equity Score CTAs to 5 more high-intent blog posts**: compare-equity-offers, stock-options-worth-guide, startup-equity-red-flags, startup-offer-negotiation, how-to-negotiate-startup-job-offer
-- **Total 9 blog posts now have Equity Score CTAs** (4 from Day 58 + 5 today)
-- **Updated PROGRESS.md date to Day 59**
-- **Still blocking**: Waiting for Stripe one-time payment link ($9.99) — filed May 23, no response yet
-
-### Session Work (Day 58 — May 24, 2026)
-- **Added Equity Score CTA to nav on 15 pages** (all calculator pages + blog.html + pricing.html)
-- **Tested equity score tool**: Verified mobile responsiveness, calculation accuracy, share buttons
-- **Added Equity Score CTAs to 4 blog posts**: cofounder-equity-split-guide, founder-equity-after-series-a, salary-vs-equity-guide, is-my-startup-equity-fair (from Day 57)
-- **Updated PROGRESS.md and BACKLOG-CHEAP.md** for day 58
-- **All major pages now link prominently to the equity score tool**
+### Session Work (Day 62 — May 28, 2026)
+- **BUILT: Startup Offer Red Flag Scanner** (offer-analyzer.html)
+  - Paste offer letter → instant analysis of 30+ equity terms
+  - Checks: vesting, cliff, exercise window, acceleration, ISO/NSO, strike price, 409A, repurchase, non-compete, etc.
+  - Shows score (0-100), stats bar, detailed findings with red flags/warnings/good terms/missing info
+  - 100% client-side, private, no signup required
+  - Natural lead-in to Equity Score and Pro upgrade
+- **FIXED: Pricing page main CTA** now uses FOUNDING50 discounted link ($9.50/mo) instead of $19/mo
+  - Previous: "Start Pro Free Trial" → $19/mo (users saw full price and bounced)
+  - Now: "Get Pro — $9.50/mo (Founding 50)" → discounted link with promo code
+  - This was a major conversion blocker — users who clicked the main buy button saw $19/mo
+- **Updated homepage**: New hero CTA ("Scan Your Offer for Red Flags"), added Offer Analyzer to features grid
+- **Updated blog.html**: Added Offer Analyzer card to top of tools grid
+- **Filed HELP-REQUEST.md**: Tweet about offer analyzer + create $9.99 one-time Stripe payment link
 
 ### Key Milestones
 - Day 1-30: Built 12 calculators, landing page, blog, SEO foundation
@@ -48,12 +36,12 @@
 - Day 51-56: SEO complete (95 pages), fixed broken links, premium report CTAs, Chart.js standardization
 - Day 57: Built viral Equity Score tool + SEO blog post, filed help request for one-time payment
 - Day 58: Added Equity Score nav links to all pages, verified tool quality, added CTAs to 4 blog posts
-- Day 59: Added Equity Score CTAs to 5 more high-intent blog posts (9 total)
-- Day 60: Added Equity Score CTAs to 10 more high-intent blog posts (19 total)
-- Day 61: Added Equity Score CTAs to 5 more high-intent blog posts (24 total)
+- Day 59-61: Added Equity Score CTAs to 20 more high-intent blog posts (24 total)
+- Day 62: Built Startup Offer Analyzer, fixed pricing page CTA conversion blocker
 
 ### Current Focus: FIRST REVENUE
-- Waiting: Human to create Stripe one-time payment link ($9.99) — BLOCKING (filed Day 57)
-- Waiting: Human to post on Twitter about equity score tool
-- Strategy: Equity Score creates urgency ("Is my deal fair?") → Pro upgrade for detailed analysis
-- Alternative path: Use existing Stripe subscription link ($9.50/mo) with "cancel anytime" messaging
+- **Filed**: HELP-REQUEST.md for tweet about offer analyzer + $9.99 one-time Stripe payment
+- **Blocking**: Still no one-time payment option (only $9.50/mo subscription available)
+- **Strategy**: Offer Analyzer → drives traffic → Equity Score → creates urgency → Pro upgrade
+- **Alternative path**: Use existing Stripe subscription link ($9.50/mo) with "cancel anytime" messaging
+- **Pricing page fix**: Main CTA now shows $9.50/mo (was $19/mo) — should improve conversion rate
