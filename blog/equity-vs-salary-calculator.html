@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Equity vs Salary Calculator: How to Evaluate Job Offers (2026)</title>
+    <link rel="canonical" href="https://founder-math.com/blog/equity-vs-salary-calculator.html">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const toggle = document.getElementById('mobileToggle');
+        navLinks.classList.toggle('open');
+        const isOpen = navLinks.classList.contains('open');
+        toggle.setAttribute('aria-expanded', isOpen.toString());
+    }
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+    });
+    </script>
+    <meta name="description" content="Startup equity vs salary calculator and guide. Compare job offers, calculate equity value, and make the right decision between high salary and startup equity.">
+    <meta property="og:title" content="Startup Equity vs Salary Calculator: How to Evaluate Job Offers (2026)">
+    <meta property="og:description" content="Compare startup equity vs salary. Calculate equity value, model exit scenarios, and make the right job offer decision. Free calculators included.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-blog.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/equity-vs-salary-calculator.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Startup Equity vs Salary Calculator: How to Evaluate Job Offers (2026)",
+        "author": {"@type": "Organization", "name": "FounderMath"},
+        "publisher": {"@type": "Organization", "name": "FounderMath", "url": "https://founder-math.com"},
+        "datePublished": "2026-05-28",
+        "dateModified": "2026-05-28",
+        "mainEntityOfPage": "https://founder-math.com/blog/equity-vs-salary-calculator.html",
+        "description": "Startup equity vs salary calculator and guide. Compare job offers, calculate equity value, and make the right decision between high salary and startup equity."
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-muted: #b2bec3;
+            --border: #dfe6e9;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 16px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .article { max-width: 760px; margin: 0 auto; padding: 120px 24px 60px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+        .article-tag { background: var(--bg-card); padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; color: var(--accent-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        .article-date { font-size: 0.8rem; color: var(--text-muted); }
+        .article-read-time { font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+        h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.3; margin-bottom: 24px; letter-spacing: -0.02em; }
+        .article-excerpt { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.6; }
+        h2 { font-size: 1.5rem; font-weight: 700; margin: 48px 0 20px; letter-spacing: -0.01em; }
+        h3 { font-size: 1.15rem; font-weight: 600; margin: 28px 0 16px; }
+        p { margin-bottom: 20px; color: var(--text-secondary); }
+        a { color: var(--accent-light); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        strong { color: var(--text-primary); font-weight: 600; }
+        ul, ol { margin-bottom: 20px; padding-left: 24px; color: var(--text-secondary); }
+        li { margin-bottom: 8px; }
+        code { background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', Monaco, monospace; font-size: 0.9em; }
+        .cta-box { background: linear-gradient(135deg, var(--accent), #8b6cf5); border-radius: 16px; padding: 32px; margin: 40px 0; text-align: center; }
+        .cta-box h3 { color: white; font-size: 1.4rem; margin: 0 0 12px; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+        .cta-box a { background: white; color: var(--accent); padding: 12px 28px; border-radius: 10px; font-weight: 600; text-decoration: none; display: inline-block; }
+        .cta-box a:hover { transform: translateY(-2px); text-decoration: none; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .equity-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+        .equity-table th, .equity-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+        .equity-table th { background: var(--bg-card); font-weight: 600; color: var(--text-primary); }
+        .equity-table td { color: var(--text-secondary); }
+        .equity-table tr:last-child td { border-bottom: none; }
+        .highlight-row { background: rgba(108, 92, 231, 0.1); }
+        .comparison-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0; }
+        .comparison-box h4 { color: var(--text-primary); margin-bottom: 12px; font-size: 1.1rem; }
+        .theme-toggle { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 8px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="vesting.html">Vesting</a></li>
+                <li><a href="unit-economics.html">Unit Econ</a></li>
+                <li><a href="cap-table.html">Cap Table</a></li>
+                <li><a href="equity-split.html">Equity Split</a></li>
+                <li><a href="valuation.html">Valuation</a></li>
+                <li><a href="stock-options.html">Options</a></li>
+                <li><a href="equity-vs-salary.html">Equity vs Salary</a></li>
+                <li><a href="compare-offers.html">Compare</a></li>
+                <li><a href="scenario-compare.html">Compare Scenarios</a></li>
+                <li><a href="equity-quiz.html">Equity Quiz</a></li>
+                <li><a href="equity-glossary.html">Glossary</a></li>
+                <li><a href="409a-valuation.html">409A</a></li>
+                <li><a href="pricing.html" class="nav-cta">Pricing</a></li>
+                <li><a href="equity-score.html" class="nav-cta">Equity Score</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <main class="article">
+        <div class="article-meta">
+            <span class="article-tag">Job Offer Evaluation</span>
+            <span class="article-date">May 28, 2026</span>
+            <span class="article-read-time">13 min read</span>
+        </div>
+
+        <h1>Startup Equity vs Salary Calculator: How to Evaluate Job Offers (2026)</h1>
+
+        <p class="article-excerpt">Startup equity vs salary: which should you choose? Use our calculator framework to compare job offers, calculate equity value, and make the right decision for your career and finances.</p>
+
+        <p>You have two job offers on the table:</p>
+
+        <p><strong>Offer A:</strong> $180,000 salary at Google, no equity (just standard RSUs)</p>
+        <p><strong>Offer B:</strong> $140,000 salary at a Series B startup, plus 0.10% equity</p>
+
+        <p>Which one is worth more? Most candidates pick the higher salary without doing the math. But startup equity can be worth millions—if the company succeeds. The key is understanding how to compare equity vs salary in a way that accounts for risk, time value, and exit scenarios.</p>
+
+        <p>This guide shows you exactly how to evaluate equity vs salary tradeoffs, with calculators and real examples.</p>
+
+        <div class="cta-box">
+            <h3>Compare Your Job Offers in 60 Seconds</h3>
+            <p>Input salary, equity, and startup details. Get a side-by-side comparison with projected 4-year value at different exit scenarios.</p>
+            <a href="compare-offers.html">Compare Offers Now →</a>
+        </div>
+
+        <h2>The Equity vs Salary Framework</h2>
+
+        <p>To compare equity vs salary, you need to think in terms of <strong>expected value</strong>. Expected value = (probability of success × payout) + (probability of failure × payout).</p>
+
+        <p>For startup job offers:</p>
+        <ul>
+            <li><strong>Salary is guaranteed</strong> — 100% probability of receiving it</li>
+            <li><strong>Equity is probabilistic</strong> — depends on exit outcome</li>
+        </ul>
+
+        <p>The formula:</p>
+        <p><code>Expected Equity Value = ∑(Exit Probability × Equity Payout at that Exit)</code></p>
+
+        <p><strong>Total Offer Value = Annual Salary × 4 years + Expected Equity Value</strong></p>
+
+        <h2>Step 1: Calculate Your 4-Year Salary Value</h2>
+
+        <p>Start with the guaranteed portion: your salary over 4 years (typical vesting period).</p>
+
+        <table class="equity-table">
+            <thead>
+                <tr>
+                    <th>Offer</th>
+                    <th>Annual Salary</th>
+                    <th>4-Year Salary Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Offer A (Google)</strong></td>
+                    <td>$180,000</td>
+                    <td><strong>$720,000</strong></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Offer B (Startup)</strong></td>
+                    <td>$140,000</td>
+                    <td><strong>$560,000</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Salary Gap</strong></td>
+                    <td>$40,000/year</td>
+                    <td><strong>$160,000 over 4 years</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>The startup offer costs you $160,000 in guaranteed salary over 4 years. The equity needs to be worth more than $160,000 (after accounting for risk) to make up the difference.</p>
+
+        <h2>Step 2: Calculate Your Equity Value at Different Exits</h2>
+
+        <p>Now model your equity payout at different exit scenarios. For Offer B (0.10% equity at Series B startup):</p>
+
+        <table class="equity-table">
+            <thead>
+                <tr>
+                    <th>Exit Outcome</th>
+                    <th>Exit Valuation</th>
+                    <th>Your Payout (0.10%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Shutdown / Failure</td>
+                    <td>$0</td>
+                    <td><strong>$0</strong></td>
+                </tr>
+                <tr>
+                    <td>Acqui-hire (modest)</td>
+                    <td>$20M</td>
+                    <td><strong>$20,000</strong></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>Modest exit</td>
+                    <td>$100M</td>
+                    <td><strong>$100,000</strong></td>
+                </tr>
+                <tr>
+                    <td>Successful exit</td>
+                    <td>$250M</td>
+                    <td><strong>$250,000</strong></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>Great exit</td>
+                    <td>$500M</td>
+                    <td><strong>$500,000</strong></td>
+                </tr>
+                <tr>
+                    <td>Unicorn exit</td>
+                    <td>$1B+</td>
+                    <td><strong>$1,000,000+</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Use our <a href="startup-exit-calculator.html" style="color:var(--accent-light)">Exit Calculator</a> to model your own equity at different valuations (including dilution and liquidation preferences).</p>
+
+        <h2>Step 3: Estimate Exit Probabilities</h2>
+
+        <p>Now assign probabilities to each exit outcome. Be realistic—most startups fail. Here's a framework for Series B startups:</p>
+
+        <table class="equity-table">
+            <thead>
+                <tr>
+                    <th>Exit Outcome</th>
+                    <th>Estimated Probability</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Shutdown / Failure</td>
+                    <td><strong>60%</strong></td>
+                </tr>
+                <tr>
+                    <td>Acqui-hire / modest exit</td>
+                    <td><strong>20%</strong></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>Successful exit ($100M-$500M)</td>
+                    <td><strong>15%</strong></td>
+                </tr>
+                <tr>
+                    <td>Unicorn exit ($1B+)</td>
+                    <td><strong>5%</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Note:</strong> These are rough estimates. Adjust based on the startup's traction, team, market, and competitive position. Pre-seed startups have higher failure rates (70-80%); later-stage startups have lower failure rates but less upside.</p>
+
+        <h2>Step 4: Calculate Expected Equity Value</h2>
+
+        <p>Multiply each exit's probability by your payout, then sum them up:</p>
+
+        <div class="comparison-box">
+            <h4>Expected Value Calculation for 0.10% Equity:</h4>
+            <p>• Failure: 60% × $0 = <strong>$0</strong></p>
+            <p>• Acqui-hire: 20% × $20,000 = <strong>$4,000</strong></p>
+            <p>• $100M exit: 10% × $100,000 = <strong>$10,000</strong></p>
+            <p>• $250M exit: 4% × $250,000 = <strong>$10,000</strong></p>
+            <p>• $500M exit: 1% × $500,000 = <strong>$5,000</strong></p>
+            <p>• $1B exit: 5% × $1,000,000 = <strong>$50,000</strong></p>
+            <p style="margin-top:16px;"><strong>Total Expected Equity Value = $79,000</strong></p>
+        </div>
+
+        <p>This means your 0.10% equity has an <strong>expected value of $79,000</strong>. Compare this to the $160,000 salary gap:</p>
+
+        <ul>
+            <li>Salary gap: <strong>-$160,000</strong></li>
+            <li>Expected equity value: <strong>+$79,000</strong></li>
+            <li><strong>Net Expected Value: -$81,000</strong></li>
+        </ul>
+
+        <p>In this scenario, Offer A (Google at $180K) has a higher expected value than Offer B (startup at $140K + 0.10%). The startup equity <em>could</em> be worth millions—but the expected value doesn't justify the salary cut.</p>
+
+        <div class="cta-box">
+            <h3>Score Your Equity Offer</h3>
+            <p>Get an instant score comparing your equity offer against thousands of real startup grants. See if you're above or below market.</p>
+            <a href="equity-score.html">Check Your Equity Score →</a>
+        </div>
+
+        <h2>When Does Equity Beat Salary?</h2>
+
+        <p>Equity makes sense when:</p>
+
+        <h3>1. The Equity Grant Is Large Enough</h3>
+        <p>If the startup offer above was 0.25% equity instead of 0.10%, the math changes:</p>
+        <ul>
+            <li>Expected value of 0.25% ≈ <strong>$198,000</strong></li>
+            <li>Salary gap: <strong>-$160,000</strong></li>
+            <li><strong>Net Expected Value: +$38,000</strong></li>
+        </ul>
+        <p>At 0.25% equity, the startup offer has positive expected value.</p>
+
+        <h3>2. You Believe the Startup Has Higher Exit Probability</h3>
+        <p>If you think this startup has a 20% chance of $1B+ exit (not 5%), the expected value jumps dramatically:</p>
+        <ul>
+            <li>New expected value of 0.10% ≈ <strong>$215,000</strong></li>
+            <li>Net Expected Value: <strong>+$55,000</strong></li>
+        </ul>
+        <p>But be careful with <strong>optimism bias</strong>. Most founders think their startup will be a unicorn. The data says otherwise.</p>
+
+        <h3>3. You're Early-Stage and Can Get Significant Equity</h3>
+        <p>Employee #5 at a pre-seed startup might get 0.50%-1.00% equity. At that level, expected value can easily justify a modest salary cut.</p>
+
+        <h3>4. You're Trading Salary for Learning / Network</h3>
+        <p>Sometimes the value isn't financial. A startup job might teach you skills, connect you with future co-founders, or position you for a better role later. Factor this <strong>career equity</strong> into your decision.</p>
+
+        <h2>The Salary vs Equity Calculator Formula</h2>
+
+        <p>Here's the complete formula for comparing any two offers:</p>
+
+        <p><code>Offer_Value = (Annual_Salary × 4) + (Equity_% × Current_Valuation × Exit_Multiple × Success_Probability)</code></p>
+
+        <p><strong>Example comparison:</strong></p>
+
+        <table class="equity-table">
+            <thead>
+                <tr>
+                    <th>Factor</th>
+                    <th>Offer A (BigCo)</th>
+                    <th>Offer B (Startup)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Annual Salary</td>
+                    <td>$180,000</td>
+                    <td>$140,000</td>
+                </tr>
+                <tr>
+                    <td>4-Year Salary</td>
+                    <td>$720,000</td>
+                    <td>$560,000</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>Equity Grant</td>
+                    <td>$100K RSUs/year</td>
+                    <td>0.10% options</td>
+                </tr>
+                <tr>
+                    <td>Current Valuation</td>
+                    <td>N/A (public)</td>
+                    <td>$50M</td>
+                </tr>
+                <tr>
+                    <td>Expected Exit Multiple</td>
+                    <td>N/A</td>
+                    <td>10x (to $500M)</td>
+                </tr>
+                <tr>
+                    <td>Exit Success Probability</td>
+                    <td>N/A</td>
+                    <td>20%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>Expected Equity Value</td>
+                    <td>$400,000 (RSUs)</td>
+                    <td>$100,000</td>
+                </tr>
+                <tr>
+                    <td><strong>Total Expected Value (4 years)</strong></td>
+                    <td><strong>$1,120,000</strong></td>
+                    <td><strong>$660,000</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>In this case, Offer A wins by $460,000 in expected value.</p>
+
+        <h2>Use Our Equity vs Salary Calculator</h2>
+
+        <p>Don't do this math by hand. Use our <a href="equity-vs-salary.html" style="color:var(--accent-light)">Equity vs Salary Calculator</a> to:</p>
+        <ul>
+            <li>Input multiple job offers with salary and equity</li>
+            <li>Model different exit scenarios and probabilities</li>
+            <li>See side-by-side 4-year value comparison</li>
+            <li>Adjust for risk tolerance and time value of money</li>
+        </ul>
+
+        <div class="cta-box">
+            <h3>Calculate: Equity vs Salary</h3>
+            <p>Compare job offers instantly. Model exit scenarios, calculate expected value, and make the right choice.</p>
+            <a href="equity-vs-salary.html">Try the Calculator →</a>
+        </div>
+
+        <h2>Negotiation Leverage: How to Improve Your Offer</h2>
+
+        <h3>If Equity Is Too Low:</h3>
+        <blockquote>
+            "I'm excited about the mission, but the equity offer is below market for my role and experience. Based on research, typical grants for [Senior Engineer] at [Series B] startups are 0.15%-0.25%. Can we move closer to 0.20%?"
+        </blockquote>
+
+        <h3>If Salary Is Too Low:</h3>
+        <blockquote>
+            "I understand startup compensation structures. However, the salary is significantly below my market rate. I'd be comfortable taking a 10-15% reduction for the right opportunity, but 30% is too much. Can we meet at $155K?"
+        </blockquote>
+
+        <h3>Ask for Performance Equity:</h3>
+        <blockquote>
+            "I understand budget constraints. Would you consider adding a performance grant where I earn additional 0.05% over 4 years if I hit [specific milestone]? This aligns incentives and gives me a path to increase ownership."
+        </blockquote>
+
+        <h2>Common Mistakes When Comparing Equity vs Salary</h2>
+
+        <h3>Mistake 1: Ignoring the Time Value of Money</h3>
+        <p>$140,000 today is worth more than $140,000 spread over 4 years. Factor in inflation, investment returns, and career growth opportunities.</p>
+
+        <h3>Mistake 2: Overestimating Exit Probability</h3>
+        <p>Founders are optimistic. Candidates are optimistic. The data is not: ~60% of startups fail. Be realistic when assigning probabilities to exit scenarios.</p>
+
+        <h3>Mistake 3: Forgetting Dilution</h3>
+        <p>Your 0.10% today might be 0.06% after Series C and Series D rounds. Ask about the company's fundraising plans and model future dilution.</p>
+
+        <h3>Mistake 4: Not Reading the Equity Fine Print</h3>
+        <p>What type of equity? (ISOs vs NSOs vs RSUs). What's the strike price? (For options). What's the vesting schedule? (Typical: 4 years, 1-year cliff). What's the exercise window? (Typical: 90 days, negotiate for longer).</p>
+
+        <h3>Mistake 5: Only Considering Financials</h3>
+        <p>Sometimes the startup role offers learning, network, or career growth that outweighs financial differences. Factor in non-monetary value when making your decision.</p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is startup equity worth taking a pay cut?</h3>
+        <p>It depends on the equity grant size and exit probability. A general rule: don't take more than 20-30% pay cut unless (1) the equity grant is significantly above market, (2) you strongly believe in the startup's potential, or (3) the non-financial benefits (learning, network) are exceptional.</p>
+
+        <h3>How do I calculate if my equity is worth it?</h3>
+        <p>Use the expected value formula: <strong>Expected Value = (Success Probability × Payout at Success) + (Failure Probability × Payout at Failure)</strong>. If the expected equity value exceeds the salary difference, equity might be worth it.</p>
+
+        <h3>What percentage of equity is good for a job offer?</h3>
+        <p>Benchmarks by stage: Pre-seed (0.25%-1.00% for senior roles), Seed (0.15%-0.50%), Series A (0.10%-0.30%), Series B (0.05%-0.20%), Series C+ (0.02%-0.10%). Use our <a href="equity-score.html" style="color:var(--accent-light)">Equity Score tool</a> to benchmark your specific offer.</p>
+
+        <h3>Should I take a lower salary for more equity?</h3>
+        <p>Only if the expected value of the additional equity exceeds the salary reduction. Calculate the expected value of the extra equity using realistic exit probabilities. Most candidates overestimate startup success odds.</p>
+
+        <h3>How much equity do I need to replace $50K salary?</h3>
+        <p>At a 20% exit success probability, you'd need equity worth ~$250,000 at exit to replace $50,000 in expected value. For a Series B startup ($50M valuation targeting 10x exit), that's roughly 0.50% equity. Earlier-stage startups: more equity needed. Later-stage: less.</p>
+
+        <div class="cta-box">
+            <h3>Make the Right Career Decision</h3>
+            <p>Compare job offers with salary, equity, and exit scenarios. Get a clear picture of which offer is worth more over 4 years.</p>
+            <a href="compare-offers.html">Compare Your Offers →</a>
+        </div>
+
+        <h2>Bottom Line</h2>
+
+        <p>Comparing equity vs salary isn't about guessing—it's about calculating expected value. Use this framework:</p>
+
+        <ol>
+            <li><strong>Calculate 4-year salary value</strong> for each offer</li>
+            <li><strong>Model equity payouts</strong> at different exit scenarios</li>
+            <li><strong>Assign realistic probabilities</strong> to each exit outcome</li>
+            <li><strong>Calculate expected equity value</strong> using the probability-weighted formula</li>
+            <li><strong>Compare total offer value</strong> = salary + expected equity</li>
+            <li><strong>Factor in non-financials</strong> (learning, network, role fit)</li>
+        </ol>
+
+        <p>Then make your decision with confidence.</p>
+
+        <p>Before accepting any offer, use our <a href="equity-vs-salary.html" style="color:var(--accent-light)">Equity vs Salary Calculator</a> and <a href="compare-offers.html" style="color:var(--accent-light)">Offer Comparison Tool</a> to run the numbers. Then negotiate from data, not emotion.</p>
+
+        <p><strong>Related Reading:</strong></p>
+        <ul>
+            <li><a href="blog/equity-for-engineers-guide.html">Equity for Engineers: How Much Stock Options You Should Negotiate</a></li>
+            <li><a href="blog/negotiate-equity-offer.html">How to Negotiate Startup Equity: The Complete Guide</a></li>
+            <li><a href="blog/startup-exit-calculator.html">Startup Equity Exit Calculator: What's Your Equity Worth at Exit?</a></li>
+            <li><a href="blog/compare-equity-offers.html">How to Compare Startup Equity Offers: A Side-by-Side Guide</a></li>
+        </ul>
+    </main>
+
+    <script src="exit-intent.js" defer></script>
+</body>
+</html>
