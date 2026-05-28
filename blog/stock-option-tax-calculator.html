@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Option Tax Calculator: ISO AMT, NSO, and RSU Taxes Explained (2026)</title>
+    <link rel="canonical" href="https://founder-math.com/blog/stock-option-tax-calculator.html">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const toggle = document.getElementById('mobileToggle');
+        navLinks.classList.toggle('open');
+        const isOpen = navLinks.classList.contains('open');
+        toggle.setAttribute('aria-expanded', isOpen.toString());
+    }
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+    });
+    </script>
+    <meta name="description" content="Free stock option tax calculator for ISOs, NSOs, and RSUs. Calculate AMT, ordinary income tax, and capital gains tax. Understand your stock option tax liability in 2026.">
+    <meta property="og:title" content="Stock Option Tax Calculator: ISO AMT, NSO, and RSU Taxes Explained">
+    <meta property="og:description" content="Free calculator to estimate stock option taxes. ISO AMT calculation, NSO ordinary income, RSU taxation. Know your tax liability before exercising.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-blog.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/stock-option-tax-calculator.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Stock Option Tax Calculator: ISO AMT, NSO, and RSU Taxes Explained (2026)",
+        "author": {"@type": "Organization", "name": "FounderMath"},
+        "publisher": {"@type": "Organization", "name": "FounderMath", "url": "https://founder-math.com"},
+        "datePublished": "2026-05-28",
+        "dateModified": "2026-05-28",
+        "mainEntityOfPage": "https://founder-math.com/blog/stock-option-tax-calculator.html",
+        "description": "Free stock option tax calculator for ISOs, NSOs, and RSUs. Calculate AMT, ordinary income tax, and capital gains tax."
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-muted: #b2bec3;
+            --border: #dfe6e9;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 16px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .article { max-width: 760px; margin: 0 auto; padding: 120px 24px 60px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+        .article-tag { background: var(--bg-card); padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; color: var(--accent-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        .article-date { font-size: 0.8rem; color: var(--text-muted); }
+        .article-read-time { font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+        h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.3; margin-bottom: 24px; letter-spacing: -0.02em; }
+        .article-excerpt { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.6; }
+        h2 { font-size: 1.5rem; font-weight: 700; margin: 48px 0 20px; letter-spacing: -0.01em; }
+        h3 { font-size: 1.15rem; font-weight: 600; margin: 28px 0 16px; }
+        p { margin-bottom: 20px; color: var(--text-secondary); }
+        a { color: var(--accent-light); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        strong { color: var(--text-primary); font-weight: 600; }
+        ul, ol { margin-bottom: 20px; padding-left: 24px; color: var(--text-secondary); }
+        li { margin-bottom: 8px; }
+        code { background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', Monaco, monospace; font-size: 0.9em; }
+        pre { background: var(--bg-card); padding: 16px; border-radius: 8px; overflow-x: auto; margin-bottom: 20px; }
+        pre code { padding: 0; background: none; }
+        .cta-box { background: linear-gradient(135deg, var(--accent), #8b6cf5); border-radius: 16px; padding: 32px; margin: 40px 0; text-align: center; }
+        .cta-box h3 { color: white; font-size: 1.4rem; margin: 0 0 12px; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+        .cta-box a { background: white; color: var(--accent); padding: 12px 28px; border-radius: 10px; font-weight: 600; text-decoration: none; display: inline-block; }
+        .cta-box a:hover { transform: translateY(-2px); text-decoration: none; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .warning-box { background: rgba(231, 76, 60, 0.1); border: 1px solid rgba(231, 76, 60, 0.3); border-radius: 12px; padding: 20px; margin: 24px 0; }
+        .warning-box p { color: #e74c3c; margin-bottom: 8px; }
+        .warning-box p:last-child { margin-bottom: 0; }
+        .info-box { background: rgba(108, 92, 231, 0.1); border: 1px solid var(--accent); border-radius: 12px; padding: 20px; margin: 24px 0; }
+        .info-box p { color: var(--text-primary); margin-bottom: 8px; }
+        .info-box p:last-child { margin-bottom: 0; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+        .comparison-table th, .comparison-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+        .comparison-table th { background: var(--bg-card); font-weight: 600; color: var(--text-primary); }
+        .comparison-table td { color: var(--text-secondary); }
+        .theme-toggle { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 8px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="vesting.html">Vesting</a></li>
+                <li><a href="unit-economics.html">Unit Econ</a></li>
+                <li><a href="cap-table.html">Cap Table</a></li>
+                <li><a href="equity-split.html">Equity Split</a></li>
+                <li><a href="valuation.html">Valuation</a></li>
+                <li><a href="stock-options.html">Options</a></li>
+                <li><a href="equity-vs-salary.html">Equity vs Salary</a></li>
+                <li><a href="compare-offers.html">Compare</a></li>
+                <li><a href="scenario-compare.html">Compare Scenarios</a></li>
+                <li><a href="equity-quiz.html">Equity Quiz</a></li>
+                <li><a href="equity-glossary.html">Glossary</a></li>
+                <li><a href="409a-valuation.html">409A</a></li>
+                <li><a href="pricing.html" class="nav-cta">Pricing</a></li>
+                <li><a href="equity-score.html" class="nav-cta">Equity Score</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <main class="article">
+        <div class="article-meta">
+            <span class="article-tag">Stock Options</span>
+            <span class="article-date">May 28, 2026</span>
+            <span class="article-read-time">16 min read</span>
+        </div>
+
+        <h1>Stock Option Tax Calculator: ISO AMT, NSO, and RSU Taxes Explained (2026)</h1>
+
+        <p class="article-excerpt">Exercising stock options triggers complex tax rules. ISOs have AMT traps, NSOs are taxed as ordinary income, and RSUs are taxed when they vest. Use this free calculator to estimate your tax liability before you exercise.</p>
+
+        <p>You just got a startup job offer with stock options. Or maybe you've been at your company for a few years and your options are vested. Now you're thinking: <strong>How much tax will I owe if I exercise?</strong></p>
+
+        <p>The answer depends on what type of equity you have:</p>
+
+        <ul>
+            <li><strong>Incentive Stock Options (ISOs):</strong> Potentially subject to AMT (Alternative Minimum Tax) when you exercise, but qualify for capital gains treatment if you hold long enough</li>
+            <li><strong>Non-Qualified Stock Options (NSOs):</strong> Ordinary income tax on the spread when you exercise</li>
+            <li><strong>Restricted Stock Units (RSUs):</strong> Ordinary income tax when they vest</li>
+        </ul>
+
+        <p>This guide explains the tax rules for each type of equity, with examples you can calculate yourself. For a quick estimate, use the <a href="stock-options.html" style="color:var(--accent-light)">free stock option calculator</a> at FounderMath.</p>
+
+        <div class="cta-box">
+            <h3>Calculate Your Stock Option Taxes</h3>
+            <p>Estimate AMT liability, ordinary income tax, and capital gains for ISOs, NSOs, and RSUs. Free calculator with breakdown by tax type.</p>
+            <a href="stock-options.html">Try the Tax Calculator →</a>
+        </div>
+
+        <h2>Quick Reference: Tax at a Glance</h2>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Equity Type</th>
+                    <th>Tax Event</th>
+                    <th>Tax Rate</th>
+                    <th>Special Rules</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>ISO</strong></td>
+                    <td>Exercise (if spread > AMT exemption)</td>
+                    <td>26% AMT rate (federal)</td>
+                    <td>No ordinary income if exercise & hold rules met; qualifies for capital gains if held > 1 year after exercise AND > 2 years after grant</td>
+                </tr>
+                <tr>
+                    <td><strong>ISO</strong></td>
+                    <td>Sale (disqualifying disposition)</td>
+                    <td>Ordinary income + capital gains</td>
+                    <td>If sold < 1 year after exercise OR < 2 years after grant: ordinary income on spread, capital gains on remaining profit</td>
+                </tr>
+                <tr>
+                    <td><strong>ISO</strong></td>
+                    <td>Sale (qualifying disposition)</td>
+                    <td>Long-term capital gains (15-20%)</td>
+                    <td>If held > 1 year after exercise AND > 2 years after grant: entire profit is capital gains; AMT credit may offset future taxes</td>
+                </tr>
+                <tr>
+                    <td><strong>NSO</strong></td>
+                    <td>Exercise</td>
+                    <td>Ordinary income (22-37%)</td>
+                    <td>Spread (FMV - strike price) is taxed as ordinary income; subsequent gains/losses are capital gains</td>
+                </tr>
+                <tr>
+                    <td><strong>RSU</strong></td>
+                    <td>Vest</td>
+                    <td>Ordinary income (22-37%)</td>
+                    <td>Full FMV at vest is taxed as ordinary income; selling later triggers capital gains on appreciation after vest</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>ISO Tax Rules: The AMT Trap</h2>
+
+        <p>Incentive Stock Options (ISOs) have the most complex tax rules because of the Alternative Minimum Tax (AMT). Here's how it works:</p>
+
+        <h3>The "Bargain Element" is AMT Income</h3>
+
+        <p>When you exercise ISOs, the difference between the fair market value (FMV) and your strike price is called the "bargain element." This amount is <strong>not</strong> subject to regular income tax <em>if you follow the holding period rules</em>. But it <strong>is</strong> included in your AMT income calculation.</p>
+
+        <p><strong>Example:</strong> You exercise 1,000 ISOs with a $2 strike price when the FMV is $10.</p>
+
+        <ul>
+            <li>Bargain element: ($10 - $2) × 1,000 = <strong>$8,000</strong></li>
+            <li>This $8,000 is added to your AMT income</li>
+            <li>If your regular taxable income + $8,000 exceeds the AMT exemption, you pay AMT</li>
+        </ul>
+
+        <div class="info-box">
+            <p><strong>AMT Exemption (2026):</strong></p>
+            <ul>
+                <li>Single: $81,100 (phases out starting at $626,350)</li>
+                <li>Married filing jointly: $126,500 (phases out starting at $1,252,700)</li>
+            </ul>
+        </div>
+
+        <h3>AMT Calculation Example</h3>
+
+        <p>Let's say you're single with $150,000 regular taxable income. You exercise ISOs with a $50,000 bargain element.</p>
+
+        <ul>
+            <li>Regular tax on $150,000: ~$31,000 (22% marginal rate)</li>
+            <li>AMT income: $150,000 + $50,000 = $200,000</li>
+            <li>AMT exemption: $81,100 (reduced by 25% of AMT income over $626,350, but you're below this threshold)</li>
+            <li>AMT taxable: $200,000 - $81,100 = $118,900</li>
+            <li>AMT: $118,900 × 26% = <strong>$30,914</strong></li>
+            <li>AMT due: $30,914 - $31,000 = $0 (regular tax is higher, so no AMT owed)</li>
+        </ul>
+
+        <p><strong>But wait!</strong> If you're a high earner in a high-tax state (California, New York, etc.), you might hit AMT at lower income levels because state taxes are added back for AMT calculation.</p>
+
+        <h3>The AMT Credit: You Might Get It Back</h3>
+
+        <p>Here's the good news about AMT: If you pay AMT in one year because you exercised ISOs, you may generate an <strong>AMT credit</strong> that can offset regular tax in future years.</p>
+
+        <p>The credit is the difference between your regular tax and AMT tax. You can use this credit in future years when your regular tax exceeds your AMT tax. It carries forward indefinitely.</p>
+
+        <div class="warning-box">
+            <p><strong>Warning:</strong> AMT credits only help if you have "regular" tax in future years that exceeds AMT. If your company stock never appreciates much after you exercise, you might never use the full credit. The AMT you paid becomes a permanent loss.</p>
+        </div>
+
+        <h2>ISO Disqualifying Disposition</h3>
+
+        <p>ISOs only get special tax treatment if you meet the <strong>holding period requirements:</strong></p>
+
+        <ul>
+            <li>Hold the shares for <strong>at least 1 year after exercise</strong></li>
+            <li>AND hold for <strong>at least 2 years after the original grant date</strong></li>
+        </ul>
+
+        <p>If you sell before meeting these requirements (a "disqualifying disposition"), here's what happens:</p>
+
+        <ul>
+            <li>The bargain element is taxed as <strong>ordinary income</strong> (not capital gains)</li>
+            <li>Any appreciation beyond the FMV at exercise is <strong>capital gains</strong> (short-term or long-term depending on holding period after exercise)</li>
+            <li>AMT liability may still apply if you triggered AMT in the year of exercise</li>
+        </ul>
+
+        <p><strong>Example:</strong> You exercise ISOs with a $2 strike when FMV is $10. You sell 6 months later at $15.</p>
+
+        <ul>
+            <li>Ordinary income: ($10 - $2) × shares = <strong>$8 per share</strong></li>
+            <li>Capital gains (short-term): ($15 - $10) × shares = <strong>$5 per share</strong></li>
+        </ul>
+
+        <h2>NSO Tax Rules: Simple but Expensive</h2>
+
+        <p>Non-Qualified Stock Options (NSOs) have simpler tax treatment than ISOs, but the tax hit happens immediately upon exercise.</p>
+
+        <h3>Exercise = Ordinary Income</h3>
+
+        <p>When you exercise NSOs, the spread between FMV and strike price is <strong>immediately taxed as ordinary income</strong>. It doesn't matter if you sell the shares or hold them—the tax is triggered at exercise.</p>
+
+        <p><strong>Example:</strong> You exercise 1,000 NSOs with a $5 strike price when FMV is $15.</p>
+
+        <ul>
+            <li>Ordinary income: ($15 - $5) × 1,000 = <strong>$10,000</strong></li>
+            <li>Tax at 24% bracket: $2,400</li>
+            <li>Social Security/Medicare: 7.65% = $765</li>
+            <li><strong>Total tax due: ~$3,165</strong></li>
+        </ul>
+
+        <p>This income shows up on your W-2 and is subject to federal income tax, state income tax, and payroll taxes (Social Security and Medicare).</p>
+
+        <h3>After Exercise: Capital Gains</h3>
+
+        <p>Once you've paid ordinary income tax on the exercise spread, any future appreciation (or depreciation) is treated as capital gains or losses.</p>
+
+        <p><strong>Example continued:</strong> You hold the shares for 2 years and sell at $20.</p>
+
+        <ul>
+            <li>Basis for capital gains: $15 (FMV at exercise)</li>
+            <li>Sale price: $20</li>
+            <li>Capital gain: $5 × 1,000 = $5,000</li>
+            <li>Tax: $5,000 × 15% (long-term capital gains rate) = <strong>$750</strong></li>
+        </ul>
+
+        <h2>RSU Tax Rules: Taxed at Vest</h2>
+
+        <p>Restricted Stock Units (RSUs) are the simplest to understand but the most expensive from a cash-flow perspective. You're taxed when the RSUs <strong>vest</strong>, not when you exercise (there's no strike price with RSUs).</p>
+
+        <h3>Vesting = Ordinary Income</h3>
+
+        <p>When RSUs vest, the full fair market value of the shares is taxed as ordinary income. This is true even if you don't sell the shares.</p>
+
+        <p><strong>Example:</strong> 1,000 RSUs vest when the stock price is $25.</p>
+
+        <ul>
+            <li>Ordinary income: 1,000 × $25 = <strong>$25,000</strong></li>
+            <li>Federal tax (24% bracket): $6,000</li>
+            <li>State tax (California ~9%): $2,250</li>
+            <li>Payroll taxes (7.65%): $1,912</li>
+            <li><strong>Total tax due: ~$10,162</strong></li>
+        </ul>
+
+        <p>This is why RSU grants often include <strong>withholding</strong>—your company will sell some of the vested shares to cover the tax. A common approach is "sell-to-cover" or "net settlement" where enough shares are sold to cover the tax withholding.</p>
+
+        <div class="warning-box">
+            <p><strong>Cash Flow Warning:</strong> Even if your company withholds taxes for RSUs, you'll owe tax on the <em>full value</em> of vested RSUs. This can push you into a higher tax bracket. Many employees are surprised by their tax bill after a large RSU vest.</p>
+        </div>
+
+        <h2>Tax Planning Strategies</h2>
+
+        <h3>For ISO Holders: Manage AMT Exposure</h3>
+
+        <p>If you have ISOs and are worried about AMT:</p>
+
+        <ul>
+            <li><strong>Exercise early:</strong> Exercise ISOs as early as possible (after vesting starts) to minimize the bargain element</li>
+            <li><strong>Exercise in December vs January:</strong> If you're close to AMT, timing your exercise can spread AMT across two tax years</li>
+            <li><strong>Exercise and hold ASAP:</strong> If you believe in the company, exercise early and start the 1-year holding period immediately</li>
+            <li><strong>Watch the bargain element:</strong> If the spread between strike and FMV is large, AMT is more likely</li>
+        </ul>
+
+        <h3>For NSO Holders: Plan for Cash Hit</h3>
+
+        <p>NSO exercise is a cash event:</p>
+
+        <ul>
+            <li><strong>Know your tax bracket:</strong> The exercise spread could push you into a higher bracket</li>
+            <li><strong>Exercise in smaller batches:</strong> Instead of exercising all at once, spread it over multiple years to stay in lower brackets</li>
+            <li><strong>Sell-to-cover:</strong> Many companies allow you to exercise and immediately sell enough shares to cover the tax</li>
+        </ul>
+
+        <h3>For RSU Holders: Withholding Isn't Enough</h3>
+
+        <p>Even with tax withholding at vest:</p>
+
+        <ul>
+            <li><strong>Check your withholding:</strong> Default withholding (22% federal) may not cover your actual tax rate if you're in a higher bracket</li>
+            <li><strong>Make estimated payments:</strong> If withholding is insufficient, you may owe estimated taxes to avoid penalties</li>
+            <li><strong>Sell at vest for cash:</strong> If you need cash for taxes, sell at vest rather than hoping for appreciation</li>
+        </ul>
+
+        <div class="cta-box">
+            <h3>Plan Your Stock Option Exercise</h3>
+            <p>Use the free stock option tax calculator to model different exercise scenarios. See how AMT, ordinary income, and capital gains affect your bottom line.</p>
+            <a href="stock-options.html">Calculate Your Taxes →</a>
+        </div>
+
+        <h2>State Taxes and Local Taxes</h2>
+
+        <p>Everything above covers federal taxes. Don't forget:</p>
+
+        <ul>
+            <li><strong>State income tax:</strong> California (~9-13%), New York (~6-10%), and other states tax stock option income</li>
+            <li><strong>Local taxes:</strong> New York City, San Francisco, and some cities have additional income tax</li>
+            <li><strong>No state tax:</strong> Texas, Florida, Washington, Nevada, and others have no state income tax—big savings on equity</li>
+        </ul>
+
+        <p>State taxes can add 10-13% to your tax bill on stock options. Factor this into your exercise planning.</p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Can I avoid AMT on ISOs?</h3>
+
+        <p>You can avoid AMT by keeping your bargain element below the AMT exemption threshold, or by exercising and holding long enough to potentially use AMT credits later. Some strategies:</p>
+
+        <ul>
+            <li>Exercise early when FMV is close to strike price</li>
+            <li>Exercise smaller batches over multiple years</li>
+            <li>Disqualifying disposition (sell within 1 year of exercise) converts AMT to ordinary income—payable now but avoids AMT complexity</li>
+        </ul>
+
+        <h3>What's the difference between ISO and NSO for employees?</h3>
+
+        <p>Most startup employees receive NSOs, not ISOs. ISOs are reserved for employees and have a $100,000 per year grant limit. NSOs can go to anyone (employees, contractors, advisors) and have no limit. The tax tradeoff:</p>
+
+        <ul>
+            <li><strong>ISOs:</strong> Potential for capital gains treatment, but AMT complexity</li>
+            <li><strong>NSOs:</strong> Simple ordinary income tax, but higher tax rate (ordinary vs capital gains)</li>
+        </ul>
+
+        <h3>When should I exercise my options?</h3>
+
+        <p>Depends on your situation:</p>
+
+        <ul>
+            <li><strong>Early exercise (ISOs):</strong> Minimizes AMT exposure, starts 1-year holding period</li>
+            <li><strong>Wait until near exit (all types):</strong> Avoids tying up cash, but may increase tax bill if value has risen</li>
+            <li><strong>Exercise and sell immediately (NSOs/RSUs):</strong> Locks in profit, no upside risk but no downside risk</li>
+        </ul>
+
+        <p>Use the <a href="stock-options.html" style="color:var(--accent-light)">stock option tax calculator</a> to model different scenarios.</p>
+
+        <h3>What if my company stock goes to zero?</h3>
+
+        <p>If you exercised options and the stock becomes worthless, you may be able to claim a capital loss (subject to annual loss limits). However:</p>
+
+        <ul>
+            <li><strong>ISOs:</strong> If you paid AMT, you might get AMT credits back (but this could take years)</li>
+            <li><strong>NSOs:</strong> You already paid ordinary income tax—you can claim a capital loss for the amount you paid, but not for the taxes already paid</li>
+            <li><strong>RSUs:</strong> You paid tax on the value at vest—now you have a capital loss on the full value</li>
+        </ul>
+
+        <p>This is why many employees choose to sell some shares at exercise/vest to "lock in" profit and diversify.</p>
+
+        <h2>Bottom Line</h2>
+
+        <p>Stock option taxes are complex, but the key principles:</p>
+
+        <ul>
+            <li><strong>ISOs:</strong> Watch AMT, hold for qualifying disposition to get capital gains treatment</li>
+            <li><strong>NSOs:</strong> Ordinary income tax at exercise—plan for the cash hit</li>
+            <li><strong>RSUs:</strong> Ordinary income tax at vest—make sure withholding covers your actual tax rate</li>
+        </ul>
+
+        <p>Before exercising, always model your tax liability. Use the <a href="stock-options.html" style="color:var(--accent-light)">free stock option tax calculator</a> at FounderMath to estimate AMT, ordinary income, and capital gains taxes. Then consult a tax professional to confirm your strategy.</p>
+
+        <div class="cta-box">
+            <h3>Calculate Your Stock Option Taxes Now</h3>
+            <p>Free calculator for ISOs, NSOs, and RSUs. Estimate AMT, ordinary income, and capital gains taxes before you exercise.</p>
+            <a href="stock-options.html">Try the Tax Calculator →</a>
+        </div>
+
+        <p><strong>Related Reading:</strong></p>
+        <ul>
+            <li><a href="blog/iso-vs-nso-guide.html">ISO vs NSO: Which Stock Option Type Is Better?</a></li>
+            <li><a href="blog/stock-option-exercise-strategies.html">Stock Option Exercise Strategies: When and How to Exercise</a></li>
+            <li><a href="blog/83b-election-guide.html">Section 83(b) Election: The Tax Move That Saves Thousands</a></li>
+            <li><a href="blog/early-exercise-options-guide.html">Early Exercise Stock Options: Should You Exercise Before Vesting?</a></li>
+        </ul>
+    </main>
+
+    <script src="exit-intent.js" defer></script>
+</body>
+</html>

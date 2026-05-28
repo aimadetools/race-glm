@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equity for Engineers: How Much Stock Options You Should Negotiate (2026)</title>
+    <link rel="canonical" href="https://founder-math.com/blog/equity-for-engineers-guide.html">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const toggle = document.getElementById('mobileToggle');
+        navLinks.classList.toggle('open');
+        const isOpen = navLinks.classList.contains('open');
+        toggle.setAttribute('aria-expanded', isOpen.toString());
+    }
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+    });
+    </script>
+    <meta name="description" content="Startup equity benchmarks for software engineers by role and stage. How much stock options to negotiate, engineer equity ranges, and salary vs equity tradeoffs for tech roles.">
+    <meta property="og:title" content="Equity for Engineers: How Much Stock Options You Should Negotiate (2026)">
+    <meta property="og:description" content="Engineer equity benchmarks by role and startup stage. Senior engineer, staff engineer, principal engineer equity ranges. Negotiation scripts and calculators.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-blog.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/equity-for-engineers-guide.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Equity for Engineers: How Much Stock Options You Should Negotiate (2026)",
+        "author": {"@type": "Organization", "name": "FounderMath"},
+        "publisher": {"@type": "Organization", "name": "FounderMath", "url": "https://founder-math.com"},
+        "datePublished": "2026-05-28",
+        "dateModified": "2026-05-28",
+        "mainEntityOfPage": "https://founder-math.com/blog/equity-for-engineers-guide.html",
+        "description": "Startup equity benchmarks for software engineers by role and stage."
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-muted: #b2bec3;
+            --border: #dfe6e9;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 16px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .article { max-width: 760px; margin: 0 auto; padding: 120px 24px 60px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+        .article-tag { background: var(--bg-card); padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; color: var(--accent-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        .article-date { font-size: 0.8rem; color: var(--text-muted); }
+        .article-read-time { font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+        h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.3; margin-bottom: 24px; letter-spacing: -0.02em; }
+        .article-excerpt { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.6; }
+        h2 { font-size: 1.5rem; font-weight: 700; margin: 48px 0 20px; letter-spacing: -0.01em; }
+        h3 { font-size: 1.15rem; font-weight: 600; margin: 28px 0 16px; }
+        p { margin-bottom: 20px; color: var(--text-secondary); }
+        a { color: var(--accent-light); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        strong { color: var(--text-primary); font-weight: 600; }
+        ul, ol { margin-bottom: 20px; padding-left: 24px; color: var(--text-secondary); }
+        li { margin-bottom: 8px; }
+        code { background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', Monaco, monospace; font-size: 0.9em; }
+        .cta-box { background: linear-gradient(135deg, var(--accent), #8b6cf5); border-radius: 16px; padding: 32px; margin: 40px 0; text-align: center; }
+        .cta-box h3 { color: white; font-size: 1.4rem; margin: 0 0 12px; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+        .cta-box a { background: white; color: var(--accent); padding: 12px 28px; border-radius: 10px; font-weight: 600; text-decoration: none; display: inline-block; }
+        .cta-box a:hover { transform: translateY(-2px); text-decoration: none; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .equity-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+        .equity-table th, .equity-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+        .equity-table th { background: var(--bg-card); font-weight: 600; color: var(--text-primary); }
+        .equity-table td { color: var(--text-secondary); }
+        .equity-table tr:last-child td { border-bottom: none; }
+        .highlight-row { background: rgba(108, 92, 231, 0.1); }
+        .theme-toggle { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 8px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="vesting.html">Vesting</a></li>
+                <li><a href="unit-economics.html">Unit Econ</a></li>
+                <li><a href="cap-table.html">Cap Table</a></li>
+                <li><a href="equity-split.html">Equity Split</a></li>
+                <li><a href="valuation.html">Valuation</a></li>
+                <li><a href="stock-options.html">Options</a></li>
+                <li><a href="equity-vs-salary.html">Equity vs Salary</a></li>
+                <li><a href="compare-offers.html">Compare</a></li>
+                <li><a href="scenario-compare.html">Compare Scenarios</a></li>
+                <li><a href="equity-quiz.html">Equity Quiz</a></li>
+                <li><a href="equity-glossary.html">Glossary</a></li>
+                <li><a href="409a-valuation.html">409A</a></li>
+                <li><a href="pricing.html" class="nav-cta">Pricing</a></li>
+                <li><a href="equity-score.html" class="nav-cta">Equity Score</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <main class="article">
+        <div class="article-meta">
+            <span class="article-tag">Engineer Equity</span>
+            <span class="article-date">May 28, 2026</span>
+            <span class="article-read-time">14 min read</span>
+        </div>
+
+        <h1>Equity for Engineers: How Much Stock Options You Should Negotiate (2026)</h1>
+
+        <p class="article-excerpt">Software engineer equity benchmarks by role and startup stage. Senior engineer, staff engineer, and principal engineer equity ranges. Negotiation scripts and free calculators to evaluate your offer.</p>
+
+        <p>You're a software engineer evaluating a startup job offer. The salary looks okay, but the equity number is confusing: "0.05%." Is that good? Bad? How do you translate that percentage into something meaningful?</p>
+
+        <p>Engineers are the largest demographic receiving startup equity offers, yet most negotiate without knowing what's fair. This guide gives you equity benchmarks for software engineers by role and startup stage, plus negotiation scripts to get a better deal.</p>
+
+        <div class="cta-box">
+            <h3>Is Your Engineer Equity Offer Fair?</h3>
+            <p>Get an instant equity score based on your role, experience, and startup stage. Compare against thousands of real equity offers.</p>
+            <a href="equity-score.html">Check Your Equity Score →</a>
+        </div>
+
+        <h2>Quick Engineer Equity Benchmarks</h2>
+
+        <p>Here's what software engineers typically receive by startup stage and role. All numbers are equity <strong>percentages</strong> on a fully diluted basis.</p>
+
+        <table class="equity-table">
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Pre-Seed</th>
+                    <th>Seed</th>
+                    <th>Series A</th>
+                    <th>Series B</th>
+                    <th>Series C+</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="highlight-row">
+                    <td><strong>Junior Engineer</strong><br><small>0-2 years experience</small></td>
+                    <td>0.05% - 0.15%</td>
+                    <td>0.03% - 0.10%</td>
+                    <td>0.02% - 0.05%</td>
+                    <td>0.01% - 0.03%</td>
+                    <td>0.005% - 0.02%</td>
+                </tr>
+                <tr>
+                    <td><strong>Software Engineer</strong><br><small>2-5 years experience</small></td>
+                    <td>0.10% - 0.25%</td>
+                    <td>0.05% - 0.15%</td>
+                    <td>0.03% - 0.10%</td>
+                    <td>0.02% - 0.05%</td>
+                    <td>0.01% - 0.03%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Senior Engineer</strong><br><small>5-8 years experience</small></td>
+                    <td>0.25% - 0.50%</td>
+                    <td>0.15% - 0.30%</td>
+                    <td>0.10% - 0.20%</td>
+                    <td>0.05% - 0.12%</td>
+                    <td>0.03% - 0.08%</td>
+                </tr>
+                <tr>
+                    <td><strong>Staff Engineer</strong><br><small>8-12 years experience</small></td>
+                    <td>0.40% - 0.80%</td>
+                    <td>0.25% - 0.50%</td>
+                    <td>0.15% - 0.30%</td>
+                    <td>0.10% - 0.20%</td>
+                    <td>0.05% - 0.12%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Principal Engineer</strong><br><small>12+ years experience</small></td>
+                    <td>0.60% - 1.20%</td>
+                    <td>0.40% - 0.70%</td>
+                    <td>0.25% - 0.45%</td>
+                    <td>0.15% - 0.30%</td>
+                    <td>0.08% - 0.18%</td>
+                </tr>
+                <tr>
+                    <td><strong>Engineering Manager</strong><br><small>Manages 3-7 engineers</small></td>
+                    <td>0.30% - 0.60%</td>
+                    <td>0.20% - 0.40%</td>
+                    <td>0.12% - 0.25%</td>
+                    <td>0.08% - 0.15%</td>
+                    <td>0.04% - 0.10%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Director of Engineering</strong><br><small>Manages managers, 20+ engineers</small></td>
+                    <td>0.80% - 1.50%</td>
+                    <td>0.50% - 1.00%</td>
+                    <td>0.30% - 0.60%</td>
+                    <td>0.20% - 0.40%</td>
+                    <td>0.10% - 0.25%</td>
+                </tr>
+                <tr>
+                    <td><strong>VP of Engineering</strong><br><small>Exec role, entire engineering org</small></td>
+                    <td>1.50% - 3.00%</td>
+                    <td>1.00% - 2.00%</td>
+                    <td>0.60% - 1.20%</td>
+                    <td>0.40% - 0.80%</td>
+                    <td>0.20% - 0.50%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>CTO</strong><br><small>Founder or first hire</small></td>
+                    <td>5% - 15%</td>
+                    <td>2% - 8%</td>
+                    <td>1% - 3%</td>
+                    <td>0.50% - 1.50%</td>
+                    <td>0.25% - 0.80%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Notes:</strong></p>
+        <ul>
+            <li>Ranges are based on offers shared publicly and anonymized data from AngelList, Y Combinator, and startup compensation surveys</li>
+            <li>Pre-seed = < $1M raised, Seed = $1M-5M, Series A = $5M-15M, Series B = $15M-50M, Series C+ = $50M+</li>
+            <li>Equity assumes <strong>fully diluted</strong> cap table (includes option pool)</li>
+            <li>High performers at any level can negotiate 20-50% above these ranges</li>
+        </ul>
+
+        <h2>What "0.05%" Actually Means in Dollars</h2>
+
+        <p>Equity percentages are abstract. Here's what that translates to in potential payout at different exit scenarios.</p>
+
+        <p><strong>Example: Senior Engineer at Series A startup</strong></p>
+        <ul>
+            <li>Equity grant: 0.15%</li>
+            <li>Current valuation: $15M post-money</li>
+            <li>Current paper value: 0.15% × $15M = <strong>$22,500</strong></li>
+        </ul>
+
+        <p>At exit:</p>
+
+        <table class="equity-table">
+            <thead>
+                <tr>
+                    <th>Exit Valuation</th>
+                    <th>Your Payout (0.15%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$50M acqui-hire</td>
+                    <td><strong>$75,000</strong></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>$100M exit</td>
+                    <td><strong>$150,000</strong></td>
+                </tr>
+                <tr>
+                    <td>$250M exit</td>
+                    <td><strong>$375,000</strong></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>$500M exit</td>
+                    <td><strong>$750,000</strong></td>
+                </tr>
+                <tr>
+                    <td>$1B unicorn exit</td>
+                    <td><strong>$1,500,000</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Use the <a href="startup-exit-calculator.html" style="color:var(--accent-light)">Startup Exit Calculator</a> to model your own equity at different exit scenarios.</p>
+
+        <h2>Factors That Affect Your Equity Offer</h2>
+
+        <h3>1. Seniority and Leverage</h3>
+        <p>More experience = more equity. But leverage matters more. You're a senior engineer with 10 years experience, but if this is your first startup job and you're currently employed at a big tech company with a stable salary, you have less leverage than someone who left a successful startup and can afford to take more risk.</p>
+
+        <h3>2. Joining Stage</h3>
+        <p>The earlier you join, the more equity you get. But earlier stage = more risk. A senior engineer joining as employee #5 at a pre-seed startup might get 0.5%, while the same role at a Series B company might only offer 0.08%.</p>
+
+        <h3>3. Company Momentum</h3>
+        <p>Hot startups with famous founders, top-tier VC backing, or explosive growth can offer below-market equity because candidates compete to join. Struggling startups need to offer above-market equity to attract talent.</p>
+
+        <h3>4. Cash vs Equity Tradeoff</h3>
+        <p>Some startups offer lower cash salaries in exchange for more equity. Others pay market-rate cash and offer less equity. Know your personal tradeoff: do you need the cash now, or can you afford risk for potential upside?</p>
+
+        <h3>5. Role and Impact</h3>
+        <p>Individual contributors (ICs) get less equity than managers at the same seniority level. A Staff Engineer who owns a critical product area might get similar equity to an Engineering Manager with 5 reports.</p>
+
+        <h2>Negotiation Scripts for Engineers</h2>
+
+        <h3>Script 1: "Research-Based" Negotiation</h3>
+        <p><strong>Scenario:</strong> Offer is 0.08%, but you know the range for Senior Engineer at Series A is 0.10% - 0.20%.</p>
+        <blockquote>
+            "Thanks for the offer. I'm excited about the mission and the team. I've done research on engineer equity ranges at Series A startups, and typical offers for Senior Engineers are 0.10%-0.20%. Your offer of 0.08% is below this range. Is there flexibility to get closer to market? I'm looking for 0.15% to align with the top end of the range."
+        </blockquote>
+
+        <h3>Script 2: "Total Compensation" Negotiation</h3>
+        <p><strong>Scenario:</strong> Salary is competitive but equity is low.</p>
+        <blockquote>
+            "I appreciate the competitive salary offer. Looking at total compensation, the equity component is below what I've seen at similar-stage startups. I'd like to discuss increasing the equity grant to 0.18% while keeping the salary as-is. This would make the total package more competitive and better align with my impact potential."
+        </blockquote>
+
+        <h3>Script 3: "Performance-Based" Request</h3>
+        <p><strong>Scenario:</strong> You want more equity but are okay earning it.</p>
+        <blockquote>
+            "Thanks for the offer. I understand the budget constraints. Would you consider a performance-based equity grant where I earn additional 0.05% vesting over 4 years if I hit specific milestones? For example: shipping X feature, achieving Y metric, or reaching Z team impact. This aligns incentives and gives me a path to increase my ownership."
+        </blockquote>
+
+        <h3>Script 4: "Joining Early" Leverage</h3>
+        <p><strong>Scenario:</strong> You're joining as an early employee and want recognition for the risk.</p>
+        <blockquote>
+            "I understand the offer framework. Given that I'm joining as employee #8 and taking significant early-stage risk, I'd like to discuss equity that reflects this. Early employees at this stage typically receive 0.25%-0.40% for Senior Engineer roles. Can we move closer to 0.30% to recognize the additional risk and early contribution I'm taking on?"
+        </blockquote>
+
+        <div class="cta-box">
+            <h3>Calculate Your Equity Potential Payout</h3>
+            <p>See what your engineer equity could be worth at different exit scenarios. Factor in dilution, liquidation preferences, and salary comparison.</p>
+            <a href="startup-exit-calculator.html">Try the Exit Calculator →</a>
+        </div>
+
+        <h2>S vs RSU: What Type of Equity Will You Get?</h2>
+
+        <p>Engineers typically receive one of two equity types:</p>
+
+        <h3>Stock Options (ISOs or NSOs)</h3>
+        <p>Most common for early-stage startups. You get the right to buy shares at a fixed strike price. You only profit if the company value increases above your strike price.</p>
+        <ul>
+            <li><strong>Pros:</strong> Potential for upside if company grows, tax-advantaged (ISOs)</li>
+            <li><strong>Cons:</strong> Can become worthless if company stagnates, complex tax rules (ISO AMT)</li>
+        </ul>
+
+        <h3>Restricted Stock Units (RSUs)</h3>
+        <p>More common at later-stage startups. You receive shares that vest over time. No strike price—you own the shares when they vest.</p>
+        <ul>
+            <li><strong>Pros:</strong> No strike price, always worth something if company has value, simpler tax</li>
+            <li><strong>Cons:</strong> Taxed as ordinary income at vest (even if you don't sell), typically smaller grants than options</li>
+        </ul>
+
+        <p><strong>Rule of thumb:</strong> Early-stage (Pre-Seed through Series B) = options. Later-stage (Series C+) = RSUs.</p>
+
+        <h2>Common Engineer Equity Mistakes</h2>
+
+        <h3>Mistake 1: Not Knowing the Paper Value</h3>
+        <p>"0.1% equity" sounds impressive, but what's the company's valuation? 0.1% of a $10M company is $10,000. 0.1% of a $100M company is $100,000. Always translate equity to dollar value based on current valuation.</p>
+
+        <h3>Mistake 2: Ignoring Dilution</h3>
+        <p>Your 0.15% today might be 0.08% after future funding rounds. Ask about the company's fundraising plans and how that will dilute your equity. Use a <a href="dilution.html" style="color:var(--accent-light)">dilution calculator</a> to model future rounds.</p>
+
+        <h3>Mistake 3: Not Reading the Fine Print</h3>
+        <p>What's the vesting schedule? (Typical: 4 years with 1-year cliff). What's the exercise window if you leave? (Typical: 90 days, but negotiate for longer). What happens to unvested equity if you're fired without cause? (Read your termination clause).</p>
+
+        <h3>Mistake 4: Not Exercising Options When You Leave</h3>
+        <p>If you leave a startup with vested options, you typically have 90 days to exercise them or they're forfeited. Many engineers forget and lose their equity. Set calendar reminders and understand the tax cost of exercising.</p>
+
+        <h3>Mistake 5: Overvaluing Equity</h3>
+        <p>Equity in a startup is a lottery ticket. Most startups fail or exit for modest amounts. Don't accept significantly below-market cash salary for equity that might never pay out. A reasonable rule: don't accept more than 20% pay cut for equity unless you strongly believe in the company.</p>
+
+        <h2>How to Evaluate Multiple Engineer Offers</h2>
+
+        <p>Comparing multiple offers? Use this framework:</p>
+
+        <ol>
+            <li><strong>Calculate current equity value:</strong> Equity % × current valuation = paper value</li>
+            <li><strong>Model exit scenarios:</strong> What's your payout at $100M, $250M, $500M exits?</li>
+            <li><strong>Factor in dilution:</strong> How much will future rounds dilute your equity?</li>
+            <li><strong>Add cash compensation:</strong> Salary + bonus + benefits = total cash</li>
+            <li><strong>Weigh risk:</strong> Early-stage = higher risk, higher potential upside</li>
+        </ol>
+
+        <p>Use the <a href="compare-offers.html" style="color:var(--accent-light)">Startup Offer Comparison Tool</a> to compare multiple offers side-by-side.</p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is 0.05% equity good for a software engineer?</h3>
+        <p>At Series A or later: No, that's below market. At Series A, Senior Engineers typically get 0.10%-0.20%. At pre-seed, 0.05% might be appropriate for a Junior Engineer. Use the <a href="equity-score.html" style="color:var(--accent-light)">Equity Score tool</a> to compare your offer against benchmarks.</p>
+
+        <h3>How much equity do Google/Facebook engineers get?</h3>
+        <p>Big tech companies don't typically offer equity in the traditional sense. They offer RSUs as part of compensation packages. A Senior Software Engineer at Google might receive $200K salary + $100K-$200K in RSUs annually. Startup equity works differently—usually one grant that vests over 4 years, not annual RSU refreshes.</p>
+
+        <h3>Should I take a pay cut for startup equity?</h3>
+        <p>Depends on your risk tolerance and belief in the company. A reasonable benchmark: don't accept more than 20-30% pay cut for startup equity unless (1) you strongly believe in the founder and market, (2) you have cash savings to absorb risk, or (3) the equity grant is significantly above market. Remember: most startups never exit.</p>
+
+        <h3>What's "strike price" and why does it matter?</h3>
+        <p>Strike price is the price you pay to exercise stock options. Lower strike price = more profit when you sell. For RSUs, there's no strike price—you own the shares when they vest. Strike price is typically set by the company's 409A valuation.</p>
+
+        <h3>What happens to my equity if the company gets acquired?</h3>
+        <p>Your vested equity is converted to cash or stock in the acquiring company. Unvested equity may or may not accelerate—depends on your employment agreement and the acquisition terms. "Double-trigger acceleration" means your equity fully vests if you're fired without cause within 12 months of acquisition. Negotiate this if you're joining a startup likely to sell.</p>
+
+        <div class="cta-box">
+            <h3>Score Your Engineer Equity Offer</h3>
+            <p>Answer 5 questions and get an instant score comparing your equity offer against thousands of real startup equity grants. Takes 60 seconds.</p>
+            <a href="equity-score.html">Get Your Equity Score →</a>
+        </div>
+
+        <h2>Bottom Line</h2>
+
+        <p>Engineer equity benchmarks vary widely by startup stage and role. The key principles:</p>
+
+        <ul>
+            <li><strong>Early stage = more equity, more risk</strong></li>
+            <li><strong>Late stage = less equity, less risk</strong></li>
+            <li><strong>Seniority matters</strong> — but leverage matters more</li>
+            <li><strong>Negotiate</strong> — most startups have wiggle room, especially for strong candidates</li>
+            <li><strong>Read the fine print</strong> — vesting, exercise window, acceleration clauses</li>
+        </ul>
+
+        <p>Before accepting any offer, use the <a href="equity-score.html" style="color:var(--accent-light)">Equity Score tool</a> to benchmark your offer, and the <a href="startup-exit-calculator.html" style="color:var(--accent-light)">Exit Calculator</a> to model potential payouts. Then negotiate from data, not emotion.</p>
+
+        <p><strong>Related Reading:</strong></p>
+        <ul>
+            <li><a href="blog/analyze-startup-offer-letter.html">How to Analyze Your Startup Offer Letter: The Complete Checklist</a></li>
+            <li><a href="blog/negotiate-equity-offer.html">How to Negotiate Startup Equity: The Complete Guide</a></li>
+            <li><a href="blog/compare-equity-offers.html">How to Compare Startup Equity Offers: A Side-by-Side Guide</a></li>
+            <li><a href="blog/startup-offer-negotiation.html">Startup Offer Negotiation: What to Ask For in 2026</a></li>
+        </ul>
+    </main>
+
+    <script src="exit-intent.js" defer></script>
+</body>
+</html>

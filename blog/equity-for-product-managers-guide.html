@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equity for Product Managers: How Much Stock Options You Should Negotiate (2026)</title>
+    <link rel="canonical" href="https://founder-math.com/blog/equity-for-product-managers-guide.html">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const toggle = document.getElementById('mobileToggle');
+        navLinks.classList.toggle('open');
+        const isOpen = navLinks.classList.contains('open');
+        toggle.setAttribute('aria-expanded', isOpen.toString());
+    }
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+    });
+    </script>
+    <meta name="description" content="Startup equity benchmarks for product managers by role and stage. PM, Senior PM, Group PM equity ranges. Negotiation scripts and free calculators to evaluate your PM offer.">
+    <meta property="og:title" content="Equity for Product Managers: How Much Stock Options You Should Negotiate (2026)">
+    <meta property="og:description" content="Product manager equity benchmarks by role and startup stage. PM, Senior PM, Group PM, and Head of Product equity ranges. Negotiation scripts and calculators.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-blog.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/equity-for-product-managers-guide.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Equity for Product Managers: How Much Stock Options You Should Negotiate (2026)",
+        "author": {"@type": "Organization", "name": "FounderMath"},
+        "publisher": {"@type": "Organization", "name": "FounderMath", "url": "https://founder-math.com"},
+        "datePublished": "2026-05-28",
+        "dateModified": "2026-05-28",
+        "mainEntityOfPage": "https://founder-math.com/blog/equity-for-product-managers-guide.html",
+        "description": "Startup equity benchmarks for product managers by role and stage."
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-muted: #b2bec3;
+            --border: #dfe6e9;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 16px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .article { max-width: 760px; margin: 0 auto; padding: 120px 24px 60px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+        .article-tag { background: var(--bg-card); padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; color: var(--accent-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        .article-date { font-size: 0.8rem; color: var(--text-muted); }
+        .article-read-time { font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+        h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.3; margin-bottom: 24px; letter-spacing: -0.02em; }
+        .article-excerpt { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.6; }
+        h2 { font-size: 1.5rem; font-weight: 700; margin: 48px 0 20px; letter-spacing: -0.01em; }
+        h3 { font-size: 1.15rem; font-weight: 600; margin: 28px 0 16px; }
+        p { margin-bottom: 20px; color: var(--text-secondary); }
+        a { color: var(--accent-light); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        strong { color: var(--text-primary); font-weight: 600; }
+        ul, ol { margin-bottom: 20px; padding-left: 24px; color: var(--text-secondary); }
+        li { margin-bottom: 8px; }
+        code { background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', Monaco, monospace; font-size: 0.9em; }
+        .cta-box { background: linear-gradient(135deg, var(--accent), #8b6cf5); border-radius: 16px; padding: 32px; margin: 40px 0; text-align: center; }
+        .cta-box h3 { color: white; font-size: 1.4rem; margin: 0 0 12px; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+        .cta-box a { background: white; color: var(--accent); padding: 12px 28px; border-radius: 10px; font-weight: 600; text-decoration: none; display: inline-block; }
+        .cta-box a:hover { transform: translateY(-2px); text-decoration: none; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .equity-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+        .equity-table th, .equity-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+        .equity-table th { background: var(--bg-card); font-weight: 600; color: var(--text-primary); }
+        .equity-table td { color: var(--text-secondary); }
+        .equity-table tr:last-child td { border-bottom: none; }
+        .highlight-row { background: rgba(108, 92, 231, 0.1); }
+        .theme-toggle { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 8px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="vesting.html">Vesting</a></li>
+                <li><a href="unit-economics.html">Unit Econ</a></li>
+                <li><a href="cap-table.html">Cap Table</a></li>
+                <li><a href="equity-split.html">Equity Split</a></li>
+                <li><a href="valuation.html">Valuation</a></li>
+                <li><a href="stock-options.html">Options</a></li>
+                <li><a href="equity-vs-salary.html">Equity vs Salary</a></li>
+                <li><a href="compare-offers.html">Compare</a></li>
+                <li><a href="scenario-compare.html">Compare Scenarios</a></li>
+                <li><a href="equity-quiz.html">Equity Quiz</a></li>
+                <li><a href="equity-glossary.html">Glossary</a></li>
+                <li><a href="409a-valuation.html">409A</a></li>
+                <li><a href="pricing.html" class="nav-cta">Pricing</a></li>
+                <li><a href="equity-score.html" class="nav-cta">Equity Score</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <main class="article">
+        <div class="article-meta">
+            <span class="article-tag">PM Equity</span>
+            <span class="article-date">May 28, 2026</span>
+            <span class="article-read-time">12 min read</span>
+        </div>
+
+        <h1>Equity for Product Managers: How Much Stock Options You Should Negotiate (2026)</h1>
+
+        <p class="article-excerpt">Product manager equity benchmarks by role and startup stage. PM, Senior PM, Group PM, and Head of Product equity ranges. Negotiation scripts and free calculators to evaluate your offer.</p>
+
+        <p>You're a product manager evaluating a startup job offer. The equity offer says "0.08%." Is that competitive? Below market? How does it compare to what PMs get at similar-stage startups?</p>
+
+        <p>Product managers are critical hires at startups—you sit between engineering, design, and business, shaping what gets built. Your equity should reflect that impact. This guide gives you equity benchmarks for PMs by startup stage and seniority, plus negotiation scripts to get a better deal.</p>
+
+        <div class="cta-box">
+            <h3>Is Your PM Equity Offer Fair?</h3>
+            <p>Get an instant equity score based on your role, experience, and startup stage. Compare against thousands of real equity offers.</p>
+            <a href="equity-score.html">Check Your Equity Score →</a>
+        </div>
+
+        <h2>Quick PM Equity Benchmarks</h2>
+
+        <p>Here's what product managers typically receive by startup stage and role. All numbers are equity <strong>percentages</strong> on a fully diluted basis.</p>
+
+        <table class="equity-table">
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Pre-Seed</th>
+                    <th>Seed</th>
+                    <th>Series A</th>
+                    <th>Series B</th>
+                    <th>Series C+</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="highlight-row">
+                    <td><strong>Associate PM</strong><br><small>0-2 years PM experience</small></td>
+                    <td>0.05% - 0.15%</td>
+                    <td>0.03% - 0.10%</td>
+                    <td>0.02% - 0.05%</td>
+                    <td>0.01% - 0.03%</td>
+                    <td>0.005% - 0.02%</td>
+                </tr>
+                <tr>
+                    <td><strong>Product Manager</strong><br><small>2-5 years PM experience</small></td>
+                    <td>0.15% - 0.30%</td>
+                    <td>0.10% - 0.20%</td>
+                    <td>0.05% - 0.12%</td>
+                    <td>0.03% - 0.08%</td>
+                    <td>0.02% - 0.05%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Senior PM</strong><br><small>5-8 years PM experience</small></td>
+                    <td>0.30% - 0.50%</td>
+                    <td>0.20% - 0.35%</td>
+                    <td>0.12% - 0.25%</td>
+                    <td>0.08% - 0.15%</td>
+                    <td>0.05% - 0.10%</td>
+                </tr>
+                <tr>
+                    <td><strong>Group PM / Lead PM</strong><br><small>Leads PM team, 8+ years experience</small></td>
+                    <td>0.50% - 0.80%</td>
+                    <td>0.35% - 0.55%</td>
+                    <td>0.25% - 0.40%</td>
+                    <td>0.15% - 0.25%</td>
+                    <td>0.10% - 0.18%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Director of Product</strong><br><small>Manages PM team, owns product strategy</small></td>
+                    <td>0.70% - 1.20%</td>
+                    <td>0.50% - 0.80%</td>
+                    <td>0.35% - 0.55%</td>
+                    <td>0.25% - 0.40%</td>
+                    <td>0.15% - 0.25%</td>
+                </tr>
+                <tr>
+                    <td><strong>VP of Product / Head of Product</strong><br><small>Exec role, entire product org</small></td>
+                    <td>1.50% - 3.00%</td>
+                    <td>1.00% - 2.00%</td>
+                    <td>0.60% - 1.20%</td>
+                    <td>0.40% - 0.80%</td>
+                    <td>0.25% - 0.50%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>CPO (Chief Product Officer)</strong><br><small>Founder or C-level executive</small></td>
+                    <td>3.00% - 8.00%</td>
+                    <td>2.00% - 5.00%</td>
+                    <td>1.20% - 2.50%</td>
+                    <td>0.80% - 1.50%</td>
+                    <td>0.50% - 1.00%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Notes:</strong></p>
+        <ul>
+            <li>Ranges based on anonymized equity data from startup compensation surveys and AngelList/Wellfound offers</li>
+            <li>Pre-seed = < $1M raised, Seed = $1M-5M, Series A = $5M-15M, Series B = $15M-50M, Series C+ = $50M+</li>
+            <li>Equity assumes <strong>fully diluted</strong> cap table (includes option pool)</li>
+            <li>PMs with previous startup exits or strong domain expertise can negotiate 20-40% above ranges</li>
+        </ul>
+
+        <h2>PM vs Engineer: How Does Equity Compare?</h2>
+
+        <p>A common question: Do PMs get more or less equity than engineers at the same level?</p>
+
+        <p><strong>At early-stage startups (Pre-Seed to Series A):</strong> PMs and engineers at similar seniority levels typically receive <strong>similar equity ranges</strong>. Early-stage startups need both roles equally—engineers to build, PMs to figure out what to build.</p>
+
+        <p><strong>At later-stage startups (Series B+):</strong> PMs often receive slightly <strong>less equity than engineers</strong> at equivalent levels. Why? Later-stage startups have established product roadmaps and larger engineering teams. Individual engineering contributors become more critical than individual PMs.</p>
+
+        <p><strong>Exception:</strong> Product leaders (Director, VP, CPO) often receive <strong>more equity than engineering leaders</strong> at the same level. Product strategy is seen as more executive-critical than engineering execution at later stages.</p>
+
+        <h2>What "0.10%" Means in Potential Payout</h2>
+
+        <p><strong>Example: Senior PM at Series A startup</strong></p>
+        <ul>
+            <li>Equity grant: 0.15%</li>
+            <li>Current valuation: $12M post-money</li>
+            <li>Current paper value: 0.15% × $12M = <strong>$18,000</strong></li>
+        </ul>
+
+        <p>At exit:</p>
+
+        <table class="equity-table">
+            <thead>
+                <tr>
+                    <th>Exit Valuation</th>
+                    <th>Your Payout (0.15%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$50M acqui-hire</td>
+                    <td><strong>$75,000</strong></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>$100M exit</td>
+                    <td><strong>$150,000</strong></td>
+                </tr>
+                <tr>
+                    <td>$250M exit</td>
+                    <td><strong>$375,000</strong></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>$500M exit</td>
+                    <td><strong>$750,000</strong></td>
+                </tr>
+                <tr>
+                    <td>$1B unicorn exit</td>
+                    <td><strong>$1,500,000</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Use the <a href="startup-exit-calculator.html" style="color:var(--accent-light)">Startup Exit Calculator</a> to model your own equity at different exit scenarios.</p>
+
+        <h2>Factors That Affect Your PM Equity Offer</h2>
+
+        <h3>1. Product Ownership Scope</h3>
+        <p>Are you owning a specific feature? A product line? The entire product roadmap? Larger scope = more equity. A PM owning "mobile app" gets less than a PM owning "entire product strategy."</p>
+
+        <h3>2. Company Stage and Product Maturity</h3>
+        <p>Early-stage startups need PMs who can figure out product-market fit. Later-stage startups need PMs who can optimize and scale. Early-stage PM roles are riskier and typically offer more equity.</p>
+
+        <h3>3. Startup "Product DNA"</h3>
+        <p>Some startups are engineering-led (technical founders, developer-focused products). Others are product-led (business founders, consumer apps). Product-led startups typically offer better equity to PMs because product is their core differentiator.</p>
+
+        <h3>4. Your Leverage</h3>
+        <p>Are you currently employed at a big tech company (Google, Meta, Amazon) with strong PM experience? You have leverage. Are you career-switching into PM from a non-tech role? Less leverage. Negotiate from strength.</p>
+
+        <h3>5. Cash vs Equity Tradeoff</h3>
+        <p>Some startups offer below-market cash salaries with above-market equity. Others pay market-rate cash and less equity. Know your personal risk tolerance: do you need cash now, or can you afford risk for potential upside?</p>
+
+        <h2>Negotiation Scripts for PMs</h2>
+
+        <h3>Script 1: "Market Range" Negotiation</h3>
+        <p><strong>Scenario:</strong> Offer is 0.08%, but you know the range for Senior PM at Series A is 0.12% - 0.25%.</p>
+        <blockquote>
+            "Thanks for the offer. I'm excited about the product vision and the team. I've researched PM equity ranges at Series A startups, and typical offers for Senior Product Managers are 0.12%-0.25%. Your offer of 0.08% is below this range. Is there flexibility to get closer to market? I'm looking for 0.18% to align with the competitive range."
+        </blockquote>
+
+        <h3>Script 2: "Scope Negotiation"</h3>
+        <p><strong>Scenario:</strong> The role has broad scope but equity doesn't reflect it.</p>
+        <blockquote>
+            "I appreciate the offer. Looking at the role scope, I'd be owning the entire product roadmap and managing the PM team. That's a significant scope that typically commands 0.25%-0.40% at this stage. Can we discuss increasing the equity to 0.30% to better align with the responsibilities I'm taking on?"
+        </blockquote>
+
+        <h3>Script 3: "Product DNA" Negotiation</h3>
+        <p><strong>Scenario:</strong> Emphasize that product is core to the startup's success.</p>
+        <blockquote>
+            "Thanks for the offer. I've been following your company and it's clear that product execution is critical to your success. This is a product-led company where the PM role will have outsized impact. Given that, I'd like to discuss equity that reflects this impact. I'm looking for 0.22% to better align with the strategic importance of the product function."
+        </blockquote>
+
+        <h3>Script 4: "Total Compensation" Negotiation</h3>
+        <p><strong>Scenario:</strong> Salary is competitive but equity is low.</p>
+        <blockquote>
+            "The salary offer is competitive and I appreciate that. Looking at total compensation, the equity component is below what I've seen at similar-stage Series A companies. I'd like to discuss increasing the equity grant to 0.20% while keeping the salary as-is. This would make the total package more competitive and better align with the impact I'll drive in this role."
+        </blockquote>
+
+        <div class="cta-box">
+            <h3>Calculate Your PM Equity Potential Payout</h3>
+            <p>See what your PM equity could be worth at different exit scenarios. Factor in dilution, liquidation preferences, and salary comparison.</p>
+            <a href="startup-exit-calculator.html">Try the Exit Calculator →</a>
+        </div>
+
+        <h2>Common PM Equity Mistakes</h2>
+
+        <h3>Mistake 1: Not Asking About Option Pool Size</h3>
+        <p>Your equity percentage is on a fully diluted basis. That means it includes the option pool. If the option pool is unusually large (20%+), your equity is worth less because it's diluted by a bigger pool. Always ask: "What's the current option pool size and is it fully diluted?"</p>
+
+        <h3>Mistake 2: Ignoring Future Dilution</h3>
+        <p>Your 0.15% today might be 0.08% after the Series B. Ask about the company's fundraising plans: "How much are you raising in the next round and how will that dilute my equity?" Use a <a href="dilution.html" style="color:var(--accent-light)">dilution calculator</a> to model future rounds.</p>
+
+        <h3>Mistake 3: Not Understanding the Product Context</h3>
+        <p>Is this startup product-led or sales-led? Engineering-led or design-led? If product is a core differentiator, you should negotiate for higher equity. If the startup is sales-led and product is an afterthought, you have less leverage—and that's a red flag about the role.</p>
+
+        <h3>Mistake 4: Not Reading the Vesting Terms</h3>
+        <p>What's the vesting schedule? (Standard: 4 years with 1-year cliff). What's the exercise window if you leave? (Standard: 90 days, negotiate for longer). What happens if the company is acquired? (Double-trigger acceleration protects you).</p>
+
+        <h3>Mistake 5: Overvaluing Equity vs Big Tech RSUs</h3>
+        <p>Big tech PMs often receive $50K-$150K in RSUs annually. Startup equity is a one-time grant that vests over 4 years. A $100K annual RSU grant at Google = $400K over 4 years. Startup equity of 0.15% at a $50M company is $75K on paper. Don't accept significantly below-market total comp unless you strongly believe in the startup.</p>
+
+        <h2>How to Evaluate Multiple PM Offers</h2>
+
+        <p>Comparing multiple startup PM offers? Use this framework:</p>
+
+        <ol>
+            <li><strong>Calculate current equity value:</strong> Equity % × current valuation = paper value</li>
+            <li><strong>Model exit scenarios:</strong> What's your payout at $100M, $250M, $500M exits?</li>
+            <li><strong>Factor in dilution:</strong> How much will Series B/C dilute your equity?</li>
+            <li><strong>Add cash compensation:</strong> Salary + bonus + benefits = total cash</li>
+            <li><strong>Evaluate product role:</strong> How much product ownership? How much influence over strategy?</li>
+            <li><strong>Assess product DNA:</strong> Is this a product-led company? Does product drive success?</li>
+        </ol>
+
+        <p>Use the <a href="compare-offers.html" style="color:var(--accent-light)">Startup Offer Comparison Tool</a> to compare multiple offers side-by-side.</p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is 0.05% equity good for a Product Manager?</h3>
+        <p>At Series A or later: No, that's below market. At Series A, PMs typically get 0.05%-0.12% for Associate/Junior PM roles, 0.12%-0.25% for PM roles, and 0.12%-0.25% for Senior PM roles. Use the <a href="equity-score.html" style="color:var(--accent-light)">Equity Score tool</a> to benchmark your offer.</p>
+
+        <h3>Do PMs get more equity than engineers?</h3>
+        <p>At early-stage startups: PMs and engineers get similar equity at the same seniority level. At later-stage startups: Engineers often get slightly more than PMs (individual contributor roles are more technical-critical). Product leaders (VP, CPO) often get more than engineering leaders at the same level.</p>
+
+        <h3>What's "Head of Product" vs "VP of Product" vs "CPO"?</h3>
+        <p>Titles vary, but generally: <strong>Head of Product</strong> = first product leader, no direct reports yet, builds the PM function. <strong>VP of Product</strong> = manages PM team, owns product strategy, reports to CEO. <strong>CPO</strong> = C-level executive, often founder or very senior, sits on exec team. Equity increases significantly with each step up.</p>
+
+        <h3>Should I take a pay cut for PM equity at a startup?</h3>
+        <p>Depends on your risk tolerance and belief in the product. A reasonable benchmark: don't accept more than 20% pay cut for startup equity unless (1) you strongly believe in the product-market fit, (2) you have cash savings to absorb risk, or (3) the equity grant is significantly above market. Remember: most startups never exit or exit for modest amounts.</p>
+
+        <h3>What if the startup doesn't have a PM function yet?</h3>
+        <p>If you're the first PM at a startup, you're building the product function from scratch. This is high-impact work. Negotiate for equity at the top end of the range (or above). You're not just executing product—you're establishing how product works at the company. That deserves above-market equity.</p>
+
+        <div class="cta-box">
+            <h3>Score Your PM Equity Offer</h3>
+            <p>Answer 5 questions and get an instant score comparing your PM equity offer against thousands of real startup equity grants. Takes 60 seconds.</p>
+            <a href="equity-score.html">Get Your Equity Score →</a>
+        </div>
+
+        <h2>Bottom Line</h2>
+
+        <p>Product manager equity benchmarks vary by startup stage and seniority. The key principles:</p>
+
+        <ul>
+            <li><strong>Early-stage PMs get more equity</strong> — more risk, more impact</li>
+            <li><strong>PMs and engineers get similar equity</strong> at early-stage startups</li>
+            <li><strong>Product leaders get premium equity</strong> — product strategy is exec-critical</li>
+            <li><strong>Negotiate based on scope</strong> — broader product ownership = more equity</li>
+            <li><strong>Read the fine print</strong> — vesting, exercise window, dilution</li>
+        </ul>
+
+        <p>Before accepting any PM offer, use the <a href="equity-score.html" style="color:var(--accent-light)">Equity Score tool</a> to benchmark your offer, and the <a href="startup-exit-calculator.html" style="color:var(--accent-light)">Exit Calculator</a> to model potential payouts. Then negotiate from data.</p>
+
+        <p><strong>Related Reading:</strong></p>
+        <ul>
+            <li><a href="blog/analyze-startup-offer-letter.html">How to Analyze Your Startup Offer Letter: The Complete Checklist</a></li>
+            <li><a href="blog/negotiate-equity-offer.html">How to Negotiate Startup Equity: The Complete Guide</a></li>
+            <li><a href="blog/compare-equity-offers.html">How to Compare Startup Equity Offers: A Side-by-Side Guide</a></li>
+            <li><a href="blog/equity-for-engineers-guide.html">Equity for Engineers: How Much Stock Options You Should Negotiate</a></li>
+        </ul>
+    </main>
+
+    <script src="exit-intent.js" defer></script>
+</body>
+</html>
