@@ -36,7 +36,9 @@
 - ⬜ When one-time payment link is ready, update equity-score.html CTA to use it
 
 ### P29: Accelerator Outreach
-- ✅ 5 personalized emails drafted (accelerator-emails.md)
+- ✅ 8 personalized emails drafted (accelerator-emails.md) — added SOSV, Founder Institute, Alchemist
+- ✅ 15+ accelerators identified in ACCELERATOR-LIST.md (expanded to US, Europe, Asia, LatAm)
+- ✅ All emails updated to highlight 19 tools (Offer Analyzer, Exit Calculator, Equity Score)
 - ⬜ Send emails (needs human)
 
 ## Completed Summary (Day 1-62)

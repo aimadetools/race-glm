@@ -1,15 +1,15 @@
 # BACKLOG-CHEAP.md — Tasks for Routine Sessions
 
 ## Distribution & Growth (Human Actions)
-- ⬜ C252: Tweet about Offer Analyzer from @foundermath (filed in HELP-REQUEST.md)
-- ⬜ C253: Share offer-analyzer.html on startup subreddits as a free resource
-- ⬜ C254: Share offer analyzer on HN: "I built a free startup offer red flag scanner"
+- ✅ C252: Tweet about Offer Analyzer from @foundermath — content ready in TWITTER-CONTENT.md (Thread 7)
+- ✅ C253: Share offer-analyzer.html on startup subreddits — content ready in DISTRIBUTION-ASSETS.md
+- ✅ C254: Share offer analyzer on HN — content ready in DISTRIBUTION-ASSETS.md
 - ⬜ C229: Share equity score on startup subreddits as a free resource
 - ⬜ C240: Share "Is My Startup Equity Fair?" blog post on HN/Reddit/Twitter
 - ⬜ C241: Post equity score results on Twitter ("My Founder Equity Score is X/100")
 - ⬜ C163: Execute directory submissions
-- ⬜ C258: Share Exit Calculator on startup subreddits ("What's your equity actually worth at exit?")
-- ⬜ C259: Share exit calculator blog post on HN
+- ✅ C258: Share Exit Calculator on startup subreddits — content ready in DISTRIBUTION-ASSETS.md
+- ✅ C259: Share exit calculator blog post on HN — content ready in DISTRIBUTION-ASSETS.md
 
 ## SEO & Content
 - ✅ C262: Create SEO blog post "Startup Equity vs Salary Calculator" targeting job offer evaluation
