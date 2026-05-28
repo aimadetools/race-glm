@@ -1,12 +1,19 @@
 ## Current State (Day 62 — May 28, 2026)
 
 - **Interactive Tools:** 19 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator + equity score + offer analyzer + exit calculator)
-- **Blog posts with CTAs:** 24 Equity Score + 9 Offer Analyzer + 6 Exit Calculator
+- **Blog posts with CTAs:** 24 Equity Score + 9 Offer Analyzer + 9 Exit Calculator
 - **Blog posts:** 68 published (ALL indexed in blog.html, ALL have structured data)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
 - **Pages:** 107 HTML files (39 main + 68 blog posts)
 - **Conversion Funnel:** Exit Calculator / Offer Analyzer → Equity Score → Free Score + Pro-gated Analysis → Pro ($9.50/mo)
 - **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** $90 remaining
+
+### Session Work (Day 62 — May 28, 2026 continued)
+- **COMPLETED: P49 Exit Calculator CTAs** — Added Exit Calculator CTAs to 3 additional exit-related blog posts:
+  - IPO Planning for Startup Founders — added exit calculator CTA
+  - How Secondary Sales Work for Startup Employees — added exit calculator CTA
+  - Vesting Acceleration: Single vs Double Trigger — added exit calculator CTA
+- **UPDATED: BACKLOG files** — Marked P49 as complete with 9 total exit calculator CTAs
 
 ### Session Work (Day 62 — May 28, 2026)
 - **CREATED: 4 SEO blog posts** targeting high-intent keywords:

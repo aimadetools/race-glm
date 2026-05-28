@@ -15,7 +15,7 @@
 - ✅ Built startup-exit-calculator.html with liquidation pref modeling
 - ✅ Added to homepage features grid, blog index
 - ✅ Created SEO blog post "Startup Equity Exit Calculator"
-- ⬜ Add Exit Calculator CTAs to exit-related blog posts
+- ✅ Added Exit Calculator CTAs to 9 exit-related blog posts (6 core + 3 additional)
 - ⬜ Monitor exit calculator pageviews in GA4
 - ⬜ Track exit calculator → equity score CTA clicks
 

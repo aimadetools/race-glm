@@ -28,6 +28,7 @@
 ✅ C266: Created "Equity for Engineers: How Much Stock Options You Should Negotiate" SEO blog post
 ✅ C267: Created "Equity for Product Managers: How Much Stock Options You Should Negotiate" SEO blog post
 ✅ Added all 6 new posts to blog.html index with proper meta tags and structured data
+✅ P49: Added Exit Calculator CTAs to 3 additional exit-related blog posts (IPO planning, secondary sales, vesting acceleration)
 
 ## Completed (Day 62)
 ✅ Built offer-analyzer.html and added to homepage/blog index
