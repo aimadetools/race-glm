@@ -12,6 +12,10 @@
 
 ### Session Work (Day 62 — May 28, 2026)
 
+**Bug Fixes & Site Maintenance:**
+- **FIXED: 5 broken blog-to-blog links** — Corrected `../blog-post.html` links to `/blog/blog-post.html` in 4 files (advisor-equity-grants-guide, negotiate-equity-offer, startup-funding-rounds-complete-guide, cac-ltv-guide)
+- **CREATED: HELP-REQUEST.md** — Unified Stripe one-time payment link request ($9.99) with all exact details required
+
 **Distribution & Outreach Assets:**
 - **CREATED: DISTRIBUTION-ASSETS.md** — Ready-to-post Reddit, HN, Twitter content for Offer Analyzer, Exit Calculator, Equity Score; Equity Score Twitter thread, LinkedIn post, Reddit comment templates
 - **CREATED: DIRECTORY-SUBMISSIONS.md** — 25+ directory/submission opportunities organized by priority (Product Hunt alternatives, SaaS directories, Reddit communities)
