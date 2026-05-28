@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Equity for Sales Roles: Commission vs Equity Tradeoffs (2026)</title>
+    <link rel="canonical" href="https://founder-math.com/blog/equity-for-sales-roles-guide.html">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const toggle = document.getElementById('mobileToggle');
+        navLinks.classList.toggle('open');
+        const isOpen = navLinks.classList.contains('open');
+        toggle.setAttribute('aria-expanded', isOpen.toString());
+    }
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+    });
+    </script>
+    <meta name="description" content="Startup equity benchmarks for sales roles by stage. Commission vs equity tradeoffs, SDR, AE, sales manager, and VP sales equity ranges. Includes calculators and negotiation scripts.">
+    <meta property="og:title" content="Startup Equity for Sales Roles: Commission vs Equity Tradeoffs (2026)">
+    <meta property="og:description" content="Sales equity benchmarks by role and startup stage. Commission vs equity tradeoffs. Negotiation scripts and calculators.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-blog.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/equity-for-sales-roles-guide.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Startup Equity for Sales Roles: Commission vs Equity Tradeoffs (2026)",
+        "author": {"@type": "Organization", "name": "FounderMath"},
+        "publisher": {"@type": "Organization", "name": "FounderMath", "url": "https://founder-math.com"},
+        "datePublished": "2026-05-28",
+        "dateModified": "2026-05-28",
+        "mainEntityOfPage": "https://founder-math.com/blog/equity-for-sales-roles-guide.html",
+        "description": "Startup equity benchmarks for sales roles by stage."
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-muted: #b2bec3;
+            --border: #dfe6e9;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 16px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .article { max-width: 760px; margin: 0 auto; padding: 120px 24px 60px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+        .article-tag { background: var(--bg-card); padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; color: var(--accent-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        .article-date { font-size: 0.8rem; color: var(--text-muted); }
+        .article-read-time { font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+        h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.3; margin-bottom: 24px; letter-spacing: -0.02em; }
+        .article-excerpt { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.6; }
+        h2 { font-size: 1.5rem; font-weight: 700; margin: 48px 0 20px; letter-spacing: -0.01em; }
+        h3 { font-size: 1.15rem; font-weight: 600; margin: 28px 0 16px; }
+        p { margin-bottom: 20px; color: var(--text-secondary); }
+        a { color: var(--accent-light); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        strong { color: var(--text-primary); font-weight: 600; }
+        ul, ol { margin-bottom: 20px; padding-left: 24px; color: var(--text-secondary); }
+        li { margin-bottom: 8px; }
+        code { background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', Monaco, monospace; font-size: 0.9em; }
+        .cta-box { background: linear-gradient(135deg, var(--accent), #8b6cf5); border-radius: 16px; padding: 32px; margin: 40px 0; text-align: center; }
+        .cta-box h3 { color: white; font-size: 1.4rem; margin: 0 0 12px; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+        .cta-box a { background: white; color: var(--accent); padding: 12px 28px; border-radius: 10px; font-weight: 600; text-decoration: none; display: inline-block; }
+        .cta-box a:hover { transform: translateY(-2px); text-decoration: none; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .equity-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+        .equity-table th, .equity-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+        .equity-table th { background: var(--bg-card); font-weight: 600; color: var(--text-primary); }
+        .equity-table td { color: var(--text-secondary); }
+        .equity-table tr:last-child td { border-bottom: none; }
+        .highlight-row { background: rgba(108, 92, 231, 0.1); }
+        .comparison-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0; }
+        .comparison-box h4 { color: var(--text-primary); margin-bottom: 12px; font-size: 1.1rem; }
+        .theme-toggle { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 8px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="vesting.html">Vesting</a></li>
+                <li><a href="unit-economics.html">Unit Econ</a></li>
+                <li><a href="cap-table.html">Cap Table</a></li>
+                <li><a href="equity-split.html">Equity Split</a></li>
+                <li><a href="valuation.html">Valuation</a></li>
+                <li><a href="stock-options.html">Options</a></li>
+                <li><a href="equity-vs-salary.html">Equity vs Salary</a></li>
+                <li><a href="compare-offers.html">Compare</a></li>
+                <li><a href="scenario-compare.html">Compare Scenarios</a></li>
+                <li><a href="equity-quiz.html">Equity Quiz</a></li>
+                <li><a href="equity-glossary.html">Glossary</a></li>
+                <li><a href="409a-valuation.html">409A</a></li>
+                <li><a href="pricing.html" class="nav-cta">Pricing</a></li>
+                <li><a href="equity-score.html" class="nav-cta">Equity Score</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <main class="article">
+        <div class="article-meta">
+            <span class="article-tag">Sales Equity</span>
+            <span class="article-date">May 28, 2026</span>
+            <span class="article-read-time">12 min read</span>
+        </div>
+
+        <h1>Startup Equity for Sales Roles: Commission vs Equity Tradeoffs (2026)</h1>
+
+        <p class="article-excerpt">Sales equity benchmarks by role and startup stage. Commission vs equity tradeoffs for SDR, AE, account executive, sales manager, and VP sales. Includes calculators and negotiation scripts.</p>
+
+        <p>You're a sales professional evaluating a startup offer. The base salary is lower than your current role, but they're offering equity and an "uncapped commission plan." How do you evaluate commission vs equity? What's fair for an Account Executive at a Series B startup?</p>
+
+        <p>Sales roles have unique compensation structures: base salary + commission + equity. The tradeoff isn't just salary vs equity—it's immediate commission income vs long-term equity upside. This guide gives you benchmarks and frameworks to make the right decision.</p>
+
+        <div class="cta-box">
+            <h3>Is Your Sales Equity Offer Fair?</h3>
+            <p>Get an instant equity score based on your role, experience, and startup stage. Compare against thousands of real equity offers.</p>
+            <a href="equity-score.html">Check Your Equity Score →</a>
+        </div>
+
+        <h2>Quick Sales Equity Benchmarks</h2>
+
+        <p>Here's what sales professionals typically receive by startup stage and role. All numbers are equity <strong>percentages</strong> on a fully diluted basis.</p>
+
+        <table class="equity-table">
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Pre-Seed</th>
+                    <th>Seed</th>
+                    <th>Series A</th>
+                    <th>Series B</th>
+                    <th>Series C+</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="highlight-row">
+                    <td><strong>SDR / BDR</strong><br><small>Lead generation, 0-2 years</small></td>
+                    <td>0.03% - 0.08%</td>
+                    <td>0.02% - 0.05%</td>
+                    <td>0.01% - 0.03%</td>
+                    <td>0.01% - 0.02%</td>
+                    <td>0.005% - 0.015%</td>
+                </tr>
+                <tr>
+                    <td><strong>Account Executive</strong><br><small>Closing deals, 2-5 years</small></td>
+                    <td>0.08% - 0.20%</td>
+                    <td>0.05% - 0.12%</td>
+                    <td>0.03% - 0.08%</td>
+                    <td>0.02% - 0.05%</td>
+                    <td>0.01% - 0.03%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Senior AE</strong><br><small>Enterprise deals, 5-8 years</small></td>
+                    <td>0.15% - 0.35%</td>
+                    <td>0.10% - 0.22%</td>
+                    <td>0.06% - 0.14%</td>
+                    <td>0.04% - 0.10%</td>
+                    <td>0.02% - 0.06%</td>
+                </tr>
+                <tr>
+                    <td><strong>Enterprise AE</strong><br><small>$100K+ deals, strategic accounts</small></td>
+                    <td>0.20% - 0.45%</td>
+                    <td>0.15% - 0.30%</td>
+                    <td>0.10% - 0.20%</td>
+                    <td>0.06% - 0.12%</td>
+                    <td>0.03% - 0.08%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Sales Manager</strong><br><small>Leads team of 3-6 AEs</small></td>
+                    <td>0.25% - 0.50%</td>
+                    <td>0.18% - 0.35%</td>
+                    <td>0.12% - 0.25%</td>
+                    <td>0.08% - 0.15%</td>
+                    <td>0.05% - 0.10%</td>
+                </tr>
+                <tr>
+                    <td><strong>Senior Sales Manager</strong><br><small>Leads managers, 15+ AEs</small></td>
+                    <td>0.40% - 0.80%</td>
+                    <td>0.30% - 0.55%</td>
+                    <td>0.18% - 0.35%</td>
+                    <td>0.12% - 0.22%</td>
+                    <td>0.08% - 0.15%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Head of Sales</strong><br><small>Sales org lead, reports to CEO/COO</small></td>
+                    <td>0.60% - 1.50%</td>
+                    <td>0.45% - 1.20%</td>
+                    <td>0.30% - 0.70%</td>
+                    <td>0.18% - 0.40%</td>
+                    <td>0.12% - 0.30%</td>
+                </tr>
+                <tr>
+                    <td><strong>VP of Sales</strong><br><small>Exec role, entire sales org</small></td>
+                    <td>1.00% - 2.50%</td>
+                    <td>0.80% - 2.00%</td>
+                    <td>0.50% - 1.20%</td>
+                    <td>0.30% - 0.80%</td>
+                    <td>0.20% - 0.50%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>CRO</strong><br><small>Chief Revenue Officer, revenue strategy</small></td>
+                    <td>1.50% - 4.00%</td>
+                    <td>1.20% - 3.00%</td>
+                    <td>0.80% - 1.80%</td>
+                    <td>0.50% - 1.20%</td>
+                    <td>0.30% - 0.80%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Notes:</strong></p>
+        <ul>
+            <li>Ranges based on startup compensation data and OTE (On-Target Earnings) benchmarks</li>
+            <li>Pre-seed = < $1M raised, Seed = $1M-5M, Series A = $5M-15M, Series B = $15M-50M, Series C+ = $50M+</li>
+            <li>Equity assumes <strong>fully diluted</strong> cap table (includes existing option pool)</li>
+            <li>Sales roles with quota-carrying responsibility may negotiate 10-20% above these ranges</li>
+        </ul>
+
+        <h2>Commission vs Equity: The Tradeoff Framework</h2>
+
+        <p>Sales compensation is unique because you have <strong>three components</strong>, not two:</p>
+
+        <ol>
+            <li><strong>Base Salary</strong> — guaranteed income</li>
+            <li><strong>Commission</strong> — variable income based on performance</li>
+            <li><strong>Equity</strong> — long-term ownership stake</li>
+        </ol>
+
+        <p>The key question: <strong>Is it better to maximize commission now or equity for later?</strong></p>
+
+        <div class="comparison-box">
+            <h4>Commission-First Approach</h4>
+            <p><strong>Best for:</strong> Hunters who want immediate cash, high-performers confident in hitting quota, sales professionals with near-term financial goals (down payment, family expenses)</p>
+            <p><strong>Strategy:</strong> Negotiate higher commission rates, lower base, minimal equity. Take the cash now.</p>
+            <p><strong>Risk:</strong> If the startup struggles or product-market fit weakens, your commission suffers—but at least you got paid along the way.</p>
+        </div>
+
+        <div class="comparison-box">
+            <h4>Equity-First Approach</h4>
+            <p><strong>Best for:</strong> Early startup joiners (pre-seed, seed), sales leaders building revenue function, candidates with strong belief in product-market fit, those with financial runway</p>
+            <p><strong>Strategy:</strong> Accept reasonable commission, negotiate significant equity. You're building long-term wealth.</p>
+            <p><strong>Risk:</strong> If the startup fails, equity is worthless. You traded guaranteed commission for lottery tickets.</p>
+        </div>
+
+        <div class="comparison-box">
+            <h4>Balanced Approach (Recommended)</h4>
+            <p><strong>Best for:</strong> Most sales professionals</p>
+            <p><strong>Strategy:</strong> Market-rate commission (15-25% of deal value) + equity at the top of the role's range. You get immediate income AND long-term upside.</p>
+            <p><strong>Why:</strong> Commission pays your bills. Equity builds wealth. Don't sacrifice either.</p>
+        </div>
+
+        <h2>What "0.05%" Actually Means for Sales Professionals</h2>
+
+        <p>Equity percentages are abstract. Here's what that translates to in potential payout at different exit scenarios.</p>
+
+        <p><strong>Example: Senior Account Executive at Series B startup</strong></p>
+        <ul>
+            <li>Equity grant: 0.08%</li>
+            <li>Current valuation: $30M post-money</li>
+            <li>Current paper value: 0.08% × $30M = <strong>$24,000</strong></li>
+        </ul>
+
+        <p>At exit:</p>
+
+        <table class="equity-table">
+            <thead>
+                <tr>
+                    <th>Exit Valuation</th>
+                    <th>Your Payout (0.08%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$50M acqui-hire</td>
+                    <td><strong>$40,000</strong></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>$100M exit</td>
+                    <td><strong>$80,000</strong></td>
+                </tr>
+                <tr>
+                    <td>$250M exit</td>
+                    <td><strong>$200,000</strong></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>$500M exit</td>
+                    <td><strong>$400,000</strong></td>
+                </tr>
+                <tr>
+                    <td>$1B unicorn exit</td>
+                    <td><strong>$800,000</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Use the <a href="startup-exit-calculator.html" style="color:var(--accent-light)">Startup Exit Calculator</a> to model your own equity at different exit scenarios.</p>
+
+        <h2>Factors That Affect Your Sales Equity Offer</h2>
+
+        <h3>1. Revenue Stage of the Startup</h3>
+        <p>Startups before product-market fit (pre-revenue or early revenue) need sales talent to validate the market. If you're joining as the first AE or building the sales function, negotiate for higher equity—you're taking on more risk.</p>
+
+        <h3>2. Quota-Carrying vs Sales Leadership</h3>
+        <p>Individual contributors (quota-carrying AEs) get less equity than sales leaders (managers, heads of sales). However, top-performing hunters with track records of closing 120%+ of quota can negotiate equity closer to leadership levels.</p>
+
+        <h3>3. Commission Structure as Leverage</h3>
+        <p>If the startup offers below-market commission rates, negotiate for higher equity to compensate. Conversely, if they offer exceptional commission (accelerators, multipliers), you might accept lower equity.</p>
+
+        <h3>4. Deal Size and Sales Cycle</h3>
+        <p>Enterprise AEs selling $500K deals with 9-month sales cycles have more leverage than SDRs booking $20K MRR deals. Longer sales cycles = more risk = negotiate higher equity.</p>
+
+        <h3>5. Your Performance Track Record</h3>
+        <p>Consistently hitting 120%+ of quota? Closing 7-figure deals? Use your track record as leverage. "I've consistently exceeded quota by 20%+ across 4 years. My equity should reflect the revenue I'll generate for this company."</p>
+
+        <h2>Negotiation Scripts for Sales Professionals</h2>
+
+        <h3>Script 1: "Commission + Equity" Balance</h3>
+        <p><strong>Scenario:</strong> Offer has reasonable commission but equity is below market for your role.</p>
+        <blockquote>
+            "Thanks for the offer. I'm excited about the product and the market opportunity. The commission structure is fair. However, the equity grant of 0.04% is below market for a Senior AE at Series B. Based on my research, typical ranges are 0.06%-0.12%. Can we move closer to 0.08% to align with the impact I'll deliver?"
+        </blockquote>
+
+        <h3>Script 2: "First AE" Leverage</h3>
+        <p><strong>Scenario:</strong> You're the first Account Executive joining the startup.</p>
+        <blockquote>
+            "I understand the offer. Given that I'm building the sales function as the first AE—proving out product-market fit, establishing sales processes, creating the playbook—I'd like to discuss equity that reflects this 0-1 work. First AEs at this stage typically receive 0.15%-0.25%. Can we move closer to 0.18% to recognize the strategic value I'm bringing?"
+        </blockquote>
+
+        <h3>Script 3: "Performance-Based" Equity Request</h3>
+        <p><strong>Scenario:</strong> You want to earn additional equity through performance.</p>
+        <blockquote>
+            "Thanks for the offer. I understand budget constraints. Would you consider a performance grant where I earn additional 0.03% vesting over 4 years if I hit specific milestones? For example: closing $1M ARR in year 1, achieving 120% of quota for 3 consecutive years, or bringing in [X] enterprise customers. This aligns incentives and rewards performance."
+        </blockquote>
+
+        <h3>Script 4: "Sales Leadership" Negotiation</h3>
+        <p><strong>Scenario:</strong> You're a Sales Manager or Head of Sales and want equity that reflects revenue responsibility.</p>
+        <blockquote>
+            "I appreciate the offer. As we discussed, this role involves building the sales team, establishing sales methodology, and owning the revenue number. Given that I'm directly responsible for [X%] of the company's revenue target, I'd like to discuss equity in the 0.40%-0.70% range for Heads of Sales at this stage. Can we move closer to 0.55% to reflect the revenue ownership I'm taking on?"
+        </blockquote>
+
+        <h3>Script 5: "Commission Rate Trade" for Equity</h3>
+        <p><strong>Scenario:</strong> Startup offers exceptional commission but low equity. You want both.</p>
+        <blockquote>
+            "The commission structure at 25% is above market and I appreciate that. However, the equity grant of 0.03% is significantly below market for my experience level. I'd like to keep the excellent commission structure while moving equity closer to 0.07%. The commission drives my performance; the equity aligns my long-term incentives with the company's success."
+        </blockquote>
+
+        <div class="cta-box">
+            <h3>Calculate Your Sales Equity Potential</h3>
+            <p>See what your sales equity could be worth at different exit scenarios. Factor in dilution, liquidation preferences, and compare to commission income.</p>
+            <a href="startup-exit-calculator.html">Try the Exit Calculator →</a>
+        </div>
+
+        <h2>Common Sales Equity Mistakes</h2>
+
+        <h3>Mistake 1: Focusing Only on Commission</h3>
+        <p>"Commission now, equity never" mentality. High commission is great, but if you're at a high-growth startup, equity can be worth 5-10x your lifetime commission income. Don't ignore equity.</p>
+
+        <h3>Mistake 2: Not Understanding Vesting vs Quota</h3>
+        <p>Your equity vests over 4 years regardless of your sales performance. Your commission resets annually. Understand both timelines. If you don't think you'll stay 4 years, negotiate for a shorter vesting schedule or higher upfront grant.</p>
+
+        <h3>Mistake 3: Ignoring Product-Market Fit Risk</h3>
+        <p>Sales professionals live closest to product-market fit. If the product isn't selling, the company might not make it. Factor this into your equity ask. If PMF is uncertain, negotiate higher equity to compensate for the risk.</p>
+
+        <h3>Mistake 4: Not Reading the Commission Fine Print</h3>
+        <p>What's the accelerator structure? Are there clawbacks if customers churn? When is commission paid (booking vs cash vs recognition)? Understand the commission plan as deeply as you understand the equity grant.</p>
+
+        <h3>Mistake 5: Not Negotiating at All</h3>
+        <p>Sales professionals are negotiators by trade—yet many accept equity offers without negotiation. Use your sales skills. Practice your equity negotiation the same way you practice deal negotiations.</p>
+
+        <h2>Commission vs Equity: A Decision Framework</h2>
+
+        <p>When evaluating offers, ask these questions:</p>
+
+        <ol>
+            <li><strong>What's my expected annual commission?</strong> (Quota × attainment rate × commission rate)</li>
+            <li><strong>What's my expected equity value?</strong> (Equity % × exit valuation × success probability)</li>
+            <li><strong>What's the time value comparison?</strong> (Commission over 4 years vs equity at exit)</li>
+            <li><strong>How confident am I in hitting quota?</strong> (If low, prioritize base salary. If high, prioritize commission and equity)</li>
+            <li><strong>How confident am I in the startup's exit?</strong> (If low, prioritize commission. If high, prioritize equity)</li>
+        </ol>
+
+        <p>Use the <a href="equity-vs-salary.html" style="color:var(--accent-light)">Equity vs Salary Calculator</a> to model commission vs equity tradeoffs numerically.</p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is 0.05% equity good for an Account Executive?</h3>
+        <p>At Series B or later: No, that's below market. At Series B, Senior AEs typically get 0.06%-0.12%. At pre-seed, 0.05% might be appropriate for a junior AE or SDR. Use the <a href="equity-score.html" style="color:var(--accent-light)">Equity Score tool</a> to benchmark your specific offer.</p>
+
+        <h3>Should sales professionals take lower commission for more equity?</h3>
+        <p>Generally, no. Commission is your bread and butter. Equity is your dessert. Negotiate for market-rate commission AND fair equity. If the startup can't afford both, that's a red flag about their financial position.</p>
+
+        <h3>How much equity do VP Sales get at startups?</h3>
+        <p>VP Sales at seed: 0.80%-2.00%. At Series A: 0.50%-1.20%. At Series B: 0.30%-0.80%. At Series C+: 0.20%-0.50%. Earlier stage = more equity because revenue function is unproven.</p>
+
+        <h3>What's better: high commission or high equity?</h3>
+        <p>Depends on your financial situation and confidence. If you need cash now, prioritize commission. If you have financial runway and believe in the startup, negotiate for balanced commission + higher equity. Don't sacrifice both.</p>
+
+        <h3>Do sales roles get equity at startups?</h3>
+        <p>Yes, but typically less than engineering or product roles at the same level. Sales compensation is heavily weighted toward commission. However, sales leaders (Head of Sales, VP Sales, CRO) get significant equity—comparable to other exec roles.</p>
+
+        <div class="cta-box">
+            <h3>Score Your Sales Equity Offer</h3>
+            <p>Answer 5 questions and get an instant score comparing your equity offer against thousands of real startup grants. Takes 60 seconds.</p>
+            <a href="equity-score.html">Get Your Equity Score →</a>
+        </div>
+
+        <h2>Bottom Line</h2>
+
+        <p>Sales equity is a three-variable equation: <strong>Base + Commission + Equity</strong>.</p>
+
+        <p>The key principles:</p>
+
+        <ul>
+            <li><strong>Never sacrifice commission for equity</strong> — negotiate for both</li>
+            <li><strong>Early stage = more equity</strong> — you're validating product-market fit</li>
+            <li><strong>Leadership = more equity</strong> — managers and execs own revenue strategy</li>
+            <li><strong>Performance = leverage</strong> — track record of hitting quota = higher equity</li>
+            <li><strong>Negotiate like you sell</strong> — use your sales skills in equity negotiations</li>
+        </ul>
+
+        <p>Before accepting any offer, use the <a href="equity-score.html" style="color:var(--accent-light)">Equity Score tool</a> to benchmark your offer, and the <a href="startup-exit-calculator.html" style="color:var(--accent-light)">Exit Calculator</a> to model potential payouts. Then close the deal like you would any other negotiation.</p>
+
+        <p><strong>Related Reading:</strong></p>
+        <ul>
+            <li><a href="blog/analyze-startup-offer-letter.html">How to Analyze Your Startup Offer Letter: The Complete Checklist</a></li>
+            <li><a href="blog/negotiate-equity-offer.html">How to Negotiate Startup Equity: The Complete Guide</a></li>
+            <li><a href="blog/equity-vs-salary-calculator.html">Startup Equity vs Salary Calculator: How to Evaluate Job Offers</a></li>
+            <li><a href="blog/salary-vs-equity-guide.html">Employee Salary vs Equity: How to Structure Startup Compensation</a></li>
+        </ul>
+    </main>
+
+    <script src="exit-intent.js" defer></script>
+</body>
+</html>
