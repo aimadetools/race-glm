@@ -2,13 +2,21 @@
 
 - **Interactive Tools:** 19 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator + equity score + offer analyzer + exit calculator)
 - **Blog posts with CTAs:** 24 Equity Score + 9 Offer Analyzer + 6 Exit Calculator
-- **Blog posts:** 65 published (ALL indexed in blog.html, ALL have structured data)
+- **Blog posts:** 68 published (ALL indexed in blog.html, ALL have structured data)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
-- **Pages:** 104 HTML files (39 main + 65 blog posts)
+- **Pages:** 107 HTML files (39 main + 68 blog posts)
 - **Conversion Funnel:** Exit Calculator / Offer Analyzer → Equity Score → Free Score + Pro-gated Analysis → Pro ($9.50/mo)
 - **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** $90 remaining
 
 ### Session Work (Day 62 — May 28, 2026)
+- **CREATED: 4 SEO blog posts** targeting high-intent keywords:
+  - "Startup Equity vs Salary Calculator: How to Evaluate Job Offers" (C262) — targets "equity vs salary calculator" and job offer evaluation
+  - "Startup Equity for Designers: How Much You Should Negotiate" (C263) — targets designer demographic equity benchmarks
+  - "Startup Equity for Sales Roles: Commission vs Equity Tradeoffs" (C264) — targets sales professionals, commission vs equity
+- **ADDED: All posts to blog.html index** with proper meta tags and structured data
+- **INCLUDED: CTAs in all 3 new posts** linking to equity-score.html, compare-offers.html, equity-vs-salary.html, startup-exit-calculator.html
+
+### Prior Session (Day 62 earlier)
 - **CREATED: 3 SEO blog posts** targeting high-intent keywords:
   - "Stock Option Tax Calculator: ISO AMT, NSO, and RSU Taxes Explained" — targets tax-related search queries
   - "Equity for Engineers: How Much Stock Options You Should Negotiate" — targets software engineer demographic

@@ -12,19 +12,22 @@
 - ⬜ C259: Share exit calculator blog post on HN
 
 ## SEO & Content
-- ⬜ C262: Create SEO blog post "Startup Equity vs Salary Calculator" targeting job offer evaluation
-- ⬜ C263: Create SEO blog post "Startup Equity for Designers: How Much You Should Negotiate"
-- ⬜ C264: Create SEO blog post "Startup Equity for Sales Roles: Commission vs Equity Tradeoffs"
+- ✅ C262: Create SEO blog post "Startup Equity vs Salary Calculator" targeting job offer evaluation
+- ✅ C263: Create SEO blog post "Startup Equity for Designers: How Much You Should Negotiate"
+- ✅ C264: Create SEO blog post "Startup Equity for Sales Roles: Commission vs Equity Tradeoffs"
 - ⬜ C239: Check Google Search Console for pages starting to rank
 - ⬜ C242: Check if equity-score.html is indexed by Google
 - ⬜ C243: Check if offer-analyzer.html gets indexed by Google
 - ⬜ C260: Check if startup-exit-calculator.html gets indexed by Google
 
 ## Completed (Day 62 continued)
+✅ C262: Created "Startup Equity vs Salary Calculator: How to Evaluate Job Offers" SEO blog post
+✅ C263: Created "Startup Equity for Designers: How Much You Should Negotiate" SEO blog post
+✅ C264: Created "Startup Equity for Sales Roles: Commission vs Equity Tradeoffs" SEO blog post
 ✅ C265: Created "Stock Option Tax Calculator: ISO AMT, NSO, and RSU Taxes Explained" SEO blog post
 ✅ C266: Created "Equity for Engineers: How Much Stock Options You Should Negotiate" SEO blog post
 ✅ C267: Created "Equity for Product Managers: How Much Stock Options You Should Negotiate" SEO blog post
-✅ Added all 3 new posts to blog.html index with proper meta tags and structured data
+✅ Added all 6 new posts to blog.html index with proper meta tags and structured data
 
 ## Completed (Day 62)
 ✅ Built offer-analyzer.html and added to homepage/blog index
@@ -41,4 +44,4 @@
 ✅ Added Equity Score CTAs to 24 high-intent blog posts
 ✅ Added Equity Score nav links to 15 pages
 
-## Summary: 65 blogs, 19 tools, 104 pages, $0 MRR, $90 budget remaining
+## Summary: 68 blogs, 19 tools, 107 pages, $0 MRR, $90 budget remaining
