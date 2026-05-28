@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Equity for Designers: How Much You Should Negotiate (2026)</title>
+    <link rel="canonical" href="https://founder-math.com/blog/equity-for-designers-guide.html">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const toggle = document.getElementById('mobileToggle');
+        navLinks.classList.toggle('open');
+        const isOpen = navLinks.classList.contains('open');
+        toggle.setAttribute('aria-expanded', isOpen.toString());
+    }
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+    });
+    </script>
+    <meta name="description" content="Startup equity benchmarks for designers by role and stage. How much stock options UX designers, product designers, and design leads should negotiate. Includes calculators and negotiation scripts.">
+    <meta property="og:title" content="Startup Equity for Designers: How Much You Should Negotiate (2026)">
+    <meta property="og:description" content="Designer equity benchmarks by role and startup stage. UX, product, visual, and design lead equity ranges. Negotiation scripts and calculators.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-blog.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/equity-for-designers-guide.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Startup Equity for Designers: How Much You Should Negotiate (2026)",
+        "author": {"@type": "Organization", "name": "FounderMath"},
+        "publisher": {"@type": "Organization", "name": "FounderMath", "url": "https://founder-math.com"},
+        "datePublished": "2026-05-28",
+        "dateModified": "2026-05-28",
+        "mainEntityOfPage": "https://founder-math.com/blog/equity-for-designers-guide.html",
+        "description": "Startup equity benchmarks for designers by role and stage."
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-muted: #b2bec3;
+            --border: #dfe6e9;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 16px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .article { max-width: 760px; margin: 0 auto; padding: 120px 24px 60px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+        .article-tag { background: var(--bg-card); padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; color: var(--accent-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        .article-date { font-size: 0.8rem; color: var(--text-muted); }
+        .article-read-time { font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+        h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.3; margin-bottom: 24px; letter-spacing: -0.02em; }
+        .article-excerpt { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.6; }
+        h2 { font-size: 1.5rem; font-weight: 700; margin: 48px 0 20px; letter-spacing: -0.01em; }
+        h3 { font-size: 1.15rem; font-weight: 600; margin: 28px 0 16px; }
+        p { margin-bottom: 20px; color: var(--text-secondary); }
+        a { color: var(--accent-light); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        strong { color: var(--text-primary); font-weight: 600; }
+        ul, ol { margin-bottom: 20px; padding-left: 24px; color: var(--text-secondary); }
+        li { margin-bottom: 8px; }
+        code { background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', Monaco, monospace; font-size: 0.9em; }
+        .cta-box { background: linear-gradient(135deg, var(--accent), #8b6cf5); border-radius: 16px; padding: 32px; margin: 40px 0; text-align: center; }
+        .cta-box h3 { color: white; font-size: 1.4rem; margin: 0 0 12px; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+        .cta-box a { background: white; color: var(--accent); padding: 12px 28px; border-radius: 10px; font-weight: 600; text-decoration: none; display: inline-block; }
+        .cta-box a:hover { transform: translateY(-2px); text-decoration: none; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .equity-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+        .equity-table th, .equity-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+        .equity-table th { background: var(--bg-card); font-weight: 600; color: var(--text-primary); }
+        .equity-table td { color: var(--text-secondary); }
+        .equity-table tr:last-child td { border-bottom: none; }
+        .highlight-row { background: rgba(108, 92, 231, 0.1); }
+        .theme-toggle { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 8px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="dilution.html">Dilution</a></li>
+                <li><a href="runway.html">Runway</a></li>
+                <li><a href="safe.html">SAFE</a></li>
+                <li><a href="vesting.html">Vesting</a></li>
+                <li><a href="unit-economics.html">Unit Econ</a></li>
+                <li><a href="cap-table.html">Cap Table</a></li>
+                <li><a href="equity-split.html">Equity Split</a></li>
+                <li><a href="valuation.html">Valuation</a></li>
+                <li><a href="stock-options.html">Options</a></li>
+                <li><a href="equity-vs-salary.html">Equity vs Salary</a></li>
+                <li><a href="compare-offers.html">Compare</a></li>
+                <li><a href="scenario-compare.html">Compare Scenarios</a></li>
+                <li><a href="equity-quiz.html">Equity Quiz</a></li>
+                <li><a href="equity-glossary.html">Glossary</a></li>
+                <li><a href="409a-valuation.html">409A</a></li>
+                <li><a href="pricing.html" class="nav-cta">Pricing</a></li>
+                <li><a href="equity-score.html" class="nav-cta">Equity Score</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <main class="article">
+        <div class="article-meta">
+            <span class="article-tag">Designer Equity</span>
+            <span class="article-date">May 28, 2026</span>
+            <span class="article-read-time">11 min read</span>
+        </div>
+
+        <h1>Startup Equity for Designers: How Much You Should Negotiate (2026)</h1>
+
+        <p class="article-excerpt">Designer equity benchmarks by role and startup stage. UX, product, visual, and design lead equity ranges. Negotiation scripts and free calculators to evaluate your offer.</p>
+
+        <p>You're a designer evaluating a startup job offer. The salary is competitive, but the equity number feels vague: "0.08%." Is that fair for a Senior Product Designer at a Series A startup? How do you know?</p>
+
+        <p>Designers are increasingly critical hires for startups, yet equity negotiations often lack the data-driven benchmarks that engineers and PMs use. This guide gives you equity ranges for designers by role and startup stage, plus scripts to negotiate better offers.</p>
+
+        <div class="cta-box">
+            <h3>Is Your Designer Equity Offer Fair?</h3>
+            <p>Get an instant equity score based on your role, experience, and startup stage. Compare against thousands of real equity offers.</p>
+            <a href="equity-score.html">Check Your Equity Score →</a>
+        </div>
+
+        <h2>Quick Designer Equity Benchmarks</h2>
+
+        <p>Here's what designers typically receive by startup stage and role. All numbers are equity <strong>percentages</strong> on a fully diluted basis.</p>
+
+        <table class="equity-table">
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Pre-Seed</th>
+                    <th>Seed</th>
+                    <th>Series A</th>
+                    <th>Series B</th>
+                    <th>Series C+</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="highlight-row">
+                    <td><strong>Junior Designer</strong><br><small>0-2 years experience</small></td>
+                    <td>0.03% - 0.10%</td>
+                    <td>0.02% - 0.06%</td>
+                    <td>0.01% - 0.04%</td>
+                    <td>0.01% - 0.02%</td>
+                    <td>0.005% - 0.015%</td>
+                </tr>
+                <tr>
+                    <td><strong>Product Designer</strong><br><small>2-5 years experience</small></td>
+                    <td>0.08% - 0.20%</td>
+                    <td>0.05% - 0.12%</td>
+                    <td>0.03% - 0.08%</td>
+                    <td>0.02% - 0.05%</td>
+                    <td>0.01% - 0.03%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Senior Product Designer</strong><br><small>5-8 years experience</small></td>
+                    <td>0.20% - 0.40%</td>
+                    <td>0.12% - 0.25%</td>
+                    <td>0.08% - 0.15%</td>
+                    <td>0.05% - 0.10%</td>
+                    <td>0.03% - 0.06%</td>
+                </tr>
+                <tr>
+                    <td><strong>Lead Product Designer</strong><br><small>8+ years, leads product area</small></td>
+                    <td>0.30% - 0.60%</td>
+                    <td>0.20% - 0.40%</td>
+                    <td>0.12% - 0.25%</td>
+                    <td>0.08% - 0.15%</td>
+                    <td>0.05% - 0.10%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Design Manager</strong><br><small>Manages 3-6 designers</small></td>
+                    <td>0.25% - 0.50%</td>
+                    <td>0.15% - 0.30%</td>
+                    <td>0.10% - 0.20%</td>
+                    <td>0.06% - 0.12%</td>
+                    <td>0.04% - 0.08%</td>
+                </tr>
+                <tr>
+                    <td><strong>Senior Design Manager</strong><br><small>Manages managers, 10+ designers</small></td>
+                    <td>0.40% - 0.80%</td>
+                    <td>0.30% - 0.50%</td>
+                    <td>0.15% - 0.30%</td>
+                    <td>0.10% - 0.20%</td>
+                    <td>0.06% - 0.12%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Head of Design</strong><br><small>Design org lead, reports to CEO/Head of Product</small></td>
+                    <td>0.60% - 1.50%</td>
+                    <td>0.40% - 1.00%</td>
+                    <td>0.25% - 0.60%</td>
+                    <td>0.15% - 0.35%</td>
+                    <td>0.10% - 0.25%</td>
+                </tr>
+                <tr>
+                    <td><strong>VP of Design</strong><br><small>Exec role, entire design org</small></td>
+                    <td>1.00% - 2.50%</td>
+                    <td>0.80% - 1.80%</td>
+                    <td>0.50% - 1.20%</td>
+                    <td>0.30% - 0.70%</td>
+                    <td>0.20% - 0.50%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Designer / Co-founder</strong><br><small>Founder with design background</small></td>
+                    <td>10% - 40%</td>
+                    <td>5% - 20%</td>
+                    <td>2% - 8%</td>
+                    <td>1% - 4%</td>
+                    <td>0.50% - 2%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Notes:</strong></p>
+        <ul>
+            <li>Ranges based on data from startup compensation surveys, Y Combinator, and equity benchmarks</li>
+            <li>Pre-seed = < $1M raised, Seed = $1M-5M, Series A = $5M-15M, Series B = $15M-50M, Series C+ = $50M+</li>
+            <li>Equity assumes <strong>fully diluted</strong> cap table (includes existing option pool)</li>
+            <li>Designers at product-led startups may negotiate 10-20% above these ranges</li>
+        </ul>
+
+        <h2>What "0.08%" Actually Means in Dollars</h2>
+
+        <p>Equity percentages are abstract. Here's what that translates to in potential payout at different exit scenarios.</p>
+
+        <p><strong>Example: Senior Product Designer at Series A startup</strong></p>
+        <ul>
+            <li>Equity grant: 0.12%</li>
+            <li>Current valuation: $15M post-money</li>
+            <li>Current paper value: 0.12% × $15M = <strong>$18,000</strong></li>
+        </ul>
+
+        <p>At exit:</p>
+
+        <table class="equity-table">
+            <thead>
+                <tr>
+                    <th>Exit Valuation</th>
+                    <th>Your Payout (0.12%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$50M acqui-hire</td>
+                    <td><strong>$60,000</strong></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>$100M exit</td>
+                    <td><strong>$120,000</strong></td>
+                </tr>
+                <tr>
+                    <td>$250M exit</td>
+                    <td><strong>$300,000</strong></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>$500M exit</td>
+                    <td><strong>$600,000</strong></td>
+                </tr>
+                <tr>
+                    <td>$1B unicorn exit</td>
+                    <td><strong>$1,200,000</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Use the <a href="startup-exit-calculator.html" style="color:var(--accent-light)">Startup Exit Calculator</a> to model your own equity at different exit scenarios (including dilution and liquidation preferences).</p>
+
+        <h2>Factors That Affect Your Designer Equity Offer</h2>
+
+        <h3>1. Design Maturity of the Startup</h3>
+        <p>Startups at the earliest stages often lack design leadership. If you're the first designer joining a technical founding team, you have more leverage—and should negotiate for higher equity. You're building the design function from scratch.</p>
+
+        <h3>2. Product-Led Growth Companies</h3>
+        <p>Startups where product experience is the primary differentiator (B2B SaaS, consumer apps, marketplaces) typically offer higher equity to designers. Design is directly tied to growth and retention.</p>
+
+        <h3>3. Seniority and Portfolio Leverage</h3>
+        <p>Strong portfolios with recognized brands or measurable product impact give you negotiation leverage. If you've designed products that drove growth or won awards, use that as leverage for higher equity.</p>
+
+        <h3>4. Cash vs Equity Tradeoff</h3>
+        <p>Some startups offer below-market cash salaries with more equity. Others pay market-rate cash and offer less equity. Know your personal tradeoff: do you need the cash stability now, or can you afford risk for potential upside?</p>
+
+        <h3>5. Role Scope and Impact</h3>
+        <p>Individual contributor designers get less equity than those managing teams or owning product areas. A Senior Designer who owns the entire user funnel might get similar equity to a Design Manager with 4 reports.</p>
+
+        <h2>Negotiation Scripts for Designers</h2>
+
+        <h3>Script 1: "Research-Based" Negotiation</h3>
+        <p><strong>Scenario:</strong> Offer is 0.06%, but you know the range for Senior Product Designer at Series A is 0.08% - 0.15%.</p>
+        <blockquote>
+            "Thanks for the offer. I'm excited about the product vision and the team. I've researched designer equity ranges at Series A startups, and typical offers for Senior Product Designers are 0.08%-0.15%. Your offer of 0.06% is below this range. Is there flexibility to get closer to market? I'm looking for 0.12% to align with the top end of the range."
+        </blockquote>
+
+        <h3>Script 2: "First Designer" Leverage</h3>
+        <p><strong>Scenario:</strong> You're the first designer joining and want recognition for building the design function.</p>
+        <blockquote>
+            "I understand the offer framework. Given that I'm building the design function from scratch as the first designer, I'd like to discuss equity that reflects this scope. First designers at this stage typically receive 0.20%-0.35% for senior roles. Can we move closer to 0.25% to recognize the strategic impact I'll have on the product and brand?"
+        </blockquote>
+
+        <h3>Script 3: "Portfolio-Based" Negotiation</h3>
+        <p><strong>Scenario:</strong> Your portfolio shows strong product impact and you want it reflected in the offer.</p>
+        <blockquote>
+            "I appreciate the offer. Looking at my track record—designing products that drove 40% user growth at [previous company] and launching features that won [award]—I believe my equity should reflect the impact I can deliver here. I'd like to discuss increasing the grant to 0.15% to better align with the value I'll bring to the product team."
+        </blockquote>
+
+        <h3>Script 4: "Design Leadership" Negotiation</h3>
+        <p><strong>Scenario:</strong> You're a Design Manager or Lead and want equity that reflects leadership scope.</p>
+        <blockquote>
+            "Thanks for the offer. As we discussed, this role involves building and managing a design team, establishing design systems, and owning the product design roadmap. Given the leadership scope and strategic impact, I'd like to discuss equity in the 0.25%-0.40% range for Design Managers at this stage. Can we move closer to 0.30%?"
+        </blockquote>
+
+        <div class="cta-box">
+            <h3>Calculate Your Designer Equity Potential</h3>
+            <p>See what your designer equity could be worth at different exit scenarios. Factor in dilution, liquidation preferences, and salary comparison.</p>
+            <a href="startup-exit-calculator.html">Try the Exit Calculator →</a>
+        </div>
+
+        <h2>Designer-Specific Equity Considerations</h2>
+
+        <h3>ISO vs NSO: What Type of Equity Will You Get?</h3>
+        <p>Designers typically receive stock options (not RSUs). The two types are:</p>
+
+        <p><strong>Incentive Stock Options (ISOs)</strong></p>
+        <ul>
+            <li>Tax-advantaged if held long-term (qualifying disposition)</li>
+            <li>Subject to AMT tax if exercise spread is large</li>
+            <li>$100K annual exercise limit</li>
+            <li>Typically for employees, not contractors</li>
+        </ul>
+
+        <p><strong>Non-Qualified Stock Options (NSOs)</strong></p>
+        <ul>
+            <li>Taxed as ordinary income when exercised</li>
+            <li>No AMT complexity</li>
+            <li>No exercise limit</li>
+            <li>Often used for contractors or later grants</li>
+        </ul>
+
+        <h3>Design System Equity Requests</h3>
+        <p>If you're joining a startup without a design system and your role includes building one, negotiate for higher equity. You're creating infrastructure that will scale with the company:</p>
+        <blockquote>
+            "In addition to product design, I'll be building the company's first design system—component library, design tokens, documentation. This creates long-term value for the engineering and product teams. I'd like to discuss equity that reflects this 0-1 infrastructure work, closer to 0.15% than 0.08%."
+        </blockquote>
+
+        <h2>Common Designer Equity Mistakes</h2>
+
+        <h3>Mistake 1: Not Knowing Your Market Value</h3>
+        <p>"I'm just grateful for the offer" mentality leads to below-market equity. Research ranges for your role and stage. Use the <a href="equity-score.html" style="color:var(--accent-light)">Equity Score tool</a> to benchmark your offer against real data.</p>
+
+        <h3>Mistake 2: Ignoring Portfolio Leverage</h3>
+        <p>Your portfolio is your greatest negotiation asset. If you've designed products with measurable impact, highlight it. "My designs increased conversion by 35%" > "I'm a good designer."</p>
+
+        <h3>Mistake 3: Not Reading the Vesting Fine Print</h3>
+        <p>What's the vesting schedule? (Typical: 4 years with 1-year cliff). What's the exercise window if you leave? (Typical: 90 days, but negotiate for longer). What happens to unvested equity if you're fired without cause?</p>
+
+        <h3>Mistake 4: Forgetting About Future Dilution</h3>
+        <p>Your 0.12% today might be 0.07% after Series B and Series C rounds. Ask about fundraising plans and use a <a href="dilution.html" style="color:var(--accent-light)">dilution calculator</a> to model future rounds.</p>
+
+        <h3>Mistake 5: Not Negotiating at All</h3>
+        <p>Most startups have wiggle room in equity offers, especially for strong candidates. According to industry data, ~70% of candidates who negotiate get higher equity—with an average increase of 20-30%. You won't get what you don't ask for.</p>
+
+        <h2>How to Evaluate Multiple Designer Offers</h2>
+
+        <p>Comparing multiple offers? Use this framework:</p>
+
+        <ol>
+            <li><strong>Calculate current equity value:</strong> Equity % × current valuation = paper value</li>
+            <li><strong>Model exit scenarios:</strong> What's your payout at $100M, $250M, $500M exits?</li>
+            <li><strong>Factor in dilution:</strong> How much will future rounds dilute your equity?</li>
+            <li><strong>Add cash compensation:</strong> Salary + bonus + benefits = total cash</li>
+            <li><strong>Evaluate design scope:</strong> IC vs manager, product ownership vs execution-only</li>
+            <li><strong>Weigh risk:</strong> Early-stage = higher risk, higher potential upside</li>
+        </ol>
+
+        <p>Use the <a href="compare-offers.html" style="color:var(--accent-light)">Startup Offer Comparison Tool</a> to compare multiple offers side-by-side.</p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is 0.05% equity good for a designer?</h3>
+        <p>At Series A or later: No, that's below market. At Series A, Senior Product Designers typically get 0.08%-0.15%. At pre-seed, 0.05% might be appropriate for a Junior Designer. Use the <a href="equity-score.html" style="color:var(--accent-light)">Equity Score tool</a> to compare your offer against benchmarks.</p>
+
+        <h3>Do designers get equity at startups?</h3>
+        <p>Yes, but often less than engineers at the same level. Designers typically receive 60-80% of what engineers get at the same seniority and stage. However, design leaders (Head of Design, VP Design) can negotiate equity comparable to engineering leaders.</p>
+
+        <h3>Should designers take a pay cut for startup equity?</h3>
+        <p>Depends on the equity grant size and your risk tolerance. A reasonable benchmark: don't accept more than 20% pay cut for equity unless (1) the equity grant is significantly above market, (2) you strongly believe in the startup's product-market fit, or (3) the role offers exceptional learning or networking opportunities.</p>
+
+        <h3>What's "strike price" and why does it matter for designers?</h3>
+        <p>Strike price is the price you pay to exercise stock options. Lower strike price = more profit when you sell. For most designers, this matters less than the total equity percentage—focus on negotiating % first, understand strike price second.</p>
+
+        <h3>Can freelance designers get equity?</h3>
+        <p>Yes, but it's less common and typically structured differently (NSOs rather than ISOs, shorter vesting periods, often with a cash component). If you're a designer offered contractor + equity, make sure the equity is worth the lack of employee benefits.</p>
+
+        <div class="cta-box">
+            <h3>Score Your Designer Equity Offer</h3>
+            <p>Answer 5 questions and get an instant score comparing your equity offer against thousands of real startup grants. Takes 60 seconds.</p>
+            <a href="equity-score.html">Get Your Equity Score →</a>
+        </div>
+
+        <h2>Bottom Line</h2>
+
+        <p>Designer equity benchmarks vary by startup stage and role. The key principles:</p>
+
+        <ul>
+            <li><strong>Early stage = more equity, more risk</strong></li>
+            <li><strong>Late stage = less equity, less risk</strong></li>
+            <li><strong>First designer = negotiate higher</strong> — you're building from scratch</li>
+            <li><strong>Portfolio = leverage</strong> — show impact, not just aesthetics</li>
+            <li><strong>Negotiate</strong> — ~70% who ask get more, average increase 20-30%</li>
+        </ul>
+
+        <p>Before accepting any offer, use the <a href="equity-score.html" style="color:var(--accent-light)">Equity Score tool</a> to benchmark your offer, and the <a href="startup-exit-calculator.html" style="color:var(--accent-light)">Exit Calculator</a> to model potential payouts. Then negotiate from data, not gratitude.</p>
+
+        <p><strong>Related Reading:</strong></p>
+        <ul>
+            <li><a href="blog/analyze-startup-offer-letter.html">How to Analyze Your Startup Offer Letter: The Complete Checklist</a></li>
+            <li><a href="blog/negotiate-equity-offer.html">How to Negotiate Startup Equity: The Complete Guide</a></li>
+            <li><a href="blog/equity-vs-salary-calculator.html">Startup Equity vs Salary Calculator: How to Evaluate Job Offers</a></li>
+            <li><a href="blog/compare-equity-offers.html">How to Compare Startup Equity Offers: A Side-by-Side Guide</a></li>
+        </ul>
+    </main>
+
+    <script src="exit-intent.js" defer></script>
+</body>
+</html>
