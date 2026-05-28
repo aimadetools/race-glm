@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/startup-equity-exit-calculator.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Equity Exit Calculator: What's Your Equity Worth at Exit? (2026) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+    </script>
+    <meta name="description" content="Free startup equity exit calculator. Model your founder equity payout at different exit valuations. See how liquidation preferences, dilution, and exit multiples affect your take-home pay.">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Startup Equity Exit Calculator: What's Your Equity Worth at Exit?",
+        "url": "https://founder-math.com/blog/startup-equity-exit-calculator.html",
+        "description": "Free startup equity exit calculator. Model your founder equity payout at different exit valuations including liquidation preferences and dilution.",
+        "datePublished": "2026-05-28",
+        "dateModified": "2026-05-28",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        }
+    }
+    </script>
+    <meta property="og:title" content="Startup Equity Exit Calculator: What's Your Equity Worth at Exit? | FounderMath">
+    <meta property="og:description" content="Free calculator to model your founder equity payout at different exit valuations. See how liquidation preferences affect your take-home.">
+    <meta property="og:image" content="/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/startup-equity-exit-calculator.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: white; padding: 8px 16px; text-decoration: none; z-index: 1001; transition: top 0.3s; }
+        .skip-link:focus { top: 0; }
+        @media (prefers-contrast: more) { :root { --border: #ffffff; --text-secondary: #e0e0e0; } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.8; overflow-x: hidden; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 900px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s !important; }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; padding: 8px; }
+        .article-layout { max-width: 720px; margin: 100px auto 60px; padding: 0 24px; }
+        .article-header { margin-bottom: 40px; text-align: center; }
+        .article-meta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.85rem; }
+        .article-meta span { color: var(--text-muted); }
+        .tag { background: var(--accent); color: white; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; }
+        .article-layout h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 24px; line-height: 1.2; }
+        .article-layout h2 { font-size: 1.6rem; font-weight: 700; margin-top: 48px; margin-bottom: 20px; }
+        .article-layout h3 { font-size: 1.3rem; font-weight: 600; margin-top: 32px; margin-bottom: 16px; }
+        .article-layout p { margin-bottom: 20px; color: var(--text-secondary); }
+        .article-layout ul, .article-layout ol { margin-bottom: 20px; padding-left: 28px; }
+        .article-layout li { margin-bottom: 12px; color: var(--text-secondary); }
+        .lead { font-size: 1.15rem; color: var(--text-primary); line-height: 1.7; font-weight: 500; }
+        .inline-cta { display: block; background: var(--bg-card); border: 1px solid var(--accent); padding: 20px; border-radius: 12px; text-align: center; text-decoration: none; margin: 24px 0; transition: all 0.2s; }
+        .inline-cta:hover { border-color: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .inline-cta strong { color: var(--accent-light); font-size: 1rem; }
+        .callout { background: var(--bg-card); border-left: 4px solid var(--accent); border-radius: 8px; padding: 20px; margin: 24px 0; }
+        .callout p { margin: 0; }
+        .callout.warning { border-left-color: var(--orange); }
+        .callout.tip { border-left-color: var(--green); }
+        .toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 32px 0; }
+        .toc h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-light); margin: 0 0 12px 0; }
+        .toc ol { padding-left: 20px; }
+        .toc li { margin-bottom: 6px; font-size: 0.9rem; }
+        .toc a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .toc a:hover { color: var(--accent-light); }
+        .related-posts { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .related-posts h3 { font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .related-posts a { display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 12px; }
+        .related-posts a:hover { text-decoration: underline; }
+        .author-bio { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-top: 48px; display: flex; gap: 16px; align-items: flex-start; }
+        .author-avatar { font-size: 2.5rem; line-height: 1; flex-shrink: 0; }
+        .author-content h4 { margin: 0 0 8px 0; font-size: 0.95rem; color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.05em; }
+        .author-content p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
+        .author-content a { color: var(--accent-light); text-decoration: none; }
+        .author-content a:hover { text-decoration: underline; }
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+        /* Table styling */
+        .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .data-table th { text-align: left; padding: 10px 12px; border-bottom: 2px solid var(--border); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+        .data-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--text-secondary); }
+        .data-table tr:hover td { background: rgba(108,92,231,0.05); }
+    </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="/" class="logo" aria-label="FounderMath home">
+            <div class="logo-icon" aria-hidden="true">%</div>
+            FounderMath
+        </a>
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <li role="none"><a href="../dilution.html" role="menuitem">Dilution</a></li>
+            <li role="none"><a href="../runway.html" role="menuitem">Runway</a></li>
+            <li role="none"><a href="../safe.html" role="menuitem">SAFE</a></li>
+            <li role="none"><a href="../vesting.html" role="menuitem">Vesting</a></li>
+            <li role="none"><a href="../stock-options.html" role="menuitem">Options</a></li>
+            <li role="none"><a href="../startup-exit-calculator.html" role="menuitem">Exit Calc</a></li>
+            <li role="none"><a href="../offer-analyzer.html" role="menuitem">Offer Analyzer</a></li>
+            <li role="none"><a href="../pricing.html" role="menuitem">Pricing</a></li>
+            <li role="none"><a href="../equity-score.html" class="nav-cta" role="menuitem">Equity Score</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks" id="mobileToggle">&#9776;</button>
+    </div>
+</nav>
+
+<article class="article-layout" id="main-content">
+    <header class="article-header">
+        <div class="article-meta">
+            <span class="tag">Exit Calculator</span>
+            <span>May 28, 2026</span>
+            <span>12 min read</span>
+        </div>
+        <h1>Startup Equity Exit Calculator: What's Your Equity Worth at Exit?</h1>
+    </header>
+
+    <div class="article-body">
+        <p class="lead">You own 15% of a startup valued at $20M. Sounds great — but what do you actually walk away with when the company sells? The answer depends on liquidation preferences, future dilution, and the exit multiple. Here's how to calculate your real equity payout, and a free tool that does it instantly.</p>
+
+        <a href="../startup-exit-calculator.html" class="inline-cta">
+            <strong>Calculate Your Exit Payout (Free, 2 Minutes) &rarr;</strong>
+        </a>
+
+        <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#the-problem">The Problem: Paper Value vs. Actual Payout</a></li>
+                <li><a href="#how-it-works">How Equity Exit Calculations Work</a></li>
+                <li><a href="#liquidation-preferences">Liquidation Preferences: The Silent Equity Killer</a></li>
+                <li><a href="#dilution">Future Dilution: What Happens Before Exit</a></li>
+                <li><a href="#exit-scenarios">Exit Scenarios: From Down Round to Unicorn</a></li>
+                <li><a href="#vs-salary">Startup Equity vs. a Salary Job</a></li>
+                <li><a href="#use-calculator">Use the Free Exit Calculator</a></li>
+            </ol>
+        </nav>
+
+        <h2 id="the-problem">The Problem: Paper Value vs. Actual Payout</h2>
+        <p>Most founders and startup employees know their equity percentage. But very few understand what that percentage actually means in dollars at exit. Here's why the math isn't as simple as "my % times the exit valuation":</p>
+        <ul>
+            <li><strong>Liquidation preferences</strong> give investors the right to get paid first</li>
+            <li><strong>Future funding rounds</strong> will dilute your ownership before exit</li>
+            <li><strong>Participation rights</strong> let some investors double-dip</li>
+            <li><strong>Option pool expansion</strong> reduces your effective percentage</li>
+        </ul>
+
+        <div class="callout warning">
+            <p><strong>Example:</strong> You own 15% of a $20M company ($3M paper value). But investors have $5M in 1x participating preferred. If the company sells for $15M, investors take their $5M first <em>plus</em> their pro-rata share of the remaining $10M. Your actual payout could be under $1.5M — less than half your "paper value."</p>
+        </div>
+
+        <a href="../startup-exit-calculator.html" class="inline-cta">
+            <strong>See Your Real Payout at 6 Exit Scenarios &rarr;</strong>
+        </a>
+
+        <h2 id="how-it-works">How Equity Exit Calculations Work</h2>
+        <p>At its core, calculating your exit payout follows this sequence:</p>
+        <ol>
+            <li><strong>Start with your ownership percentage</strong> after all dilution (current % minus expected future dilution)</li>
+            <li><strong>Apply the liquidation waterfall</strong> — investors with preferences get paid first, then common stockholders split what's left</li>
+            <li><strong>Subtract taxes</strong> (long-term capital gains for qualifying holdings, ordinary income for non-qualifying)</li>
+            <li><strong>Compare to your opportunity cost</strong> — what you would have earned at a non-startup job</li>
+        </ol>
+
+        <p>The key insight: your "paper value" (ownership % times current valuation) is almost always higher than what you'll actually receive at exit.</p>
+
+        <h2 id="liquidation-preferences">Liquidation Preferences: The Silent Equity Killer</h2>
+        <p>Liquidation preferences determine who gets paid first when a startup is acquired or goes public. There are four common types:</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>How It Works</th>
+                    <th>Impact on Founders</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1x Non-Participating</strong></td>
+                    <td>Investors choose: get their money back OR convert to common</td>
+                    <td>Moderate — investors take preference below their investment multiple</td>
+                </tr>
+                <tr>
+                    <td><strong>1x Participating</strong></td>
+                    <td>Investors get their money back PLUS their % of the remainder</td>
+                    <td>High — investors double-dip, reducing founder payout</td>
+                </tr>
+                <tr>
+                    <td><strong>2x Non-Participating</strong></td>
+                    <td>Investors get 2x their money back OR convert to common</td>
+                    <td>High — requires 2x exit just for investors to break even</td>
+                </tr>
+                <tr>
+                    <td><strong>2x Participating</strong></td>
+                    <td>Investors get 2x back PLUS their % of the remainder</td>
+                    <td>Very high — worst case for founders, investors take a huge cut</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="callout tip">
+            <p><strong>Tip:</strong> Always negotiate for 1x non-participating preferred when raising. Participating preferred (also called "double-dip preferred") significantly reduces founder payouts, especially in moderate exits ($20M-$100M).</p>
+        </div>
+
+        <h2 id="dilution">Future Dilution: What Happens Before Exit</h2>
+        <p>If your startup is at Seed stage, you'll likely raise 2-4 more rounds before exit. Each round dilutes your ownership:</p>
+        <ul>
+            <li><strong>Series A:</strong> Typically 15-25% dilution</li>
+            <li><strong>Series B:</strong> Typically 15-20% dilution</li>
+            <li><strong>Series C+:</strong> Typically 10-15% per round</li>
+            <li><strong>Option pool expansion:</strong> 5-10% additional dilution across rounds</li>
+        </ul>
+        <p>A founder with 50% post-Seed might end up with 15-25% by the time of exit after Series A, B, and C rounds. This is normal — but you need to factor it into your exit math.</p>
+
+        <a href="../startup-exit-calculator.html" class="inline-cta">
+            <strong>Model Your Exit Payout With Dilution &rarr;</strong>
+        </a>
+
+        <h2 id="exit-scenarios">Exit Scenarios: From Down Round to Unicorn</h2>
+        <p>Most founders optimistically assume a 10x exit. But the reality is more nuanced. Here are the scenarios you should model:</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Multiple</th>
+                    <th>Example ($20M Val)</th>
+                    <th>Likelihood</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Down Round / Fire Sale</strong></td>
+                    <td>0.5x</td>
+                    <td>$10M exit</td>
+                    <td>15-20%</td>
+                </tr>
+                <tr>
+                    <td><strong>Modest Return</strong></td>
+                    <td>1x</td>
+                    <td>$20M exit</td>
+                    <td>25-30%</td>
+                </tr>
+                <tr>
+                    <td><strong>Good Outcome</strong></td>
+                    <td>2x</td>
+                    <td>$40M exit</td>
+                    <td>20-25%</td>
+                </tr>
+                <tr>
+                    <td><strong>Strong Exit</strong></td>
+                    <td>5x</td>
+                    <td>$100M exit</td>
+                    <td>10-15%</td>
+                </tr>
+                <tr>
+                    <td><strong>Home Run</strong></td>
+                    <td>10x</td>
+                    <td>$200M exit</td>
+                    <td>5-8%</td>
+                </tr>
+                <tr>
+                    <td><strong>Unicorn</strong></td>
+                    <td>20x+</td>
+                    <td>$400M+ exit</td>
+                    <td>1-3%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>The expected value of your equity is the weighted average across all scenarios. A 15% stake in a $20M company with 25% expected future dilution and 1x non-participating preferred might be worth:</p>
+        <ul>
+            <li><strong>Best case (20x):</strong> $4.5M payout</li>
+            <li><strong>Most likely (2-5x):</strong> $450K - $1.1M</li>
+            <li><strong>Worst case (0.5x):</strong> $0 (investors take everything)</li>
+        </ul>
+
+        <h2 id="vs-salary">Startup Equity vs. a Salary Job</h2>
+        <p>One of the most important calculations is comparing your startup equity to what you'd earn at a regular job. The math is straightforward:</p>
+        <ul>
+            <li><strong>Salary gap per year:</strong> Market salary minus your startup salary</li>
+            <li><strong>Total salary gap:</strong> Annual gap times years to expected exit</li>
+            <li><strong>Breakeven exit:</strong> The exit valuation where your equity payout exceeds the total salary gap</li>
+        </ul>
+
+        <div class="callout">
+            <p><strong>Example:</strong> You earn $120K at your startup vs. $180K at a big company — a $60K/year gap. Over 5 years, that's $300K in foregone salary. Your equity needs to be worth at least $300K at exit just to break even with the salary job. If you own 15% of a $20M company after dilution, you need at least a 1x exit ($20M) to cover the salary gap.</p>
+        </div>
+
+        <h2 id="use-calculator">Use the Free Exit Calculator</h2>
+        <p>The FounderMath Startup Exit Calculator models all of these factors instantly:</p>
+        <ul>
+            <li>Your equity percentage and current valuation</li>
+            <li>Liquidation preferences (1x/2x, participating/non-participating)</li>
+            <li>Expected future dilution</li>
+            <li>6 exit scenarios from 0.5x to 20x</li>
+            <li>Side-by-side comparison with a salary job</li>
+        </ul>
+        <p>It takes 2 minutes and requires no signup. 100% client-side — your numbers never leave your browser.</p>
+
+        <a href="../startup-exit-calculator.html" class="inline-cta">
+            <strong>Calculate Your Exit Payout Now (Free) &rarr;</strong>
+        </a>
+
+        <p>Once you know your exit numbers, the next step is understanding whether your equity deal is fair compared to industry norms. Get your <a href="../equity-score.html">free Founder Equity Score</a> to see how your deal stacks up — it takes 60 seconds.</p>
+
+        <div class="related-posts">
+            <h3>Related Articles</h3>
+            <a href="liquidation-preference-guide.html">Liquidation Preferences Explained: A Complete Guide for Founders</a>
+            <a href="equity-dilution-guide.html">Equity Dilution: What Every Founder Needs to Know</a>
+            <a href="founder-equity-after-series-a.html">What Happens to Founder Equity After Series A</a>
+            <a href="startup-exit-scenarios-equity.html">Startup Exit Scenarios: How Much Do Founders Actually Make?</a>
+            <a href="founder-liquidity-events.html">Founder Liquidity Events: When and How Founders Cash Out</a>
+        </div>
+
+        <div class="author-bio">
+            <div class="author-avatar">%</div>
+            <div class="author-content">
+                <h4>FounderMath</h4>
+                <p>Free interactive calculators for startup founders. Equity dilution, SAFE notes, runway, cap tables, and more. <a href="/">Try all 18 tools &rarr;</a></p>
+            </div>
+        </div>
+    </div>
+</article>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="../dilution.html">Dilution</a></li>
+            <li><a href="../runway.html">Runway</a></li>
+            <li><a href="../safe.html">SAFE</a></li>
+            <li><a href="../vesting.html">Vesting</a></li>
+            <li><a href="../stock-options.html">Options</a></li>
+            <li><a href="../startup-exit-calculator.html">Exit Calc</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>
