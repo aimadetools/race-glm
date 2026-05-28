@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/offer-analyzer.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Offer Analyzer — Instantly Spot Red Flags in Your Equity Offer | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Paste your startup job offer letter and instantly find red flags, missing clauses, and negotiation opportunities. Free 30-second analysis of your equity terms.">
+    <meta name="keywords" content="startup offer analyzer, equity offer review, startup job offer red flags, stock option analysis, equity terms checker">
+    <meta property="og:title" content="Startup Offer Analyzer — Spot Red Flags Instantly">
+    <meta property="og:description" content="Paste your startup offer letter and get instant analysis of your equity terms. Find red flags in 30 seconds.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/offer-analyzer.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Startup Offer Analyzer — Spot Red Flags Instantly">
+    <meta name="twitter:description" content="Paste your startup offer letter and get instant analysis of your equity terms.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Startup Offer Analyzer",
+        "url": "https://founder-math.com/offer-analyzer.html",
+        "description": "Paste your startup job offer letter and instantly find red flags, missing clauses, and negotiation opportunities in your equity terms.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What does the Startup Offer Analyzer check?", "acceptedAnswer": {"@type": "Answer", "text": "It scans your offer letter for 30+ key equity terms including vesting schedule, cliff period, exercise window, acceleration clauses, strike price, option type, and more. It highlights what's present, what's missing, and potential red flags."}},
+            {"@type": "Question", "name": "Is my offer letter data private?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, 100%. All analysis happens in your browser. Your offer text never leaves your device. We don't store, send, or share it anywhere."}},
+            {"@type": "Question", "name": "How accurate is the analysis?", "acceptedAnswer": {"@type": "Answer", "text": "The analyzer checks for common terms and patterns found in standard startup offer letters. It's a screening tool — not legal advice. Always consult an attorney for important decisions."}}
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --red-glow: rgba(255, 107, 107, 0.2);
+            --orange: #ffa502;
+            --orange-glow: rgba(255, 165, 2, 0.2);
+            --gold: #feca57;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+
+        /* Nav */
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        /* Hero */
+        .hero { padding: 140px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 30%, var(--red-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 50%, var(--accent-glow) 0%, transparent 50%); pointer-events: none; }
+        .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--red), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { color: var(--text-secondary); font-size: 1.1rem; max-width: 540px; margin: 0 auto 12px; }
+        .hero .subtext { color: var(--text-muted); font-size: 0.85rem; }
+        .trust-badges { display: flex; justify-content: center; gap: 32px; margin: 20px auto 0; flex-wrap: wrap; }
+        .trust-badge { display: flex; align-items: center; gap: 6px; color: var(--text-muted); font-size: 0.82rem; }
+
+        /* Input Section */
+        .input-section { max-width: 800px; margin: 0 auto 40px; padding: 0 24px; position: relative; z-index: 1; }
+        .input-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
+        .input-card h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; }
+        .input-card p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px; }
+        textarea { width: 100%; height: 200px; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 12px; padding: 16px; color: var(--text-primary); font-family: var(--font-mono); font-size: 0.85rem; resize: vertical; line-height: 1.7; }
+        textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+        textarea::placeholder { color: var(--text-muted); }
+        .btn-row { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+        .btn-analyze { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; padding: 14px 32px; border-radius: 10px; font-size: 1rem; font-weight: 700; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-analyze:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .btn-analyze:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        .btn-sample { background: var(--bg-card); color: var(--text-secondary); padding: 14px 24px; border-radius: 10px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; }
+        .btn-sample:hover { background: var(--bg-secondary); border-color: var(--accent); color: var(--text-primary); }
+
+        /* Privacy Note */
+        .privacy-note { display: flex; align-items: center; gap: 8px; margin-top: 12px; color: var(--text-muted); font-size: 0.8rem; }
+
+        /* Results */
+        .results { max-width: 800px; margin: 0 auto 60px; padding: 0 24px; display: none; }
+        .results.visible { display: block; }
+
+        /* Score */
+        .score-section { text-align: center; margin-bottom: 40px; }
+        .score-ring { width: 160px; height: 160px; margin: 0 auto 16px; position: relative; }
+        .score-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+        .score-ring .bg { fill: none; stroke: var(--border); stroke-width: 8; }
+        .score-ring .fill { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease, stroke 0.3s; }
+        .score-number { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2.5rem; font-weight: 800; font-family: var(--font-mono); }
+        .score-label { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+        .score-desc { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* Findings */
+        .findings-grid { display: grid; gap: 16px; margin-bottom: 32px; }
+        .finding { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; display: flex; gap: 16px; align-items: flex-start; }
+        .finding-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .finding-icon.red-flag { background: var(--red-glow); border: 1px solid rgba(255,107,107,0.3); color: var(--red); }
+        .finding-icon.warning { background: var(--orange-glow); border: 1px solid rgba(255,165,2,0.3); color: var(--orange); }
+        .finding-icon.good { background: var(--green-glow); border: 1px solid rgba(0,184,148,0.3); color: var(--green); }
+        .finding-icon.missing { background: rgba(108,92,231,0.15); border: 1px solid rgba(108,92,231,0.3); color: var(--accent-light); }
+        .finding-content { flex: 1; }
+        .finding-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+        .finding-desc { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; }
+        .finding-quote { background: var(--bg-primary); border-left: 3px solid var(--border); padding: 8px 12px; margin-top: 8px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); border-radius: 0 6px 6px 0; }
+
+        /* Stats Bar */
+        .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 32px; }
+        .stat { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
+        .stat-value { font-size: 1.8rem; font-weight: 800; font-family: var(--font-mono); }
+        .stat-value.red { color: var(--red); }
+        .stat-value.orange { color: var(--orange); }
+        .stat-value.green { color: var(--green); }
+        .stat-value.accent { color: var(--accent-light); }
+        .stat-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* Share CTA */
+        .share-cta { background: linear-gradient(135deg, var(--accent-glow), rgba(108,92,231,0.1)); border: 1px solid var(--accent); border-radius: 16px; padding: 32px; text-align: center; margin-bottom: 40px; }
+        .share-cta h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; }
+        .share-cta p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; }
+        .share-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .share-btn { padding: 12px 24px; border-radius: 10px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: transform 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+        .share-btn:hover { transform: translateY(-2px); }
+        .share-btn.twitter { background: #1da1f2; color: white; }
+        .share-btn.linkedin { background: #0077b5; color: white; }
+        .share-btn.copy { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border); }
+
+        /* Pro CTA */
+        .pro-cta { background: var(--bg-secondary); border: 1px solid var(--accent); border-radius: 16px; padding: 32px; text-align: center; margin-bottom: 40px; }
+        .pro-cta h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .pro-cta p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .pro-cta .btn-primary { background: var(--accent); color: white; padding: 14px 32px; border-radius: 10px; font-size: 1rem; font-weight: 700; text-decoration: none; transition: all 0.2s; display: inline-block; }
+        .pro-cta .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+
+        /* Related Tools */
+        .related { max-width: 800px; margin: 0 auto 60px; padding: 0 24px; }
+        .related h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 20px; }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .related-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-decoration: none; transition: all 0.2s; }
+        .related-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .related-card h3 { font-size: 0.95rem; color: var(--text-primary); margin-bottom: 6px; }
+        .related-card p { font-size: 0.82rem; color: var(--text-secondary); }
+
+        /* Footer */
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        /* Loading */
+        .loading { text-align: center; padding: 40px; }
+        .spinner { width: 40px; height: 40px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .related-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo"><div class="logo-icon">%</div> FounderMath</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="equity-score.html">Equity Score</a></li>
+            <li><a href="dilution.html">Dilution Calc</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Startup Offer <span class="gradient">Red Flag Scanner</span></h1>
+        <p>Paste your startup job offer letter. Get instant analysis of your equity terms — spot red flags, missing clauses, and negotiation opportunities in 30 seconds.</p>
+        <div class="subtext">Free &middot; No signup &middot; 100% private — analysis runs in your browser</div>
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                100% Private
+            </div>
+            <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                30 Second Analysis
+            </div>
+            <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                30+ Terms Checked
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="input-section">
+    <div class="input-card">
+        <h2>Paste Your Offer Letter</h2>
+        <p>Copy the equity/compensation section of your offer letter and paste it below. We'll check for 30+ key terms and red flags.</p>
+        <textarea id="offerText" placeholder="Example: You will receive 50,000 stock options at a strike price of $0.50 per share, vesting over 4 years with a 1-year cliff. The options are ISOs subject to a 90-day exercise window upon departure..."></textarea>
+        <div class="btn-row">
+            <button class="btn-analyze" id="analyzeBtn" onclick="analyzeOffer()">Analyze My Offer</button>
+            <button class="btn-sample" onclick="loadSample()">Load Sample Offer</button>
+        </div>
+        <div class="privacy-note">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Your text never leaves your browser. All analysis is 100% client-side.
+        </div>
+    </div>
+</section>
+
+<section class="results" id="results">
+    <!-- Loading -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p style="color:var(--text-secondary)">Scanning your offer for 30+ equity terms...</p>
+    </div>
+
+    <!-- Score -->
+    <div class="score-section" id="scoreSection" style="display:none">
+        <div class="score-ring">
+            <svg viewBox="0 0 120 120">
+                <circle class="bg" cx="60" cy="60" r="50"/>
+                <circle class="fill" id="scoreRing" cx="60" cy="60" r="50" stroke-dasharray="314" stroke-dashoffset="314"/>
+            </svg>
+            <div class="score-number" id="scoreNumber">0</div>
+        </div>
+        <div class="score-label" id="scoreLabel">Analyzing...</div>
+        <div class="score-desc" id="scoreDesc"></div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-bar" id="statsBar" style="display:none">
+        <div class="stat">
+            <div class="stat-value red" id="statRedFlags">0</div>
+            <div class="stat-label">Red Flags</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value orange" id="statWarnings">0</div>
+            <div class="stat-label">Warnings</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value green" id="statGood">0</div>
+            <div class="stat-label">Good Terms</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value accent" id="statMissing">0</div>
+            <div class="stat-label">Missing Info</div>
+        </div>
+    </div>
+
+    <!-- Findings -->
+    <div class="findings-grid" id="findingsGrid"></div>
+
+    <!-- Share CTA -->
+    <div class="share-cta" id="shareCta" style="display:none">
+        <h3>Know someone with a startup offer?</h3>
+        <p>Share this free tool — help them spot red flags before they sign.</p>
+        <div class="share-buttons">
+            <a class="share-btn twitter" id="shareTwitter" href="#" target="_blank" rel="noopener">Share on Twitter</a>
+            <a class="share-btn linkedin" id="shareLinkedin" href="#" target="_blank" rel="noopener">Share on LinkedIn</a>
+            <button class="share-btn copy" onclick="copyLink()">Copy Link</button>
+        </div>
+    </div>
+
+    <!-- Pro CTA -->
+    <div class="pro-cta">
+        <h3>Want a detailed equity analysis?</h3>
+        <p>Get your Founder Equity Score — a 0-100 rating comparing your deal to industry benchmarks, with factor-by-factor breakdown and negotiation tips.</p>
+        <a href="equity-score.html" class="btn-primary" onclick="if(typeof gtag==='function')gtag('event','cta_click',{source:'offer_analyzer',target:'equity_score'})">Get Your Equity Score (Free, 60s)</a>
+    </div>
+</section>
+
+<section class="related">
+    <h2>Related Tools</h2>
+    <div class="related-grid">
+        <a href="equity-score.html" class="related-card">
+            <h3>Founder Equity Score</h3>
+            <p>Get a 0-100 score comparing your equity to industry benchmarks. Free instant results.</p>
+        </a>
+        <a href="compare-offers.html" class="related-card">
+            <h3>Compare Two Offers</h3>
+            <p>Side-by-side comparison of two startup job offers with total equity value analysis.</p>
+        </a>
+        <a href="dilution.html" class="related-card">
+            <h3>Dilution Calculator</h3>
+            <p>See how your equity changes across funding rounds. Interactive multi-round simulator.</p>
+        </a>
+        <a href="vesting.html" class="related-card">
+            <h3>Vesting Calculator</h3>
+            <p>Visualize your vesting schedule, cliff, and post-termination exercise window.</p>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left"><p>&copy; 2026 FounderMath. Not legal advice — consult an attorney for important decisions.</p></div>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script>
+const SAMPLE_OFFER = `Dear Alex,
+
+We are pleased to offer you the position of Senior Software Engineer at TechStartup Inc.
+
+Compensation:
+- Base salary: $150,000 per year
+- Signing bonus: $10,000
+
+Equity:
+You will receive 50,000 stock options (ISOs) at a strike price of $0.50 per share.
+The options will vest over 4 years with a 1-year cliff. After the cliff, 1/48th of the shares will vest monthly.
+The current 409A valuation is $2.00 per share.
+The company has raised a Series A round of $15M at a $60M pre-money valuation.
+There are approximately 10,000,000 shares outstanding.
+
+Terms:
+- Your exercise window after departure is 90 days
+- The company has a right of first refusal on any share transfers
+- Options are subject to a 1-year cliff before any shares vest
+- Accelerated vesting upon change of control (single-trigger)
+
+Benefits:
+- Health insurance (medical, dental, vision)
+- 401(k) with no employer match
+- Unlimited PTO
+- $5,000 annual professional development budget
+
+Please sign and return this letter by [date].`;
+
+const RULES = [
+    // Red Flags (negative score)
+    {
+        type: 'red-flag',
+        category: 'exercise',
+        patterns: [/\b(90|ninety)[- ]?day\s+(post[- ]?termination\s+)?exercise/i, /\bexercise\s+(window|period)\s+(of\s+)?(90|ninety)/i, /\b(90|ninety)\s+days?\s+to\s+exercise/i],
+        title: 'Short Exercise Window (90 days)',
+        desc: 'A 90-day post-termination exercise window is standard but risky. If you leave, you must exercise all vested options within 90 days or lose them. This could cost tens of thousands of dollars. Some companies now offer 5-year or indefinite windows.',
+        weight: -10
+    },
+    {
+        type: 'red-flag',
+        category: 'vesting',
+        patterns: [/\bno\s+accelerat/i, /\bvesting\s+(does\s+)?not\s+accelerat/i],
+        title: 'No Acceleration Clause',
+        desc: 'No vesting acceleration means if the company is acquired, you start over with the acquiring company. This can result in significant equity loss.',
+        weight: -15
+    },
+    {
+        type: 'red-flag',
+        category: 'equity_type',
+        patterns: [/\bnsos?\b/i, /\bnon[- ]?qualified\s+stock\s+options?\b/i],
+        title: 'NSOs Instead of ISOs',
+        desc: 'Non-Qualified Stock Options (NSOs) are taxed as ordinary income at exercise. Incentive Stock Options (ISOs) offer potential tax advantages. NSOs are less favorable for employees.',
+        weight: -8
+    },
+    {
+        type: 'red-flag',
+        category: 'cliff',
+        patterns: [/\b2[- ]?year\s+cliff/i, /\b24[- ]?month\s+cliff/i],
+        title: 'Long Cliff Period (2 years)',
+        desc: 'A 2-year cliff is unusual and risky. Standard is 1 year. You get zero equity for 2 full years.',
+        weight: -12
+    },
+    {
+        type: 'red-flag',
+        category: 'restriction',
+        patterns: [/\bnon[- ]?compete\b/i],
+        title: 'Non-Compete Clause',
+        desc: 'A non-compete restricts your ability to work in your industry after leaving. This limits your career options significantly.',
+        weight: -15
+    },
+    {
+        type: 'red-flag',
+        category: 'liquidation',
+        patterns: [/\bparticipating\s+preferred/i, /\bparticipat(es|ing)\s+liquidat/i],
+        title: 'Participating Preferred (Double-Dip)',
+        desc: 'Investors with participating preferred stock get their money back first AND participate in the remaining proceeds. This significantly reduces common stock value (your options).',
+        weight: -10
+    },
+    {
+        type: 'red-flag',
+        category: 'repurchase',
+        patterns: [/\bcompany\s+(may|can|will|has\s+right\s+to)\s+repurchase/i, /\brepurchase\s+(right|option)/i, /\bclaw[- ]?back/i, /\bforfeiture/i],
+        title: 'Company Repurchase Rights',
+        desc: 'The company can force you to sell back shares, potentially at unfavorable terms. This reduces the value and security of your equity.',
+        weight: -10
+    },
+
+    // Warnings (moderate concern)
+    {
+        type: 'warning',
+        category: 'exercise',
+        patterns: [/\b180[- ]?day\s+(post[- ]?termination\s+)?exercise/i, /\bexercise\s+(window|period)\s+(of\s+)?(180|six\s+months)/i, /\b(six\s+months?|6\s+months?)\s+to\s+exercise/i],
+        title: 'Extended Exercise Window (6 months)',
+        desc: 'Better than 90 days, but still may not be enough time to exercise if you have many vested options. Look for companies offering 1+ year windows.',
+        weight: -3
+    },
+    {
+        type: 'warning',
+        category: 'vesting',
+        patterns: [/\b4[- ]?year\s+vest/i, /\bvest(?:s|ing)?\s+over\s+4\s+years/i, /\b48\s+months/i, /\b1\/48/i],
+        title: 'Standard 4-Year Vesting',
+        desc: '4-year vesting is industry standard. Not a problem by itself, but consider what happens if the company raises more rounds during this time.',
+        weight: 0
+    },
+    {
+        type: 'warning',
+        category: 'vesting',
+        patterns: [/\brefresh\s+grant/i, /\badditional\s+option\s+grant/i, /\bannual\s+grant/i],
+        title: 'Refresh Grants Mentioned',
+        desc: 'Good that refresh grants are mentioned, but check the specifics. Are they guaranteed or discretionary? What vesting schedule?',
+        weight: 2
+    },
+    {
+        type: 'warning',
+        category: 'valuation',
+        patterns: [/\bstrike\s+price\b.*\$(\d+)/i, /\bexercise\s+price\b.*\$(\d+)/i, /\boption\s+price\b.*\$(\d+)/i],
+        title: 'Strike Price Found',
+        desc: 'The strike price is what you pay to exercise options. Compare it to the 409A/fair market value. If they are close, your options may have less upside.',
+        weight: 0
+    },
+    {
+        type: 'warning',
+        category: 'restriction',
+        patterns: [/\bright\s+of\s+first\s+refusal/i, /\brofr/i],
+        title: 'Right of First Refusal (ROFR)',
+        desc: 'Standard clause, but limits your ability to sell shares on the secondary market. The company must approve any buyer first.',
+        weight: -2
+    },
+    {
+        type: 'warning',
+        category: 'liquidation',
+        patterns: [/\bpreferred\s+stock/i, /\bpreferred\s+shares/i],
+        title: 'Preferred Stock Exists',
+        desc: 'Investors hold preferred stock, which means they get paid first in a sale. Common stock (your options) only gets value after preferred is satisfied. Check if it is "1x non-participating" (standard) or "participating" (less favorable).',
+        weight: -3
+    },
+
+    // Good Terms
+    {
+        type: 'good',
+        category: 'exercise',
+        patterns: [/\b(5|five)[- ]?year\s+(post[- ]?termination\s+)?exercise/i, /\bexercise\s+(window|period)\s+(of\s+)?(5|five)\s+years?/i, /\b(10|ten)[- ]?year\s+(post[- ]?termination\s+)?exercise/i, /\bindefinite\s+exercise/i, /\bpermanent\s+exercise/i],
+        title: 'Extended Exercise Window (5+ years)',
+        desc: 'Excellent! This gives you years to decide whether to exercise, reducing financial pressure. Companies like Pinterest and Quora pioneered this.',
+        weight: 12
+    },
+    {
+        type: 'good',
+        category: 'acceleration',
+        patterns: [/\bdouble[- ]?trigger/i, /\bsingle[- ]?trigger/i, /\baccelerat\w+\s+(vesting|upon)/i, /\bacceleration\s+(clause|provision)/i],
+        title: 'Acceleration Clause Present',
+        desc: 'Your equity has acceleration protection. If the company is acquired, some or all of your unvested equity accelerates. This is a valuable protection.',
+        weight: 10
+    },
+    {
+        type: 'good',
+        category: 'equity_type',
+        patterns: [/\bisos?\b/i, /\bincentive\s+stock\s+options?\b/i],
+        title: 'ISOs (Incentive Stock Options)',
+        desc: 'ISOs have tax advantages over NSOs. If you hold shares for 2+ years after grant and 1+ year after exercise, gains may be taxed at capital gains rates.',
+        weight: 8
+    },
+    {
+        type: 'good',
+        category: 'early_exercise',
+        patterns: [/\bearly\s+exercise/i, /\bexercise\s+before\s+vest/i, /\bexercise\s+unvest/i],
+        title: 'Early Exercise Option',
+        desc: 'You can exercise options before they vest. This can significantly reduce your tax burden by starting the holding period early and potentially filing an 83(b) election.',
+        weight: 10
+    },
+    {
+        type: 'good',
+        category: '83b',
+        patterns: [/\b83[\s-]*(b)\b/i, /\bsection\s+83[\s-]*b\b/i],
+        title: '83(b) Election Mentioned',
+        desc: 'The offer mentions 83(b) elections, which can save significant taxes on equity. This shows the company is sophisticated about equity compensation.',
+        weight: 8
+    },
+    {
+        type: 'good',
+        category: 'vesting',
+        patterns: [/\b1[- ]?year\s+cliff/i, /\b12[- ]?month\s+cliff/i],
+        title: 'Standard 1-Year Cliff',
+        desc: 'Standard and fair. You earn 25% of your options after 1 year, then monthly vesting for the remaining 3 years.',
+        weight: 5
+    },
+    {
+        type: 'good',
+        category: 'strike',
+        patterns: [/\bstrike\s+price.*\$(0\.\d+)/i, /\bexercise\s+price.*\$(0\.\d+)/i],
+        title: 'Low Strike Price',
+        desc: 'A low strike price relative to the 409A value means more potential upside. Your cost to exercise is lower.',
+        weight: 5
+    },
+    {
+        type: 'good',
+        category: '409a',
+        patterns: [/\b409[ab]\b/i, /\bfair\s+market\s+value\b/i],
+        title: '409A Valuation Disclosed',
+        desc: 'The company discloses its 409A valuation. This transparency helps you understand the current value of your options.',
+        weight: 5
+    },
+    {
+        type: 'good',
+        category: 'valuation',
+        patterns: [/\bpre[- ]?money\s+valuation\b/i, /\bpost[- ]?money\s+valuation\b/i, /\bvalued\s+at\b/i, /\bvaluation\s+of\b/i],
+        title: 'Company Valuation Shared',
+        desc: 'The company shares its valuation. This lets you calculate the potential value of your equity.',
+        weight: 5
+    },
+    {
+        type: 'good',
+        category: 'shares_outstanding',
+        patterns: [/\bshares?\s+outstanding\b/i, /\btotal\s+shares?\b/i, /\bfully\s+diluted\b/i],
+        title: 'Share Count Disclosed',
+        desc: 'Knowing total shares outstanding lets you calculate your ownership percentage. This transparency is important.',
+        weight: 5
+    },
+    {
+        type: 'good',
+        category: 'cliff',
+        patterns: [/\bno\s+cliff/i, /\bcliff[- ]?free/i, /\bimmediate\s+vest/i],
+        title: 'No Cliff / Immediate Vesting',
+        desc: 'Rare and very favorable. You start earning equity immediately instead of waiting a year.',
+        weight: 8
+    },
+
+    // Missing items (informational)
+    {
+        type: 'missing',
+        category: 'exercise',
+        patterns: [/\bexercise\s+(window|period|deadline)/i, /\bpost[- ]?termination/i, /\bleave.*exercise/i],
+        antiPatterns: [/\b(90|180|5|10|ninety|six)\s*/],
+        title: 'Exercise Window Not Specified',
+        desc: 'The offer does not specify how long you have to exercise options after leaving the company. Standard is 90 days. Ask HR for this in writing.',
+        weight: -5,
+        required: false
+    },
+    {
+        type: 'missing',
+        category: 'acceleration',
+        patterns: [/\baccelerat/i, /\bsingle[- ]?trigger/i, /\bdouble[- ]?trigger/i],
+        title: 'No Acceleration Mentioned',
+        desc: 'The offer does not mention vesting acceleration upon acquisition or change of control. Ask if acceleration terms exist.',
+        weight: -5,
+        required: false
+    },
+    {
+        type: 'missing',
+        category: 'equity_type',
+        patterns: [/\bisos?\b/i, /\bnsos?\b/i, /\bincentive\s+stock/i, /\bnon[- ]?qualified/i, /\bstock\s+options?\b/i, /\brsus?\b/i, /\brestricted\s+stock/i],
+        title: 'Equity Type Not Clear',
+        desc: 'The offer does not clearly specify whether options are ISOs or NSOs, or if equity is in RSUs. This affects your tax treatment significantly.',
+        weight: -3,
+        required: false
+    },
+    {
+        type: 'missing',
+        category: '409a',
+        patterns: [/\b409[ab]\b/i, /\bfair\s+market\s+value\b/i, /\bfmv\b/i],
+        title: 'No 409A Valuation Shared',
+        desc: 'The current fair market value (409A valuation) is not mentioned. This determines your tax liability at exercise and helps estimate upside.',
+        weight: -3,
+        required: false
+    },
+    {
+        type: 'missing',
+        category: 'shares_outstanding',
+        patterns: [/\bshares?\s+outstanding\b/i, /\btotal\s+shares?\b/i, /\bfully\s+diluted\b/i, /\bshare\s+count/i],
+        title: 'Share Count Not Disclosed',
+        desc: 'Without knowing total shares outstanding, you cannot calculate your ownership percentage. 50,000 options means very different things at 1M vs 100M total shares.',
+        weight: -5,
+        required: false
+    },
+    {
+        type: 'missing',
+        category: 'valuation',
+        patterns: [/\bpre[- ]?money/i, /\bpost[- ]?money/i, /\bvaluation\b/i, /\braised\s+\$/i, /\bfunding\s+round/i],
+        title: 'Company Valuation Not Shared',
+        desc: 'The company valuation is not mentioned. Without it, you cannot estimate the potential value of your equity.',
+        weight: -3,
+        required: false
+    },
+    {
+        type: 'missing',
+        category: '83b',
+        patterns: [/\b83[\s-]*b\b/i, /\bsection\s+83[\s-]*b\b/i],
+        title: 'No 83(b) Election Mention',
+        desc: 'If you can early exercise, you should file an 83(b) election within 30 days. The offer does not mention this important tax-saving step.',
+        weight: -2,
+        required: false
+    },
+    {
+        type: 'missing',
+        category: 'strike',
+        patterns: [/\bstrike\s+price\b/i, /\bexercise\s+price\b/i, /\boption\s+price\b/i],
+        title: 'Strike Price Not Mentioned',
+        desc: 'The strike price (what you pay to exercise) is not specified. This is essential for understanding the cost and potential value of your options.',
+        weight: -5,
+        required: false
+    }
+];
+
+function loadSample() {
+    document.getElementById('offerText').value = SAMPLE_OFFER;
+}
+
+function analyzeOffer() {
+    const text = document.getElementById('offerText').value.trim();
+    if (!text || text.length < 50) {
+        alert('Please paste your offer letter text (at least 50 characters).');
+        return;
+    }
+
+    if (typeof gtag === 'function') {
+        gtag('event', 'offer_analyzed', { text_length: text.length });
+    }
+
+    // Show results
+    document.getElementById('results').classList.add('visible');
+    document.getElementById('loading').style.display = 'block';
+    document.getElementById('scoreSection').style.display = 'none';
+    document.getElementById('statsBar').style.display = 'none';
+    document.getElementById('findingsGrid').innerHTML = '';
+    document.getElementById('shareCta').style.display = 'none';
+
+    // Scroll to results
+    setTimeout(() => {
+        document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+
+    // Simulate analysis delay
+    setTimeout(() => {
+        runAnalysis(text);
+    }, 1500);
+}
+
+function runAnalysis(text) {
+    const findings = [];
+    let score = 60; // Start at 60 (neutral)
+    const matchedCategories = new Set();
+
+    for (const rule of RULES) {
+        let matched = false;
+        for (const pattern of rule.patterns) {
+            if (pattern.test(text)) {
+                // Check anti-patterns (if any)
+                if (rule.antiPatterns) {
+                    let antiMatch = false;
+                    for (const ap of rule.antiPatterns) {
+                        if (ap.test(text)) { antiMatch = true; break; }
+                    }
+                    if (!antiMatch) { matched = true; break; }
+                } else {
+                    matched = true;
+                    break;
+                }
+            }
+        }
+
+        if (rule.required === false && !matched) {
+            // This is a "missing" check - only show if NOT found
+            findings.push({
+                type: 'missing',
+                title: rule.title,
+                desc: rule.desc
+            });
+            score += rule.weight;
+            continue;
+        }
+
+        if (matched && rule.required !== false) {
+            findings.push({
+                type: rule.type,
+                title: rule.title,
+                desc: rule.desc
+            });
+            score += rule.weight;
+            matchedCategories.add(rule.category);
+        }
+    }
+
+    // Check for missing terms that should be present
+    const missingChecks = RULES.filter(r => r.required === false);
+    for (const check of missingChecks) {
+        if (matchedCategories.has(check.category)) continue;
+        // Already handled above
+    }
+
+    // Clamp score 0-100
+    score = Math.max(0, Math.min(100, score));
+
+    // Sort: red flags first, then warnings, then missing, then good
+    const order = { 'red-flag': 0, 'warning': 1, 'missing': 2, 'good': 3 };
+    findings.sort((a, b) => order[a.type] - order[b.type]);
+
+    // Count stats
+    const redFlags = findings.filter(f => f.type === 'red-flag').length;
+    const warnings = findings.filter(f => f.type === 'warning').length;
+    const good = findings.filter(f => f.type === 'good').length;
+    const missing = findings.filter(f => f.type === 'missing').length;
+
+    // Render
+    document.getElementById('loading').style.display = 'none';
+    renderScore(score, redFlags);
+    renderStats(redFlags, warnings, good, missing);
+    renderFindings(findings);
+
+    // Setup share buttons
+    const shareUrl = 'https://founder-math.com/offer-analyzer.html';
+    const shareText = `I scanned my startup offer letter and found ${redFlags} red flags and ${good} positive terms. Check yours:`;
+    document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}&via=foundermath`;
+    document.getElementById('shareLinkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+    document.getElementById('shareCta').style.display = 'block';
+}
+
+function renderScore(score, redFlags) {
+    document.getElementById('scoreSection').style.display = 'block';
+    const ring = document.getElementById('scoreRing');
+    const offset = 314 - (314 * score / 100);
+    let color;
+    if (score >= 75) color = 'var(--green)';
+    else if (score >= 50) color = 'var(--orange)';
+    else color = 'var(--red)';
+
+    ring.style.stroke = color;
+    setTimeout(() => { ring.style.strokeDashoffset = offset; }, 100);
+
+    document.getElementById('scoreNumber').textContent = score;
+    document.getElementById('scoreNumber').style.color = color;
+
+    let label, desc;
+    if (score >= 80) { label = 'Strong Offer'; desc = 'Your offer has mostly favorable terms. Review the details below.'; }
+    else if (score >= 60) { label = 'Standard Offer'; desc = 'Your offer has typical terms with some areas to negotiate.'; }
+    else if (score >= 40) { label = 'Needs Review'; desc = 'Several concerning terms found. Review each red flag carefully.'; }
+    else { label = 'Caution: Risky Terms'; desc = 'Multiple red flags detected. Consider negotiating or seeking legal advice.'; }
+
+    document.getElementById('scoreLabel').textContent = label;
+    document.getElementById('scoreDesc').textContent = desc;
+}
+
+function renderStats(redFlags, warnings, good, missing) {
+    document.getElementById('statsBar').style.display = 'grid';
+    document.getElementById('statRedFlags').textContent = redFlags;
+    document.getElementById('statWarnings').textContent = warnings;
+    document.getElementById('statGood').textContent = good;
+    document.getElementById('statMissing').textContent = missing;
+}
+
+function renderFindings(findings) {
+    const grid = document.getElementById('findingsGrid');
+    const icons = {
+        'red-flag': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+        'warning': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
+        'good': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+        'missing': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>'
+    };
+
+    for (const f of findings) {
+        const div = document.createElement('div');
+        div.className = 'finding';
+        div.innerHTML = `
+            <div class="finding-icon ${f.type}">${icons[f.type]}</div>
+            <div class="finding-content">
+                <div class="finding-title">${f.title}</div>
+                <div class="finding-desc">${f.desc}</div>
+            </div>
+        `;
+        grid.appendChild(div);
+    }
+}
+
+function copyLink() {
+    navigator.clipboard.writeText('https://founder-math.com/offer-analyzer.html').then(() => {
+        const btn = document.querySelector('.share-btn.copy');
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy Link'; }, 2000);
+    });
+}
+</script>
+</body>
+</html>
