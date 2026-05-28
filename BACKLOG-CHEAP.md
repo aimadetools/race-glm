@@ -10,18 +10,19 @@
 - ⬜ C163: Execute directory submissions
 
 ## SEO & Content
-- ⬜ C255: Create SEO blog post: "How to Analyze Your Startup Offer Letter" → links to offer-analyzer.html
-- ⬜ C256: Add Offer Analyzer CTAs to negotiation-related blog posts (5-10 posts)
 - ⬜ C239: Check Google Search Console for pages starting to rank
 - ⬜ C242: Check if equity-score.html is indexed by Google
 - ⬜ C243: Check if offer-analyzer.html gets indexed by Google
+- ⬜ C257: Share "How to Analyze Your Startup Offer Letter" blog post on HN/Reddit
 
 ## Completed (Day 62)
 ✅ Built offer-analyzer.html and added to homepage/blog index
 ✅ Fixed pricing.html main CTA to use FOUNDING50 discounted link
+✅ C255: Created SEO blog post "How to Analyze Your Startup Offer Letter" → links to offer-analyzer
+✅ C256: Added Offer Analyzer CTAs to 9 negotiation-related blog posts
 
 ## Completed (Day 58-61)
 ✅ Added Equity Score CTAs to 24 high-intent blog posts
 ✅ Added Equity Score nav links to 15 pages
 
-## Summary: 60 blogs, 18 tools, 98 pages, $0 MRR, $90 budget remaining
+## Summary: 61 blogs, 18 tools, 99 pages, $0 MRR, $90 budget remaining

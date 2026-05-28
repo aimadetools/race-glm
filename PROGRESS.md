@@ -3,9 +3,10 @@
 - **Calculators:** 12 live (ALL have shareable URLs + Equity Report CTAs)
 - **Interactive Tools:** 18 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator + equity score + **offer analyzer**)
 - **Blog posts with Equity Score CTAs:** 24 high-intent posts
-- **Blog posts:** 60 published (ALL indexed in blog.html, ALL have Quick Share buttons, ALL have structured data)
+- **Blog posts with Offer Analyzer CTAs:** 9 negotiation-related posts
+- **Blog posts:** 61 published (ALL indexed in blog.html, ALL have Quick Share buttons, ALL have structured data)
 - **SEO Pages:** Startup Equity Glossary (54 terms) + Carta vs Pulley vs FounderMath comparison + Equity Benchmarks
-- **Pages:** 98 HTML files (38 main + 60 blog posts)
+- **Pages:** 99 HTML files (38 main + 61 blog posts)
 - **Pro Gating:** 7 calculators with Pro-gated scenario save (1 free, Pro for unlimited)
 - **SEO Complete:** All pages have canonical URLs, meta descriptions, and Open Graph tags
 - **Lead Magnets:** Free Equity Dilution Report (captures emails) + Equity Cheat Sheet
@@ -22,11 +23,17 @@
   - 100% client-side, private, no signup required
   - Natural lead-in to Equity Score and Pro upgrade
 - **FIXED: Pricing page main CTA** now uses FOUNDING50 discounted link ($9.50/mo) instead of $19/mo
-  - Previous: "Start Pro Free Trial" → $19/mo (users saw full price and bounced)
-  - Now: "Get Pro — $9.50/mo (Founding 50)" → discounted link with promo code
-  - This was a major conversion blocker — users who clicked the main buy button saw $19/mo
 - **Updated homepage**: New hero CTA ("Scan Your Offer for Red Flags"), added Offer Analyzer to features grid
 - **Updated blog.html**: Added Offer Analyzer card to top of tools grid
+- **CREATED: SEO blog post** "How to Analyze Your Startup Offer Letter: The Complete 2026 Checklist" (C255)
+  - 15-min comprehensive guide with 7 analysis steps, tables, examples, checklists
+  - 3 CTAs linking to offer-analyzer.html throughout the article
+  - Added to blog.html index as first blog card
+- **ADDED: Offer Analyzer CTAs to 9 blog posts** (C256)
+  - compare-equity-offers, evaluate-equity-offer, how-to-negotiate-startup-job-offer
+  - startup-offer-negotiation, startup-equity-red-flags, negotiate-equity-offer
+  - is-my-startup-equity-fair, startup-equity-compensation-guide, salary-vs-equity-guide
+  - Distinctive red styling to stand out from other CTAs
 - **Filed HELP-REQUEST.md**: Tweet about offer analyzer + create $9.99 one-time Stripe payment link
 
 ### Key Milestones
@@ -37,7 +44,7 @@
 - Day 57: Built viral Equity Score tool + SEO blog post, filed help request for one-time payment
 - Day 58: Added Equity Score nav links to all pages, verified tool quality, added CTAs to 4 blog posts
 - Day 59-61: Added Equity Score CTAs to 20 more high-intent blog posts (24 total)
-- Day 62: Built Startup Offer Analyzer, fixed pricing page CTA conversion blocker
+- Day 62: Built Startup Offer Analyzer, fixed pricing CTA, SEO blog post, 9 Offer Analyzer CTAs
 
 ### Current Focus: FIRST REVENUE
 - **Filed**: HELP-REQUEST.md for tweet about offer analyzer + $9.99 one-time Stripe payment
