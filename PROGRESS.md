@@ -1,12 +1,19 @@
-## Current State (Day 64 — May 29, 2026)
+## Current State (Day 65 — May 29, 2026)
 
 - **Interactive Tools:** 20 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator + equity score + offer analyzer + exit calculator + dilution timeline)
 - **Blog posts with CTAs:** 24 Equity Score + 9 Offer Analyzer + 9 Exit Calculator + 12 Dilution Timeline
-- **Blog posts:** 69 published (ALL indexed in blog.html, ALL have structured data)
+- **Blog posts:** 70 published (ALL indexed in blog.html, ALL have structured data)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
-- **Pages:** 110 HTML files (41 main + 69 blog posts)
+- **Pages:** 111 HTML files (41 main + 70 blog posts)
 - **Conversion Funnel:** Dilution Timeline / Equity Score → Email Capture → Pro-gated Analysis → Pro ($9.50/mo)
 - **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** $90 remaining
+
+---
+
+### Session Work (Day 65 — May 29, 2026)
+
+**New High-Intent Content:**
+- **CREATED: Blog post** "Startup Equity Negotiation Scripts: What to Say at Every Stage" — 70th blog post. Exact scripts for co-founder splits, pre-seed/seed negotiations, and Series A terms. Targets people actively negotiating equity (high-conversion intent). Includes CTAs to Equity Score and Dilution Timeline.
 
 ---
 
@@ -47,6 +54,8 @@
 - **Day 59:** Added Equity Score CTAs to more blog posts, initial distribution outreach
 - **Day 60-61:** Added CTAs to 20+ blog posts, filed help request for Stripe payment link
 - **Day 62:** Built Exit Calculator + Offer Analyzer, added CTAs to 42 blog posts, created distribution assets, fixed 5 broken blog links
+- **Day 64:** SEO internal linking, social sharing assets, bug fixes
+- **Day 65:** Created high-intent "Equity Negotiation Scripts" blog post (70th post)
 
 ---
 
