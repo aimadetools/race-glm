@@ -14,6 +14,7 @@
 
 **SEO Cross-Linking:**
 - **Added internal links to newest blog post** from 4 negotiation-related posts (negotiate-equity-offer, startup-offer-negotiation, option-pool-negotiation-guide, how-to-negotiate-startup-job-offer). Creates content cluster for equity negotiation keywords, helps newest post rank higher.
+- **Added internal links to equity-dilution-timeline-guide.html** from 12 dilution-related posts (equity-dilution-guide, anti-dilution-guide, cap-table-guide, cofounder-equity-split-guide, founder-equity-after-series-a, funding-scenario-comparison-guide, liquidation-preference-guide, pre-money-post-money-valuation-guide, series-a-vs-seed-guide, startup-funding-rounds-complete-guide, term-sheet-guide, what-is-a-down-round). Creates content cluster for dilution timeline keywords.
 
 **New High-Intent Content:**
 - **CREATED: Blog post** "Startup Equity Negotiation Scripts: What to Say at Every Stage" — 70th blog post. Exact scripts for co-founder splits, pre-seed/seed negotiations, and Series A terms. Targets people actively negotiating equity (high-conversion intent). Includes CTAs to Equity Score and Dilution Timeline.
