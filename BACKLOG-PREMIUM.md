@@ -23,12 +23,15 @@
 - ⬜ P50: Monitor equity score email capture rate
 - ⬜ P35: Monitor trial conversion (FOUNDING50 promo)
 
-## Completed Summary (Day 1-63)
+## Completed Summary (Day 1-64)
 ✅ Built all 20 interactive tools including Dilution Timeline
 ✅ Published 69 SEO blog posts with structured data
-✅ Added CTAs across 42 blog posts
+✅ Added CTAs across 54+ blog posts (42 Equity Score + 12 Dilution Timeline)
 ✅ Fixed pricing to use FOUNDING50 discount ($9.50/mo)
 ✅ Created all distribution assets (emails, social posts, directory list)
 ✅ Fixed critical pricing urgency bug ("50/50 claimed" → dynamic counter)
+✅ Added dilution timeline CTAs to 12 dilution-related blog posts
+✅ Created dedicated og:image for dilution timeline
+✅ Fixed broken internal links across 12 blog posts (double-path + glossary)
 
-## Summary: 20 tools, 69 blogs, 109 pages, $0 MRR
+## Summary: 20 tools, 69 blogs, 110 pages, $0 MRR
