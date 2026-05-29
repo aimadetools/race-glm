@@ -1,12 +1,20 @@
-## Current State (Day 65 — May 29, 2026)
+## Current State (Day 66 — May 29, 2026)
 
 - **Interactive Tools:** 20 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator + equity score + offer analyzer + exit calculator + dilution timeline)
 - **Blog posts with CTAs:** 24 Equity Score + 9 Offer Analyzer + 9 Exit Calculator + 12 Dilution Timeline
 - **Blog posts:** 70 published (ALL indexed in blog.html, ALL have structured data)
+- **SEO Internal Links:** 21 links to Dilution Timeline + 9 links to Negotiation Scripts
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
 - **Pages:** 111 HTML files (41 main + 70 blog posts)
 - **Conversion Funnel:** Dilution Timeline / Equity Score → Email Capture → Pro-gated Analysis → Pro ($9.50/mo)
 - **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** $90 remaining
+
+---
+
+### Session Work (Day 66 — May 29, 2026)
+
+**SEO Cross-Linking (Negotiation Cluster):**
+- **Added internal links to newest blog post** from 5 offer evaluation posts (startup-equity-red-flags, analyze-startup-offer-letter, compare-equity-offers, evaluate-equity-offer, is-my-startup-equity-fair). Combined with 4 existing links (negotiate-equity-offer, startup-offer-negotiation, option-pool-negotiation-guide, how-to-negotiate-startup-job-offer), creates 9 total internal links to negotiation scripts post. Strengthens SEO content cluster for equity negotiation keywords.
 
 ---
 
