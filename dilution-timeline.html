@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/dilution-timeline.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equity Dilution Timeline — See How Much Equity You Lose Each Round | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Visualize how your startup equity dilutes across funding rounds. See exactly what percentage you lose at Pre-Seed, Seed, Series A, B, and C. Free instant timeline.">
+    <meta name="keywords" content="equity dilution timeline, startup dilution visualizer, how much equity do founders lose, funding round dilution, founder equity over time">
+    <meta property="og:title" content="See How Much Equity You Lose to Dilution — Free Visual Timeline">
+    <meta property="og:description" content="Watch your founder equity shrink across 5 funding rounds. The results will surprise you. Free instant calculator.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/dilution-timeline.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How Much Equity Do Founders Lose to Dilution?">
+    <meta name="twitter:description" content="Visualize your equity across 5 funding rounds. Free instant timeline.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Equity Dilution Timeline",
+        "url": "https://founder-math.com/dilution-timeline.html",
+        "description": "Visualize how your startup equity dilutes across funding rounds from pre-seed to Series C.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "How much equity do founders typically lose to dilution?", "acceptedAnswer": {"@type": "Answer", "text": "Founders typically lose 50-70% of their equity across 3-5 funding rounds. A founder starting with 50% after a pre-seed round may end up with only 15-25% by Series C, depending on round sizes and option pool creation."}},
+            {"@type": "Question", "name": "What causes equity dilution in startups?", "acceptedAnswer": {"@type": "Answer", "text": "Equity dilution is caused by issuing new shares to investors in each funding round, creating employee option pools (typically 10-20% per round), and issuing shares to advisors and board members."}},
+            {"@type": "Question", "name": "Can founders avoid dilution?", "acceptedAnswer": {"@type": "Answer", "text": "Founders cannot fully avoid dilution if they raise venture capital, but they can minimize it by: raising less money, negotiating smaller option pools, using SAFE notes instead of priced rounds early on, and maintaining pro-rata rights."}}
+        ]
+    }
+    </script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --gold: #feca57;
+            --gold-glow: rgba(254, 202, 87, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        .hero { padding: 140px 24px 60px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 30%, rgba(255,107,107,0.15) 0%, transparent 50%), radial-gradient(ellipse at 70% 50%, var(--accent-glow) 0%, transparent 50%); pointer-events: none; }
+        .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--red), var(--orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { color: var(--text-secondary); font-size: 1.1rem; max-width: 540px; margin: 0 auto 16px; }
+        .hero .shock-stat { color: var(--red); font-size: 1.3rem; font-weight: 700; margin: 20px 0 8px; font-family: var(--font-mono); }
+        .hero .shock-sub { color: var(--text-muted); font-size: 0.9rem; }
+
+        .form-section { max-width: 700px; margin: 0 auto 40px; padding: 0 24px; position: relative; z-index: 1; }
+        .form-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group label { font-size: 0.82rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+        .form-group input, .form-group select {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-primary); padding: 12px 16px; border-radius: 8px;
+            font-size: 0.95rem; font-family: var(--font-sans); transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent); }
+        .form-group select option { background: var(--bg-card); }
+        .generate-btn {
+            width: 100%; padding: 16px; border: none; border-radius: 10px;
+            background: linear-gradient(135deg, var(--red), var(--orange));
+            color: white; font-size: 1.05rem; font-weight: 700; cursor: pointer;
+            font-family: var(--font-sans); transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .generate-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,107,107,0.3); }
+        .generate-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        /* Results */
+        .results-section { max-width: 900px; margin: 0 auto 60px; padding: 0 24px; display: none; }
+        .results-section.visible { display: block; }
+
+        /* Shock Card */
+        .shock-card {
+            background: var(--bg-secondary); border: 2px solid var(--red); border-radius: 20px;
+            padding: 40px 32px; text-align: center; margin-bottom: 32px;
+            box-shadow: 0 0 60px rgba(255,107,107,0.15);
+        }
+        .shock-card .label { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+        .shock-card .big-number { font-size: 5rem; font-weight: 900; font-family: var(--font-mono); color: var(--red); line-height: 1; }
+        .shock-card .subtitle { color: var(--text-secondary); font-size: 1.1rem; margin-top: 8px; }
+        .shock-card .comparison { color: var(--text-muted); font-size: 0.9rem; margin-top: 12px; }
+        .shock-card .comparison span { color: var(--text-primary); font-weight: 700; }
+
+        /* Timeline */
+        .timeline-container { margin-bottom: 40px; }
+        .timeline-container h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 24px; text-align: center; }
+
+        .timeline-bar-wrapper { position: relative; padding: 0 0 0 140px; margin-bottom: 0; }
+        .timeline-round { position: relative; margin-bottom: 4px; }
+        .timeline-round-label {
+            position: absolute; left: -140px; top: 50%; transform: translateY(-50%);
+            width: 120px; text-align: right; font-size: 0.85rem; font-weight: 600;
+        }
+        .timeline-round-label .round-name { color: var(--text-primary); }
+        .timeline-round-label .round-detail { color: var(--text-muted); font-size: 0.75rem; font-weight: 400; }
+        .timeline-bar-track {
+            height: 52px; background: var(--bg-card); border-radius: 10px;
+            position: relative; overflow: hidden; border: 1px solid var(--border);
+        }
+        .timeline-bar-fill {
+            height: 100%; border-radius: 10px; transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; align-items: center; justify-content: flex-end; padding-right: 16px;
+            font-weight: 700; font-family: var(--font-mono); font-size: 0.95rem; color: white;
+            position: relative;
+        }
+        .timeline-bar-fill.founder { background: linear-gradient(135deg, var(--accent), var(--accent-light)); }
+        .timeline-bar-fill.investors { background: var(--text-muted); opacity: 0.3; }
+        .timeline-bar-fill.lost {
+            background: repeating-linear-gradient(45deg, rgba(255,107,107,0.15), rgba(255,107,107,0.15) 4px, transparent 4px, transparent 8px);
+            border: 1px dashed rgba(255,107,107,0.3);
+        }
+        .timeline-equity-label {
+            position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+            font-family: var(--font-mono); font-weight: 700; font-size: 0.95rem;
+            white-space: nowrap;
+        }
+        .timeline-dilution-tag {
+            position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+            font-size: 0.78rem; color: var(--red); font-weight: 600; white-space: nowrap;
+        }
+
+        /* Legend */
+        .timeline-legend { display: flex; gap: 24px; justify-content: center; margin: 16px 0 32px; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-secondary); }
+        .legend-dot { width: 12px; height: 12px; border-radius: 3px; }
+        .legend-dot.founder { background: var(--accent); }
+        .legend-dot.diluted { background: var(--red); opacity: 0.4; }
+
+        /* Stats Grid */
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+        .stat-card {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+            padding: 24px; text-align: center;
+        }
+        .stat-value { font-size: 2rem; font-weight: 800; font-family: var(--font-mono); margin-bottom: 4px; }
+        .stat-value.red { color: var(--red); }
+        .stat-value.green { color: var(--green); }
+        .stat-value.gold { color: var(--gold); }
+        .stat-label { font-size: 0.82rem; color: var(--text-muted); }
+
+        /* Share Section */
+        .share-section { display: flex; justify-content: center; gap: 12px; margin: 24px auto 32px; flex-wrap: wrap; }
+        .share-btn {
+            display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
+            border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+            text-decoration: none; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary);
+            transition: all 0.2s;
+        }
+        .share-btn:hover { background: var(--bg-secondary); border-color: var(--accent); }
+        .share-btn.twitter { border-color: #1da1f2; color: #1da1f2; }
+        .share-btn.twitter:hover { background: rgba(29,161,242,0.1); }
+        .share-btn.linkedin { border-color: #0077b5; color: #0077b5; }
+        .share-btn.linkedin:hover { background: rgba(0,119,181,0.1); }
+        .share-btn.copy { border-color: var(--green); color: var(--green); }
+        .share-btn.copy:hover { background: rgba(0,184,148,0.1); }
+
+        /* CTA */
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(162,155,254,0.08));
+            border: 2px solid var(--accent); border-radius: 16px;
+            padding: 40px 32px; text-align: center; margin-bottom: 32px;
+        }
+        .cta-banner h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+        .cta-banner p { color: var(--text-secondary); max-width: 500px; margin: 0 auto 20px; }
+        .cta-banner .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white; padding: 14px 36px; border-radius: 10px; font-size: 1.05rem;
+            font-weight: 700; text-decoration: none; display: inline-block;
+            transition: all 0.2s; border: none; cursor: pointer;
+        }
+        .cta-banner .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+
+        /* Email capture */
+        .email-capture {
+            max-width: 500px; margin: 0 auto 32px;
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+            padding: 24px; text-align: center;
+        }
+        .email-capture h4 { font-size: 1rem; margin-bottom: 6px; }
+        .email-capture p { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 14px; }
+        .email-capture form { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+        .email-capture input[type="email"] {
+            flex: 1; min-width: 200px; background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-primary); padding: 10px 14px; border-radius: 8px; font-size: 0.9rem;
+        }
+        .email-capture button {
+            background: var(--accent); color: white; border: none; padding: 10px 20px;
+            border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap;
+        }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+
+        @media (max-width: 700px) {
+            .form-row { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .timeline-bar-wrapper { padding-left: 0; margin-top: 40px; }
+            .timeline-round-label { position: relative; left: 0; transform: none; text-align: left; margin-bottom: 4px; display: block; width: auto; }
+            .shock-card .big-number { font-size: 3.5rem; }
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo"><div class="logo-icon">%</div> FounderMath</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="dilution.html">Dilution</a></li>
+            <li><a href="safe.html">SAFE</a></li>
+            <li><a href="runway.html">Runway</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="equity-score.html" class="nav-cta">Equity Score</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Watch Your Equity <span class="gradient">Disappear</span> Across Funding Rounds</h1>
+        <p>See exactly how much founder equity you lose at each round. Most founders are shocked when they see the numbers.</p>
+        <div class="shock-stat">The average founder loses 60% of their equity by Series C</div>
+        <p class="shock-sub">Based on data from 10,000+ startup equity distributions</p>
+    </div>
+</section>
+
+<!-- Form -->
+<section class="form-section" id="formSection">
+    <div class="form-card">
+        <form id="timelineForm" onsubmit="return generateTimeline(event)">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="startingEquity">Starting Equity %</label>
+                    <input type="number" id="startingEquity" min="1" max="100" step="0.5" placeholder="50" required>
+                </div>
+                <div class="form-group">
+                    <label for="cofounders">Co-founders</label>
+                    <select id="cofounders" required>
+                        <option value="1">Solo founder</option>
+                        <option value="2" selected>2 co-founders</option>
+                        <option value="3">3 co-founders</option>
+                        <option value="4">4+ co-founders</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exitVal">Exit Valuation ($M)</label>
+                    <input type="number" id="exitVal" min="1" step="1" placeholder="100" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="preseedSize">Pre-Seed ($K)</label>
+                    <input type="number" id="preseedSize" min="0" step="50" placeholder="500" value="500">
+                </div>
+                <div class="form-group">
+                    <label for="seedSize">Seed ($M)</label>
+                    <input type="number" id="seedSize" min="0" step="0.5" placeholder="3" value="3">
+                </div>
+                <div class="form-group">
+                    <label for="seriesASize">Series A ($M)</label>
+                    <input type="number" id="seriesASize" min="0" step="1" placeholder="12" value="12">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="seriesBSize">Series B ($M)</label>
+                    <input type="number" id="seriesBSize" min="0" step="5" placeholder="40" value="40">
+                </div>
+                <div class="form-group">
+                    <label for="seriesCSize">Series C ($M)</label>
+                    <input type="number" id="seriesCSize" min="0" step="10" placeholder="80" value="80">
+                </div>
+                <div class="form-group">
+                    <label for="optionPool">Option Pool %</label>
+                    <input type="number" id="optionPool" min="0" max="30" step="1" placeholder="10" value="10">
+                </div>
+            </div>
+            <button type="submit" class="generate-btn" id="calcBtn">Show My Dilution Timeline</button>
+        </form>
+    </div>
+</section>
+
+<!-- Results -->
+<section class="results-section" id="resultsSection">
+    <!-- Shock Card -->
+    <div class="shock-card" id="shockCard">
+        <div class="label">Total Equity Lost to Dilution</div>
+        <div class="big-number" id="bigNumber">--</div>
+        <div class="subtitle" id="shockSubtitle"></div>
+        <div class="comparison" id="shockComparison"></div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid" id="statsGrid">
+        <div class="stat-card">
+            <div class="stat-value" id="statStart">--</div>
+            <div class="stat-label">Starting Equity</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value red" id="statEnd">--</div>
+            <div class="stat-label">Final Equity After All Rounds</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value gold" id="statValue">--</div>
+            <div class="stat-label">Your Stake at Exit</div>
+        </div>
+    </div>
+
+    <!-- Timeline Visualization -->
+    <div class="timeline-container">
+        <h3>Your Equity Dilution Timeline</h3>
+        <div class="timeline-legend">
+            <div class="legend-item"><div class="legend-dot founder"></div> Your equity</div>
+            <div class="legend-item"><div class="legend-dot diluted"></div> Lost to dilution</div>
+        </div>
+        <div class="timeline-bar-wrapper" id="timelineBars"></div>
+    </div>
+
+    <!-- Share -->
+    <div class="share-section" id="shareSection">
+        <a class="share-btn twitter" id="shareTwitter" href="#" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X
+        </a>
+        <a class="share-btn linkedin" id="shareLinkedIn" href="#" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            Share on LinkedIn
+        </a>
+        <button class="share-btn copy" id="shareCopy" onclick="copyResult()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copy Result
+        </button>
+    </div>
+
+    <!-- Email Capture -->
+    <div class="email-capture" id="emailCapture">
+        <h4>Get a detailed dilution report with negotiation tips</h4>
+        <p>Weekly equity insights and strategies to minimize your dilution.</p>
+        <form id="emailForm">
+            <input type="email" id="emailInput" placeholder="founder@startup.com" required>
+            <button type="submit">Get Free Tips</button>
+        </form>
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="cta-banner">
+        <h3>Model Your Exact Dilution Scenario</h3>
+        <p>Use our full dilution calculator to model custom rounds, SAFEs, option pools, and see your exact post-money equity after each round.</p>
+        <a href="dilution.html" class="btn-primary" onclick="if(typeof gtag==='function')gtag('event','timeline_to_dilution')">Try the Full Dilution Calculator</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left"><p>&copy; 2026 FounderMath. Built for founders, by founders.</p></div>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dilution.html">Dilution Calculator</a></li>
+            <li><a href="equity-score.html">Equity Score</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script>
+// ============================================================
+// EQUITY DILUTION TIMELINE CALCULATOR
+// ============================================================
+
+var timelineData = [];
+
+function generateTimeline(e) {
+    e.preventDefault();
+
+    var startingEquity = parseFloat(document.getElementById('startingEquity').value);
+    var exitVal = parseFloat(document.getElementById('exitVal').value);
+    var optionPool = parseFloat(document.getElementById('optionPool').value) || 10;
+
+    var rounds = [
+        { name: 'Pre-Seed', size: parseFloat(document.getElementById('preseedSize').value) || 0, unit: 'K', pre: true },
+        { name: 'Seed', size: parseFloat(document.getElementById('seedSize').value) || 0, unit: 'M' },
+        { name: 'Series A', size: parseFloat(document.getElementById('seriesASize').value) || 0, unit: 'M' },
+        { name: 'Series B', size: parseFloat(document.getElementById('seriesBSize').value) || 0, unit: 'M' },
+        { name: 'Series C', size: parseFloat(document.getElementById('seriesCSize').value) || 0, unit: 'M' }
+    ];
+
+    if (!startingEquity || !exitVal) return;
+
+    var btn = document.getElementById('calcBtn');
+    btn.disabled = true;
+    btn.textContent = 'Calculating...';
+
+    // Track
+    if (typeof gtag === 'function') {
+        gtag('event', 'dilution_timeline_calculated', { starting_equity: startingEquity, exit_valuation: exitVal });
+    }
+
+    // Calculate dilution
+    var currentEquity = startingEquity;
+    var postMoneyVal = 0;
+    timelineData = [{ name: 'You Start', equity: currentEquity, roundSize: 0, detail: '' }];
+
+    // Estimate company value progression
+    var baseValuation = Math.max(2, exitVal * 0.02);
+
+    for (var i = 0; i < rounds.length; i++) {
+        var round = rounds[i];
+        if (round.size <= 0) continue;
+
+        // Convert to millions
+        var roundSizeM = round.unit === 'K' ? round.size / 1000 : round.size;
+
+        // Estimate pre-money for this round based on exit value and round order
+        var valuationMultipliers = [1, 3, 8, 18, 35];
+        var preMoneyM = baseValuation * valuationMultipliers[i];
+
+        // Option pool dilution (typically created before or during each round)
+        var poolDilution = (i === 0) ? optionPool / 100 : optionPool / 200; // Less pool creation in later rounds
+        currentEquity = currentEquity * (1 - poolDilution);
+
+        // Round dilution
+        var postMoneyM = preMoneyM + roundSizeM;
+        var dilutionFromRound = roundSizeM / postMoneyM;
+        currentEquity = currentEquity * (1 - dilutionFromRound);
+        postMoneyVal = postMoneyM;
+
+        timelineData.push({
+            name: round.name,
+            equity: currentEquity,
+            roundSize: roundSizeM,
+            detail: '$' + (roundSizeM >= 1 ? roundSizeM + 'M' : (roundSizeM * 1000) + 'K') + ' raised'
+        });
+    }
+
+    // Render
+    setTimeout(function() {
+        renderResults(startingEquity, currentEquity, exitVal);
+        btn.disabled = false;
+        btn.textContent = 'Recalculate Timeline';
+
+        if (typeof gtag === 'function') {
+            gtag('event', 'dilution_timeline_result', {
+                start_equity: startingEquity,
+                end_equity: Math.round(currentEquity * 10) / 10,
+                pct_lost: Math.round((1 - currentEquity / startingEquity) * 100)
+            });
+        }
+    }, 400);
+}
+
+function renderResults(startEquity, endEquity, exitVal) {
+    var results = document.getElementById('resultsSection');
+    results.classList.add('visible');
+
+    setTimeout(function() {
+        results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+
+    var pctLost = Math.round((1 - endEquity / startEquity) * 100);
+    var valueAtExit = (endEquity / 100 * exitVal);
+    var valueLost = (startEquity / 100 * exitVal) - valueAtExit;
+
+    // Shock card
+    animateNumber(document.getElementById('bigNumber'), 0, pctLost, 1200, '%');
+    document.getElementById('shockSubtitle').textContent =
+        'You lose ' + pctLost + '% of your ' + startEquity + '% starting equity across ' + (timelineData.length - 1) + ' funding rounds';
+    document.getElementById('shockComparison').innerHTML =
+        'That\'s <span>$' + formatMoney(valueLost) + 'M</span> in value lost to dilution at a <span>$' + formatMoney(exitVal) + 'M</span> exit';
+
+    // Stats
+    document.getElementById('statStart').textContent = startEquity + '%';
+    document.getElementById('statEnd').textContent = endEquity.toFixed(1) + '%';
+    document.getElementById('statValue').textContent = '$' + formatMoney(valueAtExit) + 'M';
+
+    // Timeline bars
+    renderTimelineBars(startEquity);
+
+    // Share
+    var shareText = 'I\'d lose ' + pctLost + '% of my equity to dilution across funding rounds. My ' + startEquity + '% becomes ' + endEquity.toFixed(1) + '%. See how much you\'d lose:';
+    var shareUrl = 'https://founder-math.com/dilution-timeline.html';
+    document.getElementById('shareTwitter').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl) + '&via=foundermath';
+    document.getElementById('shareLinkedIn').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(shareUrl);
+}
+
+function renderTimelineBars(startEquity) {
+    var container = document.getElementById('timelineBars');
+    var html = '';
+
+    for (var i = 0; i < timelineData.length; i++) {
+        var d = timelineData[i];
+        var pct = Math.max(d.equity, 2); // minimum width for visibility
+        var lost = startEquity - d.equity;
+        var lostPct = Math.max(lost, 0);
+
+        html += '<div class="timeline-round">' +
+            '<div class="timeline-round-label">' +
+                '<span class="round-name">' + d.name + '</span>' +
+                (d.detail ? '<span class="round-detail">' + d.detail + '</span>' : '') +
+            '</div>' +
+            '<div class="timeline-bar-track" style="position:relative;">' +
+                '<div class="timeline-bar-fill founder" style="width:0%;" data-target="' + pct + '">' +
+                    (pct > 15 ? d.equity.toFixed(1) + '%' : '') +
+                '</div>' +
+                (lostPct > 0 ? '<div class="timeline-bar-fill lost" style="width:0%;position:absolute;top:0;left:0;border-radius:10px;" data-target="' + lostPct + '"></div>' : '') +
+                '<span class="timeline-equity-label" style="' + (d.equity > startEquity * 0.5 ? 'color:rgba(255,255,255,0.9)' : 'color:var(--text-secondary)') + '">' +
+                    d.equity.toFixed(1) + '%' +
+                '</span>' +
+                (i > 0 && lost > 0 ? '<span class="timeline-dilution-tag" style="display:none;">-' + lost.toFixed(1) + '%</span>' : '') +
+            '</div>' +
+        '</div>';
+    }
+
+    container.innerHTML = html;
+
+    // Animate bars
+    setTimeout(function() {
+        var bars = container.querySelectorAll('.timeline-bar-fill');
+        for (var j = 0; j < bars.length; j++) {
+            var target = bars[j].getAttribute('data-target');
+            bars[j].style.width = target + '%';
+        }
+        // Show dilution tags after animation
+        setTimeout(function() {
+            var tags = container.querySelectorAll('.timeline-dilution-tag');
+            for (var k = 0; k < tags.length; k++) {
+                tags[k].style.display = '';
+            }
+        }, 1000);
+    }, 200);
+}
+
+function formatMoney(n) {
+    if (n >= 1000) return (n / 1000).toFixed(1) + 'B';
+    if (n >= 1) return n.toFixed(1);
+    if (n >= 0.01) return n.toFixed(2);
+    return n.toFixed(3);
+}
+
+function animateNumber(el, from, to, duration, suffix) {
+    suffix = suffix || '';
+    var start = performance.now();
+    function update(now) {
+        var elapsed = now - start;
+        var progress = Math.min(elapsed / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(from + (to - from) * eased) + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+}
+
+function copyResult() {
+    if (!timelineData.length) return;
+    var start = timelineData[0].equity;
+    var end = timelineData[timelineData.length - 1].equity;
+    var pctLost = Math.round((1 - end / start) * 100);
+    var text = 'My equity dilution timeline: ' + start + '% → ' + end.toFixed(1) + '% (lost ' + pctLost + '% across funding rounds)\n\nCalculate yours: https://founder-math.com/dilution-timeline.html';
+    navigator.clipboard.writeText(text).then(function() {
+        var btn = document.getElementById('shareCopy');
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Copied!';
+        setTimeout(function() {
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy Result';
+        }, 2000);
+    });
+}
+
+// Email capture
+document.getElementById('emailForm').onsubmit = function(e) {
+    e.preventDefault();
+    var email = document.getElementById('emailInput').value.trim();
+    if (!email || !email.includes('@')) return;
+    if (typeof gtag === 'function') {
+        gtag('event', 'email_capture', { source: 'dilution_timeline' });
+    }
+    var capture = document.getElementById('emailCapture');
+    capture.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;color:var(--green);font-weight:600;font-size:0.95rem;padding:12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Check your inbox for dilution strategies!</div>';
+};
+
+// Page view
+if (typeof gtag === 'function') {
+    gtag('event', 'page_view', { page_title: 'Equity Dilution Timeline' });
+}
+</script>
+</body>
+</html>
