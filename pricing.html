@@ -487,7 +487,7 @@
 
         <div class="urgency-banner">
             <span class="urgency-icon">⚡</span>
-            <span class="urgency-text"><strong>Founding 50:</strong> First 50 subscribers lock in 50% off Pro forever (50/50 claimed)</span>
+            <span class="urgency-text"><strong>Founding 50:</strong> First 50 subscribers lock in 50% off Pro forever — <span id="urgencyCount">42 spots remaining</span></span>
             <a href="founding.html" class="urgency-cta">Lock in $9.50/mo →</a>
         </div>
 
@@ -844,7 +844,14 @@
             }
         }
     </script>
+    <script>
+    // Update urgency counter from founding-counter.js
+    setTimeout(function() {
+        if (window.FMFoundingCounter) {
+            var remaining = window.FMFoundingCounter.getRemaining();
+            var el = document.getElementById('urgencyCount');
+            if (el) el.textContent = remaining + ' spots remaining';
+        }
+    }, 500);
+    </script>
 </main>
-
-    </body>
-</html>
