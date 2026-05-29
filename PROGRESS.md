@@ -12,6 +12,9 @@
 
 ### Session Work (Day 65 — May 29, 2026)
 
+**SEO Cross-Linking:**
+- **Added internal links to newest blog post** from 4 negotiation-related posts (negotiate-equity-offer, startup-offer-negotiation, option-pool-negotiation-guide, how-to-negotiate-startup-job-offer). Creates content cluster for equity negotiation keywords, helps newest post rank higher.
+
 **New High-Intent Content:**
 - **CREATED: Blog post** "Startup Equity Negotiation Scripts: What to Say at Every Stage" — 70th blog post. Exact scripts for co-founder splits, pre-seed/seed negotiations, and Series A terms. Targets people actively negotiating equity (high-conversion intent). Includes CTAs to Equity Score and Dilution Timeline.
 
