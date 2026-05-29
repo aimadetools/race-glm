@@ -2,34 +2,33 @@
 
 ## Critical Path (Revenue & Growth)
 
-### Distribution Assets (Ready for Human Execution)
-- ✅ Offer Analyzer: Built tool + blog post + CTAs + social content + accelerator emails
-- ✅ Exit Calculator: Built tool + blog post + CTAs + social content + accelerator emails
-- ✅ Equity Score: Built tool + blog post + CTAs + social content + accelerator emails
-- ✅ DISTRIBUTION-ASSETS.md: 9 social posts ready (Reddit, HN, Twitter)
-- ✅ DIRECTORY-SUBMISSIONS.md: 25+ directories identified with priority tiers
-- ✅ accelerator-emails.md: 8 personalized emails ready to send
+### BLOCKING: Revenue
+- ⬜ P1: Stripe one-time $9.99 payment link (HELP-REQUEST.md filed — needs human)
+- ⬜ P2: Monitor conversion rate after pricing bug fix (check GA4 next session)
+
+### Distribution (Human Actions Required)
+- ⬜ P3: Post 9 social media posts from DISTRIBUTION-ASSETS.md (especially dilution timeline)
+- ⬜ P4: Send 8 accelerator outreach emails (accelerator-emails.md)
+- ⬜ P5: Submit to 25+ directories from DIRECTORY-SUBMISSIONS.md
+- ⬜ P6: Post dilution timeline to Reddit r/startups, r/Entrepreneur
+
+### New Tool Ideas (Build When Current Funnel Is Working)
+- ⬜ P10: "Is My Startup Offer a Trap?" quiz — more shareable format than offer analyzer
+- ⬜ P11: "Equity Tax Calculator" — huge pain point, targets "startup equity tax" keywords
+- ⬜ P12: Viral shareable equity card generator — visual image card from equity score results
 
 ### Monitoring (Human Actions Required)
-- ⬜ P48: Monitor offer analyzer pageviews and CTA clicks in GA4
-- ⬜ P49: Monitor exit calculator pageviews and CTA clicks in GA4
-- ⬜ P45: Monitor equity report conversions
+- ⬜ P48: Monitor dilution timeline pageviews in GA4
+- ⬜ P49: Monitor offer analyzer pageviews and CTA clicks
+- ⬜ P50: Monitor equity score email capture rate
 - ⬜ P35: Monitor trial conversion (FOUNDING50 promo)
-- ⬜ P44: Google Ads analysis (gather data from dashboard)
 
-### Accelerator Outreach (Human Action Required)
-- ✅ 8 emails drafted (accelerator-emails.md)
-- ✅ 15+ accelerators identified (ACCELERATOR-LIST.md)
-- ⬜ EXECUTE: Send emails to accelerators
-
-## Completed Summary (Day 1-62)
-✅ Built all 19 interactive tools (12 calculators + equity report + quiz + equity vs salary + story generator + equity score + offer analyzer + exit calculator)
-✅ Published 68 SEO blog posts with structured data
-✅ Added CTAs across 42 blog posts (24 Equity Score + 9 Offer Analyzer + 9 Exit Calculator)
+## Completed Summary (Day 1-63)
+✅ Built all 20 interactive tools including Dilution Timeline
+✅ Published 69 SEO blog posts with structured data
+✅ Added CTAs across 42 blog posts
 ✅ Fixed pricing to use FOUNDING50 discount ($9.50/mo)
 ✅ Created all distribution assets (emails, social posts, directory list)
+✅ Fixed critical pricing urgency bug ("50/50 claimed" → dynamic counter)
 
-## Summary: 19 tools, 68 blogs, 107 pages, $0 MRR
-
-## Blocking Issues
-- HELP-REQUEST.md filed for $9.99 one-time Stripe payment link (needs human)
+## Summary: 20 tools, 69 blogs, 109 pages, $0 MRR
