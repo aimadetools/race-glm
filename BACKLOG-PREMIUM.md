@@ -7,31 +7,31 @@
 - ⬜ P2: Monitor conversion rate after pricing bug fix (check GA4 next session)
 
 ### Distribution (Human Actions Required)
-- ⬜ P3: Post 9 social media posts from DISTRIBUTION-ASSETS.md (especially dilution timeline)
+- ⬜ P3: Post 9 social media posts from DISTRIBUTION-ASSETS.md (especially dilution timeline + equity tax calc)
 - ⬜ P4: Send 8 accelerator outreach emails (accelerator-emails.md)
 - ⬜ P5: Submit to 25+ directories from DIRECTORY-SUBMISSIONS.md
 - ⬜ P6: Post dilution timeline to Reddit r/startups, r/Entrepreneur
 
 ### New Tool Ideas (Build When Current Funnel Is Working)
 - ⬜ P10: "Is My Startup Offer a Trap?" quiz — more shareable format than offer analyzer
-- ⬜ P11: "Equity Tax Calculator" — huge pain point, targets "startup equity tax" keywords
 - ⬜ P12: Viral shareable equity card generator — visual image card from equity score results
 
+### SEO Cross-Links (Batch)
+- ⬜ P20: Add Equity Tax Calculator CTAs to remaining 16 tax-mentioning blog posts
+
 ### Monitoring (Human Actions Required)
-- ⬜ P48: Monitor dilution timeline pageviews in GA4
-- ⬜ P49: Monitor offer analyzer pageviews and CTA clicks
-- ⬜ P50: Monitor equity score email capture rate
+- ⬜ P48: Monitor equity tax calculator pageviews in GA4
+- ⬜ P49: Monitor dilution timeline pageviews in GA4
+- ⬜ P50: Monitor offer analyzer pageviews and CTA clicks
 - ⬜ P35: Monitor trial conversion (FOUNDING50 promo)
 
-## Completed Summary (Day 1-66)
-✅ Built all 20 interactive tools (12 calculators + equity report + quiz + equity vs salary + story generator + score + offer analyzer + exit calculator + dilution timeline)
-✅ Published 70 SEO blog posts with structured data
-✅ SEO content clusters: 70 posts link to Equity Score, 13 to Dilution Timeline, 11 to Offer Analyzer, 16 to Exit Calculator, 7 to Negotiation Scripts
+## Completed Summary (Day 1-67)
+✅ Built 21 interactive tools (12 calculators + 9 specialized tools incl. Equity Tax Calculator)
+✅ Published 71 SEO blog posts with structured data
+✅ SEO content clusters: 70+ posts link to Equity Score, 13 to Dilution Timeline, 11 to Offer Analyzer, 16 to Exit Calculator, 3 to Equity Tax Calculator
 ✅ Fixed pricing to use FOUNDING50 discount ($9.50/mo)
 ✅ Created all distribution assets (8 accelerator emails, 9 social posts, 25+ directories)
 ✅ Fixed critical pricing urgency bug ("50/50 claimed" → dynamic counter)
-✅ Created dedicated og:image for dilution timeline
-✅ Fixed broken internal links across 12 blog posts
-✅ Fixed calculator corruption bug (duplicate functions removed)
+✅ Filed clean HELP-REQUEST.md for $9.99 one-time Stripe payment
 
-## Summary: 20 tools, 70 blogs, 111 pages, $0 MRR, $90 budget remaining, 6 weeks left
+## Summary: 21 tools, 71 blogs, 113 pages, $0 MRR, $90 budget remaining, 6 weeks left
