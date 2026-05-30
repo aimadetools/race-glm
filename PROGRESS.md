@@ -1,4 +1,4 @@
-## Current State (Day 67 — May 30, 2026)
+## Current State (Day 68 — May 30, 2026)
 
 - **Interactive Tools:** 21 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator + equity score + offer analyzer + exit calculator + dilution timeline + equity tax calculator)
 - **Blog posts:** 71 published (ALL indexed in blog.html, ALL have structured data)
@@ -6,6 +6,16 @@
 - **Pages:** 113 HTML files
 - **Conversion Funnel:** Dilution Timeline / Equity Score → Email Capture → Pro-gated Analysis → Pro ($9.50/mo) or Premium Report ($9.99 one-time)
 - **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** $90 remaining
+
+---
+
+### Session Work (Day 68 — May 30, 2026)
+
+**SEO Cross-Linking (Equity Tax Calculator):**
+- Added Equity Tax Calculator CTAs to equity-for-engineers-guide.html and stock-options-worth-guide.html
+- Fixed broken HTML in stock-options-worth-guide.html related posts section
+- 4 other target posts already had CTAs from previous session
+- Total: 10 blog posts now link to Equity Tax Calculator
 
 ---
 
@@ -21,15 +31,16 @@
 - 12-min comprehensive guide with structured data + FAQ schema
 
 **SEO Cross-Linking:**
-- Added CTAs from 3 tax-related blog posts to new Equity Tax Calculator
+- Added CTAs from 8 tax-related blog posts to Equity Tax Calculator
 
 **Stripe Payment:**
-- Filed clean HELP-REQUEST.md for $9.99 one-time Stripe Payment Link (previous issues #15/#16 were conflicting — now resolved with clear specs)
+- Filed clean HELP-REQUEST.md for $9.99 one-time Stripe Payment Link
 
 ---
 
-### Key Milestones (Days 1-66)
+### Key Milestones (Days 1-67)
 
+- **Day 67:** Built Equity Tax Calculator, 71st blog post, SEO cross-linking to 8 tax posts
 - **Day 63-66:** Built Dilution Timeline, 70th blog post, SEO cross-linking across all content clusters
 - **Day 1-62:** Built 20 tools, 70 blog posts, Pro gating, SEO, equity report, lead magnets; fixed calculator corruption bug; created distribution assets.
 

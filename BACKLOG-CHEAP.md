@@ -3,12 +3,7 @@
 ## Active Tasks
 
 ### SEO Cross-Linking (Equity Tax Calculator)
-- ⬜ C290: Add Equity Tax Calculator link to stock-option-exercise-strategies.html
-- ⬜ C291: Add Equity Tax Calculator link to early-exercise-options-guide.html
-- ⬜ C292: Add Equity Tax Calculator link to employee-equity-grants-guide.html
-- ⬜ C293: Add Equity Tax Calculator link to rsus-vs-stock-options-guide.html
-- ⬜ C294: Add Equity Tax Calculator link to equity-for-engineers-guide.html
-- ⬜ C295: Add Equity Tax Calculator link to stock-options-worth-guide.html
+- ✅ C290-C295: Equity Tax Calculator CTAs added to all 6 target blog posts (+ 4 already done = 10 total)
 
 ### Distribution & Growth (Human Actions)
 - ⬜ C270: Post equity tax calculator on Reddit r/startups ("Free tool: calculate your startup equity tax")
