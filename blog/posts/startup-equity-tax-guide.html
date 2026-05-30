@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/posts/startup-equity-tax-guide.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Equity Tax Guide (2026): ISO vs NSO, 83(b) Elections, AMT Explained</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Complete guide to startup equity taxes in 2026. Learn how ISO vs NSO tax treatment works, when to file an 83(b) election, how AMT affects your options, and strategies to minimize your tax bill.">
+    <meta name="keywords" content="startup equity tax, 83b election, ISO vs NSO tax, stock option tax, AMT stock options, equity compensation tax, startup employee tax guide">
+    <meta property="og:title" content="Startup Equity Tax Guide (2026): Everything You Need to Know">
+    <meta property="og:description" content="ISO vs NSO, 83(b) elections, AMT — learn how to minimize taxes on your startup equity.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/posts/startup-equity-tax-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Startup Equity Tax Guide (2026): ISO vs NSO, 83(b) Elections, AMT Explained",
+        "description": "Complete guide to startup equity taxes. Learn ISO vs NSO tax treatment, 83(b) elections, AMT, and strategies to minimize your tax bill.",
+        "author": {"@type": "Organization", "name": "FounderMath"},
+        "publisher": {"@type": "Organization", "name": "FounderMath", "url": "https://founder-math.com"},
+        "datePublished": "2026-05-30",
+        "dateModified": "2026-05-30",
+        "mainEntityOfPage": "https://founder-math.com/blog/posts/startup-equity-tax-guide.html",
+        "url": "https://founder-math.com/blog/posts/startup-equity-tax-guide.html"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "Do I pay tax when I exercise stock options?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the option type. NSOs trigger ordinary income tax on the spread (FMV minus strike price) at exercise. ISOs have no regular tax at exercise, but may trigger AMT if the spread is large enough."}},
+            {"@type": "Question", "name": "What is the 83(b) election deadline?", "acceptedAnswer": {"@type": "Answer", "text": "You must file the 83(b) election within 30 calendar days of the grant date. There are no extensions. If you miss the deadline, you cannot file later."}},
+            {"@type": "Question", "name": "How much tax do I pay on startup equity?", "acceptedAnswer": {"@type": "Answer", "text": "The tax depends on option type, holding period, and your income bracket. ISOs held for 2+ years from grant and 1+ year from exercise qualify for long-term capital gains rates (0-20%). NSOs always trigger ordinary income tax on the spread at exercise (up to 37%), plus capital gains on appreciation when sold."}}
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        article { max-width: 780px; margin: 0 auto; padding: 100px 24px 60px; }
+        .article-meta { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 24px; }
+        article h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.2; }
+        .subtitle { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 32px; }
+
+        article h2 { font-size: 1.5rem; font-weight: 800; margin: 40px 0 16px; padding-top: 20px; border-top: 1px solid var(--border); }
+        article h3 { font-size: 1.2rem; font-weight: 700; margin: 28px 0 12px; }
+        article p { color: var(--text-secondary); margin-bottom: 16px; font-size: 0.95rem; line-height: 1.8; }
+        article ul, article ol { color: var(--text-secondary); margin: 0 0 16px 24px; font-size: 0.95rem; line-height: 1.8; }
+        article li { margin-bottom: 6px; }
+        article strong { color: var(--text-primary); }
+        article a { color: var(--accent-light); text-decoration: none; }
+        article a:hover { text-decoration: underline; }
+
+        .highlight-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0; }
+        .highlight-box h3 { margin-top: 0; }
+        .highlight-box.warning { border-left: 4px solid var(--orange); }
+        .highlight-box.tip { border-left: 4px solid var(--green); }
+        .highlight-box.danger { border-left: 4px solid var(--red); }
+
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .comparison-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+        .comparison-card h4 { font-size: 1rem; margin-bottom: 8px; }
+
+        .toc { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; }
+        .toc-title { font-size: 0.85rem; font-weight: 700; color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; font-size: 0.9rem; }
+        .toc a { color: var(--text-secondary); text-decoration: none; }
+        .toc a:hover { color: var(--accent-light); }
+
+        .cta-box { background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.05)); border: 1px solid var(--accent); border-radius: 16px; padding: 32px; margin: 40px 0; text-align: center; }
+        .cta-box h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 12px; }
+        .cta-box p { color: var(--text-secondary); margin-bottom: 20px; }
+        .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 14px 28px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); text-decoration: none; color: white; }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="/" class="logo" aria-label="FounderMath home">
+            <div class="logo-icon" aria-hidden="true">%</div>
+            FounderMath
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="../../dilution.html">Dilution</a></li>
+            <li><a href="../../stock-options.html">Options</a></li>
+            <li><a href="../../equity-tax-calculator.html">Tax Calc</a></li>
+            <li><a href="../../equity-score.html">Equity Score</a></li>
+            <li><a href="../../pricing.html">Pricing</a></li>
+            <li><a href="../../equity-score.html" class="nav-cta">Free Equity Score</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<article>
+    <div class="article-meta">May 30, 2026 &middot; 12 min read &middot; <a href="../../equity-tax-calculator.html">Tax Calculator</a></div>
+    <h1>Startup Equity Tax Guide (2026): ISO vs NSO, 83(b) Elections, and AMT Explained</h1>
+    <p class="subtitle">The IRS taxes startup equity differently depending on option type, when you exercise, and how long you hold. This guide covers the three things that determine how much tax you'll pay — and how to minimize it.</p>
+
+    <div class="toc">
+        <div class="toc-title">In This Guide</div>
+        <ol>
+            <li><a href="#how-equity-tax-works">How Startup Equity Tax Works</a></li>
+            <li><a href="#iso-vs-nso">ISO vs NSO: The Tax Difference</a></li>
+            <li><a href="#83b-election">The 83(b) Election: File It or Lose Money</a></li>
+            <li><a href="#amt">AMT: The Hidden Tax on ISO Exercises</a></li>
+            <li><a href="#strategies">5 Tax Strategies for Startup Equity</a></li>
+            <li><a href="#calculator">Calculate Your Equity Tax</a></li>
+        </ol>
+    </div>
+
+    <h2 id="how-equity-tax-works">How Startup Equity Tax Works</h2>
+    <p>Startup equity is taxed at two moments: <strong>when you exercise</strong> (buy your shares at the strike price) and <strong>when you sell</strong> (at exit, IPO, or secondary sale). The amount you owe at each moment depends on your option type.</p>
+    <p>Here's the basic formula:</p>
+    <ul>
+        <li><strong>Spread:</strong> The difference between the strike price you pay and the fair market value (FMV) of the shares</li>
+        <li><strong>Exercise tax:</strong> Tax on the spread (for some option types)</li>
+        <li><strong>Sale tax:</strong> Capital gains tax on the difference between FMV at exercise and sale price</li>
+    </ul>
+    <p>The type of option you have — ISO or NSO — determines which of these taxes apply and at what rate.</p>
+
+    <div class="cta-box">
+        <h3>Estimate Your Equity Tax in 60 Seconds</h3>
+        <p>Use our free calculator to see your exact tax liability for ISO, NSO, 83(b), and AMT scenarios.</p>
+        <a href="../../equity-tax-calculator.html" class="cta-btn">Open Equity Tax Calculator</a>
+    </div>
+
+    <h2 id="iso-vs-nso">ISO vs NSO: The Tax Difference That Can Cost You Thousands</h2>
+    <p>The two most common stock option types are treated very differently by the IRS. Understanding the difference is the single most important thing you can do for your tax bill.</p>
+
+    <div class="comparison-grid">
+        <div class="comparison-card">
+            <h4 style="color:var(--accent-light);">ISO (Incentive Stock Option)</h4>
+            <ul>
+                <li>No regular income tax at exercise</li>
+                <li>May trigger AMT at exercise</li>
+                <li>If held 2+ years from grant AND 1+ year from exercise: all gains taxed at long-term capital gains rate (0-20%)</li>
+                <li>Must be an employee (not contractor)</li>
+                <li>$100K/year vesting limit</li>
+            </ul>
+        </div>
+        <div class="comparison-card">
+            <h4 style="color:var(--orange);">NSO (Non-Qualified Stock Option)</h4>
+            <ul>
+                <li>Ordinary income tax on spread at exercise (up to 37%)</li>
+                <li>No AMT at exercise</li>
+                <li>Gains after exercise taxed as capital gains (short or long-term depending on hold)</li>
+                <li>Available to employees, contractors, advisors</li>
+                <li>No annual vesting limit</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>The Real-World Impact</h3>
+    <p>Say you have 10,000 options with a $1 strike price. The current FMV is $10/share. You exercise and later sell at $50/share.</p>
+    <p><strong>With ISOs</strong> (held for qualifying period): You pay long-term capital gains on the full $49/share gain. At a 15% rate, that's $73,500 in tax on $490,000 of gains.</p>
+    <p><strong>With NSOs:</strong> You pay ordinary income tax on the $9/share spread at exercise ($9,000 x your marginal rate, say 32% = $2,880). Then capital gains on $40/share of appreciation. Total tax: roughly $92,880.</p>
+    <p>The ISO saves you nearly <strong>$20,000</strong> in this scenario. The difference grows dramatically with larger grants and higher valuations.</p>
+
+    <h2 id="83b-election">The 83(b) Election: File It or Lose Money</h2>
+    <p>If your equity grant is subject to <strong>vesting</strong>, Section 83(b) of the tax code gives you a powerful option: you can elect to pay tax on the value of your shares <em>now</em> — when the value is low — instead of paying tax as each tranche vests, when the value could be much higher.</p>
+
+    <div class="highlight-box tip">
+        <h3>When to File an 83(b) Election</h3>
+        <p>File an 83(b) election when:</p>
+        <ul>
+            <li>Your equity is subject to vesting (not already vested)</li>
+            <li>The current value per share is very low (near $0 for early-stage companies)</li>
+            <li>You expect the shares to appreciate significantly</li>
+        </ul>
+        <p>If the current value is $0.001/share and you expect it to reach $50/share, filing 83(b) means you pay tax on $0.001 instead of $50. The savings can be tens of thousands of dollars.</p>
+    </div>
+
+    <div class="highlight-box danger">
+        <h3>The 30-Day Deadline Is Non-Negotiable</h3>
+        <p>You <strong>must</strong> file the 83(b) election within 30 calendar days of your grant date. There are no extensions, no exceptions, no do-overs. If you miss it, you cannot file later. This is the most common expensive mistake startup employees make with equity taxes.</p>
+    </div>
+
+    <h3>How to File an 83(b) Election</h3>
+    <ol>
+        <li>Complete the Section 83(b) election form (available from your company or online)</li>
+        <li>Mail it to the IRS within 30 days of your grant date (certified mail recommended)</li>
+        <li>Send a copy to your employer's HR or legal team</li>
+        <li>Include a copy with your next tax return</li>
+        <li>Keep a copy with proof of mailing for your records</li>
+    </ol>
+
+    <h2 id="amt">AMT: The Hidden Tax on ISO Exercises</h2>
+    <p>The Alternative Minimum Tax (AMT) is a parallel tax system that catches many ISO holders by surprise. When you exercise ISOs, the spread between your strike price and the FMV counts as income for AMT purposes — even though it's <strong>not</strong> regular taxable income.</p>
+    <p>Here's how it works:</p>
+    <ol>
+        <li>You exercise 10,000 ISOs at $1 strike price, FMV is $20/share</li>
+        <li>The $190,000 spread is added to your AMT income calculation</li>
+        <li>If your AMT calculation exceeds your regular tax, you pay the difference</li>
+        <li>You could owe <strong>tens of thousands in tax</strong> — on shares you haven't sold</li>
+    </ol>
+
+    <div class="highlight-box warning">
+        <h3>AMT Can Create a Cash Crunch</h3>
+        <p>You might owe $30,000+ in AMT after exercising ISOs, even though you haven't sold any shares and have no cash proceeds to pay the tax bill. Plan your exercise timing carefully and set aside cash for the AMT payment.</p>
+    </div>
+
+    <h3>AMT Strategies</h3>
+    <ul>
+        <li><strong>Exercise early</strong> when the spread is small (low FMV = low AMT)</li>
+        <li><strong>Exercise in January</strong> to give yourself 15 months before the tax is due (April of the following year)</li>
+        <li><strong>Exercise in batches</strong> across multiple years to stay under the AMT threshold</li>
+        <li><strong>Track your AMT credit</strong> — you can recover some AMT in future years when you sell</li>
+    </ul>
+
+    <h2 id="strategies">5 Tax Strategies for Startup Equity</h2>
+
+    <h3>1. Exercise Early When FMV Is Low</h3>
+    <p>The earlier you exercise, the lower the FMV (and spread). A lower spread means less tax at exercise and a larger portion of your gains qualify for capital gains treatment. Early exercise is the single biggest tax-saving move you can make.</p>
+
+    <h3>2. File Your 83(b) Election</h3>
+    <p>If your shares are subject to vesting, file the 83(b) election. It's free to file, takes 30 minutes, and can save you tens of thousands. The only downside is if the company fails — you've prepaid tax on worthless shares (which is typically near $0 anyway).</p>
+
+    <h3>3. Hold ISOs for Qualifying Disposition</h3>
+    <p>To get the full ISO tax benefit, hold shares for at least <strong>2 years from the grant date</strong> AND <strong>1 year from the exercise date</strong>. Selling before both periods expires triggers a "disqualifying disposition" — the spread gets taxed as ordinary income instead of capital gains.</p>
+
+    <h3>4. Manage Your AMT Exposure</h3>
+    <p>Before exercising a large ISO grant, calculate your potential AMT liability. Use the <a href="../../equity-tax-calculator.html">Equity Tax Calculator</a> to model different exercise scenarios. Consider exercising in smaller batches across tax years.</p>
+
+    <h3>5. Consider State Taxes</h3>
+    <p>California, New York, and other high-tax states add significant state income tax on top of federal. A $100,000 spread in California could cost $37,000+ in federal tax plus $13,000+ in state tax. Factor state taxes into your exercise decisions, especially if you're planning to move.</p>
+
+    <div class="cta-box">
+        <h3>Calculate Your Exact Tax Liability</h3>
+        <p>Don't guess — use our free Equity Tax Calculator to see your tax breakdown for ISO, NSO, 83(b), and AMT scenarios.</p>
+        <a href="../../equity-tax-calculator.html" class="cta-btn">Open Equity Tax Calculator</a>
+    </div>
+
+    <h2 id="calculator">Common Questions</h2>
+
+    <h3>What happens if I don't exercise my options?</h3>
+    <p>If you leave your company, you typically have 90 days to exercise your vested options. After that, you lose them. Unexercised options cost you nothing in taxes — you only owe tax when you exercise.</p>
+
+    <h3>Should I exercise my options before a funding round?</h3>
+    <p>Exercising before a funding round (when the 409A valuation is still low) can significantly reduce your tax bill. The spread — and therefore your tax — is calculated based on the FMV at the time of exercise. After a funding round, the 409A typically increases, making exercise more expensive.</p>
+
+    <h3>What if my company never exits?</h3>
+    <p>If you exercised and paid tax on the spread, you may be able to claim a capital loss on your tax return. However, the rules are complex and the loss may be limited. This is why early exercise (when the spread is small) is lower risk.</p>
+
+    <h3>How do RSUs compare to options for tax?</h3>
+    <p>RSUs are taxed as ordinary income when they vest — there's no exercise step. You pay income tax on the full market value at vest. Unlike options, there's no strategy to minimize this tax. The 83(b) election is generally not available for RSUs (it can apply to restricted stock awards, but not RSUs).</p>
+
+    <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:40px;">
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.7;"><strong>Disclaimer:</strong> This guide is for educational purposes only and does not constitute tax, legal, or financial advice. Tax laws change frequently and vary by state. Always consult a qualified CPA or tax attorney before making equity exercise or 83(b) election decisions. Estimates use simplified 2025 federal tax brackets and do not account for state taxes, deductions, or individual circumstances.</p>
+    </div>
+
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <h3 style="margin-bottom:16px;">Related Tools</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <a href="../../equity-tax-calculator.html" style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;display:block;">
+                <div style="font-weight:700;color:var(--text-primary);margin-bottom:4px;">Equity Tax Calculator</div>
+                <div style="font-size:0.82rem;color:var(--text-secondary);">ISO vs NSO, AMT, 83(b) estimates</div>
+            </a>
+            <a href="../../stock-options.html" style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;display:block;">
+                <div style="font-weight:700;color:var(--text-primary);margin-bottom:4px;">Stock Option Calculator</div>
+                <div style="font-size:0.82rem;color:var(--text-secondary);">What are your options worth?</div>
+            </a>
+            <a href="../../vesting.html" style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;display:block;">
+                <div style="font-weight:700;color:var(--text-primary);margin-bottom:4px;">Vesting Calculator</div>
+                <div style="font-size:0.82rem;color:var(--text-secondary);">Visualize your vesting timeline</div>
+            </a>
+            <a href="../../equity-score.html" style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;display:block;">
+                <div style="font-weight:700;color:var(--text-primary);margin-bottom:4px;">Equity Score</div>
+                <div style="font-size:0.82rem;color:var(--text-secondary);">Is your equity deal fair?</div>
+            </a>
+        </div>
+    </div>
+</article>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../pricing.html">Pricing</a></li>
+            <li><a href="../../blog.html">Blog</a></li>
+            <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script>
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.getElementById('navLinks').classList.remove('open');
+    }
+});
+</script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
