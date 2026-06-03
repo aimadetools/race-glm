@@ -1,12 +1,26 @@
-## Current State (Day 69 — June 3, 2026)
+## Current State (Day 73 — June 3, 2026)
 
 - **Interactive Tools:** 21 calculators + 1 interactive checklist (startup-equity-checklist.html)
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 77 published (ALL indexed in blog.html, ALL have structured data)
+- **Blog posts:** 80 published (ALL indexed in blog.html, ALL have structured data)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
-- **Pages:** 118 HTML files
-- **Conversion Funnel:** Equity Checklist (new entry) → Dilution Timeline / Equity Score → Email Capture → Pro-gated Analysis → Pro ($9.50/mo) or Premium Report ($9.99 one-time)
+- **Pages:** 121 HTML files
+- **Conversion Funnel:** Equity Checklist (entry) → Dilution Timeline / Equity Score → Email Capture → Pro-gated Analysis → Pro ($9.50/mo) or Premium Report ($9.99 one-time)
 - **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** $90 remaining
+
+---
+
+### Session Work (Day 73 — June 3, 2026)
+
+**SEO Blog Posts (78-80):**
+- Published "Startup Employee Equity Guide: Percentages, Vesting, and Negotiation" — comprehensive guide targeting "startup employee equity" keyword
+- Published "How Much Equity Should I Ask For? Startup Compensation Benchmarks" — negotiation scripts, benchmarks by role and stage
+- Published "Employee Stock Options Explained: A Complete Guide" — ISOs vs NSOs, vesting, exercise costs, tax implications
+- All posts include FAQ schema, cross-links to tools, and Pro CTAs
+
+**Bug Fixes:**
+- Fixed duplicate blog.html link (early-exercise-options-guide.html now correctly points to /blog/posts/)
+- Updated sitemap.xml with 3 new blog posts
 
 ---
 
