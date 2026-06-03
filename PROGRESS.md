@@ -12,6 +12,11 @@
 
 ### Session Work (Day 73 — June 3, 2026)
 
+**SEO Cross-Linking (Equity Tax Calculator):**
+- Added Equity Tax Calculator CTAs to 34 tax-related blog posts across blog/ directory
+- Posts now include CTA: "Calculate Your Equity Tax Impact" with link to equity-tax-calculator.html
+- Targeted posts discussing: tax, ISOs, NSOs, 83(b), AMT, vesting, stock options, cost basis, IPO planning, liquidity events
+
 **SEO Blog Posts (78-83):**
 - Published "Startup Employee Equity Guide: Percentages, Vesting, and Negotiation" — comprehensive guide targeting "startup employee equity" keyword
 - Published "How Much Equity Should I Ask For? Startup Compensation Benchmarks" — negotiation scripts, benchmarks by role and stage

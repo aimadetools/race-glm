@@ -3,6 +3,9 @@
 ## Active Tasks
 
 ### SEO & Content (Day 73)
+- ✅ C304-C311: Published 6 SEO blog posts (78-83)
+- ✅ C307-C308: Fixed duplicate blog.html link, updated sitemap.xml
+- ✅ P20: Added Equity Tax Calculator CTAs to 34 tax-related blog posts
 - ✅ C304: Published "Startup Employee Equity Guide" blog post (78th post)
 - ✅ C305: Published "How Much Equity Should I Ask For" blog post (79th post)
 - ✅ C306: Published "Employee Stock Options Explained" blog post (80th post)
