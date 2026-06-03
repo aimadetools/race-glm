@@ -2,7 +2,7 @@
 
 - **Interactive Tools:** 21 calculators + 1 interactive checklist (startup-equity-checklist.html)
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 80 published (ALL indexed in blog.html, ALL have structured data)
+- **Blog posts:** 83 published (ALL indexed in blog.html, ALL with structured data)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
 - **Pages:** 121 HTML files
 - **Conversion Funnel:** Equity Checklist (entry) → Dilution Timeline / Equity Score → Email Capture → Pro-gated Analysis → Pro ($9.50/mo) or Premium Report ($9.99 one-time)
@@ -12,10 +12,13 @@
 
 ### Session Work (Day 73 — June 3, 2026)
 
-**SEO Blog Posts (78-80):**
+**SEO Blog Posts (78-83):**
 - Published "Startup Employee Equity Guide: Percentages, Vesting, and Negotiation" — comprehensive guide targeting "startup employee equity" keyword
 - Published "How Much Equity Should I Ask For? Startup Compensation Benchmarks" — negotiation scripts, benchmarks by role and stage
 - Published "Employee Stock Options Explained: A Complete Guide" — ISOs vs NSOs, vesting, exercise costs, tax implications
+- Published "How to Value Your Stock Options: A Complete Guide" — valuation formulas, exit scenarios, dilution, expected value
+- Published "How to Read Your Stock Option Grant: A Line-by-Line Guide" — annotated grant example, red flags, negotiation
+- Published "Startup Equity vs Salary: How to Make the Right Choice" — decision framework, breakeven analysis, real scenarios
 - All posts include FAQ schema, cross-links to tools, and Pro CTAs
 
 **Bug Fixes:**
