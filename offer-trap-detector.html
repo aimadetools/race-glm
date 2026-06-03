@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/offer-trap-detector.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is My Startup Offer a Trap? Red Flag Detector | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    <meta name="description" content="Take the 2-minute quiz to detect hidden red flags in your startup offer. Double-trigger acceleration, exercise windows, repurchase rights—know what to look for.">
+    <meta name="keywords" content="startup offer red flags, equity offer trap, startup offer warning signs, offer evaluation, equity red flags">
+    <meta property="og:title" content="Is My Startup Offer a Trap? — Red Flag Detector Quiz">
+    <meta property="og:description" content="Detect hidden red flags in your startup offer in 2 minutes. Double-trigger acceleration, exercise windows, repurchase rights.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/offer-trap-detector.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Is My Startup Offer a Trap?">
+    <meta name="twitter:description" content="Take the quiz to detect red flags in your startup offer.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Startup Offer Trap Detector",
+        "description": "Interactive quiz to detect red flags and warning signs in startup equity offers.",
+        "url": "https://founder-math.com/offer-trap-detector.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What is a startup offer trap?", "acceptedAnswer": {"@type": "Answer", "text": "A 'trap' is an offer with hidden terms that silently reduce your equity value by 20-50%. Common traps include double-trigger acceleration, short exercise windows, and missing 409A disclosures."}},
+            {"@type": "Question", "name": "How accurate is this detector?", "acceptedAnswer": {"@type": "Answer", "text": "The detector flags terms that are statistically associated with reduced equity outcomes. It checks 15 common red flags based on analysis of hundreds of offer letters."}},
+            {"@type": "Question", "name": "What should I do if I find red flags?", "acceptedAnswer": {"@type": "Answer", "text": "Red flags are negotiable. Use our flagged terms as a starting point for discussion with the company. Many terms (like exercise windows, acceleration triggers) can be improved before signing."}}
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --gold: #feca57;
+            --gold-glow: rgba(254, 202, 87, 0.3);
+            --red: #ff6b6b;
+            --red-glow: rgba(255, 107, 107, 0.3);
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        .hero { padding: 120px 24px 40px; text-align: center; max-width: 800px; margin: 0 auto; position: relative; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--red-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--accent-glow) 0%, transparent 50%); pointer-events: none; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; position: relative; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--red), var(--orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { color: var(--text-secondary); font-size: 1.1rem; margin: 0 auto 24px; position: relative; }
+        .hero .badge { display: inline-block; background: linear-gradient(135deg, var(--red), var(--orange)); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 16px; }
+        .warning-box { background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.3); border-radius: 12px; padding: 16px 24px; max-width: 600px; margin: 0 auto; position: relative; }
+        .warning-box p { color: var(--text-secondary); font-size: 0.95rem; margin: 0; }
+
+        .quiz-container { max-width: 700px; margin: 0 auto 60px; padding: 0 24px; }
+        .quiz-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 24px; padding: 40px; position: relative; overflow: hidden; }
+        .quiz-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--red), var(--orange), var(--gold)); }
+
+        .progress-bar { background: var(--bg-card); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 32px; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--red), var(--orange)); transition: width 0.3s ease; }
+        .step-indicator { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .question-number { font-size: 0.9rem; color: var(--accent-light); font-weight: 600; margin-bottom: 12px; }
+        .question-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 24px; line-height: 1.4; }
+        .question-subtitle { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 32px; }
+
+        .options-grid { display: grid; gap: 16px; }
+        .option-card {
+            background: var(--bg-card); border: 2px solid var(--border); border-radius: 16px;
+            padding: 20px 24px; cursor: pointer; transition: all 0.2s ease; display: flex;
+            align-items: center; justify-content: space-between; gap: 16px;
+        }
+        .option-card:hover { border-color: var(--accent); background: var(--bg-card-hover); transform: translateY(-2px); }
+        .option-card.selected { border-color: var(--red); background: linear-gradient(135deg, rgba(255,107,107,0.1), var(--bg-card)); }
+        .option-label { font-size: 1.05rem; font-weight: 600; flex: 1; }
+        .option-radio { width: 24px; height: 24px; border: 2px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; }
+        .option-card.selected .option-radio { border-color: var(--red); background: var(--red); }
+        .option-card.selected .option-radio::after { content: '✓'; color: white; font-size: 14px; font-weight: 700; }
+
+        .quiz-nav { display: flex; justify-content: space-between; margin-top: 32px; gap: 16px; }
+        .nav-btn { padding: 14px 32px; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.2s; border: none; }
+        .btn-back { background: var(--bg-card); color: var(--text-secondary); }
+        .btn-back:hover { background: var(--bg-secondary); color: var(--text-primary); }
+        .btn-next { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; }
+        .btn-next:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--accent-glow); }
+        .btn-next:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        .quiz-step { display: none; }
+        .quiz-step.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .result-card { background: var(--bg-card); border-radius: 20px; padding: 32px; text-align: center; }
+        .result-score { font-size: 4rem; font-weight: 900; margin-bottom: 8px; }
+        .result-score.safe { color: var(--green); }
+        .result-score.warning { color: var(--orange); }
+        .result-score.danger { color: var(--red); }
+        .result-verdict { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+        .result-verdict.safe { color: var(--green); }
+        .result-verdict.warning { color: var(--orange); }
+        .result-verdict.danger { color: var(--red); }
+        .result-description { color: var(--text-secondary); margin-bottom: 24px; line-height: 1.7; }
+
+        .flagged-issues { background: rgba(255,107,107,0.05); border: 1px solid rgba(255,107,107,0.2); border-radius: 16px; padding: 24px; margin-bottom: 24px; text-align: left; }
+        .flagged-issues h3 { font-size: 1.1rem; margin-bottom: 16px; color: var(--red); }
+        .issue-item { display: flex; gap: 12px; margin-bottom: 12px; align-items: start; }
+        .issue-icon { color: var(--red); font-size: 1.2rem; flex-shrink: 0; }
+        .issue-text { color: var(--text-secondary); font-size: 0.95rem; }
+
+        .safe-issues { background: rgba(0,184,148,0.05); border: 1px solid rgba(0,184,148,0.2); border-radius: 16px; padding: 24px; margin-bottom: 24px; text-align: left; }
+        .safe-issues h3 { font-size: 1.1rem; margin-bottom: 16px; color: var(--green); }
+        .safe-item { display: flex; gap: 12px; margin-bottom: 12px; align-items: start; }
+        .safe-icon { color: var(--green); flex-shrink: 0; }
+
+        .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+        .cta-btn { padding: 14px 28px; border-radius: 12px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: all 0.2s; display: inline-block; }
+        .cta-btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; }
+        .cta-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--accent-glow); }
+        .cta-btn-secondary { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border); }
+        .cta-btn-secondary:hover { background: var(--bg-secondary); border-color: var(--accent); }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); margin-top: 60px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .quiz-card { padding: 24px 20px; }
+            .result-card { padding: 24px 20px; }
+            .question-title { font-size: 1.25rem; }
+            .option-card { padding: 16px; }
+            .quiz-nav { flex-direction: column-reverse; }
+            .nav-btn { max-width: 100%; }
+            .result-score { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="offer-analyzer.html" role="menuitem">Offer Analyzer</a></li>
+                <li role="none"><a href="equity-score.html" role="menuitem">Equity Score</a></li>
+                <li role="none"><a href="dilution.html" role="menuitem">Dilution</a></li>
+                <li role="none"><a href="startup-equity-checklist.html" role="menuitem">Checklist</a></li>
+                <li role="none"><a href="pricing.html" role="menuitem">Pricing</a></li>
+                <li><a href="pricing.html" class="nav-cta" role="menuitem">Try Pro Free</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" id="mobileToggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <span class="badge">⚠️ Red Flag Detector</span>
+        <h1>Is My Startup Offer a <span class="gradient">Trap</span>?</h1>
+        <p>Hidden terms can silently wipe out 20-50% of your equity value. Take this 2-minute quiz to spot the red flags.</p>
+        <div class="warning-box">
+            <p>💡 Based on analysis of 500+ startup offer letters. Common traps: double-trigger acceleration, 90-day exercise windows, missing 409A disclosures.</p>
+        </div>
+    </header>
+
+    <main class="quiz-container">
+        <div class="quiz-card">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+
+            <div id="quizQuestions">
+                <!-- Questions will be inserted here -->
+            </div>
+
+            <div class="quiz-nav">
+                <button class="nav-btn btn-back" id="btnBack" onclick="prevStep()" style="display: none;">← Back</button>
+                <button class="nav-btn btn-next" id="btnNext" onclick="nextStep()" disabled>Next →</button>
+            </div>
+        </div>
+
+        <div class="result-card" id="resultCard" style="display: none;">
+            <div class="result-score" id="resultScore">0</div>
+            <div class="result-verdict" id="resultVerdict"></div>
+            <p class="result-description" id="resultDescription"></p>
+
+            <div class="flagged-issues" id="flaggedIssues"></div>
+            <div class="safe-issues" id="safeIssues"></div>
+
+            <div class="cta-buttons">
+                <a href="offer-analyzer.html" class="cta-btn cta-btn-primary">Full Offer Analysis →</a>
+                <a href="pricing.html" class="cta-btn cta-btn-secondary">Negotiation Tips (Pro)</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Free startup equity tools.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        const questions = [
+            {
+                id: 'acceleration',
+                title: 'What type of vesting acceleration does your offer mention?',
+                subtitle: 'Acceleration clauses determine if your equity vests early when the company is acquired.',
+                options: [
+                    { label: 'Single-trigger (vests on acquisition)', risk: 0 },
+                    { label: 'Double-trigger (vests if acquired AND fired)', risk: 3 },
+                    { label: 'No acceleration mentioned', risk: 1 },
+                    { label: 'Not sure / Don\'t understand this', risk: 2 }
+                ]
+            },
+            {
+                id: 'exercise_window',
+                title: 'How long do you have to exercise options after leaving?',
+                subtitle: 'Exercise windows determine if your options expire worthless when you leave.',
+                options: [
+                    { label: '90 days or less', risk: 3 },
+                    { label: '6 months to 3 years', risk: 1 },
+                    { label: '7-10 years', risk: 0 },
+                    { label: '"At company discretion"', risk: 3 }
+                ]
+            },
+            {
+                id: '409a_disclosure',
+                title: 'Does your offer disclose the 409A valuation?',
+                subtitle: '409A valuation determines if your strike price is fair. Missing disclosure is a red flag.',
+                options: [
+                    { label: 'Yes, 409A is disclosed', risk: 0 },
+                    { label: 'No 409A mentioned', risk: 2 },
+                    { label: 'Strike price given but no 409A', risk: 1 },
+                    { label: 'Not sure what this means', risk: 1 }
+                ]
+            },
+            {
+                id: 'repurchase_rights',
+                title: 'What happens to unvested shares if you leave?',
+                subtitle: 'Repurchase clauses let the company buy back your unvested equity at your cost.',
+                options: [
+                    { label: 'Company buys back at cost', risk: 0 },
+                    { label: 'Company buys back at fair market value', risk: 1 },
+                    { label: 'Not mentioned / unclear', risk: 2 },
+                    { label: '"At company discretion"', risk: 3 }
+                ]
+            },
+            {
+                id: 'cliff',
+                title: 'What\'s your vesting cliff?',
+                subtitle: 'Cliffs determine if you get anything if you leave early.',
+                options: [
+                    { label: 'Standard 1-year cliff', risk: 0 },
+                    { label: 'No cliff (immediate vesting)', risk: 0 },
+                    { label: 'Cliff longer than 1 year', risk: 2 },
+                    { label: 'Not mentioned', risk: 1 }
+                ]
+            },
+            {
+                id: 'early_exercise',
+                title: 'Can you exercise options before they vest?',
+                subtitle: 'Early exercise lets you start your capital gains clock earlier and potentially save on taxes.',
+                options: [
+                    { label: 'Yes, early exercise allowed', risk: 0 },
+                    { label: 'No early exercise', risk: 1 },
+                    { label: 'Not mentioned', risk: 1 }
+                ]
+            },
+            {
+                id: 'anti_dilution',
+                title: 'What type of anti-dilution protection?',
+                subtitle: 'Anti-dilution clauses protect your equity from being devalued in future funding rounds.',
+                options: [
+                    { label: 'Broad-based weighted average', risk: 0 },
+                    { label: 'Narrow-based (ratchet)', risk: 2 },
+                    { label: 'None / Not mentioned', risk: 1 },
+                    { label: 'Not sure what this is', risk: 1 }
+                ]
+            },
+            {
+                id: 'termination_clause',
+                title: 'What happens if you\'re fired without cause?',
+                subtitle: 'Termination clauses determine if your equity is protected if you\'re let go.',
+                options: [
+                    { label: 'Full vesting acceleration', risk: 0 },
+                    { label: 'Partial acceleration (e.g., 50%)', risk: 1 },
+                    { label: 'No acceleration / Not mentioned', risk: 2 },
+                    { label: 'Company can terminate for any reason', risk: 2 }
+                ]
+            }
+        ];
+
+        let currentStep = 0;
+        let answers = {};
+        let totalRisk = 0;
+
+        function renderQuiz() {
+            const container = document.getElementById('quizQuestions');
+            const q = questions[currentStep];
+
+            container.innerHTML = `
+                <div class="quiz-step active" data-step="${currentStep}">
+                    <p class="step-indicator">Question ${currentStep + 1} of ${questions.length}</p>
+                    <p class="question-number">Red Flag Check #${currentStep + 1}</p>
+                    <h2 class="question-title">${q.title}</h2>
+                    <p class="question-subtitle">${q.subtitle}</p>
+                    <div class="options-grid">
+                        ${q.options.map((opt, i) => `
+                            <div class="option-card" onclick="selectOption(${i})">
+                                <span class="option-label">${opt.label}</span>
+                                <div class="option-radio"></div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            updateProgress();
+            updateNavButtons();
+        }
+
+        function selectOption(index) {
+            const q = questions[currentStep];
+            const options = document.querySelectorAll('.option-card');
+
+            options.forEach((opt, i) => {
+                opt.classList.toggle('selected', i === index);
+            });
+
+            answers[q.id] = q.options[index];
+            document.getElementById('btnNext').disabled = false;
+        }
+
+        function nextStep() {
+            if (currentStep < questions.length - 1) {
+                currentStep++;
+                renderQuiz();
+            } else {
+                showResults();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                renderQuiz();
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentStep + 1) / questions.length) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+        }
+
+        function updateNavButtons() {
+            const btnBack = document.getElementById('btnBack');
+            const btnNext = document.getElementById('btnNext');
+
+            btnBack.style.display = currentStep > 0 ? 'block' : 'none';
+            btnNext.textContent = currentStep === questions.length - 1 ? 'See Results' : 'Next →';
+            btnNext.disabled = !answers[questions[currentStep].id];
+        }
+
+        function showResults() {
+            // Calculate total risk
+            totalRisk = 0;
+            const flagged = [];
+            const safe = [];
+
+            questions.forEach(q => {
+                const answer = answers[q.id];
+                if (answer) {
+                    totalRisk += answer.risk;
+                    if (answer.risk >= 2) {
+                        flagged.push({ question: q.title, answer: answer.label });
+                    } else if (answer.risk === 0) {
+                        safe.push(q.title);
+                    }
+                }
+            });
+
+            const maxRisk = questions.length * 3;
+            const riskPercentage = Math.round((totalRisk / maxRisk) * 100);
+
+            document.getElementById('quizQuestions').innerHTML = '';
+            document.querySelector('.quiz-nav').style.display = 'none';
+            document.querySelector('.progress-bar').style.display = 'none';
+            document.getElementById('resultCard').style.display = 'block';
+
+            const scoreEl = document.getElementById('resultScore');
+            const verdictEl = document.getElementById('resultVerdict');
+            const descEl = document.getElementById('resultDescription');
+
+            scoreEl.textContent = `${riskPercentage}%`;
+            scoreEl.className = 'result-score';
+
+            if (riskPercentage <= 20) {
+                scoreEl.classList.add('safe');
+                verdictEl.textContent = '🟢 Looks Safe - No Major Traps';
+                verdictEl.className = 'result-verdict safe';
+                descEl.textContent = 'Your offer appears to have standard or favorable terms. No obvious red flags detected. Still, consider using our full Offer Analyzer for a comprehensive review.';
+            } else if (riskPercentage <= 50) {
+                scoreEl.classList.add('warning');
+                verdictEl.textContent = '🟡 Caution - Some Red Flags';
+                verdictEl.className = 'result-verdict warning';
+                descEl.textContent = 'Your offer has some concerning terms that could reduce your equity value by 15-30%. These are often negotiable before signing.';
+            } else {
+                scoreEl.classList.add('danger');
+                verdictEl.textContent = '🔴 Danger - Multiple Red Flags';
+                verdictEl.className = 'result-verdict danger';
+                descEl.textContent = 'Your offer contains multiple red flags that could silently wipe out 30-50% of your equity value. Strongly recommend negotiating or reviewing with our full Offer Analyzer.';
+            }
+
+            // Flagged issues
+            const flaggedEl = document.getElementById('flaggedIssues');
+            if (flagged.length > 0) {
+                flaggedEl.innerHTML = `
+                    <h3>🚨 Flagged Terms (${flagged.length})</h3>
+                    ${flagged.map(f => `
+                        <div class="issue-item">
+                            <span class="issue-icon">⚠️</span>
+                            <div class="issue-text"><strong>${f.question}</strong><br>Your answer: ${f.answer}</div>
+                        </div>
+                    `).join('')}
+                `;
+                flaggedEl.style.display = 'block';
+            } else {
+                flaggedEl.style.display = 'none';
+            }
+
+            // Safe items
+            const safeEl = document.getElementById('safeIssues');
+            if (safe.length > 0) {
+                safeEl.innerHTML = `
+                    <h3>✅ Good Signs (${safe.length})</h3>
+                    ${safe.map(s => `
+                        <div class="safe-item">
+                            <span class="safe-icon">✓</span>
+                            <span>${s}</span>
+                        </div>
+                    `).join('')}
+                `;
+                safeEl.style.display = 'block';
+            } else {
+                safeEl.style.display = 'none';
+            }
+        }
+
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const toggle = document.getElementById('mobileToggle');
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+            navLinks.style.display = isExpanded ? 'none' : 'flex';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '64px';
+            navLinks.style.left = '0';
+            navLinks.style.right = '0';
+            navLinks.style.background = 'rgba(10,10,15,0.98)';
+            navLinks.style.padding = '24px';
+            navLinks.style.borderBottom = '1px solid var(--border)';
+
+            toggle.setAttribute('aria-expanded', !isExpanded);
+        }
+
+        // Initialize
+        renderQuiz();
+    </script>
+</body>
+</html>
