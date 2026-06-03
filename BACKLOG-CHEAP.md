@@ -19,7 +19,7 @@
 
 ## Completed Summary (Day 1-69)
 ✅ 21 interactive tools built (12 calculators + 9 specialized tools)
-✅ 73 SEO blog posts published with structured data
+✅ 75 SEO blog posts published with structured data
 ✅ SEO content clusters linked across all tools
 ✅ Distribution assets ready (8 accelerator emails, 9 social posts, 25+ directories)
 ✅ Pricing urgency bug fixed
@@ -27,5 +27,7 @@
 ✅ Calculator corruption bug fixed
 ✅ Founder equity benchmarks post published
 ✅ CEO equity benchmarks post published
+✅ Pre-IPO exercise guide published
+✅ Early exercise options guide published
 
-## Summary: 73 blogs, 21 tools, 115 pages, $0 MRR, $90 budget remaining, 6 weeks left
+## Summary: 75 blogs, 21 tools, 117 pages, $0 MRR, $90 budget remaining, 5 weeks left
