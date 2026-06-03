@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/posts/how-to-value-stock-options.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Value Your Stock Options: A Complete Guide</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Learn how to value your startup stock options. Understand the math behind strike price, exit scenarios, dilution, and what your options could be worth.">
+    <meta name="keywords" content="how to value stock options, stock option valuation, startup equity value, calculate stock options worth">
+    <meta property="og:title" content="How to Value Your Stock Options: A Complete Guide">
+    <meta property="og:description" content="Learn how to calculate what your stock options are worth. Includes valuation formulas, exit scenarios, and real examples.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-blog.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/posts/how-to-value-stock-options.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Value Your Stock Options">
+    <meta name="twitter:description" content="Calculate what your options could be worth. Real examples and formulas.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Value Your Stock Options: A Complete Guide",
+        "url": "https://founder-math.com/blog/posts/how-to-value-stock-options.html",
+        "datePublished": "2026-06-03",
+        "dateModified": "2026-06-03",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-home.svg"
+            }
+        },
+        "description": "Complete guide to valuing startup stock options including exit scenarios, dilution, and real calculations."
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00b894;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-size: 1.2rem; font-weight: 700; color: var(--text-primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 24px; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-btn {
+            padding: 8px 16px; border-radius: 6px;
+            background: var(--accent); color: white !important;
+            text-decoration: none !important; font-weight: 600;
+        }
+        main { max-width: 800px; margin: 80px auto 60px; padding: 0 24px; }
+        h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 16px; line-height: 1.3; }
+        .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 32px; }
+        h2 { font-size: 1.5rem; margin: 40px 0 16px; color: var(--text-primary); }
+        h3 { font-size: 1.2rem; margin: 28px 0 12px; color: var(--text-secondary); }
+        p { margin-bottom: 16px; color: var(--text-secondary); }
+        strong { color: var(--text-primary); }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .highlight-box {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px; margin: 24px 0;
+        }
+        .formula-box {
+            background: var(--bg-secondary); border: 1px solid var(--accent);
+            padding: 20px; margin: 24px 0; border-radius: 8px; font-family: monospace;
+        }
+        .example-box {
+            background: var(--bg-secondary); border-left: 3px solid var(--green);
+            padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .scenario-table {
+            width: 100%; border-collapse: collapse; margin: 20px 0;
+        }
+        .scenario-table th, .scenario-table td {
+            border: 1px solid var(--border); padding: 12px;
+            text-align: left;
+        }
+        .scenario-table th { background: var(--bg-secondary); color: var(--text-primary); }
+        .scenario-table td { color: var(--text-secondary); font-size: 0.9rem; }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.2), rgba(108, 92, 231, 0.05));
+            border: 1px solid var(--accent); border-radius: 12px; padding: 24px; margin: 32px 0;
+        }
+        .cta-box h3 { margin-top: 0; }
+        .btn {
+            display: inline-block; padding: 12px 24px; border-radius: 8px;
+            background: var(--accent); color: white; text-decoration: none;
+            font-weight: 600; margin-top: 12px;
+        }
+        .warning-box {
+            background: var(--bg-secondary); border-left: 3px solid var(--orange);
+            padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        ul, ol { margin: 16px 0 16px 24px; color: var(--text-secondary); }
+        li { margin-bottom: 8px; }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            h1 { font-size: 1.8rem; }
+            .scenario-table { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo">FounderMath</a>
+            <div class="nav-links">
+                <a href="/#tools">Tools</a>
+                <a href="/equity-benchmarks.html">Benchmarks</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/pricing.html" class="nav-btn">Try Pro Free</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>How to Value Your Stock Options: A Complete Guide</h1>
+            <div class="meta">June 3, 2026 · 10 min read</div>
+
+            <p><strong>Valuing stock options is part math, part probability, and part luck.</strong> This guide shows you exactly how to calculate what your options could be worth at different exits, how dilution affects your ownership, and what to consider before accepting an offer.</p>
+
+            <h2>The Basic Valuation Formula</h2>
+
+            <p>At its core, stock option value is simple:</p>
+
+            <div class="formula-box">
+                Option Value = (Exit Price - Strike Price) × Number of Options
+            </div>
+
+            <h3>Simple Example:</h3>
+            <ul>
+                <li><strong>Your grant:</strong> 10,000 options</li>
+                <li><strong>Strike price:</strong> $1/share</li>
+                <li><strong>Exit price:</strong> $50/share</li>
+                <li><strong>Your value:</strong> ($50 - $1) × 10,000 = <strong>$490,000</strong></li>
+            </ul>
+
+            <p>But this is the <strong>best-case scenario</strong>. Real-world valuation must account for:</p>
+            <ol>
+                <li><strong>Exit probability:</strong> Most startups never exit</li>
+                <li><strong>Dilution:</strong> Your percentage shrinks over time</li>
+                <li><strong>Taxes:</strong> You owe taxes on exercise and sale</li>
+                <li><strong>Exercise cost:</strong> You pay cash to own the stock</li>
+            </ol>
+
+            <h2>Step 1: Calculate Your Ownership Percentage</h2>
+
+            <p>First, understand what percentage of the company you actually own:</p>
+
+            <div class="formula-box">
+                Ownership % = Your Options / Total Fully Diluted Shares
+            </div>
+
+            <h3>Example Calculation:</h3>
+            <p>You're offered 10,000 options. The company has 10 million fully diluted shares.</p>
+
+            <ul>
+                <li><strong>Your ownership:</strong> 10,000 / 10,000,000 = <strong>0.1%</strong></li>
+            </ul>
+
+            <div class="example-box">
+                <h3>Why Fully Diluted Matters</h3>
+                <p><strong>Fully diluted</strong> includes all outstanding shares plus:</p>
+                <ul>
+                    <li>Unissued option pool (usually 10-20% of company)</li>
+                    <li>Outstanding options and warrants</li>
+                    <li>Convertible notes (if converting to equity)</li>
+                </ul>
+                <p>Always ask for the <strong>total fully diluted shares outstanding</strong>—not just authorized or issued shares.</p>
+            </div>
+
+            <h2>Step 2: Model Exit Scenarios</h2>
+
+            <p>Once you know your percentage, model different exit values:</p>
+
+            <table class="scenario-table">
+                <thead>
+                    <tr>
+                        <th>Exit Value</th>
+                        <th>Your 0.1%</th>
+                        <th>Your 0.5%</th>
+                        <th>Your 1.0%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$10M</td>
+                        <td>$10,000</td>
+                        <td>$50,000</td>
+                        <td>$100,000</td>
+                    </tr>
+                    <tr>
+                        <td>$50M</td>
+                        <td>$50,000</td>
+                        <td>$250,000</td>
+                        <td>$500,000</td>
+                    </tr>
+                    <tr>
+                        <td>$100M</td>
+                        <td>$100,000</td>
+                        <td>$500,000</td>
+                        <td>$1,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>$500M</td>
+                        <td>$500,000</td>
+                        <td>$2,500,000</td>
+                        <td>$5,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>$1B</td>
+                        <td>$1,000,000</td>
+                        <td>$5,000,000</td>
+                        <td>$10,000,000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Reality Check: Exit Probability</h2>
+
+            <p>Most startups don't reach unicorn status. Here are rough probabilities:</p>
+
+            <ul>
+                <li><strong>$0 (fail):</strong> ~70% probability</li>
+                <li><strong>$10M-$50M exit:</strong> ~20% probability</li>
+                <li><strong>$50M-$200M exit:</strong> ~8% probability</li>
+                <li><strong>$200M-$1B exit:</strong> ~2% probability</li>
+                <li><strong>$1B+ exit:</strong> ~0.5% probability</li>
+            </ul>
+
+            <div class="warning-box">
+                <h3>⚠️ Expected Value Calculation</h3>
+                <p>To calculate the <strong>expected value</strong> (what your options are statistically worth):</p>
+                <p><strong>EV = Σ (Exit Value × Probability)</strong></p>
+                <p>Example for 0.5% equity:</p>
+                <ul>
+                    <li>$0 × 70% = $0</li>
+                    <li>$250,000 × 20% = $50,000</li>
+                    <li>$750,000 × 8% = $60,000</li>
+                    <li>$2,000,000 × 2% = $40,000</li>
+                    <li><strong>Expected Value = $150,000</strong></li>
+                </ul>
+                <p>Your options have an expected value of $150,000—BUT this doesn't account for taxes or exercise costs.</p>
+            </div>
+
+            <h2>Step 3: Account for Dilution</h2>
+
+            <p>Your ownership percentage will decrease over time due to <strong>dilution</strong> from future funding rounds.</p>
+
+            <h3>Typical Dilution per Round:</h3>
+            <ul>
+                <li><strong>Seed round:</strong> 15-25% dilution</li>
+                <li><strong>Series A:</strong> 15-25% dilution</li>
+                <li><strong>Series B:</strong> 10-20% dilution</li>
+                <li><strong>Series C:</strong> 10-15% dilution</li>
+            </ul>
+
+            <h3>Dilution Example:</h3>
+            <p>You join at seed with 1.0% equity. The company raises Series A (20% dilution), Series B (15% dilution), and Series C (10% dilution).</p>
+
+            <ul>
+                <li><strong>Starting:</strong> 1.0%</li>
+                <li><strong>After Series A:</strong> 0.8% (1.0% × 0.8)</li>
+                <li><strong>After Series B:</strong> 0.68% (0.8% × 0.85)</li>
+                <li><strong>After Series C:</strong> 0.61% (0.68% × 0.90)</li>
+            </ul>
+
+            <p>Your 1.0% becomes ~0.61% after three rounds—a 39% reduction.</p>
+
+            <div class="cta-box">
+                <h3>Model Your Dilution Scenarios</h3>
+                <p>Use our free Dilution Calculator to see how your ownership changes across multiple funding rounds.</p>
+                <a href="/dilution.html" class="btn">Model Dilution (Free)</a>
+            </div>
+
+            <h2>Step 4: Subtract Exercise Costs and Taxes</h2>
+
+            <p>Your net payout is much less than the gross exit value. Here's what gets taken out:</p>
+
+            <h3>Exercise Cost:</h3>
+            <p>You must pay the strike price to own your shares:</p>
+            <p><strong>Exercise Cost = Options × Strike Price</strong></p>
+
+            <h3>Tax on Exercise:</h3>
+            <ul>
+                <li><strong>NSOs:</strong> Pay income tax on the spread (FMV - strike) when exercising</li>
+                <li><strong>ISOs:</strong> May trigger AMT, no regular tax at exercise</li>
+            </ul>
+
+            <h3>Tax on Sale:</h3>
+            <ul>
+                <li><strong>Short-term (&lt;1 year):</strong> Ordinary income tax rate</li>
+                <li><strong>Long-term (≥1 year):</strong> Capital gains tax rate (typically 15-20%)</li>
+            </ul>
+
+            <h3>Net Payout Example:</h3>
+            <p>You have 10,000 options, $1 strike, exit at $50/share:</p>
+            <ul>
+                <li><strong>Gross value:</strong> ($50 - $1) × 10,000 = $490,000</li>
+                <li><strong>Exercise cost:</strong> $1 × 10,000 = -$10,000</li>
+                <li><strong>Taxes (assume 30%):</strong> -$144,000</li>
+                <li><strong>Net payout:</strong> <strong>$336,000</strong></li>
+            </ul>
+
+            <div class="cta-box">
+                <h3>Calculate Your After-Tax Value</h3>
+                <p>Use our Equity Tax Calculator to see exactly how much you'll net after exercise costs and taxes.</p>
+                <a href="/equity-tax-calculator.html" class="btn">Calculate After-Tax Value (Free)</a>
+            </div>
+
+            <h2>Valuation Red Flags</h2>
+
+            <p>Some offers are worth less than they appear. Watch for:</p>
+
+            <ul>
+                <li><strong>Strike price > fair market value:</strong> Your options are already underwater</li>
+                <li><strong>Huge unallocated option pool:</strong> 20%+ pool means massive future dilution</li>
+                <li><strong>Preferred stock overhang:</strong> Liquidation preferences reduce common stock value</li>
+                <li><strong>High valuation, low revenue:</strong> Valuation may be unsustainable</li>
+                <li><strong>No acceleration on acquisition:</strong> You could get wiped out in an exit</li>
+            </ul>
+
+            <h2>The 409A Valuation Factor</h2>
+
+            <p>Your strike price is based on the company's <strong>409A valuation</strong>—an IRS-approved assessment of fair market value.</p>
+
+            <h3>How 409A Works:</h3>
+            <ul>
+                <li>Company hires a third-party valuation firm</li>
+                <li>Firm assesses company value based on financials, market, and stage</li>
+                <li>Strike price is typically 10-20% of the 409A value for common stock</li>
+                <li>409A must be updated within 12 months of a new funding round</li>
+            </ul>
+
+            <h3>Why 409A Matters:</h3>
+            <ul>
+                <li><strong>Lower 409A = Lower strike price = Higher upside</strong></li>
+                <li>Late-stage companies may have high 409A valuations, limiting your upside</li>
+                <li>Ask what the current 409A valuation is before accepting</li>
+            </ul>
+
+            <h2>Comparing Multiple Offers</h2>
+
+            <p>When comparing offers, look beyond the headline option count:</p>
+
+            <table class="scenario-table">
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Offer A</th>
+                        <th>Offer B</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Options granted</strong></td>
+                        <td>10,000</td>
+                        <td>50,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fully diluted shares</strong></td>
+                        <td>10M</td>
+                        <td>100M</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Your percentage</strong></td>
+                        <td><strong>0.10%</strong></td>
+                        <td>0.05%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Strike price</strong></td>
+                        <td>$1</td>
+                        <td>$10</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Expected exit</strong></td>
+                        <td>$100M</td>
+                        <td>$1B</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Your potential value</strong></td>
+                        <td><strong>$100,000</strong></td>
+                        <td>$500,000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Offer B has <strong>5× more options</strong> but <strong>half the percentage</strong> and a much higher strike price. At their respective expected exits, Offer B is worth more—but it's also riskier (needs $1B exit).</p>
+
+            <div class="cta-box">
+                <h3>Compare Your Offers</h3>
+                <p>Use our Offer Comparison Tool to side-by-side compare multiple equity offers and see which is truly better.</p>
+                <a href="/compare-offers.html" class="btn">Compare Offers (Free)</a>
+            </div>
+
+            <h2>FAQ</h2>
+
+            <p><strong>How do I know if my stock options are worth anything?</strong><br>
+            Calculate your ownership percentage (your options / fully diluted shares), then model exit scenarios. If your percentage × likely exit value is significant, your options have real potential value.</p>
+
+            <p><strong>What's a good stock option offer?</strong><br>
+            It depends on your role, seniority, and company stage. Use our <a href="/equity-benchmarks.html">Equity Benchmarks</a> to compare your offer to market. Generally, 0.5-1.5% is good for senior engineers at early-stage startups.</p>
+
+            <p><strong>Should I value options at the preferred price or common price?</strong><br>
+            Neither—value them at your <strong>expected exit price</strong> per share. The preferred price is what investors paid; the common price is the 409A valuation. Your actual value depends on the exit.</p>
+
+            <p><strong>How do I factor in dilution?</strong><br>
+            Assume 15-25% dilution per funding round. If the company plans to raise Series A, B, and C, your equity could be diluted by 40-50% total. Use our <a href="/dilution.html">Dilution Calculator</a> to model this.</p>
+
+            <p><strong>What's my stock option worth if the company never IPOs?</strong><br>
+            If the company fails or gets acquired at a low price, your options could be worth $0. If acquired above your strike price, you get the difference. Always model multiple scenarios.</p>
+
+            <h2>Next Steps</h2>
+
+            <p>Valuing stock options is part math, part judgment. Use these tools to make an informed decision:</p>
+
+            <ul>
+                <li><a href="/equity-score.html">Equity Score Calculator</a> — Is your offer fair?</li>
+                <li><a href="/dilution.html">Dilution Calculator</a> — Model ownership over time</li>
+                <li><a href="/equity-tax-calculator.html">Equity Tax Calculator</a> — Calculate after-tax value</li>
+                <li><a href="/compare-offers.html">Offer Comparison Tool</a> — Compare multiple offers</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>Related guides:</strong></p>
+                <ul>
+                    <li><a href="/blog/posts/employee-stock-options-explained.html">Employee Stock Options Explained</a></li>
+                    <li><a href="/blog/posts/startup-employee-equity-guide.html">Startup Employee Equity Guide</a></li>
+                    <li><a href="/blog/posts/how-much-equity-should-i-ask-for.html">How Much Equity Should I Ask For?</a></li>
+                    <li><a href="/blog/equity-for-engineers-guide.html">Equity for Engineers Guide</a></li>
+                </ul>
+            </div>
+        </article>
+    </main>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I calculate the value of my stock options?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Calculate your ownership percentage (your options divided by total fully diluted shares), then model exit scenarios. Option value = (Exit price - Strike price) × Number of options. Subtract exercise costs and estimated taxes for net value."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a good stock option offer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A good offer depends on role, seniority, and stage. Senior engineers at early-stage startups (#1-10) typically get 1.5-3.0%. Post-Series A, the same role might get 0.3-0.8%. Use FounderMath benchmarks to compare your offer to market."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does dilution affect my stock options?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Each funding round dilutes existing shareholders by 15-25%. If you join with 1.0% and the company raises Series A (20% dilution), Series B (15%), and Series C (10%), you'd end with ~0.61%—a 39% reduction. Use FounderMath's Dilution Calculator to model this."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the expected value of my stock options?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Expected value = Sum of (Exit value × Probability). For 0.5% equity: $0 × 70% (fail) + $250K × 20% ($50M exit) + $750K × 8% ($100M exit) + $2M × 2% ($500M exit) = ~$150K expected value before taxes and exercise costs."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I accept stock options or higher salary?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It depends on your risk tolerance and financial situation. Early career: prioritize salary. Later with savings: you can afford equity risk. Use FounderMath's Equity vs Salary Calculator to model the tradeoff for your specific situation."
+                }
+            }
+        ]
+    }
+    </script>
+</body>
+</html>
