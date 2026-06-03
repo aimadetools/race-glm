@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/posts/exercise-options-before-ipo.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Should I Exercise My Stock Options Before IPO? (2026 Guide)</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="IPO approaching? Decide whether to exercise your stock options early. Compare tax impact, lockup period risks, and cash flow needs with real scenarios and calculator.">
+    <meta name="keywords" content="exercise stock options before IPO, pre-IPO stock options, IPO lockup period, pre-IPO exercise, startup employee IPO, exercise ISO before IPO">
+    <meta property="og:title" content="Should I Exercise My Stock Options Before IPO? (2026 Guide)">
+    <meta property="og:description" content="IPO approaching? Calculate the tax impact, lockup risks, and cash flow trade-offs of exercising early vs waiting.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/posts/exercise-options-before-ipo.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Should I Exercise Stock Options Before IPO?">
+    <meta name="twitter:description" content="Calculate taxes, lockup period risk, and cash flow needs before your IPO.">
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Should I Exercise My Stock Options Before IPO? (2026 Guide)",
+        "description": "Decide whether to exercise stock options before IPO with tax calculations, lockup period analysis, and real scenarios.",
+        "author": {"@type": "Organization", "name": "FounderMath"},
+        "publisher": {"@type": "Organization", "name": "FounderMath", "url": "https://founder-math.com"},
+        "datePublished": "2026-06-03",
+        "dateModified": "2026-06-03",
+        "mainEntityOfPage": "https://founder-math.com/blog/posts/exercise-options-before-ipo.html",
+        "url": "https://founder-math.com/blog/posts/exercise-options-before-ipo.html"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "Is it better to exercise stock options before or after IPO?", "acceptedAnswer": {"@type": "Answer", "text": "Exercising before IPO can save on taxes if you qualify for long-term capital gains, but requires paying exercise costs upfront and taking liquidity risk. Exercising after IPO is simpler but may trigger higher ordinary income taxes for NSOs or AMT for ISOs. The best choice depends on your option type, strike price, current 409A value, and cash availability."}},
+            {"@type": "Question", "name": "What happens to my stock options during IPO lockup period?", "acceptedAnswer": {"@type": "Answer", "text": "During the typical 180-day lockup period after IPO, you cannot sell your shares. If you exercised before IPO, you own the shares but cannot sell — your net worth is tied to the volatile stock price. If you wait to exercise until after lockup expires, you avoid this risk but may face different tax treatment."}},
+            {"@type": "Question", "name": "How much tax will I pay if I exercise options before IPO?", "acceptedAnswer": {"@type": "Answer", "text": "For ISOs: No regular income tax at exercise, but AMT may apply if the spread (FMV minus strike) exceeds the exemption amount. For NSOs: Ordinary income tax on the entire spread at exercise (up to 37% federal plus state). Either way, you also pay capital gains tax when you eventually sell. Use a tax calculator to estimate your specific situation."}}
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --yellow: #fdcb6e;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        article { max-width: 780px; margin: 0 auto; padding: 100px 24px 60px; }
+        .article-meta { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 24px; }
+        article h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.2; }
+        .subtitle { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 32px; }
+
+        article h2 { font-size: 1.5rem; font-weight: 800; margin: 40px 0 16px; padding-top: 20px; border-top: 1px solid var(--border); }
+        article h3 { font-size: 1.2rem; font-weight: 700; margin: 28px 0 12px; }
+        article p { color: var(--text-secondary); margin-bottom: 16px; font-size: 0.95rem; line-height: 1.8; }
+        article ul, article ol { color: var(--text-secondary); margin: 0 0 16px 24px; font-size: 0.95rem; line-height: 1.8; }
+        article li { margin-bottom: 6px; }
+        article strong { color: var(--text-primary); }
+        article a { color: var(--accent-light); text-decoration: none; }
+        article a:hover { text-decoration: underline; }
+
+        .highlight-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0; }
+        .highlight-box h3 { margin-top: 0; }
+        .highlight-box.warning { border-left: 4px solid var(--orange); }
+        .highlight-box.tip { border-left: 4px solid var(--green); }
+        .highlight-box.danger { border-left: 4px solid var(--red); }
+        .highlight-box.info { border-left: 4px solid var(--accent); }
+
+        .scenario-box { background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary)); border: 1px solid var(--border); border-radius: 16px; padding: 28px; margin: 28px 0; }
+        .scenario-box .scenario-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .scenario-box .scenario-icon { width: 48px; height: 48px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .scenario-box h3 { margin: 0; font-size: 1.1rem; }
+        .scenario-box .outcome { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 16px 0 0; }
+        .scenario-box .outcome-label { font-size: 0.75rem; font-weight: 700; color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+        .scenario-box .outcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .scenario-box .outcome-item { font-size: 0.9rem; }
+        .scenario-box .outcome-item span { color: var(--text-muted); font-size: 0.8rem; }
+        .scenario-box .outcome-item strong { display: block; color: var(--text-primary); font-size: 1.1rem; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+        .comparison-table th, .comparison-table td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        .comparison-table th { color: var(--text-primary); font-weight: 700; font-size: 0.9rem; }
+        .comparison-table td { color: var(--text-secondary); font-size: 0.9rem; }
+        .comparison-table .check { color: var(--green); }
+        .comparison-table .cross { color: var(--red); }
+
+        .cta-box { background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.05)); border: 1px solid var(--accent); border-radius: 16px; padding: 32px; margin: 40px 0; text-align: center; }
+        .cta-box h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 12px; }
+        .cta-box p { color: var(--text-secondary); margin-bottom: 20px; }
+        .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 14px 28px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); text-decoration: none; color: white; }
+
+        .toc { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; }
+        .toc-title { font-size: 0.85rem; font-weight: 700; color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; font-size: 0.9rem; }
+        .toc a { color: var(--text-secondary); text-decoration: none; }
+        .toc a:hover { color: var(--accent-light); }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            .scenario-box .outcome-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="/" class="logo" aria-label="FounderMath home">
+            <div class="logo-icon" aria-hidden="true">%</div>
+            FounderMath
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="../../dilution.html">Dilution</a></li>
+            <li><a href="../../stock-options.html">Options</a></li>
+            <li><a href="../../equity-tax-calculator.html">Tax Calc</a></li>
+            <li><a href="../../equity-score.html">Equity Score</a></li>
+            <li><a href="../../pricing.html">Pricing</a></li>
+            <li><a href="../../equity-score.html" class="nav-cta">Free Equity Score</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<article>
+    <div class="article-meta">June 3, 2026 &middot; 11 min read &middot; <a href="../../equity-tax-calculator.html">Tax Calculator</a></div>
+    <h1>Should I Exercise My Stock Options Before IPO? The Complete Decision Framework</h1>
+    <p class="subtitle">Your startup is going public. You have options. The lockup period looms. Here's how to decide whether to exercise now, wait until after IPO, or let your options expire.</p>
+
+    <div class="toc">
+        <div class="toc-title">In This Guide</div>
+        <ol>
+            <li><a href="#the-three-ipo-exercise-strategies">The Three IPO Exercise Strategies</a></li>
+            <li><a href="#the-pre-ipo-exercise-tax-math">The Pre-IPO Exercise Tax Math</a></li>
+            <li><a href="#the-lockup-period-risk">The Lockup Period Risk</a></li>
+            <li><a href="#real-scenarios-which-strategy-wins">Real Scenarios: Which Strategy Wins?</a></li>
+            <li><a href="#your-decision-framework">Your Decision Framework</a></li>
+        </ol>
+    </div>
+
+    <p>You've got <strong>40,000 stock options</strong> at a <strong>$2 strike price</strong>. Your company's 409A valuation is <strong>$18/share</strong>. The IPO is happening in <strong>3 months</strong> at an expected <strong>$25-30/share</strong>.</p>
+    <p>Do you exercise now? Wait until after lockup? Or let the options expire?</p>
+    <p>This decision could mean a <strong>$50,000+ difference in your tax bill</strong> — and hundreds of thousands in net worth depending on how the stock trades post-IPO.</p>
+
+    <h2 id="the-three-ipo-exercise-strategies">The Three IPO Exercise Strategies</h2>
+
+    <p><strong>Strategy 1: Exercise Before IPO (Early Exercise)</strong></p>
+    <p>You pay the strike price and exercise now, becoming a shareholder. If you hold for 1+ year after exercise (and 2+ years from grant), you qualify for long-term capital gains when you sell. But you need cash upfront and take lockup period risk.</p>
+
+    <p><strong>Strategy 2: Exercise After IPO / Lockup Expiration</strong></p>
+    <p>You wait until the IPO is complete and the 180-day lockup period expires. This reduces risk but may trigger different tax treatment depending on your option type.</p>
+
+    <p><strong>Strategy 3: Let Options Expire</strong></p>
+    <p>If your strike price is higher than the expected IPO price, or if you don't have the cash to exercise, you might simply let the options expire worthless. This happens more often than people think.</p>
+
+    <h2 id="the-pre-ipo-exercise-tax-math">The Pre-IPO Exercise Tax Math</h2>
+
+    <div class="highlight-box info">
+        <h3>The ISO vs NSO Difference</h3>
+        <p><strong>ISOs (Incentive Stock Options):</strong> No regular income tax at exercise. May trigger AMT if the spread (409A - strike) is large. If you hold 2+ years from grant and 1+ year from exercise, full gain qualifies for long-term capital gains (0-20% tax rate).</p>
+        <p><strong>NSOs (Non-Qualified Stock Options):</strong> Ordinary income tax on the spread at exercise (up to 37% federal + state). No AMT. Capital gains only apply to appreciation AFTER exercise.</p>
+    </div>
+
+    <p>The tax advantage of exercising before IPO comes down to <strong>qualifying for long-term capital gains</strong>.</p>
+    <p>For ISOs: If you exercise before IPO and hold through lockup, the entire gain (sale price minus strike price) can be taxed at long-term capital gains rates (15-20%) instead of ordinary income rates (up to 37%).</p>
+    <p>For NSOs: Exercising before IPO doesn't change your tax treatment much — you still pay ordinary income on the spread at exercise, and only post-exercise appreciation gets capital gains treatment.</p>
+
+    <div class="highlight-box warning">
+        <h3>The AMT Trap for ISOs</h3>
+        <p>If you exercise ISOs with a large spread before IPO, you might trigger AMT. Example: 40,000 options × ($18 409A - $2 strike) = $640,000 spread. This could trigger $50,000+ in AMT, even though you haven't sold any shares.</p>
+    </div>
+
+    <h2 id="the-lockup-period-risk">The Lockup Period Risk</h2>
+
+    <p>Most IPOs include a <strong>180-day lockup period</strong> where early employees and shareholders cannot sell their shares.</p>
+    <p>If you exercise before IPO, you become a shareholder and are subject to lockup. Your net worth is now tied to a stock you can't sell for 6+ months. If the stock crashes after IPO, you lose the exercise money AND the upside.</p>
+
+    <p><strong>Lockup Period Scenarios:</strong></p>
+    <ul>
+        <li><strong>Stock rises 50% post-IPO:</strong> You win big — your early exercise paid off</li>
+        <li><strong>Stock flat post-IPO:</strong> You break even, minus the time value of your exercise cash</li>
+        <li><strong>Stock drops 30% post-IPO:</strong> You lose — you paid to exercise and your shares are worth less</li>
+    </ul>
+
+    <h2 id="real-scenarios-which-strategy-wins">Real Scenarios: Which Strategy Wins?</h2>
+
+    <div class="scenario-box">
+        <div class="scenario-header">
+            <div class="scenario-icon">📊</div>
+            <h3>Scenario 1: ISOs, Low Strike, High Cash Flow</h3>
+        </div>
+        <p><strong>Situation:</strong> 40,000 ISOs at $2 strike. Current 409A: $18. Expected IPO price: $25. You have $80,000 in cash to exercise.</p>
+        <p><strong>Strategy: Exercise Before IPO</strong></p>
+        <div class="outcome">
+            <div class="outcome-label">Outcome at $30 IPO Price</div>
+            <div class="outcome-grid">
+                <div class="outcome-item">
+                    <span>Exercise Cost</span>
+                    <strong>$80,000</strong>
+                </div>
+                <div class="outcome-item">
+                    <span>Tax at Exercise</span>
+                    <strong>~$45,000 AMT</strong>
+                </div>
+                <div class="outcome-item">
+                    <span>Sale Proceeds</span>
+                    <strong>$1,200,000</strong>
+                </div>
+                <div class="outcome-item">
+                    <span>Net After Tax</span>
+                    <strong>~$915,000</strong>
+                </div>
+            </div>
+        </div>
+        <p><strong>Why this works:</strong> Low strike price means manageable AMT. You qualify for long-term capital gains on the full gain. High expected IPO price provides upside.</p>
+    </div>
+
+    <div class="scenario-box">
+        <div class="scenario-header">
+            <div class="scenario-icon">💰</div>
+            <h3>Scenario 2: NSOs, High Strike, Limited Cash</h3>
+        </div>
+        <p><strong>Situation:</strong> 20,000 NSOs at $15 strike. Current 409A: $18. Expected IPO price: $22. You have limited cash.</p>
+        <p><strong>Strategy: Wait Until After Lockup</strong></p>
+        <div class="outcome">
+            <div class="outcome-label">Outcome at $22 Sale After Lockup</div>
+            <div class="outcome-grid">
+                <div class="outcome-item">
+                    <span>Exercise Cost</span>
+                    <strong>$300,000</strong>
+                </div>
+                <div class="outcome-item">
+                    <span>Tax at Exercise</span>
+                    <strong>~$105,000 ordinary</strong>
+                </div>
+                <div class="outcome-item">
+                    <span>Sale Proceeds</span>
+                    <strong>$440,000</strong>
+                </div>
+                <div class="outcome-item">
+                    <span>Net After Tax</span>
+                    <strong>~$35,000</strong>
+                </div>
+            </div>
+        </div>
+        <p><strong>Why wait:</strong> High strike means small spread ($3/share). Limited cash makes exercise difficult. NSOs get ordinary income treatment regardless of timing — no tax advantage to early exercise.</p>
+    </div>
+
+    <div class="scenario-box">
+        <div class="scenario-header">
+            <div class="scenario-icon">⚠️</div>
+            <h3>Scenario 3: ISOs, High Spread, Uncertain IPO</h3>
+        </div>
+        <p><strong>Situation:</strong> 50,000 ISOs at $1 strike. Current 409A: $20. Expected IPO price: $22 (uncertain market). AMT exemption: $60,000.</p>
+        <p><strong>Strategy: Cashless Exercise or Wait</strong></p>
+        <div class="outcome">
+            <div class="outcome-label">AMT Calculation</div>
+            <div class="outcome-grid">
+                <div class="outcome-item">
+                    <span>Spread</span>
+                    <strong>$19 × 50,000 = $950,000</strong>
+                </div>
+                <div class="outcome-item">
+                    <span>AMT Impact</span>
+                    <strong>~$120,000+ AMT</strong>
+                </div>
+                <div class="outcome-item">
+                    <span>Risk</span>
+                    <strong>Lockup volatility</strong>
+                </div>
+                <div class="outcome-item">
+                    <span>Alternative</span>
+                    <strong>Wait until lockup ends</strong>
+                </div>
+            </div>
+        </div>
+        <p><strong>Why caution:</strong> Massive spread triggers huge AMT bill. Uncertain IPO price + lockup period = too much risk. Consider a cashless exercise (sell-to-cover) at IPO to reduce risk.</p>
+    </div>
+
+    <h2 id="your-decision-framework">Your Decision Framework</h2>
+
+    <p>Use this checklist to decide:</p>
+
+    <div class="highlight-box tip">
+        <h3>Exercise Before IPO IF:</h3>
+        <ul>
+            <li>✅ You have ISOs (not NSOs)</li>
+            <li>✅ Your strike price is low relative to 409A</li>
+            <li>✅ You have cash to cover exercise + AMT</li>
+            <li>✅ You believe in the company's long-term prospects</li>
+            <li>✅ The expected IPO price is significantly higher than 409A</li>
+        </ul>
+    </div>
+
+    <div class="highlight-box warning">
+        <h3>Wait Until After Lockup IF:</h3>
+        <ul>
+            <li>⚠️ You have NSOs (no tax advantage to early exercise)</li>
+            <li>⚠️ Your strike price is close to 409A (small spread)</li>
+            <li>⚠️ You don't have cash for exercise + AMT</li>
+            <li>⚠️ You're risk-averse or need liquidity soon</li>
+            <li>⚠️ The IPO market is volatile or uncertain</li>
+        </ul>
+    </div>
+
+    <div class="cta-box">
+        <h3>Calculate Your Specific Tax Impact</h3>
+        <p>Every situation is different. Use the <a href="../../equity-tax-calculator.html" style="color:var(--accent-light);">Equity Tax Calculator</a> to estimate your AMT, ordinary income tax, and capital gains based on your actual numbers.</p>
+        <a href="../../equity-tax-calculator.html" class="cta-btn">Calculate My Tax Impact →</a>
+    </div>
+
+    <h2>The Bottom Line</h2>
+
+    <p>Exercising before IPO makes sense when you have <strong>ISOs, a low strike price, available cash, and confidence in the company's post-IPO performance</strong>. The tax savings from qualifying for long-term capital gains can be substantial.</p>
+
+    <p>Waiting until after lockup makes sense when you have <strong>NSOs, limited cash, or want to avoid lockup period risk</strong>. You might pay slightly more in taxes, but you avoid the risk of being locked into an underwater position.</p>
+
+    <p>The key is to <strong>run the numbers for your specific situation</strong> — not follow generic advice. Use the calculator, understand your AMT exposure, and make the decision that aligns with your risk tolerance and financial goals.</p>
+
+    <div class="highlight-box">
+        <h3>Related Guides</h3>
+        <ul>
+            <li><a href="../stock-option-exercise-strategies.html">Stock Option Exercise Strategies</a> — broader timing guide</li>
+            <li><a href="../posts/startup-equity-tax-guide.html">Startup Equity Tax Guide</a> — ISO vs NSO, 83(b), AMT explained</li>
+            <li><a href="../iso-vs-nso-guide.html">ISO vs NSO Comparison</a> — detailed tax treatment breakdown</li>
+        </ul>
+    </div>
+</article>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <p>© 2026 FounderMath. All rights reserved.</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="../../">Home</a></li>
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../blog.html">Blog</a></li>
+            <li><a href="../../equity-glossary.html">Glossary</a></li>
+            <li><a href="https://twitter.com/foundermath" target="_blank" rel="noopener">@foundermath</a></li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>
