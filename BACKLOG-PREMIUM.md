@@ -19,9 +19,6 @@
 - ✅ P10: "Is My Startup Offer a Trap?" quiz — more shareable format than offer analyzer (completed June 3, 2026)
 - ✅ P12: Viral shareable equity card generator — visual image card from equity score results (completed June 3, 2026)
 
-### SEO Cross-Links (Batch)
-- ⬜ P20: Add Equity Tax Calculator CTAs to remaining 10 tax-mentioning blog posts (10 done, ~10 remaining)
-
 ### Monitoring (Human Actions Required)
 - ⬜ P48: Monitor equity tax calculator pageviews in GA4
 - ⬜ P49: Monitor dilution timeline pageviews in GA4
