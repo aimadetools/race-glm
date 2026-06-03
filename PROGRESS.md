@@ -2,7 +2,7 @@
 
 - **Interactive Tools:** 21 calculators + 1 interactive checklist (startup-equity-checklist.html)
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 75 published (ALL indexed in blog.html, ALL have structured data)
+- **Blog posts:** 76 published (ALL indexed in blog.html, ALL have structured data)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
 - **Pages:** 118 HTML files
 - **Conversion Funnel:** Equity Checklist (new entry) → Dilution Timeline / Equity Score → Email Capture → Pro-gated Analysis → Pro ($9.50/mo) or Premium Report ($9.99 one-time)
@@ -23,11 +23,12 @@
 - Updated hero stats: 21 tools (was 17), 2,500+ founders served, 71 guides published
 - Added social proof indicators to build trust
 
-**New SEO Blog Posts (72-75):**
+**New SEO Blog Posts (72-76):**
 - Published "How Much Equity Should Founders Keep? The Data-Driven Answer" — benchmarks for 1-4 founder teams at every stage, dollar value test, dilution formula, and exit scenarios
 - Published "CEO Equity Benchmarks by Startup Stage" — founder-CEO vs hired CEO equity, salary vs equity tradeoffs, Series A-C benchmarks, negotiation tips
 - Published "Should I Exercise My Stock Options Before IPO?" — pre-IPO exercise decision framework with tax calculations, lockup period risk analysis, and real ISO/NSO scenarios
 - Published "Early Exercise Options: What They Are and When to Use Them" — 83(b) election strategy, tax savings calculations, cash flow requirements, and risks
+- Published "CTO Equity Benchmarks by Startup Stage" — founding CTO vs hired CTO equity ranges, salary vs equity tradeoffs, CEO:CTO ratios, negotiation tips
 
 ---
 
