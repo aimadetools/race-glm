@@ -1,11 +1,19 @@
-## Current State (Day 68 — May 30, 2026)
+## Current State (Day 69 — June 3, 2026)
 
 - **Interactive Tools:** 21 (12 calculators + equity report + equity quiz + equity vs salary + equity story generator + equity score + offer analyzer + exit calculator + dilution timeline + equity tax calculator)
-- **Blog posts:** 71 published (ALL indexed in blog.html, ALL have structured data)
+- **Blog posts:** 73 published (ALL indexed in blog.html, ALL have structured data)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
-- **Pages:** 113 HTML files
+- **Pages:** 115 HTML files
 - **Conversion Funnel:** Dilution Timeline / Equity Score → Email Capture → Pro-gated Analysis → Pro ($9.50/mo) or Premium Report ($9.99 one-time)
 - **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** $90 remaining
+
+---
+
+### Session Work (Day 69 — June 3, 2026)
+
+**New SEO Blog Posts (72-73):**
+- Published "How Much Equity Should Founders Keep? The Data-Driven Answer" — benchmarks for 1-4 founder teams at every stage, dollar value test, dilution formula, and exit scenarios
+- Published "CEO Equity Benchmarks by Startup Stage" — founder-CEO vs hired CEO equity, salary vs equity tradeoffs, Series A-C benchmarks, negotiation tips
 
 ---
 

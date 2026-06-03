@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://founder-math.com/blog/posts/ceo-equity-benchmarks.html">
+    <title>CEO Equity Benchmarks by Startup Stage (2026 Data) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="How much equity should a CEO have? Data-driven benchmarks for founder-CEOs and hired CEOs at pre-seed through Series C startups. Plus salary vs equity tradeoffs.">
+    <meta name="keywords" content="CEO equity, founder CEO equity, hired CEO equity, CEO equity benchmarks, startup CEO salary, CEO equity compensation">
+    <meta property="og:title" content="CEO Equity Benchmarks by Startup Stage (2026 Data)">
+    <meta property="og:description" content="How much equity should a CEO have? Benchmarks for founder-CEOs and hired CEOs at every stage.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-equity.jpg">
+    <meta property="og:url" content="https://founder-math.com/blog/posts/ceo-equity-benchmarks.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "CEO Equity Benchmarks by Startup Stage (2026 Data)",
+        "author": {"@type": "Organization", "name": "FounderMath"},
+        "publisher": {"@type": "Organization", "name": "FounderMath", "logo": {"@type": "ImageObject", "url": "https://founder-math.com/logo.svg"}},
+        "datePublished": "2026-06-03",
+        "dateModified": "2026-06-03",
+        "description": "How much equity should a CEO have? Data-driven benchmarks for founder-CEOs and hired CEOs.",
+        "url": "https://founder-math.com/blog/posts/ceo-equity-benchmarks.html"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much equity should a CEO have in a startup?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Founder-CEOs typically own 15-40% at seed and 10-25% after Series A. Hired CEOs joining pre-seed startups receive 5-10%, while hired CEOs joining Series A companies receive 2-5%."}
+            },
+            {
+                "@type": "Question",
+                "name": "What is the average equity for a hired CEO?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Hired CEOs joining seed-stage startups receive 5-10% equity. Hired CEOs joining Series A startups receive 2-5%. Hired CEOs joining Series B+ companies receive 1-3%."}
+            },
+            {
+                "@type": "Question",
+                "name": "Do CEOs get equity or salary?",
+                "acceptedAnswer": {"@type": "Answer", "text": "CEOs receive both equity and salary. Founder-CEOs often take below-market salary ($80-150K) with higher equity (15-40%). Hired CEOs receive market salary ($200-350K) with lower equity (2-10%)."}
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f; --bg-secondary: #12121a; --bg-card: #1a1a2e;
+            --accent: #6c5ce7; --accent-light: #a29bfe; --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894; --gold: #feca57; --red: #ff6b6b;
+            --text-primary: #f0f0f5; --text-secondary: #a0a0b5; --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        article { max-width: 800px; margin: 0 auto; padding: 140px 24px 80px; }
+        .meta { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px; }
+        .meta span { margin-right: 16px; }
+        h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 24px; letter-spacing: -0.02em; }
+        h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .subtitle { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.6; }
+
+        h2 { font-size: 1.6rem; font-weight: 700; margin: 48px 0 20px; color: var(--text-primary); }
+        h3 { font-size: 1.2rem; font-weight: 600; margin: 32px 0 16px; color: var(--accent-light); }
+        p { margin-bottom: 20px; color: var(--text-secondary); }
+        ul, ol { margin: 16px 0 24px 24px; color: var(--text-secondary); }
+        li { margin-bottom: 8px; }
+        strong { color: var(--text-primary); font-weight: 600; }
+
+        .benchmark-table { width: 100%; border-collapse: collapse; margin: 24px 0; background: var(--bg-secondary); border-radius: 12px; overflow: hidden; }
+        .benchmark-table th, .benchmark-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        .benchmark-table th { background: var(--bg-card); font-weight: 600; color: var(--text-primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .benchmark-table tr:last-child td { border-bottom: none; }
+        .benchmark-table .number { font-family: var(--font-mono); font-weight: 600; color: var(--accent-light); }
+        .benchmark-table .founder { color: var(--green); }
+
+        .comparison-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin: 24px 0; }
+        .comparison-box h4 { color: var(--text-primary); font-size: 1rem; margin-bottom: 16px; }
+        .comparison-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .comparison-row:last-child { border-bottom: none; }
+        .comparison-label { color: var(--text-secondary); font-size: 0.9rem; }
+        .comparison-value { font-family: var(--font-mono); font-weight: 600; color: var(--accent-light); }
+
+        .example-box { background: var(--bg-card); border-left: 4px solid var(--accent); border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .example-box h4 { color: var(--text-primary); font-size: 1rem; margin-bottom: 10px; }
+        .example-box p { margin-bottom: 0; font-size: 0.9rem; }
+
+        .cta-box { background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 12px; padding: 32px; margin: 40px 0; text-align: center; }
+        .cta-box h3 { color: white; margin-bottom: 12px; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+        .cta-box a { display: inline-block; background: white; color: var(--accent); padding: 12px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; }
+
+        .tip-box { background: rgba(254, 202, 87, 0.1); border: 1px solid var(--gold); border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .tip-box h4 { color: var(--gold); font-size: 1rem; margin-bottom: 10px; }
+        .tip-box p { margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary); }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+
+        @media (max-width: 700px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; }
+            .mobile-toggle { display: block; }
+            article { padding: 120px 16px 60px; }
+            .comparison-row { grid-template-columns: 1fr; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo"><div class="logo-icon">%</div> FounderMath</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="dilution.html">Dilution</a></li>
+            <li><a href="safe.html">SAFE</a></li>
+            <li><a href="runway.html">Runway</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="equity-score.html" class="nav-cta">Equity Score</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<article>
+    <div class="meta">
+        <span>June 3, 2026</span>
+        <span>12 min read</span>
+    </div>
+    <h1>CEO Equity Benchmarks <span class="gradient">by Startup Stage</span></h1>
+    <p class="subtitle">How much equity should a CEO have? Real benchmarks for founder-CEOs and hired CEOs at pre-seed through Series C startups. Plus salary vs equity tradeoffs.</p>
+
+    <h2>The Big Picture: Founder-CEO vs Hired CEO</h2>
+    <p>There's a massive difference between founder-CEO equity and hired CEO equity. Here's what the data shows:</p>
+
+    <table class="benchmark-table">
+        <thead>
+            <tr>
+                <th>Stage</th>
+                <th>Founder-CEO Equity</th>
+                <th>Hired CEO Equity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Pre-Seed</strong></td>
+                <td class="number founder">40-60%</td>
+                <td class="number">5-10%</td>
+            </tr>
+            <tr>
+                <td><strong>Seed</strong></td>
+                <td class="number founder">25-40%</td>
+                <td class="number">5-8%</td>
+            </tr>
+            <tr>
+                <td><strong>Series A</strong></td>
+                <td class="number founder">15-25%</td>
+                <td class="number">2-5%</td>
+            </tr>
+            <tr>
+                <td><strong>Series B</strong></td>
+                <td class="number founder">10-18%</td>
+                <td class="number">1.5-3%</td>
+            </tr>
+            <tr>
+                <td><strong>Series C+</strong></td>
+                <td class="number founder">6-12%</td>
+                <td class="number">1-2%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Founder-CEO Equity by Stage</h2>
+    <p>Founder-CEOs start with significant ownership and dilute with each funding round. Here's how it typically plays out for a 2-founder team:</p>
+
+    <h3>At Company Formation</h3>
+    <ul>
+        <li><strong>2 founders:</strong> 40-50% each</li>
+        <li><strong>3 founders:</strong> 25-35% each</li>
+        <li><strong>4+ founders:</strong> 15-25% each</li>
+    </ul>
+
+    <h3>After Pre-Seed ($500K-$1.5M raised)</h3>
+    <p>Pre-seed rounds sell 10-20% of the company. A typical outcome:</p>
+    <ul>
+        <li><strong>2 founders:</strong> 35-45% each</li>
+        <li><strong>Option pool:</strong> 10-15%</li>
+        <li><strong>Pre-seed investors:</strong> 15-20%</li>
+    </ul>
+
+    <h3>After Seed ($1.5M-$3M raised)</h3>
+    <p>Seed rounds sell 15-25%. This is where dilution starts to hurt:</p>
+    <ul>
+        <li><strong>2 founders:</strong> 25-35% each</li>
+        <li><strong>Option pool:</strong> 15-20% (often expanded)</li>
+        <li><strong>Seed + pre-seed investors:</strong> 30-45%</li>
+    </ul>
+
+    <h3>After Series A ($7M-$15M raised)</h3>
+    <p>Series A sells 20-30%. Founder ownership drops significantly:</p>
+    <ul>
+        <li><strong>2 founders:</strong> 15-22% each</li>
+        <li><strong>Combined founder ownership:</strong> 30-44%</li>
+        <li><strong>Option pool:</strong> 15-20%</li>
+        <li><strong>Investors:</strong> 40-55%</li>
+    </ul>
+
+    <h3>After Series B and Beyond</h3>
+    <p>By Series B, founders own 10-15% each. By Series C, 6-10% each. This feels low but is normal for VC-backed startups.</p>
+
+    <h2>Hired CEO Equity by Stage</h2>
+    <p>Hired CEOs joining existing startups receive much less equity than founders. The later the stage, the lower the equity percentage.</p>
+
+    <h3>Hired CEO Joining Pre-Seed Startup</h3>
+    <p>A professional CEO joining a pre-seed startup (replacing a technical founder or brought in by investors):</p>
+    <ul>
+        <li><strong>Equity range:</strong> 5-10%</li>
+        <li><strong>Salary:</strong> $100-180K (below market)</li>
+        <li><strong>Vesting:</strong> 4 years, 1-year cliff</li>
+        <li><strong>Risk level:</strong> High (company likely pre-product or pre-revenue)</li>
+    </ul>
+
+    <h3>Hired CEO Joining Seed-Stage Startup</h3>
+    <p>Seed-stage companies have some traction but are still validating product-market fit:</p>
+    <ul>
+        <li><strong>Equity range:</strong> 5-8%</li>
+        <li><strong>Salary:</strong> $150-250K (still below market for CEO role)</li>
+        <li><strong>Vesting:</strong> 4 years, 1-year cliff</li>
+        <li><strong>Risk level:</strong> Moderate-High</li>
+    </ul>
+
+    <h3>Hired CEO Joining Series A Startup</h3>
+    <p>Series A companies have product-market fit and are scaling. The hired CEO role is more stable:</p>
+    <ul>
+        <li><strong>Equity range:</strong> 2-5%</li>
+        <li><strong>Salary:</strong> $200-350K (near market)</li>
+        <li><strong>Vesting:</strong> 4 years, 1-year cliff (or accelerated cliff)</li>
+        <li><strong>Risk level:</strong> Moderate</li>
+    </ul>
+
+    <div class="tip-box">
+        <h4>Negotiation Tip for Hired CEOs</h4>
+        <p>At Series A and later, negotiate for <strong>multi-trigger acceleration</strong> if you're replacing a founder-CEO. If the company is acquired or you're fired without cause, your remaining equity should vest immediately. This protects you from downside risk.</p>
+    </div>
+
+    <h3>Hired CEO Joining Series B+ Startup</h3>
+    <p>Series B and later companies have significant revenue and are scaling operations:</p>
+    <ul>
+        <li><strong>Equity range:</strong> 1-3%</li>
+        <li><strong>Salary:</strong> $250-400K (market rate or above)</li>
+        <li><strong>Vesting:</strong> 4 years, 1-year cliff</li>
+        <li><strong>Risk level:</strong> Low-Moderate</li>
+    </ul>
+
+    <h2>CEO Salary vs Equity Tradeoffs</h2>
+    <p>CEO compensation is a balance between cash and equity. Here's how it breaks down:</p>
+
+    <div class="comparison-box">
+        <h4>Founder-CEO Compensation</h4>
+        <div class="comparison-row">
+            <div class="comparison-label">Salary (Pre-Seed)</div>
+            <div class="comparison-value">$0-80K/year</div>
+        </div>
+        <div class="comparison-row">
+            <div class="comparison-label">Salary (Seed)</div>
+            <div class="comparison-value">$80-150K/year</div>
+        </div>
+        <div class="comparison-row">
+            <div class="comparison-label">Salary (Series A)</div>
+            <div class="comparison-value">$120-200K/year</div>
+        </div>
+        <div class="comparison-row">
+            <div class="comparison-label">Salary (Series B+)</div>
+            <div class="comparison-value">$150-300K/year</div>
+        </div>
+        <div class="comparison-row">
+            <div class="comparison-label">Equity</div>
+            <div class="comparison-value">10-60% (by stage)</div>
+        </div>
+    </div>
+
+    <div class="comparison-box">
+        <h4>Hired CEO Compensation</h4>
+        <div class="comparison-row">
+            <div class="comparison-label">Salary (Pre-Seed)</div>
+            <div class="comparison-value">$100-180K/year</div>
+        </div>
+        <div class="comparison-row">
+            <div class="comparison-label">Salary (Seed)</div>
+            <div class="comparison-value">$150-250K/year</div>
+        </div>
+        <div class="comparison-row">
+            <div class="comparison-label">Salary (Series A)</div>
+            <div class="comparison-value">$200-350K/year</div>
+        </div>
+        <div class="comparison-row">
+            <div class="comparison-label">Salary (Series B+)</div>
+            <div class="comparison-value">$250-400K/year</div>
+        </div>
+        <div class="comparison-row">
+            <div class="comparison-label">Equity</div>
+            <div class="comparison-value">1-10% (by stage)</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Example: Founder-CEO vs Hired CEO at Series A</h4>
+        <p><strong>Scenario:</strong> Series A startup, $15M raise, $45M post-money valuation.</p>
+        <p><strong>Founder-CEO:</strong> Owns 18% of company. Takes $150K salary. Equity value at exit: $18M (at $100M exit).</p>
+        <p><strong>Hired CEO:</strong> Joins with 3% equity. Takes $280K salary. Equity value at exit: $3M (at $100M exit).</p>
+        <p><strong>Gap:</strong> Founder-CEO makes $15M more in equity but takes $130K less in salary annually.</p>
+    </div>
+
+    <h2>When Founder-CEOs Lose Control</h2>
+    <p>A critical threshold for founder-CEOs: <strong>ownership dropping below 10%</strong>. Here's what happens:</p>
+    <ul>
+        <li><strong>Board control:</strong> Investors may control the board</li>
+        <li><strong>Voting power:</strong> Your votes may not matter anymore</li>
+        <li><strong>Termination risk:</strong> You can be fired as CEO (though you keep your vested equity)</li>
+    </ul>
+
+    <div class="tip-box">
+        <h4>Protecting Founder-CEO Control</h4>
+        <p>Negotiate these protections before signing term sheets:</p>
+        <ul>
+            <li><strong>Dual-class stock:</strong> 10 votes per founder share, 1 vote for investor shares</li>
+            <li><strong>Board seat:</strong> Guaranteed board seat as long as you're CEO</li>
+            <li><strong>Vesting acceleration:</strong> Single-trigger acceleration if terminated without cause</li>
+        </ul>
+    </div>
+
+    <h2>Exit Scenarios: What CEO Equity Is Worth</h2>
+    <p>Let's model real dollar outcomes for CEO equity at different exit values:</p>
+
+    <table class="benchmark-table">
+        <thead>
+            <tr>
+                <th>CEO Ownership</th>
+                <th>$20M Exit</th>
+                <th>$50M Exit</th>
+                <th>$100M Exit</th>
+                <th>$500M Exit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="number">1% (Hired CEO, Series B+)</td>
+                <td class="number">$200K</td>
+                <td class="number">$500K</td>
+                <td class="number">$1M</td>
+                <td class="number">$5M</td>
+            </tr>
+            <tr>
+                <td class="number">3% (Hired CEO, Series A)</td>
+                <td class="number">$600K</td>
+                <td class="number">$1.5M</td>
+                <td class="number">$3M</td>
+                <td class="number">$15M</td>
+            </tr>
+            <tr>
+                <td class="number">5% (Hired CEO, Seed)</td>
+                <td class="number">$1M</td>
+                <td class="number">$2.5M</td>
+                <td class="number">$5M</td>
+                <td class="number">$25M</td>
+            </tr>
+            <tr>
+                <td class="number">15% (Founder-CEO, Series A)</td>
+                <td class="number">$3M</td>
+                <td class="number">$7.5M</td>
+                <td class="number">$15M</td>
+                <td class="number">$75M</td>
+            </tr>
+            <tr>
+                <td class="number founder">25% (Founder-CEO, Seed)</td>
+                <td class="number">$5M</td>
+                <td class="number">$12.5M</td>
+                <td class="number">$25M</td>
+                <td class="number">$125M</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Red Flags in CEO Equity Offers</h2>
+    <p>Watch out for these warning signs when negotiating CEO equity:</p>
+    <ul>
+        <li><strong>< 1% at Series A:</strong> This is too low for a CEO role. Market is 2-5%.</li>
+        <li><strong>< 0.5% at Series B+:</strong> Indicates either a huge equity pool already allocated or a low-ball offer.</li>
+        <li><strong>No acceleration provisions:</strong> As CEO, you need single-trigger acceleration if terminated without cause.</li>
+        <li><strong>Excessive clawback clauses:</strong> Watch for clauses that let the company repurchase your equity at cost if you leave.</li>
+        <li><strong>No performance bonuses:</strong> CEOs should have equity refresh grants tied to milestones (IPO, acquisition, revenue targets).</li>
+    </ul>
+
+    <h2>FAQ: CEO Equity</h2>
+
+    <h3>How much equity should a startup CEO have?</h3>
+    <p>Founder-CEOs typically own 15-40% at seed and 10-25% after Series A. Hired CEOs joining seed-stage startups receive 5-10%, while hired CEOs joining Series A companies receive 2-5%. The later the stage, the lower the equity percentage.</p>
+
+    <h3>What is the average equity for a hired CEO?</h3>
+    <p>Hired CEOs joining pre-seed startups receive 5-10% equity. Hired CEOs joining seed-stage startups receive 5-8%. Hired CEOs joining Series A startups receive 2-5%. Hired CEOs joining Series B+ companies receive 1-3%.</p>
+
+    <h3>Do CEOs get equity or salary?</h3>
+    <p>CEOs receive both equity and salary. Founder-CEOs often take below-market salary ($80-150K) with higher equity (15-40%). Hired CEOs receive market salary ($200-350K) with lower equity (2-10%). The equity-salary tradeoff depends on company stage and whether the CEO is a founder.</p>
+
+    <h3>How much equity does a CEO get in a Series A startup?</h3>
+    <p>Founder-CEOs own 15-25% after Series A. Hired CEOs joining Series A companies receive 2-5% equity. The exact amount depends on the CEO's experience, the company's traction, and negotiation.</p>
+
+    <h3>What percentage does a CEO typically own?</h3>
+    <p>Founder-CEOs typically own 25-40% at seed, 15-25% after Series A, and 10-18% after Series B. Hired CEOs typically own 5-10% at seed, 2-5% at Series A, and 1-3% at Series B and beyond.</p>
+
+    <div class="cta-box">
+        <h3>Check Your CEO Equity Score</h3>
+        <p>Get a free 0-100 score on your CEO equity offer. See how you compare to industry benchmarks.</p>
+        <a href="equity-score.html">Get Your Equity Score →</a>
+    </div>
+
+    <h2>Key Takeaways</h2>
+    <ol>
+        <li><strong>Founder-CEO equity dilutes with each round:</strong> 50% → 30% → 18% → 12% → 8% is normal.</li>
+        <li><strong>Hired CEO equity drops by stage:</strong> 10% (pre-seed) → 5-8% (seed) → 2-5% (Series A) → 1-3% (Series B+).</li>
+        <li><strong>Salary inversely correlates with equity:</strong> Higher equity means lower salary (and vice versa).</li>
+        <li><strong>Protect your position:</strong> Negotiate dual-class stock, board seats, and single-trigger acceleration.</li>
+        <li><strong>Dollar value matters more than percentage:</strong> 3% of a $100M exit is $3M — life-changing money for most hired CEOs.</li>
+    </ol>
+
+    <p>Want to see how your CEO equity compares to benchmarks? Use our <a href="equity-score.html" style="color: var(--accent-light);">Equity Score</a> tool to get an instant analysis.</p>
+</article>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left"><p>&copy; 2026 FounderMath. Built for founders, by founders.</p></div>
+        <ul class="footer-links">
+            <li><a href="dilution.html">Dilution Calculator</a></li>
+            <li><a href="equity-score.html">Equity Score</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script>
+if (typeof gtag === 'function') {
+    gtag('event', 'page_view', { page_title: 'CEO Equity Benchmarks' });
+}
+</script>
+</body>
+</html>
