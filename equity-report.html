@@ -366,6 +366,70 @@
         .share-btn.linkedin { border-color: #0077b5; color: #0077b5; }
         .share-btn.copy { border-color: var(--green); color: var(--green); }
 
+        /* Paywall Gate */
+        .paywall-gate {
+            position: relative;
+            margin-bottom: 32px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .paywall-content {
+            filter: blur(5px);
+            pointer-events: none;
+            user-select: none;
+            opacity: 0.6;
+        }
+        .paywall-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 10, 15, 0.75);
+            padding: 24px;
+        }
+        .paywall-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--accent);
+            border-radius: 16px;
+            padding: 40px 32px;
+            text-align: center;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 0 60px var(--accent-glow);
+        }
+        .paywall-card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
+        .paywall-card .paywall-subtitle { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px; }
+        .paywall-card .paywall-features {
+            text-align: left;
+            margin-bottom: 24px;
+            padding: 0 12px;
+        }
+        .paywall-card .paywall-feat {
+            display: flex; align-items: center; gap: 10px;
+            padding: 8px 0; font-size: 0.9rem; color: var(--text-secondary);
+        }
+        .paywall-card .paywall-feat svg { flex-shrink: 0; }
+        .paywall-card .paywall-cta {
+            display: block;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white; padding: 14px 28px; border-radius: 10px;
+            font-weight: 700; text-decoration: none; font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 12px;
+        }
+        .paywall-card .paywall-cta:hover {
+            transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow);
+        }
+        .paywall-card .paywall-alt {
+            display: block;
+            color: var(--text-muted); font-size: 0.85rem; text-decoration: none;
+            margin-top: 4px;
+        }
+        .paywall-card .paywall-alt:hover { color: var(--text-secondary); }
+
         /* Comparison Card */
         .comparison-card {
             background: var(--bg-secondary); border: 1px solid var(--border);
@@ -437,9 +501,9 @@
     <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">Free — No signup required</div>
+            <div class="hero-badge">Free Preview — No signup required</div>
             <h1>Get Your <span class="gradient">Free Equity Dilution Report</span></h1>
-            <p>See exactly how much equity you'll keep after each funding round. Personalized analysis based on your real numbers. Takes 30 seconds.</p>
+            <p>See your basic dilution summary free. Unlock the full report with charts, recommendations, and PDF download for $9.99.</p>
         </div>
     </section>
 
@@ -500,15 +564,15 @@
                     </select>
                 </div>
             </div>
-            <button class="generate-btn" onclick="generateReport()" id="generateBtn">Generate My Free Report</button>
-            <p class="form-note">100% free. Your data stays in your browser.</p>
+            <button class="generate-btn" onclick="generateReport()" id="generateBtn">Generate My Free Preview</button>
+            <p class="form-note">Free basic summary. Full report with charts + PDF: $9.99.</p>
         </div>
     </section>
 
     <!-- Results -->
     <section class="results-section" id="resultsSection" data-date="">
         <div class="results-header">
-            <h2>Your Equity Dilution Report</h2>
+            <h2>Your Equity Dilution Report <span style="font-size:0.5em;color:var(--text-muted);font-weight:400;">(Free Preview)</span></h2>
             <p class="subtitle" id="reportSubtitle"></p>
         </div>
 
@@ -531,6 +595,7 @@
                 <div class="metric-label">Your Exit Value</div>
             </div>
         </div>
+        <p style="text-align:center;color:var(--text-muted);font-size:0.85rem;margin:-16px 0 24px;">Free preview. <a href="equity-report-premium.html" style="color:var(--accent-light);text-decoration:none;">Unlock full report with charts + PDF for $9.99 &rarr;</a></p>
 
         <!-- Comparison -->
         <div class="comparison-card">
@@ -554,43 +619,74 @@
             </table>
         </div>
 
-        <!-- Chart -->
-        <div class="chart-wrap">
-            <h3>Your Equity Over Time</h3>
-            <div class="chart-container">
-                <canvas id="reportChart"></canvas>
+        <!-- Paywall Gate: Chart, Recommendations, PDF -->
+        <div class="paywall-gate">
+            <div class="paywall-overlay">
+                <div class="paywall-card">
+                    <h3>Unlock Your Full Report</h3>
+                    <p class="paywall-subtitle">Get the complete equity analysis with visual charts, personalized recommendations, and professional PDF download.</p>
+                    <div class="paywall-features">
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Visual equity dilution chart
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Personalized recommendations
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Industry benchmark comparison
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Professional PDF download
+                        </div>
+                    </div>
+                    <a href="equity-report-premium.html" class="paywall-cta" onclick="if(typeof gtag==='function')gtag('event','paywall_click',{source:'equity_report',action:'full_report'})">Get Full Report — $9.99</a>
+                    <a href="pricing.html" class="paywall-alt" onclick="if(typeof gtag==='function')gtag('event','paywall_click',{source:'equity_report',action:'pro'})">Or get unlimited reports with Pro — $9.50/mo &rarr;</a>
+                </div>
             </div>
-        </div>
+            <div class="paywall-content">
+                <!-- Chart (blurred behind paywall) -->
+                <div class="chart-wrap">
+                    <h3>Your Equity Over Time</h3>
+                    <div class="chart-container">
+                        <canvas id="reportChart"></canvas>
+                    </div>
+                </div>
 
-        <!-- Recommendations -->
-        <div class="recommendations" id="recommendations">
-            <h3>Personalized Recommendations</h3>
-        </div>
+                <!-- Recommendations (blurred behind paywall) -->
+                <div class="recommendations" id="recommendations">
+                    <h3>Personalized Recommendations</h3>
+                </div>
 
-        <!-- PDF Download Gate -->
-        <div class="email-gate" id="emailGate">
-            <h3>Download Your Professional Report</h3>
-            <p>Get this report as a formatted PDF you can share with co-founders, investors, and advisors. Enter your email to download.</p>
-            <form class="email-form" onsubmit="handleEmail(event)">
-                <input type="email" id="reportEmail" placeholder="founder@startup.com" required>
-                <button type="submit">Download PDF Report</button>
-            </form>
-            <p class="note">We'll add you to our free weekly equity insights newsletter. Unsubscribe anytime.</p>
-        </div>
+                <!-- PDF Download Gate (blurred behind paywall) -->
+                <div class="email-gate" id="emailGate">
+                    <h3>Download Your Professional Report</h3>
+                    <p>Get this report as a formatted PDF you can share with co-founders, investors, and advisors. Enter your email to download.</p>
+                    <form class="email-form" onsubmit="handleEmail(event)">
+                        <input type="email" id="reportEmail" placeholder="founder@startup.com" required>
+                        <button type="submit">Download PDF Report</button>
+                    </form>
+                    <p class="note">We'll add you to our free weekly equity insights newsletter. Unsubscribe anytime.</p>
+                </div>
 
-        <!-- PDF Download Area (shown after email capture) -->
-        <div id="pdfDownloadArea" style="display:none;text-align:center;margin-bottom:32px;">
-            <div style="background:linear-gradient(135deg,rgba(0,184,148,0.15),rgba(0,206,201,0.1));border:1px solid var(--green);border-radius:12px;padding:24px;">
-                <h3 style="color:var(--green);margin-bottom:8px;">Your report is ready!</h3>
-                <p style="color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem;">Click below to download your professional equity dilution report as a PDF.</p>
-                <button onclick="downloadPDF()" style="background:var(--green);color:white;border:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;font-family:var(--font-sans);">Download PDF Report</button>
+                <!-- PDF Download Area (blurred behind paywall) -->
+                <div id="pdfDownloadArea" style="display:none;text-align:center;margin-bottom:32px;">
+                    <div style="background:linear-gradient(135deg,rgba(0,184,148,0.15),rgba(0,206,201,0.1));border:1px solid var(--green);border-radius:12px;padding:24px;">
+                        <h3 style="color:var(--green);margin-bottom:8px;">Your report is ready!</h3>
+                        <p style="color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem;">Click below to download your professional equity dilution report as a PDF.</p>
+                        <button onclick="downloadPDF()" style="background:var(--green);color:white;border:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;font-family:var(--font-sans);">Download PDF Report</button>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Pro CTA -->
         <div class="pro-cta">
             <h3>Want unlimited reports + scenario comparison?</h3>
-            <p>Upgrade to Pro and generate PDF reports for every scenario. Compare funding rounds side-by-side, model multi-round dilution, and export all charts.</p>
+            <p>Get FounderMath Pro for unlimited PDF reports across all 23 tools, side-by-side scenario comparison, and multi-round simulation.</p>
             <div class="features-list">
                 <span class="feat">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
@@ -732,7 +828,8 @@
             gtag('event', 'report_generated', {
                 starting_equity: equity,
                 stage: stage,
-                num_rounds: numRounds
+                num_rounds: numRounds,
+                report_type: 'free_preview'
             });
         }
     }
@@ -743,7 +840,7 @@
         document.getElementById('formSection').style.display = 'none';
 
         document.getElementById('reportSubtitle').textContent =
-            'Starting at ' + d.startingEquity + '% ownership, ending at ' + d.finalOwnership.toFixed(1) + '% after ' + (d.steps.length - 1) + ' funding rounds';
+            'Free preview: ' + d.startingEquity + '% starting \u2192 ' + d.finalOwnership.toFixed(1) + '% final after ' + (d.steps.length - 1) + ' rounds';
 
         // Key metrics
         document.getElementById('metricStart').textContent = d.startingEquity + '%';
