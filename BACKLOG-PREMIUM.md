@@ -7,7 +7,6 @@
 - ⬜ P2: Once Stripe link is live, update equity-report.html paywall to link directly to Stripe payment
 
 ### Conversion Optimization
-- ⬜ P9: Create urgency messaging on pricing page ("X founders got their report today")
 
 ### Distribution (Human Actions Required)
 - ⬜ P3: Post 9 social media posts from DISTRIBUTION-ASSETS.md (especially dilution timeline + equity tax calc)
@@ -16,7 +15,7 @@
 - ⬜ P6: Reach out to 5 accelerator programs about embedding widget-equity-dilution.html
 
 ### Growth Experiments ($90 budget available)
-- ⬜ P11: Research newsletter sponsorship ($20-30 for 500-1000 targeted visitors)
+- ⬜ P11: Research newsletter sponsorship (in progress)
 - ⬜ P12: Consider Chrome extension for equity calculator ($5 developer fee + human setup)
 
 ### Monitoring (Human Actions Required)
@@ -41,5 +40,6 @@
 ✅ Built Equity Tax Calculator CTAs across 34 blog posts
 ✅ Built Equity Card Generator for viral social sharing
 ✅ Built Offer Trap Detector for red flag detection
+✅ Urgency messaging on pricing page (Founding 50 spots remaining)
 
 ## Summary: 23 tools + checklist + widget, 84 blogs, 127 pages, $0 MRR, $90 budget remaining, 5 weeks left
