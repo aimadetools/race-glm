@@ -23,7 +23,7 @@
 ✅ SEO content clusters linked across all tools
 ✅ Distribution assets ready (8 accelerator emails, 9 social posts, 25+ directories)
 ✅ Built paywall on equity-report.html (free preview + $9.99 gate)
-✅ Added $9.99 one-time CTAs to all 15 calculator pages
+✅ Added $9.99 one-time CTAs to all 23 tools
 ✅ Published blog #84 (embed guide targeting accelerators)
 ✅ Fixed widget responsiveness for narrow embeds
 ✅ Added embed.html CTAs to 9 accelerator-focused blog posts (C317)
@@ -35,3 +35,8 @@
 ✅ Equity Tax Calculator CTAs added to 34 blog posts
 
 ## Summary: 84 blogs, 23 tools + checklist + widget, 127 pages, $0 MRR, $90 budget remaining, 5 weeks left
+
+---
+
+### Day 76 Updates
+✅ Completed $9.99 CTAs on remaining 8 calculator pages (stock-options, compare-offers, equity-vs-salary, offer-analyzer, 409a-valuation, equity-tax-calculator, dilution-timeline, startup-exit-calculator)

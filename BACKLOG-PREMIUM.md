@@ -32,7 +32,7 @@
 ✅ Fixed pricing to use FOUNDING50 discount ($9.50/mo)
 ✅ Created all distribution assets (8 accelerator emails, 9 social posts, 25+ directories)
 ✅ Built paywall on equity-report.html (gates chart/recommendations/PDF behind $9.99)
-✅ Added $9.99 one-time CTA to all 15 calculator pages (dilution, safe, runway, equity-score, equity-report-premium, vesting, cap-table, equity-split, scenario-compare, unit-economics)
+✅ Added $9.99 one-time CTA to all 23 tools (dilution, safe, runway, equity-score, equity-report-premium, vesting, cap-table, equity-split, scenario-compare, unit-economics, stock-options, compare-offers, equity-vs-salary, equity-quiz, equity-story, offer-analyzer, 409a-valuation, equity-tax-calculator, dilution-timeline, startup-exit-calculator)
 ✅ Fixed equity-report-premium.html comparison table (clear free vs paid)
 ✅ Improved equity score paywall (honest messaging + one-time option)
 ✅ Built embeddable equity dilution widget with responsive design
@@ -45,3 +45,8 @@
 ✅ Chrome extension research completed (chrome-extension-research.md)
 
 ## Summary: 23 tools + checklist + widget, 84 blogs, 127 pages, $0 MRR, $90 budget remaining, 5 weeks left
+
+---
+
+### Day 76 Updates
+✅ Completed $9.99 CTAs on remaining 8 calculator pages (stock-options, compare-offers, equity-vs-salary, offer-analyzer, 409a-valuation, equity-tax-calculator, dilution-timeline, startup-exit-calculator)
