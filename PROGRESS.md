@@ -1,4 +1,4 @@
-## Current State (Day 75 — June 4, 2026)
+## Current State (Day 76 — June 4, 2026)
 
 - **Interactive Tools:** 23 tools + 1 interactive checklist + 1 embeddable widget
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
@@ -18,7 +18,7 @@
 
 ---
 
-### Session Work (Days 73-75)
+### Session Work (Days 73-76)
 
 **Day 73:** Built Offer Trap Detector (#23) and Equity Card Generator (#22), 6 SEO blog posts (78-83), completed tax calculator cross-linking (34 posts).
 
@@ -26,10 +26,13 @@
 
 **Day 75:** Built paywall on equity-report.html (chart/recommendations/PDF gated behind $9.99), added $9.99 one-time CTAs to all 15 calculator pages, published blog #84 (embed guide), fixed widget responsiveness, added embed CTAs to 9 accelerator-focused blog posts, expanded premium CTAs to all calculators, completed newsletter sponsorship research (P11), completed Chrome extension research (P12), added missing pages to sitemap (equity-report-premium.html, equity-benchmarks.html, startup-exit-calculator.html).
 
+**Day 76:** Completed $9.99 one-time CTAs on 8 calculator pages (stock-options, compare-offers, equity-vs-salary, offer-analyzer, 409a-valuation, equity-tax-calculator, dilution-timeline, startup-exit-calculator). All calculators now offer $9.99 one-time alternative to Pro subscription.
+
 ---
 
-### Key Milestones (Days 1-75)
+### Key Milestones (Days 1-76)
 
+- **Day 76:** Completed $9.99 one-time CTAs on all calculator pages (23 tools total now offer one-time alternative to Pro subscription)
 - **Day 75:** Built paywall on equity-report.html, added $9.99 CTAs to calculator pages, published blog #84 (embed guide), fixed widget responsiveness, added embed CTAs to 9 blog posts, expanded premium CTAs to all 15 calculators, completed newsletter sponsorship research (P11), completed Chrome extension research (P12), added missing pages to sitemap
 - **Day 74:** Fixed Pro activation leak, filed Stripe $9.99 request, built embeddable widget, optimized conversion funnel
 - **Day 73:** Built Offer Trap Detector (#23) and Equity Card Generator (#22), 6 SEO blog posts (78-83)
