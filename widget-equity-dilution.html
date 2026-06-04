@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equity Dilution Calculator Widget — FounderMath</title>
+    <style>
+        :root {
+            --fm-bg: #ffffff;
+            --fm-text: #1a1a2e;
+            --fm-text-secondary: #555570;
+            --fm-border: #e0e0e8;
+            --fm-accent: #6c5ce7;
+            --fm-accent-light: #a29bfe;
+            --fm-green: #00b894;
+            --fm-red: #ff6b6b;
+            --fm-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--fm-font);
+            background: var(--fm-bg);
+            color: var(--fm-text);
+            padding: 16px;
+            line-height: 1.5;
+        }
+        h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; color: var(--fm-text); }
+        .form-row { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+        .form-group { flex: 1; min-width: 120px; }
+        .form-group label { display: block; font-size: 0.75rem; font-weight: 600; color: var(--fm-text-secondary); margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.04em; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 8px 10px; border: 1px solid var(--fm-border);
+            border-radius: 6px; font-size: 0.85rem; font-family: var(--fm-font);
+            background: #fafafa; color: var(--fm-text); transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--fm-accent); }
+        .calc-btn {
+            width: 100%; padding: 10px; background: var(--fm-accent); color: white;
+            border: none; border-radius: 6px; font-weight: 700; font-size: 0.9rem;
+            cursor: pointer; font-family: var(--fm-font); margin-bottom: 14px;
+            transition: background 0.2s;
+        }
+        .calc-btn:hover { background: var(--fm-accent-light); }
+        .results { display: none; }
+        .results.visible { display: block; }
+        .results-header { font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; }
+        .round-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; font-size: 0.82rem; }
+        .round-table th { text-align: left; padding: 6px 8px; background: #f5f5fa; border-bottom: 2px solid var(--fm-border); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--fm-text-secondary); }
+        .round-table td { padding: 6px 8px; border-bottom: 1px solid #f0f0f5; }
+        .round-table tr:hover td { background: #f8f8ff; }
+        .bar-chart { display: flex; align-items: flex-end; gap: 6px; height: 100px; margin-bottom: 12px; padding: 0 4px; }
+        .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+        .bar { width: 100%; border-radius: 4px 4px 0 0; transition: height 0.6s ease; min-height: 2px; }
+        .bar-label { font-size: 0.65rem; color: var(--fm-text-secondary); text-align: center; }
+        .bar-value { font-size: 0.7rem; font-weight: 700; }
+        .summary { background: #f5f5fa; border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+        .summary-stat { display: flex; justify-content: space-between; padding: 3px 0; font-size: 0.82rem; }
+        .summary-stat .label { color: var(--fm-text-secondary); }
+        .summary-stat .value { font-weight: 700; font-family: 'SF Mono', 'Fira Code', monospace; }
+        .summary-stat .value.red { color: var(--fm-red); }
+        .summary-stat .value.green { color: var(--fm-green); }
+        .watermark { text-align: center; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--fm-border); }
+        .watermark a { color: var(--fm-accent); text-decoration: none; font-size: 0.75rem; font-weight: 600; }
+        .watermark a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h2>Equity Dilution Calculator</h2>
+    <form id="widgetForm" onsubmit="return calculateDilution(event)">
+        <div class="form-row">
+            <div class="form-group">
+                <label>Starting Equity %</label>
+                <input type="number" id="startEquity" min="0.1" max="100" step="0.1" value="33" required>
+            </div>
+            <div class="form-group">
+                <label>Rounds</label>
+                <select id="rounds">
+                    <option value="1">1 round</option>
+                    <option value="2">2 rounds</option>
+                    <option value="3" selected>3 rounds</option>
+                    <option value="4">4 rounds</option>
+                    <option value="5">5 rounds</option>
+                </select>
+            </div>
+        </div>
+        <div id="roundInputs"></div>
+        <button type="submit" class="calc-btn">Calculate Dilution</button>
+    </form>
+
+    <div class="results" id="results">
+        <div class="summary" id="summary"></div>
+        <div class="bar-chart" id="barChart"></div>
+        <table class="round-table" id="roundTable">
+            <thead><tr><th>Round</th><th>Investment</th><th>Your Equity</th><th>Dilution</th></tr></thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <div class="watermark">
+        <a href="https://founder-math.com/?utm_source=widget&utm_medium=embed&utm_campaign=dilution_widget" target="_blank" rel="noopener">Powered by FounderMath</a> — <a href="https://founder-math.com/dilution.html?utm_source=widget&utm_medium=embed" target="_blank" rel="noopener">Full Calculator</a>
+    </div>
+
+    <script>
+    var ROUND_LABELS = ['Pre-Seed', 'Seed', 'Series A', 'Series B', 'Series C'];
+    var ROUND_DEFAULTS = [20, 25, 30, 25, 20]; // % equity sold per round
+
+    function renderRoundInputs() {
+        var n = parseInt(document.getElementById('rounds').value);
+        var container = document.getElementById('roundInputs');
+        var html = '';
+        for (var i = 0; i < n; i++) {
+            html += '<div class="form-row"><div class="form-group"><label>' + ROUND_LABELS[i] + ' — % Equity Sold</label>' +
+                '<input type="number" id="round' + i + '" min="1" max="50" step="0.5" value="' + ROUND_DEFAULTS[i] + '"></div></div>';
+        }
+        container.innerHTML = html;
+    }
+
+    document.getElementById('rounds').addEventListener('change', renderRoundInputs);
+    renderRoundInputs();
+
+    function calculateDilution(e) {
+        e.preventDefault();
+        var equity = parseFloat(document.getElementById('startEquity').value);
+        var n = parseInt(document.getElementById('rounds').value);
+        var roundPcts = [];
+        for (var i = 0; i < n; i++) {
+            roundPcts.push(parseFloat(document.getElementById('round' + i).value));
+        }
+
+        var current = equity;
+        var history = [{ label: 'You Start', equity: current, dilution: 0 }];
+        for (var i = 0; i < n; i++) {
+            var dilution = current * (roundPcts[i] / 100);
+            current = current - dilution;
+            history.push({ label: ROUND_LABELS[i], equity: current, dilution: dilution });
+        }
+
+        // Summary
+        var totalDiluted = equity - current;
+        var pctDiluted = ((totalDiluted / equity) * 100).toFixed(1);
+        var summaryEl = document.getElementById('summary');
+        summaryEl.innerHTML =
+            '<div class="summary-stat"><span class="label">Starting equity</span><span class="value">' + equity + '%</span></div>' +
+            '<div class="summary-stat"><span class="label">After ' + n + ' rounds</span><span class="value">' + current.toFixed(1) + '%</span></div>' +
+            '<div class="summary-stat"><span class="label">Total dilution</span><span class="value red">-' + totalDiluted.toFixed(1) + '% (' + pctDiluted + '%)</span></div>' +
+            '<div class="summary-stat"><span class="label">On a $10M exit</span><span class="value green">$' + (current / 100 * 10).toFixed(2) + 'M yours</span></div>';
+
+        // Bar chart
+        var maxEq = equity;
+        var chartEl = document.getElementById('barChart');
+        var chartHtml = '';
+        var colors = ['#6c5ce7', '#a29bfe', '#00b894', '#feca57', '#ffa502', '#ff6b6b'];
+        for (var i = 0; i < history.length; i++) {
+            var h = Math.max(2, (history[i].equity / maxEq) * 100);
+            chartHtml += '<div class="bar-col">' +
+                '<div class="bar-value">' + history[i].equity.toFixed(1) + '%</div>' +
+                '<div class="bar" style="height:' + h + '%;background:' + colors[i % colors.length] + '"></div>' +
+                '<div class="bar-label">' + history[i].label + '</div>' +
+                '</div>';
+        }
+        chartEl.innerHTML = chartHtml;
+
+        // Table
+        var tbody = document.getElementById('tableBody');
+        var tHtml = '';
+        for (var i = 1; i < history.length; i++) {
+            var d = history[i].dilution;
+            tHtml += '<tr><td>' + history[i].label + '</td><td>' + roundPcts[i-1] + '% sold</td>' +
+                '<td>' + history[i].equity.toFixed(1) + '%</td>' +
+                '<td style="color:var(--fm-red)">-' + d.toFixed(1) + '%</td></tr>';
+        }
+        tbody.innerHTML = tHtml;
+
+        // Show results
+        document.getElementById('results').classList.add('visible');
+
+        // Track if GA4 available on parent
+        try { if (window.parent && window.parent.gtag) window.parent.gtag('event', 'widget_calculation', { source: 'dilution_widget' }); } catch(e) {}
+    }
+    </script>
+</body>
+</html>
