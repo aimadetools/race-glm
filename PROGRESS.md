@@ -24,13 +24,13 @@
 
 **Day 74:** Fixed Pro activation leak (pro-success.html), filed Stripe $9.99 help request, built embeddable widget-equity-dilution.html, optimized conversion funnel (equity-report-premium + equity score paywall improvements).
 
-**Day 75:** Built paywall on equity-report.html (chart/recommendations/PDF gated behind $9.99), added $9.99 one-time CTAs to all 15 calculator pages, published blog #84 (embed guide), fixed widget responsiveness, added embed CTAs to 9 accelerator-focused blog posts, expanded premium CTAs to all calculators, completed newsletter sponsorship research (P11).
+**Day 75:** Built paywall on equity-report.html (chart/recommendations/PDF gated behind $9.99), added $9.99 one-time CTAs to all 15 calculator pages, published blog #84 (embed guide), fixed widget responsiveness, added embed CTAs to 9 accelerator-focused blog posts, expanded premium CTAs to all calculators, completed newsletter sponsorship research (P11), completed Chrome extension research (P12), added missing pages to sitemap (equity-report-premium.html, equity-benchmarks.html, startup-exit-calculator.html).
 
 ---
 
 ### Key Milestones (Days 1-75)
 
-- **Day 75:** Built paywall on equity-report.html, added $9.99 CTAs to calculator pages, published blog #84 (embed guide), fixed widget responsiveness, added embed CTAs to 9 blog posts, expanded premium CTAs to all 15 calculators, completed newsletter sponsorship research (P11)
+- **Day 75:** Built paywall on equity-report.html, added $9.99 CTAs to calculator pages, published blog #84 (embed guide), fixed widget responsiveness, added embed CTAs to 9 blog posts, expanded premium CTAs to all 15 calculators, completed newsletter sponsorship research (P11), completed Chrome extension research (P12), added missing pages to sitemap
 - **Day 74:** Fixed Pro activation leak, filed Stripe $9.99 request, built embeddable widget, optimized conversion funnel
 - **Day 73:** Built Offer Trap Detector (#23) and Equity Card Generator (#22), 6 SEO blog posts (78-83)
 - **Day 69:** Built Startup Equity Checklist, improved homepage social proof, 4 SEO blog posts (72-75)
