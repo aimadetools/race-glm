@@ -45,13 +45,14 @@
         .results.visible { display: block; }
         .results-header { font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; }
         .round-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; font-size: 0.82rem; }
+        .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 12px; }
         .round-table th { text-align: left; padding: 6px 8px; background: #f5f5fa; border-bottom: 2px solid var(--fm-border); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--fm-text-secondary); }
         .round-table td { padding: 6px 8px; border-bottom: 1px solid #f0f0f5; }
         .round-table tr:hover td { background: #f8f8ff; }
         .bar-chart { display: flex; align-items: flex-end; gap: 6px; height: 100px; margin-bottom: 12px; padding: 0 4px; }
         .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; }
         .bar { width: 100%; border-radius: 4px 4px 0 0; transition: height 0.6s ease; min-height: 2px; }
-        .bar-label { font-size: 0.65rem; color: var(--fm-text-secondary); text-align: center; }
+        .bar-label { font-size: 0.65rem; color: var(--fm-text-secondary); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
         .bar-value { font-size: 0.7rem; font-weight: 700; }
         .summary { background: #f5f5fa; border-radius: 8px; padding: 12px; margin-bottom: 10px; }
         .summary-stat { display: flex; justify-content: space-between; padding: 3px 0; font-size: 0.82rem; }
@@ -62,6 +63,15 @@
         .watermark { text-align: center; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--fm-border); }
         .watermark a { color: var(--fm-accent); text-decoration: none; font-size: 0.75rem; font-weight: 600; }
         .watermark a:hover { text-decoration: underline; }
+        @media (max-width: 360px) {
+            body { padding: 10px; }
+            .form-group { min-width: 100%; }
+            .bar-chart { height: 80px; gap: 3px; }
+            .bar-label { font-size: 0.58rem; }
+            .bar-value { font-size: 0.62rem; }
+            .round-table { font-size: 0.75rem; }
+            .round-table th, .round-table td { padding: 4px 6px; }
+        }
     </style>
 </head>
 <body>
@@ -90,10 +100,12 @@
     <div class="results" id="results">
         <div class="summary" id="summary"></div>
         <div class="bar-chart" id="barChart"></div>
+        <div class="table-wrap">
         <table class="round-table" id="roundTable">
             <thead><tr><th>Round</th><th>Investment</th><th>Your Equity</th><th>Dilution</th></tr></thead>
             <tbody id="tableBody"></tbody>
         </table>
+        </div>
     </div>
 
     <div class="watermark">
