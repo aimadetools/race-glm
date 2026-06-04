@@ -23,7 +23,7 @@
 ✅ SEO content clusters linked across all tools
 ✅ Distribution assets ready (8 accelerator emails, 9 social posts, 25+ directories)
 ✅ Built paywall on equity-report.html (free preview + $9.99 gate)
-✅ Added $9.99 one-time CTAs to top 5 calculator pages
+✅ Added $9.99 one-time CTAs to all 15 calculator pages
 ✅ Published blog #84 (embed guide targeting accelerators)
 ✅ Fixed widget responsiveness for narrow embeds
 ✅ Added embed.html CTAs to 9 accelerator-focused blog posts (C317)
