@@ -425,11 +425,11 @@
 
     <!-- Email Capture for Score Details -->
     <div id="emailCaptureSection" style="max-width:600px;margin:0 auto 32px;padding:28px;background:linear-gradient(135deg,rgba(0,184,148,0.1),rgba(108,92,231,0.05));border:2px solid var(--green);border-radius:16px;text-align:center;">
-        <h3 style="font-size:1.15rem;margin-bottom:6px;">Get Your Detailed Equity Analysis Free</h3>
-        <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:16px;">We'll email you a personalized breakdown with benchmark comparisons, negotiation scripts, and weekly equity tips for startup founders.</p>
+        <h3 style="font-size:1.15rem;margin-bottom:6px;">Get Your Personalized Equity Insights</h3>
+        <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:16px;">We'll send you tailored benchmark comparisons and weekly equity tips for founders at your stage. Plus get notified when we launch new tools.</p>
         <form id="scoreEmailForm" style="display:flex;gap:8px;max-width:420px;margin:0 auto;flex-wrap:wrap;">
             <input type="email" id="scoreEmail" placeholder="founder@startup.com" required style="flex:1;min-width:200px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-primary);padding:12px 16px;border-radius:8px;font-size:0.9rem;">
-            <button type="submit" style="background:var(--green);color:white;border:none;padding:12px 24px;border-radius:8px;font-weight:700;font-size:0.9rem;cursor:pointer;white-space:nowrap;">Email My Analysis</button>
+            <button type="submit" style="background:var(--green);color:white;border:none;padding:12px 24px;border-radius:8px;font-weight:700;font-size:0.9rem;cursor:pointer;white-space:nowrap;">Send Insights</button>
         </form>
         <p style="margin-top:10px;font-size:0.78rem;color:var(--text-muted);">Join 500+ founders getting weekly equity insights. Unsubscribe anytime.</p>
         <p id="scoreEmailMsg" style="margin-top:8px;font-size:0.8rem;display:none;"></p>
@@ -451,9 +451,12 @@
         </div>
         <div class="pro-gate-overlay" id="proGateOverlay">
             <h3>Unlock Your Full Equity Analysis</h3>
-            <p>See exactly how you compare to industry benchmarks, get specific negotiation scripts for your situation, and learn how to improve your equity position.</p>
-            <a href="https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06?prefilled_promo_code=FOUNDING50&utm_source=founder-math&utm_medium=equity_score&utm_campaign=pro_upgrade" class="btn-primary" onclick="if(typeof gtag==='function')gtag('event','score_pro_click',{source:'equity_score_gate'})" id="proGateCta">Get Full Analysis &mdash; $9.50/mo</a>
-            <p class="price-note">FounderMath Pro &bull; 50% off founding member price &bull; Cancel anytime</p>
+            <p>See exactly how you compare to benchmarks, get specific negotiation scripts for your situation, and learn how to improve your equity position.</p>
+            <div style="display:flex;flex-direction:column;gap:10px;max-width:320px;margin:0 auto;">
+                <a href="https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06?prefilled_promo_code=FOUNDING50&utm_source=founder-math&utm_medium=equity_score&utm_campaign=pro_upgrade" class="btn-primary" onclick="if(typeof gtag==='function')gtag('event','score_pro_click',{source:'equity_score_gate',type:'subscription'})" id="proGateCta" style="display:block;text-align:center;background:linear-gradient(135deg,var(--accent),var(--accent-light));color:white;padding:14px 24px;border-radius:10px;font-weight:700;font-size:0.95rem;text-decoration:none;">Full Analysis &mdash; $9.50/mo <span style="font-weight:400;font-size:0.8rem;opacity:0.8;">(Pro)</span></a>
+                <a href="equity-report-premium.html?utm_source=equity_score&utm_medium=gate&utm_campaign=one_time_report" onclick="if(typeof gtag==='function')gtag('event','score_report_click',{source:'equity_score_gate',type:'one_time'})" style="display:block;text-align:center;border:1px solid var(--accent);color:var(--accent-light);padding:12px 24px;border-radius:10px;font-weight:600;font-size:0.9rem;text-decoration:none;">One-Time Report &mdash; $9.99 <span style="font-weight:400;font-size:0.8rem;opacity:0.8;">(PDF download)</span></a>
+            </div>
+            <p class="price-note">Cancel anytime &bull; Instant access &bull; Used by 500+ founders</p>
         </div>
     </div>
 
