@@ -132,11 +132,31 @@
         <p class="note">Your Pro status is saved in this browser. Questions? hello@founder-math.com</p>
     </div>
     <script>
-        // Activate Pro on this page
-        localStorage.setItem('foundermath_pro', 'true');
-        if (typeof gtag === 'function') {
-            gtag('event', 'purchase', { value: 19, currency: 'USD', items: [{ item_name: 'Pro Monthly' }] });
-        }
+        // Only activate Pro if referred from Stripe payment
+        // This prevents direct URL access from giving away Pro for free
+        (function() {
+            var ref = document.referrer || '';
+            var fromStripe = ref.indexOf('stripe.com') !== -1;
+            var hasSessionId = window.location.search.indexOf('checkout_session') !== -1 || window.location.search.indexOf('payment_intent') !== -1;
+
+            if (fromStripe || hasSessionId) {
+                localStorage.setItem('foundermath_pro', 'true');
+                localStorage.setItem('foundermath_pro_date', new Date().toISOString());
+                if (typeof gtag === 'function') {
+                    gtag('event', 'purchase', { value: 9.99, currency: 'USD', items: [{ item_name: 'Premium Equity Report' }] });
+                }
+            } else {
+                // Show a message instead of activating Pro
+                var h1 = document.querySelector('h1');
+                var subtitle = document.querySelector('.subtitle');
+                var features = document.querySelector('.features');
+                var cta = document.querySelector('.cta');
+                if (h1) h1.textContent = 'Payment Verification Needed';
+                if (subtitle) subtitle.textContent = 'We could not verify your payment. If you just completed a purchase, please check your email for confirmation or contact hello@founder-math.com.';
+                if (features) features.style.display = 'none';
+                if (cta) { cta.textContent = 'Return Home'; cta.href = '/'; }
+            }
+        })();
     </script>
 </body>
 </html>
