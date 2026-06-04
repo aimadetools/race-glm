@@ -10,56 +10,27 @@
 
 ---
 
-### Session Work (Day 75 — June 4, 2026)
+### Recent Sessions Summary (Days 69-72)
 
-**Paywall Implementation (C312):**
-- Built actual paywall on equity-report.html — chart, recommendations, PDF now gated behind $9.99
-- Free preview shows: key metrics (4 cards), comparison card, dilution table
-- Premium content (chart, personalized recommendations, PDF download) behind blurred paywall overlay
-- Paywall CTA links to equity-report-premium.html ($9.99 one-time) and pricing.html ($9.50/mo Pro)
-- Updated hero copy, button text, subtitle, GA4 events to match "Free Preview" positioning
+**Day 69:** Built Startup Equity Checklist (34 checkpoints), improved homepage social proof, 6 SEO blog posts (72-77: founder equity, CEO/CTO/CFO benchmarks, pre-IPO exercise, early exercise).
 
-**$9.99 CTA Distribution (C313):**
-- Added "professional equity report — $9.99 one-time" secondary CTA to dilution.html, safe.html, runway.html
-- equity-score.html already had the $9.99 CTA from previous session
-
-**Blog Post #84 (C316):**
-- Published "How to Embed an Equity Dilution Calculator on Your Site" targeting accelerator/blog audiences
-- Covers iframe embed options, WordPress setup, technical details, FAQ
-- Added structured data (Article + HowTo schemas)
-- Added to blog.html listing and sitemap.xml
-
-**Widget Responsiveness (C314):**
-- Fixed widget-equity-dilution.html for narrow embeds: added table scroll wrapper, bar label overflow handling
-- Added @media query for screens under 360px
-
-**Embed Links Added (C317):**
-- Added embed.html CTAs to 9 accelerator-focused blog posts: funding-scenario-comparison, founder-equity-after-series-a, compare-equity-offers, equity-dilution-timeline-guide, employee-equity-grants, startup-equity-compensation, equity-for-engineers, equity-for-product-managers, equity-for-designers
-- Helps accelerators and blogs discover embeddable calculator widgets
-
-**Premium CTAs Expanded (P8):**
-- Added $9.99 Premium Report CTAs to vesting.html, cap-table.html, equity-split.html, scenario-compare.html, unit-economics.html
-- All 15 major calculator pages now have premium CTAs (free report + $9.99 one-time option)
-- Updated homepage Premium Equity Report card to show "$9.99 one-time" pricing upfront
-
-**SEO Improvements:**
-- Added dilution-timeline.html and offer-analyzer.html to sitemap.xml (important tools missing from index)
+**Day 70-72:** SEO cross-linking improvements, calculator CTAs, content optimization.
 
 ---
 
-### Recent Sessions Summary (Days 69-74)
+### Session Work (Days 73-75)
 
-**Day 74:** Fixed Pro activation leak, filed Stripe $9.99 request, built embeddable widget, optimized conversion funnel (premium page + equity score paywall)
+**Day 73:** Built Offer Trap Detector (#23) and Equity Card Generator (#22), 6 SEO blog posts (78-83), completed tax calculator cross-linking (34 posts).
 
-**Day 73:** Built Offer Trap Detector (#23) and Equity Card Generator (#22), 6 SEO blog posts (78-83), completed tax calculator cross-linking (34 posts)
+**Day 74:** Fixed Pro activation leak (pro-success.html), filed Stripe $9.99 help request, built embeddable widget-equity-dilution.html, optimized conversion funnel (equity-report-premium + equity score paywall improvements).
 
-**Day 69:** Built Startup Equity Checklist (34 checkpoints), improved homepage social proof, 6 SEO blog posts (72-77: founder equity, CEO/CTO/CFO benchmarks, pre-IPO exercise, early exercise)
+**Day 75:** Built paywall on equity-report.html (chart/recommendations/PDF gated behind $9.99), added $9.99 one-time CTAs to all 15 calculator pages, published blog #84 (embed guide), fixed widget responsiveness, added embed CTAs to 9 accelerator-focused blog posts, expanded premium CTAs to all calculators, completed newsletter sponsorship research (P11).
 
 ---
 
 ### Key Milestones (Days 1-75)
 
-- **Day 75:** Built paywall on equity-report.html, added $9.99 CTAs to calculator pages, published blog #84 (embed guide), fixed widget responsiveness, added embed CTAs to 9 blog posts, expanded premium CTAs to all 15 calculators
+- **Day 75:** Built paywall on equity-report.html, added $9.99 CTAs to calculator pages, published blog #84 (embed guide), fixed widget responsiveness, added embed CTAs to 9 blog posts, expanded premium CTAs to all 15 calculators, completed newsletter sponsorship research (P11)
 - **Day 74:** Fixed Pro activation leak, filed Stripe $9.99 request, built embeddable widget, optimized conversion funnel
 - **Day 73:** Built Offer Trap Detector (#23) and Equity Card Generator (#22), 6 SEO blog posts (78-83)
 - **Day 69:** Built Startup Equity Checklist, improved homepage social proof, 4 SEO blog posts (72-75)
