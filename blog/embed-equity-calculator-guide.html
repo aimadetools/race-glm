@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/embed-equity-calculator-guide.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Embed an Equity Dilution Calculator on Your Site (2026) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+        function toggleTheme() {
+            const body = document.body;
+            const current = body.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const saved = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', saved);
+        });
+    </script>
+    <meta name="description" content="Learn how to embed a free equity dilution calculator on your website, blog, or accelerator portal. One line of code, no signup required, works on any site.">
+    <meta name="keywords" content="embed equity calculator, embeddable dilution calculator, startup calculator widget, iframe equity tool, accelerator equity calculator">
+    <meta property="og:title" content="How to Embed an Equity Dilution Calculator on Your Site">
+    <meta property="og:description" content="Add a free equity dilution calculator to your site with one line of code. Perfect for accelerators, blogs, and founder communities.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/embed-equity-calculator-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Embed an Equity Dilution Calculator on Your Site">
+    <meta name="twitter:description" content="Add a free equity dilution calculator to your site with one line of code. Perfect for accelerators, blogs, and founder communities.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Embed an Equity Dilution Calculator on Your Site",
+        "url": "https://founder-math.com/blog/embed-equity-calculator-guide.html",
+        "description": "Learn how to embed a free equity dilution calculator on your website, blog, or accelerator portal. One line of code, no signup required.",
+        "datePublished": "2026-06-04",
+        "dateModified": "2026-06-04",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/embed-equity-calculator-guide.html"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Embed Equity Dilution Calculator on Your Website",
+        "description": "Step-by-step guide to embedding a free equity dilution calculator widget on any website using an iframe.",
+        "totalTime": "PT5M",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Copy the embed code",
+                "text": "Copy the one-line iframe embed code from FounderMath's widget page.",
+                "position": 1
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Paste into your HTML",
+                "text": "Paste the iframe code into your website's HTML where you want the calculator to appear.",
+                "position": 2
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Adjust dimensions",
+                "text": "Set the width and height attributes to fit your site's layout. Recommended: 100% width, 600px height.",
+                "position": 3
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #f0f0f5;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a60;
+            --text-muted: #8888a0;
+            --border: #e0e0e8;
+            --accent-glow: rgba(108, 92, 231, 0.15);
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        article {
+            max-width: 760px; margin: 0 auto; padding: 120px 24px 40px;
+        }
+        article h1 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 800; line-height: 1.2; margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .meta {
+            display: flex; gap: 16px; margin-bottom: 40px; flex-wrap: wrap;
+            color: var(--text-muted); font-size: 0.9rem;
+        }
+        article h2 {
+            font-size: 1.5rem; font-weight: 700; margin: 40px 0 16px;
+            letter-spacing: -0.02em;
+        }
+        article h3 {
+            font-size: 1.2rem; font-weight: 600; margin: 28px 0 12px;
+        }
+        article p {
+            color: var(--text-secondary); margin-bottom: 16px; font-size: 1rem;
+        }
+        article ul, article ol {
+            color: var(--text-secondary); margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        article li { margin-bottom: 8px; font-size: 1rem; }
+        article strong { color: var(--text-primary); }
+        article a { color: var(--accent-light); text-decoration: none; }
+        article a:hover { text-decoration: underline; }
+        .code-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 16px 0 24px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        .code-block code { color: var(--green); }
+        .highlight-box {
+            background: var(--bg-card);
+            border-left: 4px solid var(--accent);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+        .highlight-box h3 { margin-top: 0; color: var(--accent-light); }
+        .highlight-box p { margin-bottom: 0; }
+        .cta-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            margin: 32px 0;
+        }
+        .cta-box h3 { margin-top: 0; font-size: 1.3rem; }
+        .cta-box p { color: var(--text-secondary); margin-bottom: 16px; }
+        .cta-btn {
+            display: inline-block; padding: 14px 32px; border-radius: 10px;
+            font-weight: 700; text-decoration: none; font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .cta-btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; }
+        .cta-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .cta-btn.secondary { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); }
+        .cta-btn.secondary:hover { transform: translateY(-2px); border-color: var(--accent); }
+        table {
+            width: 100%; border-collapse: collapse; margin: 16px 0 24px;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 12px 16px; text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background: var(--bg-card); font-weight: 600;
+            color: var(--text-primary); font-size: 0.85rem;
+            text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        td { color: var(--text-secondary); }
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        @media (max-width: 700px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            table { font-size: 0.8rem; }
+            th, td { padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo"><div class="logo-icon">%</div> FounderMath</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/dilution.html">Dilution</a></li>
+            <li><a href="/safe.html">SAFE</a></li>
+            <li><a href="/runway.html">Runway</a></li>
+            <li><a href="/pricing.html">Pricing</a></li>
+            <li><a href="/equity-report-premium.html" style="background:var(--accent);color:white;padding:8px 20px;border-radius:8px;font-weight:600;">Get Report</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<article>
+    <h1>How to Embed an Equity Dilution Calculator on Your Website</h1>
+    <div class="meta">
+        <span>June 4, 2026</span>
+        <span>6 min read</span>
+        <span>By FounderMath</span>
+    </div>
+
+    <p>If you run a startup accelerator, venture blog, or founder community, adding an <strong>interactive equity dilution calculator</strong> to your site is one of the highest-value tools you can offer. Founders need to understand dilution before they sign term sheets, and a calculator they can use right on your site builds trust and engagement.</p>
+
+    <p>Here's how to embed the FounderMath equity dilution calculator on any website with a single line of code.</p>
+
+    <div class="highlight-box">
+        <h3>Quick: The Embed Code</h3>
+        <p>Copy this line and paste it into your HTML:</p>
+    </div>
+
+    <div class="code-block">
+        <code>&lt;iframe src="https://founder-math.com/widget-equity-dilution.html" width="100%" height="600" frameborder="0" style="border-radius:12px;" title="Equity Dilution Calculator"&gt;&lt;/iframe&gt;</code>
+    </div>
+
+    <h2>What the Widget Does</h2>
+
+    <p>The embeddable equity dilution calculator lets founders:</p>
+    <ul>
+        <li><strong>Enter their current equity percentage</strong> (e.g., 33%)</li>
+        <li><strong>Select their funding stage</strong> (pre-seed through Series B)</li>
+        <li><strong>Choose how many rounds they're planning</strong> (1-4 rounds)</li>
+        <li><strong>See instant dilution projections</strong> with a visual chart showing ownership at each round</li>
+    </ul>
+
+    <p>All calculations happen in the user's browser. No data is sent to any server. The widget is <strong>lightweight, fast-loading, and mobile-responsive</strong>.</p>
+
+    <h2>Why Embed a Calculator Instead of Linking?</h2>
+
+    <p>You could just link to an external calculator. But embedding keeps users <strong>on your site</strong>:</p>
+
+    <table>
+        <thead>
+            <tr><th>Factor</th><th>External Link</th><th>Embedded Widget</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>User leaves your site</td><td>Yes</td><td>No</td></tr>
+            <tr><td>Time on page</td><td>Seconds</td><td>Minutes</td></tr>
+            <tr><td>Brand experience</td><td>Fragmented</td><td>Seamless</td></tr>
+            <tr><td>SEO benefit</td><td>None</td><td>Lower bounce rate</td></tr>
+            <tr><td>Mobile experience</td><td>New tab</td><td>Inline</td></tr>
+        </tbody>
+    </table>
+
+    <p>For accelerator programs, an embedded calculator is especially valuable because founders use it <strong>during workshops and office hours</strong> without leaving your curriculum platform.</p>
+
+    <h2>Embedding Options</h2>
+
+    <h3>Option 1: Basic iframe (Recommended)</h3>
+
+    <p>The simplest approach. Works on any website, CMS, or page builder:</p>
+
+    <div class="code-block">
+        <code>&lt;iframe
+  src="https://founder-math.com/widget-equity-dilution.html"
+  width="100%"
+  height="600"
+  frameborder="0"
+  style="border-radius:12px;"
+  title="Equity Dilution Calculator"&gt;
+&lt;/iframe&gt;</code>
+    </div>
+
+    <h3>Option 2: Custom Height</h3>
+
+    <p>For pages with more vertical space, use a taller widget for a better experience:</p>
+
+    <div class="code-block">
+        <code>&lt;iframe
+  src="https://founder-math.com/widget-equity-dilution.html"
+  width="100%"
+  height="750"
+  frameborder="0"
+  style="border-radius:12px;max-width:800px;margin:0 auto;display:block;"
+  title="Equity Dilution Calculator"&gt;
+&lt;/iframe&gt;</code>
+    </div>
+
+    <h3>Option 3: WordPress</h3>
+
+    <p>In WordPress, use the <strong>Custom HTML</strong> block and paste the iframe code. If your theme strips iframes, use a shortcode plugin like "Insert Iframe" or add this to your <code>functions.php</code>:</p>
+
+    <div class="code-block">
+        <code>// Allow FounderMath iframe in WordPress
+add_filter('wp_kses_allowed_html', function($tags) {
+    $tags['iframe'] = array(
+        'src' =&gt; true, 'width' =&gt; true, 'height' =&gt; true,
+        'frameborder' =&gt; true, 'style' =&gt; true, 'title' =&gt; true
+    );
+    return $tags;
+});</code>
+    </div>
+
+    <h2>Who Should Embed This Calculator?</h2>
+
+    <h3>Startup Accelerators & Incubators</h3>
+    <p>Add the calculator to your curriculum pages so founders can model their dilution during "Understanding Your Cap Table" workshops. The widget includes a <strong>"Powered by FounderMath"</strong> attribution link that's unobtrusive.</p>
+
+    <h3>Venture Capital Blogs</h3>
+    <p>If you write about fundraising, dilution, or cap tables, embedding the calculator directly in your article lets readers interact with the concepts you're explaining. This dramatically increases time-on-page and social sharing.</p>
+
+    <h3>Founder Communities & Forums</h3>
+    <p>Whether it's a Slack community, Discourse forum, or custom platform, the iframe embed works anywhere HTML is supported. Give your members a practical tool they'll use repeatedly.</p>
+
+    <h3>Equity Education Courses</h3>
+    <p>Online courses about startup equity can embed the calculator as an interactive exercise. Students enter their own hypothetical numbers and see real projections instantly.</p>
+
+    <div class="cta-box">
+        <h3>Get the Embed Code</h3>
+        <p>Visit the widget page to see the live calculator and copy the embed code for your site.</p>
+        <a href="/embed.html" class="cta-btn primary">Get the Embed Code (Free)</a>
+        <br><br>
+        <a href="/dilution.html" class="cta-btn secondary">Try the Full Dilution Calculator</a>
+    </div>
+
+    <h2>Technical Details</h2>
+
+    <h3>Performance</h3>
+    <p>The widget is a <strong>single HTML file</strong> with no external JavaScript dependencies. It loads Chart.js from a CDN only when the user generates results. Total page weight is under <strong>50KB</strong> — lighter than most images on your site.</p>
+
+    <h3>Privacy</h3>
+    <p>All calculations run entirely in the user's browser. <strong>No data is sent to FounderMath or any third-party server.</strong> The widget does load Google Analytics for aggregate usage tracking, but no personal data or calculation inputs are collected.</p>
+
+    <h3>Browser Support</h3>
+    <p>The widget works on all modern browsers (Chrome, Firefox, Safari, Edge) and is fully responsive for mobile devices. It also works inside WebView containers used by many mobile apps.</p>
+
+    <h3>Customization</h3>
+    <p>The widget uses a dark theme by default that matches most tech/startup sites. If you need a light theme or custom colors, <a href="/contact.html">contact us</a> and we can create a branded version for your organization.</p>
+
+    <h2>Other Calculators Available</h2>
+
+    <p>The equity dilution widget is our most popular embed, but we also offer <strong>23 free interactive calculators</strong> covering:</p>
+
+    <ul>
+        <li><a href="/dilution.html">Equity dilution</a> — multi-round dilution projections</li>
+        <li><a href="/safe.html">SAFE note conversion</a> — model SAFE-to-equity conversion</li>
+        <li><a href="/runway.html">Runway calculator</a> — how many months of cash you have</li>
+        <li><a href="/vesting.html">Vesting schedule</a> — cliff and monthly vesting timeline</li>
+        <li><a href="/cap-table.html">Cap table builder</a> — manage ownership across rounds</li>
+        <li><a href="/equity-tax-calculator.html">Equity tax calculator</a> — estimate tax on stock options</li>
+    </ul>
+
+    <p>All calculators are free to use and available at <a href="/">founder-math.com</a>.</p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Is the widget really free?</h3>
+    <p>Yes, completely free. No signup, no API key, no rate limits. The "Powered by FounderMath" link in the widget is the only attribution required.</p>
+
+    <h3>Can I remove the "Powered by FounderMath" link?</h3>
+    <p>The attribution link helps other founders discover the tool. If you need a white-label version without attribution, <a href="/contact.html">contact us</a> and we can discuss options.</p>
+
+    <h3>Does it work on HTTPS sites?</h3>
+    <p>Yes. The widget is served over HTTPS and works on any secure site without mixed-content warnings.</p>
+
+    <h3>Can I track how many people use the calculator on my site?</h3>
+    <p>The widget sends GA4 events for calculator usage. If you have Google Tag Manager on your parent page, you can capture these events. Alternatively, wrap the iframe in a container and track interaction with your own analytics.</p>
+
+    <div class="cta-box">
+        <h3>Start Embedding Today</h3>
+        <p>One line of code. No signup. Free forever.</p>
+        <a href="/embed.html" class="cta-btn primary">Get the Embed Code</a>
+    </div>
+
+    <footer style="border:none;padding:40px 0 0;">
+        <div class="footer-inner">
+            <div class="footer-left"><p>&copy; 2026 FounderMath. Built for founders, by founders.</p></div>
+            <ul class="footer-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/dilution.html">Dilution Calculator</a></li>
+                <li><a href="/safe.html">SAFE Calculator</a></li>
+                <li><a href="/runway.html">Runway Calculator</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+            </ul>
+        </div>
+    </footer>
+</article>
+
+<script>
+if (typeof gtag === 'function') {
+    gtag('event', 'page_view', { page_title: 'How to Embed an Equity Dilution Calculator on Your Site' });
+}
+</script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script></body>
+</html>
