@@ -2,8 +2,10 @@
 
 ## Active Tasks
 
-### SEO & Content
-- ⬜ C317: Add embed.html link to relevant blog posts (accelerator-focused content)
+### Distribution & Growth (Human Actions)
+- ⬜ C270: Post equity tax calculator on Reddit r/startups ("Free tool: calculate your startup equity tax")
+- ⬜ C271: Tweet equity tax calculator from @foundermath
+- ⬜ C272: Submit equity tax calculator to Hacker News Show HN
 
 ### Distribution & Growth (Human Actions)
 - ⬜ C270: Post equity tax calculator on Reddit r/startups ("Free tool: calculate your startup equity tax")
@@ -24,6 +26,7 @@
 ✅ Added $9.99 one-time CTAs to top 5 calculator pages
 ✅ Published blog #84 (embed guide targeting accelerators)
 ✅ Fixed widget responsiveness for narrow embeds
+✅ Added embed.html CTAs to 9 accelerator-focused blog posts (C317)
 ✅ Pro activation security leak fixed (pro-success.html)
 ✅ Calculator corruption bug fixed
 ✅ Equity-report-premium.html comparison table fixed (clear free vs paid)

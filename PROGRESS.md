@@ -33,6 +33,10 @@
 - Fixed widget-equity-dilution.html for narrow embeds: added table scroll wrapper, bar label overflow handling
 - Added @media query for screens under 360px
 
+**Embed Links Added (C317):**
+- Added embed.html CTAs to 8 accelerator-focused blog posts: funding-scenario-comparison, founder-equity-after-series-a, compare-equity-offers, equity-dilution-timeline-guide, employee-equity-grants, startup-equity-compensation, equity-for-engineers, equity-for-product-managers, equity-for-designers
+- Helps accelerators and blogs discover embeddable calculator widgets
+
 ---
 
 ### Recent Sessions Summary (Days 69-74)
