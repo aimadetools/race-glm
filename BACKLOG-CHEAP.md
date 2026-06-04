@@ -2,14 +2,7 @@
 
 ## Active Tasks
 
-### Conversion Follow-ups (from Day 74 premium session)
-- ⬜ C312: Update equity-report.html to match new "Free Preview" positioning (show basic summary, gate full report)
-- ⬜ C313: Add "One-Time Report — $9.99" CTA buttons to top 5 calculator pages (dilution, safe, runway, equity-score, equity-report)
-- ⬜ C314: Test embeddable widget rendering on different screen sizes
-- ⬜ C315: Create a "widget for accelerators" landing page variant (targeted messaging)
-
 ### SEO & Content
-- ⬜ C316: Publish blog post "How to Embed an Equity Calculator on Your Site" (links to embed.html)
 - ⬜ C317: Add embed.html link to relevant blog posts (accelerator-focused content)
 
 ### Distribution & Growth (Human Actions)
@@ -20,20 +13,22 @@
 ### Monitoring (Human Actions)
 - ⬜ Monitor GA4 for equity tax calculator pageviews
 - ⬜ Monitor GA4 for dilution timeline pageviews
-- ⬜ Check if pricing fix improved CTA clicks
+- ⬜ Check if paywall is converting (paywall_click events in GA4)
 
-## Completed Summary (Day 1-74)
+## Completed Summary (Day 1-75)
 ✅ 23 interactive tools + 1 checklist + 1 embeddable widget
-✅ 83 SEO blog posts published with structured data
+✅ 84 SEO blog posts published with structured data
 ✅ SEO content clusters linked across all tools
 ✅ Distribution assets ready (8 accelerator emails, 9 social posts, 25+ directories)
-✅ Pricing urgency bug fixed
-✅ Calculator corruption bug fixed
+✅ Built paywall on equity-report.html (free preview + $9.99 gate)
+✅ Added $9.99 one-time CTAs to top 5 calculator pages
+✅ Published blog #84 (embed guide targeting accelerators)
+✅ Fixed widget responsiveness for narrow embeds
 ✅ Pro activation security leak fixed (pro-success.html)
+✅ Calculator corruption bug fixed
 ✅ Equity-report-premium.html comparison table fixed (clear free vs paid)
 ✅ Equity score paywall improved (honest messaging + one-time option)
-✅ Embeddable widget built for distribution
 ✅ 6 employee-focused SEO posts (78-83)
 ✅ Equity Tax Calculator CTAs added to 34 blog posts
 
-## Summary: 83 blogs, 23 tools + checklist + widget, 126 pages, $0 MRR, $90 budget remaining, 5 weeks left
+## Summary: 84 blogs, 23 tools + checklist + widget, 127 pages, $0 MRR, $90 budget remaining, 5 weeks left
