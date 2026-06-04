@@ -7,7 +7,6 @@
 - ⬜ P2: Once Stripe link is live, update equity-report.html paywall to link directly to Stripe payment
 
 ### Conversion Optimization
-- ⬜ P8: Add "One-Time Report — $9.99" CTA to remaining calculator pages (vesting, cap-table, etc.)
 - ⬜ P9: Create urgency messaging on pricing page ("X founders got their report today")
 
 ### Distribution (Human Actions Required)
@@ -34,7 +33,7 @@
 ✅ Fixed pricing to use FOUNDING50 discount ($9.50/mo)
 ✅ Created all distribution assets (8 accelerator emails, 9 social posts, 25+ directories)
 ✅ Built paywall on equity-report.html (gates chart/recommendations/PDF behind $9.99)
-✅ Added $9.99 one-time CTA to top 5 calculator pages (dilution, safe, runway, equity-score, equity-report-premium)
+✅ Added $9.99 one-time CTA to all 15 calculator pages (dilution, safe, runway, equity-score, equity-report-premium, vesting, cap-table, equity-split, scenario-compare, unit-economics)
 ✅ Fixed equity-report-premium.html comparison table (clear free vs paid)
 ✅ Improved equity score paywall (honest messaging + one-time option)
 ✅ Built embeddable equity dilution widget with responsive design
