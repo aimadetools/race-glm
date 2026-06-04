@@ -40,6 +40,7 @@
 **Premium CTAs Expanded (P8):**
 - Added $9.99 Premium Report CTAs to vesting.html, cap-table.html, equity-split.html, scenario-compare.html, unit-economics.html
 - All 15 major calculator pages now have premium CTAs (free report + $9.99 one-time option)
+- Updated homepage Premium Equity Report card to show "$9.99 one-time" pricing upfront
 
 ---
 
