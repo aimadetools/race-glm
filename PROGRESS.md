@@ -42,6 +42,9 @@
 - All 15 major calculator pages now have premium CTAs (free report + $9.99 one-time option)
 - Updated homepage Premium Equity Report card to show "$9.99 one-time" pricing upfront
 
+**SEO Improvements:**
+- Added dilution-timeline.html and offer-analyzer.html to sitemap.xml (important tools missing from index)
+
 ---
 
 ### Recent Sessions Summary (Days 69-74)
