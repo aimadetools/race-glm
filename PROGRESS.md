@@ -12,7 +12,7 @@
 
 ### Session Work (Day 77)
 
-**Day 77:** Added Convertible Note Calculator (#24) and Liquidation Preference Calculator (#25) to blog.html navigation and tool sidebars. Cross-linked convertible note calculator from dilution.html and cap-table.html. Cross-linked liquidation preference calculator from startup-exit-calculator.html. Updated free-startup-tools.html structured data (13 tools). Wrote 2 comprehensive SEO blog posts: #85 "How Convertible Notes Work: Complete Guide with Calculator" and #86 "Liquidation Preferences: 1x vs 2x vs Participating Preferred Explained". Added both posts to blog.html index.
+**Day 77:** Added Convertible Note Calculator (#24) and Liquidation Preference Calculator (#25) to blog.html navigation and tool sidebars. Cross-linked convertible note calculator from dilution.html and cap-table.html. Cross-linked liquidation preference calculator from startup-exit-calculator.html. Updated free-startup-tools.html structured data (13 tools). Wrote 2 comprehensive SEO blog posts: #85 "How Convertible Notes Work: Complete Guide with Calculator" and #86 "Liquidation Preferences: 1x vs 2x vs Participating Preferred Explained". Added both posts to blog.html index. Updated sitemap.xml with missing blog posts (#85-#86) and recent lastmod dates.
 
 ---
 
@@ -25,19 +25,6 @@
 **Day 74:** Fixed Pro activation leak (pro-success.html), filed Stripe $9.99 help request, built embeddable widget-equity-dilution.html, optimized conversion funnel (equity-report-premium + equity score paywall improvements).
 
 **Day 73:** Built Offer Trap Detector (#23) and Equity Card Generator (#22), 6 SEO blog posts (78-83), completed tax calculator cross-linking (34 posts).
-
----
-
-### Key Milestones (Days 1-77)
-
-- **Day 77:** Cross-linked tools #24 and #25 across blog.html navigation and related calculators. Updated free-startup-tools.html structured data. Published 2 SEO blog posts (#85-#86): Convertible Notes and Liquidation Preferences comprehensive guides.
-- **Day 77:** Built Convertible Note Calculator (#24) + Liquidation Preference Calculator (#25). Fixed equity report paywall (email capture instead of dead-end payment). 25 tools total.
-
-**Day 74:** Fixed Pro activation leak (pro-success.html), filed Stripe $9.99 help request, built embeddable widget-equity-dilution.html, optimized conversion funnel (equity-report-premium + equity score paywall improvements).
-
-**Day 75:** Built paywall on equity-report.html (chart/recommendations/PDF gated behind $9.99), added $9.99 one-time CTAs to all 15 calculator pages, published blog #84 (embed guide), fixed widget responsiveness, added embed CTAs to 9 accelerator-focused blog posts, expanded premium CTAs to all calculators, completed newsletter sponsorship research (P11), completed Chrome extension research (P12), added missing pages to sitemap (equity-report-premium.html, equity-benchmarks.html, startup-exit-calculator.html).
-
-**Day 76:** Completed $9.99 one-time CTAs on 8 calculator pages (stock-options, compare-offers, equity-vs-salary, offer-analyzer, 409a-valuation, equity-tax-calculator, dilution-timeline, startup-exit-calculator). All calculators now offer $9.99 one-time alternative to Pro subscription.
 
 ---
 
