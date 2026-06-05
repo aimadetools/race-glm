@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/liquidation-preference.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Liquidation Preference Calculator | FounderMath 2026</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Free liquidation preference calculator. See how 1x, 2x, participating, and non-participating preferences affect your payout at exit. Visual waterfall analysis.">
+    <meta name="keywords" content="liquidation preference calculator, participating preferred, non-participating preferred, 1x liquidation preference, 2x liquidation preference, exit waterfall, startup exit payout">
+    <meta property="og:title" content="Free Liquidation Preference Calculator — FounderMath">
+    <meta property="og:description" content="See how liquidation preferences affect your payout at exit. Compare 1x vs 2x, participating vs non-participating.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/liquidation-preference.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Liquidation Preference Calculator">
+    <meta name="twitter:description" content="See how liquidation preferences affect your exit payout. Visual waterfall analysis.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Free Liquidation Preference Calculator — FounderMath",
+        "url": "https://founder-math.com/liquidation-preference.html",
+        "description": "Free liquidation preference calculator. See how 1x, 2x, participating, and non-participating preferences affect your payout at exit.",
+        "isPartOf": { "@type": "WebSite", "name": "FounderMath", "url": "https://founder-math.com" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Liquidation Preference Calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Calculate how liquidation preferences affect payouts in a startup exit. Compare participating vs non-participating preferred stock."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a liquidation preference?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A liquidation preference is a clause that gives preferred shareholders the right to get paid before common shareholders in a sale or liquidation. A 1x preference means investors get their money back first. A 2x preference means they get 2x their investment back first."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between participating and non-participating preferred?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Non-participating preferred: investors choose between their liquidation preference OR converting to common and sharing proportionally. Participating preferred: investors get their liquidation preference first, THEN also share in the remaining proceeds as if they had converted (called 'double-dipping')."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://founder-math.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://founder-math.com/" },
+            { "@type": "ListItem", "position": 3, "name": "Liquidation Preference Calculator", "item": "https://founder-math.com/liquidation-preference.html" }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --pink: #ff6b9d;
+            --yellow: #feca57;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; padding: 8px; }
+
+        .page-header { padding: 120px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+        .page-header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%); animation: heroGlow 15s ease-in-out infinite alternate; pointer-events: none; }
+        @keyframes heroGlow { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-5%, 5%) scale(1.1); } }
+        .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 12px; }
+        .page-header h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 640px; margin: 0 auto; position: relative; }
+        .breadcrumbs { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+        .breadcrumb { color: var(--text-muted); font-size: 0.8rem; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb:hover { color: var(--accent-light); }
+        .breadcrumb:last-child { color: var(--text-secondary); font-weight: 600; }
+
+        .calc-layout { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 380px 1fr; gap: 32px; align-items: start; }
+        .input-panel { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 24px; position: sticky; top: 88px; max-height: calc(100vh - 104px); overflow-y: auto; }
+        .input-panel::-webkit-scrollbar { width: 4px; }
+        .input-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        .panel-section { margin-bottom: 28px; }
+        .panel-section:last-child { margin-bottom: 0; }
+        .panel-section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-light); margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; }
+        .add-btn { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); font-size: 0.7rem; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+        .add-btn:hover { border-color: var(--accent); color: var(--text-primary); }
+
+        .input-group { margin-bottom: 16px; }
+        .input-group label { display: block; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+        .input-group input, .input-group select { width: 100%; background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary); padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; font-family: var(--font-mono); transition: border-color 0.2s; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: var(--accent); }
+        .input-group select { font-family: var(--font-sans); cursor: pointer; }
+        .input-group select option { background: var(--bg-card); color: var(--text-primary); }
+        .input-group .hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .separator { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+        .round-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+        .round-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .round-card-header .round-label { font-weight: 700; font-size: 0.9rem; color: var(--text-primary); }
+        .round-card-header .remove-btn { background: none; border: none; color: var(--text-muted); font-size: 1rem; cursor: pointer; transition: color 0.2s; }
+        .round-card-header .remove-btn:hover { color: var(--red); }
+        .round-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .round-input-group { display: flex; flex-direction: column; gap: 4px; }
+        .round-input-group label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .round-input-group input, .round-input-group select { background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary); padding: 6px 10px; border-radius: 6px; font-size: 0.85rem; font-family: var(--font-mono); transition: border-color 0.2s; }
+        .round-input-group input:focus, .round-input-group select:focus { outline: none; border-color: var(--accent); }
+        .round-input-group select { font-family: var(--font-sans); }
+
+        .results-panel { min-width: 0; }
+        .summary-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+        .summary-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+        .summary-card .metric-value { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 800; }
+        .summary-card .metric-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+        .summary-card.highlight { border-color: var(--accent); }
+        .summary-card.warning { border-color: var(--red); }
+
+        .chart-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .chart-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .chart-section .chart-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+        .chart-container { position: relative; height: 350px; }
+        .chart-container canvas { width: 100% !important; height: 100% !important; }
+
+        .waterfall-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .waterfall-section h3 { font-size: 1.1rem; margin-bottom: 20px; }
+        .waterfall-row { display: flex; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 1px solid rgba(42, 42, 64, 0.3); }
+        .waterfall-row:last-child { border-bottom: none; }
+        .waterfall-label { width: 140px; font-size: 0.85rem; color: var(--text-secondary); flex-shrink: 0; }
+        .waterfall-bar-track { flex: 1; height: 32px; background: var(--bg-card); border-radius: 6px; overflow: hidden; position: relative; }
+        .waterfall-bar-fill { height: 100%; border-radius: 6px; transition: width 0.4s ease; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-size: 0.75rem; font-weight: 700; color: white; min-width: 30px; }
+        .waterfall-value { width: 100px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600; text-align: right; flex-shrink: 0; }
+
+        .table-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; overflow-x: auto; }
+        .table-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .table-section .table-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+        .payout-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .payout-table th { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+        .payout-table td { padding: 10px 12px; border-bottom: 1px solid rgba(42, 42, 64, 0.3); font-family: var(--font-mono); }
+        .payout-table tr:hover td { background: rgba(108, 92, 231, 0.05); }
+        .payout-table .label-cell { font-family: var(--font-sans); font-weight: 600; }
+        .payout-table .total-row td { background: var(--bg-card); font-weight: 700; border-top: 2px solid var(--border); }
+
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+        .comparison-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+        .comparison-card h4 { font-size: 0.95rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .comparison-card .badge { font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; font-weight: 700; text-transform: uppercase; }
+        .badge-good { background: rgba(0, 184, 148, 0.15); color: var(--green); }
+        .badge-bad { background: rgba(255, 107, 107, 0.15); color: var(--red); }
+        .comparison-stat { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(42, 42, 64, 0.3); font-size: 0.85rem; }
+        .comparison-stat:last-child { border-bottom: none; }
+        .comparison-stat .label { color: var(--text-secondary); }
+        .comparison-stat .value { font-family: var(--font-mono); font-weight: 600; }
+
+        .callout { background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 20px; margin-bottom: 32px; }
+        .callout h4 { font-size: 0.95rem; margin-bottom: 8px; }
+        .callout p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; }
+
+        .calc-cta { background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 16px; padding: 32px; text-align: center; margin-top: 32px; }
+        .calc-cta h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .calc-cta p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 20px; }
+        .calc-cta .btn-white { background: white; color: var(--accent); padding: 12px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: transform 0.2s; display: inline-block; }
+        .calc-cta .btn-white:hover { transform: translateY(-2px); }
+
+        .share-bar { display: flex; gap: 8px; margin-top: 16px; }
+        .btn-share { flex: 1; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: var(--font-sans); }
+        .btn-share:hover { border-color: var(--accent); color: var(--text-primary); }
+        .btn-share.copied { border-color: var(--green); color: var(--green); }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--green); color: white; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: transform 0.3s ease; z-index: 1000; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: white; padding: 8px 16px; text-decoration: none; z-index: 1001; transition: top 0.3s; }
+        .skip-link:focus { top: 0; }
+
+        @media (prefers-contrast: more) { :root { --border: #ffffff; --text-secondary: #e0e0e0; } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+        @media (max-width: 960px) { .calc-layout { grid-template-columns: 1fr; } .input-panel { position: static; max-height: none; } .summary-cards { grid-template-columns: repeat(2, 1fr); } .comparison-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            .summary-cards { grid-template-columns: 1fr; }
+            .round-inputs { grid-template-columns: 1fr; }
+            .input-row { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .chart-container { height: 260px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#calc" class="skip-link">Skip to calculator</a>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo"><span class="logo-icon">Fm</span> FounderMath</a>
+            <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="/">Calculators</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/liquidation-preference.html" class="nav-cta">Liq Pref Calc</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="breadcrumbs">
+            <a href="/" class="breadcrumb">Home</a>
+            <span style="color:var(--border);font-size:0.7rem;">&#9656;</span>
+            <span class="breadcrumb">Liquidation Preference Calculator</span>
+        </div>
+        <h1>Liquidation Preference <span class="gradient">Calculator</span></h1>
+        <p>See exactly how liquidation preferences affect your payout at exit. Compare 1x vs 2x, participating vs non-participating, and visualize the exit waterfall.</p>
+    </header>
+
+    <main id="calc" class="calc-layout">
+        <!-- Input Panel -->
+        <aside class="input-panel">
+            <div class="panel-section">
+                <div class="panel-section-title">Exit Scenario</div>
+                <div class="input-group">
+                    <label for="exitValue">Exit / Acquisition Price ($)</label>
+                    <input type="number" id="exitValue" value="50000000" min="0" step="1000000">
+                    <div class="hint">Total company sale price</div>
+                </div>
+                <div class="input-group">
+                    <label for="commonShares">Common Shares (Founders + Employees)</label>
+                    <input type="number" id="commonShares" value="8000000" min="1" step="100000">
+                    <div class="hint">Total common shares outstanding</div>
+                </div>
+            </div>
+
+            <hr class="separator">
+
+            <div class="panel-section">
+                <div class="panel-section-title">
+                    Preferred Rounds
+                    <button class="add-btn" onclick="addRound()" aria-label="Add round">+ Add Round</button>
+                </div>
+                <div id="roundsContainer"></div>
+            </div>
+        </aside>
+
+        <!-- Results Panel -->
+        <section class="results-panel">
+            <div class="summary-cards" id="summaryCards">
+                <div class="summary-card">
+                    <div class="metric-value" id="exitPrice">-</div>
+                    <div class="metric-label">Exit Price</div>
+                </div>
+                <div class="summary-card warning">
+                    <div class="metric-value" id="preferredTake">-</div>
+                    <div class="metric-label">Investors Take First</div>
+                </div>
+                <div class="summary-card highlight">
+                    <div class="metric-value" id="founderPayout">-</div>
+                    <div class="metric-label">Founders + Employees Get</div>
+                </div>
+            </div>
+
+            <!-- Exit Waterfall -->
+            <div class="waterfall-section">
+                <h3>Exit Waterfall</h3>
+                <div id="waterfallChart"></div>
+            </div>
+
+            <!-- Payout Comparison: Participating vs Non -->
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h4>Non-Participating Preferred <span class="badge badge-good">Better for Founders</span></h4>
+                    <div id="nonParticipating"></div>
+                </div>
+                <div class="comparison-card">
+                    <h4>Participating Preferred <span class="badge badge-bad">Worse for Founders</span></h4>
+                    <div id="participating"></div>
+                </div>
+            </div>
+
+            <!-- Payout Chart -->
+            <div class="chart-section">
+                <h3>Payout by Exit Price</h3>
+                <p class="chart-subtitle">How much founders receive at different exit prices</p>
+                <div class="chart-container"><canvas id="payoutChart"></canvas></div>
+            </div>
+
+            <!-- Per-Round Payout Table -->
+            <div class="table-section">
+                <h3>Payout Breakdown by Round</h3>
+                <p class="table-subtitle">How each investor and founder group gets paid</p>
+                <table class="payout-table">
+                    <thead>
+                        <tr>
+                            <th>Shareholder</th>
+                            <th>Investment</th>
+                            <th>Preference</th>
+                            <th>Ownership</th>
+                            <th>Payout (Non-Part)</th>
+                            <th>Payout (Participating)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="payoutBody"></tbody>
+                </table>
+            </div>
+
+            <!-- Educational content -->
+            <div class="callout">
+                <h4>Why Liquidation Preferences Matter</h4>
+                <p>If your investors have a <strong>1x non-participating</strong> liquidation preference, they get their money back first. If the company sells for less than what they invested, they take everything. <strong>2x participating preferred</strong> is especially dangerous — investors get 2x their investment first, then also share in what's left. On a $50M exit with $10M invested at 2x participating, investors get $20M off the top plus their ownership share of the remaining $30M. <a href="/blog/liquidation-preference-guide.html" style="color:var(--accent-light);">Read our full guide to liquidation preferences</a>.</p>
+            </div>
+
+            <div class="callout">
+                <h4>Negotiation Tips for Founders</h4>
+                <p><strong>Always push for 1x non-participating preferred.</strong> This is the market standard and what YC recommends. If an investor asks for 2x or participating preferred, that's a red flag — they're betting on a down round. Use this calculator to show them exactly how their terms would affect your payout, and push back. <a href="/blog/term-sheet-guide.html" style="color:var(--accent-light);">See our term sheet negotiation guide</a>.</p>
+            </div>
+
+            <!-- CTA -->
+            <div class="calc-cta">
+                <h3>Get Your Full Equity Report</h3>
+                <p>See how all your funding rounds, liquidation preferences, and dilution affect your equity in one comprehensive report.</p>
+                <a href="/equity-report.html" class="btn-white">Generate Free Report</a>
+                <div style="margin-top:12px;font-size:0.85rem;opacity:0.8;">Or get a <a href="/equity-report-premium.html" style="color:white;text-decoration:underline;font-weight:600;">professional equity report — $9.99 one-time</a></div>
+            </div>
+
+            <div class="share-bar">
+                <button class="btn-share" onclick="shareTwitter()">Share on Twitter</button>
+                <button class="btn-share" onclick="shareLinkedIn()">Share on LinkedIn</button>
+                <button class="btn-share" id="copyBtn" onclick="copyLink()">Copy Link</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left"><p>&copy; 2026 FounderMath. Free startup equity calculators.</p></div>
+            <ul class="footer-links">
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/equity-glossary.html">Glossary</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div class="toast" id="toast"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        let rounds = [
+            { name: 'Series A', investment: 5000000, preference: 1, participating: false, shares: 2000000 }
+        ];
+
+        let payoutChartInstance = null;
+        const colors = ['#6c5ce7', '#00b894', '#ff6b6b', '#ffa502', '#54a0ff', '#ff6b9d', '#feca57'];
+        const waterfallColors = ['#ff6b6b', '#ffa502', '#54a0ff', '#ff6b9d', '#6c5ce7', '#00b894'];
+
+        function $(id) { return document.getElementById(id); }
+        function fmt(n) {
+            if (n >= 1e9) return '$' + (n/1e9).toFixed(2) + 'B';
+            if (n >= 1e6) return '$' + (n/1e6).toFixed(1) + 'M';
+            if (n >= 1e3) return '$' + (n/1e3).toFixed(0) + 'K';
+            return '$' + n.toFixed(0);
+        }
+        function pct(n) { return n.toFixed(1) + '%'; }
+
+        function renderRounds() {
+            $('roundsContainer').innerHTML = rounds.map((r, i) => `
+                <div class="round-card">
+                    <div class="round-card-header">
+                        <span class="round-label">${r.name}</span>
+                        ${rounds.length > 1 ? `<button class="remove-btn" onclick="removeRound(${i})">&times;</button>` : ''}
+                    </div>
+                    <div class="round-inputs">
+                        <div class="round-input-group">
+                            <label>Investment ($)</label>
+                            <input type="number" value="${r.investment}" min="0" step="100000" onchange="updateRound(${i},'investment',this.value)">
+                        </div>
+                        <div class="round-input-group">
+                            <label>Preference (x)</label>
+                            <input type="number" value="${r.preference}" min="0.5" max="5" step="0.5" onchange="updateRound(${i},'preference',this.value)">
+                        </div>
+                        <div class="round-input-group">
+                            <label>Shares</label>
+                            <input type="number" value="${r.shares}" min="1" step="100000" onchange="updateRound(${i},'shares',this.value)">
+                        </div>
+                        <div class="round-input-group">
+                            <label>Participating?</label>
+                            <select onchange="updateRound(${i},'participating',this.value==='true')">
+                                <option value="false" ${!r.participating?'selected':''}>Non-Participating</option>
+                                <option value="true" ${r.participating?'selected':''}>Participating</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.addRound = function() {
+            const names = ['Series A', 'Series B', 'Series C', 'Series D'];
+            const name = names[rounds.length] || ('Round ' + (rounds.length + 1));
+            rounds.push({ name, investment: 10000000, preference: 1, participating: false, shares: 2000000 });
+            renderRounds();
+            calculate();
+        };
+
+        window.removeRound = function(i) {
+            rounds.splice(i, 1);
+            renderRounds();
+            calculate();
+        };
+
+        window.updateRound = function(i, field, value) {
+            if (field === 'participating') { rounds[i][field] = value; }
+            else { rounds[i][field] = parseFloat(value) || 0; }
+            calculate();
+        };
+
+        function calculate() {
+            const exitVal = parseFloat($('exitValue').value) || 0;
+            const commonShares = parseFloat($('commonShares').value) || 1;
+            const totalPreferredShares = rounds.reduce((s, r) => s + r.shares, 0);
+            const totalShares = commonShares + totalPreferredShares;
+
+            // === Non-Participating Preferred Calculation ===
+            const nonPartResult = calculateNonParticipating(exitVal, commonShares, totalShares);
+            // === Participating Preferred Calculation ===
+            const partResult = calculateParticipating(exitVal, commonShares, totalShares);
+
+            // Summary cards
+            $('exitPrice').textContent = fmt(exitVal);
+            const maxPref = rounds.reduce((s, r) => s + r.investment * r.preference, 0);
+            $('preferredTake').textContent = fmt(Math.min(maxPref, exitVal));
+            $('founderPayout').textContent = fmt(nonPartResult.founderPayout);
+
+            // Waterfall
+            renderWaterfall(exitVal, nonPartResult, partResult);
+
+            // Comparison cards
+            renderComparison(nonPartResult, partResult, exitVal);
+
+            // Chart
+            renderPayoutChart(commonShares, totalShares);
+
+            // Table
+            renderTable(nonPartResult, partResult, commonShares, totalShares, exitVal);
+
+            if (typeof gtag === 'function') {
+                gtag('event', 'calculator_use', { calculator: 'liquidation_preference', round_count: rounds.length });
+            }
+        }
+
+        function calculateNonParticipating(exitVal, commonShares, totalShares) {
+            let remaining = exitVal;
+            const payouts = [];
+            let totalPrefClaim = 0;
+
+            // Each preferred round chooses: take preference OR convert to common
+            rounds.forEach((r, i) => {
+                const prefAmount = r.investment * r.preference;
+                const ownershipPct = r.shares / totalShares;
+                const proportionalPayout = exitVal * ownershipPct;
+                totalPrefClaim += prefAmount;
+
+                // Non-participating: choose the better option
+                const takePreference = prefAmount >= proportionalPayout;
+                const payout = takePreference ? prefAmount : proportionalPayout;
+
+                payouts.push({
+                    name: r.name,
+                    investment: r.investment,
+                    preference: prefAmount,
+                    ownershipPct,
+                    payout,
+                    method: takePreference ? 'Preference' : 'Converted'
+                });
+            });
+
+            // Calculate founder payout
+            const totalInvestorPayout = payouts.reduce((s, p) => s + p.payout, 0);
+            const founderPayout = Math.max(0, exitVal - totalInvestorPayout);
+
+            return { payouts, founderPayout, totalInvestorPayout, totalPrefClaim };
+        }
+
+        function calculateParticipating(exitVal, commonShares, totalShares) {
+            let remaining = exitVal;
+            const payouts = [];
+
+            // Step 1: Pay out preferences first
+            rounds.forEach((r, i) => {
+                const prefAmount = Math.min(r.investment * r.preference, remaining);
+                remaining -= prefAmount;
+                payouts.push({
+                    name: r.name,
+                    investment: r.investment,
+                    preference: r.investment * r.preference,
+                    paidPreference: prefAmount,
+                    ownershipPct: r.shares / totalShares,
+                    payout: prefAmount // will add participation later
+                });
+            });
+
+            // Step 2: Share remaining proportionally
+            const founderPct = commonShares / totalShares;
+            const founderPayout = remaining * founderPct;
+
+            payouts.forEach((p, i) => {
+                p.payout += remaining * p.ownershipPct;
+            });
+
+            const totalInvestorPayout = payouts.reduce((s, p) => s + p.payout, 0);
+            return { payouts, founderPayout, totalInvestorPayout };
+        }
+
+        function renderWaterfall(exitVal, nonPart, part) {
+            const container = $('waterfallChart');
+            const maxPayout = exitVal;
+            const rows = [];
+
+            // Exit price
+            rows.push({ label: 'Exit Price', value: exitVal, color: '#6c5ce7', pct: 100 });
+
+            // Preferred payouts
+            rounds.forEach((r, i) => {
+                const prefClaim = r.investment * r.preference;
+                if (prefClaim <= exitVal) {
+                    rows.push({
+                        label: r.name + ' (' + r.preference + 'x pref)',
+                        value: Math.min(prefClaim, exitVal),
+                        color: waterfallColors[i % waterfallColors.length],
+                        pct: (Math.min(prefClaim, exitVal) / maxPayout) * 100
+                    });
+                }
+            });
+
+            // What's left for common
+            const commonPayout = Math.max(0, exitVal - nonPart.totalInvestorPayout);
+            rows.push({
+                label: 'Common (Founders/Employees)',
+                value: commonPayout,
+                color: '#00b894',
+                pct: (commonPayout / maxPayout) * 100
+            });
+
+            container.innerHTML = rows.map(r => `
+                <div class="waterfall-row">
+                    <div class="waterfall-label">${r.label}</div>
+                    <div class="waterfall-bar-track">
+                        <div class="waterfall-bar-fill" style="width:${r.pct}%;background:${r.color};">${r.pct > 15 ? fmt(r.value) : ''}</div>
+                    </div>
+                    <div class="waterfall-value">${fmt(r.value)}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderComparison(nonPart, part, exitVal) {
+            $('nonParticipating').innerHTML = `
+                <div class="comparison-stat"><span class="label">Investor Payout</span><span class="value">${fmt(nonPart.totalInvestorPayout)}</span></div>
+                <div class="comparison-stat"><span class="label">Founder/Employee Payout</span><span class="value" style="color:var(--green)">${fmt(nonPart.founderPayout)}</span></div>
+                <div class="comparison-stat"><span class="label">Founder Share of Exit</span><span class="value">${pct((nonPart.founderPayout / exitVal) * 100)}</span></div>
+            `;
+            $('participating').innerHTML = `
+                <div class="comparison-stat"><span class="label">Investor Payout</span><span class="value">${fmt(part.totalInvestorPayout)}</span></div>
+                <div class="comparison-stat"><span class="label">Founder/Employee Payout</span><span class="value" style="color:${part.founderPayout < nonPart.founderPayout ? 'var(--red)' : 'var(--green)'}">${fmt(part.founderPayout)}</span></div>
+                <div class="comparison-stat"><span class="label">Founder Share of Exit</span><span class="value">${pct((part.founderPayout / exitVal) * 100)}</span></div>
+                <div class="comparison-stat"><span class="label">You Lose to Participation</span><span class="value" style="color:var(--red)">${fmt(nonPart.founderPayout - part.founderPayout)}</span></div>
+            `;
+        }
+
+        function renderPayoutChart(commonShares, totalShares) {
+            const exitVal = parseFloat($('exitValue').value) || 0;
+            const exitPoints = [0.5, 0.75, 1, 1.5, 2, 3].map(m => ({
+                exit: exitVal * m,
+                label: fmt(exitVal * m)
+            }));
+
+            const founderPcts = exitPoints.map(p => {
+                const r = calculateNonParticipating(p.exit, commonShares, totalShares);
+                return (r.founderPayout / p.exit) * 100;
+            });
+            const investorPcts = exitPoints.map(p => {
+                const r = calculateNonParticipating(p.exit, commonShares, totalShares);
+                return (r.totalInvestorPayout / p.exit) * 100;
+            });
+
+            if (payoutChartInstance) payoutChartInstance.destroy();
+            payoutChartInstance = new Chart($('payoutChart'), {
+                type: 'bar',
+                data: {
+                    labels: exitPoints.map(p => p.label),
+                    datasets: [
+                        {
+                            label: 'Founders + Employees',
+                            data: founderPcts,
+                            backgroundColor: '#00b894',
+                            borderRadius: 4
+                        },
+                        {
+                            label: 'Investors',
+                            data: investorPcts,
+                            backgroundColor: '#ff6b6b',
+                            borderRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#a0a0b5', padding: 16 } },
+                        tooltip: {
+                            backgroundColor: '#1a1a2e',
+                            titleColor: '#f0f0f5',
+                            bodyColor: '#a0a0b5',
+                            borderColor: '#2a2a40',
+                            borderWidth: 1,
+                            callbacks: {
+                                label: function(ctx) { return ctx.dataset.label + ': ' + ctx.raw.toFixed(1) + '%'; }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { stacked: true, ticks: { color: '#8888a0' }, grid: { display: false } },
+                        y: { stacked: true, max: 100, ticks: { color: '#8888a0', callback: v => v + '%' }, grid: { color: 'rgba(42,42,64,0.5)' } }
+                    }
+                }
+            });
+        }
+
+        function renderTable(nonPart, part, commonShares, totalShares, exitVal) {
+            const founderPct = (commonShares / totalShares) * 100;
+            let html = '';
+
+            rounds.forEach((r, i) => {
+                const np = nonPart.payouts[i];
+                const pp = part.payouts[i];
+                html += `<tr>
+                    <td class="label-cell">${r.name} (${r.preference}x ${r.participating ? 'Part' : 'Non-Part'})</td>
+                    <td>${fmt(r.investment)}</td>
+                    <td>${fmt(r.investment * r.preference)}</td>
+                    <td>${pct((r.shares / totalShares) * 100)}</td>
+                    <td>${fmt(np.payout)} <span style="color:var(--text-muted);font-size:0.75rem;">(${np.method})</span></td>
+                    <td>${fmt(pp.payout)}</td>
+                </tr>`;
+            });
+
+            html += `<tr class="total-row">
+                <td class="label-cell">Founders + Employees</td>
+                <td>-</td>
+                <td>-</td>
+                <td>${pct(founderPct)}</td>
+                <td>${fmt(nonPart.founderPayout)}</td>
+                <td>${fmt(part.founderPayout)}</td>
+            </tr>`;
+
+            $('payoutBody').innerHTML = html;
+        }
+
+        // Share
+        window.shareTwitter = function() {
+            const url = 'https://founder-math.com/liquidation-preference.html';
+            const text = 'Free liquidation preference calculator — see how 1x, 2x, participating preferred affect your exit payout.';
+            window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url), '_blank');
+        };
+        window.shareLinkedIn = function() {
+            window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent('https://founder-math.com/liquidation-preference.html'), '_blank');
+        };
+        window.copyLink = function() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const btn = $('copyBtn');
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => { btn.textContent = 'Copy Link'; btn.classList.remove('copied'); }, 2000);
+            });
+        };
+
+        // Events
+        ['exitValue', 'commonShares'].forEach(id => $(id).addEventListener('input', calculate));
+
+        renderRounds();
+        calculate();
+    })();
+    </script>
+</body>
+</html>
