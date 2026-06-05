@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/convertible-note.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Convertible Note Calculator | FounderMath 2026</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Free convertible note calculator. Model how convertible notes convert at a priced round — interest accrual, cap, discount, maturity date, and multi-note waterfall.">
+    <meta name="keywords" content="convertible note calculator, convertible note conversion, startup convertible note, convertible note cap, convertible note discount, convertible note maturity">
+    <meta property="og:title" content="Free Convertible Note Calculator — FounderMath">
+    <meta property="og:description" content="Calculate how your convertible notes convert at a priced round. Supports interest, cap, discount, maturity, and multiple notes.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/convertible-note.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Convertible Note Calculator">
+    <meta name="twitter:description" content="Calculate how your convertible notes convert at a priced round. Supports interest, cap, discount, maturity.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Free Convertible Note Calculator — FounderMath",
+        "url": "https://founder-math.com/convertible-note.html",
+        "description": "Free convertible note calculator. Model how convertible notes convert at a priced round — interest accrual, cap, discount, maturity date.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Convertible Note Calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "Interactive calculator that models how convertible notes convert at a priced round, supporting interest accrual, cap, discount, maturity date, and multiple note waterfall scenarios."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://founder-math.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://founder-math.com/" },
+            { "@type": "ListItem", "position": 3, "name": "Convertible Note Calculator", "item": "https://founder-math.com/convertible-note.html" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a convertible note?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A convertible note is a short-term debt instrument that converts into equity during a future financing round. It has a principal amount, interest rate, conversion cap and/or discount, and a maturity date."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does a convertible note differ from a SAFE note?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Convertible notes are debt instruments with interest rates and maturity dates. SAFE notes are not debt — they have no interest or maturity. Both convert to equity at a future priced round, but convertible notes carry more risk for founders because they must be repaid if they don't convert."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What happens when a convertible note reaches maturity?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "At maturity, the investor can demand repayment of the principal plus accrued interest, or the parties can negotiate an extension. In practice, most convertible notes convert before maturity during a priced financing round."
+                }
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --bg-input: #15151f;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --blue: #54a0ff;
+            --pink: #ff6b9d;
+            --yellow: #feca57;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; padding: 8px; }
+
+        .page-header { padding: 120px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+        .page-header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--green-glow) 0%, transparent 50%); animation: heroGlow 15s ease-in-out infinite alternate; pointer-events: none; }
+        @keyframes heroGlow { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-5%, 5%) scale(1.1); } }
+        .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; position: relative; margin-bottom: 12px; }
+        .page-header h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 640px; margin: 0 auto; position: relative; }
+        .breadcrumbs { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+        .breadcrumb { color: var(--text-muted); font-size: 0.8rem; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb:hover { color: var(--accent-light); }
+        .breadcrumb:last-child { color: var(--text-secondary); font-weight: 600; }
+
+        .calc-layout { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 380px 1fr; gap: 32px; align-items: start; }
+        .input-panel { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 24px; position: sticky; top: 88px; max-height: calc(100vh - 104px); overflow-y: auto; }
+        .input-panel::-webkit-scrollbar { width: 4px; }
+        .input-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        .panel-section { margin-bottom: 28px; }
+        .panel-section:last-child { margin-bottom: 0; }
+        .panel-section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-light); margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; }
+        .add-btn { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); font-size: 0.7rem; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+        .add-btn:hover { border-color: var(--accent); color: var(--text-primary); }
+
+        .input-group { margin-bottom: 16px; }
+        .input-group label { display: block; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+        .input-group input, .input-group select { width: 100%; background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary); padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; font-family: var(--font-mono); transition: border-color 0.2s; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: var(--accent); }
+        .input-group select { font-family: var(--font-sans); cursor: pointer; }
+        .input-group select option { background: var(--bg-card); color: var(--text-primary); }
+        .input-group .hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .separator { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+        .note-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+        .note-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .note-card-header .note-label { font-weight: 700; font-size: 0.9rem; color: var(--text-primary); }
+        .note-card-header .remove-btn { background: none; border: none; color: var(--text-muted); font-size: 1rem; cursor: pointer; transition: color 0.2s; }
+        .note-card-header .remove-btn:hover { color: var(--red); }
+        .note-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .note-input-group { display: flex; flex-direction: column; gap: 4px; }
+        .note-input-group label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .note-input-group input, .note-input-group select { background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary); padding: 6px 10px; border-radius: 6px; font-size: 0.85rem; font-family: var(--font-mono); transition: border-color 0.2s; }
+        .note-input-group input:focus, .note-input-group select:focus { outline: none; border-color: var(--accent); }
+
+        .results-panel { min-width: 0; }
+        .summary-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+        .summary-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+        .summary-card .metric-value { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 800; }
+        .summary-card .metric-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+        .summary-card.highlight { border-color: var(--accent); }
+
+        .chart-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .chart-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .chart-section .chart-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+        .chart-container { position: relative; height: 350px; }
+        .chart-container canvas { width: 100% !important; height: 100% !important; }
+
+        .table-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; overflow-x: auto; }
+        .table-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .table-section .table-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+        .conv-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .conv-table th { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+        .conv-table td { padding: 10px 12px; border-bottom: 1px solid rgba(42, 42, 64, 0.3); font-family: var(--font-mono); }
+        .conv-table tr:hover td { background: rgba(108, 92, 231, 0.05); }
+        .conv-table .label-cell { font-family: var(--font-sans); font-weight: 600; }
+        .conv-table .total-row td { background: var(--bg-card); font-weight: 700; border-top: 2px solid var(--border); }
+
+        .callout { background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 20px; margin-bottom: 32px; }
+        .callout h4 { font-size: 0.95rem; margin-bottom: 8px; }
+        .callout p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; }
+
+        .waterfall-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .waterfall-section h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .waterfall-bar-container { position: relative; margin: 0 0 12px; }
+        .waterfall-bar { display: flex; height: 48px; border-radius: 8px; overflow: hidden; }
+        .waterfall-segment { display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; color: white; transition: width 0.4s ease; min-width: 0; overflow: hidden; white-space: nowrap; padding: 0 4px; }
+        .waterfall-legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+        .waterfall-legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--text-secondary); }
+        .waterfall-legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+
+        .calc-cta { background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 16px; padding: 32px; text-align: center; margin-top: 32px; }
+        .calc-cta h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .calc-cta p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 20px; }
+        .calc-cta .btn-white { background: white; color: var(--accent); padding: 12px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: transform 0.2s; display: inline-block; }
+        .calc-cta .btn-white:hover { transform: translateY(-2px); }
+
+        .share-bar { display: flex; gap: 8px; margin-top: 16px; }
+        .btn-share { flex: 1; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: var(--font-sans); }
+        .btn-share:hover { border-color: var(--accent); color: var(--text-primary); }
+        .btn-share.copied { border-color: var(--green); color: var(--green); }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--green); color: white; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: transform 0.3s ease; z-index: 1000; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: white; padding: 8px 16px; text-decoration: none; z-index: 1001; transition: top 0.3s; }
+        .skip-link:focus { top: 0; }
+
+        @media (prefers-contrast: more) { :root { --border: #ffffff; --text-secondary: #e0e0e0; } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+        @media (max-width: 960px) { .calc-layout { grid-template-columns: 1fr; } .input-panel { position: static; max-height: none; } .summary-cards { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            .summary-cards { grid-template-columns: 1fr; }
+            .note-inputs { grid-template-columns: 1fr; }
+            .input-row { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .chart-container { height: 260px; }
+        }
+
+        /* Comparison section */
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+        .comparison-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+        .comparison-card h4 { font-size: 0.95rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .comparison-card .badge { font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; font-weight: 700; text-transform: uppercase; }
+        .comparison-card .badge-better { background: rgba(0, 184, 148, 0.15); color: var(--green); }
+        .comparison-card .badge-worse { background: rgba(255, 107, 107, 0.15); color: var(--red); }
+        .comparison-card .badge-neutral { background: rgba(108, 92, 231, 0.15); color: var(--accent-light); }
+        .comparison-stat { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(42, 42, 64, 0.3); font-size: 0.85rem; }
+        .comparison-stat:last-child { border-bottom: none; }
+        .comparison-stat .label { color: var(--text-secondary); }
+        .comparison-stat .value { font-family: var(--font-mono); font-weight: 600; }
+
+        @media (max-width: 600px) { .comparison-grid { grid-template-columns: 1fr; } }
+
+        /* Interest accrual visual */
+        .interest-timeline { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+        .interest-timeline h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .interest-timeline .chart-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+        .timeline-bars { display: flex; align-items: flex-end; gap: 4px; height: 160px; padding: 0 8px; }
+        .timeline-bar { flex: 1; background: linear-gradient(180deg, var(--accent), var(--accent-light)); border-radius: 4px 4px 0 0; position: relative; min-width: 20px; transition: height 0.4s ease; }
+        .timeline-bar .bar-label { position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%); font-size: 0.65rem; color: var(--text-muted); white-space: nowrap; }
+        .timeline-bar .bar-value { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 0.7rem; color: var(--text-secondary); font-family: var(--font-mono); white-space: nowrap; }
+    </style>
+</head>
+<body>
+    <a href="#calc" class="skip-link">Skip to calculator</a>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo"><span class="logo-icon">Fm</span> FounderMath</a>
+            <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="/">Calculators</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/safe.html">SAFE Calc</a></li>
+                <li><a href="/convertible-note.html" class="nav-cta">Note Calc</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="breadcrumbs">
+            <a href="/" class="breadcrumb">Home</a>
+            <span class="breadcrumb-separator">&#9656;</span>
+            <a href="/#calculators" class="breadcrumb">Calculators</a>
+            <span class="breadcrumb-separator">&#9656;</span>
+            <span class="breadcrumb">Convertible Note Calculator</span>
+        </div>
+        <h1>Convertible Note <span class="gradient">Calculator</span></h1>
+        <p>Model how convertible notes convert at a priced round. See interest accrual, cap vs discount conversion, maturity scenarios, and multi-note waterfalls.</p>
+    </header>
+
+    <main id="calc" class="calc-layout">
+        <!-- Input Panel -->
+        <aside class="input-panel">
+            <div class="panel-section">
+                <div class="panel-section-title">
+                    Priced Round Details
+                </div>
+                <div class="input-group">
+                    <label for="preMoneyValuation">Pre-Money Valuation ($)</label>
+                    <input type="number" id="preMoneyValuation" value="5000000" min="0" step="100000">
+                    <div class="hint">Company valuation before new money</div>
+                </div>
+                <div class="input-group">
+                    <label for="newMoney">New Money Raised ($)</label>
+                    <input type="number" id="newMoney" value="2000000" min="0" step="100000">
+                    <div class="hint">Amount raised in priced round</div>
+                </div>
+                <div class="input-group">
+                    <label for="existingShares">Existing Shares Outstanding</label>
+                    <input type="number" id="existingShares" value="10000000" min="1" step="100000">
+                    <div class="hint">All shares outstanding before round</div>
+                </div>
+                <div class="input-group">
+                    <label for="pricePerShare">Price Per Share ($)</label>
+                    <input type="number" id="pricePerShare" value="0.50" min="0.01" step="0.01" readonly>
+                    <div class="hint">Auto-calculated: pre-money / shares</div>
+                </div>
+            </div>
+
+            <hr class="separator">
+
+            <div class="panel-section">
+                <div class="panel-section-title">
+                    Convertible Notes
+                    <button class="add-btn" onclick="addNote()" aria-label="Add another note">+ Add Note</button>
+                </div>
+                <div id="notesContainer">
+                    <!-- Note cards rendered here -->
+                </div>
+            </div>
+
+            <hr class="separator">
+
+            <div class="panel-section">
+                <div class="panel-section-title">Maturity Scenario</div>
+                <div class="input-group">
+                    <label for="monthsToMaturity">Months Until Maturity</label>
+                    <input type="number" id="monthsToMaturity" value="12" min="1" max="60" step="1">
+                    <div class="hint">Months from now to earliest note maturity</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Results Panel -->
+        <section class="results-panel">
+            <div class="summary-cards" id="summaryCards">
+                <div class="summary-card">
+                    <div class="metric-value" id="totalNoteValue">-</div>
+                    <div class="metric-label">Total Notes + Interest</div>
+                </div>
+                <div class="summary-card highlight">
+                    <div class="metric-value" id="totalDilution">-</div>
+                    <div class="metric-label">Investor Dilution</div>
+                </div>
+                <div class="summary-card">
+                    <div class="metric-value" id="founderOwnership">-</div>
+                    <div class="metric-label">Founder Ownership</div>
+                </div>
+            </div>
+
+            <!-- Cap Table Waterfall -->
+            <div class="chart-section">
+                <h3>Cap Table After Conversion</h3>
+                <p class="chart-subtitle">Ownership breakdown after all convertible notes convert</p>
+                <div class="chart-container"><canvas id="capChart"></canvas></div>
+            </div>
+
+            <!-- Conversion Comparison: Cap vs Discount -->
+            <div class="comparison-grid" id="comparisonSection">
+                <div class="comparison-card">
+                    <h4>Valuation Cap Conversion <span class="badge badge-better" id="capBadge">BETTER</span></h4>
+                    <div id="capComparison"></div>
+                </div>
+                <div class="comparison-card">
+                    <h4>Discount Conversion <span class="badge badge-worse" id="discountBadge">WORSE</span></h4>
+                    <div id="discountComparison"></div>
+                </div>
+            </div>
+
+            <!-- Interest Accrual Timeline -->
+            <div class="interest-timeline">
+                <h3>Interest Accrual Over Time</h3>
+                <p class="chart-subtitle">How note balances grow as interest accrues toward maturity</p>
+                <div class="timeline-bars" id="interestBars"></div>
+            </div>
+
+            <!-- Per-Note Conversion Table -->
+            <div class="table-section">
+                <h3>Note Conversion Details</h3>
+                <p class="table-subtitle">How each note converts — principal, accrued interest, shares, and ownership</p>
+                <table class="conv-table" id="conversionTable">
+                    <thead>
+                        <tr>
+                            <th>Note</th>
+                            <th>Principal</th>
+                            <th>+ Interest</th>
+                            <th>Method</th>
+                            <th>Effective $</th>
+                            <th>Shares</th>
+                            <th>Ownership</th>
+                        </tr>
+                    </thead>
+                    <tbody id="conversionBody"></tbody>
+                </table>
+            </div>
+
+            <!-- SAFE vs Convertible Note Comparison -->
+            <div class="callout">
+                <h4>Convertible Note vs SAFE Note</h4>
+                <p><strong>Convertible notes</strong> are debt — they accrue interest and have a maturity date. If the note doesn't convert, investors can demand repayment. <strong>SAFE notes</strong> are not debt — no interest, no maturity, no repayment obligation. Y Combinator created SAFEs specifically to avoid the complexity of convertible notes. <a href="/safe.html" style="color: var(--accent-light);">Try our SAFE calculator</a> to compare.</p>
+            </div>
+
+            <!-- What happens at maturity -->
+            <div class="callout">
+                <h4>What Happens at Maturity?</h4>
+                <p>If no qualified financing has occurred by the maturity date, investors can: (1) demand repayment of principal + accrued interest, (2) convert at the current fair market valuation, or (3) negotiate an extension. In practice, most notes convert during a priced round before maturity. But if your startup struggles to raise, the debt obligation can create real pressure.</p>
+            </div>
+
+            <!-- CTA -->
+            <div class="calc-cta">
+                <h3>Get Your Full Equity Report</h3>
+                <p>See exactly how all your notes, SAFEs, and funding rounds affect your equity — in one comprehensive report.</p>
+                <a href="/equity-report.html" class="btn-white">Generate Free Report</a>
+                <div style="margin-top:12px;font-size:0.85rem;opacity:0.8;">Or get a <a href="/equity-report-premium.html" style="color:white;text-decoration:underline;font-weight:600;">professional equity report — $9.99 one-time</a></div>
+            </div>
+
+            <div class="share-bar">
+                <button class="btn-share" onclick="shareTwitter()">Share on Twitter</button>
+                <button class="btn-share" onclick="shareLinkedIn()">Share on LinkedIn</button>
+                <button class="btn-share" id="copyBtn" onclick="copyLink()">Copy Link</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Free startup equity calculators.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/equity-glossary.html">Glossary</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        let notes = [
+            { principal: 500000, rate: 5, cap: 4000000, discount: 20 }
+        ];
+
+        const colors = ['#6c5ce7', '#00b894', '#ff6b6b', '#ffa502', '#54a0ff', '#ff6b9d', '#feca57', '#a29bfe'];
+        let capChart = null;
+
+        function $(id) { return document.getElementById(id); }
+
+        function formatCurrency(n) {
+            if (n >= 1000000) return '$' + (n / 1000000).toFixed(2) + 'M';
+            if (n >= 1000) return '$' + (n / 1000).toFixed(1) + 'K';
+            return '$' + n.toFixed(0);
+        }
+
+        function formatPct(n) { return n.toFixed(2) + '%'; }
+
+        function formatNumber(n) {
+            if (n >= 1000000) return (n / 1000000).toFixed(2) + 'M';
+            if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
+            return n.toFixed(0);
+        }
+
+        function renderNotes() {
+            const container = $('notesContainer');
+            container.innerHTML = notes.map((note, i) => `
+                <div class="note-card">
+                    <div class="note-card-header">
+                        <span class="note-label">Note ${i + 1}</span>
+                        ${notes.length > 1 ? `<button class="remove-btn" onclick="removeNote(${i})" aria-label="Remove note ${i + 1}">&times;</button>` : ''}
+                    </div>
+                    <div class="note-inputs">
+                        <div class="note-input-group">
+                            <label>Principal ($)</label>
+                            <input type="number" value="${note.principal}" min="0" step="10000"
+                                   onchange="updateNote(${i}, 'principal', this.value)">
+                        </div>
+                        <div class="note-input-group">
+                            <label>Interest Rate (%)</label>
+                            <input type="number" value="${note.rate}" min="0" max="30" step="0.5"
+                                   onchange="updateNote(${i}, 'rate', this.value)">
+                        </div>
+                        <div class="note-input-group">
+                            <label>Valuation Cap ($)</label>
+                            <input type="number" value="${note.cap}" min="0" step="100000"
+                                   onchange="updateNote(${i}, 'cap', this.value)">
+                        </div>
+                        <div class="note-input-group">
+                            <label>Discount (%)</label>
+                            <input type="number" value="${note.discount}" min="0" max="50" step="5"
+                                   onchange="updateNote(${i}, 'discount', this.value)">
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.addNote = function() {
+            notes.push({ principal: 250000, rate: 5, cap: 5000000, discount: 20 });
+            renderNotes();
+            calculate();
+        };
+
+        window.removeNote = function(i) {
+            notes.splice(i, 1);
+            renderNotes();
+            calculate();
+        };
+
+        window.updateNote = function(i, field, value) {
+            notes[i][field] = parseFloat(value) || 0;
+            calculate();
+        };
+
+        function calculate() {
+            const preMoney = parseFloat($('preMoneyValuation').value) || 0;
+            const newMoney = parseFloat($('newMoney').value) || 0;
+            const existingShares = parseFloat($('existingShares').value) || 1;
+            const postMoney = preMoney + newMoney;
+            const pricePerShare = preMoney / existingShares;
+            const monthsToMaturity = parseInt($('monthsToMaturity').value) || 12;
+
+            $('pricePerShare').value = pricePerShare.toFixed(4);
+
+            // Calculate conversion for each note
+            const results = [];
+            let totalConversionShares = 0;
+            let totalConversionAmount = 0;
+            let totalPrincipal = 0;
+            let totalInterest = 0;
+
+            notes.forEach((note, i) => {
+                const principal = note.principal;
+                const rate = note.rate / 100;
+                const cap = note.cap;
+                const discount = note.discount / 100;
+
+                // Accrued interest (simple interest for months to maturity)
+                const yearsElapsed = monthsToMaturity / 12;
+                const accruedInterest = principal * rate * yearsElapsed;
+                const totalOwed = principal + accruedInterest;
+
+                // Conversion method 1: Valuation Cap
+                const capConversionPrice = cap / existingShares;
+                const capShares = totalOwed / capConversionPrice;
+                const capEffectiveValuation = cap;
+
+                // Conversion method 2: Discount
+                const discountPrice = pricePerShare * (1 - discount);
+                const discountShares = discountPrice > 0 ? totalOwed / discountPrice : 0;
+                const discountEffectiveValuation = preMoney * (1 - discount);
+
+                // Investor gets the better deal (more shares)
+                const useCap = capShares >= discountShares;
+                const finalShares = Math.max(capShares, discountShares);
+                const method = useCap ? 'Cap' : 'Discount';
+                const effectiveValuation = useCap ? cap : discountEffectiveValuation;
+
+                totalConversionShares += finalShares;
+                totalConversionAmount += totalOwed;
+                totalPrincipal += principal;
+                totalInterest += accruedInterest;
+
+                results.push({
+                    index: i,
+                    principal,
+                    accruedInterest,
+                    totalOwed,
+                    capShares,
+                    discountShares,
+                    finalShares,
+                    method,
+                    effectiveValuation,
+                    cap,
+                    discount: note.discount
+                });
+            });
+
+            // Calculate total shares post-money
+            const newMoneyShares = newMoney / pricePerShare;
+            const totalShares = existingShares + newMoneyShares + totalConversionShares;
+            const noteOwnershipPct = (totalConversionShares / totalShares) * 100;
+            const founderOwnershipPct = (existingShares / totalShares) * 100;
+            const newMoneyOwnershipPct = (newMoneyShares / totalShares) * 100;
+
+            // Update summary cards
+            $('totalNoteValue').textContent = formatCurrency(totalConversionAmount);
+            $('totalDilution').textContent = formatPct(noteOwnershipPct);
+            $('founderOwnership').textContent = formatPct(founderOwnershipPct);
+
+            // Update conversion table
+            const tbody = $('conversionBody');
+            tbody.innerHTML = results.map(r => `
+                <tr>
+                    <td class="label-cell">Note ${r.index + 1}</td>
+                    <td>${formatCurrency(r.principal)}</td>
+                    <td>${formatCurrency(r.accruedInterest)}</td>
+                    <td class="label-cell">${r.method}</td>
+                    <td>${formatCurrency(r.totalOwed)}</td>
+                    <td>${formatNumber(r.finalShares)}</td>
+                    <td>${formatPct((r.finalShares / totalShares) * 100)}</td>
+                </tr>
+            `).join('') + `
+                <tr class="total-row">
+                    <td class="label-cell">Total Notes</td>
+                    <td>${formatCurrency(totalPrincipal)}</td>
+                    <td>${formatCurrency(totalInterest)}</td>
+                    <td class="label-cell">-</td>
+                    <td>${formatCurrency(totalConversionAmount)}</td>
+                    <td>${formatNumber(totalConversionShares)}</td>
+                    <td>${formatPct(noteOwnershipPct)}</td>
+                </tr>
+            `;
+
+            // Update cap chart
+            updateCapChart(founderOwnershipPct, newMoneyOwnershipPct, noteOwnershipPct, results);
+
+            // Update comparison cards
+            updateComparison(results, pricePerShare, existingShares);
+
+            // Update interest accrual bars
+            updateInterestBars(monthsToMaturity);
+
+            // Track in GA
+            if (typeof gtag === 'function') {
+                gtag('event', 'calculator_use', {
+                    calculator: 'convertible_note',
+                    note_count: notes.length,
+                    total_principal: totalPrincipal
+                });
+            }
+        }
+
+        function updateCapChart(founderPct, newMoneyPct, notePct, results) {
+            const labels = ['Founders', 'New Money'];
+            const data = [founderPct, newMoneyPct];
+            const bgColors = ['#6c5ce7', '#00b894'];
+
+            results.forEach((r, i) => {
+                labels.push(`Note ${r.index + 1}`);
+                data.push((r.finalShares / (
+                    parseFloat($('existingShares').value) +
+                    (parseFloat($('newMoney').value) / (parseFloat($('preMoneyValuation').value) / parseFloat($('existingShares').value || 1))) +
+                    results.reduce((s, x) => s + x.finalShares, 0)
+                )) * 100);
+                bgColors.push(colors[(i + 2) % colors.length]);
+            });
+
+            // Recalculate percentages properly
+            const totalShares = parseFloat($('existingShares').value) +
+                (parseFloat($('newMoney').value) / (parseFloat($('preMoneyValuation').value) / parseFloat($('existingShares').value || 1))) +
+                results.reduce((s, x) => s + x.finalShares, 0);
+
+            const chartData = [founderPct, newMoneyPct];
+            results.forEach((r) => {
+                chartData.push((r.finalShares / totalShares) * 100);
+            });
+
+            if (capChart) capChart.destroy();
+            capChart = new Chart($('capChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: chartData,
+                        backgroundColor: bgColors,
+                        borderColor: '#0a0a0f',
+                        borderWidth: 3,
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '55%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#a0a0b5', padding: 16, font: { size: 13 } }
+                        },
+                        tooltip: {
+                            backgroundColor: '#1a1a2e',
+                            titleColor: '#f0f0f5',
+                            bodyColor: '#a0a0b5',
+                            borderColor: '#2a2a40',
+                            borderWidth: 1,
+                            callbacks: {
+                                label: function(ctx) {
+                                    return ctx.label + ': ' + ctx.raw.toFixed(2) + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateComparison(results, pricePerShare, existingShares) {
+            if (results.length === 0) return;
+
+            const r = results[0]; // Show comparison for first note
+            const capEl = $('capComparison');
+            const discEl = $('discountComparison');
+            const capBadge = $('capBadge');
+            const discBadge = $('discountBadge');
+
+            const effectiveCapPrice = r.cap / existingShares;
+            const effectiveDiscPrice = pricePerShare * (1 - r.discount / 100);
+
+            capEl.innerHTML = `
+                <div class="comparison-stat"><span class="label">Conversion Price</span><span class="value">$${effectiveCapPrice.toFixed(4)}/share</span></div>
+                <div class="comparison-stat"><span class="label">Effective Valuation</span><span class="value">${formatCurrency(r.cap)}</span></div>
+                <div class="comparison-stat"><span class="label">Shares Received</span><span class="value">${formatNumber(r.capShares)}</span></div>
+                <div class="comparison-stat"><span class="label">Your Cost</span><span class="value">${formatCurrency(r.totalOwed)}</span></div>
+            `;
+
+            discEl.innerHTML = `
+                <div class="comparison-stat"><span class="label">Conversion Price</span><span class="value">$${effectiveDiscPrice.toFixed(4)}/share</span></div>
+                <div class="comparison-stat"><span class="label">Effective Valuation</span><span class="value">${formatCurrency(parseFloat($('preMoneyValuation').value) * (1 - r.discount / 100))}</span></div>
+                <div class="comparison-stat"><span class="label">Shares Received</span><span class="value">${formatNumber(r.discountShares)}</span></div>
+                <div class="comparison-stat"><span class="label">Your Cost</span><span class="value">${formatCurrency(r.totalOwed)}</span></div>
+            `;
+
+            if (r.capShares > r.discountShares) {
+                capBadge.textContent = 'BETTER FOR INVESTOR';
+                capBadge.className = 'badge badge-better';
+                discBadge.textContent = 'LESS SHARES';
+                discBadge.className = 'badge badge-worse';
+            } else if (r.discountShares > r.capShares) {
+                discBadge.textContent = 'BETTER FOR INVESTOR';
+                discBadge.className = 'badge badge-better';
+                capBadge.textContent = 'LESS SHARES';
+                capBadge.className = 'badge badge-worse';
+            } else {
+                capBadge.textContent = 'EQUAL';
+                capBadge.className = 'badge badge-neutral';
+                discBadge.textContent = 'EQUAL';
+                discBadge.className = 'badge badge-neutral';
+            }
+        }
+
+        function updateInterestBars(months) {
+            const bars = $('interestBars');
+            const totalPrincipal = notes.reduce((s, n) => s + n.principal, 0);
+            const maxAmount = notes.reduce((s, n) => s + n.principal * (1 + (n.rate / 100) * (months / 12)), 0);
+
+            const steps = Math.min(months, 12);
+            const stepMonths = months / steps;
+
+            let html = '';
+            for (let i = 0; i <= steps; i++) {
+                const m = i * stepMonths;
+                const amount = notes.reduce((s, n) => s + n.principal * (1 + (n.rate / 100) * (m / 12)), 0);
+                const heightPct = maxAmount > 0 ? (amount / maxAmount) * 100 : 0;
+                html += `
+                    <div class="timeline-bar" style="height: ${heightPct}%">
+                        <span class="bar-value">${formatCurrency(amount)}</span>
+                        <span class="bar-label">${Math.round(m)}mo</span>
+                    </div>
+                `;
+            }
+            bars.innerHTML = html;
+        }
+
+        // Share functions
+        window.shareTwitter = function() {
+            const url = 'https://founder-math.com/convertible-note.html';
+            const text = 'Free convertible note calculator — model how your notes convert at a priced round. Interest, cap, discount, maturity scenarios.';
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+        };
+
+        window.shareLinkedIn = function() {
+            const url = 'https://founder-math.com/convertible-note.html';
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+        };
+
+        window.copyLink = function() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const btn = $('copyBtn');
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => { btn.textContent = 'Copy Link'; btn.classList.remove('copied'); }, 2000);
+            });
+        };
+
+        function showToast(msg) {
+            const t = $('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2500);
+        }
+
+        // Event listeners
+        ['preMoneyValuation', 'newMoney', 'existingShares', 'monthsToMaturity'].forEach(id => {
+            $(id).addEventListener('input', calculate);
+        });
+
+        // Initialize
+        renderNotes();
+        calculate();
+    })();
+    </script>
+</body>
+</html>
