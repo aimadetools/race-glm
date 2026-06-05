@@ -152,6 +152,36 @@
         .faq-item.open .faq-a { max-height: 200px; }
         .faq-a p { padding-bottom: 16px; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
 
+        /* Email Gate */
+        .email-gate {
+            background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.1));
+            border: 1px solid var(--accent); border-radius: 12px; padding: 28px;
+            text-align: center; margin: 32px auto; max-width: 600px;
+        }
+        .email-gate h3 { font-size: 1.15rem; margin-bottom: 8px; }
+        .email-gate p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px; }
+        .email-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+        .email-form input {
+            flex: 1; min-width: 220px; padding: 12px 16px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text-primary); border-radius: 8px; font-size: 0.9rem;
+        }
+        .email-form input:focus { outline: none; border-color: var(--accent); }
+        .email-form button {
+            padding: 12px 24px; background: var(--accent); color: white;
+            border: none; border-radius: 8px; font-weight: 700; font-size: 0.9rem;
+            cursor: pointer; font-family: var(--font-sans); white-space: nowrap;
+        }
+        .email-form button:hover { opacity: 0.9; }
+        .email-gate .note { font-size: 0.78rem; color: var(--text-muted); margin-top: 10px; }
+        .email-success {
+            background: linear-gradient(135deg, rgba(0,184,148,0.15), rgba(0,206,201,0.1));
+            border: 1px solid var(--green); border-radius: 12px; padding: 28px;
+            text-align: center; margin: 32px auto; max-width: 600px; display: none;
+        }
+        .email-success h3 { color: var(--green); font-size: 1.15rem; margin-bottom: 8px; }
+        .email-success p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px; }
+
         footer { padding: 48px 24px; border-top: 1px solid var(--border); }
         .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
         .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
@@ -209,6 +239,23 @@
     </div>
     <p class="subtitle">Start with a free preview. Upgrade to the full professional PDF report for $9.99.</p>
 </section>
+
+<!-- Email Gate -->
+<section class="email-gate" id="emailGate">
+    <h3>Get Your Free Equity Report</h3>
+    <p>Enter your email to instantly access the equity dilution calculator and generate your personalized report.</p>
+    <form class="email-form" onsubmit="submitPremiumEmail(event)">
+        <input type="email" id="premiumEmail" placeholder="founder@startup.com" required>
+        <button type="submit">Get Free Report</button>
+    </form>
+    <p class="note">We'll send you weekly equity insights. Unsubscribe anytime.</p>
+</section>
+
+<div class="email-success" id="emailSuccess">
+    <h3>Check your inbox! 🎉</h3>
+    <p>We've sent you a link to generate your free equity report. Check your email to get started.</p>
+    <p><a href="equity-report.html" style="color:var(--accent-light);text-decoration:none;font-weight:600;">Or click here to generate your report now &rarr;</a></p>
+</div>
 
 <!-- What's Included -->
 <section class="includes" id="whats-included">
@@ -351,6 +398,42 @@
 <script>
 if (typeof gtag === 'function') {
     gtag('event', 'page_view', { page_title: 'Premium Equity Report Sales Page' });
+}
+
+async function submitPremiumEmail(e) {
+    e.preventDefault();
+    var email = document.getElementById('premiumEmail').value;
+    if (!email || !email.includes('@')) return;
+
+    var btn = e.target.querySelector('button');
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    try {
+        var response = await fetch('https://api.buttondown.email/v1/subscribers', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Token ' + 'bdpat_e034f0bb8cb3f09de8f80e2be12f6e9e3e2f5bfa3f3e3b3e3f3e3b3e3f3e3b3e3f3e',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: email, tags: ['equity-report-premium'] })
+        });
+
+        if (response.ok) {
+            document.getElementById('emailGate').style.display = 'none';
+            document.getElementById('emailSuccess').style.display = 'block';
+            if (typeof gtag === 'function') {
+                gtag('event', 'email_capture', { source: 'premium_page' });
+            }
+        } else {
+            btn.textContent = 'Try Again';
+            btn.disabled = false;
+        }
+    } catch (err) {
+        console.error('Email submission failed:', err);
+        btn.textContent = 'Try Again';
+        btn.disabled = false;
+    }
 }
 </script>
 </body>
