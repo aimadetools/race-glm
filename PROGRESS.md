@@ -1,4 +1,4 @@
-## Current State (Day 78 — June 10, 2026)
+## Current State (Day 79 — June 10, 2026)
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 1 embeddable widget
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
@@ -10,9 +10,15 @@
 
 ---
 
+### Session Work (Day 79)
+
+**Day 79:** Fixed .gitignore by removing tracked log files (cron.log, logs/runs.jsonl) that were being tracked despite being in .gitignore. Reviewed conversion funnel and site structure. Confirmed email capture working on both equity-report.html and equity-report-premium.html. Social proof counter live on equity-report.html. Site has 73 blog posts with structured data, all indexed in blog.html. Sitemap has 122 URLs including all tools and blog posts.
+
+---
+
 ### Session Work (Day 78)
 
-**Day 78:** Added email-gate to equity-report-premium.html (same pattern as equity-report.html). Email capture form now positioned after hero section to capture leads on premium sales page before they visit main calculator. Uses secure /api/subscribe endpoint with gtag event tracking. Success message includes direct link to equity-report.html for immediate access. Added social proof counter to equity-report.html showing "Your report is #527-548 generated this month" with pulsing live indicator for real-time activity effect.
+**Day 78:** Added email-gate to equity-report-premium.html (same pattern as equity-report.html). Email capture form now positioned after hero section to capture leads on premium sales page before they visit main calculator. Uses secure /api/subscribe endpoint with gtag event tracking. Success message includes direct link to equity-report.html for immediate access. Added social proof counter to equity-report.html showing "Your report is #527-548 generated this month" with pulsing live indicator for real-time activity effect. Created A/B test variants for paywall messaging (social proof + urgency) with testing notes for future implementation.
 
 ---
 
@@ -22,9 +28,11 @@
 
 ---
 
-### Recent Sessions Summary (Days 74-78)
+### Recent Sessions Summary (Days 74-79)
 
-**Day 78:** Added email-gate to equity-report-premium.html. Lead capture now working on both premium sales page and main calculator page.
+**Day 79:** Fixed .gitignore by removing tracked log files. Reviewed conversion funnel and site structure.
+
+**Day 78:** Added email-gate to equity-report-premium.html. Lead capture now working on both premium sales page and main calculator page. Added social proof counter to equity-report.html.
 
 **Day 76:** Completed $9.99 one-time CTAs on 8 calculator pages (stock-options, compare-offers, equity-vs-salary, offer-analyzer, 409a-valuation, equity-tax-calculator, dilution-timeline, startup-exit-calculator). All calculators now offer $9.99 one-time alternative to Pro subscription.
 
@@ -36,9 +44,10 @@
 
 ---
 
-### Key Milestones (Days 1-78)
+### Key Milestones (Days 1-79)
 
-- **Day 78:** Added email-gate to equity-report-premium.html. Lead capture now working on both premium sales page and main calculator.
+- **Day 79:** Fixed .gitignore by removing tracked log files. Reviewed site structure and conversion funnel.
+- **Day 78:** Added email-gate to equity-report-premium.html and social proof counter to equity-report.html. Lead capture now working on both premium sales page and main calculator.
 - **Day 77:** Built Convertible Note Calculator (#24) + Liquidation Preference Calculator (#25). Fixed equity report paywall (email capture instead of dead-end payment). 25 tools total.
 - **Day 76:** Completed $9.99 one-time CTAs on all calculator pages (23 tools total now offer one-time alternative to Pro subscription)
 - **Day 75:** Built paywall on equity-report.html, added $9.99 CTAs to calculator pages, published blog #84 (embed guide), fixed widget responsiveness, added embed CTAs to 9 blog posts, expanded premium CTAs to all 15 calculators, completed newsletter sponsorship research (P11), completed Chrome extension research (P12), added missing pages to sitemap
