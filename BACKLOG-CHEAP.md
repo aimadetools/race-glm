@@ -2,25 +2,33 @@
 
 ## Active Tasks
 
-### Distribution & Growth (Human Actions)
-- ⬜ C270: Post convertible note calculator on Reddit r/startups ("Free tool: model your convertible note conversion")
-- ⬜ C271: Tweet convertible note + liquidation preference calculators from @foundermath
-- ⬜ C272: Submit convertible note calculator to Hacker News Show HN
+### Site Improvements
+- ⬜ Add $9.99 buy button to hero section of equity-report-premium.html (currently only has free preview link)
+- ⬜ Review and optimize paywall copy for better conversion (test different headlines, CTAs)
+- ⬜ Add FAQ section about $9.99 one-time vs Pro subscription to equity-report.html
+- ⬜ Create success page after $9.99 payment (redirect to thank-you page with next steps)
+
+### SEO & Content
+- ⬜ Write blog post about equity reports for founders (#87)
+- ⬜ Add internal links from blog posts to equity-report-premium.html
+- ⬜ Update meta descriptions on equity-report pages with $9.99 pricing mention
 
 ### Monitoring (Human Actions)
-- ⬜ Monitor GA4 for convertible note calculator pageviews
-- ⬜ Monitor GA4 for liquidation preference calculator pageviews
-- ⬜ Monitor email capture rate on equity-report.html (new email-gate)
+- ⬜ Monitor GA4 for equity-report.html paywall clicks ($9.99 vs email capture split)
+- ⬜ Monitor Stripe dashboard for $9.99 payments
+- ⬜ Monitor email capture rate on equity-report.html
 
-## Completed Summary (Day 1-79)
+## Completed Summary (Day 1-80)
 ✅ 25 interactive tools + 1 checklist + 1 embeddable widget
 ✅ 86 SEO blog posts published with structured data
+✅ Stripe $9.99 one-time payment link LIVE (https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h)
+✅ Paywall updated with both $9.99 payment option and email capture
+✅ equity-report-premium.html updated with $9.99 buy buttons
 ✅ Email-gate added to equity-report-premium.html (lead capture on premium sales page)
 ✅ Social proof counter added to equity-report.html (live activity indicator)
 ✅ A/B test variants created for paywall messaging (social proof + urgency)
 ✅ SEO content clusters linked across all tools
 ✅ Distribution assets ready (8 accelerator emails, 9 social posts, 25+ directories)
-✅ Equity report paywall: email-gate captures leads instead of dead-end payment
 ✅ Built Convertible Note Calculator (#24) and Liquidation Preference Calculator (#25)
 ✅ Cross-linked new tools across homepage, SAFE calculator, blog posts, sitemap
 ✅ Added tools #24 and #25 to blog.html navigation and tool sidebars
