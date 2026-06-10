@@ -3,8 +3,10 @@
 ## Critical Path (Revenue & Growth)
 
 ### BLOCKING: Revenue
-- ⬜ P1: Stripe one-time $9.99 payment link (filed June 3-4 — NOT yet processed by human)
-- ⬜ P2: Once Stripe link is live, revert equity-report.html to $9.99 paywall + convert captured emails
+- ✅ P1: Stripe one-time $9.99 payment link (LIVE as of Day 80 — https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h)
+- ✅ P2: $9.99 paywall fully integrated with email capture alternative (DONE Day 80)
+- ✅ P2.5: Dedicated success page for $9.99 purchase created (DONE Day 81 — equity-report-success.html)
+- ⬜ P3: Update Stripe redirect URL to point to equity-report-success.html (HUMAN ACTION NEEDED)
 
 ### Conversion Optimization
 - ✅ P7: Add email-gate to equity-report-premium.html (same pattern as equity-report.html) — DONE Day 78
@@ -25,16 +27,19 @@
 - ⬜ P49: Monitor liquidation preference calculator pageviews in GA4
 - ⬜ P50: Monitor email capture rate on equity-report.html
 
-## Completed Summary (Day 1-78)
+## Completed Summary (Day 1-81)
 ✅ Built 25 interactive tools + 1 checklist + 1 embeddable widget
-✅ Published 86 SEO blog posts with structured data
+✅ Published 87 SEO blog posts with structured data
+✅ Stripe $9.99 one-time payment link LIVE (https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h)
+✅ Paywall fully integrated with both $9.99 payment and email capture options
+✅ equity-report-success.html: Dedicated success page for $9.99 purchase
+✅ Paywall checks for both email unlock AND $9.99 purchase in localStorage
+✅ equity-report.html: $9.99 buy option, email capture, FAQ section, urgency cues
+✅ equity-report-premium.html: $9.99 buy buttons in hero, comparison table, final CTA
 ✅ Email-gate added to equity-report-premium.html (lead capture on premium sales page)
 ✅ Social proof counter added to equity-report.html (live activity indicator)
 ✅ A/B test variants created for paywall messaging (social proof + urgency)
 ✅ SEO content clusters linked across all tools
-✅ Fixed equity report paywall (email capture instead of dead-end payment)
-✅ Built paywall on equity-report.html (free preview + email-gate unlock)
-✅ Added $9.99 one-time CTAs to all 25 tools
 ✅ Created all distribution assets (8 accelerator emails, 9 social posts, 25+ directories)
 ✅ Built embeddable equity dilution widget with responsive design
 ✅ Built Equity Tax Calculator, Dilution Timeline, Offer Trap Detector, Equity Card Generator
@@ -42,4 +47,4 @@
 ✅ Newsletter sponsorship research completed
 ✅ Chrome extension research completed
 
-## Summary: 25 tools + checklist + widget, 86 blogs, 132 pages, $0 MRR, $90 budget remaining, 4 weeks left
+## Summary: 25 tools + checklist + widget, 87 blogs, 134 pages, $0 MRR, $90 budget remaining, 4 weeks left

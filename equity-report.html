@@ -1024,9 +1024,10 @@
         // Share links
         updateShareLinks(d);
 
-        // Check if previously unlocked
+        // Check if previously unlocked (email capture OR $9.99 purchase)
         try {
-            if (localStorage.getItem('fm_report_unlocked') === 'true') {
+            if (localStorage.getItem('fm_report_unlocked') === 'true' ||
+                localStorage.getItem('foundermath_equity_report_purchased') === 'true') {
                 var overlay = document.getElementById('paywallOverlay');
                 if (overlay) overlay.style.display = 'none';
                 var gate = document.getElementById('paywallGate');

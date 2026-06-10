@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Confirmed! — FounderMath</title>
+    <meta name="description" content="Your Premium Equity Report purchase is complete. Generate your full dilution report with professional charts, recommendations, and PDF export now.">
+    <link rel="canonical" href="https://founder-math.com/equity-report-success.html">
+    <meta property="og:title" content="Purchase Confirmed! — FounderMath">
+    <meta property="og:description" content="Your Premium Equity Report purchase is complete. Generate your full report now.">
+    <meta property="og:image" content="/og-image.svg">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .success-card {
+            max-width: 560px;
+            width: 100%;
+            text-align: center;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 48px 32px;
+        }
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+        .success-icon {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            animation: scaleIn 0.5s ease;
+        }
+        @keyframes scaleIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        h1 { font-size: 1.75rem; margin-bottom: 12px; }
+        .subtitle { color: var(--text-secondary); font-size: 1rem; margin-bottom: 32px; line-height: 1.6; }
+        .purchase-info {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 28px;
+            border: 1px solid var(--border);
+        }
+        .purchase-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        .purchase-row.total {
+            border-top: 1px solid var(--border);
+            margin-top: 12px;
+            padding-top: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .label { color: var(--text-secondary); }
+        .value { color: var(--text-primary); font-weight: 600; }
+        .features {
+            text-align: left;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 28px;
+        }
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+        }
+        .feature svg { flex-shrink: 0; }
+        .feature span { color: var(--text-primary); font-size: 0.9rem; }
+        .cta {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: opacity 0.2s;
+            width: 100%;
+            text-align: center;
+        }
+        .cta:hover { opacity: 0.9; }
+        .secondary-cta {
+            display: inline-block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 16px;
+        }
+        .secondary-cta:hover { color: var(--text-primary); }
+        .note { color: var(--text-muted); font-size: 0.8rem; margin-top: 16px; }
+        .error-message {
+            display: none;
+            background: #2d1a1a;
+            border: 1px solid #4a2a2a;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 28px;
+        }
+        .error-message.show { display: block; }
+        .error-message h2 { color: #e74c3c; font-size: 1.1rem; margin-bottom: 8px; }
+        .error-message p { color: var(--text-secondary); font-size: 0.9rem; }
+    </style>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script></head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="success-card" id="main-content">
+        <div class="success-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+            </svg>
+        </div>
+        <h1 id="success-title">Purchase Confirmed!</h1>
+        <p class="subtitle" id="success-subtitle">Your Premium Equity Report is ready. Generate your full dilution analysis now.</p>
+
+        <div class="error-message" id="error-message">
+            <h2>Payment Verification Needed</h2>
+            <p>We could not verify your payment. If you just completed a purchase, please check your email for confirmation or contact hello@founder-math.com.</p>
+        </div>
+
+        <div class="purchase-info" id="purchase-info">
+            <div class="purchase-row">
+                <span class="label">Item</span>
+                <span class="value">Premium Equity Report</span>
+            </div>
+            <div class="purchase-row">
+                <span class="label">Type</span>
+                <span class="value">One-time Purchase</span>
+            </div>
+            <div class="purchase-row total">
+                <span class="label">Total</span>
+                <span class="value">$9.99</span>
+            </div>
+        </div>
+
+        <div class="features" id="features">
+            <div class="feature">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Full dilution timeline chart</span>
+            </div>
+            <div class="feature">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Personalized recommendations</span>
+            </div>
+            <div class="feature">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Professional PDF export</span>
+            </div>
+            <div class="feature">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Lifetime access</span>
+            </div>
+        </div>
+
+        <a href="equity-report.html" class="cta" id="main-cta">Generate Your Report</a>
+        <p class="note">Your purchase confirmation has been emailed to you. Questions? hello@founder-math.com</p>
+    </div>
+    <script>
+    (function() {
+        var ref = document.referrer || '';
+        var fromStripe = ref.indexOf('stripe.com') !== -1 || ref.indexOf('buy.stripe.com') !== -1;
+        var hasSessionId = window.location.search.indexOf('checkout_session') !== -1 || window.location.search.indexOf('payment_intent') !== -1;
+
+        if (fromStripe || hasSessionId) {
+            // Store purchase confirmation
+            localStorage.setItem('foundermath_equity_report_purchased', 'true');
+            localStorage.setItem('foundermath_equity_report_date', new Date().toISOString());
+
+            // Track purchase in GA4
+            if (typeof gtag === 'function') {
+                gtag('event', 'purchase', {
+                    transaction_id: 'ER_' + Date.now(),
+                    value: 9.99,
+                    currency: 'USD',
+                    items: [{
+                        item_name: 'Premium Equity Report',
+                        item_category: 'One-time Purchase',
+                        price: 9.99,
+                        quantity: 1
+                    }]
+                });
+            }
+        } else {
+            // Show error message for direct access
+            document.getElementById('success-title').textContent = 'Payment Verification Needed';
+            document.getElementById('success-subtitle').textContent = 'We could not verify your payment. If you just completed a purchase, please check your email for confirmation.';
+            document.getElementById('purchase-info').style.display = 'none';
+            document.getElementById('features').style.display = 'none';
+            document.getElementById('error-message').classList.add('show');
+            document.getElementById('main-cta').textContent = 'Return Home';
+            document.getElementById('main-cta').href = '/';
+        }
+    })();
+    </script>
+</body>
+</html>
