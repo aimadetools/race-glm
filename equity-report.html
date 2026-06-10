@@ -676,6 +676,84 @@
                     <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">We'll send you weekly equity insights. Unsubscribe anytime.</p>
                     <a href="pricing.html" class="paywall-alt" style="margin-top:8px;display:block;text-align:center;" onclick="if(typeof gtag==='function')gtag('event','paywall_click',{source:'equity_report',action:'pro'})">Or get unlimited reports with Pro — $9.50/mo &rarr;</a>
                 </div>
+
+                <!-- A/B TEST VARIANT B: Social Proof (commented out - uncomment to test) -->
+                <!--
+                <div class="paywall-card" style="display:none;">
+                    <h3>Join 500+ Founders Who've Unlocked Their Full Equity Report</h3>
+                    <p class="paywall-subtitle">See exactly what successful founders know about their equity. Get visual charts, personalized recommendations, and professional PDF download — all free with your email.</p>
+                    <div class="paywall-features">
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            500+ founders already unlocked
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Visual equity dilution chart
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Personalized recommendations
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Professional PDF download
+                        </div>
+                    </div>
+                    <form onsubmit="unlockReport(event)" style="margin-bottom:12px;">
+                        <input type="email" id="unlockEmail" placeholder="founder@startup.com" required style="width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:var(--bg-input);color:var(--text-primary);font-size:1rem;margin-bottom:10px;font-family:var(--font-sans);">
+                        <button type="submit" class="paywall-cta" style="border:none;cursor:pointer;width:100%;font-family:var(--font-sans);">Join Them — Unlock Free Report</button>
+                    </form>
+                    <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">We'll send you weekly equity insights. Unsubscribe anytime.</p>
+                    <a href="pricing.html" class="paywall-alt" style="margin-top:8px;display:block;text-align:center;" onclick="if(typeof gtag==='function')gtag('event','paywall_click',{source:'equity_report',action:'pro'})">Or get unlimited reports with Pro — $9.50/mo &rarr;</a>
+                </div>
+                -->
+
+                <!-- A/B TEST VARIANT C: Urgency (commented out - uncomment to test) -->
+                <!--
+                <div class="paywall-card" style="display:none;">
+                    <h3>Don't Sign Your Term Sheet Without Seeing This</h3>
+                    <p class="paywall-subtitle">Your equity dilution tells a story — make sure it's the right one. Get the complete analysis with visual charts, personalized recommendations, and professional PDF. Enter your email to unlock instantly.</p>
+                    <div class="paywall-features">
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            See what investors see
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Visual equity dilution chart
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Personalized recommendations
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Professional PDF download
+                        </div>
+                    </div>
+                    <form onsubmit="unlockReport(event)" style="margin-bottom:12px;">
+                        <input type="email" id="unlockEmail" placeholder="founder@startup.com" required style="width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:var(--bg-input);color:var(--text-primary);font-size:1rem;margin-bottom:10px;font-family:var(--font-sans);">
+                        <button type="submit" class="paywall-cta" style="border:none;cursor:pointer;width:100%;font-family:var(--font-sans);">See Your Full Picture Now — Free</button>
+                    </form>
+                    <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">We'll send you weekly equity insights. Unsubscribe anytime.</p>
+                    <a href="pricing.html" class="paywall-alt" style="margin-top:8px;display:block;text-align:center;" onclick="if(typeof gtag==='function')gtag('event','paywall_click',{source:'equity_report',action:'pro'})">Or get unlimited reports with Pro — $9.50/mo &rarr;</a>
+                </div>
+                -->
+
+                <!-- A/B TESTING NOTES:
+                     To test these variants:
+                     1. Uncomment one variant (remove <!-- and -->)
+                     2. Comment out the current variant (Control)
+                     3. Track email capture rate in GA4
+                     4. Run each variant for 7-14 days
+                     5. Compare conversion rates
+
+                     Variants:
+                     - Control (current): Feature-focused, "Unlock Your Full Report — Free"
+                     - Variant B: Social proof, "Join 500+ Founders..."
+                     - Variant C: Urgency, "Don't Sign Without Seeing..."
+                -->
             </div>
             <div class="paywall-content">
                 <!-- Chart (blurred behind paywall) -->
