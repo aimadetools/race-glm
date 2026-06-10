@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/founder-equity-report-guide.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Every Founder Needs an Equity Dilution Report (2026) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks && navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="Discover why every founder needs an equity dilution report. Track your ownership through funding rounds, understand exit scenarios, and make data-driven equity decisions.">
+    <meta name="keywords" content="equity dilution report, founder equity analysis, startup equity report, equity ownership tracking, founder dilution, cap table analysis, startup exit planning">
+    <meta property="og:title" content="Why Every Founder Needs an Equity Dilution Report">
+    <meta property="og:description" content="Track your ownership through funding rounds, understand exit scenarios, and make data-driven equity decisions.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/founder-equity-report-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why Every Founder Needs an Equity Dilution Report">
+    <meta name="twitter:description" content="Track your ownership through funding rounds, understand exit scenarios, and make data-driven equity decisions.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Why Every Founder Needs an Equity Dilution Report",
+        "url": "https://founder-math.com/blog/founder-equity-report-guide.html",
+        "description": "Discover why every founder needs an equity dilution report. Track your ownership through funding rounds, understand exit scenarios, and make data-driven equity decisions.",
+        "datePublished": "2026-06-10",
+        "dateModified": "2026-06-10",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/founder-equity-report-guide.html"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --border: #2a2a40;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        .container { max-width: 700px; margin: 0 auto; padding: 120px 24px 80px; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-left: 24px; }
+        h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+        .meta { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 32px; }
+        h2 { font-size: 1.5rem; font-weight: 700; margin: 48px 0 20px; color: var(--accent-light); }
+        h3 { font-size: 1.2rem; font-weight: 600; margin: 32px 0 16px; color: var(--text-primary); }
+        p { margin-bottom: 20px; color: rgba(240,240,245,0.85); }
+        ul, ol { margin-bottom: 20px; padding-left: 24px; }
+        li { margin-bottom: 12px; color: rgba(240,240,245,0.85); }
+        .cta { display: block; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 12px; padding: 32px; margin: 40px 0; text-decoration: none; text-align: center; }
+        .cta h3 { color: white; margin: 0 0 12px; }
+        .cta p { color: rgba(255,255,255,0.9); margin: 0; }
+        .stat { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .stat-number { font-size: 2rem; font-weight: 800; color: var(--green); }
+        .stat-label { color: var(--text-secondary); font-size: 0.9rem; }
+        .warning { background: rgba(255,165,0,0.1); border-left: 3px solid #ffa500; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .warning strong { color: #ffa500; }
+        code { background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', Monaco, monospace; font-size: 0.9em; }
+        .highlight { background: linear-gradient(135deg, rgba(108,92,231,0.2), rgba(162,155,254,0.2)); border: 1px solid var(--accent); border-radius: 12px; padding: 24px; margin: 24px 0; }
+        .highlight strong { color: var(--accent-light); }
+        .report-preview { background: var(--bg-card); border-radius: 12px; padding: 20px; margin: 24px 0; border: 1px solid var(--border); }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); padding: 20px; border-bottom: 1px solid var(--border); }
+            .nav-links a { margin: 12px 0; }
+            #mobileToggle { display: block; }
+        }
+        #mobileToggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">FounderMath</a>
+            <div class="nav-links" id="navLinks">
+                <a href="../dilution.html">Dilution Calculator</a>
+                <a href="../safe.html">SAFE Calculator</a>
+                <a href="../equity-report.html">Equity Report</a>
+                <a href="../pricing.html">Pricing</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../about.html">About</a>
+            </div>
+            <button id="mobileToggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Why Every Founder Needs an Equity Dilution Report</h1>
+        <p class="meta">June 10, 2026 • 8 min read</p>
+
+        <p>You started your company with 100% ownership. Then came the co-founder, the first hires, the seed round, Series A, and now you're at Series B. How much do you actually own? More importantly, what will that percentage be worth at exit?</p>
+
+        <p>Most founders can't answer these questions accurately. They sign term sheets, negotiate with investors, and make equity decisions without truly understanding the long-term impact. This is where an equity dilution report changes everything.</p>
+
+        <a href="../equity-report.html" class="cta" onclick="if(typeof gtag==='function')gtag('event','blog_cta_click',{article:'founder_equity_report_guide'})">
+            <h3>Generate Your Free Equity Report →</h3>
+            <p>See your ownership through every funding round. Multi-round projections in 60 seconds.</p>
+        </a>
+
+        <h2>The Equity Blindspot</h2>
+
+        <p>Here's a scary statistic: according to Carta data, the average founder's ownership drops from 100% at founding to less than 15% by Series C. But most founders don't know their exact percentage at any given point.</p>
+
+        <div class="stat">
+            <div class="stat-number">15%</div>
+            <div class="stat-label">Average founder ownership by Series C</div>
+        </div>
+
+        <p>This blindspot leads to expensive mistakes:</p>
+
+        <ul>
+            <li><strong>Accepting unfavorable terms</strong> because you don't understand the dilution impact</li>
+            <li><strong>Undervaluing your equity</strong> in negotiations with employees and investors</li>
+            <li><strong>Misjudging exit outcomes</strong> — that $100M exit looks very different at 10% vs 20% ownership</li>
+            <li><strong>Failing to plan ahead</strong> — not realizing you'll fall below key thresholds in future rounds</li>
+        </ul>
+
+        <h2>What Is an Equity Dilution Report?</h2>
+
+        <p>An equity dilution report is a personalized analysis showing exactly how your ownership changes through each funding round, from founding to exit. It typically includes:</p>
+
+        <ul>
+            <li><strong>Multi-round dilution projections</strong> — See your percentage after Seed, Series A, B, C, and beyond</li>
+            <li><strong>Visual dilution chart</strong> — A clear graph showing your ownership curve over time</li>
+            <li><strong>Exit scenario analysis</strong> — What your equity is worth at different exit valuations</li>
+            <li><strong>Round-by-round cap table</strong> — Full breakdown of who owns what after each round</li>
+            <li><strong>Personalized recommendations</strong> — Specific actions to protect your ownership</li>
+        </ul>
+
+        <div class="report-preview">
+            <h3 style="margin-top:0;">What's in Your Report:</h3>
+            <ul>
+                <li>Visual dilution chart (your ownership curve)</li>
+                <li>Exit value analysis ($50M, $100M, $500M scenarios)</li>
+                <li>Round-by-round cap table breakdown</li>
+                <li>Industry benchmark comparison (how you compare to similar startups)</li>
+                <li>Personalized recommendations (specific to your situation)</li>
+                <li>Professional PDF download</li>
+            </ul>
+        </div>
+
+        <h2>Why Founders Need This Now</h2>
+
+        <p>In today's fundraising environment, terms are getting more complex. Investors are negotiating harder. Option pools are getting larger. The difference between a good deal and a bad deal can mean millions at exit.</p>
+
+        <div class="highlight">
+            <strong>The Exit Math:</strong><br>
+            $100M exit at 15% ownership = $15M payout<br>
+            $100M exit at 25% ownership = $25M payout<br><br>
+            That 10% difference? It's worth $10 million.
+        </div>
+
+        <p>An equity dilution report helps you:</p>
+
+        <ol>
+            <li><strong>Negotiate better terms</strong> — Walk into term sheet negotiations knowing exactly what each provision costs you in ownership</li>
+            <li><strong>Plan your rounds strategically</strong> — Time your raises to minimize unnecessary dilution</li>
+            <li><strong>Set option pools wisely</strong> — Understand how hiring plans impact your ownership</li>
+            <li><strong>Make informed tradeoffs</strong> — See the real cost of valuation caps, discounts, and other terms</li>
+            <li><strong>Communicate with cofounders</strong> — Get on the same page about equity splits and future dilution</li>
+        </ol>
+
+        <h2>Real-World Impact</h2>
+
+        <p>Consider Sarah, a fictional founder who raised a $2M seed round at a $10M valuation:</p>
+
+        <p><strong>Without a report:</strong> She didn't realize the investors negotiated a 20% option pool increase. By Series A, her ownership had dropped from 60% to 35%. By Series B, she was at 18%. At a $100M exit, she walked away with $18M.</p>
+
+        <p><strong>With a report:</strong> She would have seen that the 20% option pool would dilute her an additional 7.5%. She could have negotiated it down to 15%, preserving that extra ownership. At the same exit, she would have walked away with $21M — an extra $3 million.</p>
+
+        <div class="warning">
+            <strong>The Real Cost of Small Decisions:</strong> A 1-2% difference in ownership terms can mean millions at exit. Most founders negotiate these terms blind. An equity report shows you the real cost.
+        </div>
+
+        <h2>When to Generate Your Report</h2>
+
+        <p>The best time to generate an equity dilution report is <strong>before</strong> you negotiate your next term sheet. But here are other key moments:</p>
+
+        <ul>
+            <li><strong>Before raising any round</strong> — Seed, Series A, B, C, or later</li>
+            <li><strong>Before hiring employees</strong> — Understand how option grants affect your ownership</li>
+            <li><strong>Before adding cofounders</strong> — Model different equity split scenarios</li>
+            <li><strong>When considering an acquisition offer</strong> — See what your equity is really worth</li>
+            <li><strong>When planning your financial future</strong> — Understand your potential exit outcomes</li>
+        </ul>
+
+        <h2>How It Works</h2>
+
+        <p>Generating your equity dilution report takes about 60 seconds. You'll enter:</p>
+
+        <ol>
+            <li><strong>Current round details</strong> — How much you're raising, at what valuation</li>
+            <li><strong>Your current ownership</strong> — What percentage you own today</li>
+            <li><strong>Future rounds planned</strong> — How many more rounds you expect to raise</li>
+            <li><strong>Exit scenarios</strong> — Potential exit valuations you're targeting</li>
+        </ol>
+
+        <p>The report then generates your personalized analysis with charts, tables, and recommendations specific to your situation.</p>
+
+        <a href="../equity-report.html" class="cta" onclick="if(typeof gtag==='function')gtag('event','blog_cta_click',{article:'founder_equity_report_guide'})">
+            <h3>Generate Your Equity Report Now — Free Preview</h3>
+            <p>See your ownership through every funding round. Multi-round projections in 60 seconds.</p>
+        </a>
+
+        <h2>What to Do With Your Report</h2>
+
+        <p>Once you have your equity dilution report, here's how to use it:</p>
+
+        <ul>
+            <li><strong>Share with your lawyer</strong> — Use it to guide term sheet negotiations</li>
+            <li><strong>Review with cofounders</strong> — Get aligned on equity strategy</li>
+            <li><strong>Compare with benchmarks</strong> — See how your ownership compares to industry standards</li>
+            <li><strong>Plan your rounds</strong> — Time your raises to optimize ownership retention</li>
+            <li><strong>Make hiring decisions</strong> — Understand the equity cost of key hires</li>
+        </ul>
+
+        <h2>The Bottom Line</h2>
+
+        <p>Your equity is your wealth. It's the financial return for years of hard work, risk, and sacrifice. Yet most founders make decisions about it blindly, without understanding the long-term implications.</p>
+
+        <p>An equity dilution report gives you clarity. It shows you exactly where you stand, what each decision costs, and how to protect your ownership. In a world where small differences in percentage can mean millions at exit, that clarity is invaluable.</p>
+
+        <div class="highlight">
+            <strong>Take Control of Your Equity:</strong><br>
+            Don't negotiate your next term sheet blind. See exactly how each term affects your ownership. Generate your free equity report now.
+        </div>
+
+        <a href="../equity-report.html" class="cta" onclick="if(typeof gtag==='function')gtag('event','blog_cta_click',{article:'founder_equity_report_guide'})">
+            <h3>Generate Your Equity Report — Free Preview</h3>
+            <p>See your ownership through every funding rounds. Get your personalized analysis in 60 seconds.</p>
+        </a>
+
+        <h2>Related Tools</h2>
+        <ul>
+            <li><a href="../dilution.html">Dilution Calculator</a> — Model your dilution through funding rounds</li>
+            <li><a href="../safe.html">SAFE Calculator</a> — Understand SAFE convertible notes</li>
+            <li><a href="../cap-table.html">Cap Table Calculator</a> — Build and manage your cap table</li>
+            <li><a href="../startup-exit-calculator.html">Startup Exit Calculator</a> — See your payout at different exits</li>
+        </ul>
+
+        <h2>Further Reading</h2>
+        <ul>
+            <li><a href="equity-dilution-guide.html">Understanding Equity Dilution: A Complete Guide</a></li>
+            <li><a href="founder-vs-investor-equity.html">Founder vs Investor Equity Splits Explained</a></li>
+            <li><a href="option-pool-dilution.html">How Option Pools Dilute Founders (And How to Minimize It)</a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -820,6 +820,33 @@
         </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq-section">
+        <h2 style="font-size:1.8rem;font-weight:800;text-align:center;margin-bottom:32px;letter-spacing:-0.03em;">Frequently Asked Questions</h2>
+        <div style="max-width:700px;margin:0 auto;display:grid;gap:20px;">
+            <div class="faq-item" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;" onclick="this.classList.toggle('open')">
+                <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">What's the difference between $9.99 one-time and Pro? <span style="color:var(--accent);">+</span></h3>
+                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0;display:none;">The $9.99 one-time purchase gives you a single professional equity report with PDF download. Pro ($9.50/mo with FOUNDING50) gives you unlimited PDF reports across all 25 tools, scenario saving, and side-by-side comparisons. Choose Pro if you're actively fundraising and modeling multiple scenarios.</p>
+            </div>
+            <div class="faq-item" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;" onclick="this.classList.toggle('open')">
+                <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">Can I unlock the report for free? <span style="color:var(--accent);">+</span></h3>
+                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0;display:none;">Yes! Enter your email to unlock the full report (charts, recommendations, PDF) for free. You'll receive weekly equity insights in your inbox (unsubscribe anytime). The $9.99 option is for founders who want instant access without subscribing.</p>
+            </div>
+            <div class="faq-item" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;" onclick="this.classList.toggle('open')">
+                <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">Is the $9.99 a subscription? <span style="color:var(--accent);">+</span></h3>
+                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0;display:none;">No. $9.99 is a one-time payment for your full equity report with PDF download. No recurring charges. Pro is the only subscription option, and it's optional.</p>
+            </div>
+            <div class="faq-item" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;" onclick="this.classList.toggle('open')">
+                <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">How accurate are the calculations? <span style="color:var(--accent);">+</span></h3>
+                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0;display:none;">Our calculators use standard VC math formulas used by venture capitalists and startup lawyers. Dilution follows: investor share + option pool expansion = your dilution. We validate against known examples and legal precedents.</p>
+            </div>
+        </div>
+    </section>
+    <style>
+        .faq-item.open h3 span { content:'−'; }
+        .faq-item.open p { display:block !important; }
+    </style>
+
     <footer>
         <div class="footer-inner">
             <div class="footer-left">
