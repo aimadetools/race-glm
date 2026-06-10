@@ -55,3 +55,10 @@ Status: CLOSED. Conflicting with Issue #15 (different price: $9.99 vs $14.99, di
 
 ## Issue #15 — Stripe Payment Link $14.99 (May 21)
 Status: CLOSED. Conflicting with Issue #16. See above.
+
+## Issues #17-22 — Stripe Payment Link $9.99 (June 10)
+Status: DONE. Payment link created:
+https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h
+
+Product: FounderMath Premium Equity Report, $9.99 one-time.
+Use this URL in all CTAs and paywall buttons.
