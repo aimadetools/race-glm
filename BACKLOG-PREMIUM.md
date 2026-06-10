@@ -9,7 +9,7 @@
 ### Conversion Optimization
 - ✅ P7: Add email-gate to equity-report-premium.html (same pattern as equity-report.html) — DONE Day 78
 - ⬜ P8: A/B test paywall messaging on equity-report.html
-- ⬜ P9: Add "Your report has been viewed X times" social proof to equity-report.html
+- ✅ P9: Add "Your report has been viewed X times" social proof to equity-report.html — DONE Day 78
 
 ### Distribution (Human Actions Required)
 - ⬜ P3: Send 8 accelerator outreach emails (accelerator-emails.md) — offer embeddable widget
@@ -29,6 +29,7 @@
 ✅ Built 25 interactive tools + 1 checklist + 1 embeddable widget
 ✅ Published 86 SEO blog posts with structured data
 ✅ Email-gate added to equity-report-premium.html (lead capture on premium sales page)
+✅ Social proof counter added to equity-report.html (live activity indicator)
 ✅ SEO content clusters linked across all tools
 ✅ Fixed equity report paywall (email capture instead of dead-end payment)
 ✅ Built paywall on equity-report.html (free preview + email-gate unlock)
