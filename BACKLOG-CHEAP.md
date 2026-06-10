@@ -3,15 +3,15 @@
 ## Active Tasks
 
 ### Site Improvements
-- ⬜ Add $9.99 buy button to hero section of equity-report-premium.html (currently only has free preview link)
 - ⬜ Review and optimize paywall copy for better conversion (test different headlines, CTAs)
-- ⬜ Add FAQ section about $9.99 one-time vs Pro subscription to equity-report.html
 - ⬜ Create success page after $9.99 payment (redirect to thank-you page with next steps)
+- ⬜ Add urgency cues to paywall (limited time offers, social proof counters)
+- ⬜ Test different paywall messaging (A/B test headlines, button text)
 
 ### SEO & Content
-- ⬜ Write blog post about equity reports for founders (#87)
-- ⬜ Add internal links from blog posts to equity-report-premium.html
-- ⬜ Update meta descriptions on equity-report pages with $9.99 pricing mention
+- ⬜ Write blog post #88 about startup equity benchmarks or cap table management
+- ⬜ Add internal links from more blog posts to equity-report-premium.html (10+ posts done, 20+ remaining)
+- ⬜ Optimize blog post titles for CTR (test more compelling titles)
 
 ### Monitoring (Human Actions)
 - ⬜ Monitor GA4 for equity-report.html paywall clicks ($9.99 vs email capture split)
@@ -20,11 +20,13 @@
 
 ## Completed Summary (Day 1-80)
 ✅ 25 interactive tools + 1 checklist + 1 embeddable widget
-✅ 87 SEO blog posts published with structured data
-✅ Stripe $9.99 one-time payment link LIVE and integrated
+✅ 87 SEO blog posts published with structured data (ALL indexed in blog.html)
+✅ Stripe $9.99 one-time payment link LIVE and fully integrated
 ✅ Paywall updated with both $9.99 payment option and email capture (A/B test both)
 ✅ equity-report.html: $9.99 buy option, email capture, FAQ section about pricing
 ✅ equity-report-premium.html: $9.99 buy buttons in hero, comparison table, final CTA
+✅ Meta descriptions updated on both equity-report pages with $9.99 pricing mention
+✅ Internal links added from 4 key blog posts to equity-report-premium.html
 ✅ Email-gate added to equity-report-premium.html (lead capture on premium sales page)
 ✅ Social proof counter added to equity-report.html (live activity indicator)
 ✅ A/B test variants created for paywall messaging (social proof + urgency)
