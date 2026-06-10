@@ -2,9 +2,9 @@
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 1 embeddable widget
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 86 published (ALL indexed in blog.html, ALL with structured data)
+- **Blog posts:** 87 published (ALL indexed in blog.html, ALL with structured data)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
-- **Pages:** 132 HTML files
+- **Pages:** 133 HTML files
 - **Conversion Funnel:** Free Preview → $9.99 One-Time OR Email Capture → Pro $9.50/mo
 - **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** $90 remaining
 
@@ -12,7 +12,7 @@
 
 ### Session Work (Day 80)
 
-**Day 80:** Stripe $9.99 one-time payment link is now LIVE (https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h). Updated equity-report.html paywall to offer both $9.99 one-time payment AND free email capture (A/B test both paths). Updated equity-report-premium.html with $9.99 buy buttons in comparison table and final CTA section. Paywall now monetized with live Stripe link while still building email list.
+**Day 80:** Stripe $9.99 one-time payment link is now LIVE (https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h). Updated equity-report.html paywall to offer both $9.99 one-time payment AND free email capture (A/B test both paths). Updated equity-report-premium.html with $9.99 buy buttons in hero section, comparison table, and final CTA section. Added FAQ section to equity-report.html explaining $9.99 vs Pro options. Published blog post #87 "Why Every Founder Needs an Equity Dilution Report" targeting equity report keywords. Paywall now fully monetized while still building email list.
 
 ---
 
