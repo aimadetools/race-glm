@@ -878,8 +878,11 @@
 
         <!-- Share -->
         <div class="share-section">
-            <p>Share your dilution report with your cofounders:</p>
+            <p>Found something surprising in your report? Share it with your cofounder.</p>
             <div class="share-buttons">
+                <button class="share-btn copy" onclick="shareWithCofounder()" style="background:linear-gradient(135deg,var(--accent),var(--accent-light));color:white;border-color:var(--accent);font-weight:700;padding:12px 28px;font-size:0.95rem;">
+                    &#9993; Share with Cofounder
+                </button>
                 <a class="share-btn twitter" id="shareTwitter" href="#" target="_blank" rel="noopener">Twitter</a>
                 <a class="share-btn linkedin" id="shareLinkedIn" href="#" target="_blank" rel="noopener">LinkedIn</a>
                 <button class="share-btn copy" onclick="copyReportLink()">Copy Link</button>
@@ -1370,6 +1373,22 @@
             btn.textContent = 'Copied!';
             setTimeout(function() { btn.textContent = 'Copy Link'; }, 2000);
         });
+    }
+
+    function shareWithCofounder() {
+        if (typeof gtag === 'function') {
+            gtag('event', 'share_cofounder', { source: 'equity_report' });
+        }
+        if (!reportData) {
+            copyReportLink();
+            return;
+        }
+        var subject = 'Our Equity Dilution Report — ' + reportData.startingEquity + '% → ' + reportData.finalOwnership.toFixed(1) + '%';
+        var body = 'I just ran our equity dilution report on FounderMath.%0A%0A' +
+            'Our ownership goes from ' + reportData.startingEquity + '% to ' + reportData.finalOwnership.toFixed(1) + '% after fundraising.%0A' +
+            'Exit value at target: ' + (reportData.exitValue >= 1 ? '$' + reportData.exitValue.toFixed(1) + 'M' : '$' + (reportData.exitValue * 1000).toFixed(0) + 'K') + '%0A%0A' +
+            'Run your own report here: https://founder-math.com/equity-report.html';
+        window.location.href = 'mailto:?subject=' + encodeURIComponent(subject) + '&body=' + body;
     }
 
     // Check URL params for pre-filled values
