@@ -2,7 +2,7 @@
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 1 embeddable widget
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 93 published (ALL indexed in blog.html, FAQ schema on key posts)
+- **Blog posts:** 93 published (ALL indexed in blog.html, FAQ schema on key posts, author page links on ALL posts)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
 - **Pages:** 140 HTML files + Chrome extension + npm package
 - **Conversion Funnel:** Free Preview → $9.99 One-Time OR Email Capture → Pro $9.50/mo
@@ -10,6 +10,17 @@
 - **SEO Features:** FAQ schema on equity-report.html + 3 blog posts, BreadcrumbList on all 6 key pages, Author page for E-E-A-T
 - **Distribution Channels:** SEO, Chrome Web Store (pending), npm (pending), Newsletter sponsorship (pending)
 - **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** $90 remaining
+
+---
+
+### Session Work (Day 85 - Evening)
+
+**Author Page Links on All Blog Posts:**
+- Added author page link (/blog/author/founder-math-team.html) to all 86 blog posts that were missing it
+- Updated visible author byline in article-meta sections: "By FounderMath Team"
+- Updated structured data author from Organization to Person with author page URL
+- Improves SEO E-E-A-T signals (Experience, Expertise, Authoritativeness, Trustworthiness)
+- All 93 blog posts now have consistent author attribution
 
 ---
 

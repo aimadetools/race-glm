@@ -4,7 +4,7 @@
 
 ### SEO & Content
 - ⬜ Optimize blog post titles for CTR (test more compelling titles)
-- ⬜ Add author page link to all 91 blog posts (E-E-A-T consistency)
+- ✅ Add author page link to all 93 blog posts (E-E-A-T consistency) — DONE Day 85 evening
 - ⬜ Create internal linking strategy: link related blog posts to each other
 - ⬜ Write blog post #92 targeting next high-volume keyword
 
