@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/free-equity-dilution-calculator.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Equity Dilution Calculator — See Your Ownership After Every Round | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks && navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="Free equity dilution calculator for startup founders. Enter your details and instantly see how much equity you keep after pre-seed, seed, Series A, and beyond. No signup required.">
+    <meta name="keywords" content="free equity dilution calculator, startup equity calculator, dilution calculator free, founder equity tool, equity dilution after funding, startup ownership calculator">
+    <meta property="og:title" content="Free Equity Dilution Calculator — See Your Ownership After Every Round">
+    <meta property="og:description" content="Free equity dilution calculator for startup founders. See how much equity you keep after every funding round. No signup required.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/free-equity-dilution-calculator.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Equity Dilution Calculator — See Your Ownership After Every Round">
+    <meta name="twitter:description" content="Free equity dilution calculator for startup founders. See how much equity you keep after every funding round.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Free Equity Dilution Calculator — See Your Ownership After Every Round",
+        "url": "https://founder-math.com/blog/free-equity-dilution-calculator.html",
+        "description": "Free equity dilution calculator for startup founders. Enter your details and instantly see how much equity you keep after pre-seed, seed, Series A, and beyond.",
+        "datePublished": "2026-06-11",
+        "dateModified": "2026-06-11",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/free-equity-dilution-calculator.html"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --border: #2a2a40;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        .container { max-width: 700px; margin: 0 auto; padding: 120px 24px 80px; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-left: 24px; }
+        h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+        .meta { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 32px; }
+        h2 { font-size: 1.5rem; font-weight: 700; margin: 48px 0 20px; color: var(--accent-light); }
+        h3 { font-size: 1.2rem; font-weight: 600; margin: 32px 0 16px; color: var(--text-primary); }
+        p { margin-bottom: 20px; color: rgba(240,240,245,0.85); }
+        ul, ol { margin-bottom: 20px; padding-left: 24px; }
+        li { margin-bottom: 12px; color: rgba(240,240,245,0.85); }
+        .cta { display: block; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 12px; padding: 32px; margin: 40px 0; text-decoration: none; text-align: center; }
+        .cta h3 { color: white; margin: 0 0 12px; }
+        .cta p { color: rgba(255,255,255,0.9); margin: 0; }
+        .stat { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .stat-number { font-size: 2rem; font-weight: 800; color: var(--green); }
+        .stat-label { color: var(--text-secondary); font-size: 0.9rem; }
+        .warning { background: rgba(255,165,0,0.1); border-left: 3px solid #ffa500; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .warning strong { color: #ffa500; }
+        .highlight { background: linear-gradient(135deg, rgba(108,92,231,0.2), rgba(162,155,254,0.2)); border: 1px solid var(--accent); border-radius: 12px; padding: 24px; margin: 24px 0; }
+        .highlight strong { color: var(--accent-light); }
+        .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .tool-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-decoration: none; color: var(--text-primary); transition: border-color 0.2s; }
+        .tool-card:hover { border-color: var(--accent); }
+        .tool-card h4 { font-size: 1rem; margin-bottom: 8px; color: var(--accent-light); }
+        .tool-card p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); padding: 20px; border-bottom: 1px solid var(--border); }
+            .nav-links a { margin: 12px 0; }
+            #mobileToggle { display: block; }
+            .tool-grid { grid-template-columns: 1fr; }
+        }
+        #mobileToggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">FounderMath</a>
+            <div class="nav-links" id="navLinks">
+                <a href="../dilution.html">Dilution Calculator</a>
+                <a href="../safe.html">SAFE Calculator</a>
+                <a href="../equity-report.html">Equity Report</a>
+                <a href="../pricing.html">Pricing</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../about.html">About</a>
+            </div>
+            <button id="mobileToggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-label="Toggle menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Free Equity Dilution Calculator — See How Much Equity You Keep After Raising</h1>
+        <p class="meta">June 11, 2026 • 7 min read</p>
+
+        <p>Every time you raise a funding round, you give up a piece of your company. But how much exactly? And more importantly — what will you own after your Seed, Series A, and Series B?</p>
+
+        <p>A free equity dilution calculator gives you instant answers. No signup, no credit card, no complicated cap table software. Just enter your numbers and see your ownership trajectory in seconds.</p>
+
+        <a href="../equity-report.html" class="cta" onclick="if(typeof gtag==='function')gtag('event','blog_cta_click',{article:'free_equity_dilution_calculator'})">
+            <h3>Try the Free Equity Dilution Calculator &#8594;</h3>
+            <p>Enter your startup details. See your ownership after every funding round. No signup required.</p>
+        </a>
+
+        <h2>What Is Equity Dilution?</h2>
+
+        <p>Equity dilution happens when a company issues new shares, reducing the ownership percentage of existing shareholders. For founders, this typically occurs during:</p>
+
+        <ul>
+            <li><strong>Funding rounds</strong> — Investors buy equity, adding new shareholders</li>
+            <li><strong>Option pool creation</strong> — Shares reserved for employees dilute existing owners</li>
+            <li><strong>Convertible note conversion</strong> — SAFEs and notes convert to equity at a discount</li>
+            <li><strong>Cofounder splits</strong> — Adding team members means dividing the pie</li>
+        </ul>
+
+        <div class="stat">
+            <div class="stat-number">20-25%</div>
+            <div class="stat-label">Typical dilution per funding round (investor share)</div>
+        </div>
+
+        <p>Here's the math: if you own 50% of your company and raise a round where investors take 20%, your new ownership is 50% × (1 - 0.20) = 40%. But it's rarely that simple — investors often require an option pool expansion that dilutes you further.</p>
+
+        <h2>Why You Need a Dilution Calculator</h2>
+
+        <p>Most founders have a vague sense of dilution but can't model it precisely. A dilution calculator helps you:</p>
+
+        <ol>
+            <li><strong>Negotiate term sheets</strong> — Know the exact cost of investor terms before you sign</li>
+            <li><strong>Plan future rounds</strong> — Project ownership through Seed, Series A, B, and beyond</li>
+            <li><strong>Evaluate exit scenarios</strong> — See what your stake is worth at different exit valuations</li>
+            <li><strong>Compare with benchmarks</strong> — Check if your dilution is normal for your stage</li>
+            <li><strong>Communicate with cofounders</strong> — Get everyone aligned on equity expectations</li>
+        </ol>
+
+        <div class="highlight">
+            <strong>The $10M Difference:</strong><br>
+            At a $100M exit, the difference between owning 15% and 25% is $10 million. That's the cost of not understanding your dilution.
+        </div>
+
+        <h2>How the Free Dilution Calculator Works</h2>
+
+        <p>The FounderMath equity dilution calculator uses real VC math — the same formulas investors use to calculate ownership after funding rounds. Here's what you enter:</p>
+
+        <ul>
+            <li><strong>Your current equity percentage</strong> — What you own right now</li>
+            <li><strong>Number of cofounders</strong> — Affects how the pie is already divided</li>
+            <li><strong>Current funding stage</strong> — Pre-seed, Seed, Series A, or Series B</li>
+            <li><strong>Planned future rounds</strong> — How many more rounds you expect to raise</li>
+            <li><strong>Current valuation</strong> — Your company's current worth</li>
+            <li><strong>Exit goal</strong> — The valuation you're aiming for at exit</li>
+        </ul>
+
+        <p>In return, you get:</p>
+
+        <ul>
+            <li><strong>Round-by-round dilution table</strong> — Your ownership after each round</li>
+            <li><strong>Key metrics</strong> — Starting equity, post-raise equity, final ownership, exit value</li>
+            <li><strong>Industry benchmark comparison</strong> — How your dilution compares to averages</li>
+            <li><strong>Visual dilution chart</strong> — Your ownership curve over time (in the full report)</li>
+            <li><strong>Personalized recommendations</strong> — Specific actions to protect your equity</li>
+        </ul>
+
+        <h2>A Real Example</h2>
+
+        <p>Let's walk through a realistic scenario. You're a solo founder with 100% of your company, currently at Seed stage, planning to raise 2 more rounds:</p>
+
+        <div class="stat">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                <div><div class="stat-number" style="font-size:1.4rem;">100%</div><div class="stat-label">Starting ownership</div></div>
+                <div><div class="stat-number" style="font-size:1.4rem;">45.9%</div><div class="stat-label">After Seed round</div></div>
+                <div><div class="stat-number" style="font-size:1.4rem;">33.1%</div><div class="stat-label">After Series A</div></div>
+                <div><div class="stat-number" style="font-size:1.4rem;">$33.1M</div><div class="stat-label">At $100M exit</div></div>
+            </div>
+        </div>
+
+        <p>That's 66.9% total dilution over two rounds. Your $100M exit pays you $33.1M. But what if you negotiate harder and reduce dilution by just 3% per round?</p>
+
+        <div class="warning">
+            <strong>The Compounding Effect:</strong> Reducing dilution by 3% per round doesn't save you 6%. Because each round's ownership compounds, small savings early on create outsized gains at exit. A dilution calculator shows you exactly how much.
+        </div>
+
+        <h2>Free vs. Paid: What You Get</h2>
+
+        <p>The free equity dilution calculator gives you a comprehensive preview of your ownership trajectory — no signup needed. For founders who want the full picture, the premium report includes:</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;">
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:20px;">
+                <h3 style="margin-top:0;font-size:1.1rem;color:var(--green);">Free Preview</h3>
+                <ul style="margin-bottom:0;">
+                    <li>Round-by-round dilution table</li>
+                    <li>Key ownership metrics</li>
+                    <li>Industry benchmark comparison</li>
+                    <li>No signup required</li>
+                </ul>
+            </div>
+            <div style="background:var(--bg-card);border:1px solid var(--accent);border-radius:8px;padding:20px;">
+                <h3 style="margin-top:0;font-size:1.1rem;color:var(--accent-light);">Full Report ($9.99)</h3>
+                <ul style="margin-bottom:0;">
+                    <li>Everything in free preview</li>
+                    <li>Visual dilution chart</li>
+                    <li>Personalized recommendations</li>
+                    <li>Professional PDF download</li>
+                    <li>Industry benchmarks</li>
+                </ul>
+            </div>
+        </div>
+
+        <p>Or unlock the full report for free by entering your email — we'll send you weekly equity insights along with your complete analysis.</p>
+
+        <h2>Other Free Equity Calculators</h2>
+
+        <p>FounderMath offers a complete suite of free equity calculators for startup founders:</p>
+
+        <div class="tool-grid">
+            <a href="../dilution.html" class="tool-card">
+                <h4>Dilution Calculator</h4>
+                <p>See your ownership after each funding round</p>
+            </a>
+            <a href="../safe.html" class="tool-card">
+                <h4>SAFE Calculator</h4>
+                <p>Model SAFE conversion and ownership impact</p>
+            </a>
+            <a href="../runway.html" class="tool-card">
+                <h4>Runway Calculator</h4>
+                <p>Calculate how many months of runway you have</p>
+            </a>
+            <a href="../vesting.html" class="tool-card">
+                <h4>Vesting Calculator</h4>
+                <p>Track equity vesting schedules and cliff periods</p>
+            </a>
+            <a href="../stock-options.html" class="tool-card">
+                <h4>Stock Options Calculator</h4>
+                <p>Value your stock options and exercise decisions</p>
+            </a>
+            <a href="../equity-report.html" class="tool-card" style="border-color:var(--accent);">
+                <h4>Full Equity Report</h4>
+                <p>Complete dilution analysis with charts and PDF</p>
+            </a>
+        </div>
+
+        <h2>When to Use a Dilution Calculator</h2>
+
+        <p>The best time to model your dilution is <strong>before</strong> you start fundraising. But here are key moments when a dilution calculator is essential:</p>
+
+        <ul>
+            <li><strong>Before signing a term sheet</strong> — Model the exact impact of investor terms</li>
+            <li><strong>When comparing multiple term sheets</strong> — See side-by-side dilution scenarios</li>
+            <li><strong>Before creating an option pool</strong> — Understand the full dilution cost of hiring</li>
+            <li><strong>When planning your fundraising timeline</strong> — Model 2, 3, or 4 rounds ahead</li>
+            <li><strong>Before a cofounder conversation</strong> — Get data to back up equity discussions</li>
+            <li><strong>When evaluating an acquisition offer</strong> — Know what your stake is truly worth</li>
+        </ul>
+
+        <h2>Common Dilution Mistakes</h2>
+
+        <p>After helping thousands of founders model their equity, here are the most common mistakes we see:</p>
+
+        <ol>
+            <li><strong>Forgetting the option pool</strong> — Investors often require a 10-20% option pool. This dilutes you before the investment even happens.</li>
+            <li><strong>Underestimating total dilution</strong> — Founders often calculate one round but forget to model all future rounds. The compounding effect is significant.</li>
+            <li><strong>Ignoring SAFE conversion</strong> — SAFEs convert at a discount, which means more dilution than founders expect. Use our <a href="../safe.html" style="color:var(--accent-light);">SAFE calculator</a> to model this.</li>
+            <li><strong>Not benchmarking</strong> — Without comparing to industry averages, you can't tell if your terms are competitive.</li>
+            <li><strong>Over-optimizing for control</strong> — Some dilution is the cost of growth. The goal is smart dilution, not zero dilution.</li>
+        </ol>
+
+        <a href="../equity-report.html" class="cta" onclick="if(typeof gtag==='function')gtag('event','blog_cta_click',{article:'free_equity_dilution_calculator'})">
+            <h3>Run Your Free Dilution Calculation Now &#8594;</h3>
+            <p>Enter your startup details. See your ownership after every funding round. 60 seconds, no signup.</p>
+        </a>
+
+        <h2>The Bottom Line</h2>
+
+        <p>Your equity is the reward for years of startup building. Every percentage point matters — at a $100M exit, 1% is worth $1 million. Don't make equity decisions blind.</p>
+
+        <p>A free equity dilution calculator takes 60 seconds and gives you clarity on your most valuable asset. Whether you're raising your first round or planning your fifth, knowing your ownership trajectory is essential for making smart decisions.</p>
+
+        <div class="highlight">
+            <strong>Start Here:</strong><br>
+            <a href="../equity-report.html" style="color:var(--accent-light);">Run your free equity dilution calculation &#8594;</a> — see your ownership after every funding round, compare against industry benchmarks, and get personalized recommendations. No signup required.
+        </div>
+
+        <p style="text-align:center;margin-top:48px;color:var(--text-secondary);font-size:0.9rem;">
+            <strong>More equity resources:</strong>
+            <a href="../equity-cheat-sheet.html" style="color:var(--accent-light);">Equity Cheat Sheet</a> &middot;
+            <a href="../equity-glossary.html" style="color:var(--accent-light);">Equity Glossary</a> &middot;
+            <a href="../equity-benchmarks.html" style="color:var(--accent-light);">Equity Benchmarks</a> &middot;
+            <a href="../free-startup-tools.html" style="color:var(--accent-light);">All Free Tools</a>
+        </p>
+    </div>
+
+    <footer style="padding:48px 24px;border-top:1px solid var(--border);text-align:center;">
+        <p style="color:var(--text-secondary);font-size:0.85rem;">&copy; 2026 FounderMath. <a href="../blog.html" style="color:var(--accent-light);text-decoration:none;">Blog</a> &middot; <a href="../about.html" style="color:var(--accent-light);text-decoration:none;">About</a> &middot; <a href="../pricing.html" style="color:var(--accent-light);text-decoration:none;">Pricing</a></p>
+    </footer>
+</body>
+</html>
