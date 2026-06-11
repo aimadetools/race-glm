@@ -107,6 +107,30 @@
             .pros-cons { grid-template-columns: 1fr; }
             h1 { font-size: 1.8rem; }
         }
+        .related-posts {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+        .related-posts h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        .related-posts a {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--accent-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .related-posts a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
@@ -327,6 +351,15 @@
             <li>Multiple notes with different terms require individual calculations</li>
             <li>Model your conversion before signing to understand dilution impact</li>
         </ul>
-    </article>
+    
+    <div class="related-posts">
+        <h3>Related Posts</h3>
+        <a href="safe-note-guide.html">SAFE Note Conversion Explained: Cap vs. Discount vs. MFN →</a>
+        <a href="convertible-notes-vs-safe.html">Convertible Notes vs SAFE: Which Should You Use? →</a>
+        <a href="pre-money-post-money-valuation-guide.html">Pre-Money vs Post-Money Valuation: The Startup Funding Guide →</a>
+        <a href="../safe.html">Interactive SAFE Calculator — Model Your Conversion →</a>
+        <a href="../convertible-note.html">Convertible Note Calculator — Interest, Cap, and Conversion →</a>
+    </div>
+</article>
 </body>
 </html>

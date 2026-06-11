@@ -284,6 +284,30 @@
             body { background: white; color: black; }
             .article-layout { padding-top: 0; }
         }
+        .related-posts {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+        .related-posts h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        .related-posts a {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--accent-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .related-posts a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
@@ -551,6 +575,15 @@
                 </a>
             </div>
         </div>
+    </div>
+
+    <div class="related-posts">
+        <h3>Related Posts</h3>
+        <a href="../scenario-compare.html">Compare Funding Scenarios Side-by-Side →</a>
+        <a href="pre-money-post-money-valuation-guide.html">Pre-Money vs Post-Money Valuation: The Startup Funding Guide →</a>
+        <a href="option-pool-negotiation-guide.html">Option Pool Negotiation: How Founders Avoid Unnecessary Dilution →</a>
+        <a href="../valuation.html">Interactive Valuation Calculator →</a>
+        <a href="startup-funding-rounds-complete-guide.html">Startup Funding Rounds Complete Guide: Pre-Seed to IPO →</a>
     </div>
 </article>
 </main>

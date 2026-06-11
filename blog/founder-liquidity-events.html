@@ -53,6 +53,30 @@
         .author-bio img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
         .example-box { background: #f7fafc; border-left: 4px solid #00b894; padding: 1.5rem; margin: 2rem 0; border-radius: 0 8px 8px 0; }
         .example-box h4 { color: #00b894; margin: 0 0 0.5rem 0; font-size: 1rem; }
+        .related-posts {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+        .related-posts h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        .related-posts a {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--accent-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .related-posts a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
@@ -378,7 +402,16 @@
                 <p>I built FounderMath because startup equity math shouldn't require spreadsheets or expensive tools. These calculators are free because equity literacy should be baseline knowledge for every founder.</p>
             </div>
         </div>
-    </article>
+    
+    <div class="related-posts">
+        <h3>Related Posts</h3>
+        <a href="posts/exercise-options-before-ipo.html">Should I Exercise My Stock Options Before IPO? →</a>
+        <a href="posts/ceo-equity-benchmarks.html">CEO Equity Benchmarks by Startup Stage (2026 Data) →</a>
+        <a href="ipo-planning-for-startup-founders.html">IPO Planning for Startup Founders: A Complete Guide →</a>
+        <a href="../equity-score.html">What's Your Founder Equity Score? (60s) →</a>
+        <a href="posts/secondary-sales-guide.html">Secondary Sales for Founders & Employees: How to Sell Startup Equity →</a>
+    </div>
+</article>
 
     <footer>
         <p>&copy; 2026 FounderMath. Free startup equity calculators.</p>
