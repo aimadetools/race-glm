@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FounderMath Equity Calculator</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 380px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      padding: 16px 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 16px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 2px;
+    }
+
+    .header p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .content {
+      padding: 16px 20px;
+    }
+
+    .input-group {
+      margin-bottom: 12px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #94a3b8;
+      margin-bottom: 4px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      background: #1e293b;
+      color: #f1f5f9;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-group input:focus {
+      border-color: #6366f1;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .input-row .input-group {
+      flex: 1;
+    }
+
+    .results {
+      background: #1e293b;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      margin-bottom: 14px;
+    }
+
+    .results h3 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #6366f1;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid #334155;
+    }
+
+    .result-row:last-child {
+      border-bottom: none;
+    }
+
+    .result-label {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    .result-value {
+      font-size: 13px;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+
+    .result-value.diluted {
+      color: #f59e0b;
+    }
+
+    .result-value.lost {
+      color: #ef4444;
+    }
+
+    .dilution-bar {
+      width: 100%;
+      height: 8px;
+      background: #334155;
+      border-radius: 4px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    .dilution-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6);
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+
+    .bar-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4px;
+      font-size: 10px;
+      color: #64748b;
+    }
+
+    .cta-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .cta-button:hover {
+      opacity: 0.9;
+    }
+
+    .cta-secondary {
+      display: block;
+      text-align: center;
+      margin-top: 8px;
+      font-size: 11px;
+      color: #6366f1;
+      text-decoration: none;
+    }
+
+    .cta-secondary:hover {
+      text-decoration: underline;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .tool-link {
+      display: block;
+      padding: 8px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 11px;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .tool-link:hover {
+      border-color: #6366f1;
+    }
+
+    .footer {
+      padding: 10px 20px 14px;
+      text-align: center;
+      font-size: 10px;
+      color: #475569;
+      border-top: 1px solid #1e293b;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🧮 FounderMath</h1>
+    <p>Quick Equity Dilution Calculator</p>
+  </div>
+
+  <div class="content">
+    <div class="input-group">
+      <label>Your Starting Ownership (%)</label>
+      <input type="number" id="startOwnership" value="33" min="0.1" max="100" step="0.1">
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label>Rounds of Funding</label>
+        <input type="number" id="numRounds" value="3" min="1" max="8" step="1">
+      </div>
+      <div class="input-group">
+        <label>Dilution per Round (%)</label>
+        <input type="number" id="dilutionPerRound" value="20" min="1" max="50" step="1">
+      </div>
+    </div>
+
+    <div class="results" id="results">
+      <h3>Your Dilution Projection</h3>
+      <div id="roundResults"></div>
+      <div class="dilution-bar">
+        <div class="dilution-bar-fill" id="dilutionBar"></div>
+      </div>
+      <div class="bar-labels">
+        <span id="barStart">33%</span>
+        <span id="barEnd">16.9%</span>
+      </div>
+    </div>
+
+    <a href="https://founder-math.com/equity-report.html" target="_blank" class="cta-button">
+      📊 Get Your Full Equity Report — Free Preview
+    </a>
+
+    <div class="tools-grid">
+      <a href="https://founder-math.com/dilution.html" target="_blank" class="tool-link">Dilution Calculator</a>
+      <a href="https://founder-math.com/safe-calculator.html" target="_blank" class="tool-link">SAFE Calculator</a>
+      <a href="https://founder-math.com/stock-options.html" target="_blank" class="tool-link">Stock Options</a>
+      <a href="https://founder-math.com/runway-calculator.html" target="_blank" class="tool-link">Runway Calculator</a>
+    </div>
+
+    <a href="https://founder-math.com/free-startup-tools.html" target="_blank" class="cta-secondary">
+      View All 25 Free Tools →
+    </a>
+  </div>
+
+  <div class="footer">
+    FounderMath — The startup calculator suite founders actually need
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
