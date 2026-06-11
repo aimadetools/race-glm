@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/startup-equity-calculator.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Equity Calculator — Split Ownership, Model Dilution, Plan Exits | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks && navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="Free startup equity calculator suite. Split founder equity, model dilution across funding rounds, calculate vesting schedules, and project exit values. 25+ free tools built for founders.">
+    <meta name="keywords" content="startup equity calculator, founder equity calculator, equity split calculator, startup ownership calculator, equity dilution calculator, founder equity tool">
+    <meta property="og:title" content="Startup Equity Calculator — Split Ownership, Model Dilution, Plan Exits">
+    <meta property="og:description" content="Free startup equity calculator suite. Split founder equity, model dilution across funding rounds, calculate vesting schedules, and project exit values.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/startup-equity-calculator.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Startup Equity Calculator — Split Ownership, Model Dilution, Plan Exits">
+    <meta name="twitter:description" content="Free startup equity calculator suite. Split founder equity, model dilution, calculate vesting, and project exit values.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Startup Equity Calculator — Split Ownership, Model Dilution, Plan Exits",
+        "url": "https://founder-math.com/blog/startup-equity-calculator.html",
+        "description": "Free startup equity calculator suite. Split founder equity, model dilution across funding rounds, calculate vesting schedules, and project exit values.",
+        "datePublished": "2026-06-11",
+        "dateModified": "2026-06-11",
+        "author": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "url": "https://founder-math.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/startup-equity-calculator.html"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        article { max-width: 780px; margin: 0 auto; padding: 120px 24px 60px; }
+        article h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.03em; }
+        article h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .article-meta { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 40px; display: flex; gap: 16px; flex-wrap: wrap; }
+        article h2 { font-size: 1.5rem; font-weight: 700; margin: 40px 0 16px; color: var(--accent-light); }
+        article h3 { font-size: 1.2rem; font-weight: 600; margin: 28px 0 12px; }
+        article p { color: var(--text-secondary); margin-bottom: 16px; font-size: 1.05rem; }
+        article ul, article ol { color: var(--text-secondary); margin-bottom: 16px; padding-left: 24px; }
+        article li { margin-bottom: 8px; font-size: 1.02rem; }
+        article strong { color: var(--text-primary); }
+        article a { color: var(--accent-light); text-decoration: none; }
+        article a:hover { text-decoration: underline; }
+        .tool-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 20px 0; transition: border-color 0.2s; }
+        .tool-card:hover { border-color: var(--accent); }
+        .tool-card h4 { font-size: 1.05rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .tool-card p { font-size: 0.92rem; margin-bottom: 12px; }
+        .tool-card a { display: inline-block; background: var(--accent); color: white; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.88rem; text-decoration: none; }
+        .tool-card a:hover { opacity: 0.9; text-decoration: none; }
+        .cta-box { background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.1)); border: 2px solid var(--accent); border-radius: 16px; padding: 32px; text-align: center; margin: 40px 0; }
+        .cta-box h3 { font-size: 1.3rem; margin-bottom: 8px; color: var(--text-primary); }
+        .cta-box p { color: var(--text-secondary); margin-bottom: 20px; }
+        .cta-box a { display: inline-block; background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; padding: 14px 32px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 1rem; transition: transform 0.2s; }
+        .cta-box a:hover { transform: translateY(-2px); text-decoration: none; }
+        .example-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 20px 0; }
+        .example-box h4 { color: var(--accent-light); font-size: 0.9rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .example-box .result { font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; color: var(--green); }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .comparison-table th { background: var(--bg-card); padding: 12px 16px; text-align: left; font-size: 0.85rem; color: var(--accent-light); border-bottom: 2px solid var(--border); }
+        .comparison-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text-secondary); font-size: 0.95rem; }
+        .comparison-table tr:hover td { background: rgba(108,92,231,0.05); }
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: #666680; font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        @media (max-width: 700px) { .nav-links { display: none; } .mobile-toggle { display: block; } .footer-inner { flex-direction: column; text-align: center; } }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/dilution.html">Dilution</a></li>
+                <li><a href="/safe.html">SAFE</a></li>
+                <li><a href="/runway.html">Runway</a></li>
+                <li><a href="/vesting.html">Vesting</a></li>
+                <li><a href="/cap-table.html">Cap Table</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/equity-report.html" class="nav-cta">Free Equity Report</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+        </div>
+    </nav>
+
+    <article>
+        <h1>The Free <span class="gradient">Startup Equity Calculator</span> Suite</h1>
+        <div class="article-meta">
+            <span>June 11, 2026</span>
+            <span>&middot;</span>
+            <span>10 min read</span>
+            <span>&middot;</span>
+            <span>By FounderMath</span>
+        </div>
+
+        <p>Every founder needs to answer three questions about equity: <strong>How do we split it? How does it change over time? What's it worth at the end?</strong> A startup equity calculator helps you answer all three — without paying a lawyer $500/hour to run the numbers.</p>
+
+        <p>We built 25+ free equity calculators at <a href="/">FounderMath</a> so founders can model their equity from day one through exit. This guide covers the six most important calculations you need, with links to the free tools that handle each one.</p>
+
+        <div class="cta-box">
+            <h3>Start with Your Free Equity Report</h3>
+            <p>Enter your startup details and get an instant equity dilution report with your personal Equity Score (0-100), benchmarks, and recommendations.</p>
+            <a href="/equity-report.html" onclick="if(typeof gtag==='function')gtag('event','blog_cta_click',{source:'startup_equity_calculator_blog',action:'equity_report'})">Get Your Free Equity Report &rarr;</a>
+        </div>
+
+        <h2>1. Founder Equity Split Calculator</h2>
+
+        <p>The first equity question every founding team faces: <strong>how do we divide the pie?</strong> This isn't just about who had the idea — it's about ongoing contribution, risk, and alignment.</p>
+
+        <h3>How to Split Equity Fairly</h3>
+
+        <p>The most common splits for startups:</p>
+        <ul>
+            <li><strong>Solo founder:</strong> 100% (but consider 10-15% option pool early)</li>
+            <li><strong>Two cofounders:</strong> 50/50 or 60/40 (if one contributes significantly more)</li>
+            <li><strong>Three cofounders:</strong> 33/33/33 or 40/35/25 (based on roles)</li>
+            <li><strong>Four+ cofounders:</strong> Rarely recommended — equity gets too thin after dilution</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Example Calculation</h4>
+            <p>Two technical cofounders, one business cofounder: <strong>35% / 35% / 30%</strong> with 4-year vesting and 1-year cliff. Each cofounder also gets a board seat to protect their stake.</p>
+        </div>
+
+        <p>Key factors that should influence your split: time commitment (full-time vs part-time), cash investment, IP contribution, domain expertise, and network/connections. Use our <a href="/equity-calculator.html">Equity Split Calculator</a> to model different scenarios.</p>
+
+        <h2>2. Equity Dilution Calculator</h2>
+
+        <p>Every time you raise money, your ownership percentage goes down. This is <strong>dilution</strong> — and if you don't model it upfront, you might be shocked at how little you own after Series B.</p>
+
+        <h3>How Dilution Works</h3>
+
+        <p>Here's the basic formula: when investors buy 20% of your company, every existing shareholder (including you) gets diluted by 20%. Add an option pool on top, and the dilution compounds.</p>
+
+        <div class="example-box">
+            <h4>Example: Two Rounds of Dilution</h4>
+            <p>You start with <strong>33%</strong> (3 cofounders, equal split).</p>
+            <p>Seed round: 20% to investors + 10% option pool → you drop to <strong>23.1%</strong></p>
+            <p>Series A: 25% to investors + 5% pool refresh → you drop to <strong>16.4%</strong></p>
+            <p class="result">Total dilution: 16.6 percentage points (50% of your original stake)</p>
+        </div>
+
+        <p>Our <a href="/dilution.html">Equity Dilution Calculator</a> lets you model exactly this — enter your starting equity, planned rounds, and see your ownership at every stage. It's free and takes 30 seconds.</p>
+
+        <h2>3. SAFE Note Calculator</h2>
+
+        <p>If you're raising a pre-seed or seed round, there's a good chance you're using a <strong>SAFE (Simple Agreement for Future Equity)</strong>. But how much equity will your SAFE investors actually get? That depends on the valuation cap, discount rate, and your next priced round.</p>
+
+        <h3>SAFE Conversion Math</h3>
+
+        <p>A SAFE converts to equity at the lower of: (1) the valuation cap price, or (2) the discounted next-round price. This means a $500K SAFE with a $5M cap buys 10% of your company — <em>before</em> the new money even arrives.</p>
+
+        <div class="example-box">
+            <h4>Example: SAFE with Cap + Discount</h4>
+            <p>Investment: $250K | Cap: $5M | Discount: 20%</p>
+            <p>Next round: $10M pre-money at $2.50/share</p>
+            <p>Discounted price: $2.00/share → SAFE investor gets <strong>125,000 shares</strong></p>
+            <p class="result">Effective ownership: 2.5% for $250K</p>
+        </div>
+
+        <p>Model your SAFE rounds with our <a href="/safe.html">SAFE Calculator</a> — enter the cap, discount, and investment to see exactly how much equity your SAFE holders will own after conversion.</p>
+
+        <h2>4. Vesting Schedule Calculator</h2>
+
+        <p>Equity isn't just about how much you get — it's about <strong>when you actually own it</strong>. Standard startup equity vests over 4 years with a 1-year cliff. Leave before the cliff? You get nothing. Leave after 2 years? You keep half.</p>
+
+        <h3>How Vesting Works</h3>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Vesting Event</th>
+                    <th>Cumulative Vested</th>
+                    <th>What Happens If You Leave</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0-1</td>
+                    <td>Cliff period</td>
+                    <td>0%</td>
+                    <td>You get nothing</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Cliff vests</td>
+                    <td>25%</td>
+                    <td>You keep 25% (1/4 of shares)</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Monthly vesting</td>
+                    <td>50%</td>
+                    <td>You keep 50%</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Monthly vesting</td>
+                    <td>75%</td>
+                    <td>You keep 75%</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Fully vested</td>
+                    <td>100%</td>
+                    <td>You keep everything</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Use our <a href="/vesting.html">Vesting Calculator</a> to see exactly how many shares you've earned at any point, including acceleration scenarios (single-trigger vs double-trigger).</p>
+
+        <h2>5. Runway & Burn Rate Calculator</h2>
+
+        <p>Your runway is how many months you can survive before running out of cash. Why does this matter for equity? Because <strong>running out of runway means raising at a worse valuation</strong> — which means more dilution for you.</p>
+
+        <h3>Runway Formula</h3>
+
+        <p><strong>Runway (months) = Cash in Bank / Monthly Burn Rate</strong></p>
+
+        <div class="example-box">
+            <h4>Example</h4>
+            <p>Cash: $1.2M raised | Burn: $80K/month (3 engineers + hosting)</p>
+            <p class="result">Runway: 15 months</p>
+            <p>If you need 6 months to fundraise, you should start raising at month 9 — when you still have $720K in the bank and leverage to negotiate.</p>
+        </div>
+
+        <p>Calculate your exact runway with our <a href="/runway.html">Runway Calculator</a>. It accounts for revenue, expenses, and fundraising timing.</p>
+
+        <h2>6. Exit Value Calculator</h2>
+
+        <p>The question every founder really wants answered: <strong>what's my stake worth at exit?</strong> The answer depends on your final ownership percentage and the exit valuation.</p>
+
+        <h3>Exit Value Formula</h3>
+
+        <p><strong>Your Exit Value = Your Ownership % &times; Exit Valuation</strong></p>
+
+        <div class="example-box">
+            <h4>Example: $100M Exit</h4>
+            <p>You own 16.4% after dilution (see example #2)</p>
+            <p class="result">Your exit value: $16.4M before taxes and liquidation preferences</p>
+            <p>With 1x non-participating liquidation preference on $15M invested, investors take $15M first, then you get your pro-rata of the remaining $85M. Your actual payout: <strong>$13.94M</strong></p>
+        </div>
+
+        <p>Our <a href="/equity-report.html">Equity Report</a> calculates your exit value across multiple scenarios — and shows how liquidation preferences, participation, and option pools affect your actual payout.</p>
+
+        <h2>All 25+ Free Equity Calculators</h2>
+
+        <p>Beyond the six core calculations above, here are the other free tools available on FounderMath:</p>
+
+        <div class="tool-card">
+            <h4>&#128200; <a href="/dilution.html">Equity Dilution Calculator</a></h4>
+            <p>Model your ownership after every funding round. See pre-seed through Series B+ dilution.</p>
+            <a href="/dilution.html">Calculate Dilution &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <h4>&#128176; <a href="/safe.html">SAFE Note Calculator</a></h4>
+            <p>Model SAFE conversion with valuation caps, discounts, and MFN provisions.</p>
+            <a href="/safe.html">Calculate SAFE &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <h4>&#128197; <a href="/vesting.html">Vesting Schedule Calculator</a></h4>
+            <p>See exactly when your shares vest, with cliff and acceleration scenarios.</p>
+            <a href="/vesting.html">Calculate Vesting &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <h4>&#9201; <a href="/runway.html">Runway Calculator</a></h4>
+            <p>How many months until you need to fundraise? Account for burn, revenue, and growth.</p>
+            <a href="/runway.html">Calculate Runway &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <h4>&#128202; <a href="/cap-table.html">Cap Table Builder</a></h4>
+            <p>Build your cap table from scratch. See ownership at every round with pro-rata calculations.</p>
+            <a href="/cap-table.html">Build Cap Table &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <h4>&#127919; <a href="/equity-calculator.html">Equity Split Calculator</a></h4>
+            <p>Split founder equity based on contribution, role, and commitment level.</p>
+            <a href="/equity-calculator.html">Split Equity &rarr;</a>
+        </div>
+
+        <p>See all tools on our <a href="/free-tools.html">Free Startup Tools</a> page, or explore the <a href="/equity-cheat-sheet.html">Equity Cheat Sheet</a> for quick reference.</p>
+
+        <h2>Startup Equity Calculator vs. Paying a Lawyer</h2>
+
+        <p>Founders often ask: <em>"Do I need a lawyer to calculate my equity?"</em> The answer: you need a lawyer to <strong>draft legal documents</strong>, but you don't need one to <strong>understand the math</strong>.</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>DIY Calculator</th>
+                    <th>Lawyer ($300-600/hr)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Model dilution across rounds</td>
+                    <td>Free, instant</td>
+                    <td>$500-1,500</td>
+                </tr>
+                <tr>
+                    <td>SAFE conversion math</td>
+                    <td>Free, instant</td>
+                    <td>$500-1,000</td>
+                </tr>
+                <tr>
+                    <td>Vesting schedule</td>
+                    <td>Free, instant</td>
+                    <td>Included in incorporation</td>
+                </tr>
+                <tr>
+                    <td>Exit scenario modeling</td>
+                    <td>Free, instant</td>
+                    <td>$1,000-3,000</td>
+                </tr>
+                <tr>
+                    <td>Draft legal documents</td>
+                    <td>Not available</td>
+                    <td>Required for legal validity</td>
+                </tr>
+                <tr>
+                    <td>Negotiate term sheets</td>
+                    <td>Education only</td>
+                    <td>Recommended</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Use calculators to <strong>understand the math and make informed decisions</strong>. Then hire a lawyer to make it legal. Our <a href="/equity-glossary.html">Equity Glossary</a> covers 50+ terms you'll encounter in those conversations.</p>
+
+        <h2>Common Startup Equity Mistakes</h2>
+
+        <p>After analyzing thousands of equity scenarios, these are the mistakes we see most often:</p>
+
+        <ol>
+            <li><strong>Not modeling dilution before raising.</strong> Founders are surprised when they own 12% after Series B. Model it upfront.</li>
+            <li><strong>Equal splits without vesting.</strong> 50/50 sounds fair until one cofounder leaves after 6 months with half the company. Always use 4-year vesting.</li>
+            <li><strong>Ignoring the option pool.</strong> Investors typically require a 10-20% option pool — and it comes out of <em>your</em> equity, not theirs.</li>
+            <li><strong>Not understanding liquidation preferences.</strong> A 2x participating preferred means investors get paid twice before you see a dime. <a href="/blog/liquidation-preference-types-guide.html">Learn how liquidation preferences work</a>.</li>
+            <li><strong>Raising too much too early.</strong> More money = more dilution. Raise what you need, not what you can.</li>
+        </ol>
+
+        <p>Our <a href="/equity-report.html">free equity report</a> flags these issues automatically based on your inputs.</p>
+
+        <h2>What's Your Equity Score?</h2>
+
+        <p>We created the <strong>FounderMath Equity Score</strong> — a single number from 0-100 that summarizes your equity position. It factors in:</p>
+
+        <ul>
+            <li><strong>Ownership retention (40%):</strong> How much equity you keep after all rounds</li>
+            <li><strong>Dilution vs benchmarks (35%):</strong> How your dilution compares to industry averages</li>
+            <li><strong>Exit potential (25%):</strong> Your projected payout relative to your goals</li>
+        </ul>
+
+        <p>A score of 80+ means your equity position is strong. Below 40? You should re-evaluate your fundraising strategy. Get your score free in the <a href="/equity-report.html">Equity Dilution Report</a>.</p>
+
+        <div class="cta-box">
+            <h3>Get Your Free Equity Report with Score</h3>
+            <p>Enter your startup details and get a personalized report with your Equity Score, round-by-round dilution, benchmarks, and actionable recommendations. No signup required for the free preview.</p>
+            <a href="/equity-report.html" onclick="if(typeof gtag==='function')gtag('event','blog_cta_click',{source:'startup_equity_calculator_blog',action:'equity_report_bottom'})">Get Your Free Report &rarr;</a>
+        </div>
+
+        <h2>Further Reading</h2>
+        <ul>
+            <li><a href="/equity-cheat-sheet.html">Startup Equity Cheat Sheet</a> — Quick reference for all key terms and formulas</li>
+            <li><a href="/equity-glossary.html">Equity Glossary</a> — 50+ startup equity terms explained</li>
+            <li><a href="/equity-benchmarks.html">Equity Benchmarks by Stage</a> — Industry data on founder ownership at each round</li>
+            <li><a href="/blog/convertible-notes-complete-guide.html">Convertible Notes Guide</a> — How convertible notes work with examples</li>
+            <li><a href="/blog/free-equity-dilution-calculator.html">Free Dilution Calculator</a> — Step-by-step dilution walkthrough</li>
+            <li><a href="/blog.html">All Blog Posts</a> — 90+ guides on startup equity</li>
+        </ul>
+    </article>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. Built for founders, by founders.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/dilution.html">Dilution Calculator</a></li>
+                <li><a href="/safe.html">SAFE Calculator</a></li>
+                <li><a href="/runway.html">Runway Calculator</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
