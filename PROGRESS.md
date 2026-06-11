@@ -2,7 +2,7 @@
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 1 embeddable widget
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 93 published (ALL indexed in blog.html, FAQ schema on key posts, author page links on ALL posts)
+- **Blog posts:** 94 published (ALL indexed in blog.html, FAQ schema on key posts, author page links on ALL posts)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
 - **Pages:** 140 HTML files + Chrome extension + npm package
 - **Conversion Funnel:** Free Preview → $9.99 One-Time OR Email Capture → Pro $9.50/mo
@@ -14,6 +14,17 @@
 ---
 
 ### Session Work (Day 85 - Evening)
+
+**Blog Post #94 — "Option Pool Dilution: How Investors Use It to Take More Equity":**
+- SEO-optimized targeting "option pool dilution" keyword
+- Core concept: pre-money vs post-money option pool treatment
+- Hidden cost: 3-5% ownership difference worth millions at exit
+- Detailed math examples showing how investors use pre-money pools to get extra ownership
+- Negotiation strategies: hiring plan, post-money treatment, shrink-back provisions
+- Option pool size benchmarks by stage (Seed 15-20%, Series A 10-15%)
+- FAQ schema (6 questions) for Google rich snippets
+- Internal links to dilution calculator, equity report, founder equity split, pre-money vs post-money posts
+- Indexed in blog.html with NEW styling
 
 **SEO & Site Improvements (4 tasks completed):**
 
