@@ -26,7 +26,7 @@
 
 ## Completed Summary (Day 1-85)
 ✅ 25 interactive tools + 1 checklist + 1 embeddable widget
-✅ 92 SEO blog posts published with structured data (ALL indexed in blog.html)
+✅ 93 SEO blog posts published with structured data (ALL indexed in blog.html)
 ✅ FAQ schema on equity-report.html + 4 high-traffic blog posts for rich snippets
 ✅ Author page for E-E-A-T signals (/blog/author/founder-math-team.html)
 ✅ BreadcrumbList schema on all 6 key calculator pages
@@ -41,11 +41,9 @@
 ✅ Monetization CTAs on: carta-alternatives, carta-vs-pulley, free-tools, cheat-sheet, founding FAQ
 ✅ Exit-intent popup on equity-report.html with email capture (Day 84)
 ✅ Share with Cofounder button for viral loop (Day 84)
-✅ Blog post #90: "Startup Equity Calculator" (Day 85 morning)
-✅ Blog post #91: "Founder Equity Split Guide" (Day 85 afternoon)
-✅ Blog post #92: "Pre-Money vs Post-Money Valuation" (Day 85 afternoon)
+✅ Blog post #90-93: Startup Equity Calculator, Founder Equity Split, Pre-Money vs Post-Money, Secondary Sales
 ✅ Calculator pages tested: no broken links, mobile responsive
 ✅ Internal links from 30+ blog posts to equity-report-premium.html
 ✅ Distribution assets ready (8 accelerator emails, 9 social posts, 25+ directories)
 
-## Summary: 92 blogs, 25 tools + checklist + widget, Chrome extension, npm package, $90 budget, 4 weeks left
+## Summary: 93 blogs, 25 tools + checklist + widget, Chrome extension, npm package, $90 budget, 4 weeks left

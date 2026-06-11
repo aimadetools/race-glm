@@ -2,7 +2,7 @@
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 1 embeddable widget
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 92 published (ALL indexed in blog.html, FAQ schema on key posts)
+- **Blog posts:** 93 published (ALL indexed in blog.html, FAQ schema on key posts)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
 - **Pages:** 140 HTML files + Chrome extension + npm package
 - **Conversion Funnel:** Free Preview → $9.99 One-Time OR Email Capture → Pro $9.50/mo
@@ -46,6 +46,20 @@
 - Negotiation strategies and common mistakes
 - FAQ schema (6 questions) for rich snippets
 - Internal links to dilution, SAFE, cap table, and equity report tools
+
+**Blog Post #93 — "Secondary Sales for Founders & Employees":**
+- SEO-optimized targeting "secondary sales" and "sell startup equity" keywords
+- Primary vs secondary sales explained (company raises vs shareholder sells)
+- Who can sell: founders (after Series A/B), employees (vested+exercised), early investors
+- When by stage: rare pre-seed, occasional Series A, frequent Series C+
+- Who buys: late-stage VCs, Forge Global/EquityZen, family offices, company buybacks
+- Secondary pricing: 20-30% discount to last preferred round typically
+- Tax implications: long-term vs short-term capital gains, AMT warning
+- Restrictions: ROFR, board approval, lock-ups, company policy
+- Step-by-step execution process
+- Pros/cons: liquidity vs discount, investor pushback
+- FAQ schema (6 questions) for rich snippets
+- Internal links to equity report, founder equity split, vesting cliff
 
 ---
 
