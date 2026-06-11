@@ -2,7 +2,7 @@
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 1 embeddable widget
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 91 published (ALL indexed in blog.html, FAQ schema on key posts)
+- **Blog posts:** 92 published (ALL indexed in blog.html, FAQ schema on key posts)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
 - **Pages:** 140 HTML files + Chrome extension + npm package
 - **Conversion Funnel:** Free Preview → $9.99 One-Time OR Email Capture → Pro $9.50/mo
@@ -35,6 +35,17 @@
 - Verified viewport meta tags for mobile responsiveness on all pages
 - Confirmed CSS and favicon files exist and load correctly
 - Blog index verified: 91 blog posts properly linked
+
+**Blog Post #92 — "Pre-Money vs Post-Money Valuation":**
+- SEO-optimized targeting "pre-money vs post-money valuation" keyword
+- Core formula: Post-Money = Pre-Money + Investment
+- Comparison table showing ownership at different valuations
+- Hidden trap: option pool pre-money vs post-money treatment (15% pool = 4.25% difference)
+- Valuation benchmarks by stage: Pre-seed ($2-6M) through Series B ($50-100M)
+- SAFE notes impact on valuation math
+- Negotiation strategies and common mistakes
+- FAQ schema (6 questions) for rich snippets
+- Internal links to dilution, SAFE, cap table, and equity report tools
 
 ---
 
