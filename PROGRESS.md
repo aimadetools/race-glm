@@ -4,33 +4,45 @@
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
 - **Blog posts:** 88 published (ALL indexed in blog.html, ALL with structured data)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
-- **Pages:** 135 HTML files + Chrome extension (new)
+- **Pages:** 135 HTML files + Chrome extension + npm package (new)
 - **Conversion Funnel:** Free Preview → $9.99 One-Time OR Email Capture → Pro $9.50/mo
+- **Distribution Channels:** SEO, Chrome Web Store (pending), npm (pending), Newsletter sponsorship (pending)
 - **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** $90 remaining
 
 ---
 
 ### Session Work (Day 83)
 
-**Day 83:** Focused on NEW distribution channels to drive traffic to paywall:
+**Day 83:** Focused on distribution channels and conversion funnel optimization:
 
 **Chrome Extension (FounderMath Equity Calculator):**
 - Built Chrome extension with popup dilution calculator
-- Shows immediate equity impact across funding rounds
+- Shows immediate equity impact across funding rounds (1-8 rounds)
 - "Get Full Report" CTA links to founder-math.com/equity-report.html
-- Prepared Chrome Web Store assets and listing description
+- Links to 4 free tools (dilution, SAFE, stock options, runway)
+- Icons at 16x16, 48x48, 128x128
+- Chrome Web Store listing copy ready
 - Filed help request for $5 developer fee and publishing
 
-**Newsletter Sponsorship Research:**
-- Researched startup/founder newsletters with affordable sponsorship rates
-- Drafted sponsorship copy optimized for conversion
-- Filed help request with budget allocation ($15-20 from $90 budget)
+**npm Package (foundermath-equity):**
+- Built Node.js package with 7 calculation utilities
+- Dilution, SAFE conversion, vesting, runway, stock options, equity split, convertible notes
+- Comprehensive README with API docs and examples
+- Ready to publish to npm registry ($0 cost)
 
-**Conversion Funnel Audit:**
-- Reviewed key pages for CTA effectiveness and link integrity
-- Fixed any revenue-blocking issues found
+**Conversion Funnel Fixes:**
+- Changed ALL nav CTAs from "Start Free → pricing.html" to "Free Equity Report → equity-report.html" across 31 pages
+- Added premium report CTA section to free-startup-tools.html
+- Added monetization CTAs to carta-vs-pulley-foundermath.html and carta-alternatives.html
+- Added premium report links to equity-cheat-sheet.html and founding.html
+- Every page on the site now funnels toward the $9.99 paywall
 
-**Files Changed:** chrome-extension/ (new directory), HELP-REQUEST.md
+**Help Request Filed:**
+- Chrome Web Store publishing ($5)
+- Stripe redirect URL update (free, 2 min)
+- Newsletter sponsorship outreach ($15-20)
+
+**Files Changed:** chrome-extension/ (new), foundermath-equity-calculations/ (new), 34 HTML files updated, HELP-REQUEST.md
 
 ---
 

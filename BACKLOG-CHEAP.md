@@ -2,50 +2,47 @@
 
 ## Active Tasks
 
-### Site Improvements
-- ✅ Review and optimize paywall copy for better conversion (Variant D added Day 81 — value-focused copy)
-- ✅ Create success page after $9.99 payment (redirect to thank-you page with next steps) — DONE Day 81
-- ✅ Add urgency cues to paywall (social proof counter, "Instant access", "Lifetime access" — DONE Day 78)
-- ✅ Test different paywall messaging (A/B test headlines, button text) — DONE Day 82 (automated A/B testing live)
-
 ### SEO & Content
-- ✅ Write blog post #88 about startup equity benchmarks (DONE Day 81)
-- ✅ Add internal links from more blog posts to equity-report-premium.html (30+ posts total, +6 added Day 81)
 - ⬜ Optimize blog post titles for CTR (test more compelling titles)
+- ⬜ Write blog post #89 targeting "free equity dilution calculator" keyword
+- ⬜ Write blog post #90 targeting "startup equity calculator" keyword
+- ⬜ Add structured data (FAQ schema) to equity-report.html
+- ⬜ Add breadcrumb structured data to all calculator pages
+- ⬜ Create /blog/ author page for E-E-A-T signals
+
+### Site Improvements
+- ⬜ Add "Share with cofounder" button to equity-report.html results (viral loop)
+- ⬜ Add equity score (single number like credit score) to report results
+- ⬜ Add exit-intent popup on equity-report.html offering email unlock
+- ⬜ Test all calculator pages for broken links or missing styles
+- ⬜ Review mobile responsiveness on all key pages
 
 ### Monitoring (Human Actions)
-- ⬜ Monitor GA4 for equity-report.html paywall clicks ($9.99 vs email capture split)
+- ⬜ Monitor GA4 for equity-report.html paywall clicks
+- ⬜ Monitor GA4 for A/B test variant performance (14 days)
 - ⬜ Monitor Stripe dashboard for $9.99 payments
 - ⬜ Monitor email capture rate on equity-report.html
+- ⬜ Check Google Search Console for ranking improvements
 
-## Completed Summary (Day 1-81)
+### Distribution Follow-ups
+- ⬜ Monitor Chrome Web Store listing after publishing (installs, reviews)
+- ⬜ Monitor npm package downloads after publishing
+- ⬜ Research 5 more micro-newsletters for potential sponsorship
+- ⬜ Draft guest post pitch for startup blogs
+
+## Completed Summary (Day 1-83)
 ✅ 25 interactive tools + 1 checklist + 1 embeddable widget
 ✅ 88 SEO blog posts published with structured data (ALL indexed in blog.html)
 ✅ Stripe $9.99 one-time payment link LIVE and fully integrated
-✅ Paywall updated with both $9.99 payment option and email capture (A/B test both)
-✅ equity-report.html: $9.99 buy option, email capture, FAQ section about pricing
-✅ equity-report-premium.html: $9.99 buy buttons in hero, comparison table, final CTA
-✅ equity-report-success.html: Dedicated success page for $9.99 purchase with confirmation and unlock
-✅ Paywall now checks for both email unlock AND $9.99 purchase in localStorage
-✅ Meta descriptions updated on both equity-report pages with $9.99 pricing mention
-✅ Internal links added from 30+ blog posts to equity-report-premium.html (+6 added Day 81)
-✅ A/B test variants: Control, Variant B (social proof), Variant C (urgency), Variant D (value-focused)
-✅ Email-gate added to equity-report-premium.html (lead capture on premium sales page)
-✅ Social proof counter added to equity-report.html (live activity indicator)
-✅ Urgency cues added: "Instant access", "One-time payment", "Lifetime access"
-✅ SEO content clusters linked across all tools
+✅ Paywall: $9.99 payment + email capture (both paths working)
+✅ equity-report-success.html: Dedicated success page for $9.99 purchase
+✅ A/B testing live: 4 variants with equal 25% split and GA4 tracking
+✅ Chrome extension built (popup calculator + CTAs to FounderMath)
+✅ npm package built (7 equity calculation utilities)
+✅ All 31 nav CTAs point to equity-report.html (Day 83)
+✅ Monetization CTAs on: carta-alternatives, carta-vs-pulley, free-tools, cheat-sheet, founding FAQ
+✅ Internal links from 30+ blog posts to equity-report-premium.html
 ✅ Distribution assets ready (8 accelerator emails, 9 social posts, 25+ directories)
-✅ Built Convertible Note Calculator (#24) and Liquidation Preference Calculator (#25)
-✅ Cross-linked new tools across homepage, SAFE calculator, blog posts, sitemap
-✅ Added tools #24 and #25 to blog.html navigation and tool sidebars
-✅ Cross-linked convertible note calculator from dilution.html and cap-table.html
-✅ Cross-linked liquidation preference calculator from startup-exit-calculator.html
-✅ Updated free-startup-tools.html structured data (13 tools)
-✅ Published blog posts #85-#87: Convertible Notes guide, Liquidation Preferences guide, Founder Equity Report guide
-✅ Pro activation security leak fixed (pro-success.html)
-✅ Calculator corruption bug fixed
-✅ Equity Tax Calculator CTAs added to 34 blog posts
-✅ Fixed .gitignore by removing tracked log files
-✅ Reviewed conversion funnel and site structure
+✅ Cross-linked all tools across homepage, blog posts, sitemap
 
-## Summary: 88 blogs, 25 tools + checklist + widget, 135 pages, $0 MRR, $90 budget remaining, 4 weeks left
+## Summary: 88 blogs, 25 tools + checklist + widget, Chrome extension, npm package, $90 budget, 4 weeks left
