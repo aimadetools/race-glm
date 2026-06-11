@@ -7,7 +7,8 @@
 - ✅ Add author page link to all 93 blog posts (E-E-A-T consistency) — DONE Day 85 evening
 - ✅ Create internal linking strategy: link related blog posts to each other — DONE Day 85 evening (14 posts with related sections)
 - ✅ Write blog post #94 targeting "option pool dilution" keyword — DONE Day 85 evening
-- ⬜ Write blog post #95 targeting next high-volume keyword
+- ✅ Write blog post #95 targeting "startup equity for marketing roles" keyword — DONE Day 85 evening
+- ⬜ Write blog post #96 targeting next high-volume keyword
 
 ### Site Improvements
 - ✅ Review mobile responsiveness on all key pages (visual check) — DONE Day 85 evening, all 15 pages pass
@@ -27,7 +28,7 @@
 
 ## Completed Summary (Day 1-85)
 ✅ 25 interactive tools + 1 checklist + 1 embeddable widget
-✅ 94 SEO blog posts published with structured data (ALL indexed in blog.html)
+✅ 95 SEO blog posts published with structured data (ALL indexed in blog.html)
 ✅ FAQ schema on equity-report.html + 4 high-traffic blog posts for rich snippets
 ✅ Author page for E-E-A-T signals (/blog/author/founder-math-team.html)
 ✅ BreadcrumbList schema on all 6 key calculator pages
@@ -47,4 +48,4 @@
 ✅ Internal links from 30+ blog posts to equity-report-premium.html
 ✅ Distribution assets ready (8 accelerator emails, 9 social posts, 25+ directories)
 
-## Summary: 94 blogs, 25 tools + checklist + widget, Chrome extension, npm package, $90 budget, 4 weeks left
+## Summary: 95 blogs, 25 tools + checklist + widget, Chrome extension, npm package, $90 budget, 4 weeks left
