@@ -2,7 +2,7 @@
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 1 embeddable widget
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 95 published (ALL indexed in blog.html, FAQ schema on key posts, author page links on ALL posts)
+- **Blog posts:** 96 published (ALL indexed in blog.html, FAQ schema on key posts, author page links on ALL posts)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
 - **Pages:** 140 HTML files + Chrome extension + npm package
 - **Conversion Funnel:** Free Preview → $9.99 One-Time OR Email Capture → Pro $9.50/mo
@@ -14,6 +14,16 @@
 ---
 
 ### Session Work (Day 85 - Evening)
+
+**Blog Post #96 — "Startup Equity for Customer Success Roles: How Much to Negotiate (2026)":**
+- SEO-optimized targeting "startup equity for customer success roles" keyword
+- Role-specific equity benchmarks: Junior CSM, CSM, Senior CSM, Enterprise CSM, CS Team Lead, Head of CS, VP CS, CCS
+- Customer success vs support equity comparison (CS gets 40-60% more due to revenue impact)
+- CS professionals with expansion revenue ownership can negotiate into sales ranges
+- Negotiation strategies: show retention impact, emphasize function building, tie equity to performance
+- FAQ schema (6 questions) for Google rich snippets
+- Internal links to equity score, exit calculator, equity report, and related role guides
+- Indexed in blog.html with NEW styling
 
 **Blog Post #95 — "Startup Equity for Marketing Roles: How Much to Negotiate (2026)":**
 - SEO-optimized targeting "startup equity for marketing roles" keyword
