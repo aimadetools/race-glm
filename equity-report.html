@@ -34,6 +34,62 @@
         }
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What's the difference between the $9.99 one-time report and Pro?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The $9.99 one-time purchase gives you a single professional equity report with PDF download. Pro ($9.50/mo with FOUNDING50) gives you unlimited PDF reports across all 25 tools, scenario saving, and side-by-side comparisons. Choose Pro if you're actively fundraising and modeling multiple scenarios."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I unlock the equity report for free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! Enter your email to unlock the full report (charts, recommendations, PDF) for free. You'll receive weekly equity insights in your inbox (unsubscribe anytime). The $9.99 option is for founders who want instant access without subscribing."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the $9.99 a subscription?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. $9.99 is a one-time payment for your full equity report with PDF download. No recurring charges. Pro is the only subscription option, and it's optional."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How accurate are the equity dilution calculations?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our calculators use standard VC math formulas used by venture capitalists and startup lawyers. Dilution follows: investor share + option pool expansion = your dilution. We validate against known examples and legal precedents."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What funding stages does the equity report cover?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The equity dilution report covers pre-seed, seed, Series A, Series B, and beyond. Enter your current stage and planned fundraising rounds to see round-by-round dilution with projected ownership percentages and exit values."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is equity dilution?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Equity dilution is the reduction in your ownership percentage when a startup issues new shares to investors, employees (option pool), or other stakeholders. Each funding round typically dilutes founders by 15-25% as investors buy equity in exchange for capital."
+                }
+            }
+        ]
+    }
+    </script>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <style>
         :root {
@@ -602,6 +658,28 @@
             </div>
         </div>
 
+        <!-- Equity Score -->
+        <div id="equityScoreCard" style="display:none;background:linear-gradient(135deg,var(--bg-secondary),var(--bg-card));border:2px solid var(--accent);border-radius:16px;padding:32px;margin-bottom:32px;text-align:center;box-shadow:0 0 40px var(--accent-glow);">
+            <div style="font-size:0.85rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Your Equity Score</div>
+            <div id="equityScoreValue" style="font-size:4rem;font-weight:900;font-family:var(--font-mono);line-height:1;margin-bottom:8px;">—</div>
+            <div id="equityScoreLabel" style="font-size:1.1rem;font-weight:700;margin-bottom:4px;">—</div>
+            <p id="equityScoreDesc" style="font-size:0.85rem;color:var(--text-secondary);max-width:500px;margin:0 auto 12px;line-height:1.5;"></p>
+            <div style="display:flex;justify-content:center;gap:24px;margin-top:12px;">
+                <div style="text-align:center;">
+                    <div style="font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Ownership</div>
+                    <div id="scoreOwnership" style="font-size:0.95rem;font-weight:700;color:var(--accent-light);">—</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">vs Industry</div>
+                    <div id="scoreVsIndustry" style="font-size:0.95rem;font-weight:700;">—</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Exit Potential</div>
+                    <div id="scoreExit" style="font-size:0.95rem;font-weight:700;color:var(--green);">—</div>
+                </div>
+            </div>
+        </div>
+
         <!-- Key Metrics -->
         <div class="key-metrics">
             <div class="metric-card">
@@ -910,6 +988,14 @@
                 <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">How accurate are the calculations? <span style="color:var(--accent);">+</span></h3>
                 <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0;display:none;">Our calculators use standard VC math formulas used by venture capitalists and startup lawyers. Dilution follows: investor share + option pool expansion = your dilution. We validate against known examples and legal precedents.</p>
             </div>
+            <div class="faq-item" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;" onclick="this.classList.toggle('open')">
+                <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">What funding stages does the report cover? <span style="color:var(--accent);">+</span></h3>
+                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0;display:none;">The equity dilution report covers pre-seed, seed, Series A, Series B, and beyond. Enter your current stage and planned fundraising rounds to see round-by-round dilution with projected ownership percentages and exit values.</p>
+            </div>
+            <div class="faq-item" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;" onclick="this.classList.toggle('open')">
+                <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">What is equity dilution? <span style="color:var(--accent);">+</span></h3>
+                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0;display:none;">Equity dilution is the reduction in your ownership percentage when a startup issues new shares to investors, employees (option pool), or other stakeholders. Each funding round typically dilutes founders by 15-25% as investors buy equity in exchange for capital.</p>
+            </div>
         </div>
     </section>
     <style>
@@ -1102,6 +1188,9 @@
         countElement.textContent = Math.floor(Math.random() * 21) + 527;
         socialProof.style.display = 'flex';
 
+        // Equity Score calculation
+        renderEquityScore(d);
+
         // Key metrics
         document.getElementById('metricStart').textContent = d.startingEquity + '%';
         document.getElementById('metricAfterRaise').textContent = d.steps.length > 2 ? d.steps[d.steps.length - 2].ownership.toFixed(1) + '%' : d.finalOwnership.toFixed(1) + '%';
@@ -1155,6 +1244,69 @@
 
         // Scroll to results
         document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function renderEquityScore(d) {
+        // Score components (0-100 each, weighted average)
+        var yourDilution = d.startingEquity - d.finalOwnership;
+        var bench = BENCHMARKS[d.stage] || BENCHMARKS['seed'];
+
+        // 1. Ownership retention score: higher final ownership is better
+        //    50%+ = 100, 0% = 0
+        var ownershipScore = Math.min(100, Math.max(0, d.finalOwnership * 2));
+
+        // 2. Dilution vs benchmark: below average dilution = good
+        //    0% dilution = 100, at benchmark = 60, 2x benchmark = 0
+        var dilutionRatio = yourDilution / Math.max(1, bench.avgDilution);
+        var dilutionScore = Math.min(100, Math.max(0, 100 - dilutionRatio * 40));
+
+        // 3. Exit potential: exit value relative to exit goal
+        //    100% of goal = 80, 200%+ = 100, below 20% = 10
+        var exitRatio = d.exitValue / Math.max(0.1, (d.exitGoalM * d.startingEquity / 100));
+        var exitScore = Math.min(100, Math.max(10, exitRatio * 80));
+
+        // Weighted composite: 40% ownership, 35% dilution, 25% exit
+        var composite = Math.round(ownershipScore * 0.40 + dilutionScore * 0.35 + exitScore * 0.25);
+        composite = Math.min(100, Math.max(1, composite));
+
+        // Label and color based on score ranges
+        var label, color, desc;
+        if (composite >= 80) {
+            label = 'Excellent';
+            color = '#00b894';
+            desc = 'Your equity position is strong. You\'re retaining healthy ownership with solid exit potential.';
+        } else if (composite >= 60) {
+            label = 'Good';
+            color = '#6c5ce7';
+            desc = 'Your equity position is solid but watch dilution in future rounds. Consider negotiating harder on valuations.';
+        } else if (composite >= 40) {
+            label = 'Fair';
+            color = '#ffa502';
+            desc = 'You\'re losing significant equity. Review each round\'s terms carefully and explore anti-dilution protections.';
+        } else {
+            label = 'At Risk';
+            color = '#ff6b6b';
+            desc = 'Your ownership is dropping dangerously low. Consider raising less, negotiating higher valuations, or restructuring your cap table.';
+        }
+
+        document.getElementById('equityScoreValue').textContent = composite;
+        document.getElementById('equityScoreValue').style.color = color;
+        document.getElementById('equityScoreLabel').textContent = label;
+        document.getElementById('equityScoreLabel').style.color = color;
+        document.getElementById('equityScoreDesc').textContent = desc;
+        document.getElementById('scoreOwnership').textContent = d.finalOwnership.toFixed(1) + '%';
+        document.getElementById('scoreVsIndustry').textContent = dilutionRatio <= 1 ? 'Better' : dilutionRatio <= 1.3 ? 'Average' : 'Worse';
+        document.getElementById('scoreVsIndustry').style.color = dilutionRatio <= 1 ? '#00b894' : dilutionRatio <= 1.3 ? '#ffa502' : '#ff6b6b';
+        document.getElementById('scoreExit').textContent = d.exitValue >= 1 ? '$' + d.exitValue.toFixed(1) + 'M' : '$' + (d.exitValue * 1000).toFixed(0) + 'K';
+        document.getElementById('equityScoreCard').style.display = 'block';
+
+        if (typeof gtag === 'function') {
+            gtag('event', 'equity_score_calculated', {
+                score: composite,
+                label: label,
+                stage: d.stage
+            });
+        }
     }
 
     function renderChart(d) {
