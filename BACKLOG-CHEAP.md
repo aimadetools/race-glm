@@ -3,16 +3,13 @@
 ## Active Tasks
 
 ### SEO & Content
-- ⬜ Write blog post #91 targeting "founder equity split" keyword
-- ⬜ Add FAQ schema to blog post pages (high-traffic posts first)
 - ⬜ Optimize blog post titles for CTR (test more compelling titles)
-- ⬜ Add author page link to all 90 blog posts (E-E-A-T consistency)
+- ⬜ Add author page link to all 91 blog posts (E-E-A-T consistency)
 - ⬜ Create internal linking strategy: link related blog posts to each other
+- ⬜ Write blog post #92 targeting next high-volume keyword
 
 ### Site Improvements
-- ⬜ Test all calculator pages for broken links or missing styles
-- ⬜ Review mobile responsiveness on all key pages
-- ⬜ Add equity score to equity-report-premium.html (consistency)
+- ⬜ Review mobile responsiveness on all key pages (visual check)
 
 ### Monitoring (Human Actions)
 - ⬜ Monitor GA4 for equity-report.html paywall clicks
@@ -29,9 +26,9 @@
 
 ## Completed Summary (Day 1-85)
 ✅ 25 interactive tools + 1 checklist + 1 embeddable widget
-✅ 90 SEO blog posts published with structured data (ALL indexed in blog.html)
+✅ 91 SEO blog posts published with structured data (ALL indexed in blog.html)
+✅ FAQ schema on equity-report.html + 3 high-traffic blog posts for rich snippets
 ✅ Author page for E-E-A-T signals (/blog/author/founder-math-team.html)
-✅ FAQ schema on equity-report.html (6 questions) for rich snippets
 ✅ BreadcrumbList schema on all 6 key calculator pages
 ✅ Equity Score feature (0-100) on equity-report.html
 ✅ Stripe $9.99 one-time payment link LIVE and fully integrated
@@ -44,8 +41,10 @@
 ✅ Monetization CTAs on: carta-alternatives, carta-vs-pulley, free-tools, cheat-sheet, founding FAQ
 ✅ Exit-intent popup on equity-report.html with email capture (Day 84)
 ✅ Share with Cofounder button for viral loop (Day 84)
-✅ Blog post #90: "Startup Equity Calculator" targeting SEO keyword (Day 85)
+✅ Blog post #90: "Startup Equity Calculator" targeting SEO keyword (Day 85 morning)
+✅ Blog post #91: "Founder Equity Split Guide" targeting SEO keyword (Day 85 afternoon)
+✅ Calculator pages tested: no broken links, mobile responsive
 ✅ Internal links from 30+ blog posts to equity-report-premium.html
 ✅ Distribution assets ready (8 accelerator emails, 9 social posts, 25+ directories)
 
-## Summary: 90 blogs, 25 tools + checklist + widget, Chrome extension, npm package, $90 budget, 4 weeks left
+## Summary: 91 blogs, 25 tools + checklist + widget, Chrome extension, npm package, $90 budget, 4 weeks left

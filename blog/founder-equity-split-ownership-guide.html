@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/founder-equity-split-ownership-guide.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founder Equity Split Guide — How Much Should Founders Keep? | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks && navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="How much equity should founders keep after funding? Learn founder equity split benchmarks by stage, when dilution is too much, and how to protect your ownership stake through Series A, B, and C.">
+    <meta name="keywords" content="founder equity split, founder ownership percentage, founder dilution, how much equity should founders keep, founder equity benchmarks, startup founder ownership">
+    <meta property="og:title" content="Founder Equity Split Guide — How Much Should Founders Keep?">
+    <meta property="og:description" content="How much equity should founders keep after funding? Learn benchmarks by stage and how to protect your ownership stake.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/founder-equity-split-ownership-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Founder Equity Split Guide — How Much Should Founders Keep?">
+    <meta name="twitter:description" content="How much equity should founders keep? Learn benchmarks by stage and how to protect your ownership.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Founder Equity Split Guide — How Much Should Founders Keep?",
+        "url": "https://founder-math.com/blog/founder-equity-split-ownership-guide.html",
+        "description": "How much equity should founders keep after funding? Learn founder equity split benchmarks by stage, when dilution is too much, and how to protect your ownership stake.",
+        "datePublished": "2026-06-11",
+        "dateModified": "2026-06-11",
+        "author": {
+            "@type": "Person",
+            "name": "FounderMath Team",
+            "url": "https://founder-math.com/blog/author/founder-math-team.html"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/founder-equity-split-ownership-guide.html"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much equity should founders keep after Seed round?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Founders should aim to keep 50-70% combined ownership after a Seed round. For a two-founder team, that's 25-35% each. If you're giving away more than 40-50% at Seed, you may be over-diluting. Series A investors typically expect founders to own 30-50% before their investment."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's a healthy founder ownership percentage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Healthy founder ownership by stage: 80-100% at pre-seed, 50-70% after Seed, 30-50% after Series A, 20-35% after Series B, and 10-25% after Series C. Individual founders own half or less of the combined amount. Below 10% ownership before an exit can demotivate founders."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much dilution is too much?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Dilution is too much if: you own less than 10% before Series B, investors demand more than 40% in a single round (outside of deep tech), your individual stake drops below 5% before exit, or you can't explain your future ownership. Use our dilution calculator to model your ownership across rounds."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I protect my founder equity stake?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Protect your founder equity by: raising less and extending runway, negotiating higher valuations, using SAFEs for early-stage rounds, standardizing option pools to 10-20%, and including founder protections like double-voting shares, board seats, and acceleration clauses."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What happens to founder equity at exit?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "At exit, your payout equals: ownership percentage × exit value. For example, 10% ownership at a $100M exit = $10M payout. Every percentage point matters — protecting 5% more equity at Series A is worth $5M at a $100M exit. Model your exit scenarios before fundraising."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should founders take salary or equity?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Founders typically take both: minimal salary to live on (often below market) and significant equity. The salary-to-equity ratio depends on stage — early founders take more equity, less salary. Later-stage founders may take market salary with smaller equity grants. Balance personal financial needs with company runway."
+                }
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        article { max-width: 780px; margin: 0 auto; padding: 120px 24px 60px; }
+        article h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.03em; }
+        article h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .article-meta { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 40px; display: flex; gap: 16px; flex-wrap: wrap; }
+        article h2 { font-size: 1.5rem; font-weight: 700; margin: 40px 0 16px; color: var(--accent-light); }
+        article h3 { font-size: 1.2rem; font-weight: 600; margin: 28px 0 12px; }
+        article p { color: var(--text-secondary); margin-bottom: 16px; font-size: 1.05rem; }
+        article ul, article ol { color: var(--text-secondary); margin-bottom: 16px; padding-left: 24px; }
+        article li { margin-bottom: 8px; font-size: 1.02rem; }
+        article strong { color: var(--text-primary); }
+        article a { color: var(--accent-light); text-decoration: none; }
+        article a:hover { text-decoration: underline; }
+        .benchmark-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+        .benchmark-table th { background: var(--bg-card); padding: 14px 16px; text-align: left; font-size: 0.85rem; color: var(--accent-light); border-bottom: 2px solid var(--border); }
+        .benchmark-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text-secondary); font-size: 0.95rem; }
+        .benchmark-table tr:hover td { background: rgba(108,92,231,0.05); }
+        .benchmark-table .range { font-family: var(--font-mono); font-weight: 700; color: var(--green); }
+        .warning-box { background: rgba(255,107,107,0.1); border-left: 4px solid #ff6b6b; padding: 20px 24px; margin: 24px 0; border-radius: 0 8px 8px 0; }
+        .warning-box strong { color: #ff6b6b; }
+        .tip-box { background: rgba(0,184,148,0.1); border-left: 4px solid var(--green); padding: 20px 24px; margin: 24px 0; border-radius: 0 8px 8px 0; }
+        .tip-box strong { color: var(--green); }
+        .cta-box { background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.1)); border: 2px solid var(--accent); border-radius: 16px; padding: 32px; text-align: center; margin: 40px 0; }
+        .cta-box h3 { font-size: 1.3rem; margin-bottom: 8px; color: var(--text-primary); }
+        .cta-box p { color: var(--text-secondary); margin-bottom: 20px; }
+        .cta-box a { display: inline-block; background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; padding: 14px 32px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 1rem; transition: transform 0.2s; }
+        .cta-box a:hover { transform: translateY(-2px); text-decoration: none; }
+        .example-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 20px 0; }
+        .example-box h4 { color: var(--accent-light); font-size: 0.9rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .example-box .result { font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; color: var(--green); }
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: #666680; font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        @media (max-width: 700px) { .nav-links { display: none; } .mobile-toggle { display: block; } .footer-inner { flex-direction: column; text-align: center; } }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/dilution.html">Dilution</a></li>
+                <li><a href="/safe.html">SAFE</a></li>
+                <li><a href="/runway.html">Runway</a></li>
+                <li><a href="/vesting.html">Vesting</a></li>
+                <li><a href="/cap-table.html">Cap Table</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/equity-report.html" class="nav-cta">Free Equity Report</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+        </div>
+    </nav>
+
+    <article>
+        <h1>Founder Equity Split Guide: <span class="gradient">How Much Should Founders Keep?</span></h1>
+        <div class="article-meta">
+            <time datetime="2026-06-11">June 11, 2026</time> · <span>8 min read</span>
+        </div>
+
+        <p>Every funding round chips away at your ownership. The question isn't whether you'll get diluted — it's how much dilution is too much. This guide shows founder equity split benchmarks by stage, red flags to watch for, and strategies to protect your stake.</p>
+
+        <h2>Quick Answer: Founder Ownership Benchmarks</h2>
+
+        <table class="benchmark-table">
+            <thead>
+                <tr>
+                    <th>Stage</th>
+                    <th>Typical Founder Ownership</th>
+                    <th>Individual Founder</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Pre-Seed / Idea</strong></td>
+                    <td class="range">80-100%</td>
+                    <td class="range">40-100%</td>
+                </tr>
+                <tr>
+                    <td><strong>Seed</strong></td>
+                    <td class="range">50-70%</td>
+                    <td class="range">25-50%</td>
+                </tr>
+                <tr>
+                    <td><strong>Series A</strong></td>
+                    <td class="range">30-50%</td>
+                    <td class="range">15-35%</td>
+                </tr>
+                <tr>
+                    <td><strong>Series B</strong></td>
+                    <td class="range">20-35%</td>
+                    <td class="range">10-25%</td>
+                </tr>
+                <tr>
+                    <td><strong>Series C+</strong></td>
+                    <td class="range">10-25%</td>
+                    <td class="range">5-15%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>These ranges come from analyzing thousands of startup cap tables. Your actual numbers depend on team size, funding needs, and leverage. But if you're significantly outside these ranges, pause and ask why.</p>
+
+        <h2>The Founder Equity Split Equation</h2>
+
+        <p>Your ownership after each round follows a simple formula:</p>
+
+        <div class="example-box">
+            <h4>Founder Ownership Formula</h4>
+            <p class="result">Current Ownership = Previous Ownership × (1 - Investor %)</p>
+        </div>
+
+        <p>Start with 100%, subtract what investors take at each round, and you get your remaining stake. The math is easy — the hard part is knowing what percentage to give away.</p>
+
+        <h2>When Dilution Goes Too Far: Red Flags</h2>
+
+        <div class="warning-box">
+            <strong>Warning: Your dilution may be excessive if...</strong>
+            <ul>
+                <li>You own < 10% of your company before Series B</li>
+                <li>Investors demand > 40% in a single round (outside of deep tech/biotech)</li>
+                <li>Your individual stake drops below 5% before an exit</li>
+                <li>You can't explain how much you'll own after the next round</li>
+            </ul>
+        </div>
+
+        <h3>Why Excessive Dilution Matters</h3>
+
+        <p>Low founder ownership creates misaligned incentives. When founders own < 5-10%, they become employees rather than owners. They stop thinking like builders and start thinking like employees — optimizing for salary, not equity value.</p>
+
+        <p>Worse, excessive dilution kills motivation. Why work 80-hour weeks for a payout that won't change your life? Early employees often end up with more meaningful ownership than highly diluted founders.</p>
+
+        <h2>Protecting Your Founder Equity Split: 5 Strategies</h2>
+
+        <h3>1. Raise Less, Extend Runway</h3>
+
+        <p>The less capital you need, the less equity you give up. Before raising, optimize your burn rate. Every $100k in annual savings is $300-500k less you need to raise — that's 3-5% less dilution at Seed stage.</p>
+
+        <p><a href="/runway.html">Use our runway calculator</a> to find your minimum funding need.</p>
+
+        <h3>2. Negotiate Valuation, Not Just Percentage</h3>
+
+        <p>A 20% stake at $10M pre-money is worth $2M. A 20% stake at $15M pre-money is worth $3M. Same dilution, 50% more value. Push for the highest defensible valuation — it compounds across all future rounds.</p>
+
+        <h3>3. Use SAFEs Instead of Priced Rounds (Early Stage)</h3>
+
+        <p>At pre-seed and seed, <a href="/safe.html">SAFE notes</a> delay valuation and can save equity. A $1M SAFE converts later — if your valuation triples between signing and conversion, you keep way more ownership. But understand the math: SAFEs aren't free money.</p>
+
+        <h3>4. Standardize Employee Option Pools</h3>
+
+        <p>Don't let investors force you to create a massive option pool before investing. A 10-20% pool is standard — anything larger requires justification. And make sure the pool comes from the pre-money valuation, not your post-money stake.</p>
+
+        <h3>5. Build in Founder Protection</h3>
+
+        <p>Some structures protect founders more than standard equity:</p>
+
+        <ul>
+            <li><strong>Double-voting shares:</strong> Your shares count 2x in key decisions</li>
+            <li><strong>Board seats:</strong> Guaranteed representation as long as you own > X%</li>
+            <li><strong>Acceleration clauses:</strong> Vesting accelerates on acquisition without your consent</li>
+        </ul>
+
+        <h2>Real-World Examples: Founder Equity Split Scenarios</h2>
+
+        <div class="example-box">
+            <h4>Scenario 1: Two Founders, Seed Round</h4>
+            <p>Founders start with 50/50 split. They raise $2M at $8M pre-money (20% dilution).</p>
+            <p class="result">Each founder: 40% remaining</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Scenario 2: Three Founders, Series A</h4>
+            <p>Founders own 60% combined after seed (20% each). They raise $10M at $30M pre-money (25% dilution).</p>
+            <p class="result">Each founder: 15% remaining</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Scenario 3: Single Founder, Excessive Dilution</h4>
+            <p>Founder raises $500K at $2M pre (20% dilution), then $2M at $6M pre (25% dilution), then $8M at $20M pre (28% dilution).</p>
+            <p class="result">Founder: 39% remaining → only OK because single founder</p>
+        </div>
+
+        <h2>The Exit Math: Does Your Stake Matter?</h2>
+
+        <p>At exit, your payout equals: Ownership % × Exit Value. Here's what different stakes mean at a $100M exit:</p>
+
+        <table class="benchmark-table">
+            <thead>
+                <tr>
+                    <th>Founder Stake</th>
+                    <th>Payout at $100M Exit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>5%</strong></td>
+                    <td class="range">$5M</td>
+                </tr>
+                <tr>
+                    <td><strong>10%</strong></td>
+                    <td class="range">$10M</td>
+                </tr>
+                <tr>
+                    <td><strong>15%</strong></td>
+                    <td class="range">$15M</td>
+                </tr>
+                <tr>
+                    <td><strong>20%</strong></td>
+                    <td class="range">$20M</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Every percentage point is worth real money. Protecting 5% more equity at Series A is worth $5M at a $100M exit. That's not trivial — it's life-changing money.</p>
+
+        <h2>Tools to Model Your Founder Equity Split</h2>
+
+        <p>Don't guess at your future ownership. Model it before every funding round:</p>
+
+        <ul>
+            <li><a href="/dilution.html">Dilution Calculator:</a> See your ownership after multiple rounds</li>
+            <li><a href="/safe.html">SAFE Calculator:</a> Model SAFE conversion and cap table impact</li>
+            <li><a href="/cap-table.html">Cap Table Calculator:</a> Build full cap table scenarios</li>
+            <li><a href="/equity-report.html">Equity Report:</a> Get a detailed analysis of your position vs industry benchmarks</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Pro Tip:</strong> Before any funding round, run your numbers through our <a href="/equity-report.html">Equity Report</a>. Compare your projected ownership against industry benchmarks and see exactly how much you'll keep after dilution.
+        </div>
+
+        <h2>Bottom Line on Founder Equity Splits</h2>
+
+        <p>Dilution is inevitable, but excessive dilution is a choice. Fight for your ownership:</p>
+
+        <ul>
+            <li>Know the benchmarks for your stage</li>
+            <li>Model every round before signing</li>
+            <li>Negotiate valuation and structure</li>
+            <li>Walk away from terms that dilute you below healthy ranges</li>
+        </ul>
+
+        <p>Your equity stake represents years of work, risk, and sacrifice. Protect it like the asset it is.</p>
+
+        <div class="cta-box">
+            <h3>See Your Full Equity Picture</h3>
+            <p>Get a detailed report on your founder equity split, dilution projections, and how you compare to industry benchmarks.</p>
+            <a href="/equity-report.html" onclick="gtag('event','cta_click',{event_category:'blog_post_91',event_label:'equity_report_cta'});">Generate Free Equity Report →</a>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border); margin: 48px 0;">
+
+        <h2>Related Resources</h2>
+        <ul>
+            <li><a href="/blog/cofounder-equity-split-guide.html">How to Split Equity with Your Co-Founder</a> — Fair framework for cofounder splits</li>
+            <li><a href="/blog/equity-dilution-guide.html">Equity Dilution Guide: How Funding Shrinks Your Stake</a> — Deep dive on dilution mechanics</li>
+            <li><a href="/equity-benchmarks.html">Founder Equity Benchmarks</a> — Industry data by stage</li>
+            <li><a href="/dilution.html">Dilution Calculator</a> — Model ownership after funding rounds</li>
+        </ul>
+    </article>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. All rights reserved.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/privacy.html">Privacy</a></li>
+                <li><a href="/terms.html">Terms</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', savedTheme);
+        });
+    </script>
+</body>
+</html>

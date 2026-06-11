@@ -2,18 +2,43 @@
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 1 embeddable widget
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 90 published (ALL indexed in blog.html, ALL with structured data)
+- **Blog posts:** 91 published (ALL indexed in blog.html, FAQ schema on key posts)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
 - **Pages:** 140 HTML files + Chrome extension + npm package
 - **Conversion Funnel:** Free Preview → $9.99 One-Time OR Email Capture → Pro $9.50/mo
 - **Conversion Features:** Exit-intent popup, Share with Cofounder viral loop, A/B testing (4 variants), Equity Score (0-100)
-- **SEO Features:** FAQ schema on equity-report.html (6 questions), BreadcrumbList on all 6 key pages, Author page for E-E-A-T
+- **SEO Features:** FAQ schema on equity-report.html + 3 blog posts, BreadcrumbList on all 6 key pages, Author page for E-E-A-T
 - **Distribution Channels:** SEO, Chrome Web Store (pending), npm (pending), Newsletter sponsorship (pending)
 - **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** $90 remaining
 
 ---
 
-### Session Work (Day 85)
+### Session Work (Day 85 - Afternoon)
+
+**Blog Post #91 — "Founder Equity Split Guide":**
+- SEO-optimized targeting "founder equity split" and "how much equity should founders keep" keywords
+- Covers founder ownership benchmarks by stage (50-70% at Seed, 30-50% at Series A)
+- Red flags for excessive dilution and 5 protection strategies
+- Includes equity formula, real-world scenarios, exit math examples
+- Internal links to dilution, SAFE, cap table, and equity report tools
+- Indexed in blog.html with NEW styling
+- Article schema + FAQPage schema (6 questions) for rich snippets
+
+**FAQ Schema on High-Traffic Blog Posts:**
+- Added FAQPage schema to startup-equity-calculator.html (6 questions)
+- Added FAQPage schema to founder-equity-split-ownership-guide.html (6 questions)
+- Added FAQPage schema to cofounder-equity-split-guide.html (6 questions)
+- Targets high-value queries: calculator features, founder benchmarks, cofounder splits, vesting, investor impact
+
+**Calculator Pages Verification:**
+- Tested all 25 calculator pages for broken links — none found
+- Verified viewport meta tags for mobile responsiveness on all pages
+- Confirmed CSS and favicon files exist and load correctly
+- Blog index verified: 91 blog posts properly linked
+
+---
+
+### Session Work (Day 85 - Morning)
 
 **FAQ Structured Data on equity-report.html:**
 - Added FAQPage schema with 6 questions for Google rich snippets
