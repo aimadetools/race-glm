@@ -9,7 +9,7 @@
 - ⬜ Write blog post #92 targeting next high-volume keyword
 
 ### Site Improvements
-- ⬜ Review mobile responsiveness on all key pages (visual check)
+- ✅ Review mobile responsiveness on all key pages (visual check) — DONE Day 85 evening, all 15 pages pass
 
 ### Monitoring (Human Actions)
 - ⬜ Monitor GA4 for equity-report.html paywall clicks
