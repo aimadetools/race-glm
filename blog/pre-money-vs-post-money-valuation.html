@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/pre-money-vs-post-money-valuation.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Money vs Post-Money Valuation: What Founders Must Know (2026) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks && navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+    </script>
+    <meta name="description" content="Pre-money vs post-money valuation explained with simple examples. Learn how these affect your ownership, dilution, and how to negotiate better funding terms.">
+    <meta name="keywords" content="pre-money vs post-money, pre-money valuation, post-money valuation, startup valuation, dilution, funding terms">
+    <meta property="og:title" content="Pre-Money vs Post-Money Valuation: What Founders Must Know (2026)">
+    <meta property="og:description" content="Pre-money vs post-money valuation explained with examples. Learn how these affect your ownership and dilution.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/pre-money-vs-post-money-valuation.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pre-Money vs Post-Money Valuation Explained">
+    <meta name="twitter:description" content="Learn how pre-money and post-money valuations affect your ownership and dilution.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Pre-Money vs Post-Money Valuation: What Founders Must Know (2026)",
+        "url": "https://founder-math.com/blog/pre-money-vs-post-money-valuation.html",
+        "description": "Pre-money vs post-money valuation explained with simple examples. Learn how these affect your ownership, dilution, and how to negotiate better funding terms.",
+        "datePublished": "2026-06-11",
+        "dateModified": "2026-06-11",
+        "author": {
+            "@type": "Person",
+            "name": "FounderMath Team",
+            "url": "https://founder-math.com/blog/author/founder-math-team.html"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/pre-money-vs-post-money-valuation.html"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the difference between pre-money and post-money valuation?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pre-money valuation is your company's value BEFORE investment. Post-money valuation is value AFTER investment (pre-money + investment amount). For example: $8M pre-money + $2M investment = $10M post-money. Post-money represents the new company value including the cash just raised."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I calculate ownership percentage from pre-money and post-money?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Investor ownership % = Investment ÷ Post-money valuation. Your ownership % = Pre-money ÷ Post-money. Example: $2M investment on $8M pre-money ($10M post-money). Investors get 20% ($2M ÷ $10M). You keep 80% ($8M ÷ $10M). The math always sums to 100%."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does option pool come from pre-money or post-money?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "This is a critical negotiation point. If option pool comes from pre-money, founders get diluted more (pool created before investment). If from post-money, dilution is shared with investors. Most term sheets put option pool in pre-money — meaning founders shoulder all option pool dilution. Negotiate for post-money treatment if possible."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a good pre-money valuation for my startup?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pre-money valuations vary by stage and sector. Pre-seed: $2M-8M. Seed: $8M-20M. Series A: $20M-60M. Series B: $60M-150M. Your valuation depends on traction, team, market size, and investor appetite. Use our equity benchmarks to compare against similar startups. Remember: higher valuation = less dilution, but unrealistic expectations can kill deals."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does SAFE note affect pre-money vs post-money?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SAFEs convert at the next priced round, so they affect post-money but not pre-money valuation. For example: $500K SAFE converts at next round's valuation. If you raise $2M on $8M pre-money, post-money is $10M. The SAFE converts into that $10M cap table, increasing dilution beyond the simple $2M ÷ $10M = 20% calculation. Model SAFEs before signing to see full dilution impact."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I negotiate pre-money or post-money valuation?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Negotiate pre-money valuation directly — it's the number that determines your dilution. Post-money is calculated (pre-money + investment), so it's not negotiable separately. However, negotiate what's INCLUDED in pre-money: option pool size, treatment of convertible securities, and whether pre-money is before or after option pool expansion. Small changes here significantly impact your ownership."
+                }
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        article { max-width: 780px; margin: 0 auto; padding: 120px 24px 60px; }
+        article h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.03em; }
+        article h1 .gradient { background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .article-meta { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 40px; display: flex; gap: 16px; flex-wrap: wrap; }
+        article h2 { font-size: 1.5rem; font-weight: 700; margin: 40px 0 16px; color: var(--accent-light); }
+        article h3 { font-size: 1.2rem; font-weight: 600; margin: 28px 0 12px; }
+        article p { color: var(--text-secondary); margin-bottom: 16px; font-size: 1.05rem; }
+        article ul, article ol { color: var(--text-secondary); margin-bottom: 16px; padding-left: 24px; }
+        article li { margin-bottom: 8px; font-size: 1.02rem; }
+        article strong { color: var(--text-primary); }
+        article a { color: var(--accent-light); text-decoration: none; }
+        article a:hover { text-decoration: underline; }
+        .formula-box { background: var(--bg-secondary); border: 2px solid var(--accent); border-radius: 12px; padding: 24px; margin: 24px 0; text-align: center; }
+        .formula-box .formula { font-family: var(--font-mono); font-size: 1.3rem; font-weight: 700; color: var(--green); }
+        .formula-box .label { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+        .comparison-table th { background: var(--bg-card); padding: 14px 16px; text-align: left; font-size: 0.85rem; color: var(--accent-light); border-bottom: 2px solid var(--border); }
+        .comparison-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); color: var(--text-secondary); font-size: 0.95rem; }
+        .comparison-table tr:hover td { background: rgba(108,92,231,0.05); }
+        .comparison-table .highlight { font-family: var(--font-mono); font-weight: 700; color: var(--green); }
+        .warning-box { background: rgba(255,107,107,0.1); border-left: 4px solid #ff6b6b; padding: 20px 24px; margin: 24px 0; border-radius: 0 8px 8px 0; }
+        .warning-box strong { color: #ff6b6b; }
+        .tip-box { background: rgba(0,184,148,0.1); border-left: 4px solid var(--green); padding: 20px 24px; margin: 24px 0; border-radius: 0 8px 8px 0; }
+        .tip-box strong { color: var(--green); }
+        .cta-box { background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.1)); border: 2px solid var(--accent); border-radius: 16px; padding: 32px; text-align: center; margin: 40px 0; }
+        .cta-box h3 { font-size: 1.3rem; margin-bottom: 8px; color: var(--text-primary); }
+        .cta-box p { color: var(--text-secondary); margin-bottom: 20px; }
+        .cta-box a { display: inline-block; background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; padding: 14px 32px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 1rem; transition: transform 0.2s; }
+        .cta-box a:hover { transform: translateY(-2px); text-decoration: none; }
+        .example-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 20px 0; }
+        .example-box h4 { color: var(--accent-light); font-size: 0.9rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .example-box .result { font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; color: var(--green); }
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: #666680; font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        @media (max-width: 700px) { .nav-links { display: none; } .mobile-toggle { display: block; } .footer-inner { flex-direction: column; text-align: center; } }
+    </style>
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="logo" aria-label="FounderMath home">
+                <div class="logo-icon" aria-hidden="true">%</div>
+                FounderMath
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/dilution.html">Dilution</a></li>
+                <li><a href="/safe.html">SAFE</a></li>
+                <li><a href="/runway.html">Runway</a></li>
+                <li><a href="/vesting.html">Vesting</a></li>
+                <li><a href="/cap-table.html">Cap Table</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/equity-report.html" class="nav-cta">Free Equity Report</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+        </div>
+    </nav>
+
+    <article>
+        <h1>Pre-Money vs Post-Money Valuation: <span class="gradient">What Founders Must Know</span></h1>
+        <div class="article-meta">
+            <time datetime="2026-06-11">June 11, 2026</time> · <span>9 min read</span>
+        </div>
+
+        <p>Pre-money and post-money valuations are the most important numbers in your funding round. They determine how much equity you give up, how much you keep, and what your company is worth. Getting this wrong means giving away too much equity or negotiating yourself out of a deal.</p>
+
+        <p>This guide explains pre-money vs post-money with simple examples and shows how to use these numbers to your advantage.</p>
+
+        <h2>The Basic Formula</h2>
+
+        <div class="formula-box">
+            <div class="label">The Fundamental Equation</div>
+            <div class="formula">Post-Money = Pre-Money + Investment</div>
+        </div>
+
+        <p><strong>Pre-money valuation:</strong> Your company's value BEFORE the investment.</p>
+
+        <p><strong>Post-money valuation:</strong> Your company's value AFTER the investment (pre-money + cash injected).</p>
+
+        <p>That's it. The math is simple. But the implications are massive.</p>
+
+        <h2>A Simple Example</h2>
+
+        <p>Let's say you're raising a $2M seed round. Investors offer a $8M pre-money valuation.</p>
+
+        <div class="example-box">
+            <h4>The Deal</h4>
+            <p><strong>Pre-money:</strong> $8M<br>
+            <strong>Investment:</strong> $2M<br>
+            <strong>Post-money:</strong> $10M</p>
+            <p class="result" style="margin-top:12px;">Investors get: 20% ($2M ÷ $10M)<br>
+You keep: 80% ($8M ÷ $10M)</p>
+        </div>
+
+        <p>The investors put in $2M and get 20% of the company. You keep 80%. The post-money valuation ($10M) represents the new value of the company including the cash just raised.</p>
+
+        <h2>How Valuation Affects Your Ownership</h2>
+
+        <p>Here's the same $2M investment with different pre-money valuations:</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Pre-Money</th>
+                    <th>Investment</th>
+                    <th>Post-Money</th>
+                    <th>Investor Gets</th>
+                    <th>You Keep</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$6M</td>
+                    <td>$2M</td>
+                    <td>$8M</td>
+                    <td class="highlight">25%</td>
+                    <td class="highlight">75%</td>
+                </tr>
+                <tr>
+                    <td>$8M</td>
+                    <td>$2M</td>
+                    <td>$10M</td>
+                    <td class="highlight">20%</td>
+                    <td class="highlight">80%</td>
+                </tr>
+                <tr>
+                    <td>$10M</td>
+                    <td>$2M</td>
+                    <td>$12M</td>
+                    <td class="highlight">16.7%</td>
+                    <td class="highlight">83.3%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip-box">
+            <strong>Key insight:</strong> Higher pre-money valuation = less dilution. Negotiating $10M pre-money instead of $8M means you keep an extra 3.3% of your company. At a $100M exit, that's $3.3M in your pocket.
+        </div>
+
+        <h2>Ownership Percentage Formula</h2>
+
+        <p>Here's how to calculate exactly what percentage each party gets:</p>
+
+        <div class="formula-box">
+            <div class="label">Investor Ownership</div>
+            <div class="formula">Investor % = Investment ÷ Post-Money</div>
+        </div>
+
+        <div class="formula-box">
+            <div class="label">Founder Ownership</div>
+            <div class="formula">Founder % = Pre-Money ÷ Post-Money</div>
+        </div>
+
+        <p>Example: $2M investment on $8M pre-money:</p>
+
+        <ul>
+            <li>Investor % = $2M ÷ $10M = 20%</li>
+            <li>Founder % = $8M ÷ $10M = 80%</li>
+        </ul>
+
+        <p>The math always sums to 100%.</p>
+
+        <h2>The Hidden Trap: Option Pool Treatment</h2>
+
+        <p>Here's where founders get hurt. The option pool (shares reserved for employees) can come from either pre-money or post-money valuation:</p>
+
+        <div class="warning-box">
+            <strong>Pre-money option pool:</strong> Pool created BEFORE investment. Founders shoulder all dilution. <strong>Typical in most term sheets — dilutes founders more.</strong>
+        </div>
+
+        <div class="tip-box">
+            <strong>Post-money option pool:</strong> Pool created AFTER investment. Dilution shared between founders and investors. <strong>Better for founders, harder to negotiate.</strong>
+        </div>
+
+        <h3>Example: 15% Option Pool Impact</h3>
+
+        <p>$2M investment on $8M pre-money, with 15% option pool:</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Pool Treatment</th>
+                    <th>Founder Ownership</th>
+                    <th>Investor Ownership</th>
+                    <th>Option Pool</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Pre-money pool</strong></td>
+                    <td class="highlight">68%</td>
+                    <td class="highlight">20%</td>
+                    <td>12%</td>
+                </tr>
+                <tr>
+                    <td><strong>Post-money pool</strong></td>
+                    <td class="highlight">72.25%</td>
+                    <td class="highlight">17%</td>
+                    <td>10.75%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Pre-money pool treatment costs you an extra 4.25% ownership. That's real money at exit.</p>
+
+        <h2>Valuation Benchmarks by Stage</h2>
+
+        <p>What's a "normal" pre-money valuation for your stage? Here are 2026 benchmarks:</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Stage</th>
+                    <th>Typical Pre-Money</th>
+                    <th>Typical Raise</th>
+                    <th>Typical Dilution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Pre-Seed</strong></td>
+                    <td>$2M - $6M</td>
+                    <td>$500K - $1.5M</td>
+                    <td>15-25%</td>
+                </tr>
+                <tr>
+                    <td><strong>Seed</strong></td>
+                    <td>$8M - $15M</td>
+                    <td>$2M - $5M</td>
+                    <td>15-25%</td>
+                </tr>
+                <tr>
+                    <td><strong>Series A</strong></td>
+                    <td>$20M - $40M</td>
+                    <td>$10M - $20M</td>
+                    <td>20-30%</td>
+                </tr>
+                <tr>
+                    <td><strong>Series B</strong></td>
+                    <td>$50M - $100M</td>
+                    <td>$20M - $40M</td>
+                    <td>20-30%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Your actual valuation depends on traction, team, market size, and investor competition. Use these as rough guides, not rules.</p>
+
+        <h2>SAFE Notes and Valuation</h2>
+
+        <p>SAFEs complicate pre-money/post-money math because they convert at the next priced round:</p>
+
+        <ul>
+            <li>SAFEs don't affect pre-money valuation (they're not priced yet)</li>
+            <li>SAFEs DO affect post-money dilution (they convert into equity)</li>
+            <li>A $500K SAFE on a $5M cap adds significant dilution at your next round</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>Warning:</strong> If you have $1M in outstanding SAFEs and raise $2M on $8M pre-money, your post-money is $10M on paper — but SAFEs convert into that, increasing dilution beyond the simple 20% calculation. Always model SAFEs before agreeing to valuation.
+        </div>
+
+        <p><a href="/safe.html">Use our SAFE calculator</a> to model conversion impact before signing.</p>
+
+        <h2>Negotiation Strategies</h2>
+
+        <h3>1. Negotiate Pre-Money, Not Post-Money</h3>
+
+        <p>Post-money is calculated (pre-money + investment), so it's not negotiable. Focus on pre-money valuation — that's what determines your dilution.</p>
+
+        <h3>2. Fight for Post-Money Option Pool</h3>
+
+        <p>Most term sheets put option pool in pre-money (standard is harsh to founders). Negotiate for post-money treatment. Even if you don't get it, the conversation signals you know the math.</p>
+
+        <h3>3. Model Convertible Securities</h3>
+
+        <p>Before agreeing to any valuation, model the full impact of SAFEs, notes, and warrants. Your "20% dilution" might actually be 28% once you account for converting securities.</p>
+
+        <h3>4. Know Your Walk-Away Number</h3>
+
+        <p>What's the minimum pre-money you'll accept? Have this number before negotiations start. If investors won't meet it, walk away. Taking too much dilution early kills your exit payout.</p>
+
+        <h2>Common Mistakes</h2>
+
+        <div class="warning-box">
+            <strong>Mistake 1: Confusing pre-money and post-money</strong>
+            <p>Thinking $8M pre-money + $2M investment = $8M post-money (wrong, it's $10M). This confusion causes bad deals.</p>
+        </div>
+
+        <div class="warning-box">
+            <strong>Mistake 2: Ignoring option pool treatment</strong>
+            <p>Focusing only on headline valuation without checking if option pool is pre-money or post-money. A 15% pre-money pool significantly increases your dilution.</p>
+        </div>
+
+        <div class="warning-box">
+            <strong>Mistake 3: Not modeling SAFEs</strong>
+            <p>Assuming $2M investment = 20% dilution without accounting for $500K in converting SAFEs. Real dilution might be 25%+.</p>
+        </div>
+
+        <h2>Tools to Model Your Valuation</h2>
+
+        <p>Don't rely on back-of-napkin math. Use tools to model scenarios:</p>
+
+        <ul>
+            <li><a href="/dilution.html">Dilution Calculator:</a> See how pre-money valuation affects your ownership</li>
+            <li><a href="/safe.html">SAFE Calculator:</a> Model SAFE conversion impact on your cap table</li>
+            <li><a href="/cap-table.html">Cap Table Calculator:</a> Build full funding round scenarios</li>
+            <li><a href="/equity-report.html">Equity Report:</a> Get personalized analysis vs industry benchmarks</li>
+        </ul>
+
+        <h2>Bottom Line</h2>
+
+        <p>Pre-money vs post-money valuation determines your startup's ownership structure. Get it right:</p>
+
+        <ul>
+            <li>Pre-money = value before investment (what you negotiate)</li>
+            <li>Post-money = value after investment (calculated)</li>
+            <li>Higher pre-money = less dilution = more wealth at exit</li>
+            <li>Option pool treatment significantly impacts dilution (fight for post-money)</li>
+            <li>Model SAFEs and notes before signing (they add hidden dilution)</li>
+        </ul>
+
+        <p>Your ownership stake is your compensation for risk and sacrifice. Protect it by understanding pre-money vs post-money valuation.</p>
+
+        <div class="cta-box">
+            <h3>Model Your Funding Round</h3>
+            <p>See how pre-money valuation, SAFEs, and option pools affect your ownership. Get a personalized analysis before you sign term sheets.</p>
+            <a href="/equity-report.html" onclick="gtag('event','cta_click',{event_category:'blog_post_92',event_label:'equity_report_cta'});">Generate Free Equity Report →</a>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border); margin: 48px 0;">
+
+        <h2>Related Resources</h2>
+        <ul>
+            <li><a href="/blog/founder-equity-split-ownership-guide.html">Founder Equity Split Guide — How Much Should Founders Keep?</a></li>
+            <li><a href="/blog/startup-valuation-guide.html">Startup Valuation Guide: How Investors Value Your Company</a></li>
+            <li><a href="/dilution.html">Dilution Calculator</a> — Model ownership across funding rounds</li>
+            <li><a href="/equity-benchmarks.html">Startup Equity Benchmarks</a> — Compare your valuation to industry data</li>
+        </ul>
+    </article>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 FounderMath. All rights reserved.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/privacy.html">Privacy</a></li>
+                <li><a href="/terms.html">Terms</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', savedTheme);
+        });
+    </script>
+</body>
+</html>
