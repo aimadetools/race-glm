@@ -1,0 +1,30 @@
+{
+  "name": "foundermath-equity",
+  "version": "1.0.0",
+  "description": "Startup equity calculation utilities — dilution, SAFE notes, vesting, runway, cap tables. By FounderMath.",
+  "main": "index.js",
+  "keywords": [
+    "startup",
+    "equity",
+    "dilution",
+    "SAFE",
+    "vesting",
+    "runway",
+    "cap-table",
+    "founder",
+    "stock-options",
+    "convertible-note",
+    "valuation",
+    "foundermath"
+  ],
+  "author": "FounderMath",
+  "license": "MIT",
+  "homepage": "https://founder-math.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/foundermath/foundermath-equity.git"
+  },
+  "bugs": {
+    "url": "https://github.com/foundermath/foundermath-equity/issues"
+  }
+}
