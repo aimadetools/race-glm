@@ -106,6 +106,9 @@
             .mobile-toggle { display: block; }
             .footer-inner { flex-direction: column; text-align: center; }
         }
+        @media (max-width: 500px) {
+            .stats { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -135,15 +138,15 @@
     <div class="container">
         <!-- Stats -->
         <div class="stats">
-            <div class="stat"><div class="number">25+</div><div class="label">Free Calculators</div></div>
+            <div class="stat"><div class="number">97</div><div class="label">Blog Posts</div></div>
+            <div class="stat"><div class="number">25</div><div class="label">Free Calculators</div></div>
             <div class="stat"><div class="number">5</div><div class="label">Embeddable Widgets</div></div>
             <div class="stat"><div class="number">0</div><div class="label">Cost to Partners</div></div>
-            <div class="stat"><div class="number">&lt;1min</div><div class="label">Setup Time</div></div>
         </div>
 
         <!-- Why Partner -->
         <div class="value-props">
-            <h2>Why Add FounderMath to Your Program?</h2>
+            <h2>Why Accelerators & Programs Partner With FounderMath</h2>
             <div class="vp-grid">
                 <div class="vp-card">
                     <h3>&#127891; Better Founder Education</h3>
@@ -158,8 +161,16 @@
                     <p>Give your program page interactive tools, not just links. Founders bookmark pages with calculators they actually use.</p>
                 </div>
                 <div class="vp-card">
+                    <h3>&#128200; Saves Office Hours Time</h3>
+                    <p>Founders get instant answers to equity questions without asking you. "What's my dilution?" becomes self-service.</p>
+                </div>
+                <div class="vp-card">
                     <h3>&#128176; No Cost, Ever</h3>
                     <p>The embeddable widgets are completely free. No signup, no API key, no account required. No hidden fees or usage limits.</p>
+                </div>
+                <div class="vp-card">
+                    <h3>&#127881; Cohort Analytics</h3>
+                    <p>Track which calculators your founders use most. Understand what equity concepts confuse your cohort so you can address them directly.</p>
                 </div>
             </div>
         </div>
@@ -231,6 +242,28 @@
         <div class="testimonial">
             <p class="quote" style="padding-left:20px;">Nice suite of tools. I bookmarked the dilution calculator — been looking for something simpler than Carta's interface for quick back-of-napkin math.</p>
             <p class="author">— Product Hunt user, May 2026</p>
+        </div>
+
+        <!-- Use Cases -->
+        <div style="margin-bottom:60px;">
+            <h2 style="font-size:1.8rem;font-weight:800;text-align:center;margin-bottom:32px;">Perfect for Your Program</h2>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+                <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:12px;">&#127979;</div>
+                    <h3 style="font-size:1rem;margin-bottom:8px;color:var(--text-primary);">Accelerators</h3>
+                    <p style="font-size:0.85rem;color:var(--text-secondary);margin:0;">Pre-seed and seed programs helping founders navigate their first equity split and fundraising</p>
+                </div>
+                <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:12px;">&#128188;</div>
+                    <h3 style="font-size:1rem;margin-bottom:8px;color:var(--text-primary);">Incubators</h3>
+                    <p style="font-size:0.85rem;color:var(--text-secondary);margin:0;">Early-stage programs supporting idea-stage founders through co-founder equity splits</p>
+                </div>
+                <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:12px;">&#127760;</div>
+                    <h3 style="font-size:1rem;margin-bottom:8px;color:var(--text-primary);">Startup Communities</h3>
+                    <p style="font-size:0.85rem;color:var(--text-secondary);margin:0;">Founder communities, online groups, and educational platforms teaching startup fundamentals</p>
+                </div>
+            </div>
         </div>
 
         <!-- CTA -->

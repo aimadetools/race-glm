@@ -1,194 +1,124 @@
-# Newsletter Sponsorship Research — FounderMath
+# Newsletter Sponsorship Research (2026)
 
-Research Date: Day 75 (June 4, 2026)
-Budget Available: $90
-
----
-
-## Target Audience
-Startup founders, early-stage entrepreneurs, startup employees evaluating equity offers, indie hackers.
+**Date:** June 12, 2026
+**Budget Available:** $90
+**Goal:** Drive traffic to FounderMath equity calculators
 
 ---
 
-## Newsletter Sponsorship Options
+## Affordable Options (Within $90 Budget)
 
-### Tier 1: Large Newsletters (Likely Over Budget)
+### 1. Small Founder/Startup Newsletters
+**Pricing:** $50-$250 per placement
+**Audience Size:** 2,000-5,000 subscribers
+**Target:** Early-stage founders, startup employees
 
-1. **The Hustle** (1M+ subscribers)
-   - Cost: ~$3,000-$5,000 per sponsorship
-   - Audience: General business/tech
-   - Verdict: Too expensive for current budget
+**How to Find:**
+- Search beehiiv and Substack for "startup," "founder," "equity" newsletters
+- Look for open rates above 40% (indicates engaged audience)
+- Check recent sponsor examples to verify startup/tech audience
 
-2. **Morning Brew** (3M+ subscribers)
-   - Cost: ~$4,000-$7,000 per sponsorship
-   - Audience: Business professionals
-   - Verdict: Too expensive for current budget
+**Estimated Cost:** $50-$100 per placement
+**Expected Results:** 50-200 clicks depending on engagement
 
-3. **Indie Hackers Newsletter** (50K+ subscribers)
-   - Cost: Unknown, typically $500-$1,500
-   - Audience: Indie developers, solopreneurs
-   - Verdict: May be over budget, worth contacting
+---
 
-### Tier 2: Mid-Tier Newsletters (Potentially Within Budget)
+### 2. Indie Hackers Newsletter
+**Pricing:** $1.60 per click (performance-based)
+**Audience:** 165,000+ entrepreneurs, founders, indie hackers
+**Open Rate:** High engagement
 
-1. **Hacker Newsletter** (Kale Davis, 150K+ subscribers)
-   - Cost: ~$400-$800
-   - Audience: Developers, tech entrepreneurs
-   - Verdict: Over budget
+**Pros:**
+- Pay only for results
+- Large, targeted audience
+- Perfect fit for equity calculator tool
 
-2. **TLDR Web Dev** (400K+ subscribers)
-   - Cost: ~$500-$1,000
-   - Audience: Web developers
-   - Verdict: Over budget
+**Cons:**
+- No guaranteed impressions
+- Need compelling copy to get clicks
 
-3. **Ben's Bites** (75K+ subscribers, AI/tech)
-   - Cost: ~$400-$800
-   - Audience: Tech professionals
-   - Verdict: Over budget
+**Budget Impact:** $90 = ~56 clicks
+**Contact:** https://www.indiehackers.com/sponsors
 
-### Tier 3: Niche Startup Newsletters (Best Fit)
+---
 
-1. **Cory Weinands (Startup Matters)**
-   - Focus: Startups, fundraising
-   - Cost: Unknown (likely $50-$200)
-   - Verdict: Worth contacting
+## Premium Options (Over Budget - Save for Later)
 
-2. **Lenny's Newsletter** (product/growth)
-   - Focus: Product management, growth
-   - Cost: ~$1,000-$2,000
-   - Verdict: Over budget
+### 3. MicroSaaSHQ Newsletter
+**Pricing:** $580 per placement
+**Audience:** 45,000+ SaaS founders
+**Open Rate:** 44%
+**Expected Clicks:** 200-300 per sponsorship
 
-3. **James Clear** (habits/productivity)
-   - Cost: ~$4,000+
-   - Verdict: Too expensive
+**Why It's Good:** Highly targeted SaaS founder audience
+**When to Consider:** When revenue allows or for a focused campaign
 
-4. **Alex & Books (newsletter for startup leaders)**
-   - Cost: Unknown
-   - Verdict: Worth researching
+**Contact:** https://microsaashq.com/sponsorships
 
-5. **Tomorrow Capital (VC newsletter)**
-   - Focus: Startups, fundraising
-   - Cost: Unknown
-   - Verdict: Worth researching
+---
 
-### Tier 4: Micro-Newsletters (Likely Within $90 Budget)
+### 4. Benedict Evans Newsletter
+**Audience:** ~200,000 subscribers
+**Focus:** Tech, media, finance
+**Open Rate:** 50%
+**Expected Clicks:** 5,000-6,000 per sponsorship
 
-1. **Starter Story** (~50K subscribers)
-   - Focus: Founder stories, startups
-   - Cost: ~$50-$150
-   - Verdict: Promising
+**Status:** Premium pricing (likely $2,000+)
+**Best For:** Brand awareness when budget allows
 
-2. **Levels (newsletter for career-focused professionals)**
-   - Focus: Career compensation, equity
-   - Cost: Unknown
-   - Verdict: Highly relevant audience
+**Contact:** https://www.ben-evans.com/sponsorship
 
-3. **Review Board (startup tool reviews)**
-   - Focus: Tools for startups
-   - Cost: Unknown
-   - Verdict: Perfect fit
+---
 
-4. **Micro-acquirer newsletters**
-   - Focus: SaaS, tools
-   - Cost: $20-$50
-   - Verdict: Worth exploring
+## Too Expensive (Not Recommended)
 
-5. **Substack newsletters in startup space**
-   - Many smaller newsletters ($10-$50 sponsorships)
-   - Search: "startup", "founder", "equity", "tech"
-   - Verdict: High potential
+| Newsletter | Price | Audience | Why Not |
+|------------|-------|----------|---------|
+| TLDR Newsletter | $15,000 | 7M+ subscribers | Over budget |
+| Product Hunt | $6,000-$24,000 | Large tech audience | Over budget |
+| Strictly VC | Premium pricing | 60K+ founders | Unknown pricing, likely expensive |
 
 ---
 
 ## Recommended Action Plan
 
-### Immediate Actions (Within $90 Budget)
+### With $90 Budget:
 
-1. **Research 10 micro-newsletters in startup space**
-   - Use Substack discover, Twitter search
-   - Target: 1K-10K subscribers, $10-$50 sponsorship
-   - Estimated reach: 2,000-10,000 targeted visitors
+**Option A: Indie Hackers Performance-Based**
+- Budget: $90
+- Expected: ~56 clicks
+- Target: Entrepreneurs who need equity tools
+- Risk: Low (pay per click)
 
-2. **Contact Starter Story**
-   - Ask for sponsorship rate
-   - Perfect founder audience
-   - Budget: $50-$90 potential
+**Option B: Small Newsletter Placements**
+- Target: 1-2 small newsletters ($50 each)
+- Research needed: Find founder/startup newsletters with 2,000-5,000 subs
+- Expected: 100-300 clicks total
+- Risk: Medium (need to verify audience quality)
 
-3. **Search Substack for "startup equity" newsletters**
-   - Direct message authors
-   - Many accept $20-$50 sponsorships
-   - Highly targeted audience
-
-4. **Twitter/X search for "newsletter for founders"**
-   - Find micro-newsletter authors
-   - Direct outreach for sponsorship
-   - Negotiate within budget
-
-### Negotiation Tips
-
-1. **Bundle multiple issues**: Ask for 2-3 mentions for $50-75
-2. **Affiliate arrangement**: Offer commission on conversions
-3. **Barter**: Offer free tools/analysis for newsletter subscribers
-4. **Value-in-kind**: Provide founder equity analysis for their audience
+**Option C: Hybrid Approach**
+- $60 to Indie Hackers (37 clicks guaranteed)
+- $30 to a small newsletter placement
+- Diversified exposure
 
 ---
 
-## Sample Outreach Email
+## What to Look for in Sponsor Newsletters
 
-```
-Subject: Newsletter sponsorship: FounderMath (startup equity tools)
-
-Hi [Name],
-
-I'm the founder of FounderMath (founder-math.com) — a free set of
-23 startup equity calculators used by founders to understand dilution,
-offers, and equity splits.
-
-I'd love to sponsor your newsletter. My budget is $50-75 for a
-sponsorship that includes:
-
-- A brief mention of FounderMath
-- Link to a relevant tool (equity-report.html or dilution.html)
-- Value proposition for your audience: free equity analysis in 2 minutes
-
-If you're open to this, I can also provide an exclusive discount code
-for your subscribers (e.g., 50% off Premium Reports).
-
-Let me know if you're interested and what your rates are.
-
-Best,
-[Your Name]
-FounderMath.com
-```
+1. **Audience Match:** Startup founders, early employees, people negotiating equity
+2. **Open Rate:** 40%+ indicates engaged readers
+3. **Recent Sponsors:** Check if similar SaaS/tools have sponsored
+4. **Click History:** Ask for average clicks per sponsorship
+5. **Content Fit:** Newsletter covers startups, equity, compensation, or career topics
 
 ---
 
-## Expected ROI
+## Sources
 
-- **Cost**: $50-75 per newsletter sponsorship
-- **Expected visitors**: 200-1,000 (depending on list size and engagement)
-- **Expected conversions**: 2-10 (1-5% conversion to free report)
-- **Potential revenue**: $20-100 (at $10/report)
-
-**Break-even achievable with 5-10 conversions per sponsorship.**
-
----
-
-## Alternative: Newsletter Barter
-
-If budget is limited, consider offering value:
-
-1. **Guest post**: Write an equity guide for their newsletter
-2. **Exclusive tool**: Build custom calculator for their audience
-3. **Co-branded content**: Partner on equity guide
-4. **Affiliate deal**: 20% commission on conversions (no upfront cost)
-
----
-
-## Next Steps
-
-1. Contact 10 micro-newsletters (Substack, Twitter)
-2. Negotiate $50-75 sponsorships
-3. Test 2-3 newsletters
-4. Measure ROI and scale winners
-
+- [Beehiiv Newsletter Sponsorship Cost Guide](https://www.beehiiv.com/blog/newsletter-sponsorship-cost)
+- [MicroSaaSHQ Sponsorships](https://microsaashq.com/sponsorships)
+- [Indie Hackers Sponsorship](https://www.indiehackers.com/sponsors)
+- [Benedict Evans Newsletter](https://www.ben-evans.com/newsletter)
+- [Product Hunt Newsletter Sponsorship](https://www.producthunt.com/products/sponsor-this-newsletter)
+- [Indie Hackers Forum on Newsletter Pricing](https://www.indiehackers.com/forum/newsletter-sponsorship-prices--KalOwQs8fg2oM9gMffT)
+- [Beehiiv Top Startup Newsletters](https://www.beehiiv.com/blog/top-newsletters-about-startups-on-beehiiv-you-should-sponsor)

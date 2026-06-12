@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/how-to-read-stock-option-grant.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Read a Stock Option Grant Letter (2026 Guide) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('navLinks').setAttribute('aria-expanded', 'false');
+                    document.getElementById('navLinks').focus();
+                }
+            }
+        });
+        function toggleTheme() {
+            const body = document.body;
+            const current = body.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const saved = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', saved);
+        });
+    </script>
+    <meta name="description" content="How to read and understand your stock option grant letter. Explains strike price, vesting schedule, exercise window, cliff, and other key terms with real examples.">
+    <meta name="keywords" content="how to read stock option grant, stock option grant letter, understanding stock options, option grant explained, stock option terms">
+    <meta property="og:title" content="How to Read a Stock Option Grant Letter (2026 Guide)">
+    <meta property="og:description" content="Your stock option grant explained line by line. Learn what every term means and what to watch for before signing.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/how-to-read-stock-option-grant.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Read a Stock Option Grant Letter (2026 Guide)">
+    <meta name="twitter:description" content="Your stock option grant explained line by line. Learn what every term means and what to watch for before signing.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Read a Stock Option Grant Letter (2026 Guide)",
+        "url": "https://founder-math.com/blog/how-to-read-stock-option-grant.html",
+        "description": "How to read and understand your stock option grant letter. Explains strike price, vesting schedule, exercise window, cliff, and other key terms with real examples.",
+        "datePublished": "2026-06-12",
+        "dateModified": "2026-06-12",
+        "author": {
+            "@type": "Person",
+            "name": "FounderMath Team",
+            "url": "https://founder-math.com/blog/author/founder-math-team.html"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/how-to-read-stock-option-grant.html"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a stock option grant letter?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A stock option grant letter is a legal document that outlines the terms of your stock option award. It specifies how many options you receive, the strike price, vesting schedule, exercise window, and other key terms. Understanding this document is critical because it determines the actual value of your equity compensation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is strike price in stock options?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The strike price (or exercise price) is the price you pay to purchase your stock options. Lower strike prices are better because you keep more profit when you exercise. If your strike price is $1 and the company sells at $10/share, you keep $9/share profit (minus taxes). Strike price is typically set at the fair market value on your grant date."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a vesting cliff?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A vesting cliff is a waiting period (typically 1 year) before you vest any options. If you leave before the cliff, you forfeit all unvested options. After the cliff, options vest monthly over the remaining vesting period. For example, with a 4-year vesting schedule and 1-year cliff, you vest 25% after year 1, then 1/48th monthly for the next 3 years."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is an exercise window for stock options?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The exercise window is how long you have to exercise your vested options after leaving the company. Standard is 90 days, but some companies offer longer windows (1-10 years). If you don't exercise within this window, you forfeit your options. A shorter window effectively forces you to pay taxes earlier or lose your equity."
+                }
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --orange: #ffa502;
+            --red: #ff6b6b;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --focus-outline: 2px solid var(--accent-light);
+        }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--accent); color: white;
+            padding: 8px 16px; text-decoration: none; z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 2rem; background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);
+        }
+        .nav-logo { font-size: 1.2rem; font-weight: 700; color: var(--accent-light); text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent-light); }
+        .nav-links a.highlight { color: var(--green); }
+        .nav-links button {
+            background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.2rem; padding: 0.5rem;
+        }
+        .nav-links button:hover { color: var(--accent-light); }
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; }
+        main { max-width: 800px; margin: 0 auto; padding: 2rem; }
+        .post-meta {
+            display: flex; gap: 1rem; flex-wrap: wrap;
+            color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem;
+        }
+        .post-tag {
+            background: var(--accent); color: white; padding: 2px 10px; border-radius: 4px; font-size: 0.8rem;
+        }
+        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; }
+        .subtitle { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem; }
+        h2 { font-size: 1.8rem; margin-top: 3rem; margin-bottom: 1rem; color: var(--accent-light); }
+        h3 { font-size: 1.4rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary); }
+        p { margin-bottom: 1.5rem; color: var(--text-secondary); }
+        a { color: var(--accent-light); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+        a:hover { border-color: var(--accent-light); }
+        ul, ol { margin-bottom: 1.5rem; padding-left: 1.5rem; color: var(--text-secondary); }
+        li { margin-bottom: 0.5rem; }
+        code { background: var(--bg-secondary); padding: 2px 8px; border-radius: 4px; font-size: 0.9rem; }
+        pre {
+            background: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+        .alert {
+            background: var(--bg-card); padding: 1.5rem; border-radius: 8px; margin: 2rem 0;
+            border-left: 4px solid var(--accent);
+        }
+        .alert-danger { border-left-color: var(--red); }
+        .alert-success { border-left-color: var(--green); }
+        .alert-warning { border-left-color: var(--orange); }
+        .alert-title { font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .calc-cta {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            padding: 2rem; border-radius: 12px; text-align: center; margin: 3rem 0;
+            color: white;
+        }
+        .calc-cta h3 { color: white; margin-top: 0; }
+        .calc-cta a {
+            background: white; color: var(--accent); padding: 12px 24px; border-radius: 6px;
+            display: inline-block; margin-top: 1rem; font-weight: 700; border: none;
+        }
+        .calc-cta a:hover { transform: translateY(-2px); }
+        .term-box {
+            background: var(--bg-card); padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;
+            border: 1px solid var(--border);
+        }
+        .term-label {
+            color: var(--accent-light); font-size: 0.85rem; text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 0.5rem; font-weight: 700;
+        }
+        .related-tools {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem; margin: 3rem 0;
+        }
+        .related-tools a {
+            background: var(--bg-card); padding: 1.5rem; border-radius: 8px; text-align: center;
+            border: 1px solid var(--border); color: var(--text-primary); border-bottom: none;
+        }
+        .related-tools a:hover { border-color: var(--accent); }
+        footer {
+            text-align: center; padding: 3rem; color: var(--text-muted);
+            border-top: 1px solid var(--border); margin-top: 4rem;
+        }
+        .back-link { display: inline-block; margin-bottom: 2rem; color: var(--text-muted); }
+        .back-link:hover { color: var(--accent-light); }
+        @media (max-width: 768px) {
+            nav { padding: 1rem; }
+            .nav-links {
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--bg-secondary); flex-direction: column; padding: 2rem; gap: 1rem;
+            }
+            .nav-links.open { display: flex; }
+            .mobile-toggle { display: block; color: var(--text-primary); font-size: 1.5rem; }
+            main { padding: 1rem; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <nav>
+        <a href="/" class="nav-logo">FounderMath</a>
+        <button id="mobileToggle" class="mobile-toggle" aria-expanded="false" aria-label="Toggle menu">☰</button>
+        <div class="nav-links" id="navLinks">
+            <a href="/free-startup-tools.html">Tools</a>
+            <a href="/blog.html">Blog</a>
+            <a href="/equity-benchmarks.html">Benchmarks</a>
+            <a href="/compare-foundermath-carta-pulley.html">Compare</a>
+            <a href="/equity-report-premium.html" class="highlight">Premium</a>
+            <button onclick="toggleTheme()" aria-label="Toggle theme">🌗</button>
+        </div>
+    </nav>
+    <main id="main">
+        <a href="/blog.html" class="back-link">← Back to all posts</a>
+        <div class="post-meta">
+            <span class="post-tag">Stock Options Guide</span>
+            <span>June 12, 2026</span>
+            <span>12 min read</span>
+        </div>
+        <h1>How to Read a Stock Option Grant Letter (2026 Guide)</h1>
+        <p class="subtitle">Your stock option grant explained line by line. Learn what every term means and what to watch for before signing.</p>
+        <p>You just received your stock option grant letter. It's full of legal terms like "strike price," "vesting schedule," and "exercise window." What does it all mean? And more importantly, is this a good deal?</p>
+        <p>This guide explains every term in your stock option grant letter, shows you what to watch for, and helps you understand the actual value of your equity compensation.</p>
+        <div class="alert alert-success">
+            <div class="alert-title">Quick Tip</div>
+            Use our <a href="/offer-analyzer.html">Startup Offer Red Flag Scanner</a> to automatically check your stock option grant for 30+ potential issues.
+        </div>
+        <h2>What is a Stock Option Grant Letter?</h2>
+        <p>A stock option grant letter is a legal document that outlines the terms of your stock option award. It's typically issued by your company after you've been hired or as part of a promotion. This document specifies:</p>
+        <ul>
+            <li>How many options you're receiving</li>
+            <li>The strike price (what you'll pay to exercise)</li>
+            <li>The vesting schedule (when you earn these options)</li>
+            <li>The exercise window (how long you have to use them)</li>
+            <li>Other terms like acceleration, early exercise, and repurchase rights</li>
+        </ul>
+        <p>This document matters because it determines the actual value of your equity. A generous-sounding offer can be worth far less if the terms are unfavorable.</p>
+        <h2>Anatomy of a Stock Option Grant Letter</h2>
+        <p>Let's break down each section of a typical stock option grant letter:</p>
+        <h3>1. Number of Options Granted</h3>
+        <div class="term-box">
+            <div class="term-label">What it looks like</div>
+            <code>"You are granted 10,000 options to purchase shares of Common Stock..."</code>
+        </div>
+        <p>This is the total number of options you're receiving. Sounds straightforward, but there are two important nuances:</p>
+        <ul>
+            <li><strong>Options vs. Shares:</strong> Options give you the right to buy shares at a fixed price. You don't own shares yet—you own the right to purchase them.</li>
+            <li><strong>Current vs. Fully Diluted:</strong> Some companies mention "on a fully diluted basis" which includes all outstanding shares, options, and the option pool. This helps you understand your ownership percentage.</li>
+        </ul>
+        <h3>2. Strike Price (Exercise Price)</h3>
+        <div class="term-box">
+            <div class="term-label">What it looks like</div>
+            <code>"Exercise Price: $1.25 per share"</code>
+        </div>
+        <p>The strike price is what you'll pay to exercise your options and purchase shares. This is typically set at the fair market value of the common stock on your grant date.</p>
+        <p><strong>Lower strike prices are better.</strong> Here's why:</p>
+        <ul>
+            <li>If strike price = $1 and exit price = $10, you keep $9/share profit</li>
+            <li>If strike price = $5 and exit price = $10, you keep $5/share profit</li>
+        </ul>
+        <p>That's a 44% difference in your take-home payoff from a "small" change in strike price.</p>
+        <h3>3. Vesting Schedule</h3>
+        <div class="term-box">
+            <div class="term-label">What it looks like</div>
+            <code>"4-year vesting with monthly vesting commencing on Grant Date"</code>
+        </div>
+        <p>The vesting schedule determines when you actually earn the right to exercise your options. The standard is:</p>
+        <ul>
+            <li><strong>4-year vesting period</strong> (industry standard)</li>
+            <li><strong>Monthly vesting</strong> (better than quarterly)</li>
+            <li><strong>1-year cliff</strong> (you vest nothing until year 1, then 25% all at once)</li>
+        </ul>
+        <div class="alert alert-warning">
+            <div class="alert-title">Red Flag</div>
+            Watch for: Backloaded vesting (you vest less in early years and more later), quarterly vesting (less favorable), or cliff periods longer than 1 year.
+        </div>
+        <h3>4. Exercise Window</h3>
+        <div class="term-box">
+            <div class="term-label">What it looks like</div>
+            <code>"Options must be exercised within 90 days of termination of employment"</code>
+        </div>
+        <p>The exercise window is how long you have to exercise your vested options after leaving the company. This is a critical term:</p>
+        <ul>
+            <li><strong>90 days:</strong> Standard, but forces you to decide quickly and potentially pay taxes before an exit</li>
+            <li><strong>10 years:</strong> More founder-friendly, lets you wait until a liquidity event</li>
+            <li><strong>3-10 years (extended):</strong> Some companies offer this to be more competitive</li>
+        </ul>
+        <div class="alert alert-danger">
+            <div class="alert-title">Critical Term</div>
+            A 90-day exercise window means you must pay to exercise your options within 3 months of leaving—or lose them. This can create a tax burden before you have any liquidity.
+        </div>
+        <h3>5. Early Exercise Options</h3>
+        <div class="term-box">
+            <div class="term-label">What it looks like</div>
+            <code>"You may elect to early exercise your options prior to vesting"</code>
+        </div>
+        <p>Early exercise allows you to exercise options before they vest. This is <strong>extremely valuable</strong> for tax reasons:</p>
+        <ul>
+            <li>You can file an 83(b) election and pay taxes now (when the value is near zero)</li>
+            <li>Future appreciation is taxed at capital gains rates instead of income rates</li>
+            <li>Start the 1-year capital gains holding clock early</li>
+        </ul>
+        <p>Early exercise is typically only offered to early employees or founders.</p>
+        <h3>6. Vesting Acceleration</h3>
+        <div class="term-box">
+            <div class="term-label">What it looks like</div>
+            <code>"Single-trigger acceleration: 100% of unvested options accelerate upon Change of Control"</code>
+        </div>
+        <p>Acceleration clauses determine what happens to your unvested options if the company is acquired:</p>
+        <ul>
+            <li><strong>Single-trigger:</strong> Acceleration on acquisition only (more employee-friendly)</li>
+            <li><strong>Double-trigger:</strong> Acceleration only if you're fired within X months after acquisition (more company-friendly)</li>
+            <li><strong>Full acceleration:</strong> All unvested options vest immediately</li>
+            <li><strong>Partial acceleration:</strong> Some percentage (e.g., 25-50%) accelerates</li>
+        </ul>
+        <h3>7. Repurchase Right</h3>
+        <div class="term-box">
+            <div class="term-label">What it looks like</div>
+            <code>"Company has right of first refusal to repurchase shares upon termination"</code>
+        </div>
+        <p>This clause gives the company the right to buy back your unvested shares if you leave—typically at the lower of your purchase price or fair market value. This is standard but worth noting.</p>
+        <h2>Sample Stock Option Grant Letter (Annotated)</h2>
+        <p>Here's what a typical stock option grant looks like with annotations:</p>
+        <pre><strong>STOCK OPTION GRANT NOTICE</strong>
+
+<strong>Grantee:</strong> Alex Chen
+<strong>Grant Date:</strong> June 15, 2026
+<strong>Type of Option:</strong> Incentive Stock Option (ISO) ← Qualified for special tax treatment
+<strong>Number of Options:</strong> 10,000 ← Your total grant
+<strong>Exercise Price:</strong> $1.25 per share ← Set at FMV on grant date
+<strong>Vesting:</strong> 4 years, 1-year cliff, monthly vesting ← Standard schedule
+
+<strong>Exercise Window:</strong> 90 days after termination ← Forces quick decision
+<strong>Early Exercise:</strong> Permitted ← Valuable tax benefit
+<strong>Acceleration:</strong> Double-trigger, 50% ← Some protection on acquisition
+
+[...legal terms about transfer, withholding, etc...]</code></pre>
+        <h2>Red Flags to Watch For</h2>
+        <p>When reviewing your stock option grant, watch for these warning signs:</p>
+        <ul>
+            <li><strong>Unusually high strike price:</strong> Could indicate the company was overvalued or there's a discount on the strike</li>
+            <li><strong>Long cliff period:</strong> Anything beyond 1 year is non-standard</li>
+            <li><strong>Short exercise window:</strong> 90 days is standard but can create tax burdens; less than 90 days is unfavorable</li>
+            <li><strong>No acceleration:</strong> Leaves you completely exposed in an acquisition</li>
+            <li><strong>Restrictions on transfer:</strong> Can't sell or transfer your options even after exercise</li>
+            <li><strong>Gross-up provisions:</strong> Company can withhold extra shares to cover taxes</li>
+        </ul>
+        <h2>ISOs vs. NSOs</h2>
+        <p>Your grant letter will specify whether you're receiving Incentive Stock Options (ISOs) or Non-Qualified Stock Options (NSOs):</p>
+        <ul>
+            <li><strong>ISOs:</strong> More favorable tax treatment but subject to annual limits ($100,000 in grant value per year) and holding period requirements</li>
+            <li><strong>NSOs:</strong> No annual limits but taxed as ordinary income on exercise (higher tax rate)</li>
+        </ul>
+        <p>Most employees receive a mix or NSOs if the ISO limit is exceeded.</p>
+        <h2>What to Do Before You Sign</h2>
+        <ol>
+            <li><strong>Understand the numbers:</strong> Calculate your potential payout at different exit scenarios using our <a href="/startup-exit-calculator.html">Startup Exit Calculator</a></li>
+            <li><strong>Check the strike price:</strong> Ask how it was determined and compare to recent funding rounds</li>
+            <li><strong>Clarify vague terms:</strong> Ask about any language you don't understand</li>
+            <li><strong>Negotiate if needed:</strong> Some terms (like strike price) are rarely negotiable, but others (like acceleration or exercise window) might be</li>
+            <li><strong>Run a scan:</strong> Use our <a href="/offer-analyzer.html">Offer Red Flag Scanner</a> to automatically check for issues</li>
+        </ol>
+        <div class="calc-cta">
+            <h3>Calculate Your Option Value</h3>
+            <p>See what your stock options could be worth at different exit prices with our free calculators.</p>
+            <a href="/startup-exit-calculator.html">Try the Exit Calculator</a>
+        </div>
+        <h2>Frequently Asked Questions</h2>
+        <p><strong>Can I negotiate my stock option grant?</strong></p>
+        <p>Strike price is usually non-negotiable (set by 409A valuation). However, you might negotiate for: a higher number of options, longer exercise window, better acceleration terms, or early exercise rights.</p>
+        <p><strong>What happens if I leave before my cliff?</strong></p>
+        <p>You forfeit all unvested options. You keep any vested options, but must exercise them within the exercise window (typically 90 days) or lose them.</p>
+        <p><strong>Should I early exercise my options?</strong></p>
+        <p>If early exercise is offered, it's usually advantageous for tax reasons. You can file an 83(b) election to pay taxes now (when value is low) and avoid higher taxes later. Consult a tax professional.</p>
+        <p><strong>What's the difference between options and RSUs?</strong></p>
+        <p>Options give you the right to buy shares at a fixed price. RSUs are granted as actual shares that vest over time. RSUs don't have a strike price but are taxed as income when they vest.</p>
+        <h2>Related Tools</h2>
+        <div class="related-tools">
+            <a href="/offer-analyzer.html">
+                <div>📄</div>
+                <div>Offer Red Flag Scanner</div>
+            </a>
+            <a href="/startup-exit-calculator.html">
+                <div>💰</div>
+                <div>Exit Calculator</div>
+            </a>
+            <a href="/dilution.html">
+                <div>📊</div>
+                <div>Dilution Calculator</div>
+            </a>
+            <a href="/blog/83b-election-guide.html">
+                <div>📝</div>
+                <div>83(b) Election Guide</div>
+            </a>
+        </div>
+    </main>
+    <footer>
+        <p>© 2026 FounderMath — <a href="/blog.html">Blog</a> — <a href="/free-startup-tools.html">Tools</a> — <a href="/equity-benchmarks.html">Benchmarks</a></p>
+    </footer>
+</body>
+</html>

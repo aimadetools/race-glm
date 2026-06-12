@@ -667,6 +667,16 @@
         </div>
     </section>
 
+    <!-- Shared Score Banner -->
+    <div id="sharedScoreBanner" style="display:none;background:linear-gradient(135deg,rgba(0,184,148,0.15),rgba(108,92,231,0.1));border:1px solid rgba(0,184,148,0.3);border-radius:12px;padding:20px;margin:32px 0;text-align:center;">
+        <p style="font-size:1rem;color:var(--green);margin-bottom:8px;font-weight:700;">Someone shared their equity score with you!</p>
+        <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:16px;">
+            Score: <strong id="sharedScoreValue" style="color:var(--accent-light);">—</strong>/100
+            (<span id="sharedScoreLabel">—</span>) — Ownership after dilution: <strong id="sharedOwnership">—</strong>
+        </p>
+        <a href="#calculator" style="display:inline-block;background:var(--accent);color:white;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.9rem;">Calculate Your Own Score &rarr;</a>
+    </div>
+
     <!-- Results -->
     <section class="results-section" id="resultsSection" data-date="">
         <div class="results-header">
@@ -703,7 +713,7 @@
                 <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:12px;">Share your score with cofounders or on social media</p>
                 <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
                     <button onclick="shareEquityScore('twitter')" style="background:none;border:1px solid #1da1f2;color:#1da1f2;padding:8px 18px;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Twitter</button>
-                    <button onclick="shareEquityScore('linkedin')" style="background:none;border:1px solid #0077b5;color:#0077b5;padding:8px 18px;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;">LinkedIn</button>
+                    <button onclick="shareEquityScore('linkedin')" style="background:none;border:1px solid #0077b5;color:#0077b5;padding:8px 18px;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;" title="Copy LinkedIn post template">LinkedIn Template</button>
                     <button onclick="shareEquityScore('whatsapp')" style="background:none;border:1px solid #25d366;color:#25d366;padding:8px 18px;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;">WhatsApp</button>
                     <button onclick="shareEquityScore('copy')" style="background:none;border:1px solid var(--green);color:var(--green);padding:8px 18px;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Copy Link</button>
                 </div>
@@ -1351,7 +1361,26 @@
         if (platform === 'twitter') {
             window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text + ' ' + url), '_blank');
         } else if (platform === 'linkedin') {
-            window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url), '_blank');
+            // LinkedIn doesn't support pre-filled text, so copy a formatted template
+            var linkedinTemplate = 'Just calculated my startup equity score on FounderMath.\n\n' +
+                '📊 My Score: ' + d.score + '/100 (' + d.label + ')\n' +
+                '💼 Final Ownership: ' + d.ownership + ' after dilution\n\n' +
+                'Understanding equity dilution is critical for startup employees and founders. This tool shows exactly how your ownership changes through funding rounds.\n\n' +
+                'Calculate your score: ' + url + '\n\n' +
+                '#Startups #Equity #StartupLife #Compensation #CareerGrowth';
+            navigator.clipboard.writeText(linkedinTemplate).then(function() {
+                var btn = event.target;
+                var orig = btn.textContent;
+                btn.textContent = 'Template Copied!';
+                btn.style.borderColor = '#00b894';
+                btn.style.color = '#00b894';
+                setTimeout(function() {
+                    btn.textContent = orig;
+                    btn.style.borderColor = '';
+                    btn.style.color = '';
+                    alert('LinkedIn post template copied to clipboard!\n\nPaste it on LinkedIn to share your equity score.');
+                }, 100);
+            });
         } else if (platform === 'whatsapp') {
             window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + url), '_blank');
         } else if (platform === 'copy') {
@@ -1609,6 +1638,17 @@
     if (params.has('equity')) document.getElementById('founderEquity').value = params.get('equity');
     if (params.has('stage')) document.getElementById('currentStage').value = params.get('stage');
     if (params.has('rounds')) document.getElementById('planningRounds').value = params.get('rounds');
+
+    // Handle shared score parameters (from share buttons)
+    if (params.has('score') && params.has('label') && params.has('ownership')) {
+        var sharedScore = params.get('score');
+        var sharedLabel = params.get('label');
+        var sharedOwnership = params.get('ownership');
+        document.getElementById('sharedScoreBanner').style.display = 'block';
+        document.getElementById('sharedScoreValue').textContent = sharedScore;
+        document.getElementById('sharedScoreLabel').textContent = sharedLabel;
+        document.getElementById('sharedOwnership').textContent = decodeURIComponent(sharedOwnership);
+    }
 
     // Auto-generate if params present
     if (params.has('equity') || params.has('auto')) {
