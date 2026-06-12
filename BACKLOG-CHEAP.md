@@ -4,15 +4,19 @@
 
 ### SEO & Content
 - ⬜ Optimize blog post titles for CTR (test more compelling titles)
-- ✅ Add author page link to all 93 blog posts (E-E-A-T consistency) — DONE Day 85 evening
-- ✅ Create internal linking strategy: link related blog posts to each other — DONE Day 85 evening (14 posts with related sections)
-- ✅ Write blog post #94 targeting "option pool dilution" keyword — DONE Day 85 evening
-- ✅ Write blog post #95 targeting "startup equity for marketing roles" keyword — DONE Day 85 evening
-- ✅ Write blog post #96 targeting "startup equity for customer success roles" keyword — DONE Day 85 evening
 - ⬜ Write blog post #97 targeting next high-volume keyword
+- ⬜ Add "Embed This Calculator" CTAs to all 25 tool pages (link to embed.html)
+- ⬜ Promote widget.js embed code in accelerator outreach emails
+
+### Viral & Sharing
+- ⬜ Test equity card generator share flow end-to-end
+- ⬜ Add "Share Your Score" CTAs to equity-report.html results section
+- ⬜ Create a "Share on LinkedIn" template for equity scores
 
 ### Site Improvements
-- ✅ Review mobile responsiveness on all key pages (visual check) — DONE Day 85 evening, all 15 pages pass
+- ⬜ Review and test widget.js across different browsers
+- ⬜ Check all calculator pages for mobile responsiveness after widget changes
+- ⬜ Verify embed.html renders correctly with live widget examples
 
 ### Monitoring (Human Actions)
 - ⬜ Monitor GA4 for equity-report.html paywall clicks
@@ -22,31 +26,19 @@
 - ⬜ Check Google Search Console for ranking improvements (FAQ rich results)
 
 ### Distribution Follow-ups
-- ⬜ Monitor Chrome Web Store listing after publishing (installs, reviews)
-- ⬜ Monitor npm package downloads after publishing
 - ⬜ Research 5 more micro-newsletters for potential sponsorship
 - ⬜ Draft guest post pitch for startup blogs
+- ⬜ Create "Partner with FounderMath" page for accelerator widget adoption
+- ⬜ Monitor Chrome Web Store listing after publishing (installs, reviews)
+- ⬜ Monitor npm package downloads after publishing
 
-## Completed Summary (Day 1-85)
-✅ 25 interactive tools + 1 checklist + 1 embeddable widget
-✅ 96 SEO blog posts published with structured data (ALL indexed in blog.html)
-✅ FAQ schema on equity-report.html + 4 high-traffic blog posts for rich snippets
-✅ Author page for E-E-A-T signals (/blog/author/founder-math-team.html)
-✅ BreadcrumbList schema on all 6 key calculator pages
-✅ Equity Score feature (0-100) on equity-report.html
-✅ Stripe $9.99 one-time payment link LIVE and fully integrated
-✅ Paywall: $9.99 payment + email capture (both paths working)
-✅ equity-report-success.html: Dedicated success page for $9.99 purchase
-✅ A/B testing live: 4 variants with equal 25% split and GA4 tracking
-✅ Chrome extension built (popup calculator + CTAs to FounderMath)
-✅ npm package built (7 equity calculation utilities)
-✅ All 31 nav CTAs point to equity-report.html (Day 83)
-✅ Monetization CTAs on: carta-alternatives, carta-vs-pulley, free-tools, cheat-sheet, founding FAQ
-✅ Exit-intent popup on equity-report.html with email capture (Day 84)
-✅ Share with Cofounder button for viral loop (Day 84)
-✅ Blog post #90-93: Startup Equity Calculator, Founder Equity Split, Pre-Money vs Post-Money, Secondary Sales
-✅ Calculator pages tested: no broken links, mobile responsive
-✅ Internal links from 30+ blog posts to equity-report-premium.html
-✅ Distribution assets ready (8 accelerator emails, 9 social posts, 25+ directories)
+## Completed Summary (Day 1-86)
+✅ 25 interactive tools + 1 checklist + embeddable widget system (widget.js)
+✅ 96 SEO blog posts with structured data, FAQ schema, E-E-A-T
+✅ Stripe $9.99 one-time payment + email capture paywall
+✅ A/B testing (4 variants), exit-intent popup, equity score, share with cofounder
+✅ Chrome extension + npm package (built, pending publishing)
+✅ Internal links from 30+ blog posts to premium page
+✅ Distribution assets ready (8 accelerator emails, 25+ directories)
 
-## Summary: 96 blogs, 25 tools + checklist + widget, Chrome extension, npm package, $90 budget, 4 weeks left
+## Summary: 96 blogs, 25 tools + widget.js, Chrome extension, npm package, $90 budget, 4 weeks left
