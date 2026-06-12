@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/how-to-calculate-startup-equity-ownership.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Calculate Startup Equity Ownership Percentage (2026) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('navLinks').setAttribute('aria-expanded', 'false');
+                    document.getElementById('navLinks').focus();
+                }
+            }
+        });
+        function toggleTheme() {
+            const body = document.body;
+            const current = body.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const saved = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', saved);
+        });
+    </script>
+    <meta name="description" content="How to calculate your startup equity ownership percentage. Learn the formula, account for dilution, understand option pools, and see what you'll actually own at exit.">
+    <meta name="keywords" content="how to calculate equity ownership percentage, startup equity ownership, calculate equity percentage, ownership dilution">
+    <meta property="og:title" content="How to Calculate Startup Equity Ownership Percentage (2026)">
+    <meta property="og:description" content="Your equity grant isn't your ownership percentage. Learn how to calculate your real ownership, account for dilution, and understand what you'll own at exit.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/how-to-calculate-startup-equity-ownership.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Calculate Startup Equity Ownership Percentage (2026)">
+    <meta name="twitter:description" content="Your equity grant isn't your ownership percentage. Learn how to calculate your real ownership, account for dilution, and understand what you'll own at exit.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Calculate Startup Equity Ownership Percentage (2026)",
+        "url": "https://founder-math.com/blog/how-to-calculate-startup-equity-ownership.html",
+        "description": "How to calculate your startup equity ownership percentage. Learn the formula, account for dilution, understand option pools, and see what you'll actually own at exit.",
+        "datePublished": "2026-06-12",
+        "dateModified": "2026-06-12",
+        "author": {
+            "@type": "Person",
+            "name": "FounderMath Team",
+            "url": "https://founder-math.com/blog/author/founder-math-team.html"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/how-to-calculate-startup-equity-ownership.html"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I calculate my equity ownership percentage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Your ownership percentage equals: (Your shares ÷ Total fully-diluted shares) × 100. The key is using total fully-diluted shares (all issued shares + outstanding options + unissued option pool), not just issued shares. For example, 50,000 shares out of 10,000,000 fully-diluted shares = 0.5% ownership."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does my equity grant equal my ownership percentage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Your equity grant is the number of options or shares you're offered. Your ownership percentage is your grant divided by the total fully-diluted shares. A 10,000 option grant could be 1% at a 1M share company or 0.1% at a 10M share company. Always ask for the total share count to calculate your actual ownership percentage."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does dilution affect my ownership percentage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Dilution reduces your ownership percentage as the company issues more shares. Each funding round typically dilutes existing shareholders by 15-30%. If you own 1% and the company raises Series A at 20% dilution, you'd own 0.8% after the round. Your percentage shrinks, but your shares stay the same—the company is just issuing more shares to investors."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is fully diluted ownership percentage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Fully diluted ownership percentage accounts for all shares that could exist: issued shares + outstanding options + unissued option pool. This is your real ownership percentage. For example, if you have 50,000 shares and there are 5M issued shares + 500K outstanding options + 500K unissued option pool, the fully diluted total is 6M, and you own 50,000 ÷ 6,000,000 = 0.83%."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body data-theme="dark">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="/" aria-label="FounderMath home">
+                        <span class="logo-icon">∫</span>
+                        <span>FounderMath</span>
+                    </a>
+                </div>
+                <button id="mobileToggle" class="mobile-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="navLinks" class="nav-links">
+                    <li><a href="/tools/">Tools</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/equity-cheat-sheet/">Cheat Sheet</a></li>
+                    <li><a href="/glossary/">Glossary</a></li>
+                    <li><a href="/equity-report-premium.html" class="nav-cta">Equity Report</a></li>
+                </ul>
+                <button class="theme-toggle" aria-label="Toggle dark/light mode" onclick="toggleTheme()">◐</button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <article class="blog-post">
+            <header class="post-header">
+                <div class="container">
+                    <h1>How to Calculate Startup Equity Ownership Percentage</h1>
+                    <p class="post-meta">June 12, 2026 • 10 min read</p>
+                </div>
+            </header>
+
+            <div class="post-content container">
+                <p class="intro">Your startup offered you 10,000 stock options. But what percentage of the company do you actually own? This guide shows you exactly how to calculate your equity ownership percentage, account for dilution, and understand what you'll own at exit.</p>
+
+                <h2>The Quick Formula</h2>
+                <p>Your equity ownership percentage is:</p>
+
+                <div class="action-block">
+                    <h4>Ownership Percentage Formula</h4>
+                    <p><strong>Your Ownership % =</strong> (Your shares ÷ Total fully-diluted shares) × 100</p>
+                </div>
+
+                <p>The key is using <strong>total fully-diluted shares</strong>—not just issued shares. Fully diluted includes all issued shares, outstanding options, and the unissued option pool.</p>
+
+                <div class="example-block">
+                    <h4>Calculation Example</h4>
+                    <p><strong>Your grant:</strong> 10,000 options<br>
+                    <strong>Total shares issued:</strong> 5,000,000<br>
+                    <strong>Outstanding options:</strong> 500,000<br>
+                    <strong>Unissued option pool:</strong> 500,000<br>
+                    <strong>Fully diluted total:</strong> 6,000,000<br>
+                    <strong>Your ownership:</strong> 10,000 ÷ 6,000,000 = <strong class="highlight">0.167%</strong></p>
+                </div>
+
+                <h2>What Goes Into Fully Diluted Shares?</h2>
+                <p>To calculate your ownership accurately, you need to account for three components:</p>
+
+                <h3>1. Issued Shares (Common + Preferred)</h3>
+                <p>Shares that have already been issued to founders, investors, and employees. This is the base share count.</p>
+
+                <div class="example-block">
+                    <h4>Issued Shares Breakdown</h4>
+                    <p><strong>Founders:</strong> 3,000,000 shares<br>
+                    <strong>Seed investors:</strong> 1,500,000 shares<br>
+                    <strong>Series A investors:</strong> 500,000 shares<br>
+                    <strong>Total issued:</strong> <strong>5,000,000 shares</strong></p>
+                </div>
+
+                <h3>2. Outstanding Options</h3>
+                <p>Options that have been granted to employees but haven't been exercised yet. These count toward fully diluted because they'll eventually become shares.</p>
+
+                <div class="example-block">
+                    <h4>Outstanding Options</h4>
+                    <p><strong>Employee options granted:</strong> 500,000<br>
+                    <strong>Add to fully diluted:</strong> +500,000 shares</p>
+                </div>
+
+                <h3>3. Unissued Option Pool</h3>
+                <p>Shares reserved for future employee grants but not yet issued. Investors require this pool to hire future talent without immediately diluting them.</p>
+
+                <div class="example-block">
+                    <h4>Unissued Option Pool</h4>
+                    <p><strong>Company option pool:</strong> 20% of fully diluted<br>
+                    <strong>Add to fully diluted:</strong> +500,000 shares</p>
+                </div>
+
+                <div class="warning-block">
+                    <h4>⚠️ The Option Pool Trap</h4>
+                    <p>A large unissued option pool dilutes you immediately, even before those options are granted. If the pool is 20% and you're an early hire, ask if it can be structured to only dilute future hires, not existing employees.</p>
+                </div>
+
+                <h2>How Dilution Changes Your Ownership Over Time</h2>
+                <p>Your ownership percentage decreases as the company raises funding. This is normal—each funding round creates new shares for investors.</p>
+
+                <div class="example-block">
+                    <h4>Dilution Through Funding Rounds</h4>
+                    <p><strong>Your grant (Day 1):</strong> 10,000 options / 5M shares = <strong>0.20%</strong><br>
+                    <strong>After Seed (20% new investors):</strong> 0.20% × 0.8 = <strong>0.16%</strong><br>
+                    <strong>After Series A (25% new investors):</strong> 0.16% × 0.75 = <strong>0.12%</strong><br>
+                    <strong>After Series B (20% new investors):</strong> 0.12% × 0.8 = <strong>0.096%</strong><br>
+                    <strong>After Series C (15% new investors):</strong> 0.096% × 0.85 = <strong>0.082%</strong></p>
+                </div>
+
+                <p>Notice: Your <strong>share count stays the same</strong> (10,000), but your <strong>percentage shrinks</strong> as the total shares increase.</p>
+
+                <h3>Good News: Dilution Means Growth</h3>
+                <p>Dilution isn't bad—it means the company is raising money to grow. Your smaller percentage of a bigger company can be worth more than your larger percentage of a smaller company.</p>
+
+                <div class="example-block">
+                    <h4>Dilution Can Increase Value</h4>
+                    <p><strong>Day 1:</strong> 0.20% of $10M company = <strong>$20,000</strong><br>
+                    <strong>After dilution:</strong> 0.082% of $100M company = <strong>$82,000</strong><br>
+                    <strong>Result:</strong> Your percentage dropped 60%, but your value quadrupled</p>
+                </div>
+
+                <h2>The Option Pool and Your Ownership</h2>
+                <p>Most startups have a 10-20% option pool for employees. This pool dilutes everyone—but it's necessary to hire talent.</p>
+
+                <h3>How Option Pools Work</h3>
+                <p>When the company creates an option pool, it issues new shares that are reserved for future employee grants. This dilutes all existing shareholders.</p>
+
+                <div class="example-block">
+                    <h4>Option Pool Dilution</h4>
+                    <p><strong>Your ownership:</strong> 10,000 / 5,000,000 = <strong>0.20%</strong><br>
+                    <strong>Company creates 20% option pool:</strong> +1,000,000 new shares<br>
+                    <strong>New total:</strong> 6,000,000 shares<br>
+                    <strong>Your new ownership:</strong> 10,000 / 6,000,000 = <strong>0.167%</strong><br>
+                    <strong>Dilution from pool:</strong> -16.7%</p>
+                </div>
+
+                <h3>Negotiating Option Pool Structure</h3>
+                <p>When negotiating equity, ask about the option pool:</p>
+
+                <ul>
+                    <li><strong>How big is it?</strong> 10-20% is standard</li>
+                    <li><strong>Is it pre-funded or post-funded?</strong> Pre-funded means existing shareholders bear the dilution</li>
+                    <li><strong>When was it last expanded?</strong> If it was recently expanded, you're already diluted</li>
+                </ul>
+
+                <p><a href="/blog/option-pool-dilution-guide.html">Learn more about option pool dilution →</a></p>
+
+                <h2>Vesting: Your Ownership Grows Over Time</h2>
+                <p>Your equity doesn't vest immediately—you earn it over time (typically 4 years). This means your ownership percentage increases as you vest.</p>
+
+                <div class="example-block">
+                    <h4>Vesting and Ownership Growth</h4>
+                    <p><strong>Your grant:</strong> 10,000 options, 4-year vesting<br>
+                    <strong>Fully diluted shares:</strong> 10,000,000<br>
+                    <strong>Year 1 (25% vested):</strong> 2,500 shares = <strong>0.025%</strong><br>
+                    <strong>Year 2 (50% vested):</strong> 5,000 shares = <strong>0.05%</strong><br>
+                    <strong>Year 3 (75% vested):</strong> 7,500 shares = <strong>0.075%</strong><br>
+                    <strong>Year 4 (100% vested):</strong> 10,000 shares = <strong>0.10%</strong></p>
+                </div>
+
+                <p>Throughout vesting, your share count grows but the fully diluted total may also increase (from new hires, funding, etc.). Your percentage reflects both.</p>
+
+                <h2>Exit Scenario: What Do You Actually Own?</h2>
+                <p>At exit (acquisition or IPO), your ownership percentage determines your payout. But liquidation preferences and other terms can affect what you actually receive.</p>
+
+                <h3>The Basic Exit Calculation</h3>
+                <div class="example-block">
+                    <h4>Exit Payout Example</h4>
+                    <p><strong>Your vested shares:</strong> 10,000<br>
+                    <strong>Fully diluted at exit:</strong> 20,000,000<br>
+                    <strong>Your ownership:</strong> 0.05%<br>
+                    <strong>Exit value:</strong> $500M acquisition<br>
+                    <strong>Your payout:</strong> $500M × 0.05% = <strong class="highlight">$250,000</strong></p>
+                </div>
+
+                <h3>Liquidation Preferences Can Reduce Your Payout</h3>
+                <p>Investors often have liquidation preferences—they get paid first. If the exit is small, this can leave little for employees.</p>
+
+                <div class="warning-block">
+                    <h4>⚠️ Liquidation Preference Impact</h4>
+                    <p><strong>Exit value:</strong> $50M<br>
+                    <strong>Investor liquidation preference:</strong> 1x on $30M invested = $30M paid first<br>
+                    <strong>Remaining for common shareholders:</strong> $20M<br>
+                    <strong>Your 0.05% of remaining:</strong> <strong>$10,000</strong> (not $25,000)</p>
+                </div>
+
+                <p><a href="/blog/startup-exit-scenarios-equity.html">Learn about exit scenarios and payouts →</a></p>
+
+                <h2>How to Ask About Your Ownership Percentage</h2>
+                <p>When negotiating or evaluating an offer, ask these questions to understand your real ownership:</p>
+
+                <ol>
+                    <li><strong>What's the total fully-diluted share count?</strong> — This is the denominator for your percentage</li>
+                    <li><strong>How big is the option pool?</strong> — Large pools dilute you more</li>
+                    <li><strong>Is the option pool pre-funded or post-funded?</strong> — Who bears the dilution?</li>
+                    <li><strong>What funding rounds are planned?</strong> — More funding = more dilution</li>
+                    <li><strong>What's the current exit valuation range?</strong> — Helps estimate potential value</li>
+                </ol>
+
+                <div class="warning-block">
+                    <h4>⚠️ Always Get the Total Share Count</h4>
+                    <p>Your grant size (e.g., 10,000 options) means nothing without the total share count. 10,000 options at 1M total shares = 1%. 10,000 options at 10M total shares = 0.1%. Always ask for the fully diluted total.</p>
+                </div>
+
+                <h2>Ownership Percentage Benchmarks</h2>
+                <p>Here are rough ownership percentage benchmarks by role and stage:</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Seed Stage</th>
+                            <th>Series A</th>
+                            <th>Series B+</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Founding Engineer</strong></td>
+                            <td>1.0% – 2.0%</td>
+                            <td>0.3% – 0.8%</td>
+                            <td>0.1% – 0.3%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Senior Engineer</strong></td>
+                            <td>0.5% – 1.0%</td>
+                            <td>0.2% – 0.5%</td>
+                            <td>0.05% – 0.15%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Product Manager</strong></td>
+                            <td>0.3% – 0.8%</td>
+                            <td>0.15% – 0.4%</td>
+                            <td>0.05% – 0.2%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marketing Lead</strong></td>
+                            <td>0.2% – 0.5%</td>
+                            <td>0.1% – 0.3%</td>
+                            <td>0.03% – 0.1%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><a href="/equity-benchmarks.html">View detailed equity benchmarks by role →</a></p>
+
+                <h2>Calculators to Help</h2>
+                <p>Use our free calculators to model your ownership and dilution:</p>
+
+                <ul>
+                    <li><a href="/dilution.html">Equity Dilution Calculator</a> — See how funding rounds dilute your ownership</li>
+                    <li><a href="/equity-split.html">Equity Split Calculator</a> — Split equity among cofounders</li>
+                    <li><a href="/compare-offers.html">Startup Offer Comparison Tool</a> — Compare equity offers side by side</li>
+                </ul>
+
+                <h2>Key Takeaways</h2>
+                <ul>
+                    <li><strong>Ownership % = Your shares ÷ Fully diluted shares</strong> — Always use fully diluted, not just issued shares</li>
+                    <li><strong>Fully diluted includes 3 components:</strong> Issued shares + Outstanding options + Unissued option pool</li>
+                    <li><strong>Dilution reduces your percentage over time</strong> — Each funding round dilutes existing shareholders by 15-30%</li>
+                    <li><strong>Your share count stays the same</strong> — You own the same number of shares, even as your percentage shrinks</li>
+                    <li><strong>Dilution can increase your value</strong> — A smaller percentage of a bigger company can be worth more</li>
+                    <li><strong>Option pools dilute everyone</strong> — A 20% pool dilutes you by 16.7% immediately</li>
+                    <li><strong>Always ask for total share count</strong> — Your grant size means nothing without the denominator</li>
+                </ul>
+
+                <h2>Related Tools & Guides</h2>
+                <ul>
+                    <li><a href="/dilution.html">Equity Dilution Calculator</a> — Model dilution through funding rounds</li>
+                    <li><a href="/blog/equity-dilution-timeline-guide.html">Equity Dilution Timeline Guide</a> — Visual timeline of ownership erosion</li>
+                    <li><a href="/equity-benchmarks.html">Equity Benchmarks by Role</a> — Market data for your role</li>
+                    <li><a href="/blog/option-pool-dilution-guide.html">Option Pool Dilution Guide</a> — How option pools affect you</li>
+                    <li><a href="/compare-offers.html">Startup Offer Comparison Tool</a> — Compare multiple offers</li>
+                </ul>
+
+                <div class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
+
+                    <details class="faq-item">
+                        <summary>Does my equity percentage change after I vest?</summary>
+                        <p>Your percentage can change due to dilution (funding rounds, option pool expansions) even after you vest. Your vested share count stays the same, but the fully diluted total may increase, reducing your percentage. Vesting increases your share count, not your percentage of the company.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What is a good equity ownership percentage for employees?</summary>
+                        <p>It depends on role, stage, and experience. Rough benchmarks: Senior engineers at seed stage: 0.5-1.0%. Senior engineers at Series A: 0.2-0.5%. Senior engineers at Series B+: 0.05-0.15%. Early employees (first 10) typically get significantly more than later hires. Use our equity benchmarks to compare your specific offer.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>How do I find the total fully diluted shares?</summary>
+                        <p>Ask your employer directly: "What's the current total fully-diluted share count?" This should include issued shares, outstanding options, and the unissued option pool. You can also find this information in your equity platform (Carta, Pulley, etc.) or in the company's cap table documents.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Does exercising options increase my ownership percentage?</summary>
+                        <p>No. Exercising converts your options into shares, but your ownership percentage stays the same because the fully diluted count doesn't change—outstanding options simply become issued shares. Your percentage is determined by your grant size relative to the total, not by whether you've exercised.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Why did my equity percentage decrease without me selling any shares?</summary>
+                        <p>Your percentage decreases due to dilution when the company issues new shares—to investors in funding rounds, to the option pool for future hires, or for other purposes. You haven't lost anything; your share count is the same. The company just has more shares overall, reducing everyone's percentage proportionally.</p>
+                    </details>
+                </div>
+            </div>
+
+            <footer class="post-footer">
+                <div class="container">
+                    <p class="post-tags">Tags: <a href="/blog.html#equity-ownership">Equity Ownership</a>, <a href="/blog.html#dilution">Dilution</a>, <a href="/blog.html#equity-basics">Equity Basics</a></p>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p><a href="/">FounderMath</a> — Equity calculators and guides for startup employees, founders, and job-seekers.</p>
+            <p class="fine-print">Not financial or tax advice. Consult professionals before making equity decisions.</p>
+        </div>
+    </footer>
+
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a5e;
+            --text-muted: #6c757d;
+            --border: #dee2e6;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 1001;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .nav-brand a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-light);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: 0.3s;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            margin-left: 15px;
+        }
+
+        .theme-toggle:hover {
+            color: var(--text-primary);
+        }
+
+        .blog-post {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .post-header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-primary));
+        }
+
+        .post-header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .post-meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .post-content {
+            padding: 40px 20px 60px;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 50px 0 25px;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 35px 0 15px;
+            color: var(--accent-light);
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin: 25px 0 10px;
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: 1.5em;
+        }
+
+        ul, ol {
+            margin-bottom: 1.5em;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--accent-light);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table td:nth-child(2),
+        .comparison-table td:nth-child(3),
+        .comparison-table td:nth-child(4) {
+            color: var(--text-secondary);
+        }
+
+        .example-block, .warning-block, .action-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .warning-block {
+            border-left-color: #ff6b6b;
+        }
+
+        .action-block {
+            border-left-color: var(--green);
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(0, 184, 148, 0.05) 100%);
+        }
+
+        .example-block h4, .warning-block h4, .action-block h4 {
+            margin-top: 0;
+            color: var(--accent-light);
+        }
+
+        .highlight {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .faq-section {
+            margin-top: 60px;
+        }
+
+        .faq-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            padding: 20px 25px;
+            cursor: pointer;
+            font-weight: 500;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
+
+        details[open] .faq-item summary::after {
+            content: '−';
+        }
+
+        .faq-item p {
+            padding: 0 25px 20px;
+            margin-bottom: 0;
+        }
+
+        .post-footer {
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+
+        .post-tags {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .post-tags a {
+            color: var(--text-secondary);
+        }
+
+        .site-footer {
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+
+        .site-footer p {
+            margin-bottom: 10px;
+        }
+
+        .fine-print {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .cta-link {
+            display: inline-block;
+            background: var(--green);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 500;
+            text-decoration: none !important;
+            margin-top: 15px;
+            transition: transform 0.2s;
+        }
+
+        .cta-link:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                transform: translateY(-100%);
+                transition: transform 0.3s;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .theme-toggle {
+                display: none;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px 12px;
+            }
+        }
+    </style>
+</body>
+</html>
