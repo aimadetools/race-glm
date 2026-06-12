@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Startup Equity Offers Widget — FounderMath</title>
+    <style>
+        :root {
+            --fm-bg: #ffffff;
+            --fm-text: #1a1a2e;
+            --fm-text-secondary: #555570;
+            --fm-border: #e0e0e8;
+            --fm-accent: #6c5ce7;
+            --fm-accent-light: #a29bfe;
+            --fm-green: #00b894;
+            --fm-red: #ff6b6b;
+            --fm-orange: #ffa502;
+            --fm-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--fm-font); background: var(--fm-bg); color: var(--fm-text); padding: 16px; line-height: 1.5; }
+        h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; color: var(--fm-text); }
+        .offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+        .offer-card { background: #fafafa; border: 1px solid var(--fm-border); border-radius: 8px; padding: 12px; }
+        .offer-card h3 { font-size: 0.9rem; margin-bottom: 8px; }
+        .offer-card.a h3 { color: var(--fm-accent); }
+        .offer-card.b h3 { color: var(--fm-green); }
+        .field { margin-bottom: 6px; }
+        .field label { display: block; font-size: 0.7rem; font-weight: 600; color: var(--fm-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
+        .field input, .field select {
+            width: 100%; padding: 6px 8px; border: 1px solid var(--fm-border);
+            border-radius: 6px; font-size: 0.82rem; font-family: var(--fm-font);
+            background: #fff; color: var(--fm-text);
+        }
+        .field input:focus { outline: none; border-color: var(--fm-accent); }
+        .calc-btn {
+            width: 100%; padding: 10px; background: var(--fm-accent); color: white;
+            border: none; border-radius: 6px; font-weight: 700; font-size: 0.9rem;
+            cursor: pointer; font-family: var(--fm-font); margin-bottom: 14px; transition: background 0.2s;
+        }
+        .calc-btn:hover { background: var(--fm-accent-light); }
+        .results { display: none; }
+        .results.visible { display: block; }
+        .winner { background: #e8f5e9; border: 2px solid var(--fm-green); border-radius: 10px; padding: 16px; text-align: center; margin-bottom: 16px; }
+        .winner .crown { font-size: 1.5rem; margin-bottom: 4px; }
+        .winner .name { font-size: 1.2rem; font-weight: 800; color: var(--fm-green); }
+        .winner .reason { font-size: 0.85rem; color: var(--fm-text-secondary); margin-top: 4px; }
+        .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-bottom: 12px; }
+        .comparison-table th { text-align: left; padding: 8px 10px; background: #f5f5fa; border-bottom: 2px solid var(--fm-border); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--fm-text-secondary); }
+        .comparison-table td { padding: 8px 10px; border-bottom: 1px solid #f0f0f5; }
+        .comparison-table .winner-cell { color: var(--fm-green); font-weight: 700; }
+        .comparison-table .loser-cell { color: var(--fm-text-secondary); }
+        .note { background: #fff3e0; border: 1px solid #ffe082; border-radius: 6px; padding: 10px; font-size: 0.8rem; color: #5d4037; margin-top: 10px; }
+        .watermark { text-align: center; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--fm-border); }
+        .watermark a { color: var(--fm-accent); text-decoration: none; font-size: 0.75rem; font-weight: 600; }
+        .watermark a:hover { text-decoration: underline; }
+        @media (max-width: 500px) {
+            .offer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <h2>Compare Startup Equity Offers</h2>
+    <div class="offer-grid">
+        <div class="offer-card a">
+            <h3>Offer A</h3>
+            <div class="field"><label>Company Stage</label><select id="aStage"><option value="early">Early-stage</option><option value="growth">Growth-stage</option><option value="late">Late-stage</option></select></div>
+            <div class="field"><label>Base Salary ($/yr)</label><input type="number" id="aSalary" value="140000"></div>
+            <div class="field"><label>Equity % (fully diluted)</label><input type="number" id="aEquity" value="0.5" step="0.05" min="0"></div>
+            <div class="field"><label>Valuation ($M)</label><input type="number" id="aValuation" value="20" step="1"></div>
+            <div class="field"><label>Signing Bonus ($)</label><input type="number" id="aBonus" value="10000"></div>
+        </div>
+        <div class="offer-card b">
+            <h3>Offer B</h3>
+            <div class="field"><label>Company Stage</label><select id="bStage"><option value="early">Early-stage</option><option value="growth" selected>Growth-stage</option><option value="late">Late-stage</option></select></div>
+            <div class="field"><label>Base Salary ($/yr)</label><input type="number" id="bSalary" value="160000"></div>
+            <div class="field"><label>Equity % (fully diluted)</label><input type="number" id="bEquity" value="0.15" step="0.05" min="0"></div>
+            <div class="field"><label>Valuation ($M)</label><input type="number" id="bValuation" value="100" step="1"></div>
+            <div class="field"><label>Signing Bonus ($)</label><input type="number" id="bBonus" value="25000"></div>
+        </div>
+    </div>
+    <button class="calc-btn" onclick="compareOffers()">Compare Offers</button>
+
+    <div class="results" id="results">
+        <div class="winner" id="winner"></div>
+        <table class="comparison-table">
+            <thead><tr><th>Metric</th><th>Offer A</th><th>Offer B</th></tr></thead>
+            <tbody id="compBody"></tbody>
+        </table>
+        <div class="note" id="compNote"></div>
+    </div>
+
+    <div class="watermark">
+        <a href="https://founder-math.com/?utm_source=widget&utm_medium=embed&utm_campaign=compare_widget" target="_blank" rel="noopener">Powered by FounderMath</a> — <a href="https://founder-math.com/compare-offers.html?utm_source=widget&utm_medium=embed" target="_blank" rel="noopener">Full Offer Comparator</a>
+    </div>
+
+    <script>
+    function compareOffers() {
+        function getOffer(prefix) {
+            var salary = parseFloat(document.getElementById(prefix + 'Salary').value) || 0;
+            var equity = parseFloat(document.getElementById(prefix + 'Equity').value) || 0;
+            var valuation = parseFloat(document.getElementById(prefix + 'Valuation').value) || 0;
+            var bonus = parseFloat(document.getElementById(prefix + 'Bonus').value) || 0;
+            var stage = document.getElementById(prefix + 'Stage').value;
+            var valuationM = valuation * 1000000;
+            var equityValue = (equity / 100) * valuationM;
+            var stageMultiplier = stage === 'early' ? 3 : stage === 'growth' ? 1.5 : 1;
+            var projectedValue = equityValue * stageMultiplier;
+            var fourYearTotal = salary * 4 + bonus + projectedValue;
+            return {
+                salary: salary, equity: equity, valuation: valuationM,
+                bonus: bonus, stage: stage, equityValue: equityValue,
+                projectedValue: projectedValue, fourYearTotal: fourYearTotal,
+                stageMultiplier: stageMultiplier
+            };
+        }
+
+        var a = getOffer('a');
+        var b = getOffer('b');
+        var aWins = a.fourYearTotal > b.fourYearTotal;
+
+        function fmt(n) {
+            if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
+            if (n >= 1000) return '$' + (n / 1000).toFixed(0) + 'K';
+            return '$' + n.toFixed(0);
+        }
+        function cell(val, isWinner) {
+            return '<span class="' + (isWinner ? 'winner-cell' : 'loser-cell') + '">' + val + '</span>';
+        }
+
+        // Winner display
+        var winnerEl = document.getElementById('winner');
+        var winner = aWins ? 'Offer A' : 'Offer B';
+        var diff = Math.abs(a.fourYearTotal - b.fourYearTotal);
+        var reason = aWins ?
+            (a.projectedValue > b.projectedValue ? 'Higher equity upside' : 'Higher total compensation') :
+            (b.projectedValue > a.projectedValue ? 'Higher equity upside' : 'Higher total compensation');
+        winnerEl.innerHTML =
+            '<div class="crown">&#127942;</div>' +
+            '<div class="name">' + winner + ' Wins</div>' +
+            '<div class="reason">Worth ' + fmt(diff) + ' more over 4 years — ' + reason + '</div>';
+
+        // Comparison table
+        var rows = [
+            ['Base Salary', fmt(a.salary), fmt(b.salary), a.salary >= b.salary],
+            ['Equity %', a.equity + '%', b.equity + '%', a.equity >= b.equity],
+            ['Equity Value (today)', fmt(a.equityValue), fmt(b.equityValue), a.equityValue >= b.equityValue],
+            ['Projected Value (exit)', fmt(a.projectedValue), fmt(b.projectedValue), a.projectedValue >= b.projectedValue],
+            ['Signing Bonus', fmt(a.bonus), fmt(b.bonus), a.bonus >= b.bonus],
+            ['4-Year Total Comp', fmt(a.fourYearTotal), fmt(b.fourYearTotal), a.fourYearTotal >= b.fourYearTotal]
+        ];
+        var tbody = document.getElementById('compBody');
+        var html = '';
+        for (var i = 0; i < rows.length; i++) {
+            html += '<tr><td>' + rows[i][0] + '</td><td>' + cell(rows[i][1], rows[i][3]) + '</td><td>' + cell(rows[i][2], !rows[i][3]) + '</td></tr>';
+        }
+        tbody.innerHTML = html;
+
+        // Note
+        var noteEl = document.getElementById('compNote');
+        if (a.stage !== b.stage) {
+            var early = a.stage === 'early' ? 'A' : 'B';
+            noteEl.innerHTML = '<strong>Different stages:</strong> Offer ' + early + ' is earlier-stage, meaning higher risk but potentially much higher upside. Early-stage equity (' + (early === 'A' ? a.equity : b.equity) + '%) could be worth significantly more if the company succeeds.';
+        } else {
+            noteEl.innerHTML = '<strong>Tip:</strong> Look beyond the numbers. Consider team quality, your role scope, growth trajectory, and how much you\'ll learn. The best offer isn\'t always the highest-paying one.';
+        }
+
+        document.getElementById('results').classList.add('visible');
+        try { if (window.parent && window.parent.gtag) window.parent.gtag('event', 'widget_calculation', { source: 'compare_widget' }); } catch(ex) {}
+    }
+    </script>
+</body>
+</html>

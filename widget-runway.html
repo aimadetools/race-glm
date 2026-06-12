@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Runway Calculator Widget — FounderMath</title>
+    <style>
+        :root {
+            --fm-bg: #ffffff;
+            --fm-text: #1a1a2e;
+            --fm-text-secondary: #555570;
+            --fm-border: #e0e0e8;
+            --fm-accent: #6c5ce7;
+            --fm-accent-light: #a29bfe;
+            --fm-green: #00b894;
+            --fm-red: #ff6b6b;
+            --fm-orange: #ffa502;
+            --fm-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--fm-font); background: var(--fm-bg); color: var(--fm-text); padding: 16px; line-height: 1.5; }
+        h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; color: var(--fm-text); }
+        .form-row { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+        .form-group { flex: 1; min-width: 120px; }
+        .form-group label { display: block; font-size: 0.75rem; font-weight: 600; color: var(--fm-text-secondary); margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.04em; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 8px 10px; border: 1px solid var(--fm-border);
+            border-radius: 6px; font-size: 0.85rem; font-family: var(--fm-font);
+            background: #fafafa; color: var(--fm-text); transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--fm-accent); }
+        .form-group .help { font-size: 0.7rem; color: #888; margin-top: 2px; }
+        .calc-btn {
+            width: 100%; padding: 10px; background: var(--fm-accent); color: white;
+            border: none; border-radius: 6px; font-weight: 700; font-size: 0.9rem;
+            cursor: pointer; font-family: var(--fm-font); margin-bottom: 14px; transition: background 0.2s;
+        }
+        .calc-btn:hover { background: var(--fm-accent-light); }
+        .results { display: none; }
+        .results.visible { display: block; }
+        .runway-display { text-align: center; padding: 20px; margin-bottom: 16px; border-radius: 12px; }
+        .runway-display .months { font-size: 3rem; font-weight: 900; font-family: 'SF Mono', 'Fira Code', monospace; line-height: 1; }
+        .runway-display .label { font-size: 0.85rem; color: var(--fm-text-secondary); margin-top: 4px; }
+        .runway-bar { width: 100%; height: 12px; background: #f0f0f5; border-radius: 6px; margin-bottom: 16px; overflow: hidden; }
+        .runway-bar-fill { height: 100%; border-radius: 6px; transition: width 0.6s ease; }
+        .summary { background: #f5f5fa; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+        .summary-stat { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.82rem; }
+        .summary-stat .label { color: var(--fm-text-secondary); }
+        .summary-stat .value { font-weight: 700; font-family: 'SF Mono', 'Fira Code', monospace; }
+        .summary-stat .value.red { color: var(--fm-red); }
+        .summary-stat .value.green { color: var(--fm-green); }
+        .summary-stat .value.orange { color: var(--fm-orange); }
+        .milestones { margin-top: 12px; }
+        .milestone { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 0.82rem; border-bottom: 1px solid #f0f0f5; }
+        .milestone:last-child { border-bottom: none; }
+        .milestone .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .milestone .month { font-weight: 700; min-width: 80px; }
+        .milestone .event { color: var(--fm-text-secondary); }
+        .watermark { text-align: center; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--fm-border); }
+        .watermark a { color: var(--fm-accent); text-decoration: none; font-size: 0.75rem; font-weight: 600; }
+        .watermark a:hover { text-decoration: underline; }
+        @media (max-width: 360px) {
+            body { padding: 10px; }
+            .form-group { min-width: 100%; }
+            .runway-display .months { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <h2>Startup Runway Calculator</h2>
+    <form id="widgetForm" onsubmit="return calculateRunway(event)">
+        <div class="form-row">
+            <div class="form-group">
+                <label>Cash in Bank ($)</label>
+                <input type="number" id="cashBalance" min="0" step="10000" value="500000" required>
+                <div class="help">Total cash & equivalents</div>
+            </div>
+            <div class="form-group">
+                <label>Monthly Revenue ($)</label>
+                <input type="number" id="monthlyRevenue" min="0" step="5000" value="20000">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Monthly Expenses ($)</label>
+                <input type="number" id="monthlyExpenses" min="0" step="5000" value="80000" required>
+                <div class="help">Salaries, rent, tools, etc.</div>
+            </div>
+            <div class="form-group">
+                <label>Revenue Growth (%/mo)</label>
+                <input type="number" id="revenueGrowth" min="0" max="100" step="1" value="10">
+            </div>
+        </div>
+        <button type="submit" class="calc-btn">Calculate Runway</button>
+    </form>
+
+    <div class="results" id="results">
+        <div class="runway-display" id="runwayDisplay"></div>
+        <div class="runway-bar"><div class="runway-bar-fill" id="runwayBar"></div></div>
+        <div class="summary" id="summary"></div>
+        <div class="milestones" id="milestones"></div>
+    </div>
+
+    <div class="watermark">
+        <a href="https://founder-math.com/?utm_source=widget&utm_medium=embed&utm_campaign=runway_widget" target="_blank" rel="noopener">Powered by FounderMath</a> — <a href="https://founder-math.com/runway.html?utm_source=widget&utm_medium=embed" target="_blank" rel="noopener">Full Runway Calculator</a>
+    </div>
+
+    <script>
+    function calculateRunway(e) {
+        e.preventDefault();
+        var cash = parseFloat(document.getElementById('cashBalance').value);
+        var revenue = parseFloat(document.getElementById('monthlyRevenue').value) || 0;
+        var expenses = parseFloat(document.getElementById('monthlyExpenses').value);
+        var growth = parseFloat(document.getElementById('revenueGrowth').value) / 100;
+
+        // Calculate runway with growing revenue
+        var months = 0;
+        var currentCash = cash;
+        var currentRevenue = revenue;
+        var milestones = [];
+        var maxMonths = 120; // cap at 10 years
+
+        while (currentCash > 0 && months < maxMonths) {
+            months++;
+            var burn = expenses - currentRevenue;
+            currentCash -= burn;
+            currentRevenue *= (1 + growth);
+
+            // Track milestones
+            if (months === 3) milestones.push({ month: 3, event: 'Quarterly review', cash: Math.max(0, currentCash) });
+            if (months === 6) milestones.push({ month: 6, event: '6-month milestone', cash: Math.max(0, currentCash) });
+            if (months === 12) milestones.push({ month: 12, event: '1 year mark', cash: Math.max(0, currentCash) });
+            if (months === 18) milestones.push({ month: 18, event: '18-month mark', cash: Math.max(0, currentCash) });
+            if (months === 24) milestones.push({ month: 24, event: '2 year mark', cash: Math.max(0, currentCash) });
+        }
+
+        if (currentCash > 0) months = maxMonths; // Profitable!
+
+        var netBurn = expenses - revenue;
+        var monthlyBurn = expenses - (revenue * (1 + growth)); // average with growth
+        var grossBurn = expenses;
+
+        // Format helper
+        function fmt(n) {
+            if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
+            if (n >= 1000) return '$' + (n / 1000).toFixed(0) + 'K';
+            return '$' + n.toFixed(0);
+        }
+
+        // Runway display
+        var color, bgColor, statusText;
+        if (months >= 18) { color = 'var(--fm-green)'; bgColor = '#e8f5e9'; statusText = 'Healthy Runway'; }
+        else if (months >= 12) { color = '#4caf50'; bgColor = '#e8f5e9'; statusText = 'Good Runway'; }
+        else if (months >= 6) { color = 'var(--fm-orange)'; bgColor = '#fff3e0'; statusText = 'Moderate — Start Fundraising'; }
+        else { color = 'var(--fm-red)'; bgColor = '#ffebee'; statusText = 'Critical — Fundraise NOW'; }
+
+        var displayEl = document.getElementById('runwayDisplay');
+        displayEl.style.background = bgColor;
+        displayEl.innerHTML =
+            '<div class="months" style="color:' + color + '">' + (months >= maxMonths ? '∞' : months) + '</div>' +
+            '<div class="label">' + statusText + (months < maxMonths ? ' months of runway' : ' — Profitable!') + '</div>';
+
+        // Runway bar
+        var barPct = Math.min(100, (months / 24) * 100);
+        var barEl = document.getElementById('runwayBar');
+        barEl.style.width = barPct + '%';
+        barEl.style.background = color;
+
+        // Summary
+        var summaryEl = document.getElementById('summary');
+        summaryEl.innerHTML =
+            '<div class="summary-stat"><span class="label">Cash in bank</span><span class="value">' + fmt(cash) + '</span></div>' +
+            '<div class="summary-stat"><span class="label">Monthly revenue</span><span class="value green">' + fmt(revenue) + '</span></div>' +
+            '<div class="summary-stat"><span class="label">Monthly expenses</span><span class="value red">' + fmt(expenses) + '</span></div>' +
+            '<div class="summary-stat"><span class="label">Net burn rate</span><span class="value ' + (netBurn > 0 ? 'red' : 'green') + '">' + (netBurn > 0 ? '-' : '+') + fmt(Math.abs(netBurn)) + '/mo</span></div>' +
+            '<div class="summary-stat"><span class="label">Gross burn rate</span><span class="value">' + fmt(grossBurn) + '/mo</span></div>' +
+            '<div class="summary-stat"><span class="label">Runway</span><span class="value" style="color:' + color + '">' + (months >= maxMonths ? '24+ months' : months + ' months') + '</span></div>';
+
+        // Milestones
+        var msEl = document.getElementById('milestones');
+        if (milestones.length > 0) {
+            var msHtml = '<div style="font-size:0.8rem;font-weight:700;margin-bottom:8px;color:var(--fm-text-secondary);text-transform:uppercase;letter-spacing:0.04em;">Cash Projections</div>';
+            for (var i = 0; i < milestones.length; i++) {
+                var m = milestones[i];
+                var mColor = m.cash > cash * 0.5 ? 'var(--fm-green)' : m.cash > cash * 0.2 ? 'var(--fm-orange)' : 'var(--fm-red)';
+                msHtml += '<div class="milestone"><div class="dot" style="background:' + mColor + '"></div><span class="month">Month ' + m.month + '</span><span class="event">' + m.event + ' — ' + fmt(m.cash) + ' remaining</span></div>';
+            }
+            msEl.innerHTML = msHtml;
+        }
+
+        document.getElementById('results').classList.add('visible');
+        try { if (window.parent && window.parent.gtag) window.parent.gtag('event', 'widget_calculation', { source: 'runway_widget' }); } catch(ex) {}
+    }
+    </script>
+</body>
+</html>

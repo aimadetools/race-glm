@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAFE Note Calculator Widget — FounderMath</title>
+    <style>
+        :root {
+            --fm-bg: #ffffff;
+            --fm-text: #1a1a2e;
+            --fm-text-secondary: #555570;
+            --fm-border: #e0e0e8;
+            --fm-accent: #6c5ce7;
+            --fm-accent-light: #a29bfe;
+            --fm-green: #00b894;
+            --fm-red: #ff6b6b;
+            --fm-orange: #ffa502;
+            --fm-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--fm-font); background: var(--fm-bg); color: var(--fm-text); padding: 16px; line-height: 1.5; }
+        h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; color: var(--fm-text); }
+        .form-row { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+        .form-group { flex: 1; min-width: 120px; }
+        .form-group label { display: block; font-size: 0.75rem; font-weight: 600; color: var(--fm-text-secondary); margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.04em; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 8px 10px; border: 1px solid var(--fm-border);
+            border-radius: 6px; font-size: 0.85rem; font-family: var(--fm-font);
+            background: #fafafa; color: var(--fm-text); transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--fm-accent); }
+        .form-group .help { font-size: 0.7rem; color: #888; margin-top: 2px; }
+        .calc-btn {
+            width: 100%; padding: 10px; background: var(--fm-accent); color: white;
+            border: none; border-radius: 6px; font-weight: 700; font-size: 0.9rem;
+            cursor: pointer; font-family: var(--fm-font); margin-bottom: 14px; transition: background 0.2s;
+        }
+        .calc-btn:hover { background: var(--fm-accent-light); }
+        .results { display: none; }
+        .results.visible { display: block; }
+        .results-header { font-size: 0.9rem; font-weight: 700; margin-bottom: 10px; }
+        .summary { background: #f5f5fa; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+        .summary-stat { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.82rem; }
+        .summary-stat .label { color: var(--fm-text-secondary); }
+        .summary-stat .value { font-weight: 700; font-family: 'SF Mono', 'Fira Code', monospace; }
+        .summary-stat .value.red { color: var(--fm-red); }
+        .summary-stat .value.green { color: var(--fm-green); }
+        .table-wrap { overflow-x: auto; margin-bottom: 12px; }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+        .data-table th { text-align: left; padding: 6px 8px; background: #f5f5fa; border-bottom: 2px solid var(--fm-border); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--fm-text-secondary); }
+        .data-table td { padding: 6px 8px; border-bottom: 1px solid #f0f0f5; }
+        .note { background: #fff8e1; border: 1px solid #ffe082; border-radius: 6px; padding: 10px; font-size: 0.8rem; color: #5d4037; margin-bottom: 10px; }
+        .watermark { text-align: center; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--fm-border); }
+        .watermark a { color: var(--fm-accent); text-decoration: none; font-size: 0.75rem; font-weight: 600; }
+        .watermark a:hover { text-decoration: underline; }
+        @media (max-width: 360px) {
+            body { padding: 10px; }
+            .form-group { min-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <h2>SAFE Note Conversion Calculator</h2>
+    <form id="widgetForm" onsubmit="return calculateSAFE(event)">
+        <div class="form-row">
+            <div class="form-group">
+                <label>SAFE Investment ($)</label>
+                <input type="number" id="safeAmount" min="1000" step="1000" value="500000" required>
+                <div class="help">Amount invested via SAFE</div>
+            </div>
+            <div class="form-group">
+                <label>SAFE Valuation Cap ($)</label>
+                <input type="number" id="valuationCap" min="100000" step="100000" value="5000000" required>
+                <div class="help">Valuation cap on the SAFE</div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Discount (%)</label>
+                <input type="number" id="discount" min="0" max="50" step="5" value="20">
+                <div class="help">e.g. 20% discount</div>
+            </div>
+            <div class="form-group">
+                <label>Series A Pre-Money ($)</label>
+                <input type="number" id="seriesAValuation" min="1000000" step="1000000" value="20000000" required>
+                <div class="help">Pre-money valuation at Series A</div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Series A Investment ($)</label>
+                <input type="number" id="seriesAInvestment" min="100000" step="500000" value="5000000" required>
+            </div>
+            <div class="form-group">
+                <label>SAFE Type</label>
+                <select id="safeType">
+                    <option value="pre">Pre-Money SAFE</option>
+                    <option value="post">Post-Money SAFE</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="calc-btn">Calculate SAFE Conversion</button>
+    </form>
+
+    <div class="results" id="results">
+        <div class="summary" id="summary"></div>
+        <div class="note" id="safeNote"></div>
+        <div class="table-wrap">
+            <table class="data-table" id="conversionTable">
+                <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="watermark">
+        <a href="https://founder-math.com/?utm_source=widget&utm_medium=embed&utm_campaign=safe_widget" target="_blank" rel="noopener">Powered by FounderMath</a> — <a href="https://founder-math.com/safe.html?utm_source=widget&utm_medium=embed" target="_blank" rel="noopener">Full SAFE Calculator</a>
+    </div>
+
+    <script>
+    function calculateSAFE(e) {
+        e.preventDefault();
+        var safeAmount = parseFloat(document.getElementById('safeAmount').value);
+        var valCap = parseFloat(document.getElementById('valuationCap').value);
+        var discount = parseFloat(document.getElementById('discount').value) / 100;
+        var seriesAVal = parseFloat(document.getElementById('seriesAValuation').value);
+        var seriesAInv = parseFloat(document.getElementById('seriesAInvestment').value);
+        var safeType = document.getElementById('safeType').value;
+
+        // Calculate conversion price
+        var seriesAPrice; // price per share at Series A
+        var postMoneyVal = seriesAVal + seriesAInv;
+        // Assume 10M shares for simplicity
+        var totalShares = 10000000;
+        seriesAPrice = postMoneyVal / totalShares;
+
+        // SAFE conversion price (lower of cap price or discount price)
+        var capPrice = valCap / totalShares;
+        var discountPrice = seriesAPrice * (1 - discount);
+        var conversionPrice = Math.min(capPrice, discountPrice);
+        var method = conversionPrice === capPrice ? 'Valuation Cap' : 'Discount';
+
+        // Shares received
+        var sharesReceived = safeAmount / conversionPrice;
+        var ownershipPct = (sharesReceived / totalShares) * 100;
+
+        // Post-money SAFE ownership
+        var postMoneySAFEOwnership;
+        if (safeType === 'post') {
+            postMoneySAFEOwnership = (safeAmount / valCap) * 100;
+        } else {
+            postMoneySAFEOwnership = (safeAmount / (valCap + safeAmount)) * 100;
+        }
+
+        // Dilution to existing holders
+        var dilutionToExisting = ownershipPct;
+
+        // Value at different exits
+        var exit50 = ownershipPct / 100 * 50000000;
+        var exit100 = ownershipPct / 100 * 100000000;
+        var exit250 = ownershipPct / 100 * 250000000;
+
+        // Format numbers
+        function fmt(n) { return n >= 1000000 ? '$' + (n / 1000000).toFixed(1) + 'M' : n >= 1000 ? '$' + (n / 1000).toFixed(0) + 'K' : '$' + n.toFixed(0); }
+        function fmtPct(n) { return n.toFixed(2) + '%'; }
+        function fmtShares(n) { return n >= 1000000 ? (n / 1000000).toFixed(1) + 'M' : n >= 1000 ? (n / 1000).toFixed(0) + 'K' : n.toFixed(0); }
+
+        // Summary
+        var summaryEl = document.getElementById('summary');
+        summaryEl.innerHTML =
+            '<div class="summary-stat"><span class="label">Conversion method</span><span class="value">' + method + '</span></div>' +
+            '<div class="summary-stat"><span class="label">Conversion price</span><span class="value">$' + conversionPrice.toFixed(4) + '/share</span></div>' +
+            '<div class="summary-stat"><span class="label">Shares received</span><span class="value">' + fmtShares(sharesReceived) + '</span></div>' +
+            '<div class="summary-stat"><span class="label">Ownership after conversion</span><span class="value green">' + fmtPct(ownershipPct) + '</span></div>';
+
+        // Note about SAFE type
+        var noteEl = document.getElementById('safeNote');
+        if (safeType === 'post') {
+            noteEl.innerHTML = '<strong>Post-Money SAFE:</strong> The SAFE investor owns ' + fmtPct(postMoneySAFEOwnership) + ' of the company before the Series A priced round. This dilutes all existing shareholders (founders + employees) proportionally.';
+        } else {
+            noteEl.innerHTML = '<strong>Pre-Money SAFE:</strong> The SAFE converts into shares at the pre-money valuation, so the Series A investor\'s ownership is calculated on the post-conversion total.';
+        }
+
+        // Table
+        var tbody = document.getElementById('tableBody');
+        tbody.innerHTML =
+            '<tr><td>SAFE Investment</td><td>' + fmt(safeAmount) + '</td></tr>' +
+            '<tr><td>Valuation Cap</td><td>' + fmt(valCap) + '</td></tr>' +
+            '<tr><td>Effective Discount</td><td>' + (discount * 100).toFixed(0) + '%</td></tr>' +
+            '<tr><td>Series A Price/Share</td><td>$' + seriesAPrice.toFixed(4) + '</td></tr>' +
+            '<tr><td>Your Conversion Price</td><td>$' + conversionPrice.toFixed(4) + '</td></tr>' +
+            '<tr><td>Discount vs Series A</td><td style="color:var(--fm-green)">' + ((1 - conversionPrice / seriesAPrice) * 100).toFixed(1) + '% lower</td></tr>' +
+            '<tr><td>Value at $50M exit</td><td>' + fmt(exit50) + '</td></tr>' +
+            '<tr><td>Value at $100M exit</td><td>' + fmt(exit100) + '</td></tr>' +
+            '<tr><td>Value at $250M exit</td><td style="color:var(--fm-green)">' + fmt(exit250) + '</td></tr>';
+
+        document.getElementById('results').classList.add('visible');
+        try { if (window.parent && window.parent.gtag) window.parent.gtag('event', 'widget_calculation', { source: 'safe_widget' }); } catch(ex) {}
+    }
+    </script>
+</body>
+</html>

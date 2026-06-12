@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co-Founder Equity Split Calculator Widget — FounderMath</title>
+    <style>
+        :root {
+            --fm-bg: #ffffff;
+            --fm-text: #1a1a2e;
+            --fm-text-secondary: #555570;
+            --fm-border: #e0e0e8;
+            --fm-accent: #6c5ce7;
+            --fm-accent-light: #a29bfe;
+            --fm-green: #00b894;
+            --fm-red: #ff6b6b;
+            --fm-orange: #ffa502;
+            --fm-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--fm-font); background: var(--fm-bg); color: var(--fm-text); padding: 16px; line-height: 1.5; }
+        h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; color: var(--fm-text); }
+        .form-row { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+        .form-group { flex: 1; min-width: 120px; }
+        .form-group label { display: block; font-size: 0.75rem; font-weight: 600; color: var(--fm-text-secondary); margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.04em; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 8px 10px; border: 1px solid var(--fm-border);
+            border-radius: 6px; font-size: 0.85rem; font-family: var(--fm-font);
+            background: #fafafa; color: var(--fm-text); transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--fm-accent); }
+        .form-group .help { font-size: 0.7rem; color: #888; margin-top: 2px; }
+        .calc-btn {
+            width: 100%; padding: 10px; background: var(--fm-accent); color: white;
+            border: none; border-radius: 6px; font-weight: 700; font-size: 0.9rem;
+            cursor: pointer; font-family: var(--fm-font); margin-bottom: 14px; transition: background 0.2s;
+        }
+        .calc-btn:hover { background: var(--fm-accent-light); }
+        .results { display: none; }
+        .results.visible { display: block; }
+        .split-bar { display: flex; height: 40px; border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+        .split-segment { display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; font-weight: 700; transition: width 0.6s ease; min-width: 30px; }
+        .split-list { margin-bottom: 12px; }
+        .split-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f0f0f5; }
+        .split-item:last-child { border-bottom: none; }
+        .split-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+        .split-name { flex: 1; font-weight: 600; font-size: 0.9rem; }
+        .split-pct { font-weight: 700; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.95rem; }
+        .split-roles { font-size: 0.75rem; color: var(--fm-text-secondary); }
+        .note { background: #e8f5e9; border: 1px solid #a5d6a7; border-radius: 6px; padding: 10px; font-size: 0.8rem; color: #2e7d32; margin-top: 12px; }
+        .watermark { text-align: center; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--fm-border); }
+        .watermark a { color: var(--fm-accent); text-decoration: none; font-size: 0.75rem; font-weight: 600; }
+        .watermark a:hover { text-decoration: underline; }
+        .founder-row { background: #fafafa; border: 1px solid var(--fm-border); border-radius: 8px; padding: 10px; margin-bottom: 8px; }
+        .founder-row .row-top { display: flex; gap: 8px; align-items: center; margin-bottom: 6px; flex-wrap: wrap; }
+        .founder-row .row-top input { flex: 1; min-width: 100px; }
+        .founder-row .row-top select { width: auto; min-width: 120px; }
+        .remove-btn { background: none; border: none; color: var(--fm-red); cursor: pointer; font-size: 1.2rem; padding: 4px 8px; line-height: 1; }
+        .add-btn { width: 100%; padding: 8px; background: none; border: 1px dashed var(--fm-border); border-radius: 6px; color: var(--fm-accent); font-size: 0.85rem; cursor: pointer; font-family: var(--fm-font); margin-bottom: 10px; }
+        .add-btn:hover { border-color: var(--fm-accent); background: #f5f0ff; }
+        @media (max-width: 360px) {
+            body { padding: 10px; }
+            .form-group { min-width: 100%; }
+            .founder-row .row-top { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <h2>Co-Founder Equity Split Calculator</h2>
+    <div id="founderList"></div>
+    <button class="add-btn" onclick="addFounder()">+ Add Co-Founder</button>
+    <button class="calc-btn" onclick="calculateSplit()">Calculate Fair Split</button>
+
+    <div class="results" id="results">
+        <div class="split-bar" id="splitBar"></div>
+        <div class="split-list" id="splitList"></div>
+        <div class="note" id="splitNote"></div>
+    </div>
+
+    <div class="watermark">
+        <a href="https://founder-math.com/?utm_source=widget&utm_medium=embed&utm_campaign=equity_split_widget" target="_blank" rel="noopener">Powered by FounderMath</a> — <a href="https://founder-math.com/equity-split.html?utm_source=widget&utm_medium=embed" target="_blank" rel="noopener">Full Equity Split Calculator</a>
+    </div>
+
+    <script>
+    var founderCount = 0;
+    var COLORS = ['#6c5ce7', '#00b894', '#ffa502', '#ff6b6b', '#54a0ff', '#feca57'];
+
+    function addFounder() {
+        founderCount++;
+        var list = document.getElementById('founderList');
+        var div = document.createElement('div');
+        div.className = 'founder-row';
+        div.id = 'founder-' + founderCount;
+        div.innerHTML =
+            '<div class="row-top">' +
+            '<input type="text" placeholder="Name" class="fname" style="padding:6px 10px;border:1px solid var(--fm-border);border-radius:6px;font-size:0.85rem;font-family:var(--fm-font);">' +
+            '<select class="frole">' +
+            '<option value="ceo">CEO / Business Lead</option>' +
+            '<option value="cto">CTO / Technical Lead</option>' +
+            '<option value="design">Design / Product Lead</option>' +
+            '<option value="growth">Growth / Marketing</option>' +
+            '<option value="ops">Operations / Finance</option>' +
+            '<option value="other">Other Key Role</option>' +
+            '</select>' +
+            '<button class="remove-btn" onclick="removeFounder(' + founderCount + ')" title="Remove">&times;</button>' +
+            '</div>' +
+            '<div style="display:flex;gap:8px;flex-wrap:wrap;">' +
+            '<div class="form-group" style="flex:1;min-width:80px;"><label>Full-time?</label><select class="ftime"><option value="1">Yes</option><option value="0">No</option></select></div>' +
+            '<div class="form-group" style="flex:1;min-width:80px;"><label>Idea originator?</label><select class="fidea"><option value="0">No</option><option value="1">Yes</option></select></div>' +
+            '<div class="form-group" style="flex:1;min-width:80px;"><label>Funding contributed ($)</label><input type="number" class="ffund" min="0" step="5000" value="0"></div>' +
+            '</div>';
+        list.appendChild(div);
+    }
+
+    function removeFounder(id) {
+        var el = document.getElementById('founder-' + id);
+        if (el) el.remove();
+    }
+
+    // Role weights for fairness calculation
+    var ROLE_WEIGHTS = { ceo: 3, cto: 3, design: 2, growth: 2, ops: 1.5, other: 1.5 };
+
+    function calculateSplit() {
+        var founders = [];
+        var rows = document.querySelectorAll('.founder-row');
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var name = row.querySelector('.fname').value || ('Founder ' + (i + 1));
+            var role = row.querySelector('.frole').value;
+            var fullTime = parseInt(row.querySelector('.ftime').value);
+            var idea = parseInt(row.querySelector('.fidea').value);
+            var funds = parseFloat(row.querySelector('.ffund').value) || 0;
+            founders.push({ name: name, role: role, fullTime: fullTime, idea: idea, funds: funds });
+        }
+
+        if (founders.length < 2) { alert('Add at least 2 founders.'); return; }
+
+        // Calculate weighted scores
+        var totalScore = 0;
+        for (var i = 0; i < founders.length; i++) {
+            var f = founders[i];
+            f.score = (ROLE_WEIGHTS[f.role] || 1.5) * 10 + f.fullTime * 20 + f.idea * 15 + Math.min(f.funds / 10000, 15);
+            totalScore += f.score;
+        }
+
+        // Calculate percentages
+        for (var i = 0; i < founders.length; i++) {
+            founders[i].pct = (founders[i].score / totalScore) * 100;
+        }
+
+        // Split bar
+        var barHtml = '';
+        for (var i = 0; i < founders.length; i++) {
+            barHtml += '<div class="split-segment" style="width:' + founders[i].pct.toFixed(1) + '%;background:' + COLORS[i % COLORS.length] + '">' + founders[i].pct.toFixed(0) + '%</div>';
+        }
+        document.getElementById('splitBar').innerHTML = barHtml;
+
+        // Split list
+        var listHtml = '';
+        var ROLE_LABELS = { ceo: 'CEO / Business', cto: 'CTO / Technical', design: 'Design / Product', growth: 'Growth / Marketing', ops: 'Operations', other: 'Key Contributor' };
+        for (var i = 0; i < founders.length; i++) {
+            listHtml += '<div class="split-item">' +
+                '<div class="split-dot" style="background:' + COLORS[i % COLORS.length] + '"></div>' +
+                '<div class="split-name">' + founders[i].name + '<div class="split-roles">' + ROLE_LABELS[founders[i].role] + (founders[i].fullTime ? ' • Full-time' : ' • Part-time') + '</div></div>' +
+                '<div class="split-pct" style="color:' + COLORS[i % COLORS.length] + '">' + founders[i].pct.toFixed(1) + '%</div>' +
+                '</div>';
+        }
+        document.getElementById('splitList').innerHTML = listHtml;
+
+        // Note
+        var maxPct = Math.max.apply(null, founders.map(function(f) { return f.pct; }));
+        var minPct = Math.min.apply(null, founders.map(function(f) { return f.pct; }));
+        var noteEl = document.getElementById('splitNote');
+        if (maxPct - minPct < 10) {
+            noteEl.innerHTML = '<strong>Near-equal split.</strong> Your contributions are similar. Consider a 50/50 or equal split with standard 4-year vesting + 1-year cliff for all founders.';
+        } else {
+            noteEl.innerHTML = '<strong>Unequal split recommended.</strong> Contributions differ significantly. The ' + (maxPct - minPct).toFixed(0) + '% gap reflects differences in role, time commitment, and capital. Use 4-year vesting with 1-year cliff.';
+        }
+
+        document.getElementById('results').classList.add('visible');
+        try { if (window.parent && window.parent.gtag) window.parent.gtag('event', 'widget_calculation', { source: 'equity_split_widget' }); } catch(ex) {}
+    }
+
+    // Initialize with 2 founders
+    addFounder();
+    addFounder();
+    </script>
+</body>
+</html>
