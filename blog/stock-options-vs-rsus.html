@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/stock-options-vs-rsus.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Options vs RSUs: Which is Better for Startup Employees? (2026) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('navLinks').setAttribute('aria-expanded', 'false');
+                    document.getElementById('navLinks').focus();
+                }
+            }
+        });
+        function toggleTheme() {
+            const body = document.body;
+            const current = body.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const saved = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', saved);
+        });
+    </script>
+    <meta name="description" content="Stock Options vs RSUs: Which equity type is better for startup employees? Compare tax treatment, risk, upside potential, vesting, and total compensation. Make the right choice.">
+    <meta name="keywords" content="stock options vs rsus, rsu vs stock options, restricted stock units vs stock options, startup equity comparison">
+    <meta property="og:title" content="Stock Options vs RSUs: Which is Better for Startup Employees?">
+    <meta property="og:description" content="Compare stock options and RSUs side by side. Understand tax differences, risk profiles, and upside potential. Know which equity type to choose.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/stock-options-vs-rsus.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stock Options vs RSUs: Which is Better for Startup Employees?">
+    <meta name="twitter:description" content="Compare stock options and RSUs side by side. Understand tax differences, risk profiles, and upside potential.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Stock Options vs RSUs: Which is Better for Startup Employees? (2026)",
+        "url": "https://founder-math.com/blog/stock-options-vs-rsus.html",
+        "description": "Stock Options vs RSUs: Which equity type is better for startup employees? Compare tax treatment, risk, upside potential, vesting, and total compensation. Make the right choice.",
+        "datePublished": "2026-06-12",
+        "dateModified": "2026-06-12",
+        "author": {
+            "@type": "Person",
+            "name": "FounderMath Team",
+            "url": "https://founder-math.com/blog/author/founder-math-team.html"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/stock-options-vs-rsus.html"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Are stock options better than RSUs?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Neither is universally better. Stock options offer higher upside potential but require exercise costs and carry more risk. RSUs are lower risk with guaranteed value at vesting but less upside. Choose options if you're early-stage, believe in the company's growth, and can afford the exercise cost. Choose RSUs if you're risk-averse, at a later-stage company, or prefer predictable value."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I choose stock options or RSUs?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Choose stock options if: you're at an early-stage startup, you believe in the company's growth, you can afford the exercise cost, and you want maximum upside. Choose RSUs if: the company is later-stage (Series C+), you're risk-averse, you can't afford exercise costs, or you prefer predictable vesting value. Many offers include both—get the split in writing."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the tax difference between stock options and RSUs?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RSUs are taxed as ordinary income when they vest—the full value is taxable income. ISOs are taxed only when you sell shares (if you meet holding requirements), potentially at lower long-term capital gains rates, but AMT may apply at exercise. NSOs are taxed as ordinary income on the spread at exercise. RSUs have the simplest tax treatment but highest immediate tax bill; ISOs have the most complex but potentially lowest tax bill."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do RSUs have a strike price?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, RSUs have no strike price. They're actual shares that vest over time—you don't pay to acquire them. Stock options give you the right to buy shares at a fixed strike price, which is why you need cash to exercise them. RSUs are simpler (no exercise cost) but offer less leverage on company growth."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body data-theme="dark">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="/" aria-label="FounderMath home">
+                        <span class="logo-icon">∫</span>
+                        <span>FounderMath</span>
+                    </a>
+                </div>
+                <button id="mobileToggle" class="mobile-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="navLinks" class="nav-links">
+                    <li><a href="/tools/">Tools</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/equity-cheat-sheet/">Cheat Sheet</a></li>
+                    <li><a href="/glossary/">Glossary</a></li>
+                    <li><a href="/equity-report-premium.html" class="nav-cta">Equity Report</a></li>
+                </ul>
+                <button class="theme-toggle" aria-label="Toggle dark/light mode" onclick="toggleTheme()">◐</button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <article class="blog-post">
+            <header class="post-header">
+                <div class="container">
+                    <h1>Stock Options vs RSUs: Which is Better for Startup Employees?</h1>
+                    <p class="post-meta">June 12, 2026 • 11 min read</p>
+                </div>
+            </header>
+
+            <div class="post-content container">
+                <p class="intro">Stock options or RSUs? It's one of the most common questions startup employees face. This guide breaks down the differences—tax treatment, risk, upside potential, and when each type makes sense—so you can make an informed decision.</p>
+
+                <h2>The Quick Answer</h2>
+                <p><strong>Choose Stock Options if:</strong> You're at an early-stage startup, believe in high growth, can afford the exercise cost, and want maximum upside potential.</p>
+
+                <p><strong>Choose RSUs if:</strong> The company is later-stage (Series C+), you're risk-averse, can't afford exercise costs, or prefer predictable vesting value.</p>
+
+                <div class="example-block">
+                    <h4>The Tradeoff in One Sentence</h4>
+                    <p>Stock options = <strong>Higher upside, more risk, requires cash to exercise</strong>. RSUs = <strong>Lower risk, guaranteed value at vesting, less upside</strong>.</p>
+                </div>
+
+                <h2>What Are Stock Options?</h2>
+                <p>Stock options give you the <strong>right to buy shares</strong> at a fixed price (the strike price). You profit when the company's value rises above your strike price.</p>
+
+                <div class="example-block">
+                    <h4>Stock Options Example</h4>
+                    <p><strong>Your grant:</strong> 10,000 options at $2 strike price<br>
+                    <strong>Current FMV:</strong> $10/share<br>
+                    <strong>Exercise cost:</strong> $20,000 (10,000 × $2)<br>
+                    <strong>Paper gain:</strong> $80,000 (10,000 × $8 spread)<br>
+                    <strong>Net if you exercise:</strong> You own $100,000 of stock for $20,000</p>
+                </div>
+
+                <h3>Key Characteristics of Stock Options</h3>
+                <ul>
+                    <li><strong>Strike price:</strong> Fixed price you pay to exercise</li>
+                    <li><strong>Time-based:</strong> Options expire after 10 years (or 90 days after leaving for ISOs)</li>
+                    <li><strong>Exercise required:</strong> Must pay strike price to own shares</li>
+                    <li><strong>Tax complexity:</strong> ISOs (AMT risk, capital gains) vs NSOs (ordinary income)</li>
+                    <li><strong>Leverage:</strong> amplify gains—if the stock doubles, your gain doubles the spread</li>
+                </ul>
+
+                <h2>What Are RSUs?</h2>
+                <p>Restricted Stock Units (RSUs) are <strong>actual shares</strong> that vest over time. No exercise required—you own the shares when they vest.</p>
+
+                <div class="example-block">
+                    <h4>RSUs Example</h4>
+                    <p><strong>Your grant:</strong> 10,000 RSUs<br>
+                    <strong>Current FMV:</strong> $10/share<br>
+                    <strong>Exercise cost:</strong> $0 (no strike price)<br>
+                    <strong>Taxable value at vesting:</strong> $100,000 (10,000 × $10)<br>
+                    <strong>Net when vested:</strong> You own $100,000 of stock (minus taxes)</p>
+                </div>
+
+                <h3>Key Characteristics of RSUs</h3>
+                <ul>
+                    <li><strong>No strike price:</strong> Shares are granted directly—nothing to pay</li>
+                    <li><strong>Vesting required:</strong> Shares become yours as they vest (typically 4 years)</li>
+                    <li><strong>Tax at vesting:</strong> Full value is taxed as ordinary income when shares vest</li>
+                    <li><strong>Simple tax treatment:</strong> Ordinary income at vesting, capital gains on future appreciation</li>
+                    <li><strong>Lower leverage:</strong> No strike price to amplify gains</li>
+                </ul>
+
+                <h2>Side-by-Side Comparison</h2>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Stock Options</th>
+                            <th>RSUs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>What you receive</strong></td>
+                            <td>Right to buy shares at strike price</td>
+                            <td>Actual shares that vest over time</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Exercise cost</strong></td>
+                            <td>Yes—must pay strike price to own shares</td>
+                            <td>No—shares vest directly to you</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Risk</strong></td>
+                            <td>Higher—if FMV ≤ strike, options worthless</td>
+                            <td>Lower—vested shares have value if FMV > 0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Upside potential</strong></td>
+                            <td>Higher—leverage on growth above strike</td>
+                            <td>Lower—no strike price leverage</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tax timing</strong></td>
+                            <td>At exercise (NSO) or sale (ISO with holding period)</td>
+                            <td>At vesting—full value is ordinary income</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tax rate</strong></td>
+                            <td>Ordinary income (NSO) or capital gains (ISO with holding)</td>
+                            <td>Ordinary income at vesting, capital gains after</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Complexity</strong></td>
+                            <td>Higher—ISO vs NSO, AMT considerations</td>
+                            <td>Lower—straightforward vesting tax</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Expiration</strong></td>
+                            <td>Yes—10 years post-grant or 90 days post-departure (ISO)</td>
+                            <td>No—vested shares don't expire</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>When Stock Options Are Better</h2>
+
+                <h3>Scenario 1: Early-Stage Startup, High Growth Potential</h3>
+                <p>You're joining a seed or Series A startup. The strike price is low (close to FMV), and you believe the company will grow significantly.</p>
+
+                <div class="example-block">
+                    <h4>Why Options Win Here</h4>
+                    <p><strong>Strike price:</strong> $0.50/share<br>
+                    <strong>Expected exit value:</strong> $20/share<br>
+                    <strong>Your gain per share:</strong> $19.50<br>
+                    <strong>Gain on 10,000 options:</strong> <strong class="highlight">$195,000</strong></p>
+                </div>
+
+                <p>With RSUs at the same company, you'd get fewer shares (no strike price leverage), so your upside would be lower.</p>
+
+                <h3>Scenario 2: You Can Afford the Exercise Cost</h3>
+                <p>You have cash available to exercise, and you're comfortable risking it on the startup's success.</p>
+
+                <div class="example-block">
+                    <h4>Why Options Win Here</h4>
+                    <p>If you can afford the $20,000 exercise cost, you control $100,000 of stock. That's 5x leverage on your cash. RSUs offer no leverage—you simply get what you're granted.</p>
+                </div>
+
+                <h3>Scenario 3: You Want to Optimize for Long-Term Capital Gains</h3>
+                <p>You have ISOs and can meet the holding requirements (1 year post-exercise, 2 years post-grant).</p>
+
+                <div class="example-block">
+                    <h4>Tax Advantage of ISOs</h4>
+                    <p><strong>ISO gain (long-term capital gains):</strong> 15-20% tax rate<br>
+                    <strong>RSU gain (ordinary income):</strong> 24-37% tax rate<br>
+                    <strong>Savings on $100,000 gain:</strong> Up to $22,000 less tax</p>
+                </div>
+
+                <div class="warning-block">
+                    <h4>⚠️ AMT Risk for ISOs</h4>
+                    <p>ISOs can trigger Alternative Minimum Tax (AMT) at exercise if the spread is large. This creates a tax bill even before you sell shares. Calculate AMT impact before exercising ISOs.</p>
+                </div>
+
+                <h3>Scenario 4: You're Joining as an Early Employee</h3>
+                    <p>Early hires (first 10-20 employees) typically get larger option grants than RSU grants at similar companies. The equity percentage is higher with options.</p>
+
+                <div class="example-block">
+                    <h4>Early Hire Equity Comparison</h4>
+                    <p><strong>Early hire (options):</strong> 1.0% equity as options<br>
+                    <strong>Early hire (RSUs):</strong> 0.5% equity as RSUs (typical)</p>
+                </div>
+
+                <h2>When RSUs Are Better</h2>
+
+                <h3>Scenario 1: Later-Stage Startup (Series C+)</h3>
+                <p>The company is already valued at $500M+ and likely heading toward IPO. Strike prices are high, reducing option leverage.</p>
+
+                <div class="example-block">
+                    <h4>Why RSUs Win Here</h4>
+                    <p><strong>Strike price:</strong> $20/share<br>
+                    <strong>Expected exit value:</strong> $30/share<br>
+                    <strong>Your gain per share:</strong> $10<br>
+                    <strong>Gain on 10,000 options:</strong> $100,000 (minus $20,000 exercise cost)</p>
+                </div>
+
+                <p>With RSUs, you get the full $30/share value at vesting (taxed as income). No exercise cost, simpler process.</p>
+
+                <h3>Scenario 2: You're Risk-Averse or Can't Afford Exercise Cost</h3>
+                <p>You don't have cash to spare, or you're uncomfortable risking money on the startup's success.</p>
+
+                <div class="example-block">
+                    <h4>Why RSUs Win Here</h4>
+                    <p>RSUs vest directly to you—no cash outlay. If the company grows, your RSUs grow in value. If it fails, you lost nothing but opportunity cost. Options require cash to exercise, which you might lose entirely.</p>
+                </div>
+
+                <h3>Scenario 3: You Want Simplicity</h3>
+                <p>You don't want to deal with exercise timing, ISO vs NSO decisions, AMT calculations, or holding periods.</p>
+
+                <div class="example-block">
+                    <h4>Why RSUs Win Here</h4>
+                    <p>RSUs vest → Taxed as income → You own shares. Simple. No decisions about when to exercise, no AMT risk, no holding period requirements. Vest and sell (or hold) as you choose.</p>
+                </div>
+
+                <h3>Scenario 4: You're Near IPO and Want Liquidity</h3>
+                <p>The company is going public soon, and you want to participate in the IPO.</p>
+
+                <div class="example-block">
+                    <h4>Why RSUs Win Here</h4>
+                    <p>RSUs are common in late-stage pre-IPO companies. They vest predictably, and you can sell shares immediately after the IPO (subject to lock-up). Options require pre-IPO exercise, which means paying cash before you can sell.</p>
+                </div>
+
+                <h2>Tax Implications: The Critical Difference</h2>
+
+                <h3>Stock Options Tax (ISOs)</h3>
+                <ul>
+                    <li><strong>No tax at grant:</strong> No tax when options are granted</li>
+                    <li><strong>AMT possible at exercise:</strong> If spread > $100K, AMT may apply</li>
+                    <li><strong>Capital gains at sale:</strong> If you hold 1+ year post-exercise and 2+ years post-grant</li>
+                    <li><strong>Ordinary income if holding period not met:</strong> Disqualifying disposition</li>
+                    <li><strong>Cap:</strong> $100K ISO value exercisable per year</li>
+                </ul>
+
+                <h3>Stock Options Tax (NSOs)</h3>
+                <ul>
+                    <li><strong>No tax at grant:</strong> No tax when options are granted</li>
+                    <li><strong>Ordinary income at exercise:</strong> Spread (FMV - strike) is taxed as ordinary income</li>
+                    <li><strong>Payroll tax possible:</strong> Social Security and Medicare may apply</li>
+                    <li><strong>Capital gains after exercise:</strong> Any appreciation after exercise is capital gains if held 1+ year</li>
+                </ul>
+
+                <h3>RSUs Tax</h3>
+                <ul>
+                    <li><strong>No tax at grant:</strong> No tax when RSUs are granted</li>
+                    <li><strong>Ordinary income at vesting:</strong> Full FMV is taxed as ordinary income when shares vest</li>
+                    <li><strong>Payroll tax:</strong> Social Security and Medicare apply at vesting</li>
+                    <li><strong>Capital gains after vesting:</strong> Any appreciation after vesting is capital gains if held 1+ year</li>
+                </ul>
+
+                <div class="warning-block">
+                    <h4>⚠️ Tax Withholding for RSUs</h4>
+                    <p>Companies typically sell some of your vested RSUs to cover tax withholding. You'll receive fewer shares than expected—the rest covers your tax bill. Ask about your company's withholding policy.</p>
+                </div>
+
+                <h2>How to Choose: Decision Framework</h2>
+
+                <p>Ask yourself these questions to decide between options and RSUs:</p>
+
+                <div class="example-block">
+                    <h4>Decision Checklist</h4>
+                    <ol>
+                        <li><strong>What stage is the company?</strong> Early-stage → Options. Late-stage → RSUs.</li>
+                        <li><strong>Can I afford the exercise cost?</strong> Yes → Options. No → RSUs.</li>
+                        <li><strong>What's my risk tolerance?</strong> High → Options. Low → RSUs.</li>
+                        <li><strong>Do I want maximum upside or predictable value?</strong> Upside → Options. Predictable → RSUs.</li>
+                        <li><strong>Am I comfortable with tax complexity?</strong> Yes → Options (ISOs). No → RSUs.</li>
+                        <li><strong>When do I expect liquidity?</strong> Near-term → RSUs. Long-term → Either.</li>
+                    </ol>
+                </div>
+
+                <h2>The Best of Both Worlds: Mixed Grants</h2>
+                <p>Some startups offer both options and RSUs. This gives you:</p>
+                <ul>
+                    <li><strong>Upside from options:</strong> Maximum leverage on company growth</li>
+                    <li><strong>Safety from RSUs:</strong> Guaranteed value at vesting</li>
+                    <li><strong>Tax diversification:</strong> Mix of ordinary income and capital gains</li>
+                </ul>
+
+                <div class="example-block">
+                    <h4>Mixed Grant Example</h4>
+                    <p><strong>Your offer:</strong> 5,000 options + 5,000 RSUs<br>
+                    <strong>Options upside:</strong> Leverage on growth above strike<br>
+                    <strong>RSUs floor:</strong> Predictable value at vesting<br>
+                    <strong>Result:</strong> Balanced risk and upside</p>
+                </div>
+
+                <h2>Key Takeaways</h2>
+                <ul>
+                    <li><strong>Stock options = higher upside, more risk</strong> — Must exercise, potential for worthless if company fails</li>
+                    <li><strong>RSUs = lower risk, predictable value</strong> — Vest directly to you, no exercise cost</li>
+                    <li><strong>Taxes differ significantly</strong> — RSUs: ordinary income at vesting. ISOs: capital gains (if held) but AMT risk. NSOs: ordinary income at exercise</li>
+                    <li><strong>Early-stage favors options</strong> — Low strike price + high growth potential = maximum leverage</li>
+                    <li><strong>Late-stage favors RSUs</strong> — High strike price + lower growth potential = RSUs simpler and lower risk</li>
+                    <li><strong>Mixed grants offer balance</strong> — Some companies offer both options and RSUs for risk/upside balance</li>
+                </ul>
+
+                <h2>Related Tools & Guides</h2>
+                <ul>
+                    <li><a href="/stock-option-tax-calculator.html">Stock Option Tax Calculator</a> — Estimate ISO, NSO, and RSU taxes</li>
+                    <li><a href="/blog/should-i-exercise-my-stock-options.html">Should I Exercise My Stock Options?</a> — Decision framework for exercising</li>
+                    <li><a href="/blog/how-to-exercise-stock-options-without-cash.html">How to Exercise Without Cash</a> — Strategies when funds are tight</li>
+                    <li><a href="/blog/stock-option-exercise-strategies.html">Stock Option Exercise Strategies</a> — Compare approaches</li>
+                    <li><a href="/equity-benchmarks.html">Equity Benchmarks by Role</a> — Market data for your offer</li>
+                </ul>
+
+                <div class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
+
+                    <details class="faq-item">
+                        <summary>Can I have both stock options and RSUs in the same offer?</summary>
+                        <p>Yes, many startups offer both. This is common for senior hires or when transitioning from early to late stage. A mixed grant gives you upside potential (options) and predictable value (RSUs). Get the specific split and vesting schedules in writing.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Are RSUs better than stock options for taxes?</summary>
+                        <p>RSUs have simpler tax treatment but higher immediate tax bills. The full value is taxed as ordinary income when shares vest. ISOs can have lower long-term tax rates (capital gains) if you meet holding requirements, but AMT complexity increases risk. NSOs are taxed like RSUs (ordinary income) but at exercise rather than vesting.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Do RSUs vest like stock options?</summary>
+                        <p>Yes, RSUs typically vest on the same schedule as stock options (4-year vesting with 1-year cliff). The key difference: vested RSUs are shares you own immediately. Vested options are the right to buy shares—you must still exercise and pay the strike price.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What happens to RSUs if I leave my job?</summary>
+                        <p>Unvested RSUs typically stop vesting when you leave—just like unvested options. You forfeit any unvested RSUs. Vested RSUs are yours to keep (and sell, if there's liquidity) regardless of when you leave.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Should I choose ISOs or NSOs over RSUs?</summary>
+                        <p>Choose ISOs over RSUs if you believe in the company's long-term growth, can afford exercise costs, and want to optimize for capital gains treatment (with AMT risk). Choose NSOs over RSUs if you want to defer tax to exercise rather than vesting, but the overall tax burden is similar. Choose RSUs if you want simplicity, can't afford exercise costs, or are risk-averse.</p>
+                    </details>
+                </div>
+            </div>
+
+            <footer class="post-footer">
+                <div class="container">
+                    <p class="post-tags">Tags: <a href="/blog.html#stock-options">Stock Options</a>, <a href="/blog.html#rsus">RSUs</a>, <a href="/blog.html#equity-comparison">Equity Comparison</a></p>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p><a href="/">FounderMath</a> — Equity calculators and guides for startup employees, founders, and job-seekers.</p>
+            <p class="fine-print">Not financial or tax advice. Consult professionals before making equity decisions.</p>
+        </div>
+    </footer>
+
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a5e;
+            --text-muted: #6c757d;
+            --border: #dee2e6;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 1001;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .nav-brand a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-light);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: 0.3s;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            margin-left: 15px;
+        }
+
+        .theme-toggle:hover {
+            color: var(--text-primary);
+        }
+
+        .blog-post {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .post-header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-primary));
+        }
+
+        .post-header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .post-meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .post-content {
+            padding: 40px 20px 60px;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 50px 0 25px;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 35px 0 15px;
+            color: var(--accent-light);
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin: 25px 0 10px;
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: 1.5em;
+        }
+
+        ul, ol {
+            margin-bottom: 1.5em;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--accent-light);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table td:nth-child(2),
+        .comparison-table td:nth-child(3) {
+            color: var(--text-secondary);
+        }
+
+        .example-block, .warning-block, .action-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .warning-block {
+            border-left-color: #ff6b6b;
+        }
+
+        .action-block {
+            border-left-color: var(--green);
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(0, 184, 148, 0.05) 100%);
+        }
+
+        .example-block h4, .warning-block h4, .action-block h4 {
+            margin-top: 0;
+            color: var(--accent-light);
+        }
+
+        .highlight {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .faq-section {
+            margin-top: 60px;
+        }
+
+        .faq-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            padding: 20px 25px;
+            cursor: pointer;
+            font-weight: 500;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
+
+        details[open] .faq-item summary::after {
+            content: '−';
+        }
+
+        .faq-item p {
+            padding: 0 25px 20px;
+            margin-bottom: 0;
+        }
+
+        .post-footer {
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+
+        .post-tags {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .post-tags a {
+            color: var(--text-secondary);
+        }
+
+        .site-footer {
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+
+        .site-footer p {
+            margin-bottom: 10px;
+        }
+
+        .fine-print {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .cta-link {
+            display: inline-block;
+            background: var(--green);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 500;
+            text-decoration: none !important;
+            margin-top: 15px;
+            transition: transform 0.2s;
+        }
+
+        .cta-link:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                transform: translateY(-100%);
+                transition: transform 0.3s;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .theme-toggle {
+                display: none;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px 12px;
+            }
+        }
+    </style>
+</body>
+</html>

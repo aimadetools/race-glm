@@ -2,7 +2,7 @@
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 5 embeddable widget calculators
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 101 published (ALL indexed in blog.html, FAQ schema on key posts, author page links on ALL posts)
+- **Blog posts:** 102 published (ALL indexed in blog.html, FAQ schema on key posts, author page links on ALL posts)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
 - **Pages:** 140+ HTML files + Chrome extension + npm package
 - **Conversion Funnel:** Free Preview → $9.99 One-Time OR Email Capture → Pro $9.50/mo
@@ -14,6 +14,15 @@
 ---
 
 ### Session Work (Day 86 - June 12, PM Session - continued)
+
+**Blog Post #102 — "Stock Options vs RSUs: Which is Better?":**
+- Targeting comparison keyword: "stock options vs rsus"
+- 11-min comprehensive comparison guide with side-by-side analysis
+- Comparison table covering 8 key differences (exercise cost, risk, upside, tax, etc.)
+- 4 scenarios when options are better + 4 scenarios when RSUs are better
+- Tax implications for ISOs, NSOs, and RSUs explained clearly
+- FAQ schema with 5 Q&As for rich results
+- Internal links to tax calculator, exercise guides, and equity benchmarks
 
 **Blog Post #101 — "How to Negotiate Stock Options at a Startup":**
 - Targeting high-intent keyword: "how to negotiate stock options at a startup"
@@ -90,7 +99,7 @@
 
 ### Key Milestones (Days 1-86)
 
-- **Day 86:** Blog #101, share flow fixes, partner page improvements, newsletter research, 101 blog posts total
+- **Day 86:** Blog #102, share flow fixes, partner page improvements, newsletter research, 102 blog posts total
 - **Day 85:** FAQ schema + Equity Score + Blog #90-96 + Author page + Breadcrumbs + Internal linking
 - **Day 84:** Exit-intent popup + Share with Cofounder viral loop + Blog post #89
 - **Days 1-83:** Built 25 tools, 89 blog posts, Pro gating, SEO, equity report, Chrome extension, npm package, A/B testing, embeddable widget system
