@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/partner.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner With FounderMath — Free Equity Calculators for Your Accelerator or Startup Program</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <meta name="description" content="Give your founders free equity calculators. Embed FounderMath's dilution, SAFE, runway, and equity split calculators on your accelerator or startup program website. One line of code.">
+    <meta name="keywords" content="startup accelerator tools, equity calculator for accelerator, founder tools, embeddable calculator, startup program resources">
+    <meta property="og:title" content="Free Equity Calculators for Your Startup Program — FounderMath">
+    <meta property="og:description" content="Embed free startup equity calculators on your accelerator website. Help your founders understand dilution, SAFE notes, runway, and equity splits.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
+    <meta property="og:url" content="https://founder-math.com/partner.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f; --bg-secondary: #12121a; --bg-card: #1a1a2e;
+            --accent: #6c5ce7; --accent-light: #a29bfe; --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894; --green-glow: rgba(0, 184, 148, 0.3);
+            --text-primary: #f0f0f5; --text-secondary: #a0a0b5; --text-muted: #666680;
+            --border: #2a2a40; --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .hero { padding: 140px 24px 60px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 20%, var(--green-glow) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, var(--accent-glow) 0%, transparent 50%); pointer-events: none; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--bg-card); border: 1px solid var(--border); padding: 6px 16px; border-radius: 100px; font-size: 0.85rem; color: var(--green); margin-bottom: 24px; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 20px; position: relative; line-height: 1.15; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--green), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { color: var(--text-secondary); font-size: 1.15rem; max-width: 650px; margin: 0 auto 32px; position: relative; }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+        .btn-primary { background: var(--accent); color: white; padding: 14px 32px; border-radius: 10px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .btn-secondary { background: transparent; color: var(--text-primary); padding: 14px 32px; border-radius: 10px; font-size: 1rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border); transition: all 0.3s; }
+        .btn-secondary:hover { border-color: var(--accent); }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px 80px; }
+
+        /* Stats */
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 60px; }
+        .stat { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+        .stat .number { font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .stat .label { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* Value Props */
+        .value-props { margin-bottom: 60px; }
+        .value-props h2 { font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 32px; }
+        .vp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .vp-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+        .vp-card h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--accent-light); display: flex; align-items: center; gap: 10px; }
+        .vp-card p { font-size: 0.95rem; color: var(--text-secondary); }
+
+        /* How It Works */
+        .how-it-works { margin-bottom: 60px; }
+        .how-it-works h2 { font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 32px; }
+        .step { display: flex; gap: 20px; margin-bottom: 24px; align-items: flex-start; }
+        .step-num { width: 48px; height: 48px; min-width: 48px; background: var(--accent); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 800; }
+        .step-content h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .step-content p { color: var(--text-secondary); font-size: 0.95rem; }
+        .step-content code { background: var(--bg-card); padding: 2px 8px; border-radius: 4px; font-size: 0.85rem; color: var(--accent-light); }
+
+        /* Calculator Showcase */
+        .calculators { margin-bottom: 60px; }
+        .calculators h2 { font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 32px; }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .calc-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+        .calc-card h3 { font-size: 1rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .calc-card p { font-size: 0.85rem; color: var(--text-secondary); }
+        .calc-card .tag { font-size: 0.7rem; background: var(--bg-card); padding: 2px 8px; border-radius: 4px; color: var(--text-muted); }
+        .calc-card .badge { background: var(--green); color: white; font-size: 0.65rem; padding: 2px 8px; border-radius: 10px; font-weight: 700; }
+
+        /* CTA */
+        .cta-section { background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 20px; padding: 48px 32px; text-align: center; margin-bottom: 60px; }
+        .cta-section h2 { font-size: 1.8rem; margin-bottom: 12px; color: white; }
+        .cta-section p { font-size: 1.05rem; color: rgba(255,255,255,0.85); max-width: 500px; margin: 0 auto 24px; }
+        .cta-section .btn { display: inline-block; background: white; color: var(--accent); padding: 14px 32px; border-radius: 10px; font-size: 1rem; font-weight: 700; text-decoration: none; transition: transform 0.2s; }
+        .cta-section .btn:hover { transform: translateY(-2px); }
+        .cta-section .note { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 12px; }
+
+        /* Testimonial */
+        .testimonial { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 60px; position: relative; }
+        .testimonial .quote { font-size: 1.1rem; color: var(--text-secondary); font-style: italic; margin-bottom: 16px; line-height: 1.6; }
+        .testimonial .quote::before { content: '"'; font-size: 3rem; color: var(--accent); position: absolute; top: 16px; left: 24px; line-height: 1; }
+        .testimonial .author { font-size: 0.9rem; color: var(--text-muted); }
+
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        @media (max-width: 700px) {
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .vp-grid, .calc-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo"><div class="logo-icon">%</div>FounderMath</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="embed.html">Embed Code</a></li>
+                <li><a href="free-startup-tools.html">Tools</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-badge">&#127758; Free for Accelerators & Programs</div>
+        <h1>Give Your Founders Free <span class="gradient">Equity Calculators</span></h1>
+        <p>Embed 5 interactive calculators on your accelerator website. Help founders understand dilution, SAFE notes, runway, equity splits, and offer comparisons. One line of code. Always free.</p>
+        <div class="hero-buttons">
+            <a href="embed.html" class="btn-primary">Get Embed Code &rarr;</a>
+            <a href="contact.html" class="btn-secondary">Talk to Us</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat"><div class="number">25+</div><div class="label">Free Calculators</div></div>
+            <div class="stat"><div class="number">5</div><div class="label">Embeddable Widgets</div></div>
+            <div class="stat"><div class="number">0</div><div class="label">Cost to Partners</div></div>
+            <div class="stat"><div class="number">&lt;1min</div><div class="label">Setup Time</div></div>
+        </div>
+
+        <!-- Why Partner -->
+        <div class="value-props">
+            <h2>Why Add FounderMath to Your Program?</h2>
+            <div class="vp-grid">
+                <div class="vp-card">
+                    <h3>&#127891; Better Founder Education</h3>
+                    <p>Your founders will understand dilution, SAFE notes, and runway before their first fundraise. Interactive tools beat slides every time.</p>
+                </div>
+                <div class="vp-card">
+                    <h3>&#128640; Zero Development Cost</h3>
+                    <p>We built and maintain all 5 calculators. You add one line of code. We handle updates, bug fixes, and new features automatically.</p>
+                </div>
+                <div class="vp-card">
+                    <h3>&#127760; Enhanced Resource Page</h3>
+                    <p>Give your program page interactive tools, not just links. Founders bookmark pages with calculators they actually use.</p>
+                </div>
+                <div class="vp-card">
+                    <h3>&#128176; No Cost, Ever</h3>
+                    <p>The embeddable widgets are completely free. No signup, no API key, no account required. No hidden fees or usage limits.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculators -->
+        <div class="calculators">
+            <h2>5 Calculators Your Founders Need</h2>
+            <div class="calc-grid">
+                <div class="calc-card">
+                    <h3>&#128200; Equity Dilution Calculator <span class="badge">Most Popular</span></h3>
+                    <p>See how founder equity changes across pre-seed, seed, Series A, B, and C. Visual bar chart + dilution table.</p>
+                    <span class="tag">dilution</span>
+                </div>
+                <div class="calc-card">
+                    <h3>&#128203; SAFE Note Calculator</h3>
+                    <p>Calculate SAFE note conversion at Series A. Pre-money vs post-money, valuation cap vs discount, ownership impact.</p>
+                    <span class="tag">safe</span>
+                </div>
+                <div class="calc-card">
+                    <h3>&#128176; Startup Runway Calculator</h3>
+                    <p>Months of runway left based on cash, burn rate, and revenue growth projections. Color-coded urgency indicator.</p>
+                    <span class="tag">runway</span>
+                </div>
+                <div class="calc-card">
+                    <h3>&#129309; Co-Founder Equity Split</h3>
+                    <p>Fair equity split calculator based on role, time commitment, idea contribution, and capital invested.</p>
+                    <span class="tag">equity-split</span>
+                </div>
+                <div class="calc-card">
+                    <h3>&#9878; Compare Equity Offers</h3>
+                    <p>Side-by-side comparison of two startup job offers. Total 4-year comp, exit projections, winner declaration.</p>
+                    <span class="tag">compare-offers</span>
+                </div>
+                <div class="calc-card">
+                    <h3>&#128218; 25+ More on FounderMath</h3>
+                    <p>Full suite includes cap table builder, vesting calculator, 409A estimator, liquidation preference, and more.</p>
+                    <a href="free-startup-tools.html" style="color:var(--accent-light);font-size:0.85rem;">View all tools &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="how-it-works">
+            <h2>Setup in 3 Steps</h2>
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Choose Your Calculator</h3>
+                    <p>Pick from 5 calculators: <code>dilution</code>, <code>safe</code>, <code>runway</code>, <code>equity-split</code>, or <code>compare-offers</code>. You can embed one or all five.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>Copy One Line of Code</h3>
+                    <p>Add a <code>&lt;div&gt;</code> and a <code>&lt;script&gt;</code> tag to your HTML page. Works with WordPress, Squarespace, Webflow, and any HTML page.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>Done — Your Founders Have Calculators</h3>
+                    <p>The calculators load instantly. Mobile responsive. Auto-updated when we add features. Your founders get professional equity tools for free.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial -->
+        <div class="testimonial">
+            <p class="quote" style="padding-left:20px;">Nice suite of tools. I bookmarked the dilution calculator — been looking for something simpler than Carta's interface for quick back-of-napkin math.</p>
+            <p class="author">— Product Hunt user, May 2026</p>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2>Ready to Equip Your Founders?</h2>
+            <p>Get the embed code in 60 seconds. No signup required. Or reach out and we'll help you set it up.</p>
+            <a href="embed.html" class="btn">Get the Embed Code &rarr;</a>
+            <p class="note">Questions? Email us at founder.math.pro@gmail.com</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left"><p>&copy; 2026 FounderMath. Free startup equity calculators for founders.</p></div>
+            <ul class="footer-links">
+                <li><a href="free-startup-tools.html">All Tools</a></li>
+                <li><a href="embed.html">Embed Widgets</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
