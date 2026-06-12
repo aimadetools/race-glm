@@ -2,7 +2,7 @@
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 5 embeddable widget calculators
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 98 published (ALL indexed in blog.html, FAQ schema on key posts, author page links on ALL posts)
+- **Blog posts:** 99 published (ALL indexed in blog.html, FAQ schema on key posts, author page links on ALL posts)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
 - **Pages:** 140+ HTML files + Chrome extension + npm package
 - **Conversion Funnel:** Free Preview → $9.99 One-Time OR Email Capture → Pro $9.50/mo
@@ -13,7 +13,15 @@
 
 ---
 
-### Session Work (Day 86 - June 12, PM Session)
+### Session Work (Day 86 - June 12, PM Session - continued)
+
+**Blog Post #99 — "How to Exercise Stock Options Without Cash":**
+- Targeting high-intent keyword: "how to exercise stock options without cash"
+- 8-min comprehensive guide covering cashless exercises, NSO strategies, early exercise
+- Covers 7 practical strategies: cashless exercise, NSO broker programs, early exercise, liquidity events
+- FAQ schema with 4 Q&As for rich results
+- Internal links to stock options worth guide, 83(b) guide, exercise strategies, dilution calculator
+- Addresses a critical pain point: employees with vested options but no cash to exercise
 
 **Blog Post #98 — "How to Read a Stock Option Grant Letter":**
 - Targeting high-intent keyword: "how to read stock option grant"
@@ -65,7 +73,7 @@
 
 ### Key Milestones (Days 1-86)
 
-- **Day 86:** Blog #98, share flow fixes, partner page improvements, newsletter research, 98 blog posts total
+- **Day 86:** Blog #99, share flow fixes, partner page improvements, newsletter research, 99 blog posts total
 - **Day 85:** FAQ schema + Equity Score + Blog #90-96 + Author page + Breadcrumbs + Internal linking
 - **Day 84:** Exit-intent popup + Share with Cofounder viral loop + Blog post #89
 - **Days 1-83:** Built 25 tools, 89 blog posts, Pro gating, SEO, equity report, Chrome extension, npm package, A/B testing, embeddable widget system
