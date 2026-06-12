@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/should-i-exercise-my-stock-options.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Should I Exercise My Stock Options? (2026 Decision Guide) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('navLinks').setAttribute('aria-expanded', 'false');
+                    document.getElementById('navLinks').focus();
+                }
+            }
+        });
+        function toggleTheme() {
+            const body = document.body;
+            const current = body.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const saved = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', saved);
+        });
+    </script>
+    <meta name="description" content="Should you exercise your stock options? A decision framework covering risk analysis, tax implications, vesting status, and exit scenarios. Make the right choice for your situation.">
+    <meta name="keywords" content="should i exercise my stock options, when to exercise stock options, exercise stock options decision, stock option exercise strategy">
+    <meta property="og:title" content="Should I Exercise My Stock Options? (2026 Decision Guide)">
+    <meta property="og:description" content="A decision framework to help you decide whether to exercise your stock options. Risk analysis, tax implications, and real scenarios.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/should-i-exercise-my-stock-options.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Should I Exercise My Stock Options? (2026 Decision Guide)">
+    <meta name="twitter:description" content="A decision framework to help you decide whether to exercise your stock options. Risk analysis, tax implications, and real scenarios.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Should I Exercise My Stock Options? (2026 Decision Guide)",
+        "url": "https://founder-math.com/blog/should-i-exercise-my-stock-options.html",
+        "description": "Should you exercise your stock options? A decision framework covering risk analysis, tax implications, vesting status, and exit scenarios. Make the right choice for your situation.",
+        "datePublished": "2026-06-12",
+        "dateModified": "2026-06-12",
+        "author": {
+            "@type": "Person",
+            "name": "FounderMath Team",
+            "url": "https://founder-math.com/blog/author/founder-math-team.html"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/should-i-exercise-my-stock-options.html"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Should I exercise my stock options if I can't afford the cash?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "If you can't afford the exercise cost, you generally shouldn't exercise unless you have a cashless exercise option or strong confidence in an imminent exit. Exercise is an investment—only do it if you can afford to lose the money. Alternatives include waiting for a tender offer, exploring NSO cashless exercise programs, or letting options expire if the math doesn't work."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I exercise my stock options before quitting?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You typically have 90 days after leaving to exercise ISOs before they expire. Exercise before quitting if you: believe in the company's future, can afford the cost, and want to start the capital gains clock. Don't exercise if you doubt the exit prospects or can't afford the loss. The 90-day window is a hard deadline for ISOs—plan accordingly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it worth exercising stock options in an early stage startup?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Early-stage startups are high-risk, high-reward. Exercise if you have strong conviction in the team/market, can afford the loss, and the strike price is close to FMV. Don't exercise if you're risk-averse or need that cash for near-term expenses. Early exercise (when strike equals FMV) minimizes tax risk but maximizes investment risk."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "When should you NOT exercise stock options?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Don't exercise if: you can't afford the cost, the company is struggling and unlikely to exit, your exercise window is expiring soon with no liquidity, the tax burden exceeds potential gain, or you don't believe in the company's future. Sometimes letting options expire is the rational financial decision."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body data-theme="dark">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="/" aria-label="FounderMath home">
+                        <span class="logo-icon">∫</span>
+                        <span>FounderMath</span>
+                    </a>
+                </div>
+                <button id="mobileToggle" class="mobile-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="navLinks" class="nav-links">
+                    <li><a href="/tools/">Tools</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/equity-cheat-sheet/">Cheat Sheet</a></li>
+                    <li><a href="/glossary/">Glossary</a></li>
+                    <li><a href="/equity-report-premium.html" class="nav-cta">Equity Report</a></li>
+                </ul>
+                <button class="theme-toggle" aria-label="Toggle dark/light mode" onclick="toggleTheme()">◐</button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <article class="blog-post">
+            <header class="post-header">
+                <div class="container">
+                    <h1>Should I Exercise My Stock Options?</h1>
+                    <p class="post-meta">June 12, 2026 • 10 min read</p>
+                </div>
+            </header>
+
+            <div class="post-content container">
+                <p class="intro">You've been granted stock options at your startup. Now you're facing a six-figure decision: Should you exercise them? This guide gives you a framework to decide—covering risk, taxes, timing, and the scenarios where exercise makes sense (and doesn't).</p>
+
+                <h2>The Quick Answer</h2>
+                <p>Exercise your stock options if <strong>all three</strong> of these are true:</p>
+                <ol>
+                    <li><strong>You believe in the company's exit prospects</strong> — You see a realistic path to acquisition or IPO</li>
+                    <li><strong>You can afford the loss</strong> — If the company fails, you won't be financially devastated</li>
+                    <li><strong>The math works</strong> — Potential gain justifies the exercise cost plus taxes</li>
+                </ol>
+
+                <p>If any one of these isn't true, exercise may not be the right choice.</p>
+
+                <div class="action-block">
+                    <h4>Calculate Your Potential Return</h4>
+                    <p>Before you decide, understand what your equity might be worth. Use our <a href="/equity-report-premium.html">Premium Equity Report</a> to model exit scenarios, dilution, and tax implications so you can make an informed decision.</p>
+                    <a href="/equity-report-premium.html" class="cta-link">Calculate Your Return →</a>
+                </div>
+
+                <h2>The Exercise Decision Framework</h2>
+                <p>Deciding whether to exercise requires evaluating seven factors. Work through each before committing your money.</p>
+
+                <h3>1. Vesting Status: How Many Options Are Available?</h3>
+                <p>You can only exercise <strong>vested</strong> options. Check your grant:</p>
+
+                <div class="example-block">
+                    <h4>Vesting Example</h4>
+                    <p><strong>Your grant:</strong> 10,000 options, 4-year vesting, 1-year cliff<br>
+                    <strong>After 1 year:</strong> 2,500 vested (25%) — You can exercise these<br>
+                    <strong>After 2 years:</strong> 5,000 vested (50%) — You can exercise these<br>
+                    <strong>After 3 years:</strong> 7,500 vested (75%) — You can exercise these<br>
+                    <strong>After 4 years:</strong> 10,000 vested (100%) — Fully vested</p>
+                </div>
+
+                <p><strong>Action:</strong> Confirm your vested count with your equity administrator or in your equity platform (Carta, Pulley, etc.).</p>
+
+                <h3>2. Exercise Cost: Can You Afford It?</h3>
+                <p>Exercise requires paying the strike price <em>plus</em> taxes. Calculate your total cost:</p>
+
+                <div class="example-block">
+                    <h4>Exercise Cost Calculation</h4>
+                    <p><strong>Vested options:</strong> 5,000<br>
+                    <strong>Strike price:</strong> $2<br>
+                    <strong>Current FMV:</strong> $10<br>
+                    <strong>Exercise cost:</strong> $10,000 (5,000 × $2)<br>
+                    <strong>Taxable spread:</strong> $40,000 (5,000 × $8)<br>
+                    <strong>Estimated taxes:</strong> $12,000+ (depends on ISO/NSO, AMT, bracket)<br>
+                    <strong>Total needed:</strong> <strong class="highlight">$22,000+</strong></p>
+                </div>
+
+                <p><strong>Question:</strong> Do you have $22,000 available? Could you afford to lose it if the company fails?</p>
+
+                <p><a href="/blog/how-to-exercise-stock-options-without-cash.html">No cash? Read: How to Exercise Without Cash →</a></p>
+
+                <h3>3. Company Health: What's the Exit Probability?</h3>
+                <p>Exercise is a bet on the company's future. Evaluate objectively:</p>
+
+                <ul>
+                    <li><strong>Funding stage:</strong> Post-Series B companies have higher survival rates than pre-seed</li>
+                    <li><strong>Revenue trajectory:</strong> Growing revenue correlates with exit success</li>
+                    <li><strong>Market position:</strong> Market leaders are more likely to exit successfully</li>
+                    <li><strong>Team quality:</strong> Strong founders and execution teams increase exit odds</li>
+                </ul>
+
+                <div class="warning-block">
+                    <h4>⚠️ Be Realistic</h4>
+                    <p>Most startups don't reach successful exits. Exercise should be a calculated risk, not blind optimism. If the company is struggling, delaying exercise or skipping it entirely may be wiser.</p>
+                </div>
+
+                <h3>4. Tax Implications: What Will You Owe?</h3>
+                <p>Taxes significantly impact your decision. The type of option matters:</p>
+
+                <h4>Incentive Stock Options (ISOs)</h4>
+                <ul>
+                    <li><strong>No regular tax</strong> at exercise (if you meet holding period requirements)</li>
+                    <li><strong>AMT possible</strong> if the spread between strike and FMV is large</li>
+                    <li><strong>Long-term capital gains</strong> if you hold shares 1+ year after exercise AND 2+ years after grant</li>
+                    <li><strong>Cap:</strong> $100,000 ISO value exercisable per year</li>
+                </ul>
+
+                <h4>Non-Qualified Stock Options (NSOs)</h4>
+                <ul>
+                    <li><strong>Ordinary income tax</strong> on the spread at exercise</li>
+                    <li><strong>Payroll tax</strong> may also apply (Social Security, Medicare)</li>
+                    <li><strong>No AMT</strong> — simpler but higher immediate tax bill</li>
+                    <li><strong>Capital gains</strong> on appreciation after exercise (if held 1+ year)</li>
+                </ul>
+
+                <p><a href="/stock-option-tax-calculator.html">Calculate your tax liability →</a></p>
+
+                <h3>5. Time Horizon: When Would You Sell?</h3>
+                <p>Exercise timing affects your tax outcome and risk exposure:</p>
+
+                <ul>
+                    <li><strong>Early exercise (right after grant):</strong> Strike equals FMV, minimal taxes, but maximum holding risk</li>
+                    <li><strong>Early exercise (within first year):</strong> Starts capital gains clock earlier, reduces AMT risk for ISOs</li>
+                    <li><strong>Wait for liquidity event:</strong> Exercise and sell simultaneously, no holding risk, but no capital gains benefit</li>
+                    <li><strong>Exercise before leaving:</strong> Required for ISOs within 90 days, or they convert to NSOs</li>
+                </ul>
+
+                <h3>6. Liquidity: Can You Sell the Shares?</h3>
+                <p>Exercised shares are worthless until you can sell them. Consider:</p>
+
+                <ul>
+                    <li><strong>IPO timeline:</strong> Is the company approaching an IPO? When?</li>
+                    <li><strong>Acquisition interest:</strong> Are there buyers? Any acquisition discussions?</li>
+                    <li><strong>Tender offers:</strong> Does the company run periodic buybacks?</li>
+                    <li><strong>Secondary markets:</strong> Can you sell on platforms like Forge Global?</li>
+                </ul>
+
+                <p><strong>Reality check:</strong> If there's no clear path to liquidity, you're buying illiquid assets you may never sell.</p>
+
+                <h3>7. Opportunity Cost: What Else Could You Do With the Money?</h3>
+                <p>The exercise cost is an investment. Compare alternatives:</p>
+
+                <div class="example-block">
+                    <h4>Opportunity Cost Example</h4>
+                    <p><strong>Exercise cost:</strong> $20,000<br>
+                    <strong>Alternative:</strong> Invest in index fund<br>
+                    <strong>Index fund 10-year return:</strong> ~$50,000 (historical average)<br>
+                    <strong>Your options need to exit for:</strong> >$50,000 to beat the index fund</p>
+                </div>
+
+                <p>If the index fund is a safer bet with comparable returns, exercise may not be optimal.</p>
+
+                <h2>When Exercise Makes Sense: 5 Scenarios</h2>
+
+                <h3>Scenario 1: Strong Conviction, Early Stage, Can Afford Loss</h3>
+                <p>You're early at a promising startup, you believe in the team and market, and the exercise cost won't hurt you financially.</p>
+
+                <div class="example-block">
+                    <h4>Why Exercise Here:</h4>
+                    <p>Strike price is close to FMV (minimal tax). Early exercise starts the capital gains clock. You're betting on the company's growth, and the cost is manageable.</p>
+                </div>
+
+                <h3>Scenario 2: Late Stage, Clear Exit Path, Liquidity Coming</h3>
+                <p>The company is post-Series C, revenue is growing, and IPO or acquisition is likely within 12-24 months.</p>
+
+                <div class="example-block">
+                    <h4>Why Exercise Here:</h4>
+                    <p>Exit probability is high. Tax bill is justified by expected payout. You're locking in long-term capital gains treatment (for ISOs) by exercising before the exit.</p>
+                </div>
+
+                <h3>Scenario 3: Leaving Job, 90-Day Window, Believe in Company</h3>
+                <p>You're quitting but still believe in the company. ISOs expire 90 days after departure—exercise or lose them.</p>
+
+                <div class="example-block">
+                    <h4>Why Exercise Here:</h4>
+                    <p>It's now or never for ISOs. You're confident in the exit, can afford the cost, and want to preserve ISO tax benefits. If you don't exercise, the options expire worthless.</p>
+                </div>
+
+                <div class="warning-block">
+                    <h4>⚠️ The 90-Day ISO Clock</h4>
+                    <p>ISOs expire 90 days after you leave. After that, they convert to NSOs with less favorable tax treatment. Plan your departure timing around this deadline if you intend to exercise.</p>
+                </div>
+
+                <h3>Scenario 4: Cashless Exercise Available, Minimal Risk</h3>
+                <p>Your company allows cashless exercise, and you can sell shares immediately to cover costs.</p>
+
+                <div class="example-block">
+                    <h4>Why Exercise Here:</h4>
+                    <p>No cash outlay. You keep remaining shares without upfront cost. Risk is limited to opportunity cost of lost salary if you could have sold at a higher price later.</p>
+                </div>
+
+                <h3>Scenario 5: Early Exercise Program, Minimal Tax Impact</h3>
+                <p>Your company offers early exercise (you can exercise unvested options with risk of forfeiture if you leave early).</p>
+
+                <div class="example-block">
+                    <h4>Why Exercise Here:</h4>
+                    <p>Strike equals FMV, so no immediate tax. Filing an 83(b) election locks in this tax treatment. You start the capital gains clock immediately. Best for early employees committed to the long term.</p>
+                </div>
+
+                <p><a href="/blog/83b-election-guide.html">Learn about 83(b) elections →</a></p>
+
+                <h2>When Exercise Does NOT Make Sense: 5 Scenarios</h2>
+
+                <h3>Scenario 1: Can't Afford the Cost</h3>
+                <p>The exercise cost would drain your emergency fund or require high-interest debt.</p>
+
+                <div class="warning-block">
+                    <h4>⚠️ Don't Exercise If...</h4>
+                    <p>You'll be financially strained if the company fails. Exercise is an investment—only risk capital you can afford to lose.</p>
+                </div>
+
+                <h3>Scenario 2: Company Struggling, Exit Unlikely</h3>
+                <p>The startup is missing revenue targets, losing key employees, or showing other distress signs.</p>
+
+                <div class="example-block">
+                    <h4>Why Not Exercise Here:</h4>
+                    <p>Exit probability is low. Exercise cost is likely to be lost. Better to let options expire than throw good money after bad.</p>
+                </div>
+
+                <h3>Scenario 3: No Liquidity Path, Holding Indefinitely</h3>
+                <p>The company is profitable but has no IPO or acquisition plans. You'd be holding shares forever.</p>
+
+                <div class="example-block">
+                    <h4>Why Not Exercise Here:</h4>
+                    <p>Exercised shares you can't sell are worthless on paper. You're paying for assets you may never monetize. Wait for a liquidity event before exercising.</p>
+                </div>
+
+                <h3>Scenario 4: Tax Bill Exceeds Potential Gain</h3>
+                <p>The spread between strike and FMV is so large that taxes eat most of the potential profit.</p>
+
+                <div class="example-block">
+                    <h4>Tax Trap Example</h4>
+                    <p><strong>Spread:</strong> $100,000<br>
+                    <strong>Tax bill:</strong> $37,000 (NSO ordinary income)<br>
+                    <strong>Expected exit:</strong> $50,000 gain<br>
+                    <strong>Result:</strong> You pay $37K to make $13K—barely beats inflation</p>
+                </div>
+
+                <h3>Scenario 5: You Don't Believe in the Company's Future</h3>
+                <p>You've lost confidence in the team, market, or product.</p>
+
+                <div class="example-block">
+                    <h4>Why Not Exercise Here:</h4>
+                    <p>Exercise is an investment in the company. If you don't believe in the outcome, don't invest. Let the options expire rather than throwing money at a losing bet.</p>
+                </div>
+
+                <h2>The Decision Checklist</h2>
+                <p>Before exercising, confirm you can answer <strong>yes</strong> to these questions:</p>
+
+                <div class="example-block">
+                    <h4>Pre-Exercise Checklist</h4>
+                    <ul>
+                        <li>☐ I know how many options are vested</li>
+                        <li>☐ I've calculated the total exercise cost (strike + taxes)</li>
+                        <li>☐ I can afford this cost without financial hardship</li>
+                        <li>☐ I understand the tax implications (ISO vs NSO, AMT, capital gains)</li>
+                        <li>☐ I believe in the company's exit prospects</li>
+                        <li>☐ I have a realistic timeline for liquidity</li>
+                        <li>☐ I've considered opportunity costs (index funds, other investments)</li>
+                        <li>☐ I'm prepared to lose this money if the company fails</li>
+                    </ul>
+                </div>
+
+                <p>If you can't check every box, delay exercise or reconsider entirely.</p>
+
+                <h2>Key Takeaways</h2>
+                <ul>
+                    <li><strong>Exercise if:</strong> You believe in the company, can afford the loss, the math works, and you have a liquidity path</li>
+                    <li><strong>Don't exercise if:</strong> You can't afford it, doubt the exit, see no liquidity, or the tax burden kills the upside</li>
+                    <li><strong>ISOs expire 90 days after leaving</strong> — Plan accordingly or lose favorable tax treatment</li>
+                    <li><strong>Taxes matter:</strong> ISOs and NSOs have very different tax implications—understand yours before exercising</li>
+                    <li><strong>Early exercise minimizes taxes</strong> but maximizes holding risk—only do this if you're committed long-term</li>
+                    <li><strong>Cashless exercise exists</strong> if your company allows it—ask before writing a check</li>
+                </ul>
+
+                <h2>Related Tools & Guides</h2>
+                <ul>
+                    <li><a href="/blog/how-to-exercise-stock-options-without-cash.html">How to Exercise Stock Options Without Cash</a> — Strategies when you're short on cash</li>
+                    <li><a href="/blog/stock-option-exercise-strategies.html">Stock Option Exercise Strategies</a> — Compare different approaches</li>
+                    <li><a href="/stock-option-tax-calculator.html">Stock Option Tax Calculator</a> — Estimate your tax liability</li>
+                    <li><a href="/blog/83b-election-guide.html">83(b) Election Guide</a> — How early exercise affects your taxes</li>
+                    <li><a href="/dilution.html">Equity Dilution Calculator</a> — Project future ownership</li>
+                </ul>
+
+                <div class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
+
+                    <details class="faq-item">
+                        <summary>Should I exercise my stock options if I'm leaving my job?</summary>
+                        <p>Only if you believe in the company's future and can afford the exercise cost. ISOs expire 90 days after you leave—if you don't exercise, they're gone. Exercise before leaving if you want to preserve ISO tax benefits. Don't exercise if you doubt the exit or can't afford the loss.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Should I exercise my stock options early?</summary>
+                        <p>Early exercise (when strike equals FMV) minimizes taxes but maximizes holding risk. Do it if you're highly confident in the company, can afford the loss, and want to start the capital gains clock. File an 83(b) election to lock in favorable tax treatment. Don't do it if you're risk-averse or need that cash.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Is it worth exercising stock options at an early stage startup?</summary>
+                        <p>Only if you have strong conviction in the team/market, can afford to lose the exercise cost, and the strike price is close to FMV. Early-stage startups have high failure rates. Exercise only if the potential upside justifies the significant risk of total loss.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Should I exercise my stock options before an IPO?</summary>
+                        <p>Exercising before IPO can be smart if you have ISOs—you lock in long-term capital gains treatment. However, consider the cash outlay, tax bill, and lock-up period (typically 6 months post-IPO when you can't sell). Only exercise pre-IPO if you can afford to hold through the lock-up.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What happens if I don't exercise my stock options?</summary>
+                        <p>Your options expire worthless on their expiration date (typically 10 years from grant). If you leave your job, ISOs expire 90 days after departure. Unexercised options have no value—you lose any potential upside. However, you also avoid the exercise cost and tax bill.</p>
+                    </details>
+                </div>
+            </div>
+
+            <footer class="post-footer">
+                <div class="container">
+                    <p class="post-tags">Tags: <a href="/blog.html#stock-options">Stock Options</a>, <a href="/blog.html#exercise">Exercise Strategies</a>, <a href="/blog.html#decision-making">Decision Making</a></p>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p><a href="/">FounderMath</a> — Equity calculators and guides for startup employees, founders, and job-seekers.</p>
+            <p class="fine-print">Not financial or tax advice. Consult professionals before making equity decisions.</p>
+        </div>
+    </footer>
+
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a5e;
+            --text-muted: #6c757d;
+            --border: #dee2e6;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 1001;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .nav-brand a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-light);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: 0.3s;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            margin-left: 15px;
+        }
+
+        .theme-toggle:hover {
+            color: var(--text-primary);
+        }
+
+        .blog-post {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .post-header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-primary));
+        }
+
+        .post-header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .post-meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .post-content {
+            padding: 40px 20px 60px;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 50px 0 25px;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 35px 0 15px;
+            color: var(--accent-light);
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin: 25px 0 10px;
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: 1.5em;
+        }
+
+        ul, ol {
+            margin-bottom: 1.5em;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .example-block, .warning-block, .action-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .warning-block {
+            border-left-color: #ff6b6b;
+        }
+
+        .action-block {
+            border-left-color: var(--green);
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(0, 184, 148, 0.05) 100%);
+        }
+
+        .example-block h4, .warning-block h4, .action-block h4 {
+            margin-top: 0;
+            color: var(--accent-light);
+        }
+
+        .highlight {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .faq-section {
+            margin-top: 60px;
+        }
+
+        .faq-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            padding: 20px 25px;
+            cursor: pointer;
+            font-weight: 500;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
+
+        details[open] .faq-item summary::after {
+            content: '−';
+        }
+
+        .faq-item p {
+            padding: 0 25px 20px;
+            margin-bottom: 0;
+        }
+
+        .post-footer {
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+
+        .post-tags {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .post-tags a {
+            color: var(--text-secondary);
+        }
+
+        .site-footer {
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+
+        .site-footer p {
+            margin-bottom: 10px;
+        }
+
+        .fine-print {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .cta-link {
+            display: inline-block;
+            background: var(--green);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 500;
+            text-decoration: none !important;
+            margin-top: 15px;
+            transition: transform 0.2s;
+        }
+
+        .cta-link:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                transform: translateY(-100%);
+                transition: transform 0.3s;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .theme-toggle {
+                display: none;
+            }
+        }
+    </style>
+</body>
+</html>

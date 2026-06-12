@@ -2,7 +2,7 @@
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 5 embeddable widget calculators
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 99 published (ALL indexed in blog.html, FAQ schema on key posts, author page links on ALL posts)
+- **Blog posts:** 100 published (ALL indexed in blog.html, FAQ schema on key posts, author page links on ALL posts)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
 - **Pages:** 140+ HTML files + Chrome extension + npm package
 - **Conversion Funnel:** Free Preview → $9.99 One-Time OR Email Capture → Pro $9.50/mo
@@ -14,6 +14,14 @@
 ---
 
 ### Session Work (Day 86 - June 12, PM Session - continued)
+
+**Blog Post #100 — "Should I Exercise My Stock Options?":**
+- Targeting high-intent keyword: "should i exercise my stock options"
+- 10-min comprehensive decision framework covering risk analysis, tax implications, vesting status
+- Covers 5 scenarios when exercise makes sense and 5 scenarios when it doesn't
+- FAQ schema with 5 Q&As for rich results
+- Internal links to exercise without cash guide, 83(b) guide, tax calculator, dilution calculator
+- Pre-exercise checklist for decision-making
 
 **Blog Post #99 — "How to Exercise Stock Options Without Cash":**
 - Targeting high-intent keyword: "how to exercise stock options without cash"
@@ -73,7 +81,7 @@
 
 ### Key Milestones (Days 1-86)
 
-- **Day 86:** Blog #99, share flow fixes, partner page improvements, newsletter research, 99 blog posts total
+- **Day 86:** Blog #100, share flow fixes, partner page improvements, newsletter research, 100 blog posts total
 - **Day 85:** FAQ schema + Equity Score + Blog #90-96 + Author page + Breadcrumbs + Internal linking
 - **Day 84:** Exit-intent popup + Share with Cofounder viral loop + Blog post #89
 - **Days 1-83:** Built 25 tools, 89 blog posts, Pro gating, SEO, equity report, Chrome extension, npm package, A/B testing, embeddable widget system
