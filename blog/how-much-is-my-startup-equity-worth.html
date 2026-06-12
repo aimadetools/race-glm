@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://founder-math.com/blog/how-much-is-my-startup-equity-worth.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Much Is My Startup Equity Worth? (2026 Calculator & Guide) | FounderMath</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RD0WTQV4X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1RD0WTQV4X');</script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
+            toggle.setAttribute('aria-expanded', isOpen.toString());
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('mobileToggle').setAttribute('aria-expanded', 'false');
+                    document.getElementById('mobileToggle').focus();
+                }
+            }
+        });
+        function toggleTheme() {
+            const body = document.body;
+            const current = body.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const saved = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', saved);
+        });
+    </script>
+    <meta name="description" content="How to calculate what your startup equity is actually worth. Step-by-step guide with real examples, dilution math, exit scenarios, and a free calculator.">
+    <meta name="keywords" content="how much is my startup equity worth, startup equity value calculator, what is my equity worth, startup stock options value, equity calculator startup">
+    <meta property="og:title" content="How Much Is My Startup Equity Worth? A Practical Guide with Calculator">
+    <meta property="og:description" content="Stop guessing what your startup equity is worth. Learn the math behind equity valuation with real examples and a free calculator.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://founder-math.com/og-image.svg">
+    <meta property="og:url" content="https://founder-math.com/blog/how-much-is-my-startup-equity-worth.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How Much Is My Startup Equity Worth? A Practical Guide with Calculator">
+    <meta name="twitter:description" content="Stop guessing what your startup equity is worth. Learn the math behind equity valuation with real examples and a free calculator.">
+    <meta name="twitter:image" content="https://founder-math.com/og-image.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How Much Is My Startup Equity Worth? A Practical Guide with Calculator",
+        "url": "https://founder-math.com/blog/how-much-is-my-startup-equity-worth.html",
+        "description": "How to calculate what your startup equity is actually worth. Step-by-step guide with real examples, dilution math, exit scenarios, and a free calculator.",
+        "datePublished": "2026-06-12",
+        "dateModified": "2026-06-12",
+        "author": {
+            "@type": "Person",
+            "name": "FounderMath Team",
+            "url": "https://founder-math.com/blog/author/founder-math-team.html"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FounderMath",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://founder-math.com/og-image.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://founder-math.com/blog/how-much-is-my-startup-equity-worth.html"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I calculate what my startup equity is worth?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Multiply your ownership percentage by the company's current valuation. For example, 1% equity at a $50M valuation = $500,000 on paper. But you must account for dilution from future funding rounds, liquidation preferences, and the likelihood of actually reaching an exit event."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much is 1% equity in a startup worth?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It depends on the company's valuation. At a $10M valuation, 1% is worth $100,000. At a $100M valuation, 1% is worth $1M. But the real question is what that 1% will be worth at exit after dilution from future funding rounds — typically 0.3-0.6% by Series C."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What percentage of equity should a startup employee get?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Early engineers typically get 0.5-2% at seed stage, 0.25-1% at Series A, and 0.1-0.5% at Series B. Senior hires and executives get more. Non-technical roles get less. Use our equity benchmarks tool to see ranges by role and stage."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is startup equity worth anything if the company doesn't exit?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Generally no. Stock options and common equity in private startups only have real value when there's a liquidity event (acquisition, IPO, or secondary sale). Until then, your equity is paper wealth. This is why you should negotiate for adequate cash compensation alongside equity."
+                }
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --red: #ff6b6b;
+            --orange: #ffa502;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --text-muted: #666680;
+            --border: #2a2a40;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        body[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #f0f0f5;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a60;
+            --text-muted: #8888a0;
+            --border: #e0e0e8;
+            --accent-glow: rgba(108, 92, 231, 0.15);
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        article {
+            max-width: 760px; margin: 0 auto; padding: 120px 24px 40px;
+        }
+        article h1 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 800; line-height: 1.2; margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .meta {
+            display: flex; gap: 16px; margin-bottom: 40px; flex-wrap: wrap;
+            color: var(--text-muted); font-size: 0.9rem;
+        }
+        article h2 {
+            font-size: 1.5rem; font-weight: 700; margin: 40px 0 16px;
+            letter-spacing: -0.02em;
+        }
+        article h3 {
+            font-size: 1.2rem; font-weight: 600; margin: 28px 0 12px;
+        }
+        article p {
+            color: var(--text-secondary); margin-bottom: 16px; font-size: 1rem;
+        }
+        article ul, article ol {
+            color: var(--text-secondary); margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        article li { margin-bottom: 8px; font-size: 1rem; }
+        article strong { color: var(--text-primary); }
+        article a { color: var(--accent-light); text-decoration: none; }
+        article a:hover { text-decoration: underline; }
+        .highlight-box {
+            background: var(--bg-card);
+            border-left: 4px solid var(--accent);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+        .highlight-box h3 { margin-top: 0; color: var(--accent-light); }
+        .highlight-box p { margin-bottom: 0; }
+        .cta-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            margin: 32px 0;
+        }
+        .cta-box h3 { margin-top: 0; font-size: 1.3rem; }
+        .cta-box p { color: var(--text-secondary); margin-bottom: 16px; }
+        .cta-btn {
+            display: inline-block; padding: 14px 32px; border-radius: 10px;
+            font-weight: 700; text-decoration: none; font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .cta-btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; }
+        .cta-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .cta-btn.secondary { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); }
+        .cta-btn.secondary:hover { transform: translateY(-2px); border-color: var(--accent); }
+        table {
+            width: 100%; border-collapse: collapse; margin: 16px 0 24px;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 12px 16px; text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background: var(--bg-card); font-weight: 600;
+            color: var(--text-primary); font-size: 0.85rem;
+            text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        td { color: var(--text-secondary); }
+        .example-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .example-box h3 { margin-top: 0; color: var(--green); }
+        footer { padding: 48px 24px; border-top: 1px solid var(--border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-left p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        @media (max-width: 700px) {
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 100; }
+            .mobile-toggle { display: block; }
+            table { font-size: 0.8rem; }
+            th, td { padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo"><div class="logo-icon">%</div> FounderMath</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/dilution.html">Dilution</a></li>
+            <li><a href="/safe.html">SAFE</a></li>
+            <li><a href="/runway.html">Runway</a></li>
+            <li><a href="/pricing.html">Pricing</a></li>
+            <li><a href="/equity-report.html" style="background:var(--accent);color:white;padding:8px 20px;border-radius:8px;font-weight:600;">Free Equity Report</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<article>
+    <h1>How Much Is My Startup Equity Worth? (Honest Answer + Calculator)</h1>
+    <div class="meta">
+        <span>June 12, 2026</span>
+        <span>&middot;</span>
+        <span>12 min read</span>
+        <span>&middot;</span>
+        <span>By <a href="/blog/author/founder-math-team.html">FounderMath Team</a></span>
+    </div>
+
+    <p>You just got a job offer with "0.5% equity" and you have no idea what that means in dollars. Or you're a founder trying to explain to your early employees why their options matter. This guide breaks down exactly how to value startup equity — with real numbers, not hand-waving.</p>
+
+    <div class="cta-box">
+        <h3>Quick: Calculate Your Equity Value Right Now</h3>
+        <p>Enter your equity percentage and the company's valuation to see what your stake is worth — including dilution from future rounds.</p>
+        <a href="/dilution.html" class="cta-btn primary">Free Equity Dilution Calculator &rarr;</a>
+    </div>
+
+    <h2>The Short Answer</h2>
+    <p>Your startup equity is worth: <strong>Your Ownership % &times; Company Valuation</strong>. But that's the paper value. The real value depends on dilution, liquidation preferences, exit probability, and time to liquidity. For most startup employees, equity ends up worth <strong>20-40% of the headline number</strong> by the time you actually see cash.</p>
+
+    <h2>Step 1: Find Your Ownership Percentage</h2>
+    <p>Your equity offer usually comes in one of these forms:</p>
+    <table>
+        <thead>
+            <tr><th>What You Got</th><th>What It Means</th><th>How to Convert to %</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Stock options</strong> (e.g., 50,000 options)</td><td>Right to buy shares at a set price</td><td>Options &divide; Total Fully Diluted Shares &times; 100</td></tr>
+            <tr><td><strong>Restricted Stock Units (RSUs)</strong></td><td>Shares you'll receive as they vest</td><td>RSUs &divide; Total Fully Diluted Shares &times; 100</td></tr>
+            <tr><td><strong>Percentage directly</strong> (e.g., "1% equity")</td><td>Ownership stake stated in offer</td><td>Already a percentage — but ask if it's fully diluted</td></tr>
+        </tbody>
+    </table>
+    <p><strong>Critical question to ask:</strong> "Is this percentage based on fully diluted shares?" Fully diluted means all issued shares PLUS all options, warrants, and unissued pool. If they quote you 1% on just issued shares, your real stake is smaller.</p>
+
+    <h2>Step 2: Estimate the Company's Valuation</h2>
+    <p>Private companies don't have a stock price. Here's how to estimate:</p>
+    <ul>
+        <li><strong>Last funding round price:</strong> If they raised a $20M Series A at $80M pre-money, the post-money valuation is $100M. Your 1% = $1M on paper.</li>
+        <li><strong>409A valuation:</strong> The company's IRS-mandated fair market value assessment. This is usually lower than the VC valuation (by design — it's the strike price for options, not what investors paid).</li>
+        <li><strong>Revenue multiples:</strong> For SaaS companies, 5-15x ARR is typical. If a company does $5M ARR, it might be worth $25-75M.</li>
+    </ul>
+
+    <div class="highlight-box">
+        <h3>Key Insight: Valuation &ne; Value</h3>
+        <p>A $100M valuation doesn't mean $100M in cash changed hands. It means investors bought a slice at a price that implies the whole pie is worth $100M. If the company never exits, your equity is worth $0 regardless of the valuation.</p>
+    </div>
+
+    <h2>Step 3: Account for Dilution</h2>
+    <p>This is where most equity guides stop — and where the real math begins. Your 1% today won't be 1% at exit. Each funding round dilutes you.</p>
+
+    <div class="example-box">
+        <h3>Real Example: What Happens to 1% Over 3 Rounds</h3>
+        <table>
+            <thead><tr><th>Stage</th><th>Valuation</th><th>Your Ownership</th><th>Paper Value</th></tr></thead>
+            <tbody>
+                <tr><td>Hire date (Seed)</td><td>$15M</td><td>1.00%</td><td>$150,000</td></tr>
+                <tr><td>After Series A ($12M raise)</td><td>$50M</td><td>0.78%</td><td>$390,000</td></tr>
+                <tr><td>After Series B ($30M raise)</td><td>$150M</td><td>0.58%</td><td>$870,000</td></tr>
+                <tr><td>After Series C ($60M raise)</td><td>$400M</td><td>0.42%</td><td>$1,680,000</td></tr>
+            </tbody>
+        </table>
+        <p>Your 1% became 0.42% — a 58% reduction. But your paper value went from $150K to $1.68M because the company's valuation grew faster than your dilution. <strong>This is the bet.</strong></p>
+    </div>
+
+    <p>Use our <a href="/dilution.html">free dilution calculator</a> to model exactly what happens to your equity across funding rounds.</p>
+
+    <h2>Step 4: Subtract Liquidation Preferences</h2>
+    <p>Investors don't just own equity — they have <strong>liquidation preferences</strong> that guarantee they get paid first in an exit. This can dramatically reduce what common shareholders (you) receive.</p>
+
+    <h3>How Liquidation Preferences Work</h3>
+    <p>If Series A investors put in $20M with a 1x liquidation preference and the company sells for $30M:</p>
+    <ol>
+        <li>Series A investors take their $20M first</li>
+        <li>Remaining $10M is split among all shareholders (including you) based on ownership %</li>
+        <li>If your ownership is 0.5%, you get $10M &times; 0.5% = $50,000</li>
+    </ol>
+    <p>Your "1% of $30M = $300K" just became $50K. That's an 83% haircut.</p>
+
+    <div class="cta-box">
+        <h3>Model Your Exact Exit Proceeds</h3>
+        <p>See how liquidation preferences, participation, and multiple preferences affect your payout at different exit values.</p>
+        <a href="/liquidation-preference.html" class="cta-btn primary">Free Liquidation Preference Calculator &rarr;</a>
+    </div>
+
+    <h2>Step 5: Apply a Probability Discount</h2>
+    <p>Even after accounting for dilution and liquidation preferences, you need to discount for <strong>exit probability</strong>:</p>
+    <table>
+        <thead><tr><th>Stage</th><th>Chance of Successful Exit</th><th>What to Expect</th></tr></thead>
+        <tbody>
+            <tr><td>Pre-seed / Angel</td><td>5-10%</td><td>90% of companies fail before Series A</td></tr>
+            <tr><td>Seed</td><td>10-15%</td><td>Most die or become lifestyle businesses</td></tr>
+            <tr><td>Series A</td><td>15-25%</td><td>Strong signal, but still high failure rate</td></tr>
+            <tr><td>Series B</td><td>30-40%</td><td>Product-market fit usually confirmed</td></tr>
+            <tr><td>Series C+</td><td>40-60%</td><td>Significant revenue, clearer path to exit</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Expected Value Calculation</h3>
+    <p><strong>Expected Value = Paper Value &times; Exit Probability &times; (1 - Average Dilution)</strong></p>
+    <p>For our example: $1,680,000 paper value &times; 40% exit probability (Series C) &times; 0.7 (after liq prefs) = <strong>$470,400 expected value</strong>.</p>
+    <p>This is a more honest number than "your equity is worth $1.68 million."</p>
+
+    <h2>Step 6: Factor in Time and Vesting</h2>
+    <p>Equity isn't free money. It comes with constraints:</p>
+    <ul>
+        <li><strong>4-year vesting with 1-year cliff:</strong> You earn 0% for the first year, then 1/48th per month for the remaining 3 years.</li>
+        <li><strong>Exercise window:</strong> After leaving, you typically have 90 days to exercise options or lose them. The cost can be tens of thousands of dollars.</li>
+        <li><strong>Time to exit:</strong> Average time from founding to exit is 7-10 years. Your money is locked up that entire time.</li>
+        <li><strong>Tax implications:</strong> Exercising options triggers tax liabilities. An <a href="/blog/83b-election-guide.html">83(b) election</a> can save you enormous taxes if you file within 30 days of grant.</li>
+    </ul>
+
+    <p>Use our <a href="/vesting.html">vesting schedule calculator</a> to see exactly when each portion of your equity becomes yours.</p>
+
+    <h2>Real-World Scenarios</h2>
+
+    <h3>Scenario 1: Early Engineer at Seed-Stage Startup</h3>
+    <div class="example-box">
+        <p><strong>Offer:</strong> $130K salary + 0.75% in stock options (4-year vest)</p>
+        <p><strong>Company:</strong> Raised $3M seed at $12M post-money</p>
+        <p><strong>Your paper value:</strong> 0.75% &times; $12M = $90,000</p>
+        <p><strong>After dilution (3 rounds):</strong> ~0.35% at $200M exit = $700,000</p>
+        <p><strong>Expected value (30% probability):</strong> ~$210,000 over 7 years</p>
+        <p><strong>Verdict:</strong> Equivalent to ~$30K/year bonus in expected value. Decent if you believe in the team, but don't take a massive salary cut for it.</p>
+    </div>
+
+    <h3>Scenario 2: Senior Engineer at Series B Startup</h3>
+    <div class="example-box">
+        <p><strong>Offer:</strong> $190K salary + 0.15% in RSUs (4-year vest)</p>
+        <p><strong>Company:</strong> Raised $40M Series B at $200M post-money</p>
+        <p><strong>Your paper value:</strong> 0.15% &times; $200M = $300,000</p>
+        <p><strong>After dilution (1-2 rounds):</strong> ~0.10% at $500M exit = $500,000</p>
+        <p><strong>Expected value (40% probability):</strong> ~$200,000 over 4-5 years</p>
+        <p><strong>Verdict:</strong> Lower risk, more realistic return. RSUs have no exercise cost. This is a solid offer.</p>
+    </div>
+
+    <h3>Scenario 3: Founder with 50% at Pre-Seed</h3>
+    <div class="example-box">
+        <p><strong>Starting:</strong> 50% of company, $0 salary initially</p>
+        <p><strong>After 4 rounds of dilution:</strong> ~15-25% at exit</p>
+        <p><strong>At $100M exit:</strong> $15-25M (before liquidation preferences)</p>
+        <p><strong>After 1x participating preferences (~$80M invested):</strong> ~$8-15M</p>
+        <p><strong>Verdict:</strong> Life-changing money, but you worked 7-10 years for it at below-market salary. The per-hour rate might surprise you.</p>
+    </div>
+
+    <h2>Common Mistakes People Make Valuing Equity</h2>
+    <ol>
+        <li><strong>Using headline ownership % without dilution:</strong> Your 1% will be 0.4% by exit. Plan for it.</li>
+        <li><strong>Ignoring liquidation preferences:</strong> Investors get paid first. In a down exit, you might get nothing.</li>
+        <li><strong>Forgetting exercise costs:</strong> You have to pay to exercise options. At a successful company, this can be $50K+ in exercise costs plus taxes.</li>
+        <li><strong>Treating equity as guaranteed income:</strong> Most startups fail. Never accept equity in lieu of a livable salary.</li>
+        <li><strong>Not comparing to alternatives:</strong> $200K expected equity value over 4 years vs. $400K extra you'd earn at Big Tech. The startup needs to win on learning, impact, or specific company conviction.</li>
+    </ol>
+
+    <h2>Quick Reference: Equity Worth by Stage</h2>
+    <table>
+        <thead><tr><th>Company Stage</th><th>Typical Equity Grant</th><th>Paper Value at That Stage</th><th>Expected Value (Risk-Adjusted)</th></tr></thead>
+        <tbody>
+            <tr><td>Pre-seed</td><td>1-3%</td><td>$30-90K</td><td>$3-9K</td></tr>
+            <tr><td>Seed</td><td>0.5-1.5%</td><td>$50-150K</td><td>$7-22K</td></tr>
+            <tr><td>Series A</td><td>0.25-0.75%</td><td>$75-225K</td><td>$15-45K</td></tr>
+            <tr><td>Series B</td><td>0.1-0.3%</td><td>$100-300K</td><td>$30-90K</td></tr>
+            <tr><td>Series C+</td><td>0.05-0.15%</td><td>$100-300K</td><td>$50-150K</td></tr>
+        </tbody>
+    </table>
+    <p>For detailed benchmarks by role and stage, check our <a href="/equity-benchmarks.html">startup equity benchmarks</a> page.</p>
+
+    <h2>The Bottom Line</h2>
+    <p>Your startup equity is probably worth less than you think — but it might still be worth taking. The key is to <strong>do the math honestly</strong>:</p>
+    <ol>
+        <li>Start with your ownership percentage</li>
+        <li>Multiply by a realistic exit valuation</li>
+        <li>Subtract dilution (typically 40-60% over multiple rounds)</li>
+        <li>Subtract liquidation preferences</li>
+        <li>Multiply by exit probability (10-60% depending on stage)</li>
+        <li>Divide by years to liquidity (4-10 years)</li>
+    </ol>
+    <p>That's your <strong>expected annual equity compensation</strong>. Compare it honestly against the salary difference at Big Tech or a public company.</p>
+
+    <div class="cta-box">
+        <h3>Get Your Free Equity Score</h3>
+        <p>Enter your equity details and get a personalized score (0-100) showing how your offer compares to industry benchmarks. Free, instant, no signup required.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="/equity-report.html" class="cta-btn primary">Free Equity Report &rarr;</a>
+            <a href="/startup-exit-calculator.html" class="cta-btn secondary">Exit Calculator</a>
+        </div>
+    </div>
+
+    <h2>Related Resources</h2>
+    <ul>
+        <li><a href="/dilution.html">Equity Dilution Calculator</a> — See how your ownership changes across funding rounds</li>
+        <li><a href="/startup-exit-calculator.html">Startup Exit Calculator</a> — What your equity is worth at different exit values</li>
+        <li><a href="/equity-vs-salary.html">Equity vs Salary Calculator</a> — Compare a startup offer against Big Tech compensation</li>
+        <li><a href="/liquidation-preference.html">Liquidation Preference Calculator</a> — See how investor preferences affect your payout</li>
+        <li><a href="/equity-benchmarks.html">Equity Benchmarks</a> — What other people at your stage and role are getting</li>
+        <li><a href="/stock-options.html">Stock Options Calculator</a> — Calculate what your options are worth today and at different exit scenarios</li>
+    </ul>
+
+</article>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <p>&copy; 2026 FounderMath. Free startup equity calculators for founders and employees.</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="/free-startup-tools.html">Tools</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/pricing.html">Pricing</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+        </ul>
+    </div>
+</footer>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
