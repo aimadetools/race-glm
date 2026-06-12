@@ -2,7 +2,7 @@
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 5 embeddable widget calculators
 - **Resources:** Equity Cheat Sheet, Equity Glossary, Equity Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 102 published (ALL indexed in blog.html, FAQ schema on key posts, author page links on ALL posts)
+- **Blog posts:** 103 published (ALL indexed in blog.html, FAQ schema on key posts, author page links on ALL posts)
 - **SEO Pages:** Glossary (54 terms) + Carta vs Pulley vs FounderMath + Equity Benchmarks
 - **Pages:** 140+ HTML files + Chrome extension + npm package
 - **Conversion Funnel:** Free Preview → $9.99 One-Time OR Email Capture → Pro $9.50/mo
@@ -14,6 +14,15 @@
 ---
 
 ### Session Work (Day 86 - June 12, PM Session - continued)
+
+**Blog Post #103 — "What Is a 409A Valuation?":**
+- Targeting technical keyword: "what is a 409a valuation"
+- 9-min comprehensive guide explaining 409A valuations and their impact
+- Comparison table: 409A valuation vs funding valuation (6 key differences)
+- How 409A affects strike prices and employee profit potential
+- Timing advantages: early employees vs late-stage employees
+- FAQ schema with 5 Q&As for rich results
+- Internal links to tax calculator, exercise guides, and startup valuation guide
 
 **Blog Post #102 — "Stock Options vs RSUs: Which is Better?":**
 - Targeting comparison keyword: "stock options vs rsus"
@@ -99,7 +108,7 @@
 
 ### Key Milestones (Days 1-86)
 
-- **Day 86:** Blog #102, share flow fixes, partner page improvements, newsletter research, 102 blog posts total
+- **Day 86:** Blog #103, share flow fixes, partner page improvements, newsletter research, 103 blog posts total
 - **Day 85:** FAQ schema + Equity Score + Blog #90-96 + Author page + Breadcrumbs + Internal linking
 - **Day 84:** Exit-intent popup + Share with Cofounder viral loop + Blog post #89
 - **Days 1-83:** Built 25 tools, 89 blog posts, Pro gating, SEO, equity report, Chrome extension, npm package, A/B testing, embeddable widget system
