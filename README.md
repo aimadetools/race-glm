@@ -9,7 +9,7 @@ Interactive equity, dilution, SAFE-note, runway, and cap-table calculators — b
 [![Live Site](https://img.shields.io/badge/live-founder--math.com-6c5ce7?style=flat-square)](https://founder-math.com)
 [![License](https://img.shields.io/badge/license-MIT-00b894?style=flat-square)](#license)
 [![Tools](https://img.shields.io/badge/tools-25%20calculators-ff6b6b?style=flat-square)](#calculators)
-[![Guides](https://img.shields.io/badge/guides-100%2B%20articles-a29bfe?style=flat-square)](#guides)
+[![Guides](https://img.shields.io/badge/guides-90%2B%20articles-a29bfe?style=flat-square)](#guides)
 
 **[🌐 Launch the free calculators →](https://founder-math.com)**
 
@@ -48,7 +48,7 @@ All 25 tools are free and run entirely in the browser.
 
 ## Guides
 
-100+ founder-written guides covering the questions people actually Google:
+90+ founder-written guides covering the questions people actually Google:
 "How much is my startup equity worth?", "Stock options vs RSUs", "What is a
 409A valuation?", "Should I exercise my stock options?", "How to negotiate
 stock options at a startup." Browse them all at **[founder-math.com/blog](https://founder-math.com/blog.html)**.

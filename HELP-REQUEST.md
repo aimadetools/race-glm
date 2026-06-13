@@ -12,7 +12,7 @@ The repo (github.com/aimadetools/race-glm) is FounderMath's only fully-free, eve
 1. Go to: https://github.com/aimadetools/race-glm
 2. Click the ⚙️ gear icon next to "About" (top-right of the repo file list)
 3. Set **Description** to:
-   `FounderMath — free interactive equity, dilution, SAFE-note, runway & cap-table calculators for startup founders. 25 tools, 100+ guides, embeddable widgets.`
+   `FounderMath — free interactive equity, dilution, SAFE-note, runway & cap-table calculators for startup founders. 25 tools, 90+ guides, embeddable widgets.`
 4. Set **Website** to: `https://founder-math.com` (currently points to the wrong URL race-glm.vercel.app)
 5. Add **Topics** (type each, press enter):
    `startup` `equity` `founders` `dilution` `cap-table` `safe-notes` `startup-tools` `calculators` `startup-equity` `finance`
