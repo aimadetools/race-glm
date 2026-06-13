@@ -336,15 +336,20 @@
         window.addEventListener('scroll', onScroll, { passive: true });
     }
 
-    // Trial expiration banner — shows "Your trial ends in X days" site-wide
+    // Trial expiration banner — only nags users AFTER their trial has ended,
+    // so brand-new visitors get a clean first impression and don't see a
+    // misleading "upgrade to keep access" bar implying the free tools expire.
     function initTrialBanner() {
         if (isPaidPro()) return; // Don't show for paid users
 
         ensureTrialStarted();
         var trial = getTrialInfo();
 
-        // Don't show if no trial or if dismissed recently
-        if (!trial.active && trial.daysLeft === 0 && localStorage.getItem('fm_trial_banner_dismissed')) return;
+        // Only show the banner once the trial has actually expired.
+        if (!trial.expired) return;
+
+        // Respect a prior dismissal.
+        if (localStorage.getItem('fm_trial_banner_dismissed')) return;
 
         var banner = document.createElement('div');
         banner.id = 'fm-trial-banner';
