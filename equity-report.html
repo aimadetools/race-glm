@@ -684,7 +684,7 @@
             <p class="subtitle" id="reportSubtitle"></p>
             <div class="results-social-proof" id="resultsSocialProof" style="display:none;">
                 <span class="live-indicator"></span>
-                <span>Your report is #<span class="count">547</span> generated this month</span>
+                <span>100% client-side — your inputs never leave this browser</span>
             </div>
         </div>
 
@@ -805,12 +805,12 @@
 
                 <!-- VARIANT B: Social Proof -->
                 <div class="paywall-card" id="paywallVariantB" style="display:none;">
-                    <h3>Join 500+ Founders Who've Unlocked Their Full Equity Report</h3>
-                    <p class="paywall-subtitle">See exactly what successful founders know about their equity. Get visual charts, personalized recommendations, and professional PDF download.</p>
+                    <h3>See Exactly What Your Term Sheet Is Worth</h3>
+                    <p class="paywall-subtitle">Founders lose real money to equity mistakes they didn't see coming. Get visual charts, personalized recommendations, and professional PDF download before you sign.</p>
                     <div class="paywall-features">
                         <div class="paywall-feat">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-                            500+ founders already unlocked
+                            Investor-ready PDF in 60 seconds
                         </div>
                         <div class="paywall-feat">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
@@ -1221,11 +1221,8 @@
         document.getElementById('reportSubtitle').textContent =
             'Free preview: ' + d.startingEquity + '% starting \u2192 ' + d.finalOwnership.toFixed(1) + '% final after ' + (d.steps.length - 1) + ' rounds';
 
-        // Show social proof with randomized counter
+        // Show privacy/trust signal
         var socialProof = document.getElementById('resultsSocialProof');
-        var countElement = socialProof.querySelector('.count');
-        // Random number between 527 and 548 (realistic for "500+" claim)
-        countElement.textContent = Math.floor(Math.random() * 21) + 527;
         socialProof.style.display = 'flex';
 
         // Equity Score calculation
