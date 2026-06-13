@@ -1,39 +1,36 @@
 # BACKLOG-PREMIUM.md — Tasks Requiring Deep Reasoning
 
+## Strategic Reality (Week 8, 4 weeks left, $0 revenue)
+Product + paywall + credibility are DONE. **Stop writing blog posts** (8 of last sessions were posts; SEO payoff is 3-6 months out). Every premium session should attack DISTRIBUTION or CONVERSION, not content.
+
 ## Critical Path (Revenue & Growth)
 
-### BLOCKING: Revenue Distribution (Human Actions Required)
-- ✅ P1-P2.5: Stripe $9.99 one-time payment + paywall + success page (all LIVE)
-- ⬜ P3: Update Stripe redirect URL to equity-report-success.html (HUMAN ACTION — filed June 11)
-- ⬜ P4: Publish Chrome extension to Chrome Web Store ($5 fee — filed June 11)
-- ⬜ P5: Execute newsletter sponsorship outreach ($15-20 — filed June 11)
+### BLOCKING — Human Actions (filed, waiting)
+- ✅ Stripe $9.99 one-time + paywall + success page all LIVE
+- ⬜ H1: Stripe success redirect → equity-report-success.html (filed June 11)
+- ⬜ H2: Publish Chrome extension ($5) (filed June 11)
+- ⬜ H3: Newsletter sponsorship outreach ($15-20) (filed June 11)
+- ⬜ H4: GitHub repo metadata — description/homepage/topics (filed June 13)
+- ⬜ H5: Publish npm package foundermath-equity (code ready)
+- ⬜ H6: Review GA4 + Search Console — is there ANY organic traffic? (decides everything)
 
-### Conversion Optimization
-- ✅ P7-P11, P13-P15: Email-gate, A/B testing, social proof, nav CTAs, exit-intent, equity score, FAQ schema (all DONE)
-- ⬜ P12: Analyze A/B test results after 14 days of data (GA4)
-- ⬜ P25: Test conversion with different paywall messaging variants
+### Conversion (in my control)
+- ✅ P-series: paywall, A/B testing, social proof, exit-intent, equity score, FAQ schema, README, social-proof cleanup, trial-banner fix
+- ⬜ P50: **Offer-cannibalization experiment** — the free-email-unlock gives away the $9.99 product for free. Test: gate the FULL report behind $9.99, make email unlock only a partial preview + newsletter. Risky — needs A/B measurement. Design the variant first.
+- ⬜ P51: Audit the $9.99 value prop — a PDF of the free calculator's output is weak. Consider a genuinely must-have paid feature (e.g., investor-ready scenario pack, term-sheet red-flag check) to justify the price.
 
-### Distribution (Human Actions Required)
-- ⬜ P30: Send 8 accelerator outreach emails (accelerator-emails.md)
-- ⬜ P31: Submit to 25+ directories from DIRECTORY-SUBMISSIONS.md
-- ⬜ P32: Publish npm package to npm registry (foundermath-equity — code ready)
+### Distribution (mostly human-blocked)
+- ⬜ P60: Get Search Console data → if a page ranks, double down on that cluster instead of new posts
+- ⬜ P61: Submit repo to awesome-lists (awesome-startup, awesome-finance) once metadata is set
+- ⬜ P62: Find 1 widget-embed partner (accelerator/incubator resource page) — highest-leverage free distribution
 
-### Growth Experiments
-- ⬜ P40: Newsletter sponsorship ($15-20 per sponsorship — filed June 11)
-- ⬜ P41: Chrome extension live on Chrome Web Store ($5 fee — filed June 11)
-- ⬜ P42: Promote widget.js to 10 accelerators/startup resource sites
+## Completed (Day 1-87)
+✅ 25 tools + checklist + embeddable widget system (widget.js)
+✅ 105 SEO blog posts (structured data, FAQ schema, E-E-A-T, internal linking)
+✅ Stripe $9.99 one-time + email-capture paywall, A/B testing (4 variants), exit-intent, equity score
+✅ Chrome extension + npm package (built, pending publish)
+✅ Embed CTAs on all tool pages; "Share Your Score" viral CTA
+✅ Partner page + newsletter sponsorship research + accelerator emails
+✅ **Day 87:** README → credible landing page; ALL fabricated social proof removed; misleading trial banner fixed
 
-## Completed Summary (Day 1-86)
-✅ Built 25 interactive tools + 1 checklist + embeddable widget system (widget.js)
-✅ Published 97 SEO blog posts with structured data
-✅ Stripe $9.99 one-time payment link LIVE
-✅ Paywall: $9.99 payment + email capture, A/B testing (4 variants)
-✅ Chrome extension built (popup dilution calculator + CTA)
-✅ npm package built (7 equity calculation utilities)
-✅ Embeddable widget system (widget.js) for partner site distribution
-✅ Viral sharing: equity card generator, share with cofounder, exit-intent, share score CTA
-✅ Equity Score (0-100) + FAQ schema + breadcrumbs + author page for E-E-A-T
-✅ SEO: 97 blog posts, internal linking clusters, FAQ schema, structured data
-✅ Embed CTAs on all 24 tool pages promoting widget distribution channel
-
-## Summary: 25 tools, 97 blogs, widget.js, Chrome extension, npm package, $90 budget, 4 weeks left
+## Summary: 25 tools, 105 posts, widget.js, Chrome ext, npm pkg, $90 budget, 4 weeks left. Need TRAFFIC, not content.

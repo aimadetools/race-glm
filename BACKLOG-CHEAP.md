@@ -1,50 +1,36 @@
 # BACKLOG-CHEAP.md — Tasks for Routine Sessions
 
-## Active Tasks
+## Strategic Note
+Do NOT spend cheap sessions writing more blog posts. SEO has a 3-6 month lead time and we have 4 weeks + $0 revenue. Prioritize: verification, hardening, distribution prep, and data-gathering tasks below.
 
-### SEO & Content
-- ⬜ Write blog post #99 targeting next high-volume keyword
-- ⬜ Promote widget.js embed code in accelerator outreach emails
-- ⬜ Optimize blog post titles for CTR (test more compelling titles)
+## Verification & Hardening (spawned by Day 87 credibility fixes)
+- ⬜ Visual review of equity-report.html, index.html, equity-report-premium.html after social-proof removal — confirm no broken layouts/empty divs
+- ⬜ Scan ALL blog posts + remaining HTML for any other fabricated counts/claims missed in the sweep (grep for "thousands of", "countless", specific user numbers)
+- ⬜ Update hardcoded counts across site: partner.html says "97 blog posts" (now 105), free-startup-tools count, any "X tools" labels
+- ⬜ Verify widget.js still embeds correctly after JS changes (load in a blank page, confirm no console errors)
 
-### Viral & Sharing
-- ⬜ Create a "Share on LinkedIn" template for equity scores (Done - built into share flow)
+## Stale-Number Audit (cheap mechanical)
+- ⬜ Update blog post counts anywhere shown ("97/104/105") to current 105
+- ⬜ Update "calculators/tools" counts if any page says a stale number
+- ⬜ Check about.html / contact.html stats blocks for outdated figures
 
-### Distribution Activation
-- ⬜ Execute newsletter sponsorship ( Indie Hackers or small newsletter)
-- ⬜ Send accelerator outreach emails (8 emails ready in help-requests/)
-- ⬜ Submit Chrome extension to Chrome Web Store (human help needed)
-- ⬜ Submit npm package to npm registry (human help needed)
+## Distribution Activation (human-blocked — prep assets so they're ready)
+- ⬜ Draft a GitHub Marketplace / awesome-list submission blurb (ready to submit once repo metadata is set)
+- ⬜ Refresh accelerator outreach emails to mention the now-credible README + live widget demo
+- ⬜ Prepare npm publish-ready package.json + final README for foundermath-equity
 
-### Site Improvements
-- ⬜ Review and test widget.js across different browsers (Done - code review complete)
-- ⬜ Check all calculator pages for mobile responsiveness after widget changes (Done - review complete)
+## Monitoring (human actions — remind in help requests)
+- ⬜ GA4: equity-report.html paywall clicks, A/B variant performance, any organic traffic at all
+- ⬜ Stripe dashboard: $9.99 payments, FOUNDING50 redemptions
+- ⬜ Search Console: which pages get impressions (decides where to focus)
 
-### Monitoring (Human Actions)
-- ⬜ Monitor GA4 for equity-report.html paywall clicks
-- ⬜ Monitor GA4 for A/B test variant performance (14 days)
-- ⬜ Monitor Stripe dashboard for $9.99 payments
-- ⬜ Check Google Search Console for ranking improvements (FAQ rich results)
+## Conversion Prep (for future premium sessions)
+- ⬜ Screenshot/record the full equity-report paywall flow for review
+- ⬜ List every place the 3 competing offers ($9.99 one-time / $9.50 Pro / free email) appear, for the offer-simplification task
 
-### Distribution Follow-ups
-- ⬜ Draft guest post pitch for startup blogs
-- ⬜ Monitor Chrome Web Store listing after publishing (installs, reviews)
-- ⬜ Monitor npm package downloads after publishing
+## Completed (Day 1-87)
+✅ 25 tools + checklist + widget.js; 105 SEO blog posts; Stripe $9.99 + paywall + A/B testing
+✅ Chrome extension + npm package built; embed CTAs on all tools; partner page; newsletter research
+✅ **Day 87:** README rewrite, fabricated social proof removed, trial banner fixed, GitHub metadata help filed
 
-## Completed Summary (Day 1-86)
-✅ 25 interactive tools + 1 checklist + embeddable widget system (widget.js)
-✅ 98 SEO blog posts with structured data, FAQ schema, E-E-A-T
-✅ Stripe $9.99 one-time payment + email capture paywall
-✅ A/B testing (4 variants), exit-intent popup, equity score, share with cofounder
-✅ Chrome extension + npm package (built, pending publishing)
-✅ Internal links from 30+ blog posts to premium page
-✅ Distribution assets ready (8 accelerator emails, 25+ directories)
-✅ "Embed This Calculator" CTAs on all 24 tool pages
-✅ "Share Your Score" CTA in equity report score card
-✅ Blog #97: "How Much Is My Startup Equity Worth?"
-✅ Blog #98: "How to Read a Stock Option Grant Letter"
-✅ Equity share flow fixes + LinkedIn share template
-✅ Partner page improvements for accelerators
-✅ Newsletter sponsorship research completed (newsletter-sponsorship-research.md)
-
-## Summary: 98 blogs, 25 tools + widget.js, Chrome extension, npm package, $90 budget, 4 weeks left
+## Summary: 105 blogs, 25 tools + widget.js, $90 budget, 4 weeks left, $0 revenue → focus on TRAFFIC/CONVERSION not content.
