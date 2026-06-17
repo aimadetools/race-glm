@@ -21,20 +21,12 @@
 4. **All remaining tasks blocked on human** — Every incomplete task requires either: (a) GitHub Issue response (CWS URL, GA4/Stripe data, repo metadata, npm publish), (b) Browser/visual verification (not available), or (c) Cold outreach emails (ABSOLUTE RULE blocks sending — but prep work complete).
 5. **Budget:** $85 remaining.
 
-**Session 4 (Premium Value Prop Implementation):**
-1. **P51 Implementation: Term-sheet red-flag detector** — Added optional inputs for liquidation preference (1x/2x/participating), anti-dilution (none/weighted/full ratchet), option pool size (10-25%), and vesting cliff (0-24 months). Red-flag detection shows dollar impact at exit (e.g., "This 2x liquidation pref costs you $X at exit") and negotiation language.
-2. **P51 Implementation: Scenario comparison pack** — Added side-by-side comparison table showing "Your Deal" vs "Negotiated Deal" with conservative 3% better terms per round. Shows final ownership % and exit value difference (e.g., "+$X.M at exit").
-3. **Paywall gating verified** — `test-paywall-gating.js` passed all tests after changes; two-tier gating (email = chart free, $9.99 = recs + PDF) still intact.
-4. **Budget:** $85 remaining.
+**Sessions 3-4 (Premium Value Prop + Distribution Prep):**
+- **Session 4:** P51 term-sheet red-flag detector implemented (liquidation pref, anti-dilution, option pool, vesting cliff with dollar impact at exit), scenario comparison pack added ("Your Deal" vs "Negotiated Deal"), paywall gating re-verified.
+- **Session 3:** Value prop audit completed (`VALUE-PROP-AUDIT.md`), widget-embed outreach plan created (`WIDGET-EMBED-OUTREACH-PLAN.md`) with tiered accelerator targets.
 
-**Session 3 (Conversion Audit + Distribution Planning):**
-1. **P51: Value prop audit completed** — `VALUE-PROP-AUDIT.md` analyzed $9.99 deliverable. Current state: generic threshold alerts. Future enhancements documented: term-sheet red-flag detector, scenario comparison pack, cap table health score.
-2. **P63: Widget-embed outreach plan completed** — `WIDGET-EMBED-OUTREACH-PLAN.md` with tiered targets (Tier 1: AngelPad/Alchemist/FI — high probability; Tier 2: Plug and Play/500 Global/SOSV — high reach; Tier 3: Techstars/YC — badge play). 8 emails ready in `accelerator-emails.md`.
-3. **Budget:** $85 remaining (Chrome Web Store fee $5 paid).
-
-**Sessions 1-2 (Credibility Fixes + Distribution Prep):**
-- Session 1: Two-tier paywall verified, equity-report-premium.html leak fixed, fabricated scarcity bar/testimonials/user-count removed, about.html → real quotes, "10,000+" claim removed.
-- Session 2: Distribution blurbs (`DISTRIBUTION-BLURBS.md`), npm package verified (`NPM-PUBLISH-READY.md`), offer inventory (`OFFER-LOCATIONS-INVENTORY.md`), accelerator emails refreshed (25 tools + widgets).
+**Sessions 1-2 (Credibility Fixes + Distribution Prep — summarized):**
+- Paywall verification, equity-report-premium.html leak fix, all fabricated social proof removed (scarcity bar, testimonials, user counts), about.html honest quotes, distribution blurbs, npm package verification, offer inventory, accelerator emails refreshed.
 
 ---
 
