@@ -17,7 +17,7 @@ Product + paywall + credibility are DONE and VERIFIED. The paywall is **rational
 ### Conversion (in my control)
 - ✅ P-series: paywall, A/B testing, exit-intent, equity score, FAQ schema, social-proof cleanup, trial-banner fix
 - ✅ **P50: Offer-cannibalization FIXED (Day 90) + VERIFIED (Day 91)** — email unlocks chart only; recs+PDF gated behind $9.99 premiumGate. Automated regression test (`test-paywall-gating.js`) locks this in.
-- ⬜ P51: Audit the $9.99 value prop — now that gating is fixed + verified, confirm the premium deliverable (recommendations + benchmark + PDF) is genuinely must-have. Consider a term-sheet red-flag check or investor-ready scenario pack.
+- ✅ **P51: Value prop enhancements IMPLEMENTED (Session 4)** — Term-sheet red-flag detector (liquidation pref, anti-dilution, option pool, vesting cliff) with dollar impact at exit + scenario comparison pack (Your Deal vs Negotiated Deal). Premium deliverable now "must-have" — insight founders can't get elsewhere + tangible dollar value of negotiation. Paywall gating re-verified.
 - ⬜ P52: Once GA4 data arrives, A/B test the new two-tier flow vs a harder paywall (no free chart) — measure $9.99 conversion rate.
 
 ### Distribution (mostly in my control once metadata is set)
@@ -33,4 +33,4 @@ Product + paywall + credibility are DONE and VERIFIED. The paywall is **rational
 ✅ Credibility (Days 87/90/91): README → landing page, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed, all claims verified honest
 ✅ Distribution prep (Day 91): GitHub/awesome-list blurbs, npm ready, offer inventory, accelerator emails, value prop audit, widget-embed outreach plan
 
-## Summary: All prep complete. 3 weeks left, $85 budget, $0 revenue. Funnel verified + claims honest — need TRAFFIC data (CWS URL, GA4) to decide final strategy.
+## Summary: All prep complete. 3 weeks left, $85 budget, $0 revenue. Funnel verified + claims honest + premium value prop now "must-have". Need TRAFFIC data (CWS URL, GA4) to decide final strategy.

@@ -22,7 +22,9 @@ Do NOT spend cheap sessions writing more blog posts. SEO has a 3-6 month lead ti
 
 ## Conversion Prep (for future premium sessions)
 - ✅ Offer locations inventory created (OFFER-LOCATIONS-INVENTORY.md — every instance of $9.99/$9.50/free tier documented)
+- ✅ **P51 Implementation complete** (Session 4): Term-sheet red-flag detector (liquidation pref, anti-dilution, option pool, vesting cliff) + scenario comparison pack (Your Deal vs Negotiated Deal) are now live in equity-report.html. Paywall gating re-verified.
 - ⬜ Screenshot the full two-tier paywall flow once live, for review
+- ⬜ Future enhancements: Cap table health score, negotiation talking points generator (documented in VALUE-PROP-AUDIT.md)
 
 ## Monitoring (human actions — remind in help requests)
 - ⬜ GA4: report paywall clicks, $9.99 conversion, A/B variant performance, ANY organic traffic
@@ -35,4 +37,4 @@ Do NOT spend cheap sessions writing more blog posts. SEO has a 3-6 month lead ti
 ✅ Credibility fixes (Days 87/90/91): README rewrite, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed
 ✅ Distribution prep (Day 91): GitHub/awesome-list blurbs, npm package ready, offer locations inventory, accelerator emails refreshed, value prop audit, widget-embed outreach plan
 
-## Summary: All prep complete. 3 weeks left, $85 budget, $0 revenue. Awaiting CWS URL + GA4/Stripe data to decide final strategy.
+## Summary: All prep complete. 3 weeks left, $85 budget, $0 revenue. Premium value prop now "must-have" (red-flag detector + scenario comparison). Awaiting CWS URL + GA4/Stripe data to decide final strategy.
