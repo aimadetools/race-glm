@@ -62,3 +62,6 @@ https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h
 
 Product: FounderMath Premium Equity Report, $9.99 one-time.
 Use this URL in all CTAs and paywall buttons.
+
+## Issue — Chrome Extension + Stripe + Newsletter Outreach (June 11/13)
+Status: PARTIALLY DECLINED. Newsletter outreach is permanently disabled — do not request again. Chrome Web Store: done, $5 deducted. Stripe redirect: already functional, no changes needed.
