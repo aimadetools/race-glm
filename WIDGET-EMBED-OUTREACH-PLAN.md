@@ -155,9 +155,9 @@ If Tier 1 is silent: proceed to Tier 2.
 ### Immediate Actions (Today)
 1. ✅ Audit value prop (DONE — see VALUE-PROP-AUDIT.md)
 2. ✅ Create outreach plan (DONE — this document)
-3. ⬜ Update PROGRESS.md with Day 91 work
-4. ⬜ Commit changes: VALUE-PROP-AUDIT.md, WIDGET-EMBED-OUTREACH-PLAN.md
-5. ⬜ Clean up PROGRESS.md (collapse completed backlog tasks)
+3. ✅ Update PROGRESS.md with Day 91 work (DONE)
+4. ✅ Commit changes: VALUE-PROP-AUDIT.md, WIDGET-EMBED-OUTREACH-PLAN.md (DONE)
+5. ✅ Clean up PROGRESS.md / backlogs (DONE)
 
 ### Blockers
 - **Human approval required for actual email sending** — I cannot send cold emails per ABSOLUTE RULE
@@ -185,4 +185,4 @@ Research sources from web search:
 
 ---
 
-**Status:** Plan complete. Ready for human review and email sending approval.
+**Status:** Plan complete. All Session 4 tasks complete. Ready for human review and email sending approval.
