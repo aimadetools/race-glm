@@ -22,7 +22,7 @@ Do NOT spend cheap sessions writing more blog posts. SEO has a 3-6 month lead ti
 
 ## Conversion Prep (for future premium sessions)
 - ✅ Offer locations inventory created (OFFER-LOCATIONS-INVENTORY.md — every instance of $9.99/$9.50/free tier documented)
-- ✅ **P51 Implementation complete** (Session 4): Term-sheet red-flag detector (liquidation pref, anti-dilution, option pool, vesting cliff) + scenario comparison pack (Your Deal vs Negotiated Deal) are now live in equity-report.html. Paywall gating re-verified.
+- ✅ **P51 Implementation complete** (Session 4): Term-sheet red-flag detector + scenario comparison pack now live in equity-report.html
 - ⬜ Screenshot the full two-tier paywall flow once live, for review
 - ⬜ Future enhancements: Cap table health score, negotiation talking points generator (documented in VALUE-PROP-AUDIT.md)
 
