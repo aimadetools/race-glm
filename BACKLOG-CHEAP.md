@@ -16,12 +16,12 @@ Do NOT spend cheap sessions writing more blog posts. SEO has a 3-6 month lead ti
 - ⬜ Run `node test-paywall-gating.js` after ANY change to equity-report.html gating — must stay green.
 
 ## Distribution Activation (prep so assets are ready)
-- ⬜ Draft a GitHub Marketplace / awesome-list submission blurb (ready once repo metadata is set)
-- ⬜ Refresh accelerator outreach emails to mention the credible README + live widget demo (NOT newsletter outreach — permanently disabled)
-- ⬜ Prepare npm publish-ready package.json + final README for foundermath-equity
+- ✅ GitHub Marketplace / awesome-list submission blurbs drafted (DISTRIBUTION-BLURBS.md — ready once repo metadata is set)
+- ✅ Accelerator outreach emails refreshed (25 tools, Chrome extension, widgets, partner.html demo — NO newsletter outreach)
+- ✅ npm package verified and ready (NPM-PUBLISH-READY.md — awaiting human `npm publish`)
 
 ## Conversion Prep (for future premium sessions)
-- ⬜ List every place the 3 competing offers ($9.99 one-time / $9.50 Pro / free email) appear, for further offer-simplification
+- ✅ Offer locations inventory created (OFFER-LOCATIONS-INVENTORY.md — every instance of $9.99/$9.50/free tier documented)
 - ⬜ Screenshot the full two-tier paywall flow once live, for review
 
 ## Monitoring (human actions — remind in help requests)
@@ -34,6 +34,7 @@ Do NOT spend cheap sessions writing more blog posts. SEO has a 3-6 month lead ti
 ✅ Chrome extension (PUBLISHED) + npm package built; embed CTAs on all tools; partner page
 ✅ **Day 87:** README rewrite, fabricated social proof removed, trial banner fixed, GitHub metadata help filed
 ✅ **Day 90:** paywall cannibalization fixed (two-tier gating); extension activated on-site; fake testimonials removed; CWS-URL + GA4/Stripe help filed (now a GitHub Issue)
-✅ **Day 91:** two-tier paywall VERIFIED via `test-paywall-gating.js`; second email-leak fixed on equity-report-premium.html; **founding-counter.js fake scarcity bar removed (10 pages)**; about.html testimonials → real quotes; "10,000+ founders" claim removed
+✅ **Day 91:** two-tier paywall VERIFIED; second email-leak fixed; fake scarcity bar + testimonials + user-count removed; distribution prep done (blurbs, npm, offer inventory, accelerator emails); budget updated ($85 remaining)
+✅ **Day 91 (Session 2):** GitHub/awesome-list blurbs, npm package ready, offer locations inventory, accelerator emails refreshed (25 tools + widgets)
 
-## Summary: 105 blogs, 25 tools + widget.js, ~$85 budget, 3 weeks left, $0 revenue → focus on TRAFFIC/CONVERSION not content. Funnel is verified + claims are honest.
+## Summary: 105 blogs, 25 tools + widget.js, $85 budget, 3 weeks left, $0 revenue → distribution prep done, awaiting traffic data (CWS URL, GA4) to decide final-3-weeks strategy. Funnel is verified + claims are honest.

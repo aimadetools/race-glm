@@ -2,19 +2,26 @@
 
 Sent from: hello@founder-math.com
 Goal: Get FounderMath shared as a free resource with accelerator cohort companies
-Updated: Day 62 (now 19 tools including Offer Analyzer, Exit Calculator, Equity Score)
+Updated: Day 91 (now 25 tools + Chrome extension + embeddable widgets)
+
+**Key updates since last refresh:**
+- 25 interactive calculators (+6 since Day 62)
+- Chrome extension published (quick dilution math from any tab)
+- Embeddable widgets for accelerator resource pages (partner.html demo)
+- Credible README with real social proof only (no fabricated claims)
+- 105 educational blog posts for founder education
 
 ---
 
 ## 1. Y Combinator
 
-**Subject:** Free equity calculators + offer analyzer for your S25/W25 founders
+**Subject:** Free equity calculators + embeddable widgets for your S25/W25 founders
 
 Hi there,
 
 YC founders sign SAFEs every day -- but most can't model how those SAFEs convert before Demo Day. We built FounderMath to fix that.
 
-It's a free suite of 19 interactive calculators at founder-math.com. The ones your cohort companies would use most:
+It's a free suite of 25 interactive calculators at founder-math.com. The ones your cohort companies would use most:
 
 - **Offer Analyzer** -- scan offer letters for 30+ equity red flags (double-trigger acceleration, exercise windows, 409A disclosure)
 - **Startup Exit Calculator** -- model what equity is actually worth at 6 exit scenarios (0.5x-20x) after liquidation preferences
@@ -25,6 +32,8 @@ It's a free suite of 19 interactive calculators at founder-math.com. The ones yo
 No signup required. Founders just open a calculator and start modeling.
 
 Would you be open to sharing FounderMath with your current cohort?
+
+**Bonus:** We also offer embeddable widgets that accelerators can add to their resource pages with one line of code. See the demo at founder-math.com/partner.html — your founders get interactive calculators without leaving your site.
 
 Best,
 FounderMath team
@@ -52,6 +61,8 @@ We know Techstars mentors spend time on cap table hygiene and fundraising readin
 
 Would you be open to sharing FounderMath with your current cohort?
 
+**Bonus:** We also offer embeddable widgets that accelerators can add to their resource pages with one line of code. See the demo at founder-math.com/partner.html — your founders get interactive calculators without leaving your site.
+
 Best,
 FounderMath team
 hello@founder-math.com
@@ -66,7 +77,7 @@ Hi there,
 
 500 Global's portfolio spans 80+ countries, and one thing every founder shares -- regardless of market -- is the need to understand dilution, SAFE notes, and cap tables before raising.
 
-We built FounderMath, a free suite of 19 interactive calculators at founder-math.com. No signup, no paywall, available globally. The calculators your founders would use most:
+We built FounderMath, a free suite of 25 interactive calculators at founder-math.com. No signup, no paywall, available globally. The calculators your founders would use most:
 
 - **Startup Exit Calculator** -- model what equity is worth at exit after liquidation preferences and dilution
 - **Equity Score** -- quickly evaluate if an equity offer is fair (0-100 scoring)
@@ -77,6 +88,8 @@ We built FounderMath, a free suite of 19 interactive calculators at founder-math
 Since 500 Global works with founders at varied stages and across emerging markets, having a free, self-serve tool for fundraising math could save your program teams repeated explanations.
 
 Would you be open to sharing FounderMath with your current cohort?
+
+**Bonus:** We also offer embeddable widgets that accelerators can add to their resource pages with one line of code. See the demo at founder-math.com/partner.html — your founders get interactive calculators without leaving your site.
 
 Best,
 FounderMath team
@@ -92,7 +105,7 @@ Hi Thomas and team,
 
 AngelPad's focus on a small, founder-centric batch means every company gets deep attention on fundamentals -- including cap table discipline and fundraising readiness.
 
-We built FounderMath to give founders the calculators we wish we had when we started. It's a free suite of 19 interactive tools at founder-math.com, no signup required. The most relevant for AngelPad companies:
+We built FounderMath to give founders the calculators we wish we had when we started. It's a free suite of 25 interactive tools at founder-math.com, no signup required. The most relevant for AngelPad companies:
 
 - **Offer Analyzer** -- scan offer letters for hidden equity red flags before signing
 - **Startup Exit Calculator** -- model realistic exit scenarios after preferences and dilution
@@ -103,6 +116,8 @@ We built FounderMath to give founders the calculators we wish we had when we sta
 AngelPad's rigorous approach to unit economics and founder fundamentals is rare. These tools complement that training by letting founders model scenarios on their own time.
 
 Would you be open to sharing FounderMath with your current cohort?
+
+**Bonus:** We also offer embeddable widgets that accelerators can add to their resource pages with one line of code. See the demo at founder-math.com/partner.html — your founders get interactive calculators without leaving your site.
 
 Best,
 FounderMath team
@@ -118,7 +133,7 @@ Hi there,
 
 Plug and Play works with founders across fintech, mobility, health, and more -- but regardless of vertical, every founder needs to understand their cap table and dilution before raising.
 
-We built FounderMath, a free suite of 19 interactive calculators at founder-math.com. No signup, no cost. The tools your founders would get the most from:
+We built FounderMath, a free suite of 25 interactive calculators at founder-math.com. No signup, no cost. The tools your founders would get the most from:
 
 - **Offer Analyzer** -- scan any offer letter for equity red flags in 30 seconds
 - **Startup Exit Calculator** -- see what your equity is actually worth at different exits
@@ -129,6 +144,8 @@ We built FounderMath, a free suite of 19 interactive calculators at founder-math
 Given Plug and Play's corporate partnership model, having founders who can speak confidently about their unit economics and cap table makes those introductions go further.
 
 Would you be open to sharing FounderMath with your current cohort?
+
+**Bonus:** We also offer embeddable widgets that accelerators can add to their resource pages with one line of code. See the demo at founder-math.com/partner.html — your founders get interactive calculators without leaving your site.
 
 Best,
 FounderMath team
@@ -144,7 +161,7 @@ Hi there,
 
 SOSV's programs span hardware, biotech, Web3, and more -- but every founder faces the same questions: What's my equity worth? What happens at exit? Is this offer fair?
 
-We built FounderMath, a free suite of 19 interactive calculators at founder-math.com. The most relevant for SOSV founders:
+We built FounderMath, a free suite of 25 interactive calculators at founder-math.com. The most relevant for SOSV founders:
 
 - **Offer Analyzer** -- scan offer letters for 30+ equity red flags before signing
 - **Startup Exit Calculator** -- model 6 exit scenarios with liquidation preferences
@@ -155,6 +172,8 @@ We built FounderMath, a free suite of 19 interactive calculators at founder-math
 No signup, no paywall. Just open a calculator and start modeling.
 
 Would you be open to sharing FounderMath with your current cohort?
+
+**Bonus:** We also offer embeddable widgets that accelerators can add to their resource pages with one line of code. See the demo at founder-math.com/partner.html — your founders get interactive calculators without leaving your site.
 
 Best,
 FounderMath team
@@ -170,7 +189,7 @@ Hi there,
 
 Founder Institute's structured program takes founders from idea to incorporation -- and equity structure is fundamental from day one.
 
-We built FounderMath, a free suite of 19 interactive calculators at founder-math.com. The ones most relevant for FI founders:
+We built FounderMath, a free suite of 25 interactive calculators at founder-math.com. The ones most relevant for FI founders:
 
 - **Co-Founder Equity Split Calculator** -- a data-driven framework for having the equity split conversation
 - **Offer Analyzer** -- scan any offer letter for equity red flags (especially useful for FI graduates hiring)
@@ -181,6 +200,8 @@ We built FounderMath, a free suite of 19 interactive calculators at founder-math
 Since FI emphasizes founder education and proper incorporation, these tools give founders a hands-on way to understand the math before they sign documents.
 
 Would you be open to sharing FounderMath with your current cohort?
+
+**Bonus:** We also offer embeddable widgets that accelerators can add to their resource pages with one line of code. See the demo at founder-math.com/partner.html — your founders get interactive calculators without leaving your site.
 
 Best,
 FounderMath team
@@ -196,7 +217,7 @@ Hi there,
 
 Alchemist focuses on enterprise and deep-tech startups -- where offer structures, liquidation preferences, and exit scenarios get complex quickly.
 
-We built FounderMath, a free suite of 19 interactive calculators at founder-math.com. The ones your founders would use most:
+We built FounderMath, a free suite of 25 interactive calculators at founder-math.com. The ones your founders would use most:
 
 - **Offer Analyzer** -- scan enterprise offer letters for 30+ equity red flags
 - **Startup Exit Calculator** -- model exit scenarios with participating preferred and liquidation preferences
@@ -207,6 +228,8 @@ We built FounderMath, a free suite of 19 interactive calculators at founder-math
 Alchemist's enterprise focus means founders face complex term sheets. These tools help them understand the math before signing.
 
 Would you be open to sharing FounderMath with your current cohort?
+
+**Bonus:** We also offer embeddable widgets that accelerators can add to their resource pages with one line of code. See the demo at founder-math.com/partner.html — your founders get interactive calculators without leaving your site.
 
 Best,
 FounderMath team
@@ -220,5 +243,6 @@ hello@founder-math.com
 - Personalized references per accelerator: YC SAFEs, Techstars "founders first," 500 Global's global reach, AngelPad's small-batch rigor, Plug and Play's corporate partnerships, SOSV's multi-program approach, FI's incorporation focus, Alchemist's enterprise focus
 - All emails use the same CTA: "Would you be open to sharing FounderMath with your current cohort?"
 - Sender: hello@founder-math.com
-- **Updated tool count: 19 tools** (was 11 when originally drafted)
-- **New tools highlighted:** Offer Analyzer, Startup Exit Calculator, Equity Score
+- **Updated tool count: 25 tools** (was 11 originally, 19 at Day 62)
+- **New since Day 62:** Chrome extension (published), embeddable widgets (partner.html), credible README with real social proof
+- **Important:** NO newsletter outreach — permanently disabled per HELP-RESPONSES.md. Focus on resource sharing and widget embeds only.
