@@ -49,7 +49,7 @@ Hi there,
 
 Techstars' "founders first" philosophy is exactly why we built FounderMath -- because founders shouldn't need a finance degree to understand their own equity.
 
-FounderMath is a free suite of 19 interactive calculators at founder-math.com. No signup, no paywall. The ones your founders would find most useful:
+FounderMath is a free suite of 25 interactive calculators at founder-math.com. No signup, no paywall. The ones your founders would find most useful:
 
 - **Offer Analyzer** -- paste any offer letter, get instant red flag analysis
 - **Equity Score** -- score any equity offer (0-100) in 60 seconds
