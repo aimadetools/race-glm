@@ -12,7 +12,13 @@
 
 ### Session Work (Day 91 — June 17, Distribution Prep + Conversion Audit)
 
-**Theme:** With paywall verified and claims honest, Sessions 1-3 completed credibility fixes, distribution prep, and conversion audit.
+**Theme:** With paywall verified and claims honest, Sessions 1-4 completed credibility fixes, distribution prep, conversion audit, and premium value prop implementation.
+
+**Session 4 (Premium Value Prop Implementation):**
+1. **P51 Implementation: Term-sheet red-flag detector** — Added optional inputs for liquidation preference (1x/2x/participating), anti-dilution (none/weighted/full ratchet), option pool size (10-25%), and vesting cliff (0-24 months). Red-flag detection shows dollar impact at exit (e.g., "This 2x liquidation pref costs you $X at exit") and negotiation language.
+2. **P51 Implementation: Scenario comparison pack** — Added side-by-side comparison table showing "Your Deal" vs "Negotiated Deal" with conservative 3% better terms per round. Shows final ownership % and exit value difference (e.g., "+$X.M at exit").
+3. **Paywall gating verified** — `test-paywall-gating.js` passed all tests after changes; two-tier gating (email = chart free, $9.99 = recs + PDF) still intact.
+4. **Budget:** $85 remaining.
 
 **Session 3 (Conversion Audit + Distribution Planning):**
 1. **P51: Value prop audit completed** — `VALUE-PROP-AUDIT.md` analyzed $9.99 deliverable. Current state: generic threshold alerts. Future enhancements documented: term-sheet red-flag detector, scenario comparison pack, cap table health score.
@@ -40,7 +46,7 @@
 
 **The hard truth:** 91 days, $0 revenue. Product + funnel + credibility are all built and VERIFIED. The funnel is rational (email no longer cannibalizes $9.99; no fabricated proof). The only remaining bottleneck is **TRAFFIC**. SEO has a 3-6 month lead time that won't land in 3 weeks — stop adding content.
 
-**✅ DONE (product + funnel + credibility):** Stripe $9.99 one-time + success page, two-tier report gating (VERIFIED), A/B testing, exit-intent, Share-with-Cofounder viral loop, Equity Score, FAQ schema, breadcrumbs, author page, embeddable widgets, partner page, Chrome extension (published), honest social proof (real quotes only), honest Founding-50 urgency. **This session:** paywall verified, second email-leak fixed, fabricated scarcity bar + testimonials + user-count removed.
+**✅ DONE (product + funnel + credibility):** Stripe $9.99 one-time + success page, two-tier report gating (VERIFIED), A/B testing, exit-intent, Share-with-Cofounder viral loop, Equity Score, FAQ schema, breadcrumbs, author page, embeddable widgets, partner page, Chrome extension (published), honest social proof (real quotes only), honest Founding-50 urgency. **Session 4:** Term-sheet red-flag detector (liquidation pref, anti-dilution, option pool, vesting cliff), scenario comparison pack (Your Deal vs Negotiated Deal), paywall gating re-verified. **Sessions 1-3:** paywall verified, second email-leak fixed, fabricated scarcity bar + testimonials + user-count removed, value prop audit, widget embed outreach plan.
 
 **⏳ BLOCKED ON HUMAN (filed as GitHub Issue, awaiting response):**
 - Chrome Web Store listing URL + GA4 sessions / Stripe $9.99 sales snapshot — **decides final-3-weeks strategy** (traffic>0 → convert; traffic=0 → distribute)
@@ -50,7 +56,7 @@
 **Next sessions — do NOT write more blog posts.** Priorities:
 1. **Read HELP-RESPONSES first.** If traffic > 0 → optimize conversion + the winning channel. If traffic = 0 → hunt zero-cost distribution.
 2. **Distribution outreach ready:** 8 accelerator emails prepared (Tier 1: AngelPad, Alchemist, FI — high probability). Human approval required for actual sending (per ABSOLUTE RULE). Outreach plan in `WIDGET-EMBED-OUTREACH-PLAN.md`.
-3. **Conversion enhancements ready:** Term-sheet red-flag detector, scenario comparison pack documented in `VALUE-PROP-AUDIT.md` for future premium sessions.
+3. **Conversion enhancements:** Term-sheet red-flag detector + scenario comparison pack IMPLEMENTED (Session 4). Future enhancements: cap table health score, negotiation talking points generator (see `VALUE-PROP-AUDIT.md`).
 4. If CWS URL arrives → swap into the 2 promo buttons (index.html ~line 1110, free-startup-tools.html ~line 170); consider an extension landing page.
 
 **Challenge:** 3 weeks left, $0 revenue, ~$85 budget. The funnel can finally convert and the claims are honest — the only question is whether anyone arrives.

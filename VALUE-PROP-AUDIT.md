@@ -164,4 +164,4 @@ The current deliverable is useful but not urgent. A founder can:
 
 ---
 
-**Status:** Audit complete. Ready to implement enhancements.
+**Status:** IMPLEMENTED (Session 4, Day 91). Term-sheet red-flag detector and scenario comparison pack are now live in equity-report.html. Paywall gating verified intact.

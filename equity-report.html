@@ -383,6 +383,66 @@
         .rec-text h4 { font-size: 0.9rem; margin-bottom: 2px; }
         .rec-text p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
 
+        /* Scenario Comparison Pack */
+        .scenario-comparison {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px; margin-bottom: 32px;
+        }
+        .scenario-comparison h3 {
+            font-size: 1rem; color: var(--accent-light); margin-bottom: 16px;
+        }
+        .scenario-table {
+            background: var(--bg-card); border-radius: 10px; overflow: hidden;
+            margin-bottom: 16px;
+        }
+        .scenario-row {
+            display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 1px;
+            background: var(--border);
+        }
+        .scenario-row.scenario-header {
+            background: var(--bg-card); font-weight: 700; font-size: 0.8rem;
+            color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .scenario-row.scenario-header .scenario-col {
+            padding: 12px 16px; background: var(--bg-card);
+        }
+        .scenario-col {
+            padding: 14px 16px; background: var(--bg-card);
+            font-size: 0.9rem; display: flex; align-items: center;
+        }
+        .scenario-col:first-child {
+            color: var(--text-secondary); font-weight: 600;
+        }
+        .scenario-col.scenario-better {
+            color: var(--green); font-weight: 700;
+        }
+        .scenario-col.scenario-worse {
+            color: var(--text-secondary);
+        }
+        .scenario-row.scenario-highlight .scenario-col {
+            background: linear-gradient(135deg, rgba(0,184,148,0.08), rgba(0,206,201,0.04));
+            font-weight: 700;
+        }
+        .scenario-row.scenario-highlight .scenario-col:first-child {
+            color: var(--green);
+        }
+        .scenario-note {
+            font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;
+            text-align: center; margin: 12px 0 0;
+        }
+        @media (max-width: 600px) {
+            .scenario-row {
+                grid-template-columns: 1fr 1fr;
+            }
+            .scenario-row.scenario-header,
+            .scenario-row:not(.scenario-header) {
+                grid-template-columns: 1fr 1fr;
+            }
+            .scenario-col {
+                padding: 10px 12px; font-size: 0.8rem;
+            }
+        }
+
         /* Email Gate */
         .email-gate {
             background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.1));
@@ -716,6 +776,53 @@
                     </select>
                 </div>
             </div>
+
+            <!-- Advanced: Term Sheet Red-Flag Detector (optional) -->
+            <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border-color);">
+                <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:12px;">
+                    <strong style="color:var(--accent-light);">Advanced:</strong> Add term sheet details for red-flag detection ($9.99 premium feature)
+                </p>
+                <div class="form-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;">
+                    <div class="form-group">
+                        <label for="liquidationPref" style="font-size:0.8rem;">Liquidation Pref</label>
+                        <select id="liquidationPref">
+                            <option value="" selected>Not specified</option>
+                            <option value="1x">1x (standard)</option>
+                            <option value="2x">2x (aggressive)</option>
+                            <option value="participating">Participating (red flag)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="antiDilution" style="font-size:0.8rem;">Anti-Dilution</label>
+                        <select id="antiDilution">
+                            <option value="" selected>None</option>
+                            <option value="weighted">Weighted avg (standard)</option>
+                            <option value="fullratchet">Full ratchet (aggressive)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="optionPoolSize" style="font-size:0.8rem;">Option Pool Size</label>
+                        <select id="optionPoolSize">
+                            <option value="" selected>Not specified</option>
+                            <option value="10">10%</option>
+                            <option value="15">15%</option>
+                            <option value="20" selected>20% (common)</option>
+                            <option value="25">25%</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="vestingCliff" style="font-size:0.8rem;">Vesting Cliff</label>
+                        <select id="vestingCliff">
+                            <option value="" selected>Not specified</option>
+                            <option value="0">0 months</option>
+                            <option value="6">6 months</option>
+                            <option value="12" selected>12 months (standard)</option>
+                            <option value="24">24 months (aggressive)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
             <button class="generate-btn" onclick="generateReport()" id="generateBtn">Generate My Free Preview</button>
             <p class="form-note">Free basic summary. Dilution chart unlocked with your email — recommendations + PDF are $9.99.</p>
         </div>
@@ -1028,6 +1135,9 @@
                             <h3>Personalized Recommendations</h3>
                         </div>
 
+                        <!-- Scenario Comparison Pack -->
+                        <div class="scenario-comparison" id="scenarioComparison"></div>
+
                         <!-- PDF Download Area -->
                         <div id="pdfDownloadArea" style="display:none;text-align:center;margin-bottom:32px;">
                             <div style="background:linear-gradient(135deg,rgba(0,184,148,0.15),rgba(0,206,201,0.1));border:1px solid var(--green);border-radius:12px;padding:24px;">
@@ -1227,6 +1337,12 @@
         var valuationM = parseFloat(document.getElementById('valuation').value);
         var exitGoalM = parseFloat(document.getElementById('exitGoal').value);
 
+        // Term sheet red-flag inputs (optional)
+        var liquidationPref = document.getElementById('liquidationPref').value;
+        var antiDilution = document.getElementById('antiDilution').value;
+        var optionPoolSize = document.getElementById('optionPoolSize').value;
+        var vestingCliff = document.getElementById('vestingCliff').value;
+
         if (equity < 1 || equity > 100) {
             alert('Please enter an equity percentage between 1 and 100.');
             return;
@@ -1268,7 +1384,14 @@
             exitGoalM: exitGoalM,
             valuationM: valuationM,
             stage: stage,
-            cofounders: cofounders
+            cofounders: cofounders,
+            // Term sheet data for red-flag detection
+            termSheet: {
+                liquidationPref: liquidationPref,
+                antiDilution: antiDilution,
+                optionPoolSize: optionPoolSize,
+                vestingCliff: vestingCliff
+            }
         };
 
         renderReport();
@@ -1591,6 +1714,83 @@
             });
         }
 
+        // Term sheet red-flag detection (if data provided)
+        if (d.termSheet) {
+            var ts = d.termSheet;
+            var redFlagsFound = false;
+
+            // Liquidation preference red flags
+            if (ts.liquidationPref === '2x') {
+                var impact2x = (d.exitValue * 0.5).toFixed(1);
+                recs.push({
+                    type: 'danger',
+                    title: 'RED FLAG: 2x Liquidation Preference',
+                    text: 'At a $' + d.exitGoalM + 'M exit, this costs you $' + impact2x + 'M. Investors get 2x their money back before you see anything. Standard is 1x. Negotiate down to 1x or accept a slightly higher valuation instead.'
+                });
+                redFlagsFound = true;
+            } else if (ts.liquidationPref === 'participating') {
+                var impactPart = (d.exitValue * 0.3).toFixed(1);
+                recs.push({
+                    type: 'danger',
+                    title: 'RED FLAG: Participating Preferred',
+                    text: 'At a $' + d.exitGoalM + 'M exit, this costs you $' + impactPart + 'M. Investors get their money back AND then share in the remaining proceeds with you — double-dipping. Highly aggressive. Refuse this term.'
+                });
+                redFlagsFound = true;
+            }
+
+            // Anti-dilution red flags
+            if (ts.antiDilution === 'fullratchet') {
+                recs.push({
+                    type: 'danger',
+                    title: 'RED FLAG: Full Ratchet Anti-Dilution',
+                    text: 'If you later raise at a lower valuation, this investor\'s ownership is reset as if they invested at the lower price — extremely punitive for down rounds. Standard is "weighted average" or none. Push back hard.'
+                });
+                redFlagsFound = true;
+            }
+
+            // Option pool size warning
+            if (ts.optionPoolSize === '25') {
+                var poolImpact = ((d.startingEquity * 0.15)).toFixed(1);
+                recs.push({
+                    type: 'warning',
+                    title: 'Large Option Pool: 25%',
+                    text: 'A 25% option pool will dilute you by an additional ' + poolImpact + '% on top of investor dilution. Try to negotiate 10-15% instead, or have the pool created AFTER this round (not before).'
+                });
+                redFlagsFound = true;
+            } else if (ts.optionPoolSize === '10') {
+                recs.push({
+                    type: 'tip',
+                    title: 'Conservative Option Pool: 10%',
+                    text: 'A 10% option pool is founder-friendly. This will preserve your ownership compared to the standard 20% pool many investors push for.'
+                });
+            }
+
+            // Vesting cliff warning
+            if (ts.vestingCliff === '24') {
+                recs.push({
+                    type: 'warning',
+                    title: 'Aggressive Vesting Cliff: 24 months',
+                    text: 'A 24-month cliff means if you leave before 2 years, you get ZERO equity. Standard is 12 months. If things go wrong early, you walk away with nothing. Negotiate to 12 months.'
+                });
+                redFlagsFound = true;
+            } else if (ts.vestingCliff === '0') {
+                recs.push({
+                    type: 'warning',
+                    title: 'No Vesting Cliff: 0 months',
+                    text: 'No cliff protects the company poorly if a founder leaves early. Consider 6-12 months to align incentives.'
+                });
+            }
+
+            // If any red flags found, add a summary
+            if (redFlagsFound) {
+                recs.unshift({
+                    type: 'danger',
+                    title: 'Term Sheet Red Flags Detected',
+                    text: 'Based on your inputs, ' + (ts.liquidationPref === '2x' || ts.liquidationPref === 'participating' || ts.antiDilution === 'fullratchet' ? 'one or more terms could significantly impact your exit value. Review each flag carefully and negotiate before signing.' : 'some terms are outside standard ranges. Use the talking points below to negotiate better terms.')
+                });
+            }
+        }
+
         var container = document.getElementById('recommendations');
         container.innerHTML = '<h3>Personalized Recommendations</h3>';
         recs.forEach(function(rec) {
@@ -1605,6 +1805,69 @@
                     '</div>' +
                 '</div>';
         });
+
+        // Add scenario comparison pack (premium feature)
+        renderScenarioComparison(d);
+    }
+
+    function renderScenarioComparison(d) {
+        var container = document.getElementById('scenarioComparison');
+        if (!container) return;
+
+        // Generate 2 scenarios: "Your Deal" vs "Negotiated Deal"
+        var yourDeal = d;
+
+        // Negotiated Deal: Better terms (lower dilution, better valuation)
+        var negotiatedRounds = (d.stage === 'pre-seed' ? STAGE_ROUNDS['pre-seed'] : STAGE_ROUNDS[d.stage] || STAGE_ROUNDS['seed']).slice(0, d.steps.length - 1);
+        var negOwnership = d.startingEquity;
+        var negDilution = 0;
+        negotiatedRounds.forEach(function(r) {
+            // 3% better per round (negotiated terms)
+            var betterPct = r.pct - 3;
+            var afterPool = negOwnership * (1 - (betterPct + r.pool) / 100);
+            negDilution += negOwnership - afterPool;
+            negOwnership = afterPool;
+        });
+        var negExitValue = (negOwnership / 100) * d.exitGoalM;
+        var savings = (negExitValue - d.exitValue).toFixed(1);
+
+        container.innerHTML = '<h3>Scenario Comparison: Your Deal vs Negotiated Deal</h3>';
+
+        // Comparison table
+        container.innerHTML +=
+            '<div class="scenario-table">' +
+                '<div class="scenario-row scenario-header">' +
+                    '<div class="scenario-col">Metric</div>' +
+                    '<div class="scenario-col">Your Deal</div>' +
+                    '<div class="scenario-col scenario-negotiated">Negotiated Deal</div>' +
+                    '<div class="scenario-col">Difference</div>' +
+                '</div>' +
+                '<div class="scenario-row">' +
+                    '<div class="scenario-col">Starting Equity</div>' +
+                    '<div class="scenario-col">' + d.startingEquity + '%</div>' +
+                    '<div class="scenario-col">' + d.startingEquity + '%</div>' +
+                    '<div class="scenario-col">—</div>' +
+                '</div>' +
+                '<div class="scenario-row">' +
+                    '<div class="scenario-col">Total Dilution</div>' +
+                    '<div class="scenario-col scenario-worse">' + d.totalDilution.toFixed(1) + '%</div>' +
+                    '<div class="scenario-col scenario-better">' + negDilution.toFixed(1) + '%</div>' +
+                    '<div class="scenario-col scenario-better">-' + (d.totalDilution - negDilution).toFixed(1) + '%</div>' +
+                '</div>' +
+                '<div class="scenario-row">' +
+                    '<div class="scenario-col">Final Ownership</div>' +
+                    '<div class="scenario-col scenario-worse">' + d.finalOwnership.toFixed(1) + '%</div>' +
+                    '<div class="scenario-col scenario-better">' + negOwnership.toFixed(1) + '%</div>' +
+                    '<div class="scenario-col scenario-better">+' + (negOwnership - d.finalOwnership).toFixed(1) + '%</div>' +
+                '</div>' +
+                '<div class="scenario-row scenario-highlight">' +
+                    '<div class="scenario-col">Exit Value</div>' +
+                    '<div class="scenario-col scenario-worse">$' + d.exitValue.toFixed(1) + 'M</div>' +
+                    '<div class="scenario-col scenario-better">$' + negExitValue.toFixed(1) + 'M</div>' +
+                    '<div class="scenario-col scenario-better">+$' + savings + 'M</div>' +
+                '</div>' +
+            '</div>' +
+            '<p class="scenario-note">"Negotiated Deal" assumes you negotiate 3% better terms per funding round (e.g., 18% vs 21% investor share). This conservative estimate shows the dollar value of negotiation.</p>';
     }
 
     function handleEmail(e) {
