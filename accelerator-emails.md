@@ -101,7 +101,7 @@ hello@founder-math.com
 
 **Subject:** Free cap table tools + offer scanner for AngelPad's next batch
 
-Hi Thomas and team,
+Hi Thomas and Carine,
 
 AngelPad's focus on a small, founder-centric batch means every company gets deep attention on fundamentals -- including cap table discipline and fundraising readiness.
 

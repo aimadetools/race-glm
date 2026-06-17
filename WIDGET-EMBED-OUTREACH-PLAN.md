@@ -31,17 +31,17 @@
 ### Tier 1: High Probability, Medium Reach
 *Smaller accelerators with responsive teams, less likely to have internal tools*
 
-1. **AngelPad** (angelpad.co)
+1. **AngelPad** (angelpad.com)
    - Small batch (15-20 companies), founder-centric
    - Focus on cap table discipline and fundamentals
-   - Thomas Niles (founder) is accessible
+   - Thomas Korte & Carine Magescas (founders) review every application personally
    - Email: prepared in accelerator-emails.md #4
    - **Probability:** Medium | **Reach:** ~15 companies/batch | **Action:** Send first
 
 2. **Alchemist Accelerator** (alchemistaccelerator.com)
    - Deep-tech focus, complex term sheets
    - Enterprise startups need offer analysis tools
-   - Rick Otero (managing director) is responsive
+   - Contact: admissions@alchemistaccelerator.com
    - Email: prepared in accelerator-emails.md #8
    - **Probability:** Medium | **Reach:** ~30 companies/batch | **Action:** Send second
 
@@ -69,7 +69,7 @@
    - Email: prepared in accelerator-emails.md #3
    - **Probability:** Low | **Reach:** 200+ companies/year | **Action:** Send after Tier 1
 
-6. **SOSV** (sosv.vc)
+6. **SOSV** (sosv.com)
    - Multi-program (HAX, IndieBio, Orbit)
    - Hardware, biotech, Web3 founders
    - Global reach (US, Asia, Europe)
@@ -102,8 +102,8 @@
 
 | Day | Target | Contact | Action |
 |-----|--------|---------|--------|
-| 91 | AngelPad | Thomas Niles (thomas@angelpad.co) | Send email #4 |
-| 92 | Alchemist | Rick Otero (rick@alchemistaccelerator.com) | Send email #8 |
+| 91 | AngelPad | Thomas Korte & Carine Magescas (angelpad@angelpad.org) | Send email #4 |
+| 92 | Alchemist | admissions@alchemistaccelerator.com | Send email #8 |
 | 93 | Founder Institute | Adeo Ressi / team (info@fi.co) | Send email #7 |
 
 **Follow-up:** If no response in 5 days, send follow-up:
@@ -119,7 +119,7 @@ If Tier 1 is silent: proceed to Tier 2.
 |-----|--------|---------|--------|
 | 98 | Plug and Play | programs@plugandplaytechcenter.com | Send email #5 |
 | 99 | 500 Global | info@500.co | Send email #3 |
-| 100 | SOSV | info@sosv.vc | Send email #6 |
+| 100 | SOSV | info@sosv.com | Send email #6 |
 
 ### Week 3 (Day 105-111): Tier 3 + Badge Play
 **Goal:** Long-term relationship building
