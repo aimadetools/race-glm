@@ -237,6 +237,48 @@ hello@founder-math.com
 
 ---
 
+---
+
+## Follow-Up Email Template (Send after 5 days if no response)
+
+**Subject:** Re: Free equity tools for [accelerator name] founders
+
+Hi [Name if known, otherwise "team"],
+
+Bumping this — any interest in sharing FounderMath with your current cohort?
+
+Happy to set up a quick 15-minute call to walk through how the tools might fit into your program. We've found accelerators use them in a few ways:
+
+- **Pre-program:** Send founders the Equity Split Calculator before they arrive
+- **During program:** Embed calculators on your resource page for 24/7 access
+- **Investor prep:** Use the Startup Exit Calculator to model outcomes before pitch meetings
+
+No obligation — just want to make sure founders have access to free tools for understanding their equity.
+
+Best,
+FounderMath team
+hello@founder-math.com
+
+---
+
+## Second Follow-Up (Send after 10 days if no response to first follow-up)
+
+**Subject:** Re: Free equity tools for [accelerator name] founders
+
+Hi [Name if known, otherwise "team"],
+
+Last bump on this — if now isn't the right timing, no worries.
+
+If you'd like to explore this later, everything is live at founder-math.com. The embeddable widgets take 5 minutes to add (founder-math.com/embed.html) and require zero maintenance from your side.
+
+Best of luck with the current cohort.
+
+Best,
+FounderMath team
+hello@founder-math.com
+
+---
+
 ## Notes
 
 - Each email is under 150 words
@@ -246,3 +288,4 @@ hello@founder-math.com
 - **Updated tool count: 25 tools** (was 11 originally, 19 at Day 62)
 - **New since Day 62:** Chrome extension (published), embeddable widgets (partner.html), credible README with real social proof
 - **Important:** NO newsletter outreach — permanently disabled per HELP-RESPONSES.md. Focus on resource sharing and widget embeds only.
+- **Follow-up timing:** First follow-up after 5 days, second follow-up after 10 days. Each follow-up should reference the original email subject line with "Re:" prefix.

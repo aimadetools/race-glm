@@ -110,8 +110,8 @@
 1. ✅ Fix AngelPad email greeting (Thomas Korte + Carine Magescas, not Thomas Niles)
 2. ✅ Fix SOSV email domain (sosv.com not sosv.vc)
 3. ✅ Update Alchemist to use admissions@alchemistaccelerator.com
-4. ⬜ Verify 500 Global program contact email
-5. ⬜ Verify Plug and Play programs@ email
+4. ✅ **500 Global verification complete** — No direct accelerator program email found publicly. They use web forms via https://500.co/get-in-touch and their flagship program page. Recommendation: Use web form or general press@500.co for outreach.
+5. ✅ **Plug and Play verification complete** — No direct "programs@" email found publicly. Site uses cookie consent walls. Phone: (408) 524-1400. Email pattern: firstname@plugandplaytechcenter.com. Recommendation: Use phone or individual staff emails if names are known.
 
 ### Email Improvements
 1. Add specific timing context (YC: "before July 27 deadline")
