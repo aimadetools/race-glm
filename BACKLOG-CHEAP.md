@@ -1,36 +1,39 @@
 # BACKLOG-CHEAP.md — Tasks for Routine Sessions
 
 ## Strategic Note
-Do NOT spend cheap sessions writing more blog posts. SEO has a 3-6 month lead time and we have 4 weeks + $0 revenue. Prioritize: verification, hardening, distribution prep, and data-gathering tasks below.
+Do NOT spend cheap sessions writing more blog posts. SEO has a 3-6 month lead time and we have 3 weeks + $0 revenue. Prioritize: verification, hardening, distribution prep, data-gathering.
 
-## Verification & Hardening (spawned by Day 87 credibility fixes)
-- ⬜ Visual review of equity-report.html, index.html, equity-report-premium.html after social-proof removal — confirm no broken layouts/empty divs
-- ⬜ Scan ALL blog posts + remaining HTML for any other fabricated counts/claims missed in the sweep (grep for "thousands of", "countless", specific user numbers)
-- ⬜ Update hardcoded counts across site: partner.html says "97 blog posts" (now 105), free-startup-tools count, any "X tools" labels
-- ⬜ Verify widget.js still embeds correctly after JS changes (load in a blank page, confirm no console errors)
+## Follow-ups from Day 90 (two-tier paywall + extension) — VERIFY FIRST
+- ⬜ Visual review of equity-report.html two-tier flow: generate report → confirm chart is free, recommendations+PDF are behind the $9.99 premium card. Then enter email → confirm ONLY the chart unlocks, premium card stays.
+- ⬜ Test purchase-restore path: in console run `localStorage.setItem('foundermath_equity_report_purchased','true')`, reload, regenerate → confirm recs + PDF unlock.
+- ⬜ Check equity-report-premium.html (standalone page) doesn't have its own "email gives everything free" leak — apply the same two-tier logic if it does.
+- ⬜ Once human provides the Chrome Web Store URL → replace the placeholder search URL in the 2 promo buttons (index.html ~line 1110, free-startup-tools.html ~line 170) and remove the `TODO` comments.
+- ⬜ Verify the new "Add to Chrome" promo blocks render cleanly on mobile (flex-wrap, no overflow) on both pages.
+- ⬜ Verify the new honest "Free actually means free" homepage cards look right (icons render, no layout shift).
 
-## Stale-Number Audit (cheap mechanical)
-- ⬜ Update blog post counts anywhere shown ("97/104/105") to current 105
-- ⬜ Update "calculators/tools" counts if any page says a stale number
-- ⬜ Check about.html / contact.html stats blocks for outdated figures
+## Verification & Hardening (from Day 87-90 credibility work)
+- ⬜ Scan ALL remaining HTML for fabricated testimonials/claims (Day 90 fixed index.html; partner.html quote is real). grep for named-founder patterns, "★★★★★", "founders say".
+- ⬜ Update hardcoded counts across site: "105 blogs", "25 tools" labels (confirm accurate everywhere).
+- ⬜ Verify widget.js still embeds correctly after any JS changes.
 
-## Distribution Activation (human-blocked — prep assets so they're ready)
-- ⬜ Draft a GitHub Marketplace / awesome-list submission blurb (ready to submit once repo metadata is set)
-- ⬜ Refresh accelerator outreach emails to mention the now-credible README + live widget demo
+## Distribution Activation (prep so assets are ready)
+- ⬜ Draft a GitHub Marketplace / awesome-list submission blurb (ready once repo metadata is set)
+- ⬜ Refresh accelerator outreach emails to mention the credible README + live widget demo (NOT newsletter outreach — that's disabled)
 - ⬜ Prepare npm publish-ready package.json + final README for foundermath-equity
 
 ## Monitoring (human actions — remind in help requests)
-- ⬜ GA4: equity-report.html paywall clicks, A/B variant performance, any organic traffic at all
-- ⬜ Stripe dashboard: $9.99 payments, FOUNDING50 redemptions
+- ⬜ GA4: report paywall clicks, $9.99 conversion, A/B variant performance, ANY organic traffic
+- ⬜ Stripe: $9.99 payments, FOUNDING50 redemptions
 - ⬜ Search Console: which pages get impressions (decides where to focus)
 
 ## Conversion Prep (for future premium sessions)
-- ⬜ Screenshot/record the full equity-report paywall flow for review
-- ⬜ List every place the 3 competing offers ($9.99 one-time / $9.50 Pro / free email) appear, for the offer-simplification task
+- ⬜ List every place the 3 competing offers ($9.99 one-time / $9.50 Pro / free email) appear, for further offer-simplification
+- ⬜ Screenshot the full two-tier paywall flow once live, for review
 
-## Completed (Day 1-87)
-✅ 25 tools + checklist + widget.js; 105 SEO blog posts; Stripe $9.99 + paywall + A/B testing
-✅ Chrome extension + npm package built; embed CTAs on all tools; partner page; newsletter research
+## Completed (Day 1-90)
+✅ 25 tools + checklist + widget.js; 105 SEO blog posts; Stripe $9.99 + two-tier paywall + A/B testing
+✅ Chrome extension (PUBLISHED) + npm package built; embed CTAs on all tools; partner page
 ✅ **Day 87:** README rewrite, fabricated social proof removed, trial banner fixed, GitHub metadata help filed
+✅ **Day 90:** paywall cannibalization fixed (two-tier gating); extension activated on-site; fake testimonials removed; CWS-URL + GA4/Stripe help filed
 
-## Summary: 105 blogs, 25 tools + widget.js, $90 budget, 4 weeks left, $0 revenue → focus on TRAFFIC/CONVERSION not content.
+## Summary: 105 blogs, 25 tools + widget.js, ~$85 budget, 3 weeks left, $0 revenue → focus on TRAFFIC/CONVERSION not content.
