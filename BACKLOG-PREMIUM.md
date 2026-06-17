@@ -21,13 +21,14 @@ Product + paywall + credibility are DONE and VERIFIED. The paywall is **rational
 - ⬜ P62: Build an extension landing page (/extension.html) once the CWS URL arrives — better conversion than inline promos
 - ⬜ P63: Find 1 widget-embed partner (accelerator/incubator resource page) — highest-leverage free distribution
 
-## Completed (Day 1-91)
+## Completed (Day 1-91, Session 6)
 ✅ **P-series:** paywall, A/B testing, exit-intent, equity score, FAQ schema, social-proof cleanup, trial-banner fix
-✅ **P50:** Offer-cannibalization FIXED (Day 90) + VERIFIED (Day 91) — email unlocks chart only; recs+PDF gated behind $9.99
+✅ **P50:** Offer-cannibalization FIXED + VERIFIED — email unlocks chart only; recs+PDF gated behind $9.99
 ✅ **P51:** Value prop enhancements IMPLEMENTED (Session 4) — Term-sheet red-flag detector + scenario comparison pack
+✅ **P63:** Accelerator contact verification + follow-up sequences (Session 6) — 500 Global, Plug and Play verified
 ✅ Core product: 25 tools + checklist + widget.js; 105 SEO blog posts; Stripe $9.99 + two-tier paywall (VERIFIED)
 ✅ Distribution: Chrome ext (PUBLISHED) + npm (built); embed CTAs, Share-Your-Score CTA, partner page
 ✅ Credibility: README → landing page, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed
-✅ Distribution prep: GitHub/awesome-list blurbs, npm ready, offer inventory, accelerator emails, value prop audit, widget-embed outreach plan
+✅ Distribution prep: GitHub/awesome-list blurbs, npm ready, offer inventory, accelerator emails + follow-ups, contacts verified, value prop audit, widget-embed outreach plan
 
 ## Summary: All prep complete. 3 weeks left, $85 budget, $0 revenue. Funnel verified + claims honest + premium value prop now "must-have". Need TRAFFIC data (CWS URL, GA4) to decide final strategy.

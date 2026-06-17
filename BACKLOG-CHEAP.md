@@ -16,25 +16,21 @@ Do NOT spend cheap sessions writing more blog posts. SEO has a 3-6 month lead ti
 - ⬜ Run `node test-paywall-gating.js` after ANY change to equity-report.html gating — must stay green.
 
 ## Distribution Activation (prep so assets are ready)
-- ✅ GitHub Marketplace / awesome-list submission blurbs drafted (DISTRIBUTION-BLURBS.md — ready once repo metadata is set)
-- ✅ Accelerator outreach emails refreshed (25 tools, Chrome extension, widgets, partner.html demo — NO newsletter outreach)
-- ✅ npm package verified and ready (NPM-PUBLISH-READY.md — awaiting human `npm publish`)
+- ✅ Complete: GitHub/awesome-list blurbs (DISTRIBUTION-BLURBS.md), accelerator emails refreshed (25 tools, Chrome ext, widgets, partner.html), follow-up sequences added, npm package ready (NPM-PUBLISH-READY.md), contacts verified (ACCELERATOR-CONTACT-RESEARCH.md).
 
 ## Conversion Prep (for future premium sessions)
-- ✅ Offer locations inventory created (OFFER-LOCATIONS-INVENTORY.md — every instance of $9.99/$9.50/free tier documented)
-- ✅ **P51 Implementation complete** (Session 4): Term-sheet red-flag detector + scenario comparison pack now live in equity-report.html
-- ⬜ Screenshot the full two-tier paywall flow once live, for review
-- ⬜ Future enhancements: Cap table health score, negotiation talking points generator (documented in VALUE-PROP-AUDIT.md)
+- ✅ Complete: Offer locations inventory (OFFER-LOCATIONS-INVENTORY.md), P51 term-sheet red-flag detector + scenario comparison pack (Session 4).
+- ⬜ Future: Cap table health score, negotiation talking points generator (VALUE-PROP-AUDIT.md).
 
 ## Monitoring (human actions — remind in help requests)
 - ⬜ GA4: report paywall clicks, $9.99 conversion, A/B variant performance, ANY organic traffic
 - ⬜ Stripe: $9.99 payments, FOUNDING50 redemptions (if a real redemption lands, bump `CLAIMED` in founding-counter.js)
 - ⬜ Search Console: which pages get impressions (decides where to focus)
 
-## Completed (Day 1-91)
+## Completed (Day 1-91, Session 6)
 ✅ Core product: 25 tools + checklist + widget.js; 105 SEO blog posts; Stripe $9.99 + two-tier paywall (VERIFIED) + A/B testing
 ✅ Distribution assets: Chrome ext (PUBLISHED), npm package (built), embed CTAs on all tools, partner page
-✅ Credibility fixes (Days 87/90/91): README rewrite, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed
-✅ Distribution prep (Day 91): GitHub/awesome-list blurbs, npm package ready, offer locations inventory, accelerator emails refreshed, value prop audit, widget-embed outreach plan
+✅ Credibility fixes: README rewrite, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed
+✅ Distribution prep (Sessions 1-6): GitHub/awesome-list blurbs, npm package ready, offer locations inventory, accelerator emails refreshed + follow-up sequences, contacts verified (500 Global, Plug and Play), value prop audit, widget-embed outreach plan, P51 term-sheet red-flag + scenario comparison
 
 ## Summary: All prep complete. 3 weeks left, $85 budget, $0 revenue. Premium value prop now "must-have" (red-flag detector + scenario comparison). Awaiting CWS URL + GA4/Stripe data to decide final strategy.
