@@ -52,7 +52,7 @@
                 "name": "Can I unlock the equity report for free?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes! Enter your email to unlock the full report (charts, recommendations, PDF) for free. You'll receive weekly equity insights in your inbox (unsubscribe anytime). The $9.99 option is for founders who want instant access without subscribing."
+                    "text": "Enter your email to unlock your dilution CHART free, plus weekly equity insights. Your personalized recommendations, benchmark comparison, and investor-ready PDF are the $9.99 Premium Report."
                 }
             },
             {
@@ -528,6 +528,60 @@
         }
         .paywall-card .paywall-alt:hover { color: var(--text-secondary); }
 
+        /* Premium Gate ($9.99 tier — recommendations + PDF) */
+        .premium-gate {
+            position: relative;
+            margin-top: 8px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .premium-gate.unlocked .premium-content {
+            filter: none !important;
+            pointer-events: auto !important;
+            user-select: auto !important;
+            opacity: 1 !important;
+        }
+        .premium-content {
+            filter: blur(5px);
+            pointer-events: none;
+            user-select: none;
+            opacity: 0.6;
+        }
+        .premium-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 10, 15, 0.78);
+            padding: 24px;
+        }
+        .premium-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--accent);
+            border-radius: 16px;
+            padding: 32px 28px;
+            text-align: center;
+            max-width: 440px;
+            width: 100%;
+            box-shadow: 0 0 60px var(--accent-glow);
+        }
+        .premium-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 8px; }
+        .premium-card .premium-subtitle { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 18px; }
+        .premium-unlock-banner {
+            display: none;
+            background: linear-gradient(135deg, rgba(0,184,148,0.12), rgba(0,206,201,0.08));
+            border: 1px solid var(--green);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .premium-unlock-banner h4 { color: var(--green); font-size: 0.95rem; margin-bottom: 4px; }
+        .premium-unlock-banner p { color: var(--text-secondary); font-size: 0.85rem; margin: 0; }
+
         /* Comparison Card */
         .comparison-card {
             background: var(--bg-secondary); border: 1px solid var(--border);
@@ -601,7 +655,7 @@
         <div class="hero-content">
             <div class="hero-badge">Free Preview — No signup required</div>
             <h1>Get Your <span class="gradient">Free Equity Dilution Report</span></h1>
-            <p>See your basic dilution summary free. Enter your email to unlock the full report with charts, recommendations, and PDF download.</p>
+            <p>See your basic dilution summary free. Enter your email to unlock your dilution chart — or get the full report with recommendations and PDF for $9.99.</p>
         </div>
     </section>
 
@@ -663,7 +717,7 @@
                 </div>
             </div>
             <button class="generate-btn" onclick="generateReport()" id="generateBtn">Generate My Free Preview</button>
-            <p class="form-note">Free basic summary. Full report with charts + PDF unlocked with your email.</p>
+            <p class="form-note">Free basic summary. Dilution chart unlocked with your email — recommendations + PDF are $9.99.</p>
         </div>
     </section>
 
@@ -797,9 +851,9 @@
                     <p style="text-align:center;margin:12px 0;font-size:0.9rem;color:var(--text-muted);">— or —</p>
                     <form onsubmit="unlockReport(event)" style="margin-bottom:12px;">
                         <input type="email" id="unlockEmail" placeholder="founder@startup.com" required style="width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:var(--bg-input);color:var(--text-primary);font-size:1rem;margin-bottom:10px;font-family:var(--font-sans);">
-                        <button type="submit" class="paywall-cta" style="border:none;cursor:pointer;width:100%;font-family:var(--font-sans);background:var(--accent);color:white;">Unlock with Email — Free</button>
+                        <button type="submit" class="paywall-cta" style="border:none;cursor:pointer;width:100%;font-family:var(--font-sans);background:var(--accent);color:white;">Unlock Dilution Chart — Free</button>
                     </form>
-                    <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">We'll send you weekly equity insights. Unsubscribe anytime.</p>
+                    <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">Unlocks your dilution chart + weekly insights (unsubscribe anytime). Recommendations &amp; PDF need the $9.99 report.</p>
                     <a href="pricing.html" class="paywall-alt" style="margin-top:8px;display:block;text-align:center;" onclick="if(typeof gtag==='function')gtag('event','paywall_click',{source:'equity_report',action:'pro',variant:'control'})">Or get unlimited reports with Pro — $9.50/mo &rarr;</a>
                 </div>
 
@@ -833,16 +887,16 @@
                     <p style="text-align:center;margin:12px 0;font-size:0.9rem;color:var(--text-muted);">— or —</p>
                     <form onsubmit="unlockReport(event)" style="margin-bottom:12px;">
                         <input type="email" id="unlockEmail" placeholder="founder@startup.com" required style="width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:var(--bg-input);color:var(--text-primary);font-size:1rem;margin-bottom:10px;font-family:var(--font-sans);">
-                        <button type="submit" class="paywall-cta" style="border:none;cursor:pointer;width:100%;font-family:var(--font-sans);background:var(--accent);color:white;">Join Them — Unlock Free Report</button>
+                        <button type="submit" class="paywall-cta" style="border:none;cursor:pointer;width:100%;font-family:var(--font-sans);background:var(--accent);color:white;">Unlock My Dilution Chart — Free</button>
                     </form>
-                    <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">We'll send you weekly equity insights. Unsubscribe anytime.</p>
+                    <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">Unlocks your dilution chart + weekly insights (unsubscribe anytime). Recommendations &amp; PDF need the $9.99 report.</p>
                     <a href="pricing.html" class="paywall-alt" style="margin-top:8px;display:block;text-align:center;" onclick="if(typeof gtag==='function')gtag('event','paywall_click',{source:'equity_report',action:'pro',variant:'b'})">Or get unlimited reports with Pro — $9.50/mo &rarr;</a>
                 </div>
 
                 <!-- VARIANT C: Urgency -->
                 <div class="paywall-card" id="paywallVariantC" style="display:none;">
                     <h3>Don't Sign Your Term Sheet Without Seeing This</h3>
-                    <p class="paywall-subtitle">Your equity dilution tells a story — make sure it's the right one. Get the complete analysis with visual charts, personalized recommendations, and professional PDF. Enter your email to unlock instantly.</p>
+                    <p class="paywall-subtitle">Your equity dilution tells a story — make sure it's the right one. Get the complete analysis with visual charts, personalized recommendations, and professional PDF.</p>
                     <div class="paywall-features">
                         <div class="paywall-feat">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
@@ -869,9 +923,9 @@
                     <p style="text-align:center;margin:12px 0;font-size:0.9rem;color:var(--text-muted);">— or —</p>
                     <form onsubmit="unlockReport(event)" style="margin-bottom:12px;">
                         <input type="email" id="unlockEmail" placeholder="founder@startup.com" required style="width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:var(--bg-input);color:var(--text-primary);font-size:1rem;margin-bottom:10px;font-family:var(--font-sans);">
-                        <button type="submit" class="paywall-cta" style="border:none;cursor:pointer;width:100%;font-family:var(--font-sans);">See Your Full Picture Now — Free</button>
+                        <button type="submit" class="paywall-cta" style="border:none;cursor:pointer;width:100%;font-family:var(--font-sans);">See My Dilution Chart — Free</button>
                     </form>
-                    <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">We'll send you weekly equity insights. Unsubscribe anytime.</p>
+                    <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">Unlocks your dilution chart + weekly insights (unsubscribe anytime). Recommendations &amp; PDF need the $9.99 report.</p>
                     <a href="pricing.html" class="paywall-alt" style="margin-top:8px;display:block;text-align:center;" onclick="if(typeof gtag==='function')gtag('event','paywall_click',{source:'equity_report',action:'pro',variant:'c'})">Or get unlimited reports with Pro — $9.50/mo &rarr;</a>
                 </div>
 
@@ -905,9 +959,9 @@
                     <p style="text-align:center;margin:12px 0;font-size:0.9rem;color:var(--text-muted);">— or —</p>
                     <form onsubmit="unlockReport(event)" style="margin-bottom:12px;">
                         <input type="email" id="unlockEmail" placeholder="founder@startup.com" required style="width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:var(--bg-input);color:var(--text-primary);font-size:1rem;margin-bottom:10px;font-family:var(--font-sans);">
-                        <button type="submit" class="paywall-cta" style="border:none;cursor:pointer;width:100%;font-family:var(--font-sans);background:var(--accent);color:white;">Unlock Free with Email</button>
+                        <button type="submit" class="paywall-cta" style="border:none;cursor:pointer;width:100%;font-family:var(--font-sans);background:var(--accent);color:white;">Unlock Chart Free with Email</button>
                     </form>
-                    <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">We'll send you weekly equity insights. Unsubscribe anytime.</p>
+                    <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">Unlocks your dilution chart + weekly insights (unsubscribe anytime). Recommendations &amp; PDF need the $9.99 report.</p>
                     <a href="pricing.html" class="paywall-alt" style="margin-top:8px;display:block;text-align:center;" onclick="if(typeof gtag==='function')gtag('event','paywall_click',{source:'equity_report',action:'pro',variant:'d'})">Need unlimited reports? Try Pro — $9.50/mo &rarr;</a>
                 </div>
 
@@ -953,17 +1007,35 @@
                     </div>
                 </div>
 
-                <!-- Recommendations (blurred behind paywall) -->
-                <div class="recommendations" id="recommendations">
-                    <h3>Personalized Recommendations</h3>
-                </div>
+                <!-- Premium Gate: Recommendations + PDF ($9.99 tier) -->
+                <div class="premium-gate" id="premiumGate">
+                    <div class="premium-overlay" id="premiumOverlay">
+                        <div class="premium-card">
+                            <h3>🔒 Unlock Your Strategic Recommendations</h3>
+                            <p class="premium-subtitle">You've got the chart. Now get the analysis that actually saves you money: personalized recommendations, benchmark comparison, and an investor-ready PDF.</p>
+                            <div class="paywall-features" style="text-align:left;margin-bottom:20px;padding:0 8px;">
+                                <div class="paywall-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Personalized recommendations for your deal</div>
+                                <div class="paywall-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Industry benchmark comparison</div>
+                                <div class="paywall-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Investor-ready PDF download</div>
+                            </div>
+                            <a href="https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h?utm_source=founder-math&amp;utm_medium=equity_report&amp;utm_campaign=premium_gate" class="paywall-cta" style="border:none;cursor:pointer;font-family:var(--font-sans);text-align:center;display:block;text-decoration:none;" onclick="trackPaywallConversion('purchase');if(typeof gtag==='function')gtag('event','paywall_click',{source:'equity_report',action:'one_time',variant:'premium_gate'})">Unlock Full Report — $9.99<span style="display:block;font-size:0.75rem;margin-top:4px;opacity:0.85;">One-time • Instant access • No subscription</span></a>
+                            <p class="paywall-alt" style="font-size:0.75rem;text-align:center;margin-top:10px;">Already purchased? <a href="equity-report.html" style="color:var(--accent-light);">Generate your report</a> to access it.</p>
+                        </div>
+                    </div>
+                    <div class="premium-content">
+                        <!-- Recommendations -->
+                        <div class="recommendations" id="recommendations">
+                            <h3>Personalized Recommendations</h3>
+                        </div>
 
-                <!-- PDF Download Area -->
-                <div id="pdfDownloadArea" style="display:none;text-align:center;margin-bottom:32px;">
-                    <div style="background:linear-gradient(135deg,rgba(0,184,148,0.15),rgba(0,206,201,0.1));border:1px solid var(--green);border-radius:12px;padding:24px;">
-                        <h3 style="color:var(--green);margin-bottom:8px;">Your full report is unlocked!</h3>
-                        <p style="color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem;">Click below to download your professional equity dilution report as a PDF.</p>
-                        <button onclick="downloadPDF()" style="background:var(--green);color:white;border:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;font-family:var(--font-sans);">Download PDF Report</button>
+                        <!-- PDF Download Area -->
+                        <div id="pdfDownloadArea" style="display:none;text-align:center;margin-bottom:32px;">
+                            <div style="background:linear-gradient(135deg,rgba(0,184,148,0.15),rgba(0,206,201,0.1));border:1px solid var(--green);border-radius:12px;padding:24px;">
+                                <h3 style="color:var(--green);margin-bottom:8px;">Your full report is unlocked!</h3>
+                                <p style="color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem;">Click below to download your professional equity dilution report as a PDF.</p>
+                                <button onclick="downloadPDF()" style="background:var(--green);color:white;border:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;font-family:var(--font-sans);">Download PDF Report</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1018,7 +1090,7 @@
             </div>
             <div class="faq-item" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;" onclick="this.classList.toggle('open')">
                 <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">Can I unlock the report for free? <span style="color:var(--accent);">+</span></h3>
-                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0;display:none;">Yes! Enter your email to unlock the full report (charts, recommendations, PDF) for free. You'll receive weekly equity insights in your inbox (unsubscribe anytime). The $9.99 option is for founders who want instant access without subscribing.</p>
+                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0;display:none;">Enter your email to unlock your dilution CHART free, plus weekly equity insights. Your personalized recommendations, benchmark comparison, and investor-ready PDF are the $9.99 Premium Report.</p>
             </div>
             <div class="faq-item" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;" onclick="this.classList.toggle('open')">
                 <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">Is the $9.99 a subscription? <span style="color:var(--accent);">+</span></h3>
@@ -1049,10 +1121,10 @@
             <button id="exitCloseBtn" style="position:absolute;top:16px;right:16px;background:none;border:none;color:var(--text-muted);font-size:1.5rem;cursor:pointer;line-height:1;padding:4px 8px;" aria-label="Close">&times;</button>
             <div style="font-size:2.5rem;margin-bottom:16px;">&#128202;</div>
             <h3 style="font-size:1.35rem;font-weight:800;margin-bottom:8px;">Wait — Get Your Free Equity Report</h3>
-            <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:20px;line-height:1.5;">Enter your email and we'll unlock the full report with charts, recommendations, and PDF download — completely free.</p>
+            <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:20px;line-height:1.5;">Enter your email and we'll unlock your dilution chart free, plus weekly equity insights. (Personalized recommendations + investor-ready PDF are the $9.99 Premium Report.)</p>
             <form id="exitEmailForm" style="margin-bottom:12px;">
                 <input type="email" id="exitEmail" placeholder="founder@startup.com" required style="width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text-primary);font-size:1rem;margin-bottom:12px;font-family:var(--font-sans);">
-                <button type="submit" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--accent),var(--accent-light));color:white;border:none;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;font-family:var(--font-sans);">Unlock Full Report — Free</button>
+                <button type="submit" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--accent),var(--accent-light));color:white;border:none;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;font-family:var(--font-sans);">Unlock My Chart — Free</button>
             </form>
             <p style="font-size:0.78rem;color:var(--text-muted);">Weekly equity insights. Unsubscribe anytime.</p>
         </div>
@@ -1267,14 +1339,22 @@
         // Share links
         updateShareLinks(d);
 
-        // Check if previously unlocked (email capture OR $9.99 purchase)
+        // Restore unlock tiers: email unlocks the dilution CHART;
+        // a $9.99 purchase unlocks everything (chart + recommendations + PDF).
         try {
-            if (localStorage.getItem('fm_report_unlocked') === 'true' ||
-                localStorage.getItem('foundermath_equity_report_purchased') === 'true') {
+            var emailTier = localStorage.getItem('fm_report_email_unlocked') === 'true';
+            var purchased = localStorage.getItem('foundermath_equity_report_purchased') === 'true';
+            if (emailTier || purchased) {
                 var overlay = document.getElementById('paywallOverlay');
                 if (overlay) overlay.style.display = 'none';
                 var gate = document.getElementById('paywallGate');
                 if (gate) gate.classList.add('unlocked');
+            }
+            if (purchased) {
+                var pOverlay = document.getElementById('premiumOverlay');
+                if (pOverlay) pOverlay.style.display = 'none';
+                var pGate = document.getElementById('premiumGate');
+                if (pGate) pGate.classList.add('unlocked');
                 document.getElementById('pdfDownloadArea').style.display = 'block';
             }
         } catch(e) {}
@@ -1542,9 +1622,10 @@
             gtag('event', 'report_email_capture', { source: 'equity-report' });
         }
 
-        // Hide email gate, show download area
-        document.getElementById('emailGate').style.display = 'none';
-        document.getElementById('pdfDownloadArea').style.display = 'block';
+        // Hide inline email gate. NOTE: email capture does NOT unlock the
+        // premium PDF — that is reserved for the $9.99 purchase (see unlockReport).
+        var eg = document.getElementById('emailGate');
+        if (eg) eg.style.display = 'none';
     }
 
     function unlockReport(e) {
@@ -1574,19 +1655,17 @@
             });
         }
 
-        // Remove paywall overlay
+        // Reveal CHART TIER only (email unlock). Recommendations + PDF stay
+        // behind the $9.99 premium gate — never reveal premium content here,
+        // or the paid product is given away for free.
         var overlay = document.getElementById('paywallOverlay');
         if (overlay) overlay.style.display = 'none';
 
-        // Remove blur from content
         var gate = document.getElementById('paywallGate');
         if (gate) gate.classList.add('unlocked');
 
-        // Show PDF download area
-        document.getElementById('pdfDownloadArea').style.display = 'block';
-
-        // Store unlock state
-        try { localStorage.setItem('fm_report_unlocked', 'true'); } catch(e) {}
+        // Store EMAIL-tier unlock (distinct from the $9.99 purchase flag)
+        try { localStorage.setItem('fm_report_email_unlocked', 'true'); } catch(e) {}
     }
 
     function downloadPDF() {
@@ -1660,7 +1739,7 @@
 
         // Don't show if already unlocked or already shown this session
         try {
-            if (localStorage.getItem('fm_report_unlocked') === 'true' ||
+            if (localStorage.getItem('fm_report_email_unlocked') === 'true' ||
                 localStorage.getItem('foundermath_equity_report_purchased') === 'true' ||
                 sessionStorage.getItem('fm_exit_shown') === 'true') {
                 return;
