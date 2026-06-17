@@ -430,7 +430,7 @@
         <div class="urgency-tag">Limited Time Offer</div>
         <h3>Stop Losing Equity Needlessly</h3>
         <p>Upgrade to FounderMath Pro and model unlimited funding scenarios, compare term sheets side-by-side, and export investor-ready PDFs. Know exactly what you're giving up before you sign.</p>
-        <div class="spots-remaining" id="proSpotsRemaining">8 spots left</div>
+        <div class="spots-remaining" id="proSpotsRemaining">Founding 50 — limited spots</div>
         <div class="spots-label">Founding 50 — 50% off Pro forever ($9.50/mo instead of $19/mo)</div>
         <a href="https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06?prefilled_promo_code=FOUNDING50&utm_source=founder-math&utm_medium=dilution_timeline&utm_campaign=founding50" class="btn-pro" onclick="if(typeof gtag==='function')gtag('event','pro_click',{source:'dilution_timeline'})">Lock in 50% Off Pro Forever &rarr;</a>
         <div style="margin-top:12px;font-size:0.85rem;color:var(--text-secondary);">Or get a <a href="equity-report-premium.html" style="color:var(--accent);text-decoration:underline;font-weight:600;">professional equity report — $9.99 one-time</a></div>
@@ -681,13 +681,10 @@ document.getElementById('emailForm').onsubmit = function(e) {
     capture.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;color:var(--green);font-weight:600;font-size:0.95rem;padding:12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Check your inbox for dilution strategies!</div>';
 };
 
-// Update Pro spots remaining from founding-counter
+// Honest Founding 50 urgency (no fabricated "claimed" count)
 setTimeout(function() {
-    if (window.FMFoundingCounter) {
-        var remaining = window.FMFoundingCounter.getRemaining();
-        var spotsEl = document.getElementById('proSpotsRemaining');
-        if (spotsEl) spotsEl.textContent = remaining + ' spots left';
-    }
+    var spotsEl = document.getElementById('proSpotsRemaining');
+    if (spotsEl) spotsEl.textContent = 'Founding 50 — limited spots';
 }, 500);
 
 // Page view

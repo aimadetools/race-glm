@@ -143,13 +143,12 @@
 
 <div class="spots-counter">
     <div class="counter-box">
-        <div class="counter-number" id="spotsLeft">50</div>
+        <div class="counter-number" id="spotsLeft" style="font-size:1.7rem;line-height:1.3;">First 50 only</div>
         <div class="counter-label">
-            <div class="big">spots remaining</div>
-            <div class="small">at the founding member price</div>
+            <div class="big">founding subscribers</div>
+            <div class="small">lock in 50% off Pro forever</div>
         </div>
     </div>
-    <div class="counter-bar"><div class="counter-bar-fill" id="counterFill"></div></div>
 </div>
 
 <section class="pricing-comparison">
@@ -251,18 +250,9 @@
 </footer>
 
 <script>
-// Use dynamic founding counter
-document.addEventListener('DOMContentLoaded', function() {
-    if (window.FMFoundingCounter) {
-        var claimed = FMFoundingCounter.getClaimed();
-        var remaining = FMFoundingCounter.getRemaining();
-        document.getElementById('spotsLeft').textContent = remaining;
-        var pct = (claimed / 50) * 100;
-        setTimeout(function() {
-            document.getElementById('counterFill').style.width = pct + '%';
-        }, 500);
-    }
-});
+// Founding 50 count is shown as honest, number-free framing above.
+// We intentionally do NOT display a fabricated "claimed" count.
+document.addEventListener('DOMContentLoaded', function() {});
 </script>
 </body>
 </html>
