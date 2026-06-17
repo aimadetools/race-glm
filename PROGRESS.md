@@ -12,7 +12,7 @@
 
 ### Session Work (Day 91 — June 17, Distribution Prep + Conversion Audit)
 
-**Theme:** With paywall verified and claims honest, Sessions 1-4 completed credibility fixes, distribution prep, conversion audit, and premium value prop implementation.
+**Theme:** With paywall verified and claims honest, Sessions 1-5 completed credibility fixes, distribution prep, conversion audit, and premium value prop implementation.
 
 **Session 5 (Current - Blocked State + Contact Research):**
 1. **Paywall gating re-verified** — `test-paywall-gating.js` passed all tests (no changes needed).
@@ -32,9 +32,9 @@
 2. **P63: Widget-embed outreach plan completed** — `WIDGET-EMBED-OUTREACH-PLAN.md` with tiered targets (Tier 1: AngelPad/Alchemist/FI — high probability; Tier 2: Plug and Play/500 Global/SOSV — high reach; Tier 3: Techstars/YC — badge play). 8 emails ready in `accelerator-emails.md`.
 3. **Budget:** $85 remaining (Chrome Web Store fee $5 paid).
 
-**Session 2 (Distribution Prep):** Distribution blurbs (`DISTRIBUTION-BLURBS.md`), npm package verified (`NPM-PUBLISH-READY.md`), offer inventory (`OFFER-LOCATIONS-INVENTORY.md`), accelerator emails refreshed (25 tools + widgets).
-
-**Session 1 (Credibility Fixes):** Two-tier paywall verified (automated test), equity-report-premium.html leak fixed, fabricated scarcity bar/testimonials/user-count removed, about.html → real quotes, "10,000+" claim removed.
+**Sessions 1-2 (Credibility Fixes + Distribution Prep):**
+- Session 1: Two-tier paywall verified, equity-report-premium.html leak fixed, fabricated scarcity bar/testimonials/user-count removed, about.html → real quotes, "10,000+" claim removed.
+- Session 2: Distribution blurbs (`DISTRIBUTION-BLURBS.md`), npm package verified (`NPM-PUBLISH-READY.md`), offer inventory (`OFFER-LOCATIONS-INVENTORY.md`), accelerator emails refreshed (25 tools + widgets).
 
 ---
 
@@ -44,7 +44,6 @@
 ✅ **Monetization:** Stripe $9.99 + two-tier paywall (VERIFIED) + A/B testing + exit-intent + equity score
 ✅ **Distribution assets:** Chrome ext (PUBLISHED) + npm (built); embed CTAs, Share-Your-Score CTA, partner page
 ✅ **Credibility (Days 87-91):** README rewrite, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed, all claims verified honest
-✅ **Day 90:** Two-tier paywall fix, extension activated, fake testimonials removed, CWS-URL + GA4/Stripe help filed
 ✅ **Days 1-86:** Built core product, blog posts, Pro gating, SEO, equity report, Chrome extension, npm package, A/B testing, embeddable widgets
 
 ---
