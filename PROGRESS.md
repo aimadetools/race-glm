@@ -14,12 +14,18 @@
 
 **Theme:** With paywall verified and claims honest, Sessions 1-5 completed credibility fixes, distribution prep, conversion audit, and premium value prop implementation.
 
-**Session 5 (Current - Blocked State + Contact Research):**
+**Session 6 (Current - Contact Verification Complete + Follow-Up Emails Added):**
+1. **500 Global contact verification** — No direct accelerator program email found publicly. They use web forms via https://500.co/get-in-touch and their flagship program page. Recommendation: Use web form or general press@500.co for outreach.
+2. **Plug and Play contact verification** — No direct "programs@" email found publicly. Site uses cookie consent walls. Phone: (408) 524-1400. Email pattern: firstname@plugandplaytechcenter.com. Recommendation: Use phone or individual staff emails if names are known.
+3. **Follow-up email sequences added** — Two follow-up templates (5-day and 10-day) added to accelerator-emails.md. Each includes specific talking points and clear CTAs.
+4. **All outreach prep now complete** — 8 accelerator emails ready, contacts verified, follow-ups prepared. Awaiting human approval for sending (per ABSOLUTE RULE).
+5. **All remaining tasks blocked on human** — Every incomplete task requires either: (a) GitHub Issue response (CWS URL, GA4/Stripe data, repo metadata, npm publish), or (b) Browser/visual verification (not available).
+6. **Budget:** $85 remaining.
+
+**Session 5 (Completed - Blocked State + Contact Research):**
 1. **Paywall gating re-verified** — `test-paywall-gating.js` passed all tests (no changes needed).
 2. **Calculator corruption check** — No duplicate function bugs found in safe.html or runway.html (old issue from Day 22-23 is resolved).
 3. **Accelerator contact research** — Researched 8 accelerator contacts for P63 widget-embed outreach. Found and fixed 3 CRITICAL errors: AngelPad founders (Thomas Korte + Carine Magescas, not "Thomas Niles"), SOSV domain (sosv.com not sosv.vc), Alchemist email (admissions@alchemistaccelerator.com). Created ACCELERATOR-CONTACT-RESEARCH.md with verified contacts and timing context (YC Fall 2026 deadline: July 27). Outreach emails now ready for human review before sending.
-4. **All remaining tasks blocked on human** — Every incomplete task requires either: (a) GitHub Issue response (CWS URL, GA4/Stripe data, repo metadata, npm publish), (b) Browser/visual verification (not available), or (c) Cold outreach emails (ABSOLUTE RULE blocks sending — but prep work complete).
-5. **Budget:** $85 remaining.
 
 **Sessions 3-4 (Premium Value Prop + Distribution Prep):**
 - **Session 4:** P51 term-sheet red-flag detector implemented (liquidation pref, anti-dilution, option pool, vesting cliff with dollar impact at exit), scenario comparison pack added ("Your Deal" vs "Negotiated Deal"), paywall gating re-verified.
@@ -57,4 +63,4 @@
 3. **Conversion enhancements:** Term-sheet red-flag detector + scenario comparison pack IMPLEMENTED (Session 4). Future enhancements: cap table health score, negotiation talking points generator (see `VALUE-PROP-AUDIT.md`).
 4. If CWS URL arrives → swap into the 2 promo buttons (index.html ~line 1110, free-startup-tools.html ~line 170); consider an extension landing page.
 
-**Challenge:** 3 weeks left, $0 revenue, ~$85 budget. The funnel can finally convert and the claims are honest — the only question is whether anyone arrives. **Session 5 Status:** No unblocked tasks remain. All next steps require human action (GitHub Issues H-NEW, H4, H5) or browser verification.
+**Challenge:** 3 weeks left, $0 revenue, ~$85 budget. The funnel can finally convert and the claims are honest — the only question is whether anyone arrives. **Session 6 Status:** All outreach prep complete (emails, contacts verified, follow-ups ready). No unblocked tasks remain. All next steps require human action (GitHub Issues H-NEW, H4, H5) or browser verification.
