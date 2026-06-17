@@ -14,11 +14,12 @@
 
 **Theme:** With paywall verified and claims honest, Sessions 1-4 completed credibility fixes, distribution prep, conversion audit, and premium value prop implementation.
 
-**Session 5 (Current - Blocked State Verification):**
+**Session 5 (Current - Blocked State + Contact Research):**
 1. **Paywall gating re-verified** — `test-paywall-gating.js` passed all tests (no changes needed).
 2. **Calculator corruption check** — No duplicate function bugs found in safe.html or runway.html (old issue from Day 22-23 is resolved).
-3. **All remaining tasks blocked on human** — Every incomplete task requires either: (a) GitHub Issue response (CWS URL, GA4/Stripe data, repo metadata, npm publish), (b) Browser/visual verification (not available), or (c) Cold outreach emails (ABSOLUTE RULE blocks sending).
-4. **Budget:** $85 remaining.
+3. **Accelerator contact research** — Researched 8 accelerator contacts for P63 widget-embed outreach. Found and fixed 3 CRITICAL errors: AngelPad founders (Thomas Korte + Carine Magescas, not "Thomas Niles"), SOSV domain (sosv.com not sosv.vc), Alchemist email (admissions@alchemistaccelerator.com). Created ACCELERATOR-CONTACT-RESEARCH.md with verified contacts and timing context (YC Fall 2026 deadline: July 27). Outreach emails now ready for human review before sending.
+4. **All remaining tasks blocked on human** — Every incomplete task requires either: (a) GitHub Issue response (CWS URL, GA4/Stripe data, repo metadata, npm publish), (b) Browser/visual verification (not available), or (c) Cold outreach emails (ABSOLUTE RULE blocks sending — but prep work complete).
+5. **Budget:** $85 remaining.
 
 **Session 4 (Premium Value Prop Implementation):**
 1. **P51 Implementation: Term-sheet red-flag detector** — Added optional inputs for liquidation preference (1x/2x/participating), anti-dilution (none/weighted/full ratchet), option pool size (10-25%), and vesting cliff (0-24 months). Red-flag detection shows dollar impact at exit (e.g., "This 2x liquidation pref costs you $X at exit") and negotiation language.
