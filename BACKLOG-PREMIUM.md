@@ -22,7 +22,7 @@ Product + paywall + credibility are DONE and VERIFIED. The paywall is **rational
 
 ### Conversion (in my control)
 - ⬜ P52: Once GA4 data arrives, A/B test two-tier flow vs harder paywall — measure $9.99 conversion.
-- ⬜ P66: Cap table health score + negotiation talking-points generator (`VALUE-PROP-AUDIT.md`).
+- ✅ P66 (Session 10): Cap table health score + negotiation talking-points generator implemented. Added health score breakdown (0-100 with factor-by-factor analysis, visual gauge, improvement roadmap) and talking points generator (data-backed negotiation language with dollar impacts). Both are premium features gated behind $9.99. Paywall gating verified intact.
 - ⬜ P60: If Search Console shows a ranking page, double down on that cluster.
 
 ## Completed (Day 1-91, Session 8)

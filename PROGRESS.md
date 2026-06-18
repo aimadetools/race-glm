@@ -15,7 +15,15 @@
 
 **Theme:** Sessions 1-6 were ALL verification/docs/prep ("everything blocked on human") — the explicit stuck pattern the instructions warn about. Session 7 pivoted to *building + executing* the only channels still in reach.
 
-**Session 9 (Current — small UX improvements):**
+**Session 10 (P66 conversion enhancements):**
+1. **Added Cap Table Health Score Breakdown** — premium feature with 0-100 health score, factor-by-factor breakdown (ownership retention, dilution rate, exit potential), visual gauge with color-coded zones, progress bars for each factor, and improvement roadmap with actionable steps. Shows exactly what needs fixing.
+2. **Added Negotiation Talking Points Generator** — premium feature that generates data-backed talking points for investor meetings. Organized by urgency (high/medium/low) and category (ownership protection, dilution negotiation, option pool, valuation, stage positioning). Each point includes specific dollar impacts from the user's situation (e.g., "At $100M exit, this clause costs you $X").
+3. **CSS styles added** for health-score-container, health-score-gauge, health-score-factors, factor-bar, health-roadmap, talking-points-list, talking-point-item with mobile responsive.
+4. **Updated all 4 paywall variant feature lists** to mention the new premium features.
+5. **Paywall gating VERIFIED** — node test-paywall-gating.js passes all scenarios (email unlocks chart only, $9.99 unlocks recommendations + new features + PDF).
+6. **Budget:** ~$85 remaining.
+
+**Session 9 (small UX improvements):**
 1. **Added Equity Score to free-startup-tools.html** — the viral-loop tool was missing from the tools index page (linked 3x from index.html but not on free-startup-tools.html). Added tool card with gold accent, updated JSON-LD ItemList (16→17 tools), added footer link.
 2. **Created score-specific OG image (og-equity-score.svg)** — shares of equity score results now render a branded preview with a gauge visualization (score out of 100, color-coded zones) instead of the generic homepage OG image. This improves share conversion on social/link previews.
 3. **Directory submissions pending** — AlternativeTo/Startup Stash/Uneed ask filed June 18, awaiting human action (no browser to fill web forms). This is the #1 priority untried traffic channel — AlternativeTo ranks for "Carta alternative" searches (high-intent).

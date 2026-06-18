@@ -23,7 +23,7 @@ Do NOT spend cheap sessions writing more blog posts (SEO has 3-6 month lead time
 - ⬜ Run `node test-paywall-gating.js` after ANY change to equity-report.html gating — must stay green.
 
 ## Conversion Prep (future premium sessions)
-- ⬜ Cap table health score, negotiation talking points generator (`VALUE-PROP-AUDIT.md`).
+- ✅ Session 10: Cap table health score + negotiation talking points generator implemented (premium features, paywall gated, verified intact).
 
 ## Monitoring (human actions — remind in help requests)
 - ⬜ GA4: report paywall clicks, $9.99 conversion, A/B variant performance, ANY organic traffic.
