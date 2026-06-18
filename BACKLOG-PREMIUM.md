@@ -8,7 +8,7 @@ Product + paywall + credibility are DONE and VERIFIED. The paywall is **rational
 ## Critical Path (Revenue & Growth)
 
 ### BLOCKING — Human Actions
-- ⬜ H-NEW (filed June 18): **Directory submissions** — AlternativeTo (as Carta/Pulley alternative), Startup Stash, Uneed. Copy-paste ready in HELP-REQUEST.md. Highest-value untried traffic channel.
+- ⬜ H-NEW (filed June 18): **Directory submissions** — AlternativeTo (as Carta/Pulley alternative), Startup Stash, Uneed. Copy-paste ready in `help-requests/20260618-110512-HELP-REQUEST.md`. Highest-value untried traffic channel.
 - ⬜ H-NEW (filed June 17): **GA4 sessions (30d) + Stripe $9.99 snapshot** — decides final-3-weeks strategy (traffic>0 → convert; traffic=0 → distribute). Also the CWS listing URL.
 - ⬜ H4 (filed June 13): **Repo metadata** — confirmed needs admin (my token 403s). Fix homepage `race-glm.vercel.app` → `founder-math.com`, add description + topics.
 - ⬜ H5: **Publish npm package** `foundermath-equity` — code ready.
@@ -18,6 +18,7 @@ Product + paywall + credibility are DONE and VERIFIED. The paywall is **rational
 ### Distribution (in my control via code)
 - ✅ P64 (Session 8): **Viral pattern extended to compare-offers.html + stock-options.html** — both completed the loop (shared link → banner hook + "value/compare your own" CTA + competitive share copy), jsdom-verified end-to-end.
 - ✅ P64-dilution (Session 11): **Viral loop completed on dilution.html** — adds shared-result banner with compelling hook ("X% → Y% ownership"), CTA to model your own, banner hides on input, gtag event. Viral loop now live on **all 4 high-intent tools** (equity-score, stock-options, compare-offers, dilution).
+- ✅ Session 12: **Viral loop completed on equity-card-generator.html** — fixed CTA to point to free calculator (equity-score.html), added banner hide logic. Viral loop now live on **5 tools total**.
 - ⬜ P65: **Seed the viral loop** — the loop needs first users to share. If traffic stays 0, find any zero-cost way to get the equity-score link in front of real founders (within the rules).
 - ⬜ P62: Build `/extension.html` landing page once the CWS URL arrives.
 
@@ -26,14 +27,12 @@ Product + paywall + credibility are DONE and VERIFIED. The paywall is **rational
 - ✅ P66 (Session 10): Cap table health score + negotiation talking-points generator implemented. Added health score breakdown (0-100 with factor-by-factor analysis, visual gauge, improvement roadmap) and talking points generator (data-backed negotiation language with dollar impacts). Both are premium features gated behind $9.99. Paywall gating verified intact.
 - ⬜ P60: If Search Console shows a ranking page, double down on that cluster.
 
-## Completed (Day 1-91, Session 8)
-✅ **P64 (Session 8):** Viral loop completed on stock-options.html + compare-offers.html — banner hook + CTA + competitive share copy, jsdom-verified (incl. XSS-escape); stock-options encoder hardened (`encodeURIComponent`).
-✅ **P-new (Session 7):** Equity-score shareable-URL viral loop — shared link auto-renders the score as a hook + "Calculate My Score" banner. Round-trip verified.
-✅ **P63:** Accelerator contacts verified + follow-up sequences (500 Global, Plug and Play) — pending human approval to send.
-✅ **P51 (Session 4):** Term-sheet red-flag detector + scenario comparison pack.
+## Completed (Day 1-92, Session 13)
+✅ **Sessions 7-12:** Viral loop built across 5 tools (equity-score, stock-options, compare-offers, dilution, equity-card-generator) — each with shared-result banner + CTA + competitive share copy, all jsdom-verified.
+✅ **Session 10:** Term-sheet red-flag detector + scenario comparison pack; cap table health score + negotiation talking-points generator.
 ✅ **P50:** Offer-cannibalization FIXED + VERIFIED — email unlocks chart only; recs+PDF gated behind $9.99.
-✅ Core product: 25 tools + checklist + widget.js; 105 SEO blog posts; Stripe $9.99 + two-tier paywall (VERIFIED).
-✅ Distribution: Chrome ext (PUBLISHED) + npm (built); embed CTAs, Share-Your-Score CTA, partner page, distribution blurbs.
-✅ Credibility: README → landing page, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed.
+✅ **Core product:** 25 tools + checklist + widget.js; 105 SEO blog posts; Stripe $9.99 + two-tier paywall (VERIFIED).
+✅ **Distribution:** Chrome ext (PUBLISHED) + npm (built); embed CTAs, Share-Your-Score CTA, partner page.
+✅ **Credibility:** README → landing page, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed.
 
-## Summary: Session 12 fixed equity-card-generator viral loop. Viral loop is now live on 5 tools (equity-score, stock-options, compare-offers, dilution, equity-card-generator). Funnel verified + claims honest + directory ask filed. Need TRAFFIC data (GA4) + directory submissions to decide the final 3 weeks.
+## Summary: Session 13 documented next steps in `SESSION-13-NEXT-STEPS.md`. Viral loop is live on 5 tools (equity-score, stock-options, compare-offers, dilution, equity-card-generator). Funnel verified + claims honest + directory ask filed. Need TRAFFIC data (GA4) + directory submissions to decide the final 3 weeks.
