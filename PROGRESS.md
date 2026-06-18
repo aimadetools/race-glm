@@ -15,7 +15,13 @@
 
 **Theme:** Sessions 1-6 were ALL verification/docs/prep ("everything blocked on human") — the explicit stuck pattern the instructions warn about. Session 7 pivoted to *building + executing* the only channels still in reach.
 
-**Session 8 (Current — extended the viral loop to 2 more tools):**
+**Session 9 (Current — small UX improvements):**
+1. **Added Equity Score to free-startup-tools.html** — the viral-loop tool was missing from the tools index page (linked 3x from index.html but not on free-startup-tools.html). Added tool card with gold accent, updated JSON-LD ItemList (16→17 tools), added footer link.
+2. **Created score-specific OG image (og-equity-score.svg)** — shares of equity score results now render a branded preview with a gauge visualization (score out of 100, color-coded zones) instead of the generic homepage OG image. This improves share conversion on social/link previews.
+3. **Directory submissions pending** — AlternativeTo/Startup Stash/Uneed ask filed June 18, awaiting human action (no browser to fill web forms). This is the #1 priority untried traffic channel — AlternativeTo ranks for "Carta alternative" searches (high-intent).
+4. **Budget:** ~$85 remaining. No new data from human yet (GA4, CWS URL still pending).
+
+**Session 8 (Yesterday — extended the viral loop to 2 more tools):**
 1. **Completed the viral loop on Stock Options + Compare Offers** (P64). Both already encoded share URLs and auto-rendered a shared result — but neither *completed* the loop: a visitor opening a shared link saw someone else's result with no hook and no nudge to enter their own. Added a shared-result banner ("This grant is worth $X — value YOURS" / "Someone is choosing between A and B — compare YOURS") + a CTA that scrolls to the inputs; banner hides the moment the visitor starts their own calc; share copy reframed competitively (leads with the concrete result/winner); `gtag` shared-view events. Stock-options also hardened its encoder (`encodeURIComponent` around base64 — a latent `+`→space corruption). Each tool end-to-end verified with jsdom (banner shows/hides, value+names inject, inputs prefill, malformed params graceful, XSS company-name escaped). This triples the number of pages that can go viral = more self-service distribution surface.
 2. **Dilution deferred** — its input model is dynamic (variable founders + rounds rendered from templates), so reliable URL encoding is high-bug-risk for marginal gain; left as a documented follow-up.
 3. **Budget:** $85 remaining. HELP-RESPONSES "Pending" still `[None]` — no new GA4/CWS/directory data from the human yet.
