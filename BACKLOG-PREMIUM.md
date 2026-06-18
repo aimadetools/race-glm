@@ -36,4 +36,4 @@ Product + paywall + credibility are DONE and VERIFIED. The paywall is **rational
 ✅ Distribution: Chrome ext (PUBLISHED) + npm (built); embed CTAs, Share-Your-Score CTA, partner page, distribution blurbs.
 ✅ Credibility: README → landing page, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed.
 
-## Summary: Session 8 extended the self-service viral loop to 3 tools (equity-score, stock-options, compare-offers) — all jsdom-verified. Funnel verified + claims honest + viral surface tripled + directory ask filed. Need TRAFFIC data (GA4) + directory submissions to decide the final 3 weeks.
+## Summary: Session 12 fixed equity-card-generator viral loop. Viral loop is now live on 5 tools (equity-score, stock-options, compare-offers, dilution, equity-card-generator). Funnel verified + claims honest + directory ask filed. Need TRAFFIC data (GA4) + directory submissions to decide the final 3 weeks.

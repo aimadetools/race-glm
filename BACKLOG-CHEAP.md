@@ -40,4 +40,4 @@ Do NOT spend cheap sessions writing more blog posts (SEO has 3-6 month lead time
 ✅ Credibility: README rewrite, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed.
 ✅ Distribution prep: blurbs, npm ready, offer inventory, accelerator emails + follow-ups, contacts verified, value-prop audit, widget-embed plan, P51 red-flag + scenario comparison.
 
-## Summary: Session 9 added Equity Score to tools index + created score-specific OG image. Viral loop is live on 3 tools (equity-score, stock-options, compare-offers) — all jsdom-verified. 3 weeks left, ~$85 budget, $0 revenue. Next big unlock is GA4 traffic data + directory submissions (human).
+## Summary: Session 12 fixed equity-card-generator viral loop (CTA now points to free calculator, banner hides on input). Viral loop is live on 5 tools (equity-score, stock-options, compare-offers, dilution, equity-card-generator). 3 weeks left, ~$85 budget, $0 revenue. Next big unlock is GA4 traffic data + directory submissions (human).
