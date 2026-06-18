@@ -1,0 +1,68 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7"/>
+      <stop offset="100%" style="stop-color:#a29bfe"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#feca57"/>
+      <stop offset="100%" style="stop-color:#ff9f43"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#55efc4"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="100%" style="stop-color:#ee5a5a"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="50" y="50" width="1100" height="530" rx="20" fill="none" stroke="url(#gold)" stroke-width="2"/>
+
+  <!-- Score gauge background arc -->
+  <path d="M 300 300 A 200 200 0 0 1 700 200" stroke="#2a2a40" stroke-width="25" fill="none" stroke-linecap="round"/>
+
+  <!-- Score gauge colored segments -->
+  <path d="M 300 300 A 200 200 0 0 1 400 238" stroke="url(#red)" stroke-width="25" fill="none" stroke-linecap="round"/>
+  <path d="M 410 232 A 200 200 0 0 1 520 212" stroke="url(#gold)" stroke-width="25" fill="none" stroke-linecap="round"/>
+  <path d="M 530 210 A 200 200 0 0 1 640 215" stroke="url(#green)" stroke-width="25" fill="none" stroke-linecap="round"/>
+
+  <!-- Score indicator needle -->
+  <line x1="520" y1="212" x2="520" y2="280" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="520" cy="280" r="12" fill="url(#gold)" filter="url(#glow)"/>
+
+  <!-- Score text -->
+  <text x="520" y="200" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="bold" fill="white" text-anchor="middle">72</text>
+  <text x="520" y="230" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#a0a0b5" text-anchor="middle">out of 100</text>
+
+  <!-- Labels under gauge -->
+  <text x="350" y="340" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#ff6b6b" text-anchor="middle">Low</text>
+  <text x="520" y="340" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#feca57" text-anchor="middle">Average</text>
+  <text x="670" y="340" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#00b894" text-anchor="middle">Strong</text>
+
+  <!-- Main title -->
+  <text x="600" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">Is Your Equity Deal Fair?</text>
+  <text x="600" y="465" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#a29bfe" text-anchor="middle">Compare your equity to industry benchmarks in 60 seconds</text>
+
+  <!-- CTA button -->
+  <rect x="400" y="500" width="400" height="50" rx="25" fill="url(#green)" filter="url(#glow)"/>
+  <text x="600" y="532" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="white" text-anchor="middle">Calculate Your Score →</text>
+
+  <!-- Decorative dots -->
+  <circle cx="150" cy="120" r="6" fill="#feca57"/>
+  <circle cx="1050" cy="510" r="4" fill="#00b894"/>
+  <circle cx="1080" cy="480" r="3" fill="#feca57"/>
+  <circle cx="120" cy="500" r="5" fill="#00b894" opacity="0.5"/>
+</svg>
