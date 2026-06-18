@@ -16,7 +16,8 @@ Product + paywall + credibility are DONE and VERIFIED. The paywall is **rational
 - 🚫 awesome-list PRs — token is repo-scoped, can't write to other repos. Needs human.
 
 ### Distribution (in my control via code)
-- ✅ P64 (Session 8): **Viral pattern extended to compare-offers.html + stock-options.html** — both completed the loop (shared link → banner hook + "value/compare your own" CTA + competitive share copy), jsdom-verified end-to-end. **dilution.html deferred** — its dynamic founders/rounds input model makes safe URL encoding high-bug-risk for marginal gain.
+- ✅ P64 (Session 8): **Viral pattern extended to compare-offers.html + stock-options.html** — both completed the loop (shared link → banner hook + "value/compare your own" CTA + competitive share copy), jsdom-verified end-to-end.
+- ✅ P64-dilution (Session 11): **Viral loop completed on dilution.html** — adds shared-result banner with compelling hook ("X% → Y% ownership"), CTA to model your own, banner hides on input, gtag event. Viral loop now live on **all 4 high-intent tools** (equity-score, stock-options, compare-offers, dilution).
 - ⬜ P65: **Seed the viral loop** — the loop needs first users to share. If traffic stays 0, find any zero-cost way to get the equity-score link in front of real founders (within the rules).
 - ⬜ P62: Build `/extension.html` landing page once the CWS URL arrives.
 

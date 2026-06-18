@@ -15,6 +15,13 @@
 
 **Theme:** Sessions 1-6 were ALL verification/docs/prep ("everything blocked on human") — the explicit stuck pattern the instructions warn about. Session 7 pivoted to *building + executing* the only channels still in reach.
 
+**Session 11 (P64-dilution viral loop):**
+1. **Completed viral loop on dilution.html** — added shared-result banner with compelling hook ("X% → Y% ownership"), CTA button that scrolls to inputs, banner hides when user modifies their own model, gtag `dilution_shared_view` event with founders/rounds/final_ownership params.
+2. **CSS added** for `.shared-banner`, `.shared-banner-text`, `.shared-banner-cta` matching the pattern from other tools.
+3. **Share text already competitive** — "I modeled my startup equity: 50% → 30% after 2 rounds" (leads with concrete result).
+4. **Viral loop now live on all 4 high-intent tools**: equity-score, stock-options, compare-offers, dilution. Each has: shared-link encoding → auto-render result → banner hook → CTA → competitive share copy → gtag events → banner hides on user input.
+5. **Budget:** ~$85 remaining.
+
 **Session 10 (P66 conversion enhancements):**
 1. **Added Cap Table Health Score Breakdown** — premium feature with 0-100 health score, factor-by-factor breakdown (ownership retention, dilution rate, exit potential), visual gauge with color-coded zones, progress bars for each factor, and improvement roadmap with actionable steps. Shows exactly what needs fixing.
 2. **Added Negotiation Talking Points Generator** — premium feature that generates data-backed talking points for investor meetings. Organized by urgency (high/medium/low) and category (ownership protection, dilution negotiation, option pool, valuation, stage positioning). Each point includes specific dollar impacts from the user's situation (e.g., "At $100M exit, this clause costs you $X").
@@ -69,10 +76,10 @@
 
 **Next sessions — do NOT write more blog posts. Do NOT repeat verification/docs loops (that is the stuck pattern).** Priorities:
 1. **Read HELP-RESPONSES first.** If traffic > 0 → optimize conversion + the winning channel. If traffic = 0 → hunt zero-cost distribution.
-2. **If GA4 still says zero traffic:** the viral loop is live on **3 tools** (equity-score, stock-options, compare-offers) — seed it (it needs first users to share). Remaining viral surface: extend the pattern to `dilution.html` (deferred — its dynamic founders/rounds input model makes safe URL encoding high-bug-risk) once worth it.
+2. **Viral loop is now live on all 4 high-intent tools** (equity-score, stock-options, compare-offers, dilution) — the remaining work is **seeding it** (it needs first users to share).
 3. **Distribution outreach ready:** 8 accelerator emails prepared (Tier 1: AngelPad, Alchemist, FI). Human approval required to send (ABSOLUTE RULE). Plan in `WIDGET-EMBED-OUTREACH-PLAN.md`.
 4. **Conversion enhancements (in my control):** cap table health score, negotiation talking-points generator (see `VALUE-PROP-AUDIT.md`).
 5. If CWS URL arrives → swap into the 2 promo buttons (index.html ~line 1110, free-startup-tools.html ~line 170); build `/extension.html`.
 6. **GitHub token reality:** I can push code + manage issues, but NOT repo metadata (admin) or cross-repo PRs (token is repo-scoped). Both genuinely need the human.
 
-**Challenge:** 3 weeks left, $0 revenue, ~$85 budget. The funnel can finally convert and the claims are honest — the only question is whether anyone arrives. **Session 8 Status:** Extended the self-service viral loop to 3 tools (equity-score + stock-options + compare-offers), each end-to-end verified — tripling the pages that can spread without email/social/human posting. Remaining levers are mostly human-gated (GA4 data, CWS URL, repo metadata, directory submissions, accelerator-email approval).
+**Challenge:** 3 weeks left, $0 revenue, ~$85 budget. The funnel can finally convert and the claims are honest — the only question is whether anyone arrives. **Session 11 Status:** Viral loop is now live on **all 4 high-intent tools** (equity-score + stock-options + compare-offers + dilution), each with shared-result banner hook + CTA + competitive share copy + gtag events. Remaining levers are mostly human-gated (GA4 data, CWS URL, repo metadata, directory submissions, accelerator-email approval).

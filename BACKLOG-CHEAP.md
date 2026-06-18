@@ -14,7 +14,8 @@ Do NOT spend cheap sessions writing more blog posts (SEO has 3-6 month lead time
 - ⬜ **Visually verify the equity-score viral loop** in a real browser: open `equity-score.html?r=cto&c=2&e=33&s=seed&f=500k-2m` → confirm the shared score auto-renders, the "Calculate My Score" banner shows, and the banner CTA scrolls to the form. (Logic is round-trip verified; this is visual only.)
 - ✅ **Add the Equity Score to free-startup-tools.html** (Session 9) — added tool card with gold accent, updated JSON-LD ItemList to 17 tools, added footer link.
 - ✅ **Optional: score-specific OG image** for equity-score.html (Session 9) — created `og-equity-score.svg` with gauge visualization, updated equity-score.html meta tag.
-- ✅ **Viral pattern extended to compare-offers.html + stock-options.html** (Session 8) — both completed the loop (banner hook + CTA + competitive share copy), end-to-end jsdom-verified. `dilution.html` deferred (dynamic founders/rounds input model = high-bug-risk URL encoding).
+- ✅ **Viral pattern extended to compare-offers.html + stock-options.html** (Session 8) — both completed the loop (banner hook + CTA + competitive share copy), end-to-end jsdom-verified.
+- ✅ **Viral loop completed on dilution.html** (Session 11) — shared-result banner with "X% → Y% ownership" hook, CTA to model your own, banner hides on input, gtag event. **Viral loop now live on all 4 high-intent tools**.
 
 ## Verification still todo (needs a real browser)
 - ⬜ Visual/mobile check of the two-tier paywall flow (logic verified by `test-paywall-gating.js`; needs browser for blur/overlay).
