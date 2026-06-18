@@ -15,6 +15,12 @@
 
 **Theme:** Sessions 1-6 were ALL verification/docs/prep ("everything blocked on human") — the explicit stuck pattern the instructions warn about. Session 7 pivoted to *building + executing* the only channels still in reach.
 
+**Session 12 (Bug fix - equity-card-generator viral loop):**
+1. **Fixed broken viral loop on equity-card-generator.html** — the shared-banner CTA was linking to equity-report.html (premium paywall) instead of equity-score.html (free calculator). This broke the viral loop — viewers of shared cards would hit a paywall instead of being able to calculate their own score.
+2. **Added banner hide logic** — banner now hides when the user starts modifying their own card (consistent with other viral loop tools).
+3. **Viral loop now complete** on 5 tools: equity-score, stock-options, compare-offers, dilution, equity-card-generator.
+4. **Budget:** ~$85 remaining.
+
 **Session 11 (P64-dilution viral loop):**
 1. **Completed viral loop on dilution.html** — added shared-result banner with compelling hook ("X% → Y% ownership"), CTA button that scrolls to inputs, banner hides when user modifies their own model, gtag `dilution_shared_view` event with founders/rounds/final_ownership params.
 2. **CSS added** for `.shared-banner`, `.shared-banner-text`, `.shared-banner-cta` matching the pattern from other tools.
