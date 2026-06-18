@@ -307,6 +307,65 @@
         }
         .btn-share.copied { border-color: var(--green); color: var(--green); }
 
+        /* Shared result banner */
+        .shared-banner {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.15), rgba(162, 155, 254, 0.08));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            animation: slideDown 0.3s ease-out;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .shared-banner-text {
+            flex: 1;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+        .shared-banner-text strong {
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+        .shared-banner-cta {
+            background: var(--accent);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .shared-banner-cta:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+        }
+        .shared-banner-cta:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
+        @media (max-width: 600px) {
+            .shared-banner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .shared-banner-cta {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
         /* Scenarios UI */
         .scenario-controls { display: flex; gap: 8px; margin-bottom: 12px; }
         .scenario-select {
@@ -863,6 +922,14 @@
                 </div>
             </div>
 
+            <!-- Shared Result Banner (shown when viewing someone's shared link) -->
+            <div class="shared-banner" id="sharedBanner" style="display:none;">
+                <div class="shared-banner-text" id="sharedBannerText">
+                    <!-- Filled by JS based on shared result -->
+                </div>
+                <button class="shared-banner-cta" onclick="scrollToInputs()">Calculate Your Runway →</button>
+            </div>
+
             <!-- Pro Tips -->
             <div class="panel-section">
                 <div class="panel-section-title">
@@ -1245,12 +1312,86 @@
                     document.getElementById(key).value = parsed[key];
                 }
             });
+            // After loading state, calculate and show banner
+            setTimeout(() => {
+                const { runwayMonth } = calculate();
+                showSharedBanner(runwayMonth);
+            }, 100);
         } catch (e) { /* ignore */ }
     }
 
     function encodeStateToURL() {
         const s = getState();
         return window.location.origin + window.location.pathname + '?s=' + btoa(JSON.stringify(s));
+    }
+
+    // ============================================================
+    // SHARED RESULT BANNER (Viral Loop)
+    // ============================================================
+    let isSharedView = false;
+    let userHasModified = false;
+
+    function showSharedBanner(runwayMonths) {
+        const banner = document.getElementById('sharedBanner');
+        const bannerText = document.getElementById('sharedBannerText');
+
+        if (!banner || !bannerText) return;
+
+        // Create compelling hook based on result
+        let hook = '';
+        if (runwayMonths >= 18) {
+            hook = `<strong>This founder has ${runwayMonths} months of runway</strong> — healthy position with time to build.`;
+        } else if (runwayMonths >= 12) {
+            hook = `<strong>This founder has ${runwayMonths} months of runway</strong> — time to start planning the next raise.`;
+        } else if (runwayMonths >= 6) {
+            hook = `<strong>This founder has ${runwayMonths} months of runway</strong> — warning zone, begin fundraising now.`;
+        } else {
+            hook = `<strong>This founder has ${runwayMonths} months of runway</strong> — critical, extend runway immediately.`;
+        }
+
+        bannerText.innerHTML = `${hook} <span style="color:var(--text-secondary);margin-left:8px;">See how your runway compares.</span>`;
+        banner.style.display = 'flex';
+        isSharedView = true;
+
+        // Track shared view
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'runway_shared_view', {
+                runway_months: runwayMonths,
+                share_timestamp: new Date().toISOString()
+            });
+        }
+    }
+
+    function hideSharedBanner() {
+        const banner = document.getElementById('sharedBanner');
+        if (banner && isSharedView && !userHasModified) {
+            banner.style.display = 'none';
+            userHasModified = true;
+
+            // Track that user started their own calculation
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'runway_own_calculation_started', {
+                    share_timestamp: new Date().toISOString()
+                });
+            }
+        }
+    }
+
+    function scrollToInputs() {
+        const formSection = document.querySelector('.input-panel') || document.getElementById('cashInBank');
+        if (formSection) {
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Focus on first input
+            const firstInput = document.getElementById('cashInBank');
+            if (firstInput) firstInput.focus({ preventScroll: true });
+        }
+
+        // Track CTA click
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'runway_shared_banner_cta', {
+                share_timestamp: new Date().toISOString()
+            });
+    }
     }
 
     // ============================================================
@@ -1562,16 +1703,47 @@
             btn.classList.add('copied');
             showToast('Link copied to clipboard!');
             trackEvent('copy_share_link');
+
+            const runwayVal = document.getElementById('sumRunway')?.textContent || '';
+            const months = runwayVal !== '—' ? parseInt(runwayVal) : null;
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'runway_copy_link', {
+                    runway_months: months || 0,
+                    share_timestamp: new Date().toISOString()
+                });
+            }
+
             setTimeout(() => { btn.textContent = 'Copy Share Link'; btn.classList.remove('copied'); }, 2000);
         }).catch(() => { prompt('Copy this link:', url); });
     }
 
     function shareToTwitter() {
         const url = encodeStateToURL();
-        const months = document.getElementById('sumMonthsRunway')?.textContent || '';
-        const text = months ? `My startup has ${months} of runway left. Check yours: ${url} #startup #runway` : 'Calculate your startup runway: ' + url + ' #startup #runway';
+        const runwayVal = document.getElementById('sumRunway')?.textContent || '';
+        const months = runwayVal !== '—' ? parseInt(runwayVal) : null;
+
+        let text = '';
+        if (months && months >= 18) {
+            text = `My startup has ${months} months of runway — healthy position to build. Calculate yours: ${url} #startup #runway #founders`;
+        } else if (months && months >= 12) {
+            text = `I have ${months} months of runway. Time to start planning the next raise. How's yours? ${url} #startup #runway`;
+        } else if (months && months >= 6) {
+            text = `My runway: ${months} months. In the warning zone and starting to fundraise. See yours: ${url} #startup #runway #fundraising`;
+        } else if (months) {
+            text = `I have ${months} months of runway left — critical zone. Time to extend runway immediately. Calculate: ${url} #startup #runway`;
+        } else {
+            text = `Calculate your startup runway and see when you need to start fundraising: ${url} #startup #runway`;
+        }
+
         window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
         trackEvent('share_twitter');
+
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'runway_share_twitter', {
+                runway_months: months || 0,
+                share_timestamp: new Date().toISOString()
+            });
+        }
     }
 
     function showToast(msg) {
