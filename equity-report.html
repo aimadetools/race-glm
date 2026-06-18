@@ -443,6 +443,126 @@
             }
         }
 
+        /* Health Score Breakdown */
+        .health-score-breakdown {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px; margin-bottom: 32px;
+        }
+        .health-score-breakdown h3 {
+            font-size: 1rem; color: var(--accent-light); margin-bottom: 20px;
+        }
+        .health-score-container {
+            display: grid; grid-template-columns: 1fr 1.5fr; gap: 32px;
+            align-items: start; margin-bottom: 24px;
+        }
+        .health-score-main {
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .health-score-gauge {
+            width: 160px; height: 160px; border-radius: 50%;
+            position: relative; display: flex; align-items: center;
+            justify-content: center;
+        }
+        .health-score-inner {
+            width: 130px; height: 130px; background: var(--bg-card);
+            border-radius: 50%; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+        }
+        .health-score-value {
+            font-size: 2.8rem; font-weight: 900; font-family: var(--font-mono);
+            line-height: 1; color: var(--accent-light);
+        }
+        .health-score-label {
+            font-size: 0.9rem; font-weight: 700; color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        .health-score-factors {
+            display: flex; flex-direction: column; gap: 16px;
+        }
+        .health-factor {
+            background: var(--bg-card); border-radius: 10px; padding: 16px;
+        }
+        .factor-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 8px;
+        }
+        .factor-name {
+            font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);
+        }
+        .factor-score {
+            font-size: 0.85rem; font-weight: 700;
+        }
+        .factor-bar {
+            height: 6px; background: var(--bg-secondary); border-radius: 3px;
+            overflow: hidden; margin-bottom: 8px;
+        }
+        .factor-fill {
+            height: 100%; border-radius: 3px; transition: width 0.5s ease;
+        }
+        .factor-detail {
+            font-size: 0.78rem; color: var(--text-muted); line-height: 1.4;
+        }
+        .health-roadmap {
+            background: linear-gradient(135deg, rgba(108,92,231,0.08), rgba(0,184,148,0.05));
+            border: 1px solid rgba(108,92,231,0.2); border-radius: 10px;
+            padding: 16px 20px;
+        }
+        .health-roadmap h4 {
+            font-size: 0.85rem; margin-bottom: 12px;
+        }
+        @media (max-width: 700px) {
+            .health-score-container {
+                grid-template-columns: 1fr; gap: 24px;
+            }
+            .health-score-gauge {
+                width: 140px; height: 140px;
+            }
+            .health-score-inner {
+                width: 115px; height: 115px;
+            }
+            .health-score-value {
+                font-size: 2.4rem;
+            }
+        }
+
+        /* Negotiation Talking Points */
+        .negotiation-talking-points {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px; margin-bottom: 32px;
+        }
+        .negotiation-talking-points h3 {
+            font-size: 1rem; color: var(--accent-light); margin-bottom: 8px;
+        }
+        .talking-points-list {
+            display: flex; flex-direction: column; gap: 16px; margin-top: 20px;
+        }
+        .talking-point-item {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 10px; padding: 16px; transition: border-color 0.2s;
+        }
+        .talking-point-item:hover {
+            border-color: var(--accent);
+        }
+        .tp-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 12px;
+        }
+        .tp-category {
+            font-size: 0.8rem; font-weight: 700; color: var(--accent-light);
+            text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .tp-urgency {
+            font-size: 0.75rem; font-weight: 600; padding: 4px 10px;
+            border-radius: 12px; background: var(--bg-secondary);
+        }
+        .tp-text {
+            font-size: 0.9rem; color: var(--text-secondary);
+            line-height: 1.6; font-style: italic;
+        }
+        .tp-note {
+            border-left-width: 4px !important;
+        }
+
         /* Email Gate */
         .email-gate {
             background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,184,148,0.1));
@@ -943,6 +1063,14 @@
                         </div>
                         <div class="paywall-feat">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Cap table health score breakdown
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Negotiation talking points
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
                             Industry benchmark comparison
                         </div>
                         <div class="paywall-feat">
@@ -983,6 +1111,14 @@
                         </div>
                         <div class="paywall-feat">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Cap table health score breakdown
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Negotiation talking points
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
                             Professional PDF download
                         </div>
                     </div>
@@ -1019,6 +1155,14 @@
                         </div>
                         <div class="paywall-feat">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Cap table health score breakdown
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Negotiation talking points
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
                             Professional PDF download
                         </div>
                     </div>
@@ -1052,6 +1196,14 @@
                         <div class="paywall-feat">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
                             Actionable recommendations
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Cap table health score breakdown
+                        </div>
+                        <div class="paywall-feat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            Negotiation talking points
                         </div>
                         <div class="paywall-feat">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
@@ -1137,6 +1289,12 @@
 
                         <!-- Scenario Comparison Pack -->
                         <div class="scenario-comparison" id="scenarioComparison"></div>
+
+                        <!-- Cap Table Health Score Breakdown -->
+                        <div class="health-score-breakdown" id="healthScoreBreakdown"></div>
+
+                        <!-- Negotiation Talking Points -->
+                        <div class="negotiation-talking-points" id="negotiationTalkingPoints"></div>
 
                         <!-- PDF Download Area -->
                         <div id="pdfDownloadArea" style="display:none;text-align:center;margin-bottom:32px;">
@@ -1808,6 +1966,12 @@
 
         // Add scenario comparison pack (premium feature)
         renderScenarioComparison(d);
+
+        // Add cap table health score breakdown (premium feature)
+        renderHealthScoreBreakdown(d);
+
+        // Add negotiation talking points (premium feature)
+        renderTalkingPoints(d);
     }
 
     function renderScenarioComparison(d) {
@@ -1868,6 +2032,197 @@
                 '</div>' +
             '</div>' +
             '<p class="scenario-note">"Negotiated Deal" assumes you negotiate 3% better terms per funding round (e.g., 18% vs 21% investor share). This conservative estimate shows the dollar value of negotiation.</p>';
+    }
+
+    function renderHealthScoreBreakdown(d) {
+        var container = document.getElementById('healthScoreBreakdown');
+        if (!container) return;
+
+        var yourDilution = d.startingEquity - d.finalOwnership;
+        var bench = BENCHMARKS[d.stage] || BENCHMARKS['seed'];
+
+        // 1. Ownership retention score: higher final ownership is better
+        var ownershipScore = Math.min(100, Math.max(0, d.finalOwnership * 2));
+        var ownershipLabel = d.finalOwnership >= 40 ? 'Strong' : d.finalOwnership >= 20 ? 'Good' : 'Weak';
+        var ownershipColor = d.finalOwnership >= 40 ? '#00b894' : d.finalOwnership >= 20 ? '#ffa502' : '#ff6b6b';
+
+        // 2. Dilution vs benchmark: below average dilution = good
+        var dilutionRatio = yourDilution / Math.max(1, bench.avgDilution);
+        var dilutionScore = Math.min(100, Math.max(0, 100 - dilutionRatio * 40));
+        var dilutionLabel = dilutionRatio <= 1 ? 'Below Average' : dilutionRatio <= 1.3 ? 'Average' : 'Above Average';
+        var dilutionColor = dilutionRatio <= 1 ? '#00b894' : dilutionRatio <= 1.3 ? '#ffa502' : '#ff6b6b';
+
+        // 3. Exit potential: exit value relative to exit goal
+        var exitRatio = d.exitValue / Math.max(0.1, (d.exitGoalM * d.startingEquity / 100));
+        var exitScore = Math.min(100, Math.max(10, exitRatio * 80));
+        var exitLabel = exitRatio >= 1 ? 'On Track' : exitRatio >= 0.5 ? 'Needs Work' : 'At Risk';
+        var exitColor = exitRatio >= 1 ? '#00b894' : exitRatio >= 0.5 ? '#ffa502' : '#ff6b6b';
+
+        // Weighted composite
+        var composite = Math.round(ownershipScore * 0.40 + dilutionScore * 0.35 + exitScore * 0.25);
+        composite = Math.min(100, Math.max(1, composite));
+        var healthLabel = composite >= 80 ? 'Excellent' : composite >= 60 ? 'Good' : composite >= 40 ? 'Fair' : 'Poor';
+        var healthColor = composite >= 80 ? '#00b894' : composite >= 60 ? '#ffa502' : composite >= 40 ? '#fd79a8' : '#ff6b6b';
+
+        // Generate improvement roadmap
+        var roadmap = [];
+        if (ownershipScore < 70) {
+            roadmap.push('Negotiate higher initial equity or reduce option pool to increase final ownership.');
+        }
+        if (dilutionScore < 60) {
+            roadmap.push('Your dilution is above industry average. Focus on valuation negotiation or smaller rounds.');
+        }
+        if (exitScore < 60) {
+            roadmap.push('Exit potential is low. Consider raising at higher valuations or reducing dilution per round.');
+        }
+        if (d.cofounders > 2) {
+            roadmap.push('Multiple cofounders dilute everyone. Ensure vesting protects the company if someone leaves early.');
+        }
+        if (d.finalOwnership < 10) {
+            roadmap.push('You risk losing control below 10% ownership. Consider anti-dilution protections or founder-friendly terms.');
+        }
+        if (roadmap.length === 0) {
+            roadmap.push('Your cap table is healthy! Maintain current terms and keep valuations competitive.');
+        }
+
+        container.innerHTML = '<h3>Cap Table Health Score Breakdown</h3>';
+        container.innerHTML +=
+            '<div class="health-score-container">' +
+                '<div class="health-score-main">' +
+                    '<div class="health-score-gauge" style="background:conic-gradient(' + healthColor + ' ' + composite + '%, #2d3436 0);">' +
+                        '<div class="health-score-inner">' +
+                            '<div class="health-score-value">' + composite + '</div>' +
+                            '<div class="health-score-label">' + healthLabel + '</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<p style="text-align:center;font-size:0.9rem;color:var(--text-secondary);margin-top:16px;">Your overall cap table health based on ownership retention, dilution rate, and exit potential.</p>' +
+                '</div>' +
+                '<div class="health-score-factors">' +
+                    '<div class="health-factor">' +
+                        '<div class="factor-header">' +
+                            '<span class="factor-name">Ownership Retention</span>' +
+                            '<span class="factor-score" style="color:' + ownershipColor + '">' + Math.round(ownershipScore) + '/100</span>' +
+                        '</div>' +
+                        '<div class="factor-bar"><div class="factor-fill" style="width:' + ownershipScore + '%;background:' + ownershipColor + ';"></div></div>' +
+                        '<div class="factor-detail">' + ownershipLabel + ': You end with ' + d.finalOwnership.toFixed(1) + '% ownership. Industry target: 40%+ at your stage.</div>' +
+                    '</div>' +
+                    '<div class="health-factor">' +
+                        '<div class="factor-header">' +
+                            '<span class="factor-name">Dilution Rate</span>' +
+                            '<span class="factor-score" style="color:' + dilutionColor + '">' + Math.round(dilutionScore) + '/100</span>' +
+                        '</div>' +
+                        '<div class="factor-bar"><div class="factor-fill" style="width:' + dilutionScore + '%;background:' + dilutionColor + ';"></div></div>' +
+                        '<div class="factor-detail">' + dilutionLabel + ': Your dilution is ' + yourDilution.toFixed(1) + '% vs ' + bench.avgDilution + '% industry average.</div>' +
+                    '</div>' +
+                    '<div class="health-factor">' +
+                        '<div class="factor-header">' +
+                            '<span class="factor-name">Exit Potential</span>' +
+                            '<span class="factor-score" style="color:' + exitColor + '">' + Math.round(exitScore) + '/100</span>' +
+                        '</div>' +
+                        '<div class="factor-bar"><div class="factor-fill" style="width:' + exitScore + '%;background:' + exitColor + ';"></div></div>' +
+                        '<div class="factor-detail">' + exitLabel + ': At $' + d.exitGoalM + 'M exit, your stake is worth $' + d.exitValue.toFixed(1) + 'M.</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+            '<div class="health-roadmap">' +
+                '<h4 style="color:var(--accent-light);margin-bottom:12px;">Improvement Roadmap</h4>' +
+                '<ul style="list-style:none;padding:0;margin:0;">' +
+                    roadmap.map(function(step) { return '<li style="padding:8px 0 8px 24px;position:relative;font-size:0.9rem;color:var(--text-secondary);"><span style="position:absolute;left:0;color:var(--accent);">→</span>' + step + '</li>'; }).join('') +
+                '</ul>' +
+            '</div>';
+    }
+
+    function renderTalkingPoints(d) {
+        var container = document.getElementById('negotiationTalkingPoints');
+        if (!container) return;
+
+        var yourDilution = d.startingEquity - d.finalOwnership;
+        var bench = BENCHMARKS[d.stage] || BENCHMARKS['seed'];
+        var points = [];
+
+        // Ownership-based talking points
+        if (d.finalOwnership < 30) {
+            var ownershipToRecover = (30 - d.finalOwnership).toFixed(1);
+            var valueAtExit = ((30 - d.finalOwnership) / 100 * d.exitGoalM).toFixed(1);
+            points.push({
+                category: 'Ownership Protection',
+                urgency: 'high',
+                text: 'I\'m projected to end with ' + d.finalOwnership.toFixed(1) + '% ownership, which is below the 30% threshold for maintaining control at this stage. Recovering ' + ownershipToRecover + '% ownership is worth $' + valueAtExit + 'M at our target exit. Can we reduce the option pool or adjust the pre-money valuation to preserve founder ownership?'
+            });
+        }
+
+        // Dilution-based talking points
+        if (yourDilution > bench.avgDilution) {
+            var excessDilution = (yourDilution - bench.avgDilution).toFixed(1);
+            var dilutionCost = (excessDilution / 100 * d.exitGoalM).toFixed(1);
+            points.push({
+                category: 'Dilution Negotiation',
+                urgency: 'high',
+                text: 'My dilution analysis shows ' + yourDilution.toFixed(1) + '% total dilution, which is ' + excessDilution + '% above the ' + bench.avgDilution + '% industry average for ' + d.stage + ' stage. At a $' + d.exitGoalM + 'M exit, this excess dilution costs me $' + dilutionCost + 'M. Can we reduce the round size or investor percentage to get closer to market standard?'
+            });
+        }
+
+        // Option pool talking points
+        if (d.termSheet && d.termSheet.optionPoolSize === '20') {
+            var poolImpact = (d.startingEquity * 0.05).toFixed(1);
+            var poolCost = (poolImpact / 100 * d.exitGoalM).toFixed(1);
+            points.push({
+                category: 'Option Pool',
+                urgency: 'medium',
+                text: 'A 20% option pool will dilute founders by ' + poolImpact + '% on top of investor dilution. At our target exit, that\'s $' + poolCost + 'M out of our pockets. Can we structure this as a 10% pool that top-ups after your investment, or reduce to 15% to align with founder-friendly standards?'
+            });
+        }
+
+        // Valuation-based talking points
+        if (d.valuationM < 15 && d.stage === 'seed') {
+            points.push({
+                category: 'Valuation',
+                urgency: 'medium',
+                text: 'Our current valuation of $' + d.valuationM + 'M is on the lower end for seed stage. With our traction and market opportunity, I believe we\'re positioned for $15M-$25M. A $5M improvement in valuation preserves ' + (5 / d.valuationM * d.startingEquity).toFixed(1) + '% of my ownership—worth $' + ((5 / d.valuationM * d.startingEquity) / 100 * d.exitGoalM).toFixed(1) + 'M at exit. Can you walk me through your valuation methodology?'
+            });
+        }
+
+        // Stage-specific talking points
+        if (d.stage === 'pre-seed') {
+            points.push({
+                category: 'Stage Positioning',
+                urgency: 'low',
+                text: 'We\'re at pre-seed with significant execution risk. I\'m looking for partners who understand that at this stage, founder protection is critical—both for incentives and for future fundraising attractiveness. Can we discuss a cleaner cap table structure that sets us up well for our seed round?'
+            });
+        }
+
+        // Add general talking point if none generated
+        if (points.length === 0) {
+            points.push({
+                category: 'General',
+                urgency: 'low',
+                text: 'I want to ensure our cap table structure supports both founder incentives and future fundraising. Can we discuss how the proposed terms align with industry standards and set us up for long-term success?'
+            });
+        }
+
+        // Sort by urgency
+        var urgencyOrder = { 'high': 0, 'medium': 1, 'low': 2 };
+        points.sort(function(a, b) { return urgencyOrder[a.urgency] - urgencyOrder[b.urgency]; });
+
+        container.innerHTML = '<h3>Negotiation Talking Points</h3>';
+        container.innerHTML += '<p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:20px;">Data-backed language you can use in investor meetings. Each point includes specific numbers and dollar impacts from your situation.</p>';
+
+        container.innerHTML += '<div class="talking-points-list">';
+        points.forEach(function(point) {
+            var urgencyIcon = point.urgency === 'high' ? '🔴' : point.urgency === 'medium' ? '🟡' : '🟢';
+            var urgencyLabel = point.urgency === 'high' ? 'High Priority' : point.urgency === 'medium' ? 'Medium Priority' : 'Good to Know';
+            container.innerHTML +=
+                '<div class="talking-point-item">' +
+                    '<div class="tp-header">' +
+                        '<span class="tp-category">' + point.category + '</span>' +
+                        '<span class="tp-urgency" title="' + urgencyLabel + '">' + urgencyIcon + ' ' + urgencyLabel + '</span>' +
+                    '</div>' +
+                    '<div class="tp-text">"' + point.text + '"</div>' +
+                '</div>';
+        });
+        container.innerHTML += '</div>';
+
+        container.innerHTML += '<p class="tp-note" style="font-size:0.85rem;color:var(--text-muted);margin-top:16px;padding:12px;background:rgba(255,165,2,0.1);border-left:3px solid #ffa502;border-radius:0 8px 8px 0;">💡 Tip: Practice these talking points before your meeting. The data behind them is specific to your situation—use the numbers that resonate most with your negotiation goals.</p>';
     }
 
     function handleEmail(e) {
