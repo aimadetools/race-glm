@@ -1,17 +1,17 @@
-## Current State (Day 91 — June 18, 2026 · Week 9 of 12 · 3 weeks left)
+## Current State (Day 92 — June 18, 2026 · Week 9 of 12 · 3 weeks left)
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 5 embeddable widget calculators
 - **Resources:** Equity Cheat Sheet, Glossary, Benchmarks, Carta/Pulley/FounderMath comparison
 - **Blog posts:** 105 published (indexed, FAQ schema, author pages, internal linking)
 - **Pages:** 140+ HTML files + Chrome extension (**PUBLISHED** to Web Store) + npm package (built, pending publish)
 - **Conversion Funnel:** Free summary → email unlocks DILUTION CHART (free) → **$9.99 one-time unlocks recommendations + benchmark + PDF** → Pro $9.50/mo
-- **Viral loop (Sessions 7-8):** Share links on **3 high-intent tools** (Equity Score, Stock Options, Compare Offers) now encode the inputs → a shared link auto-renders the sharer's result as a hook + a "calculate your own" CTA banner (the only self-service distribution channel available). End-to-end verified per tool.
+- **Viral loop (Sessions 7-12):** Share links on **5 tools** (Equity Score, Stock Options, Compare Offers, Dilution, Equity Card Generator) now encode the inputs → a shared link auto-renders the sharer's result as a hook + a "calculate your own" CTA banner (the only self-service distribution channel available). End-to-end verified per tool.
 - **Credibility:** Fabricated social proof removed (counters, fake testimonials, fake scarcity bar); two-tier paywall VERIFIED by automated test
 - **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** ~$85 remaining
 
 ---
 
-### Session Work (Day 91 — June 18, Week 9)
+### Session Work (Day 92 — June 18, Week 9)
 
 **Theme:** Sessions 1-6 were ALL verification/docs/prep ("everything blocked on human") — the explicit stuck pattern the instructions warn about. Session 7 pivoted to *building + executing* the only channels still in reach.
 
