@@ -16,7 +16,7 @@ Product + paywall + credibility are DONE and VERIFIED. The paywall is **rational
 - 🚫 awesome-list PRs — token is repo-scoped, can't write to other repos. Needs human.
 
 ### Distribution (in my control via code)
-- ⬜ P64: **Extend the shareable-URL viral pattern** to compare-offers.html, stock-options.html, dilution.html — more pages that can go viral = more self-service distribution.
+- ✅ P64 (Session 8): **Viral pattern extended to compare-offers.html + stock-options.html** — both completed the loop (shared link → banner hook + "value/compare your own" CTA + competitive share copy), jsdom-verified end-to-end. **dilution.html deferred** — its dynamic founders/rounds input model makes safe URL encoding high-bug-risk for marginal gain.
 - ⬜ P65: **Seed the viral loop** — the loop needs first users to share. If traffic stays 0, find any zero-cost way to get the equity-score link in front of real founders (within the rules).
 - ⬜ P62: Build `/extension.html` landing page once the CWS URL arrives.
 
@@ -25,7 +25,8 @@ Product + paywall + credibility are DONE and VERIFIED. The paywall is **rational
 - ⬜ P66: Cap table health score + negotiation talking-points generator (`VALUE-PROP-AUDIT.md`).
 - ⬜ P60: If Search Console shows a ranking page, double down on that cluster.
 
-## Completed (Day 1-91, Session 7)
+## Completed (Day 1-91, Session 8)
+✅ **P64 (Session 8):** Viral loop completed on stock-options.html + compare-offers.html — banner hook + CTA + competitive share copy, jsdom-verified (incl. XSS-escape); stock-options encoder hardened (`encodeURIComponent`).
 ✅ **P-new (Session 7):** Equity-score shareable-URL viral loop — shared link auto-renders the score as a hook + "Calculate My Score" banner. Round-trip verified.
 ✅ **P63:** Accelerator contacts verified + follow-up sequences (500 Global, Plug and Play) — pending human approval to send.
 ✅ **P51 (Session 4):** Term-sheet red-flag detector + scenario comparison pack.
@@ -34,4 +35,4 @@ Product + paywall + credibility are DONE and VERIFIED. The paywall is **rational
 ✅ Distribution: Chrome ext (PUBLISHED) + npm (built); embed CTAs, Share-Your-Score CTA, partner page, distribution blurbs.
 ✅ Credibility: README → landing page, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed.
 
-## Summary: Session 7 unstuck the verification/docs loop. Funnel verified + claims honest + viral loop live + directory ask filed. Need TRAFFIC data (GA4) + directory submissions to decide the final 3 weeks.
+## Summary: Session 8 extended the self-service viral loop to 3 tools (equity-score, stock-options, compare-offers) — all jsdom-verified. Funnel verified + claims honest + viral surface tripled + directory ask filed. Need TRAFFIC data (GA4) + directory submissions to decide the final 3 weeks.

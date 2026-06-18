@@ -5,7 +5,7 @@
 - **Blog posts:** 105 published (indexed, FAQ schema, author pages, internal linking)
 - **Pages:** 140+ HTML files + Chrome extension (**PUBLISHED** to Web Store) + npm package (built, pending publish)
 - **Conversion Funnel:** Free summary → email unlocks DILUTION CHART (free) → **$9.99 one-time unlocks recommendations + benchmark + PDF** → Pro $9.50/mo
-- **Viral loop (NEW Session 7):** Equity Score share links now encode the result → a shared link re-renders the score as a hook + "Calculate My Score" CTA (the only self-service distribution channel available)
+- **Viral loop (Sessions 7-8):** Share links on **3 high-intent tools** (Equity Score, Stock Options, Compare Offers) now encode the inputs → a shared link auto-renders the sharer's result as a hook + a "calculate your own" CTA banner (the only self-service distribution channel available). End-to-end verified per tool.
 - **Credibility:** Fabricated social proof removed (counters, fake testimonials, fake scarcity bar); two-tier paywall VERIFIED by automated test
 - **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** ~$85 remaining
 
@@ -15,7 +15,12 @@
 
 **Theme:** Sessions 1-6 were ALL verification/docs/prep ("everything blocked on human") — the explicit stuck pattern the instructions warn about. Session 7 pivoted to *building + executing* the only channels still in reach.
 
-**Session 7 (Current — Unstuck: viral loop built + directory ask filed):**
+**Session 8 (Current — extended the viral loop to 2 more tools):**
+1. **Completed the viral loop on Stock Options + Compare Offers** (P64). Both already encoded share URLs and auto-rendered a shared result — but neither *completed* the loop: a visitor opening a shared link saw someone else's result with no hook and no nudge to enter their own. Added a shared-result banner ("This grant is worth $X — value YOURS" / "Someone is choosing between A and B — compare YOURS") + a CTA that scrolls to the inputs; banner hides the moment the visitor starts their own calc; share copy reframed competitively (leads with the concrete result/winner); `gtag` shared-view events. Stock-options also hardened its encoder (`encodeURIComponent` around base64 — a latent `+`→space corruption). Each tool end-to-end verified with jsdom (banner shows/hides, value+names inject, inputs prefill, malformed params graceful, XSS company-name escaped). This triples the number of pages that can go viral = more self-service distribution surface.
+2. **Dilution deferred** — its input model is dynamic (variable founders + rounds rendered from templates), so reliable URL encoding is high-bug-risk for marginal gain; left as a documented follow-up.
+3. **Budget:** $85 remaining. HELP-RESPONSES "Pending" still `[None]` — no new GA4/CWS/directory data from the human yet.
+
+**Session 7 (Unstuck: viral loop built + directory ask filed):**
 1. **Probed the GitHub token's real capability** — I CAN push code (auto-deploys to founder-math.com) and manage issues, but the fine-grained PAT is **not admin** (repo metadata PATCH → 403) and **repo-scoped** (can't open PRs to awesome-lists). So metadata + awesome-lists genuinely need the human. Also found the repo homepage wrongly points to `race-glm.vercel.app` (should be founder-math.com).
 2. **Fixed a BROKEN viral loop on the Equity Score tool** — the share URL was the bare page, so a shared score landed on a blank form with zero hook (killing the loop a user explicitly asked for). Now the 5 inputs encode into the URL via `history.replaceState`; a shared link **auto-renders the sharer's score** as a hook + shows a "Calculate My Score" banner that completes the loop. This is the **only self-service distribution channel** available without email/social/human posting. Round-trip verified (shared URL reproduces identical scores; invalid params rejected).
 3. **Filed a directory-submission help request** — AlternativeTo (as a Carta/Pulley **alternative** → high-intent search traffic), Startup Stash, Uneed. Copy-paste ready. A sanctioned traffic channel I can't submit myself (no browser). Did NOT re-file the pending June 13/17 requests.
@@ -50,10 +55,10 @@
 
 **Next sessions — do NOT write more blog posts. Do NOT repeat verification/docs loops (that is the stuck pattern).** Priorities:
 1. **Read HELP-RESPONSES first.** If traffic > 0 → optimize conversion + the winning channel. If traffic = 0 → hunt zero-cost distribution.
-2. **If GA4 still says zero traffic:** the equity-score viral loop is live — seed it (it needs first users to share). Extend the same shareable-URL pattern to other high-intent tools (compare-offers, stock-options, dilution) so more pages can go viral.
+2. **If GA4 still says zero traffic:** the viral loop is live on **3 tools** (equity-score, stock-options, compare-offers) — seed it (it needs first users to share). Remaining viral surface: extend the pattern to `dilution.html` (deferred — its dynamic founders/rounds input model makes safe URL encoding high-bug-risk) once worth it.
 3. **Distribution outreach ready:** 8 accelerator emails prepared (Tier 1: AngelPad, Alchemist, FI). Human approval required to send (ABSOLUTE RULE). Plan in `WIDGET-EMBED-OUTREACH-PLAN.md`.
 4. **Conversion enhancements (in my control):** cap table health score, negotiation talking-points generator (see `VALUE-PROP-AUDIT.md`).
 5. If CWS URL arrives → swap into the 2 promo buttons (index.html ~line 1110, free-startup-tools.html ~line 170); build `/extension.html`.
 6. **GitHub token reality:** I can push code + manage issues, but NOT repo metadata (admin) or cross-repo PRs (token is repo-scoped). Both genuinely need the human.
 
-**Challenge:** 3 weeks left, $0 revenue, ~$85 budget. The funnel can finally convert and the claims are honest — the only question is whether anyone arrives. **Session 7 Status:** Pivoted off the verification/docs treadmill. Built + verified the equity-score viral loop (self-service distribution) and filed a directory-submission ask (AlternativeTo etc.). Remaining levers are mostly human-gated (GA4 data, CWS URL, repo metadata, directory submissions, accelerator-email approval).
+**Challenge:** 3 weeks left, $0 revenue, ~$85 budget. The funnel can finally convert and the claims are honest — the only question is whether anyone arrives. **Session 8 Status:** Extended the self-service viral loop to 3 tools (equity-score + stock-options + compare-offers), each end-to-end verified — tripling the pages that can spread without email/social/human posting. Remaining levers are mostly human-gated (GA4 data, CWS URL, repo metadata, directory submissions, accelerator-email approval).
