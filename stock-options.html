@@ -153,6 +153,13 @@
 
         /* RESULTS */
         .results-panel { min-width: 0; }
+
+        /* Shared-grant banner — shown when viewing someone else's shared option grant */
+        .shared-banner { margin-bottom: 28px; padding: 18px 22px; background: linear-gradient(135deg, rgba(108,92,231,0.18), rgba(0,184,148,0.10)); border: 2px solid var(--accent); border-radius: 14px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+        .shared-banner-text { font-size: 0.95rem; color: var(--text-primary); line-height: 1.5; }
+        .shared-banner-text strong { color: var(--accent-light); }
+        .shared-banner-cta { background: var(--accent); color: #fff !important; padding: 12px 22px; border-radius: 10px; font-weight: 800; font-size: 0.92rem; white-space: nowrap; transition: background 0.2s; cursor: pointer; border: none; font-family: inherit; }
+        .shared-banner-cta:hover { background: var(--accent-light); }
         .summary-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 32px; }
         .summary-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
         .summary-card .metric-value { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 800; }
@@ -518,6 +525,13 @@
 
     <!-- RESULTS PANEL -->
     <main class="results-panel" role="region" aria-label="Calculator results">
+        <!-- Shared-grant banner (shown only when a visitor opens someone's shared link) -->
+        <div class="shared-banner" id="sharedBanner" style="display:none;">
+            <div class="shared-banner-text" id="sharedBannerText">
+                <strong>👆 This is someone else's option grant.</strong> See what <em>your</em> options are worth — enter your own grant.
+            </div>
+            <button class="shared-banner-cta" id="sharedBannerCta" type="button">Value My Options →</button>
+        </div>
         <!-- Summary Cards -->
         <div class="summary-cards" id="summaryCards">
             <div class="summary-card highlight">
@@ -1157,7 +1171,9 @@ function loadFromURL() {
 }
 
 function encodeStateToURL() {
-    return window.location.origin + window.location.pathname + '?s=' + btoa(JSON.stringify(getState()));
+    // encodeURIComponent is required: raw base64 can contain '+', which
+    // URLSearchParams decodes as a space and would silently corrupt the share.
+    return window.location.origin + window.location.pathname + '?s=' + encodeURIComponent(btoa(JSON.stringify(getState())));
 }
 
 function copyShareLink() {
@@ -1169,8 +1185,9 @@ function copyShareLink() {
 
 function shareToTwitter() {
     const url = encodeStateToURL();
-    const numOpts = document.getElementById('numOptions').value;
-    const text = `I have ${parseInt(numOpts).toLocaleString()} startup options. Check what they're worth: ${url} #startup #equity`;
+    try { history.replaceState(null, '', url); } catch (e) {}
+    const r = calculate();
+    const text = `My startup options are worth ${fmtWhole(r.grossValue)} right now 💰 — what are YOURS worth? Value yours in 30 seconds: ${url} #startup #equity`;
     window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
 }
 
@@ -1182,6 +1199,9 @@ inputs.forEach(function(el) {
     el.addEventListener('input', function() {
         var r = calculate();
         render(r);
+        // Visitor is valuing their OWN grant — drop the shared-grant framing
+        var banner = document.getElementById('sharedBanner');
+        if (banner) banner.style.display = 'none';
     });
 });
 
@@ -1205,9 +1225,31 @@ document.getElementById('sharesOutstanding').addEventListener('input', function(
 });
 
 // Initial render
-loadFromURL();
+var isShared = loadFromURL();
 var initialResult = calculate();
 render(initialResult);
+
+// Viral loop — if this is someone's shared grant, surface the "value yours" hook.
+// The shared state already re-rendered above; now we frame it as someone else's
+// result and nudge the visitor to value their own grant (then reshare).
+if (isShared) {
+    var valEl = document.getElementById('currentValue');
+    var valTxt = valEl ? (valEl.textContent || '').trim() : '';
+    var txtEl = document.getElementById('sharedBannerText');
+    if (txtEl && valTxt && valTxt !== '$0') {
+        txtEl.innerHTML = '<strong>👆 This grant is worth ' + valTxt + ' right now.</strong> See what <em>your</em> options are worth — enter your own grant.';
+    }
+    var banner = document.getElementById('sharedBanner');
+    if (banner) banner.style.display = 'flex';
+    var cta = document.getElementById('sharedBannerCta');
+    if (cta) cta.addEventListener('click', function() {
+        var panel = document.querySelector('.input-panel');
+        if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    if (typeof gtag === 'function') {
+        gtag('event', 'stock_options_shared_view', { gross_value: initialResult.grossValue });
+    }
+}
 </script>
     <script src="ab-test-pricing.js"></script>
     <script src="save-reminder.js"></script>
