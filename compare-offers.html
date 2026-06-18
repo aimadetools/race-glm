@@ -174,6 +174,13 @@
         .share-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; justify-content: center; }
         .btn-share { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; cursor: pointer; font-weight: 500; transition: all 0.2s; font-family: var(--font-sans); }
         .btn-share:hover { border-color: var(--accent); color: var(--text-primary); }
+
+        /* Shared-comparison banner — shown when viewing someone else's shared comparison */
+        .shared-banner { margin-bottom: 28px; padding: 18px 22px; background: linear-gradient(135deg, rgba(108,92,231,0.18), rgba(0,184,148,0.10)); border: 2px solid var(--accent); border-radius: 14px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+        .shared-banner-text { font-size: 0.95rem; color: var(--text-primary); line-height: 1.5; }
+        .shared-banner-text strong { color: var(--accent-light); }
+        .shared-banner-cta { background: var(--accent); color: #fff !important; padding: 12px 22px; border-radius: 10px; font-weight: 800; font-size: 0.92rem; white-space: nowrap; transition: background 0.2s; cursor: pointer; border: none; font-family: var(--font-sans); }
+        .shared-banner-cta:hover { background: var(--accent-light); }
         .btn-print { background: #2d3748; border: 1px solid var(--border); color: #fff; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; cursor: pointer; font-weight: 600; transition: all 0.2s; font-family: var(--font-sans); }
         .btn-print:hover { background: #1a202c; border-color: var(--accent); }
 
@@ -761,11 +768,18 @@
         </div>
 
         <div class="compare-btn-wrap">
-            <button class="btn-compare" onclick="compareOffers()" aria-label="Compare the two offers">Compare Offers</button>
+            <button class="btn-compare" onclick="compareOwnOffers()" aria-label="Compare the two offers">Compare Offers</button>
         </div>
 
         <!-- Results -->
         <div class="results-section" id="resultsSection">
+            <!-- Shared-comparison banner (shown only when a visitor opens someone's shared link) -->
+            <div class="shared-banner" id="sharedBanner" style="display:none;">
+                <div class="shared-banner-text" id="sharedBannerText">
+                    <strong>👆 This is someone else's offer comparison.</strong> See which offer wins — then compare <em>your</em> offers.
+                </div>
+                <button class="shared-banner-cta" id="sharedBannerCta" type="button">Compare My Offers →</button>
+            </div>
             <!-- Verdict -->
             <div class="verdict-card" id="verdictCard">
                 <div class="verdict-badge" id="verdictBadge">Calculating...</div>
@@ -1309,6 +1323,49 @@ function renderChart(a, b, nameA, nameB) {
 // ============================================================
 // SHARE FUNCTIONS
 // ============================================================
+
+// ============================================================
+// VIRAL LOOP — a shared link encodes both offers so it re-renders
+// THIS comparison as a hook, then nudges the visitor to compare their
+// own offers (then reshare). Self-service distribution.
+// ============================================================
+var isSharedView = false;
+
+// Escape user-supplied company names before injecting into banner innerHTML
+function escHtml(s) {
+    return String(s).replace(/[&<>"']/g, function(c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+}
+
+// Visitor is comparing their OWN offers — drop the shared-comparison framing
+function compareOwnOffers() {
+    isSharedView = false;
+    var banner = document.getElementById('sharedBanner');
+    if (banner) banner.style.display = 'none';
+    compareOffers();
+}
+
+// Surface the "compare yours" hook when a shared comparison is viewed
+function showSharedBanner() {
+    var nameA = document.getElementById('companyA').value || 'Offer A';
+    var nameB = document.getElementById('companyB').value || 'Offer B';
+    var txt = document.getElementById('sharedBannerText');
+    if (txt) {
+        txt.innerHTML = '<strong>👆 Someone is choosing between ' + escHtml(nameA) + ' and ' + escHtml(nameB) + '.</strong> See which offer wins — then compare <em>your</em> offers.';
+    }
+    var banner = document.getElementById('sharedBanner');
+    if (banner) banner.style.display = 'flex';
+    var cta = document.getElementById('sharedBannerCta');
+    if (cta) cta.onclick = function() {
+        var grid = document.querySelector('.offers-grid');
+        if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    if (typeof gtag === 'function') {
+        gtag('event', 'compare_offers_shared_view', {});
+    }
+}
+
 function getComparisonData() {
     var data = {
         companyA: document.getElementById('companyA').value,
@@ -1387,7 +1444,16 @@ function shareToTwitter() {
     var baseUrl = window.location.href.split('?')[0];
     var data = getComparisonData();
     var shareUrl = baseUrl + '?data=' + encodeURIComponent(data);
-    var text = "I just compared two startup equity offers with FounderMath's free tool. Super helpful for deciding which offer is better!";
+    try { history.replaceState(null, '', shareUrl); } catch (e) {}
+    // Lead with the verdict if the comparison has been run — a concrete winner converts better
+    var badge = document.getElementById('verdictBadge');
+    var val = document.getElementById('verdictValue');
+    var text;
+    if (badge && /WINS/i.test(badge.textContent) && val && val.textContent) {
+        text = badge.textContent + ' (by ' + val.textContent + ' total value) — I compared two startup equity offers side by side. See which of YOUR offers wins:';
+    } else {
+        text = 'I compared two startup equity offers side by side — see which of YOURS is actually better:';
+    }
     var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(shareUrl);
     window.open(url, '_blank', 'width=600,height=400');
     if (typeof gtag === 'function') {
@@ -1414,7 +1480,9 @@ function resetCalculator() {
     var sharedData = params.get('data');
     if (sharedData) {
         if (loadComparisonData(sharedData)) {
+            isSharedView = true;
             compareOffers();
+            showSharedBanner();   // frame the rendered comparison as someone else's + nudge to compare their own
         }
     }
 })();
