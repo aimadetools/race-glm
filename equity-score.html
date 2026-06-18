@@ -162,6 +162,21 @@
         .share-btn.copy { border-color: var(--green); color: var(--green); }
         .share-btn.copy:hover { background: rgba(0,184,148,0.1); }
 
+        /* Shared-score banner — shown when viewing someone else's shared result */
+        .shared-banner {
+            max-width: 760px; margin: 0 auto 28px; padding: 18px 22px;
+            background: linear-gradient(135deg, rgba(108,92,231,0.18), rgba(0,184,148,0.10));
+            border: 2px solid var(--accent); border-radius: 14px;
+            display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+        }
+        .shared-banner-text { font-size: 0.95rem; color: var(--text-primary); line-height: 1.5; }
+        .shared-banner-text strong { color: var(--accent-light); }
+        .shared-banner-cta {
+            background: var(--accent); color: #fff !important; padding: 12px 22px; border-radius: 10px;
+            font-weight: 800; font-size: 0.92rem; text-decoration: none; white-space: nowrap; transition: background 0.2s;
+        }
+        .shared-banner-cta:hover { background: var(--accent-light); }
+
         /* Factor Breakdown (Pro-gated) */
         .factor-breakdown { margin-bottom: 32px; }
         .factor-breakdown h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; text-align: center; }
@@ -392,9 +407,16 @@
 
 <!-- Results (hidden until calculated) -->
 <section class="results-section" id="resultsSection">
+    <!-- Shared-score banner (shown only when a visitor opens someone's shared link) -->
+    <div class="shared-banner" id="sharedBanner" style="display:none;">
+        <div class="shared-banner-text">
+            <strong>👆 This is someone else's score.</strong> See how <em>your</em> equity stacks up — get your own score in 60 seconds.
+        </div>
+        <a href="#formSection" class="shared-banner-cta" id="sharedBannerCta">Calculate My Score →</a>
+    </div>
     <!-- Score Card -->
     <div class="score-card" id="scoreCard">
-        <div class="score-label">Your Founder Equity Score</div>
+        <div class="score-label" id="scoreLabel">Your Founder Equity Score</div>
         <div class="score-number" id="scoreNumber">--</div>
         <div class="score-category" id="scoreCategory">Calculating...</div>
         <div class="score-summary" id="scoreSummary"></div>
@@ -586,6 +608,12 @@ let currentCategory = '';
 function calculateScore(e) {
     e.preventDefault();
 
+    // Visitor is calculating their OWN score — drop the shared-score framing
+    var banner = document.getElementById('sharedBanner');
+    if (banner) banner.style.display = 'none';
+    var label = document.getElementById('scoreLabel');
+    if (label) label.textContent = 'Your Founder Equity Score';
+
     var role = document.getElementById('role').value;
     var cofounders = parseInt(document.getElementById('cofounders').value);
     var equity = parseFloat(document.getElementById('equity').value);
@@ -771,9 +799,10 @@ function renderResults(score, category, factors, role, cofounders, equity, stage
         '<span class="score-detail-item">' + equity + '% equity</span>' +
         '<span class="score-detail-item">' + getStageName(stage) + '</span>';
 
-    // Share buttons
-    var shareText = 'My Founder Equity Score is ' + score + '/100 (' + getCategoryName(category) + ') as a ' + getRoleName(role) + ' with ' + equity + '% equity at ' + getStageName(stage) + ' stage. What\'s yours?';
-    var shareUrl = 'https://founder-math.com/equity-score.html';
+    // Share buttons — encode inputs so the shared link re-renders THIS score as a viral hook
+    var shareText = 'I scored ' + score + '/100 on the Founder Equity Score 📊 (' + getCategoryName(category) + ' as ' + getRoleName(role) + ' @ ' + equity + '% equity, ' + getStageName(stage) + '). Can you beat me? 60-second test:';
+    var shareUrl = buildShareUrl(role, cofounders, equity, stage, funding);
+    try { history.replaceState(null, '', shareUrl); } catch (err) {}
     document.getElementById('shareTwitter').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl) + '&via=foundermath';
     document.getElementById('shareLinkedIn').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(shareUrl);
 
@@ -918,7 +947,8 @@ function checkProStatus() {
 }
 
 function copyScore() {
-    var text = 'My Founder Equity Score: ' + currentScore + '/100 (' + getCategoryName(currentCategory) + ')\n\nCalculate yours: https://founder-math.com/equity-score.html';
+    var link = (window.location.search && window.location.search.indexOf('r=') > -1) ? window.location.href : 'https://founder-math.com/equity-score.html';
+    var text = 'My Founder Equity Score: ' + currentScore + '/100 (' + getCategoryName(currentCategory) + ')\n\nCan you beat me? ' + link;
     navigator.clipboard.writeText(text).then(function() {
         var btn = document.getElementById('shareCopy');
         btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Copied!';
@@ -926,6 +956,73 @@ function copyScore() {
             btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy Result';
         }, 2000);
     });
+}
+
+// ============================================================
+// VIRAL LOOP — a shared link encodes the inputs so it re-renders
+// THIS score as a hook, then nudges the visitor to score their own
+// deal. Self-service distribution (no email/social/human required).
+// ============================================================
+
+// Encode the 5 inputs into a shareable URL
+function buildShareUrl(role, cofounders, equity, stage, funding) {
+    var params = new URLSearchParams({ r: role, c: cofounders, e: equity, s: stage, f: funding });
+    return 'https://founder-math.com/equity-score.html?' + params.toString();
+}
+
+// Validate share params against known option sets (defensive — never trust arbitrary input)
+function isValidShare(role, cofounders, equity, stage, funding) {
+    var validRoles = ['ceo','cto','coo','cfo','cmo','other'];
+    var validStages = ['idea','pre-seed','seed','series-a','series-b'];
+    var validFunding = ['none','sub-500k','500k-2m','2m-5m','5m-15m','15m-plus'];
+    var eq = parseFloat(equity);
+    return validRoles.indexOf(role) > -1 &&
+           [1,2,3,4].indexOf(parseInt(cofounders, 10)) > -1 &&
+           !isNaN(eq) && eq > 0 && eq <= 100 &&
+           validStages.indexOf(stage) > -1 &&
+           validFunding.indexOf(funding) > -1;
+}
+
+// On load: if the URL carries a shared score, render it as a hook + show the CTA banner
+function loadSharedScore() {
+    var p = new URLSearchParams(window.location.search);
+    var role = p.get('r'), cofounders = p.get('c'), equity = p.get('e'), stage = p.get('s'), funding = p.get('f');
+    if (!role || !cofounders || !equity || !stage || !funding) return;
+    if (!isValidShare(role, cofounders, equity, stage, funding)) return;
+
+    var cInt = parseInt(cofounders, 10), eNum = parseFloat(equity);
+
+    // Pre-fill the form so the visitor can tweak it for their own situation
+    document.getElementById('role').value = role;
+    document.getElementById('cofounders').value = cInt;
+    document.getElementById('equity').value = eNum;
+    document.getElementById('stage').value = stage;
+    document.getElementById('funding').value = funding;
+
+    // Compute silently and render the sharer's score
+    var factors = calculateFactors(role, cInt, eNum, stage, funding);
+    var totalScore = Math.round(
+        factors.equityStake.score * 0.35 +
+        factors.roleAlignment.score * 0.25 +
+        factors.cofounderBalance.score * 0.20 +
+        factors.dilutionProtection.score * 0.20
+    );
+    totalScore = Math.max(0, Math.min(100, totalScore));
+    currentScore = totalScore;
+    var category = totalScore >= 80 ? 'excellent' : totalScore >= 65 ? 'good' : totalScore >= 45 ? 'fair' : totalScore >= 25 ? 'concerning' : 'red-flag';
+    currentCategory = category;
+
+    renderResults(totalScore, category, factors, role, cInt, eNum, stage, funding);
+
+    // Re-frame as a shared result + surface the banner
+    var label = document.getElementById('scoreLabel');
+    if (label) label.textContent = "Shared Founder Equity Score";
+    var banner = document.getElementById('sharedBanner');
+    if (banner) banner.style.display = 'flex';
+
+    if (typeof gtag === 'function') {
+        gtag('event', 'equity_score_shared_view', { score: totalScore, category: category });
+    }
 }
 
 // Track page view
@@ -955,6 +1052,16 @@ document.getElementById('scoreEmailForm').onsubmit = function(e) {
         if (gate) gate.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 1500);
 };
+
+// Viral loop init — render a shared score if present + wire the banner CTA
+(function initViralLoop() {
+    var cta = document.getElementById('sharedBannerCta');
+    if (cta) cta.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('formSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    loadSharedScore();
+})();
 </script>
 <script src="pro-gating.js"></script>
 </body>
