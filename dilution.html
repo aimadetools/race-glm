@@ -594,6 +594,44 @@
             color: var(--green);
         }
 
+        /* Shared-result banner for viral loop */
+        .shared-banner {
+            margin-bottom: 28px;
+            padding: 18px 22px;
+            background: linear-gradient(135deg, rgba(108,92,231,0.18), rgba(0,184,148,0.10));
+            border: 2px solid var(--accent);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .shared-banner-text {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+        .shared-banner-text strong {
+            color: var(--accent-light);
+        }
+        .shared-banner-cta {
+            background: var(--accent);
+            color: #fff !important;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 0.92rem;
+            white-space: nowrap;
+            transition: background 0.2s;
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-sans);
+        }
+        .shared-banner-cta:hover {
+            background: var(--accent-light);
+        }
+
         /* Scenarios UI */
         .scenario-controls {
             display: flex;
@@ -1199,6 +1237,14 @@
 
     <!-- Main Content -->
     <main id="main-content" class="calc-layout" style="padding-bottom:0;">
+        <!-- Shared-result banner (viral loop) -->
+        <div class="shared-banner" id="sharedBanner" style="display:none;">
+            <div class="shared-banner-text" id="sharedBannerText">
+                <!-- Filled by JS when shared URL is loaded -->
+            </div>
+            <button class="shared-banner-cta" id="sharedBannerCta" type="button">Model Your Dilution →</button>
+        </div>
+
         <!-- Quick Start Guide -->
         <section class="quick-start" style="max-width:1200px;margin:0 auto 32px;padding:24px;">
             <div class="quick-start-header" onclick="toggleQuickStart(this)" aria-expanded="false" aria-controls="dilutionQuickStart">
@@ -2501,11 +2547,69 @@
             });
         }
     } catch(e) {}
-    loadFromURL();
+    const isShared = loadFromURL();
     renderFounders();
     renderRounds();
     recalculate();
     updateScenarioSelect();
+
+    // ============================================================
+    // VIRAL LOOP — Shared-result banner
+    // ============================================================
+    // When someone opens a shared dilution model, show a banner with a compelling hook
+    // that nudges them to model their own dilution (then reshare). Self-service distribution.
+    if (isShared) {
+        const { stages } = calculate();
+        const banner = document.getElementById('sharedBanner');
+        const txtEl = document.getElementById('sharedBannerText');
+        const cta = document.getElementById('sharedBannerCta');
+
+        if (banner && txtEl && stages.length > 0) {
+            // Get the first founder's name and ownership change
+            const founderName = state.founders[0]?.name || 'You';
+            const firstStage = stages[0]?.stakeholders.find(s => s.name === founderName);
+            const lastStage = stages[stages.length - 1]?.stakeholders.find(s => s.name === founderName);
+            const startPct = firstStage?.ownership || 0;
+            const endPct = lastStage?.ownership || 0;
+            const roundsCount = stages.length;
+
+            // Create compelling hook message
+            txtEl.innerHTML = '<strong>👆 ' + escHtml(founderName) + ' goes from ' + startPct.toFixed(1) + '% → ' + endPct.toFixed(1) + '% ownership.</strong> See how YOUR equity changes across rounds — model your own dilution.';
+        }
+
+        if (banner) banner.style.display = 'flex';
+        if (cta) {
+            cta.addEventListener('click', function() {
+                const panel = document.querySelector('.input-panel');
+                if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        }
+
+        if (typeof gtag === 'function') {
+            const { stages } = calculate();
+            const founderName = state.founders[0]?.name || 'You';
+            const lastStage = stages[stages.length - 1]?.stakeholders.find(s => s.name === founderName);
+            gtag('event', 'dilution_shared_view', {
+                founders: state.founders.length,
+                rounds: state.rounds.length,
+                final_ownership: lastStage?.ownership || 0
+            });
+        }
+    }
+
+    // Hide the shared banner when visitor starts modifying their own model
+    // (they're now modeling their own dilution, not viewing someone else's)
+    const inputElements = document.querySelectorAll('.input-panel input, .input-panel select, .input-panel button');
+    inputElements.forEach(function(el) {
+        el.addEventListener('input', function() {
+            const banner = document.getElementById('sharedBanner');
+            if (banner) banner.style.display = 'none';
+        });
+        el.addEventListener('click', function() {
+            const banner = document.getElementById('sharedBanner');
+            if (banner) banner.style.display = 'none';
+        });
+    });
 
     function toggleProTips() {
         const content = document.getElementById('proTipContent');
