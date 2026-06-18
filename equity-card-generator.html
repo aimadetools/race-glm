@@ -206,7 +206,7 @@
         <!-- This shows when someone views a shared card -->
         <div id="sharedBanner" style="display:none;background:rgba(0,184,148,0.15);border:1px solid rgba(0,184,148,0.3);border-radius:12px;padding:16px;margin-top:16px;position:relative;">
             <p style="font-size:0.95rem;color:var(--green);margin-bottom:12px;" id="sharedText">Someone shared their equity score with you!</p>
-            <a href="equity-report.html" style="display:inline-block;background:var(--accent);color:white;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.9rem;">Get Your Own Free Equity Score &rarr;</a>
+            <a href="equity-score.html" style="display:inline-block;background:var(--accent);color:white;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.9rem;">Calculate Your Own Score &rarr;</a>
         </div>
     </header>
 
@@ -333,6 +333,10 @@
 
     <script>
         function updateCard() {
+            // User is modifying their own card — hide the shared-banner framing
+            var banner = document.getElementById('sharedBanner');
+            if (banner) banner.style.display = 'none';
+
             const score = document.getElementById('scoreInput').value;
             const role = document.getElementById('roleInput').value;
             const company = document.getElementById('companyInput').value;
