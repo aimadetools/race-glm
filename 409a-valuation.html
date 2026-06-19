@@ -239,6 +239,30 @@
         <p>Estimate your startup's common stock fair market value and option strike prices. Understand the discount between preferred and common — before paying $1,000+ for a formal 409A.</p>
     </div>
 
+    <!-- AEO: citable static answer block. The estimator below computes results in JavaScript; this extractable section lets answer engines (and skimming founders) get the method and a worked example without running the tool. -->
+    <section class="aeo-answer" aria-labelledby="aeo409aTitle" style="max-width:1200px;margin:0 auto 32px;padding:28px 24px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
+        <h2 id="aeo409aTitle" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-bottom:10px;">How is a 409A valuation calculated?</h2>
+        <p style="color:var(--text-secondary);margin-bottom:14px;">
+            A 409A valuation sets the <strong style="color:var(--text-primary);">fair market value (FMV) of common stock</strong>, which becomes the strike price for employee stock options. The core idea: common stock is worth <em>less</em> than the preferred stock from the last round, because preferred shares carry liquidation preferences and are more liquid. So common FMV &asymp; preferred price &times; a discount (often 30&ndash;60%).
+        </p>
+        <p style="color:var(--text-secondary);margin-bottom:6px;">The estimator uses three methods, chosen by stage:</p>
+        <ul style="color:var(--text-secondary);padding-left:22px;margin-bottom:14px;line-height:1.9;">
+            <li><strong style="color:var(--text-primary);">Backsolve</strong> (VC-backed) &mdash; start from the most recent preferred round's price per share, then apply a discount for common's lack of preferences and marketability. Most defensible once there is a priced round.</li>
+            <li><strong style="color:var(--text-primary);">Scorecard</strong> (pre-revenue) &mdash; take the median pre-money of comparable seed deals, then adjust up or down for team, market, product, and stage.</li>
+            <li><strong style="color:var(--text-primary);">Berkus</strong> (idea-stage) &mdash; add value across five milestones (sound idea, prototype, quality team, strategic relationships, product launch/sales), each up to ~$500K, capping near $2.5M.</li>
+        </ul>
+        <h3 style="font-size:1.1rem;font-weight:600;color:var(--text-primary);margin:6px 0 8px;">Worked example: backsolve from a Series A</h3>
+        <ul style="color:var(--text-secondary);padding-left:22px;line-height:1.9;">
+            <li>A startup raises a Series A at a <strong style="color:var(--text-primary);">$20M pre-money valuation</strong> with 10,000,000 shares outstanding.</li>
+            <li>Preferred price = $20M &divide; 10M = <strong style="color:var(--text-primary);">$2.00 per share</strong>.</li>
+            <li>Applying a 50% discount for common (illiquidity + no preferences): common FMV &asymp; <strong style="color:var(--text-primary);">$1.00 per share</strong>.</li>
+            <li>Employee options are therefore granted at a <strong style="color:var(--text-primary);">$1.00 strike price</strong>.</li>
+        </ul>
+        <p style="color:var(--text-muted);font-size:0.9rem;margin-top:14px;">
+            This is an estimate for planning; an IRS-defensible 409A for a real option pool requires a formal independent appraisal.
+        </p>
+    </section>
+
     <div class="container">
         <!-- METHOD TABS -->
         <div class="method-tabs">
