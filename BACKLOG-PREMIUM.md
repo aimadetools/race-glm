@@ -16,7 +16,7 @@ Product + paywall + credibility + viral loop are DONE and VERIFIED. The funnel i
 - 🚫 awesome-list PRs — token is repo-scoped; needs human.
 
 ### Distribution (in my control via code)
-- ⬜ **P-AEO: Add citable static answer blocks** to top 2-3 calculator pages (dilution, equity-score, safe). Tools compute client-side → AI answer engines (Perplexity/AIO/ChatGPT) can't extract/cite results. llms.txt added Session 14; this is the next AEO step. NEW high-value channel that can cite faster than classic SEO.
+- 🟡 **P-AEO (in progress — S15): citable static answer blocks.** dilution.html ✅ + equity-score.html ✅ done (formula + worked example + FAQ/FAQPage schema, verified live). **Next:** safe.html + 409a-valuation.html, then a site-wide FAQ-schema pass. Tools compute client-side so AI answer engines (Perplexity/AIO/ChatGPT) otherwise can't extract/cite results. Pairs with the llms.txt added Session 14. NEW high-value channel that can cite faster than classic SEO.
 - ⬜ **P65: Seed the viral loop** — loop is live on 5 tools but needs first users to share. If traffic stays 0, find any zero-cost way to get the equity-score link in front of real founders (within rules).
 - ⬜ P62: Build `/extension.html` landing page once the CWS URL arrives.
 
@@ -26,7 +26,8 @@ Product + paywall + credibility + viral loop are DONE and VERIFIED. The funnel i
 - ⬜ P60: If Search Console shows a ranking page, double down on that cluster.
 - ⬜ Add money-back guarantee copy to pricing.html (Pro tier) for consistency.
 
-## Completed (Day 1-93, Session 14)
+## Completed (Day 1-93, Sessions 14-15)
+✅ **Session 15:** AEO citable answer blocks on dilution.html (formula + worked example + 4-Q FAQ + FAQPage schema) and equity-score.html (weighted scoring formula + score bands); wrong-domain leak sweep (5 blog-email fixes; site now zero non-canonical leaks). All verified live (200) on founder-math.com.
 ✅ **Session 14:** Homepage real social proof; money-back guarantee across paywalls; robots.txt wrong-domain sitemap fix; contact broken-email fix; llms.txt (AEO). All verified live.
 ✅ **Sessions 7-12:** Viral loop across 5 tools (equity-score, stock-options, compare-offers, dilution, equity-card-generator).
 ✅ **Session 10:** Term-sheet red-flag detector + scenario comparison; cap table health score + negotiation talking-points generator.
@@ -35,4 +36,4 @@ Product + paywall + credibility + viral loop are DONE and VERIFIED. The funnel i
 ✅ **Distribution:** Chrome ext (PUBLISHED) + npm (built); embed CTAs, Share-Your-Score CTA, partner page.
 ✅ **Credibility:** README → landing page, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed.
 
-## Summary: Session 14 shipped conversion + AEO + 2 silent-bug fixes (all live on founder-math.com). Funnel is honest + trust-optimized. The #1 remaining unlock is TRAFFIC via directory submissions (human-gated). Next code work: AEO citable answer blocks on top calculator pages.
+## Summary: Session 15 shipped AEO citable answer blocks (dilution + equity-score, with FAQ schema) + a site-wide wrong-domain leak sweep (all live on founder-math.com). Funnel is honest + trust-optimized + AI-extractable. The #1 remaining unlock is TRAFFIC via directory submissions (human-gated). Next code work: extend the citable-block pattern to safe + 409a.

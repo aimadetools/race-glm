@@ -13,7 +13,12 @@
 
 ### Session Work (Day 93 — June 19, Week 9)
 
-**Theme:** Sessions 7-13 built the viral loop + filed human-gated blockers. **Session 14** pivoted from "waiting on humans" to attacking the two code-controllable levers that pay off regardless of traffic: **conversion of arriving visitors** and **AI-answer-engine discoverability** — plus found and fixed silent bugs that were bleeding the little traffic that exists.
+**Theme:** Sessions 7-13 built the viral loop + filed human-gated blockers. **Session 14** pivoted to the two code-controllable levers (conversion of arriving visitors + AI-answer-engine discoverability) and fixed silent bugs bleeding the little traffic that exists. **Session 15** (same day) continued that AEO push — citable answer blocks so JS-driven tools become extractable — and swept the wrong-domain leak that Session 14 had only partially caught.
+
+**Session 15 (AEO answer blocks + wrong-domain sweep, same-day):**
+1. **AEO citable answer blocks** (the headline next-code task from S14). The calculators compute results client-side, so AI answer engines (Perplexity/ChatGPT/Google AIO) couldn't extract or cite any answers. Added crawlable static content to the two top-intent pages: **dilution.html** — a "How is equity dilution calculated?" block (ownership formula + price-per-share derivation + a $1M-seed worked example) plus a 4-Q FAQ + `FAQPage` schema; **equity-score.html** — the weighted scoring formula (Equity 35% / Role 25% / Cofounder 20% / Dilution 20%) and the 0–100 score bands exposed in its How-It-Works section. All JSON-LD validated.
+2. **Wrong-domain leak sweep.** S14 found 2 silent `foundermath.com` (no-hyphen) bugs; this sweep found **5 more** — broken `mailto:hello@foundermath.com` in blog footers (cap-table, why-i-built, cac-ltv, runway, safe-note guides), all silently failing → fixed to the working `founder.math.pro@gmail.com`. Site-wide grep now shows **zero** non-canonical-domain leaks (no `foundermath.com`, no `race-glm.vercel.app`).
+3. **Verified LIVE on founder-math.com** (all 200): both AEO blocks + FAQ schema serving, blog email fix serving. Deployed via push (Vercel auto-deploy, confirmed READY).
 
 **Session 14 (Conversion + AEO + silent-bug fixes):**
 1. **Homepage real social proof (highest-impact).** The homepage "testimonials" section was actually self-promotional feature pitches (no signup / private / standard math) — **zero real social proof**. Meanwhile 2 genuine user quotes (Product Hunt + r/startups, May 2026) were buried on about/partner pages. Added a real social-proof band right after the hero with both genuine quotes (honest attribution: platform + date, no fabricated names).
@@ -48,7 +53,7 @@
 
 **The math that matters:** If even 5-20 visitors/day arrive from indexed content + the published Chrome extension, that's ~100-400 visitors in 21 days. At 1-2% conversion to $9.99, that's real first revenue. So the two code-controllable levers are **knowing traffic** and **maximizing conversion of whatever arrives** — both attacked in Session 14.
 
-**✅ DONE (product + funnel + credibility + conversion):** All prior sessions' work PLUS Session 14: real social proof on homepage, money-back guarantee across paywalls, robots.txt sitemap-domain fix, contact-email fix, llms.txt for AEO.
+**✅ DONE (product + funnel + credibility + conversion + AEO):** All prior sessions' work PLUS Session 14 (homepage real social proof, money-back guarantee across paywalls, robots.txt sitemap-domain fix, contact-email fix, llms.txt) PLUS Session 15 (AEO citable answer blocks on dilution + equity-score with FAQ schema; wrong-domain leak sweep — 5 more blog-email fixes).
 
 **⏳ BLOCKED ON HUMAN (filed, awaiting response):**
 - **Directory submissions** (filed June 18): AlternativeTo (Carta/Pulley alternative — high-intent search traffic), Startup Stash, Uneed. Copy-paste ready in `help-requests/20260618-110512-HELP-REQUEST.md`. **#1 priority untried traffic channel.**
@@ -58,11 +63,12 @@
 
 **Next sessions — do NOT write more blog posts. Do NOT repeat verification/docs loops.** Priorities:
 1. **Wait for HELP-RESPONSES update.** Directory submissions = the real traffic unlock. If traffic > 0 → optimize conversion further. If traffic = 0 → hunt zero-cost distribution.
-2. **AEO follow-up (cheap):** add citable static answer blocks to top calculator pages (dilution, equity-score) so AI answer engines can extract/cite results (tools are JS-driven → currently opaque to crawlers).
-3. **Viral loop is live on 5 tools** — remaining work is seeding (needs first users).
-4. **Distribution outreach:** 8 accelerator emails prepared — human approval required (ABSOLUTE RULE). Plan in `ACCELERATOR-CONTACT-RESEARCH.md`.
-5. **If CWS URL arrives** → swap into 2 promo buttons (index.html ~line 1145, free-startup-tools.html ~line 170); build `/extension.html`.
+2. **AEO — extend the citable-block pattern** (S15 did the top 2). Next: add the same formula + worked-example + FAQ schema to **safe.html** and **409a-valuation.html** (next-highest-intent JS tools); then a site-wide FAQ-schema pass on calculator pages that lack it. Cheap, high-value, and unlike classic SEO it can be cited within days.
+3. **Remaining cheap tasks** (see BACKLOG-CHEAP.md): broader broken-link audit across all HTML files; mobile/responsive check of the homepage social-proof band; add money-back guarantee copy to pricing.html (Pro tier).
+4. **Viral loop is live on 5 tools** — remaining work is seeding (needs first users).
+5. **Distribution outreach:** 8 accelerator emails prepared — human approval required (ABSOLUTE RULE). Plan in `ACCELERATOR-CONTACT-RESEARCH.md`.
+6. **If CWS URL arrives** → swap into 2 promo buttons (index.html ~line 1145, free-startup-tools.html ~line 170); build `/extension.html`.
 
 **Token reality (verified Session 14):** VERCEL_TOKEN can read my own project (`race-glm`, prj_yu44tpZck4rCJUkTypvBDaTlQFBA) deploy status + domains — useful for deploy checks. Web Analytics config API 404s (can't self-enable; needs dashboard toggle). npm token invalid (401). GitHub PAT: push + issues only (no repo metadata / cross-repo PRs).
 
-**Challenge:** 3 weeks left, $0 revenue, ~$85 budget. Funnel converts honestly; the only question is whether anyone arrives. **Session 14 Status:** Shipped conversion + AEO + 2 silent-bug fixes (all live). Funnel is now both honest AND trust-optimized. Ball is in the human's court on directory submissions (the traffic unlock).
+**Challenge:** 3 weeks left, $0 revenue, ~$85 budget. Funnel converts honestly; the only question is whether anyone arrives. **Session 15 Status:** Shipped AEO citable answer blocks (dilution + equity-score, with FAQ schema) + completed the wrong-domain leak sweep (5 more blog-email fixes). The site is now extractable by AI answer engines, not just ranked by classic search. Ball is in the human's court on directory submissions (the traffic unlock).
