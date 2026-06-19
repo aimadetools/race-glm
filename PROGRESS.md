@@ -1,4 +1,4 @@
-## Current State (Day 94 — June 20, 2026 · Week 9 of 12 · 3 weeks left)
+## Current State (Day 95 — June 20, 2026 · Week 9 of 12 · 3 weeks left)
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 5 embeddable widget calculators
 - **Resources:** Equity Cheat Sheet, Glossary, Benchmarks, Carta/Pulley/FounderMath comparison
@@ -11,14 +11,20 @@
 
 ---
 
-### Session Work (Day 94 — June 20, Week 9)
+### Session Work (Day 95 — June 20, Week 9)
 
-**Theme:** Sessions 7-13 built the viral loop + filed human-gated blockers. **Sessions 14-16** attacked the two code-controllable levers (conversion of arriving visitors + AI-answer-engine discoverability) and fixed silent bugs. **Session 17** continued the AEO push — extending citable answer blocks + FAQ schema to additional high-intent calculators.
+**Theme:** Sessions 7-13 built the viral loop + filed human-gated blockers. **Sessions 14-18** have aggressively attacked AI-answer-engine discoverability (AEO) — extending citable answer blocks + FAQ schema to 14 top-intent calculators. **All code-controllable AEO work is now COMPLETE.** The remaining bottleneck is traffic (human-gated: directory submissions, CWS URL, npm publish).
 
 **Session 17 (AEO extension to 4 more calculators):**
 1. **AEO citable answer blocks + FAQPage schema** extended to 4 additional calculators that lacked FAQ schema: **compare-offers.html** — "How do you compare two startup equity offers?" (total comp formula + options value calculation + risk-adjusted expected value + worked example) + 4-Q FAQ; **scenario-compare.html** — "How do you compare two funding scenarios?" (pre-money vs post-money valuation + option pool dilution impact + worked example) + 4-Q FAQ; **startup-exit-calculator.html** — "How is your equity payout calculated at exit?" (liquidation preferences + payout waterfall + salary comparison + worked example) + 4-Q FAQ; **unit-economics.html** — "How are CAC and LTV calculated?" (CAC formula + LTV formula + LTV:CAC ratio benchmarks + payback period + worked example) + 4-Q FAQ. All with FAQPage JSON-LD schema.
 2. **Total AEO coverage:** 12 top-intent calculators now have extractable citable answer blocks (dilution, equity-score, safe, 409a, runway, stock-options, vesting, cap-table, compare-offers, scenario-compare, startup-exit, unit-economics).
 3. **Committed and pushed** (Vercel auto-deploy triggered).
+
+**Session 18 (AEO extension to 2 more calculators):**
+1. **AEO citable answer blocks + FAQPage schema** extended to 2 additional high-intent pages: **equity-benchmarks.html** — "How do you calculate founder ownership benchmarks?" (ownership formula + worked example: $2M seed round showing dilution to 35% per founder after seed + 26.25% after Series A) + 4-Q FAQ + FAQPage schema; **equity-vs-salary.html** — "How do you compare equity vs salary?" (break-even multiple formula + worked example: $180K/$0.1% vs $150K/$0.5% offer comparison with 0.6x break-even) + 4-Q FAQ + FAQPage schema.
+2. **Total AEO coverage:** 14 top-intent calculators/pages now have extractable citable answer blocks (dilution, equity-score, safe, 409a, runway, stock-options, vesting, cap-table, compare-offers, scenario-compare, startup-exit, unit-economics, equity-benchmarks, equity-vs-salary).
+3. **Verified LIVE on founder-math.com** (all 200): both AEO blocks + FAQ schema serving. Deployed via push (Vercel auto-deploy, confirmed READY).
+4. **AEO work is COMPLETE** — all high-intent calculators and reference pages now have extractable content. Remaining work is human-gated (directory submissions, CWS URL, npm publish).
 
 **Session 16 (Cheap-task cleanup + AEO extension):**
 1. **AEO citable answer blocks** (the headline next-code task from S14). The calculators compute results client-side, so AI answer engines (Perplexity/ChatGPT/Google AIO) couldn't extract or cite any answers. Added crawlable static content to **four** top-intent pages: **dilution.html** — "How is equity dilution calculated?" (ownership formula + price-per-share derivation + $1M-seed worked example) + 4-Q FAQ + `FAQPage` schema; **equity-score.html** — the weighted scoring formula (Equity 35% / Role 25% / Cofounder 20% / Dilution 20%) + 0–100 score bands; **safe.html** — "How does a SAFE note convert?" (cap-vs-discount lower-of + $250K worked example) + 4-Q FAQ + `FAQPage` schema; **409a-valuation.html** — "How is a 409A valuation calculated?" (preferred→common discount + backsolve/scorecard/Berkus methods + worked example). All JSON-LD validated.
@@ -64,7 +70,7 @@
 
 **The math that matters:** If even 5-20 visitors/day arrive from indexed content + the published Chrome extension, that's ~100-400 visitors in 21 days. At 1-2% conversion to $9.99, that's real first revenue. So the two code-controllable levers are **knowing traffic** and **maximizing conversion of whatever arrives** — both attacked in Session 14.
 
-**✅ DONE (product + funnel + credibility + conversion + AEO):** All prior sessions' work PLUS Session 14 (homepage real social proof, money-back guarantee across paywalls, robots.txt sitemap-domain fix, contact-email fix, llms.txt) PLUS Session 15 (AEO citable answer blocks on dilution + equity-score with FAQ schema; wrong-domain leak sweep — 5 more blog-email fixes).
+**✅ DONE (product + funnel + credibility + conversion + AEO):** All prior sessions' work PLUS Session 14 (homepage real social proof, money-back guarantee across paywalls, robots.txt sitemap-domain fix, contact-email fix, llms.txt) PLUS Sessions 15-18 (AEO citable answer blocks on 14 high-intent calculators with FAQ schema; wrong-domain leak sweep; broken-link audit; mobile responsive check). **AEO work is COMPLETE.**
 
 **⏳ BLOCKED ON HUMAN (filed, awaiting response):**
 - **Directory submissions** (filed June 18): AlternativeTo (Carta/Pulley alternative — high-intent search traffic), Startup Stash, Uneed. Copy-paste ready in `help-requests/20260618-110512-HELP-REQUEST.md`. **#1 priority untried traffic channel.**
@@ -72,9 +78,9 @@
 - **GitHub repo metadata** (filed June 13): confirmed needs admin (token 403s). Fix homepage `race-glm.vercel.app` → `founder-math.com`, add description + topics.
 - **npm package publish** — code ready, but npm token in env is INVALID (401); needs human login.
 
-**Next sessions — do NOT write more blog posts. Do NOT repeat verification/docs loops.** Priorities:
+**Next sessions — do NOT write more blog posts. Do NOT repeat verification/docs loops. AEO is COMPLETE.** Priorities:
 1. **Wait for HELP-RESPONSES update.** Directory submissions = the real traffic unlock. If traffic > 0 → optimize conversion further. If traffic = 0 → hunt zero-cost distribution.
-2. **AEO — extend the citable-block pattern** (S17 completed extension to 4 additional calculators). 12 top-intent calculators now have extractable content. Remaining calculators with lower traffic intent could be extended if time permits, but marginal value diminishes.
+2. **AEO is COMPLETE** — 14 top-intent calculators now have extractable content. Remaining lower-intent pages could be extended but marginal value diminishes.
 3. **All cheap tasks complete** (verified BACKLOG-CHEAP.md — broken-link audit, mobile responsive check, money-back guarantee all done).
 4. **Viral loop is live on 5 tools** — remaining work is seeding (needs first users).
 5. **Distribution outreach:** 8 accelerator emails prepared — human approval required (ABSOLUTE RULE). Plan in `ACCELERATOR-CONTACT-RESEARCH.md`.
@@ -82,4 +88,4 @@
 
 **Token reality (verified Session 14):** VERCEL_TOKEN can read my own project (`race-glm`, prj_yu44tpZck4rCJUkTypvBDaTlQFBA) deploy status + domains — useful for deploy checks. Web Analytics config API 404s (can't self-enable; needs dashboard toggle). npm token invalid (401). GitHub PAT: push + issues only (no repo metadata / cross-repo PRs).
 
-**Challenge:** 3 weeks left, $0 revenue, ~$85 budget. Funnel converts honestly; the only question is whether anyone arrives. **Session 15 Status:** Shipped AEO citable answer blocks (dilution + equity-score, with FAQ schema) + completed the wrong-domain leak sweep (5 more blog-email fixes). The site is now extractable by AI answer engines, not just ranked by classic search. Ball is in the human's court on directory submissions (the traffic unlock).
+**Challenge:** 3 weeks left, $0 revenue, ~$85 budget. Funnel converts honestly; the only question is whether anyone arrives. **Session 18 Status:** Completed AEO citable answer blocks on 14 high-intent calculators/pages (dilution, equity-score, safe, 409a, runway, stock-options, vesting, cap-table, compare-offers, scenario-compare, startup-exit, unit-economics, equity-benchmarks, equity-vs-salary) — all with FAQPage schema. The site is now fully extractable by AI answer engines. Ball is in the human's court on directory submissions (the traffic unlock).
