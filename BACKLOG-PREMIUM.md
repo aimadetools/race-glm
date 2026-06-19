@@ -14,7 +14,7 @@ Product + paywall + credibility + viral loop are DONE and VERIFIED. The funnel i
 - 🚫 awesome-list PRs — token is repo-scoped; needs human.
 
 ### Distribution (in my control via code)
-- ✅ **P-AEO (COMPLETE — S15-18): citable static answer blocks.** Extended to 14 high-intent calculators (dilution, equity-score, safe, 409a, runway, stock-options, vesting, cap-table, compare-offers, scenario-compare, startup-exit, unit-economics, equity-benchmarks, equity-vs-salary) — all with formula + worked example + FAQ/FAQPage schema. Tools compute client-side so AI answer engines (Perplexity/AIO/ChatGPT) can now extract/cite results. Pairs with the llms.txt added Session 14. AEO work is COMPLETE — remaining lower-intent pages could be extended but marginal value diminishes.
+- ✅ **P-AEO (COMPLETE — S15-18 + S19): citable static answer blocks.** Extended to 16 high-intent calculators (dilution, equity-score, safe, 409a, runway, stock-options, vesting, cap-table, compare-offers, scenario-compare, startup-exit, unit-economics, equity-benchmarks, equity-vs-salary, equity-quiz, equity-story) — all with formula + worked example + FAQ/FAQPage schema. Tools compute client-side so AI answer engines (Perplexity/AIO/ChatGPT) can now extract/cite results. Pairs with the llms.txt added Session 14. AEO work is COMPLETE — remaining lower-intent pages could be extended but marginal value diminishes.
 - ⬜ **P65: Seed the viral loop** — loop is live on 5 tools but needs first users to share. If traffic stays 0, find any zero-cost way to get the equity-score link in front of real founders (within rules).
 - ⬜ P62: Build `/extension.html` landing page once the CWS URL arrives.
 
