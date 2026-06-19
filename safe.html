@@ -73,6 +73,18 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What is a SAFE note?", "acceptedAnswer": {"@type": "Answer", "text": "A SAFE (Simple Agreement for Future Equity) is a Y Combinator-created instrument that lets an investor fund a startup now in exchange for the right to receive shares later, at the first priced equity round. It is not a loan - there is no interest, maturity date, or repayment."}},
+            {"@type": "Question", "name": "Valuation cap or discount - which one applies?", "acceptedAnswer": {"@type": "Answer", "text": "Whichever gives the investor a lower price per share (more shares). If the round valuation is well above the cap, the cap governs; if the round valuation is low, the discount may produce the cheaper price. Many SAFEs include both and let the investor use the better of the two."}},
+            {"@type": "Question", "name": "What is the difference between a pre-money and post-money SAFE?", "acceptedAnswer": {"@type": "Answer", "text": "On a post-money SAFE, ownership equals investment divided by the cap, measured after all SAFEs convert but before new cash, so the cap fixes each investor's final percentage directly. On a pre-money SAFE, the cap applies to the pre-round valuation, so final ownership also depends on how much new money is raised. The modern YC SAFE is post-money."}},
+            {"@type": "Question", "name": "Is my data sent anywhere when I use the SAFE calculator?", "acceptedAnswer": {"@type": "Answer", "text": "No. All conversion math runs entirely in your browser. Nothing about your SAFE notes or cap table is uploaded to a server or stored anywhere."}}
+        ]
+    }
+    </script>
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -558,6 +570,28 @@
         <p>Model how your SAFE notes convert at a priced round. See the cap, discount, and ownership for each SAFE investor.</p>
     </div>
 
+    <!-- AEO: citable static answer block. The converter below computes results in JavaScript; this extractable section lets answer engines (and skimming founders) get the method and a worked example without running the tool. -->
+    <section class="aeo-answer" aria-labelledby="aeoSafeTitle" style="max-width:1200px;margin:0 auto 32px;padding:28px 24px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
+        <h2 id="aeoSafeTitle" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-bottom:10px;">How does a SAFE note convert into equity?</h2>
+        <p style="color:var(--text-secondary);margin-bottom:14px;">
+            A SAFE (Simple Agreement for Future Equity) is not debt and has no fixed share count up front &mdash; it turns into shares at the company's first priced equity round. To reward the investor for taking early risk, it converts at a discount to the round price. The SAFE uses whichever of two prices is <strong style="color:var(--text-primary);">lower</strong> (giving the investor more shares):
+        </p>
+        <ul style="color:var(--text-secondary);padding-left:22px;margin-bottom:14px;line-height:1.9;">
+            <li><strong style="color:var(--text-primary);">Valuation-cap path</strong> &mdash; the SAFE values the company at its cap, not the (usually higher) round valuation. For a post-money SAFE: investor ownership = investment &divide; valuation cap.</li>
+            <li><strong style="color:var(--text-primary);">Discount path</strong> &mdash; effective price per share = round price &times; (1 &minus; discount%).</li>
+        </ul>
+        <h3 style="font-size:1.1rem;font-weight:600;color:var(--text-primary);margin:6px 0 8px;">Worked example: a $250K SAFE at a $5M cap, 20% discount</h3>
+        <ul style="color:var(--text-secondary);padding-left:22px;line-height:1.9;">
+            <li>An angel invests <strong style="color:var(--text-primary);">$250,000</strong> on a SAFE with a <strong style="color:var(--text-primary);">$5M post-money cap</strong> and a <strong style="color:var(--text-primary);">20% discount</strong>.</li>
+            <li>The company later raises a priced round at a <strong style="color:var(--text-primary);">$20M post-money valuation</strong>.</li>
+            <li>Cap path: $250K &divide; $5M = <strong style="color:var(--text-primary);">5.0% ownership</strong>.</li>
+            <li>The discount path would value the round shares only 20% cheaper &mdash; a smaller stake than the cap here &mdash; so the cap applies.</li>
+            <li>The angel ends with <strong style="color:var(--text-primary);">~5%</strong> for $250K, as if the company had been worth $5M, while new round investors pay the $20M price.</li>
+        </ul>
+        <p style="color:var(--text-muted);font-size:0.9rem;margin-top:14px;">
+            Use the converter below to model multiple SAFEs, MFN terms, and the full conversion waterfall at your priced round.
+        </p>
+    </section>
     <div class="calc-layout" style="padding:0;">
         <!-- Quick Start Guide -->
         <section class="quick-start" style="max-width:1200px;margin:0 auto 32px;padding:24px;">
@@ -748,6 +782,28 @@
         </div>
         <div id="email-capture-safe"></div>
     </main>
+
+    <!-- AEO: FAQ (pairs with FAQPage schema in <head> for rich-result / answer-engine eligibility) -->
+    <section class="faq" style="max-width:760px;margin:0 auto 32px;padding:0 24px;">
+        <h2 style="text-align:center;font-size:1.75rem;font-weight:700;color:var(--text-primary);margin-bottom:8px;">SAFE Note FAQ</h2>
+        <p style="text-align:center;color:var(--text-secondary);margin-bottom:32px;">Quick answers to common SAFE conversion questions.</p>
+        <div class="faq-item" style="padding:18px 0;border-bottom:1px solid var(--border);">
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:8px;">What is a SAFE note?</h3>
+            <p style="color:var(--text-secondary);font-size:0.95rem;">A SAFE (Simple Agreement for Future Equity) is a Y Combinator-created instrument that lets an investor fund a startup now in exchange for the right to receive shares later, at the first priced equity round. It is not a loan &mdash; there is no interest, maturity date, or repayment.</p>
+        </div>
+        <div class="faq-item" style="padding:18px 0;border-bottom:1px solid var(--border);">
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:8px;">Valuation cap or discount &mdash; which applies?</h3>
+            <p style="color:var(--text-secondary);font-size:0.95rem;">Whichever gives the investor a lower price per share (more shares). If the round valuation is well above the cap, the cap governs; if the round valuation is low, the discount may produce the cheaper price. Many SAFEs include both and let the investor use the better of the two.</p>
+        </div>
+        <div class="faq-item" style="padding:18px 0;border-bottom:1px solid var(--border);">
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:8px;">Pre-money vs post-money SAFE &mdash; what's the difference?</h3>
+            <p style="color:var(--text-secondary);font-size:0.95rem;">On a post-money SAFE, ownership = investment &divide; cap, measured after all SAFEs convert but before new cash &mdash; so the cap fixes each investor's final percentage directly. On a pre-money SAFE, the cap applies to the pre-round valuation, so final ownership also depends on how much new money is raised. The modern YC SAFE is post-money.</p>
+        </div>
+        <div class="faq-item" style="padding:18px 0;">
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:8px;">Is my data sent anywhere?</h3>
+            <p style="color:var(--text-secondary);font-size:0.95rem;">No. All conversion math runs entirely in your browser. Nothing about your SAFE notes or cap table is uploaded to a server or stored anywhere.</p>
+        </div>
+    </section>
 
     <!-- Newsletter -->
     <section style="max-width:700px;margin:40px auto;padding:32px 24px;text-align:center;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
