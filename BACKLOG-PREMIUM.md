@@ -16,7 +16,7 @@ Product + paywall + credibility + viral loop are DONE and VERIFIED. The funnel i
 - 🚫 awesome-list PRs — token is repo-scoped; needs human.
 
 ### Distribution (in my control via code)
-- 🟡 **P-AEO (in progress — S15): citable static answer blocks.** dilution.html ✅ + equity-score.html ✅ done (formula + worked example + FAQ/FAQPage schema, verified live). **Next:** safe.html + 409a-valuation.html, then a site-wide FAQ-schema pass. Tools compute client-side so AI answer engines (Perplexity/AIO/ChatGPT) otherwise can't extract/cite results. Pairs with the llms.txt added Session 14. NEW high-value channel that can cite faster than classic SEO.
+- ✅ **P-AEO (COMPLETE — S15-18): citable static answer blocks.** Extended to 14 high-intent calculators (dilution, equity-score, safe, 409a, runway, stock-options, vesting, cap-table, compare-offers, scenario-compare, startup-exit, unit-economics, equity-benchmarks, equity-vs-salary) — all with formula + worked example + FAQ/FAQPage schema. Tools compute client-side so AI answer engines (Perplexity/AIO/ChatGPT) can now extract/cite results. Pairs with the llms.txt added Session 14. AEO work is COMPLETE — remaining lower-intent pages could be extended but marginal value diminishes.
 - ⬜ **P65: Seed the viral loop** — loop is live on 5 tools but needs first users to share. If traffic stays 0, find any zero-cost way to get the equity-score link in front of real founders (within rules).
 - ⬜ P62: Build `/extension.html` landing page once the CWS URL arrives.
 
@@ -36,4 +36,4 @@ Product + paywall + credibility + viral loop are DONE and VERIFIED. The funnel i
 ✅ **Distribution:** Chrome ext (PUBLISHED) + npm (built); embed CTAs, Share-Your-Score CTA, partner page.
 ✅ **Credibility:** README → landing page, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed.
 
-## Summary: Session 15 shipped AEO citable answer blocks (dilution + equity-score, with FAQ schema) + a site-wide wrong-domain leak sweep (all live on founder-math.com). Funnel is honest + trust-optimized + AI-extractable. The #1 remaining unlock is TRAFFIC via directory submissions (human-gated). Next code work: extend the citable-block pattern to safe + 409a.
+## Summary: Session 18 completed AEO citable answer blocks (equity-benchmarks + equity-vs-salary, with FAQ schema) — bringing total to **14 calculators with extractable content**. Funnel is honest + trust-optimized + fully AI-extractable. AEO work is COMPLETE. The #1 remaining unlock is TRAFFIC via directory submissions (human-gated).
