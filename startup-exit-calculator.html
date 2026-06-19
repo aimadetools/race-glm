@@ -50,6 +50,46 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is liquidation preference?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Liquidation preference is an investor right that determines payout order at exit. 1x non-participating means investors get their investment amount back OR convert to common — whichever is higher. Participating preferred lets investors take their preference PLUS their pro-rata share of remaining proceeds, which is less favorable to founders."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does dilution affect my exit payout?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Future funding rounds dilute your ownership percentage. If you start with 15% and expect 20% future dilution, your effective ownership at exit is 12% (15% × 80%). Higher dilution means lower absolute payout even at high exit valuations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What exit valuation should I expect?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Typical exits vary by stage. Seed-stage startups ($5–$15M valuation) often target 10–100x returns. Series A startups ($20–$60M) typically target 3–20x. Model multiple scenarios (0.5x, 1x, 2x, 5x, 10x, 20x) to understand your risk/reward profile vs. a stable salary job."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I take equity or higher salary?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Compare total compensation: (Startup Salary + Equity Payout) vs. (Market Salary × Years to Exit). If the equity upside doesn't compensate for the salary gap and risk, the offer may not be worth it. Factor in your risk tolerance and the company's exit probability."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://founder-math.com/"},
@@ -433,6 +473,49 @@
 </div>
 </main>
 
+
+    <!-- AEO: Citable Answer Block -->
+    <section style="max-width:800px;margin:0 auto 48px;padding:32px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;">
+        <h2 id="aeoExitTitle" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-bottom:10px;">How is your equity payout calculated at exit?</h2>
+        <p style="color:var(--text-secondary);margin-bottom:14px;line-height:1.8;">
+            Your exit payout depends on three factors: <strong style="color:var(--text-primary);">your ownership percentage</strong>, <strong style="color:var(--text-primary);">the exit valuation</strong>, and <strong style="color:var(--text-primary);">liquidation preferences</strong> (which determine the order in which stakeholders get paid). The basic formula is:
+        </p>
+        <p style="background:var(--bg-card);border-left:3px solid var(--accent);padding:12px 16px;margin:14px 0;font-family:var(--font-mono);color:var(--text-primary);">
+            Payout = Exit Valuation × Your Ownership % &minus; Liquidation Preference Drag
+        </p>
+        <p style="color:var(--text-secondary);margin-bottom:14px;line-height:1.8;">
+            <strong style="color:var(--text-primary);">Liquidation preferences</strong> mean investors get paid first. With 1x non-participating preferred stock, investors choose either: (1) their investment amount back, or (2) converting to common stock &mdash; whichever is worth more. Below the preference threshold, common shareholders (including founders with common stock) may receive nothing. Above it, the waterfall converts to pro-rata ownership.
+        </p>
+        <p style="color:var(--text-secondary);margin-bottom:14px;line-height:1.8;">
+            <strong style="color:var(--text-primary);">Worked example:</strong> You own 10% of a startup valued at $20M. Investors raised $5M with 1x non-participating preferred. In a $40M exit (2x), the preference is satisfied first ($5M to investors), then remaining $35M is split pro-rata. Your 10% share = <strong style="color:var(--green);">$4M payout</strong>. In a $15M exit (< preference threshold), investors take their $5M first, leaving $10M for common shareholders &mdash; your 10% = <strong style="color:var(--text-primary);">$1M</strong>.
+        </p>
+
+        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-primary);margin:24px 0 12px;">Frequently Asked Questions</h3>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">What is liquidation preference?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                Liquidation preference is an investor right that determines payout order at exit. "1x non-participating" means investors get their investment amount back OR convert to common &mdash; whichever is higher. "Participating preferred" lets investors take their preference PLUS their pro-rata share of remaining proceeds (less favorable to founders). 2x means they get 2x their investment before common shareholders receive anything.
+            </div>
+        </details>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">How does dilution affect my exit payout?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                Future funding rounds dilute your ownership %. If you start with 15% and expect 20% future dilution, your effective ownership at exit is 12% (15% × 80%). This calculator lets you model expected dilution to see realistic payout scenarios. Higher dilution = lower absolute payout even at high exit valuations.
+            </div>
+        </details>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">What exit valuation should I expect?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                Typical exits vary by stage and sector. Seed-stage startups (valuation $5–$15M) often target 10–100x returns for meaningful payouts. Series A startups (valuation $20–$60M) typically target 3–20x. Use this calculator to model multiple scenarios (0.5x, 1x, 2x, 5x, 10x, 20x) to understand your risk/reward profile vs. a stable salary job.
+            </div>
+        </details>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">Should I take equity or higher salary?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                Compare total compensation: (Startup Salary + Equity Payout) vs. (Market Salary × Years to Exit). If the equity upside doesn't compensate for the salary gap and risk, the offer may not be worth it. This calculator shows the "breakeven exit valuation" where startup equity beats the salary alternative. Factor in your risk tolerance and the company's exit probability.
+            </div>
+        </details>
+    </section>
 
     <!-- Embed Calculator CTA -->
     <section style="max-width:700px;margin:0 auto 32px;padding:24px;text-align:center;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">

@@ -44,6 +44,46 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do you compare two startup equity offers?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Compare total compensation: (Salary × Years) + (Options × Strike Price Spread). Include signing bonus, equity percentage, and vesting period. The offer with higher total value over the vesting period is financially better, but also consider company stage, role growth, and risk tolerance."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What matters more: salary or equity?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It depends on your risk profile and the company's exit probability. High salary with low equity reduces downside. Low salary with high equity increases upside but also risk. Compare risk-adjusted expected value: multiply equity value by your estimated exit probability, then add guaranteed salary."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do stock options affect offer value?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Stock option value = (Number of Options) × (Current Fair Market Value - Strike Price). If FMV equals or is below strike price, options have no immediate value. Consider potential future growth and exit scenarios. Factor in the cost to exercise (options × strike price) and tax implications."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I choose early-stage or later-stage startup equity?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Early-stage startups offer higher equity percentage but lower exit probability. Later-stage startups offer lower equity percentage but higher exit probability and often higher salary. Compare expected value: (Equity Value × Exit Probability) + Salary. Also consider role, growth opportunities, and personal fit."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://founder-math.com/" },
@@ -878,7 +918,53 @@
             </div>
         </div>
 
-        
+
+    <!-- AEO: Citable Answer Block -->
+    <section style="max-width:800px;margin:0 auto 48px;padding:32px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;">
+        <h2 id="aeoCompareTitle" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-bottom:10px;">How do you compare two startup equity offers?</h2>
+        <p style="color:var(--text-secondary);margin-bottom:14px;line-height:1.8;">
+            Comparing startup offers means looking at <strong style="color:var(--text-primary);">total compensation over the vesting period</strong>, not just annual salary. The formula:
+        </p>
+        <p style="background:var(--bg-card);border-left:3px solid var(--accent);padding:12px 16px;margin:14px 0;font-family:var(--font-mono);color:var(--text-primary);">
+            Total Value = (Salary + Bonus) × Vesting Years + Stock Options Value
+        </p>
+        <p style="color:var(--text-secondary);margin-bottom:14px;line-height:1.8;">
+            <strong style="color:var(--text-primary);">Stock options value</strong> depends on the spread between current fair market value (FMV) and your strike price. Option Value = (Number of Options) × (FMV &minus; Strike Price). If FMV ≤ strike price, options have no immediate value. Factor in exercise cost (Options × Strike Price) and taxes.
+        </p>
+        <p style="color:var(--text-secondary);margin-bottom:14px;line-height:1.8;">
+            <strong style="color:var(--text-primary);">Risk adjustment:</strong> Early-stage startups offer higher equity % but lower exit probability. Later-stage offers lower equity % but higher salary and exit probability. Calculate expected value: (Equity Value × Your Exit Probability Estimate) + Guaranteed Salary.
+        </p>
+        <p style="color:var(--text-secondary);margin-bottom:14px;line-height:1.8;">
+            <strong style="color:var(--text-primary);">Worked example:</strong> Offer A: $150K salary, 10,000 options at $2 strike, $50M FMV, 4-year vest. Offer B: $180K salary, 5,000 options at $5 strike, $100M FMV, 4-year vest. Option A value = 10,000 × ($50M valuation / 10M shares implied &minus; $2) ≈ $30K spread. Total A = ($150K × 4) + $30K = <strong style="color:var(--offer-a);">$630K</strong>. Option B value = 5,000 × ($100M / 10M &minus; $5) = $45K. Total B = ($180K × 4) + $45K = <strong style="color:var(--offer-b);">$765K</strong>. Offer B wins by $135K.
+        </p>
+
+        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-primary);margin:24px 0 12px;">Frequently Asked Questions</h3>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">What matters more: salary or equity?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                It depends on your risk profile and exit probability. High salary + low equity = lower downside. Low salary + high equity = higher upside but more risk. Calculate risk-adjusted expected value: (Equity Value × Exit Probability) + Guaranteed Salary. Also consider role growth, company trajectory, and personal runway.
+            </div>
+        </details>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">How do stock options affect offer value?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                Stock option value = (Number of Options) × (Current FMV - Strike Price). If FMV ≤ strike price, options have no immediate value (underwater). Consider potential future growth and exit scenarios. Factor in exercise cost (options × strike price) and tax implications (ISO vs NSO). Lower strike price = more value per option.
+            </div>
+        </details>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">Should I choose early-stage or later-stage startup equity?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                Early-stage: higher equity % (1–5% typical), lower salary, lower exit probability (5–20%). Later-stage: lower equity % (0.1–0.5%), higher salary, higher exit probability (40–80%). Compare expected value: (Equity Value × Exit Probability) + Salary. Also consider role seniority, learning opportunities, and company momentum.
+            </div>
+        </details>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">What is a good equity percentage for a startup job offer?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                Benchmarks by role and stage: Seed/C-level: 1–5%; Series A/C-level: 0.5–2%; Series B+/C-level: 0.25–1%. Seed/Engineer: 0.25–1%; Series A/Engineer: 0.1–0.5%; Series B+/Engineer: 0.05–0.2%. Use the Equity Score calculator to compare your offer against industry benchmarks for your role and company stage.
+            </div>
+        </details>
+    </section>
+
     <!-- Embed Calculator CTA -->
     <section style="max-width:700px;margin:0 auto 32px;padding:24px;text-align:center;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
         <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:6px;">Embed This Calculator on Your Site</h3>

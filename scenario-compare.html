@@ -44,6 +44,46 @@
         "description": "Side-by-side funding scenario comparison for startup founders. See how different valuations and deal terms affect equity dilution."
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do you compare two funding scenarios?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Compare funding scenarios by looking at post-money valuation, dilution percentage, and founder ownership after the round. Higher valuation = less dilution. Option pool increases dilution but may be required by investors. Compare the founder's remaining ownership % and the implied valuation per founder share."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is pre-money vs post-money valuation?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pre-money valuation is the company's value before investment. Post-money valuation = Pre-money + Investment Amount. Your dilution = Investment / Post-money. Higher pre-money means less dilution for the same investment."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does the option pool affect dilution?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Option pool (typically 10–20%) is created to hire future employees with equity. If pre-money option pool is used, founders bear the dilution. If post-money, investors share the dilution. Compare scenarios with and without option pool to see impact on founder ownership."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I take a higher valuation with an option pool?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Compare net founder ownership after all dilution. A higher valuation with pre-money option pool may result in similar ownership as a lower valuation with post-money pool. Use this calculator to model both scenarios and choose based on final founder % and strategic fit."
+                }
+            }
+        ]
+    }
+    </script>
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -540,8 +580,52 @@
         <a href="equity-report-premium.html" style="display:inline-block;background:var(--orange);color:white;padding:12px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:0.95rem;">View Premium Report &rarr;</a>
     </div>
 
+    <!-- AEO: Citable Answer Block -->
+    <section style="max-width:800px;margin:0 auto 48px;padding:32px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;">
+        <h2 id="aeoScenarioTitle" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-bottom:10px;">How do you compare two funding scenarios?</h2>
+        <p style="color:var(--text-secondary);margin-bottom:14px;line-height:1.8;">
+            Comparing funding scenarios means calculating your <strong style="color:var(--text-primary);">final founder ownership</strong> after accounting for valuation, investment amount, and option pool size. The key formula:
+        </p>
+        <p style="background:var(--bg-card);border-left:3px solid var(--accent);padding:12px 16px;margin:14px 0;font-family:var(--font-mono);color:var(--text-primary);">
+            Post-Money Valuation = Pre-Money Valuation + Investment Amount<br>
+            Your Dilution = Investment Amount / Post-Money Valuation
+        </p>
+        <p style="color:var(--text-secondary);margin-bottom:14px;line-height:1.8;">
+            <strong style="color:var(--text-primary);">Option pool impact:</strong> Investors often require an unallocated option pool (10–20%) for future hires. If structured as <em>pre-money</em>, founders bear the dilution. If <em>post-money</em>, investors share dilution. This significantly affects founder ownership.
+        </p>
+        <p style="color:var(--text-secondary);margin-bottom:14px;line-height:1.8;">
+            <strong style="color:var(--text-primary);">Worked example:</strong> Scenario A: $8M pre-money, $2M investment, no option pool. Post-money = $10M. Your dilution = $2M / $10M = 20%. If you owned 100%, you keep 80%. Scenario B: $10M pre-money, $2M investment, 20% pre-money option pool. Post-money = $12M. Dilution from investment = $2M / $12M = 16.7%. Plus 20% option pool = <strong style="color:var(--text-primary);">36.7% total dilution</strong>. You keep 63.3%. Lower valuation with no option pool may beat higher valuation with option pool.
+        </p>
+
+        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-primary);margin:24px 0 12px;">Frequently Asked Questions</h3>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">What is pre-money vs post-money valuation?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                Pre-money valuation is the company's value before investment. Post-money = Pre-money + Investment Amount. Your dilution = Investment / Post-money. Higher pre-money means less dilution for the same investment. Investors quote pre-money, but your dilution is calculated on post-money.
+            </div>
+        </details>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">How does the option pool affect dilution?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                Option pool (typically 10–20%) is created to hire future employees with equity. If pre-money option pool is used, founders bear the dilution. If post-money, investors share the dilution. Compare scenarios with and without option pool to see impact on founder ownership. Pre-money pool = more dilution for founders.
+            </div>
+        </details>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">Should I take a higher valuation with an option pool?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                Compare net founder ownership after all dilution. A higher valuation with pre-money option pool may result in similar ownership as a lower valuation with post-money pool. Use this calculator to model both scenarios and choose based on final founder % and strategic fit. Sometimes lower valuation without option pool is better for founders.
+            </div>
+        </details>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">What is a typical option pool size?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                Typical option pools are 10–20% of post-capitalization, depending on stage. Seed stage: 15–20%. Series A: 10–15%. Series B+: 10% or less. Larger pools give more flexibility for hiring but increase founder dilution. Negotiate pool size based on actual hiring needs, not standard percentages.
+            </div>
+        </details>
+    </section>
+
     <!-- FOOTER -->
-    
+
     <!-- Embed Calculator CTA -->
     <section style="max-width:700px;margin:0 auto 32px;padding:24px;text-align:center;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
         <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:6px;">Embed Free Startup Calculators on Your Site</h3>

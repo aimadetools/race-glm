@@ -50,6 +50,46 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is CAC and LTV?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "CAC (Customer Acquisition Cost) is the average cost to acquire one new customer, including marketing and sales expenses. LTV (Lifetime Value) is the total revenue a customer generates over their relationship with your company. Healthy SaaS businesses have LTV:CAC ratio of 3:1 or higher."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is CAC calculated?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "CAC = Total Sales & Marketing Expenses / Number of New Customers Acquired. Include all customer acquisition costs: advertising, sales team salaries, commissions, marketing tools, and content creation. Exclude one-time costs like unrelated overhead or product development."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a good LTV to CAC ratio?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A healthy LTV:CAC ratio is 3:1 or higher — meaning each customer generates 3x more revenue than it cost to acquire them. Below 3:1, your unit economics may be unsustainable. Above 5:1, you may be under-investing in growth. Payback period (how long to recover CAC) should be under 18 months for early-stage SaaS."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do you improve unit economics?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Improve unit economics by increasing LTV (raise prices, reduce churn, expand revenue per customer) or decreasing CAC (optimize marketing spend, improve conversion rates, leverage organic channels). Focus on retention — reducing churn from 5% to 3% can dramatically increase LTV. Free and self-serve tiers can lower CAC for paid upgrades."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
             {
@@ -929,7 +969,54 @@
         <p id="newsletterMsg" style="margin-top:10px;font-size:0.8rem;display:none;"></p>
     </section>
 
-    
+
+    <!-- AEO: Citable Answer Block -->
+    <section style="max-width:800px;margin:0 auto 48px;padding:32px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;">
+        <h2 id="aeoUnitTitle" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-bottom:10px;">How are CAC and LTV calculated?</h2>
+        <p style="color:var(--text-secondary);margin-bottom:14px;line-height:1.8;">
+            <strong style="color:var(--text-primary);">CAC (Customer Acquisition Cost)</strong> is the average cost to acquire one new customer. <strong style="color:var(--text-primary);">LTV (Lifetime Value)</strong> is the total revenue a customer generates over their relationship with your company. The formulas:
+        </p>
+        <p style="background:var(--bg-card);border-left:3px solid var(--accent);padding:12px 16px;margin:14px 0;font-family:var(--font-mono);color:var(--text-primary);">
+            CAC = Total Sales & Marketing Expenses / Number of New Customers<br>
+            LTV = (ARPA × Gross Margin) / Churn Rate
+        </p>
+        <p style="color:var(--text-secondary);margin-bottom:14px;line-height:1.8;">
+            <strong style="color:var(--text-primary);">LTV:CAC ratio</strong> measures unit economics health. A ratio of 3:1 means each customer generates 3x more revenue than acquisition cost — sustainable for growth. Below 3:1 suggests poor unit economics. Above 5:1 may indicate under-investment in growth.
+        </p>
+        <p style="color:var(--text-secondary);margin-bottom:14px;line-height:1.8;">
+            <strong style="color:var(--text-primary);">Payback period</strong> shows how many months it takes to recover CAC from revenue. Healthy SaaS targets &lt;18 months for early-stage, &lt;12 months for later-stage. Longer payback increases cash flow pressure and capital requirements.
+        </p>
+        <p style="color:var(--text-secondary);margin-bottom:14px;line-height:1.8;">
+            <strong style="color:var(--text-primary);">Worked example:</strong> You spend $50K/month on sales & marketing and acquire 100 new customers/month. CAC = $50,000 / 100 = <strong style="color:var(--green);">$500</strong>. ARPA is $100/month, gross margin is 80%, churn is 5% monthly. LTV = ($100 × 0.80) / 0.05 = <strong style="color:var(--green);">$1,600</strong>. LTV:CAC = 3.2:1 (healthy). Payback = $500 / ($100 × 0.80) = <strong style="color:var(--text-primary);">6.25 months</strong> (excellent).
+        </p>
+
+        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-primary);margin:24px 0 12px;">Frequently Asked Questions</h3>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">What is a good LTV to CAC ratio?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                A healthy LTV:CAC ratio is 3:1 or higher — each customer generates 3x more revenue than acquisition cost. Below 3:1 indicates unsustainable unit economics. Above 5:1 may mean you're under-investing in growth. Payback period should be under 18 months for early-stage SaaS.
+            </div>
+        </details>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">How do you improve unit economics?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                Improve unit economics by increasing LTV (raise prices, reduce churn, expand revenue per customer via upsells) or decreasing CAC (optimize marketing spend, improve conversion rates, leverage organic/content channels). Focus on retention — reducing churn from 5% to 3% can increase LTV by 67%.
+            </div>
+        </details>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">What expenses should be included in CAC?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                Include all customer acquisition costs: paid advertising, marketing team salaries, sales commissions, marketing software/tools, content creation, and lead generation. Exclude product costs, general overhead, and unrelated expenses. CAC should reflect the marginal cost to add one more customer.
+            </div>
+        </details>
+        <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <summary style="padding:14px 16px;background:var(--bg-card);cursor:pointer;font-weight:600;color:var(--text-primary);list-style:none;user-select:none;">How does churn affect LTV?</summary>
+            <div style="padding:14px 16px;color:var(--text-secondary);line-height:1.7;border-top:1px solid var(--border);">
+                Churn directly reduces LTV — the formula divides by churn rate, so higher churn means lower lifetime value. Reducing monthly churn from 5% to 3% increases LTV by 67%. High churn also increases pressure on CAC — you need more customers to replace those leaving, raising acquisition costs.
+            </div>
+        </details>
+    </section>
+
     <!-- Embed Calculator CTA -->
     <section style="max-width:700px;margin:0 auto 32px;padding:24px;text-align:center;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
         <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:6px;">Embed Free Startup Calculators on Your Site</h3>
