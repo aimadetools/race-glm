@@ -73,6 +73,18 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "How much equity do founders lose per funding round?", "acceptedAnswer": {"@type": "Answer", "text": "Typically 15-25% per round. A seed or Series A round usually sells 15-25% of the company, so every founder's stake shrinks by roughly that fraction. Across pre-seed, seed, A, B, and C, the founding team often ends up holding 10-25% combined by exit."}},
+            {"@type": "Question", "name": "Does an employee option pool dilute the founders?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A new option pool is usually created or topped up as part of a priced round. If the pool is created before the investment closes, the founders absorb that dilution rather than the incoming investors."}},
+            {"@type": "Question", "name": "What is the difference between pre-money and post-money valuation?", "acceptedAnswer": {"@type": "Answer", "text": "Pre-money is what the company is worth before the new cash; post-money is pre-money plus the investment. The investor's ownership equals investment divided by post-money, so a $1M investment at a $4M pre-money valuation ($5M post-money) buys 20%."}},
+            {"@type": "Question", "name": "Is my cap-table data sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Every calculation runs entirely in your browser. Nothing about your cap table is uploaded to a server or stored anywhere."}}
+        ]
+    }
+    </script>
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -1245,6 +1257,33 @@
             <button class="shared-banner-cta" id="sharedBannerCta" type="button">Model Your Dilution →</button>
         </div>
 
+        <!-- AEO: citable static answer block. The calculator below renders results with JavaScript, so this extractable section lets answer engines (and skimming founders) get the method and a worked example without running the tool. -->
+        <section class="aeo-answer" aria-labelledby="aeoDilutionTitle" style="max-width:1200px;margin:0 auto 32px;padding:28px 24px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
+            <h2 id="aeoDilutionTitle" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-bottom:10px;">How is equity dilution calculated?</h2>
+            <p style="color:var(--text-secondary);margin-bottom:14px;">
+                Dilution happens because a funding round issues <em>new</em> shares to investors rather than transferring existing ones, so every current shareholder owns a smaller slice of a larger pie. After a priced round your ownership is:
+            </p>
+            <p style="font-family:var(--font-mono);font-size:0.95rem;background:var(--bg-card);padding:14px 18px;border-radius:8px;color:var(--accent-light);border:1px solid var(--border);margin-bottom:14px;">
+                Your ownership after the round = your shares &divide; (your shares + new shares issued)
+            </p>
+            <p style="color:var(--text-secondary);margin-bottom:6px;">The new shares are set by the round's terms:</p>
+            <ul style="color:var(--text-secondary);padding-left:22px;margin-bottom:14px;line-height:1.9;">
+                <li><strong style="color:var(--text-primary);">Price per share</strong> = pre-money valuation &divide; total pre-round shares</li>
+                <li><strong style="color:var(--text-primary);">New shares issued</strong> = investment amount &divide; price per share</li>
+                <li><strong style="color:var(--text-primary);">Investor ownership</strong> = investment &divide; post-money valuation (pre-money + investment)</li>
+            </ul>
+            <h3 style="font-size:1.1rem;font-weight:600;color:var(--text-primary);margin:6px 0 8px;">Worked example: a $1M seed round</h3>
+            <ul style="color:var(--text-secondary);padding-left:22px;line-height:1.9;">
+                <li>A founder holds 1,000,000 shares &mdash; 100% of the company.</li>
+                <li>She raises <strong style="color:var(--text-primary);">$1,000,000 at a $4,000,000 pre-money valuation</strong> ($5M post-money).</li>
+                <li>The investor receives $1M &divide; $5M = <strong style="color:var(--text-primary);">20%</strong> of the company.</li>
+                <li>The founder keeps 80% &mdash; she was <strong style="color:var(--text-primary);">diluted by 20 percentage points</strong> in a single round.</li>
+            </ul>
+            <p style="color:var(--text-muted);font-size:0.9rem;margin-top:14px;">
+                Repeat this for each round (pre-seed through Series C) and the optional employee option pool to model cumulative dilution in the calculator below.
+            </p>
+        </section>
+
         <!-- Quick Start Guide -->
         <section class="quick-start" style="max-width:1200px;margin:0 auto 32px;padding:24px;">
             <div class="quick-start-header" onclick="toggleQuickStart(this)" aria-expanded="false" aria-controls="dilutionQuickStart">
@@ -1449,6 +1488,27 @@
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
             <a href="embed.html" style="display:inline-block;background:var(--accent);color:white;padding:10px 22px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.9rem;">Get Embed Code &rarr;</a>
             <a href="partner.html" style="display:inline-block;background:transparent;color:var(--text-secondary);border:1px solid var(--border);padding:10px 22px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.9rem;">For Accelerators</a>
+        </div>
+    </section>
+    <!-- AEO: FAQ (pairs with FAQPage schema in <head> for rich-result / answer-engine eligibility) -->
+    <section class="faq" style="max-width:760px;margin:0 auto 32px;padding:0 24px;">
+        <h2 style="text-align:center;font-size:1.75rem;font-weight:700;color:var(--text-primary);margin-bottom:8px;">Equity Dilution FAQ</h2>
+        <p style="text-align:center;color:var(--text-secondary);margin-bottom:32px;">Quick answers to the most common dilution questions.</p>
+        <div class="faq-item" style="padding:18px 0;border-bottom:1px solid var(--border);">
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:8px;">How much equity do founders lose per funding round?</h3>
+            <p style="color:var(--text-secondary);font-size:0.95rem;">Typically 15&ndash;25% per round. A seed or Series A round usually sells 15&ndash;25% of the company, so every founder's stake shrinks by roughly that fraction. Across pre-seed, seed, A, B, and C, the founding team often ends up holding 10&ndash;25% combined by exit.</p>
+        </div>
+        <div class="faq-item" style="padding:18px 0;border-bottom:1px solid var(--border);">
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:8px;">Does an employee option pool dilute the founders?</h3>
+            <p style="color:var(--text-secondary);font-size:0.95rem;">Yes. A new option pool is usually created or topped up as part of a priced round. If the pool is created <em>before</em> the investment closes, the founders absorb that dilution rather than the incoming investors. This calculator lets you add an option pool to see the exact effect.</p>
+        </div>
+        <div class="faq-item" style="padding:18px 0;border-bottom:1px solid var(--border);">
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:8px;">What is the difference between pre-money and post-money valuation?</h3>
+            <p style="color:var(--text-secondary);font-size:0.95rem;">Pre-money is what the company is worth <em>before</em> the new cash; post-money is pre-money plus the investment. The investor's ownership equals investment &divide; post-money &mdash; so a $1M investment at a $4M pre-money valuation ($5M post-money) buys 20%.</p>
+        </div>
+        <div class="faq-item" style="padding:18px 0;">
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:8px;">Is my cap-table data sent anywhere?</h3>
+            <p style="color:var(--text-secondary);font-size:0.95rem;">No. Every calculation runs entirely in your browser. Nothing about your cap table is uploaded to a server or stored anywhere.</p>
         </div>
     </section>
     <!-- Related Calculators -->
