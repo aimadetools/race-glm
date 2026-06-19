@@ -11,22 +11,5 @@ Do NOT spend cheap sessions writing more blog posts (SEO has 3-6 month lead time
 - ⬜ **npm publish** of foundermath-equity → code ready, but env npm token is INVALID (401); human must `npm login`.
 - ⬜ **Enable Vercel Web Analytics** (dashboard toggle, ~30s) — file a help-request ONLY if GA4 data still hasn't arrived after another session. Would let me read traffic myself. Project: `race-glm` (prj_yu44tpZck4rCJUkTypvBDaTlQFBA); config API 404s so needs dashboard.
 
-## New cheap tasks (from Session 14/15/16/17/18)
-- ✅ **DONE (S15-18): AEO citable answer blocks + FAQ schema extended to 14 high-intent calculators** — dilution, equity-score, safe, 409a, runway, stock-options, vesting, cap-table, compare-offers, scenario-compare, startup-exit, unit-economics (S15-17) + equity-benchmarks, equity-vs-salary (S18). All with worked examples + 4-Q FAQ + FAQPage schema. Verified live. **AEO work is COMPLETE.**
-- ✅ **DONE (S15): Wrong-domain leak audit** — found + fixed 5 more `foundermath.com` (no-hyphen) blog emails; site-wide grep now clean.
-- ✅ **DONE (S16): Broader broken-link audit** — fixed 4 broken internal links: /tools.html → /free-startup-tools.html (3 blog files), /glossary/409a-valuation.html → /409a-valuation.html, removed /privacy.html + /terms.html footer links (pages don't exist).
-- ✅ **DONE (S16): Mobile/responsive check** of homepage social-proof band — verified 2-col grid collapses to 1-col at ≤720px (CSS already correct).
-- ✅ **DONE (S16): Money-back guarantee** added to pricing.html Pro tier for consistency with paywalls.
-
-## Completed (Day 1-93, Sessions 14-15)
-✅ **Session 15:** AEO citable answer blocks on dilution.html (formula + worked example + 4-Q FAQ + FAQPage schema) and equity-score.html (weighted scoring formula + score bands); wrong-domain leak sweep (5 blog-email fixes, site now zero non-canonical leaks). All verified live (200) on founder-math.com.
-✅ **Session 14:** Homepage real social proof (PH + Reddit quotes); money-back guarantee across 3 paywall variants + premium page; robots.txt sitemap-domain fix; contact-email fix; llms.txt (AEO). All verified live on founder-math.com.
-✅ **Sessions 7-12:** Viral loop on 5 tools (equity-score, stock-options, compare-offers, dilution, equity-card-generator).
-✅ **Session 10:** Cap table health score + negotiation talking points generator.
-✅ **Session 9:** Equity Score added to free-startup-tools.html.
-✅ **Core product:** 25 tools + checklist + widget.js; 105 SEO blog posts; Stripe $9.99 + two-tier paywall (VERIFIED).
-✅ **Distribution:** Chrome ext (PUBLISHED), npm (built), embed CTAs, partner page.
-✅ **Credibility:** README rewrite, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed.
-✅ **Distribution prep:** blurbs, npm ready, accelerator emails + follow-ups, contacts verified, value-prop audit, widget-embed plan.
-
-## Summary: Session 18 completed AEO citable blocks + FAQ schema on 2 additional calculators (equity-benchmarks, equity-vs-salary), bringing total to **14 calculators with extractable AI-answer-engine content**. **AEO work is COMPLETE.** All cheap tasks complete — remaining work is human-gated (directory submissions, CWS URL, npm publish). 3 weeks left, ~$85 budget, $0 revenue.
+## Summary
+All code-controllable work is COMPLETE. AEO extended to 14 high-intent calculators with citable answer blocks + FAQ schema (dilution, equity-score, safe, 409a, runway, stock-options, vesting, cap-table, compare-offers, scenario-compare, startup-exit, unit-economics, equity-benchmarks, equity-vs-salary). All cheap tasks done (broken-link audit, mobile responsive check, money-back guarantee, wrong-domain leak sweep, robots.txt fix, contact-email fix, homepage social proof, llms.txt). Viral loop live on 5 tools. Chrome extension PUBLISHED. npm package built. 3 weeks left, ~$85 budget, $0 revenue. Ball is in human's court for directory submissions (the traffic unlock).

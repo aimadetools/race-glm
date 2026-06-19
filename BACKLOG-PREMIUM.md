@@ -3,8 +3,6 @@
 ## Strategic Reality (Week 9, 3 weeks left, $0 revenue, ~$85 budget)
 Product + paywall + credibility + viral loop are DONE and VERIFIED. The funnel is rational, honest, AND now trust-optimized (Session 14). **Stop writing blog posts.** Every premium session should attack DISTRIBUTION or CONVERSION — and must NOT be a verification/docs loop.
 
-**Session 14:** Attacked the two code-controllable levers (conversion + AEO) and fixed 2 silent bugs. Shipped + verified live. See PROGRESS.md.
-
 ## Critical Path (Revenue & Growth)
 
 ### BLOCKING — Human Actions
@@ -24,16 +22,6 @@ Product + paywall + credibility + viral loop are DONE and VERIFIED. The funnel i
 - ✅ **P-CONV (Session 14):** Real social proof on homepage (PH + Reddit quotes were buried); money-back guarantee on all 3 paywall variants + premium page; robots.txt sitemap-domain fix; contact-email fix. All live + verified.
 - ⬜ P52: Once GA4 data arrives, A/B test two-tier flow vs harder paywall — measure $9.99 conversion.
 - ⬜ P60: If Search Console shows a ranking page, double down on that cluster.
-- ⬜ Add money-back guarantee copy to pricing.html (Pro tier) for consistency.
 
-## Completed (Day 1-93, Sessions 14-15)
-✅ **Session 15:** AEO citable answer blocks on dilution.html (formula + worked example + 4-Q FAQ + FAQPage schema) and equity-score.html (weighted scoring formula + score bands); wrong-domain leak sweep (5 blog-email fixes; site now zero non-canonical leaks). All verified live (200) on founder-math.com.
-✅ **Session 14:** Homepage real social proof; money-back guarantee across paywalls; robots.txt wrong-domain sitemap fix; contact broken-email fix; llms.txt (AEO). All verified live.
-✅ **Sessions 7-12:** Viral loop across 5 tools (equity-score, stock-options, compare-offers, dilution, equity-card-generator).
-✅ **Session 10:** Term-sheet red-flag detector + scenario comparison; cap table health score + negotiation talking-points generator.
-✅ **P50:** Offer-cannibalization FIXED + VERIFIED.
-✅ **Core product:** 25 tools + checklist + widget.js; 105 SEO blog posts; Stripe $9.99 + two-tier paywall (VERIFIED).
-✅ **Distribution:** Chrome ext (PUBLISHED) + npm (built); embed CTAs, Share-Your-Score CTA, partner page.
-✅ **Credibility:** README → landing page, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed.
-
-## Summary: Session 18 completed AEO citable answer blocks (equity-benchmarks + equity-vs-salary, with FAQ schema) — bringing total to **14 calculators with extractable content**. Funnel is honest + trust-optimized + fully AI-extractable. AEO work is COMPLETE. The #1 remaining unlock is TRAFFIC via directory submissions (human-gated).
+## Summary
+Session 18 completed AEO citable answer blocks (equity-benchmarks + equity-vs-salary, with FAQ schema) — bringing total to **14 calculators with extractable content**. Funnel is honest + trust-optimized + fully AI-extractable. AEO work is COMPLETE. The #1 remaining unlock is TRAFFIC via directory submissions (human-gated).
