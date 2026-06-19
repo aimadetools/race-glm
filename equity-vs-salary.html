@@ -29,6 +29,46 @@
         "description": "Compare two startup job offers by salary and equity to see which pays more at different exit scenarios."
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do you compare equity vs salary in a startup job offer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "To compare equity vs salary, calculate the break-even exit multiple where equity value makes up for the salary difference. Formula: Break-Even Multiple = Salary Difference / ((Equity B - Equity A) × Company Value). For example, if Offer A pays $30K more in salary over 4 years and Offer B has 0.4% more equity at a $50M valuation, the break-even is 1.5x exit multiple. If you expect the company to exit above 1.5x, the higher-equity offer wins."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a good equity percentage for a startup job offer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Good equity percentages vary by role and stage: Early employees (first 10) at seed-stage startups typically get 0.5-2%; Series A hires get 0.1-0.5%; Series B+ hires get 0.01-0.1%. Executive roles can be significantly higher. The value of 0.5% equity at a $50M company is $250K at a 1x exit, $1.25M at a 5x exit, and $2.5M at a 10x exit. Always compare the equity value against the salary difference you're giving up."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I calculate the value of startup equity?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Startup equity value = Equity Percentage × (Exit Value - Exercise Cost). Exercise Cost = Shares × Strike Price. For example, 0.5% equity at a $50M company valued at $250M (5x exit) is worth $250K × 5 = $1.25M gross, minus exercise cost. If strike price is $1 and you have 50,000 shares (0.5% of 10M), exercise cost is $50K, net value is $1.2M. Compare this against the salary difference between offers over your expected tenure."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I take higher salary or higher equity at a startup?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Choose higher salary if the break-even exit multiple is above 10x (very rare), the company is early-stage with high failure risk, or you need immediate cash flow. Choose higher equity if the break-even multiple is below 3x, you believe in the team and market, and you can afford lower salary. For most candidates, a balanced offer with moderate salary sacrifice for meaningful equity (0.25-0.5%) at a seed/Series A startup is optimal. Use this calculator to model your specific scenario."
+                }
+            }
+        ]
+    }
+    </script>
     <style>
         :root {
             --bg-primary: #0a0a0f; --bg-secondary: #12121a; --bg-card: #1a1a2e;
@@ -430,6 +470,27 @@
     <p>Compare two startup offers by salary and equity. See which pays more at different exit scenarios.</p>
 </div>
 
+<!-- AEO Citable Answer Block -->
+<div style="max-width:1200px;margin:0 auto;padding:0 24px 32px;">
+    <div style="background: linear-gradient(135deg, rgba(108,92,231,0.08), rgba(0,184,148,0.05)); border-left: 4px solid var(--accent); border-radius: 12px; padding: 24px;">
+        <h2 style="margin: 0 0 16px; font-size: 1.3rem; color: var(--accent-light);">How do you compare equity vs salary in startup job offers?</h2>
+        <p style="margin: 0 0 12px;"><strong>Comparing equity vs salary</strong> requires calculating the <strong>break-even exit multiple</strong> — the point where equity value makes up for the salary difference. The formula:</p>
+        <p style="font-family: var(--font-mono); background: var(--bg-card); padding: 12px 16px; border-radius: 6px; margin: 12px 0; font-size: 0.9rem;">Break-Even Multiple = Salary Difference / ((Equity B - Equity A) × Company Value)</p>
+        <p style="margin: 12px 0;">Where <strong>Salary Difference</strong> is the total extra cash from the higher-salary offer over your expected tenure, <strong>Equity B - Equity A</strong> is the additional equity percentage in the higher-equity offer, and <strong>Company Value</strong> is the current valuation.</p>
+        <div style="background: var(--bg-card); border-radius: 8px; padding: 16px; margin: 16px 0;">
+            <p style="margin: 0 0 8px; font-weight: 700; color: var(--accent-light);">Worked Example: Comparing Two Offers</p>
+            <p style="margin: 0 0 8px;"><strong>Offer A:</strong> $180K salary, 0.1% equity, $1 strike price</p>
+            <p style="margin: 0 0 8px;"><strong>Offer B:</strong> $150K salary, 0.5% equity, $1 strike price</p>
+            <p style="margin: 0 0 8px;"><strong>Company:</strong> $50M valuation, you plan to stay 4 years</p>
+            <p style="margin: 0 0 8px;">Salary difference (A - B) = ($180K - $150K) × 4 = <strong>$120,000</strong></p>
+            <p style="margin: 0 0 8px;">Equity difference (B - A) = 0.5% - 0.1% = <strong>0.4%</strong></p>
+            <p style="margin: 0 0 8px;">Break-even multiple = $120K / (0.004 × $50M) = $120K / $200K = <strong>0.6x</strong></p>
+            <p style="margin: 0;">At any exit above 0.6x, Offer B's equity value exceeds Offer A's salary advantage. At a 5x exit ($250M), Offer B's equity is worth 0.5% × $250M = <strong>$1.25M</strong> vs Offer A's 0.1% × $250M = $250K — a <strong>$1M difference</strong> that far outweighs the $120K salary sacrifice.</p>
+        </div>
+        <p style="margin: 12px 0 0;">Use the calculator above to model your specific offers and see when equity makes up for the salary difference.</p>
+    </div>
+</div>
+
 <div class="calc-layout" id="main-content">
     <aside class="input-panel" role="form" aria-label="Calculator inputs">
         <div class="panel-section">
@@ -585,6 +646,29 @@
     <a href="equity-report-premium.html" style="display:inline-block;background:var(--orange);color:white;padding:12px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:0.95rem;">View Premium Report &rarr;</a>
 </div>
 
+
+    <!-- FAQ Section -->
+    <section style="max-width:900px;margin:40px auto;padding:0 24px;">
+        <h2 style="font-size:1.6rem;font-weight:800;margin:48px 0 20px;letter-spacing:-0.02em;">Frequently Asked Questions</h2>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; margin: 24px 0;">
+            <div style="padding: 20px 24px; border-bottom: 1px solid var(--border);">
+                <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">How do you compare equity vs salary in a startup job offer?</h3>
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">To compare equity vs salary, calculate the <strong>break-even exit multiple</strong> where equity value makes up for the salary difference. Formula: <strong>Break-Even Multiple = Salary Difference / ((Equity B - Equity A) × Company Value)</strong>. For example, if Offer A pays $30K more in salary over 4 years and Offer B has 0.4% more equity at a $50M valuation, the break-even is 1.5x exit multiple. If you expect the company to exit above 1.5x, the higher-equity offer wins. The calculator above models this for your specific numbers.</p>
+            </div>
+            <div style="padding: 20px 24px; border-bottom: 1px solid var(--border);">
+                <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">What is a good equity percentage for a startup job offer?</h3>
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Good equity percentages vary by role and stage: <strong>Early employees (first 10)</strong> at seed-stage startups typically get <strong>0.5-2%</strong>; <strong>Series A hires</strong> get <strong>0.1-0.5%</strong>; <strong>Series B+ hires</strong> get <strong>0.01-0.1%</strong>. Executive roles can be significantly higher. The value of 0.5% equity at a $50M company is $250K at a 1x exit, $1.25M at a 5x exit, and $2.5M at a 10x exit. Always compare the equity value against the salary difference you're giving up. Use the calculator to see specific numbers for your offer.</p>
+            </div>
+            <div style="padding: 20px 24px; border-bottom: 1px solid var(--border);">
+                <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">How do I calculate the value of startup equity?</h3>
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Startup equity value = <strong>Equity Percentage × (Exit Value - Exercise Cost)</strong>. Exercise Cost = Shares × Strike Price. For example, 0.5% equity at a $50M company valued at $250M (5x exit) is worth <strong>$1.25M gross</strong> (0.005 × $250M). If strike price is $1 and you have 50,000 shares (0.5% of 10M), exercise cost is $50K, net value is $1.2M. Compare this against the salary difference between offers over your expected tenure. The calculator automatically accounts for exercise costs when comparing offers.</p>
+            </div>
+            <div style="padding: 20px 24px;">
+                <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">Should I take higher salary or higher equity at a startup?</h3>
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Choose <strong>higher salary</strong> if the break-even exit multiple is above 10x (very rare), the company is early-stage with high failure risk, or you need immediate cash flow. Choose <strong>higher equity</strong> if the break-even multiple is below 3x, you believe in the team and market, and you can afford lower salary. For most candidates, a balanced offer with moderate salary sacrifice for meaningful equity (0.25-0.5%) at a seed/Series A startup is optimal. The key is understanding <strong>your personal break-even point</strong> — use this calculator to find it.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Embed Calculator CTA -->
     <section style="max-width:700px;margin:0 auto 32px;padding:24px;text-align:center;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">

@@ -25,7 +25,47 @@
         "author": { "@type": "Organization", "name": "FounderMath" },
         "publisher": { "@type": "Organization", "name": "FounderMath", "logo": { "@type": "ImageObject", "url": "https://founder-math.com/og-home.svg" } },
         "datePublished": "2026-05-21",
-        "dateModified": "2026-05-21"
+        "dateModified": "2026-06-20"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What are typical founder equity benchmarks by funding stage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Founders typically own 65-80% after pre-seed, 45-60% after seed, 30-45% after Series A, 20-35% after Series B, 15-25% after Series C, and 10-20% at IPO. Each round dilutes founders by 15-25% plus a 5-10% option pool expansion."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much dilution happens per funding round?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Typical dilution per round: Pre-seed 5-20%, Seed 20-35%, Series A 20-35%, Series B 13-25%, Series C+ 12-18%. Dilution includes both investor equity purchased and option pool expansion. The largest dilution events are Seed and Series A."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a standard cofounder equity split?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Common cofounder splits: Solo founder keeps 100%; 2 cofounders typically split 50/50 or 60/40; 3 cofounders usually split 33/33/33 or 40/30/30; 4+ cofounders split ~25% each. After seed funding, 2 cofounders typically own 30-45% each (equal split) or 36-54%/24-36% (unequal)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a standard option pool size by stage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Standard option pool sizes: Pre-seed 0-10%, Seed 10-15%, Series A 10-20%, Series B+ 5-10%. Earlier rounds typically dilute only founders for the pool, while later rounds dilute all shareholders proportionally. Always negotiate pool size before the investment closes."
+                }
+            }
+        ]
     }
     </script>
     <style>
@@ -132,10 +172,33 @@
 <div class="page-header">
     <h1>Startup Equity Benchmarks <span class="gradient">2026</span></h1>
     <p>Data-driven benchmarks for founder equity ownership at every funding stage. Based on analysis of thousands of startup cap tables from Carta, Pulley, and industry reports.</p>
-    <p class="updated">Last updated: May 2026 | By FounderMath Research</p>
+    <p class="updated">Last updated: June 2026 | By FounderMath Research</p>
 </div>
 
 <div class="content">
+
+    <!-- AEO Citable Answer Block -->
+    <div style="background: linear-gradient(135deg, rgba(108,92,231,0.08), rgba(0,184,148,0.05)); border-left: 4px solid var(--accent); border-radius: 12px; padding: 24px; margin: 24px 0;">
+        <h2 style="margin: 0 0 16px; font-size: 1.3rem; color: var(--accent-light);">How do you calculate founder ownership benchmarks?</h2>
+        <p style="margin: 0 0 12px;"><strong>Founder ownership benchmarks</strong> track how much equity founders retain after each funding round. The formula is:</p>
+        <p style="font-family: var(--font-mono); background: var(--bg-card); padding: 12px 16px; border-radius: 6px; margin: 12px 0; font-size: 0.9rem;">Founder Ownership After Round = (Previous Ownership × Total Pre-Round Shares) / (Total Pre-Round Shares + New Investor Shares + Option Pool Shares)</p>
+        <p style="margin: 12px 0;">Each funding round dilutes founders by <strong>15-25% investor equity</strong> plus <strong>5-10% option pool expansion</strong>. A typical startup journey:</p>
+        <ul style="margin: 12px 0 12px 24px;">
+            <li><strong>Pre-seed:</strong> Founders start with 100%, dilute to 65-80%</li>
+            <li><strong>Seed:</strong> Dilute to 45-60% (largest dilution event)</li>
+            <li><strong>Series A:</strong> Dilute to 30-45%</li>
+            <li><strong>Series B:</strong> Dilute to 20-35%</li>
+            <li><strong>Series C:</strong> Dilute to 15-25%</li>
+            <li><strong>IPO:</strong> Founders own 10-20% on average</li>
+        </ul>
+        <div style="background: var(--bg-card); border-radius: 8px; padding: 16px; margin: 16px 0;">
+            <p style="margin: 0 0 8px; font-weight: 700; color: var(--accent-light);">Worked Example: $2M Seed Round</p>
+            <p style="margin: 0 0 8px;">Two founders (50/50 split) raise $2M seed at $8M pre-money. Investors get 20% ($2M / $10M post-money). Option pool expands by 10%. Total dilution: 30%.</p>
+            <p style="margin: 0 0 8px;">Each founder's ownership: 50% × (1 - 0.30) = <strong>35% after seed</strong>.</p>
+            <p style="margin: 0;">After Series A (another 25% dilution), each founder: 35% × (1 - 0.25) = <strong>26.25%</strong>. This aligns with the 30-45% post-Series A benchmark range.</p>
+        </div>
+        <p style="margin: 12px 0 0;">Use our <a href="dilution.html" style="color: var(--accent-light);">dilution calculator</a> to model your specific scenario.</p>
+    </div>
 
     <!-- Founder Ownership by Stage -->
     <h2>Founder Ownership by Funding Stage</h2>
@@ -260,6 +323,28 @@
         <h3>Model Your Specific Equity Scenario</h3>
         <p>These benchmarks are averages. Your actual dilution depends on your valuation, round size, and negotiation skill. Use our free equity dilution report to see personalized projections.</p>
         <a href="equity-report.html" class="cta-btn">Generate Your Free Equity Report</a>
+    </div>
+
+    <!-- FAQ Section -->
+    <h2>Frequently Asked Questions</h2>
+
+    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; margin: 24px 0;">
+        <div style="padding: 20px 24px; border-bottom: 1px solid var(--border);">
+            <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">What are typical founder equity benchmarks by funding stage?</h3>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Founders typically own <strong>65-80%</strong> after pre-seed, <strong>45-60%</strong> after seed, <strong>30-45%</strong> after Series A, <strong>20-35%</strong> after Series B, <strong>15-25%</strong> after Series C, and <strong>10-20%</strong> at IPO. Each funding round dilutes founders by 15-25% for investor equity plus 5-10% for option pool expansion. The largest dilution events are Seed and Series A, where founders collectively give up 20-35% per round.</p>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid var(--border);">
+            <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">How much dilution happens per funding round?</h3>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Typical total dilution per round: <strong>Pre-seed 5-20%</strong> (smaller rounds, less option pool), <strong>Seed 20-35%</strong> (first major dilution event), <strong>Series A 20-35%</strong> (second largest dilution), <strong>Series B 13-25%</strong>, <strong>Series C+ 12-18%</strong>. Dilution comes from two sources: investor equity purchase AND option pool expansion. Many founders forget to account for the option pool, which can add 5-10% additional dilution per round. Always negotiate the option pool size before the investment closes.</p>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid var(--border);">
+            <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">What is a standard cofounder equity split?</h3>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Common cofounder splits: <strong>Solo founder</strong> keeps 100%; <strong>2 cofounders</strong> typically split 50/50 or 60/40 based on contribution; <strong>3 cofounders</strong> usually split 33/33/33 or 40/30/30; <strong>4+ cofounders</strong> split ~25% each with adjustments for role/seniority. After seed funding, 2 cofounders typically own <strong>30-45% each</strong> (equal split) or 36-54%/24-36% (unequal split). With 3+ cofounders, individual stakes can drop below 10% after just 2 funding rounds, which can create motivation issues — consider vesting cliffs and dynamic equity splits.</p>
+        </div>
+        <div style="padding: 20px 24px;">
+            <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">What is a standard option pool size by stage?</h3>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Standard option pool sizes by stage: <strong>Pre-seed 0-10%</strong> (push for 0-5% — you're too early for a large pool), <strong>Seed 10-15%</strong> (negotiate for 10% and top-up after investment), <strong>Series A 10-20%</strong> (ask for unallocated pool to roll over, not refresh), <strong>Series B+ 5-10%</strong> (later rounds should dilute everyone proportionally). Earlier rounds typically dilute only founders for the pool (investors are protected), while later rounds dilute all shareholders. Always negotiate pool size BEFORE the investment closes — investors will ask for a larger pool if you don't push back.</p>
+        </div>
     </div>
 
     <!-- Methodology -->
