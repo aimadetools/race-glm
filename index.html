@@ -1056,6 +1056,34 @@
         </div>
     </section>
 
+    <!-- Real social proof (genuine user quotes) -->
+    <style>
+        .social-proof { max-width: 1100px; margin: 0 auto 56px; padding: 0 24px; }
+        .proof-label { text-align:center; color: var(--accent-light); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 18px; }
+        .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 720px) { .proof-grid { grid-template-columns: 1fr; } }
+        .proof-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px; position: relative; }
+        .proof-card .mark { position: absolute; top: 10px; right: 18px; font-size: 2.4rem; color: var(--accent); opacity: 0.35; font-family: Georgia, serif; line-height: 1; }
+        .proof-card p { color: var(--text-primary); font-size: 0.98rem; line-height: 1.55; margin: 0 0 14px; }
+        .proof-card cite { font-style: normal; color: var(--text-secondary); font-size: 0.82rem; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+        .proof-card cite .src { color: var(--green); }
+    </style>
+    <section class="social-proof">
+        <div class="proof-label">From real founders</div>
+        <div class="proof-grid">
+            <div class="proof-card">
+                <span class="mark">&rdquo;</span>
+                <p>Nice suite of tools. I bookmarked the dilution calculator &mdash; been looking for something simpler than Carta&rsquo;s interface for quick back-of-napkin math.</p>
+                <cite>&mdash; A founder on <span class="src">Product Hunt</span> &middot; May 2026</cite>
+            </div>
+            <div class="proof-card">
+                <span class="mark">&rdquo;</span>
+                <p>The scenario comparison tool was exactly what I needed before my Series A meeting. One suggestion: let me save scenarios and share a link with my co-founder.</p>
+                <cite>&mdash; A founder on <span class="src">r/startups</span> &middot; May 2026</cite>
+            </div>
+        </div>
+    </section>
+
     <!-- Interactive Demo -->
     <section class="demo-section" id="demo">
         <div class="section-label">Live Demo</div>
