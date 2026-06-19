@@ -35,6 +35,46 @@
         }
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do you evaluate if an equity offer is good?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Evaluate an equity offer using the equity multiple formula: Equity Value = (Equity % × Exit Valuation). For example, 0.5% equity at a $100M exit = $500K. Compare this to your salary foregone. Good offers typically have equity worth 2-5x your annual salary discount. Key factors: role (engineer vs founder), company stage (pre-seed vs Series B), vesting terms (4-year standard), and growth potential. Use benchmarks: engineers at seed-stage typically get 0.1-0.5%, executives 1-5%, founders 10-50%."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a good equity percentage for my role?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Typical equity ranges by role and stage: Pre-seed engineers 0.2-1%, seed engineers 0.1-0.5%, Series A+ engineers 0.05-0.2%. Executives: pre-seed 2-10%, seed 1-5%, Series A+ 0.5-3%. Founders typically own 10-50% each depending on team size. Earlier stage = higher equity due to higher risk. Always consider equity value relative to your total compensation package and the company's exit potential."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does company stage affect equity value?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Company stage dramatically affects equity risk and potential value. Pre-seed companies have 90%+ failure risk but 100x+ potential upside. Seed-stage have 70% failure risk with 20-50x potential. Series A+ have lower failure risk (40-60%) but more modest upside (5-20x). Later-stage offers typically come with lower equity percentages but higher probability of payout. Your equity percentage should compensate for the stage risk — earlier stage = more equity required."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What vesting terms should I look for in an equity offer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Standard vesting is 4 years with a 1-year cliff (you get 0% if you leave before 1 year, then 25% vests at cliff, then monthly vesting). Good terms: 4-year vesting, 1-year cliff, single-trigger acceleration (if company is acquired, your vesting accelerates). Red flags: longer than 4 years, longer than 1-year cliff, double-trigger acceleration (requires both acquisition AND termination), or no vesting at all. Always negotiate vesting before signing — your equity is worthless if vesting terms are unfair."
+                }
+            }
+        ]
+    }
+    </script>
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -534,6 +574,45 @@
             </ul>
         </div>
     </footer>
+
+    <!-- AEO Citable Answer Block -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 40px 24px;">
+        <div style="background: linear-gradient(135deg, rgba(108,92,231,0.08), rgba(0,184,148,0.05)); border-left: 4px solid var(--accent); border-radius: 12px; padding: 24px; margin: 24px 0;">
+            <h2 style="margin: 0 0 16px; font-size: 1.3rem; color: var(--accent-light);">How do you evaluate if an equity offer is good?</h2>
+            <p style="margin: 0 0 12px;"><strong>Evaluating an equity offer</strong> means calculating the potential dollar value of your equity grant and comparing it to the salary you're sacrificing. The formula is:</p>
+            <p style="font-family: var(--font-mono); background: var(--bg-card); padding: 12px 16px; border-radius: 6px; margin: 12px 0; font-size: 0.9rem;">Equity Value = (Equity Percentage × Exit Valuation)</p>
+            <p style="margin: 12px 0;">A good offer has equity worth <strong>2-5x</strong> your annual salary discount. For example, if you're giving up $50K in salary to join a startup, your equity should be worth $100K-$250K at exit.</p>
+            <div style="background: var(--bg-card); border-radius: 8px; padding: 16px; margin: 16px 0;">
+                <p style="margin: 0 0 8px; font-weight: 700; color: var(--accent-light);">Worked Example: $0.5% Offer at Seed-Stage Startup</p>
+                <p style="margin: 0 0 8px;">You're offered 0.5% equity at a seed-stage startup. If the company exits at $100M, your equity is worth: 0.5% × $100M = <strong>$500,000</strong>.</p>
+                <p style="margin: 0 0 8px;">If you're giving up $50K/year in salary, your equity multiple is: $500K / $50K = <strong>10x</strong>. This is an excellent offer.</p>
+                <p style="margin: 0;">However, seed-stage startups have ~70% failure risk. Adjusted for risk: $500K × 30% = $150K expected value. Still <strong>3x</strong> your salary discount — a good offer.</p>
+            </div>
+            <p style="margin: 12px 0 0;">Key factors: role, company stage, vesting terms (4-year standard with 1-year cliff), and growth potential. Use our <a href="compare-offers.html" style="color: var(--accent-light);">offer comparison tool</a> for detailed analysis.</p>
+        </div>
+
+        <!-- FAQ Section -->
+        <h2>Frequently Asked Questions</h2>
+
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; margin: 24px 0;">
+            <div style="padding: 20px 24px; border-bottom: 1px solid var(--border);">
+                <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">How do you evaluate if an equity offer is good?</h3>
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Evaluate an equity offer using the equity multiple formula: <strong>Equity Value = (Equity % × Exit Valuation)</strong>. For example, 0.5% equity at a $100M exit = $500K. Compare this to your salary foregone. Good offers typically have equity worth 2-5x your annual salary discount. Key factors: role (engineer vs founder), company stage (pre-seed vs Series B), vesting terms (4-year standard), and growth potential. Use benchmarks: engineers at seed-stage typically get 0.1-0.5%, executives 1-5%, founders 10-50%.</p>
+            </div>
+            <div style="padding: 20px 24px; border-bottom: 1px solid var(--border);">
+                <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">What is a good equity percentage for my role?</h3>
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Typical equity ranges by role and stage: <strong>Pre-seed engineers</strong> 0.2-1%, <strong>seed engineers</strong> 0.1-0.5%, <strong>Series A+ engineers</strong> 0.05-0.2%. <strong>Executives:</strong> pre-seed 2-10%, seed 1-5%, Series A+ 0.5-3%. <strong>Founders</strong> typically own 10-50% each depending on team size. Earlier stage = higher equity due to higher risk. Always consider equity value relative to your total compensation package and the company's exit potential.</p>
+            </div>
+            <div style="padding: 20px 24px; border-bottom: 1px solid var(--border);">
+                <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">How does company stage affect equity value?</h3>
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Company stage dramatically affects equity risk and potential value. <strong>Pre-seed companies</strong> have 90%+ failure risk but 100x+ potential upside. <strong>Seed-stage</strong> have 70% failure risk with 20-50x potential. <strong>Series A+</strong> have lower failure risk (40-60%) but more modest upside (5-20x). Later-stage offers typically come with lower equity percentages but higher probability of payout. Your equity percentage should compensate for the stage risk — earlier stage = more equity required.</p>
+            </div>
+            <div style="padding: 20px 24px;">
+                <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">What vesting terms should I look for in an equity offer?</h3>
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Standard vesting is <strong>4 years with a 1-year cliff</strong> (you get 0% if you leave before 1 year, then 25% vests at cliff, then monthly vesting). Good terms: 4-year vesting, 1-year cliff, single-trigger acceleration (if company is acquired, your vesting accelerates). Red flags: longer than 4 years, longer than 1-year cliff, double-trigger acceleration (requires both acquisition AND termination), or no vesting at all. Always negotiate vesting before signing — your equity is worthless if vesting terms are unfair.</p>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Quiz state

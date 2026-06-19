@@ -26,6 +26,46 @@
         "isPartOf": { "@type": "WebSite", "name": "FounderMath", "url": "https://founder-math.com" }
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much equity will founders have after raising funding?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Founders typically own 65-80% after pre-seed, 45-60% after seed, 30-45% after Series A, 20-35% after Series B, and 15-25% after Series C. Each funding round dilutes founders by 15-25% for investor equity plus 5-10% for option pool expansion. The dilution formula is: New Ownership = Previous Ownership × (1 - Investor Equity % - Option Pool %). Use a dilution calculator to model your specific scenario."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between pre-money and post-money valuation?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pre-money valuation is the company's value BEFORE new investment. Post-money valuation is pre-money PLUS the new investment. Investor equity % = Investment / Post-Money Valuation. For example, if you raise $2M at $8M pre-money, post-money is $10M and investors get 20% ($2M / $10M). Your dilution depends on post-money, not pre-money — always negotiate pre-money to minimize dilution."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does an option pool affect founder dilution?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Option pools dilute founders, not early investors. When investors require a 10% option pool, that 10% comes from founders' ownership. For example, if founders own 80% and investors require a 10% pool, founders drop to 70% and investors still own 20%. The option pool is created from founder equity. Always negotiate pool size BEFORE the investment closes — investors will ask for more if you don't push back."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much should founders be diluted per funding round?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Typical dilution per round: Pre-seed 5-20%, Seed 20-35%, Series A 20-35%, Series B 13-25%, Series C+ 12-18%. The largest dilution events are Seed and Series A, where investors take 15-25% each round plus a 5-10% option pool. Minimize dilution by: (1) raising on favorable terms (higher pre-money), (2) negotiating a smaller option pool, (3) avoiding unnecessary rounds, and (4) raising only what you need."
+                }
+            }
+        ]
+    }
+    </script>
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -243,6 +283,53 @@
     <footer style="padding:48px 24px;border-top:1px solid var(--border);text-align:center;">
         <p style="color:var(--text-muted);font-size:0.85rem;">Built by <a href="index.html" style="color:var(--accent-light);text-decoration:none;">FounderMath</a> — Free startup equity calculators for founders.</p>
     </footer>
+
+    <!-- AEO Citable Answer Block -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 40px 24px;">
+        <div style="background: linear-gradient(135deg, rgba(108,92,231,0.08), rgba(0,184,148,0.05)); border-left: 4px solid var(--accent); border-radius: 12px; padding: 24px; margin: 24px 0;">
+            <h2 style="margin: 0 0 16px; font-size: 1.3rem; color: var(--accent-light);">How much equity will founders have after raising funding?</h2>
+            <p style="margin: 0 0 12px;"><strong>Founder dilution</strong> happens at each funding round when investors receive equity and an option pool is created. The formula is:</p>
+            <p style="font-family: var(--font-mono); background: var(--bg-card); padding: 12px 16px; border-radius: 6px; margin: 12px 0; font-size: 0.9rem;">New Ownership % = Previous Ownership % × (1 - Investor Equity % - Option Pool %)</p>
+            <p style="margin: 12px 0;">Each funding round dilutes founders by <strong>15-25% investor equity</strong> plus <strong>5-10% option pool</strong>. Typical founder ownership by stage:</p>
+            <ul style="margin: 12px 0 12px 24px;">
+                <li><strong>Pre-seed:</strong> Founders start with 100%, dilute to 65-80%</li>
+                <li><strong>Seed:</strong> Dilute to 45-60% (largest dilution event)</li>
+                <li><strong>Series A:</strong> Dilute to 30-45%</li>
+                <li><strong>Series B:</strong> Dilute to 20-35%</li>
+                <li><strong>Series C:</strong> Dilute to 15-25%</li>
+                <li><strong>IPO:</strong> Founders own 10-20% on average</li>
+            </ul>
+            <div style="background: var(--bg-card); border-radius: 8px; padding: 16px; margin: 16px 0;">
+                <p style="margin: 0 0 8px; font-weight: 700; color: var(--accent-light);">Worked Example: Two Founders Raising Seed Round</p>
+                <p style="margin: 0 0 8px;">Two founders (50/50 split) raise $2M seed at $8M pre-money. Investors get 20% ($2M / $10M post-money). Option pool expands by 10%. Total dilution: 30%.</p>
+                <p style="margin: 0 0 8px;">Each founder's ownership after seed: 50% × (1 - 0.30) = <strong>35%</strong>.</p>
+                <p style="margin: 0;">After Series A (another 25% dilution): 35% × (1 - 0.25) = <strong>26.25%</strong> per founder. This aligns with the 30-45% post-Series A benchmark.</p>
+            </div>
+            <p style="margin: 12px 0 0;">Use our <a href="dilution.html" style="color: var(--accent-light);">dilution calculator</a> to model your specific funding scenario.</p>
+        </div>
+
+        <!-- FAQ Section -->
+        <h2>Frequently Asked Questions</h2>
+
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; margin: 24px 0;">
+            <div style="padding: 20px 24px; border-bottom: 1px solid var(--border);">
+                <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">How much equity will founders have after raising funding?</h3>
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Founders typically own <strong>65-80%</strong> after pre-seed, <strong>45-60%</strong> after seed, <strong>30-45%</strong> after Series A, <strong>20-35%</strong> after Series B, and <strong>15-25%</strong> after Series C. Each funding round dilutes founders by 15-25% for investor equity plus 5-10% for option pool expansion. The dilution formula is: <strong>New Ownership = Previous Ownership × (1 - Investor Equity % - Option Pool %)</strong>. Use a dilution calculator to model your specific scenario.</p>
+            </div>
+            <div style="padding: 20px 24px; border-bottom: 1px solid var(--border);">
+                <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">What is the difference between pre-money and post-money valuation?</h3>
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;"><strong>Pre-money valuation</strong> is the company's value BEFORE new investment. <strong>Post-money valuation</strong> is pre-money PLUS the new investment. Investor equity % = Investment / Post-Money Valuation. For example, if you raise $2M at $8M pre-money, post-money is $10M and investors get <strong>20%</strong> ($2M / $10M). Your dilution depends on post-money, not pre-money — always negotiate pre-money to minimize dilution.</p>
+            </div>
+            <div style="padding: 20px 24px; border-bottom: 1px solid var(--border);">
+                <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">How does an option pool affect founder dilution?</h3>
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;"><strong>Option pools dilute founders, not early investors.</strong> When investors require a 10% option pool, that 10% comes from founders' ownership. For example, if founders own 80% and investors require a 10% pool, founders drop to 70% and investors still own 20%. The option pool is created from founder equity. Always negotiate pool size BEFORE the investment closes — investors will ask for more if you don't push back.</p>
+            </div>
+            <div style="padding: 20px 24px;">
+                <h3 style="margin: 0 0 8px; font-size: 1.05rem; color: var(--text-primary);">How much should founders be diluted per funding round?</h3>
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Typical dilution per round: <strong>Pre-seed 5-20%</strong>, <strong>Seed 20-35%</strong>, <strong>Series A 20-35%</strong>, <strong>Series B 13-25%</strong>, <strong>Series C+ 12-18%</strong>. The largest dilution events are Seed and Series A, where investors take 15-25% each round plus a 5-10% option pool. Minimize dilution by: (1) raising on favorable terms (higher pre-money), (2) negotiating a smaller option pool, (3) avoiding unnecessary rounds, and (4) raising only what you need.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
     <script>
