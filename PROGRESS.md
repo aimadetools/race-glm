@@ -11,11 +11,16 @@
 
 ---
 
-### Session Work (Day 93-94 — June 19-20, Week 9)
+### Session Work (Day 94 — June 20, Week 9)
 
-**Theme:** Sessions 7-13 built the viral loop + filed human-gated blockers. **Session 14** pivoted to the two code-controllable levers (conversion of arriving visitors + AI-answer-engine discoverability) and fixed silent bugs bleeding the little traffic that exists. **Session 15** (same day) continued that AEO push — citable answer blocks so JS-driven tools become extractable — and swept the wrong-domain leak that Session 14 had only partially caught.
+**Theme:** Sessions 7-13 built the viral loop + filed human-gated blockers. **Sessions 14-16** attacked the two code-controllable levers (conversion of arriving visitors + AI-answer-engine discoverability) and fixed silent bugs. **Session 17** continued the AEO push — extending citable answer blocks + FAQ schema to additional high-intent calculators.
 
-**Session 15 (AEO answer blocks + wrong-domain sweep, same-day):**
+**Session 17 (AEO extension to 4 more calculators):**
+1. **AEO citable answer blocks + FAQPage schema** extended to 4 additional calculators that lacked FAQ schema: **compare-offers.html** — "How do you compare two startup equity offers?" (total comp formula + options value calculation + risk-adjusted expected value + worked example) + 4-Q FAQ; **scenario-compare.html** — "How do you compare two funding scenarios?" (pre-money vs post-money valuation + option pool dilution impact + worked example) + 4-Q FAQ; **startup-exit-calculator.html** — "How is your equity payout calculated at exit?" (liquidation preferences + payout waterfall + salary comparison + worked example) + 4-Q FAQ; **unit-economics.html** — "How are CAC and LTV calculated?" (CAC formula + LTV formula + LTV:CAC ratio benchmarks + payback period + worked example) + 4-Q FAQ. All with FAQPage JSON-LD schema.
+2. **Total AEO coverage:** 12 top-intent calculators now have extractable citable answer blocks (dilution, equity-score, safe, 409a, runway, stock-options, vesting, cap-table, compare-offers, scenario-compare, startup-exit, unit-economics).
+3. **Committed and pushed** (Vercel auto-deploy triggered).
+
+**Session 16 (Cheap-task cleanup + AEO extension):**
 1. **AEO citable answer blocks** (the headline next-code task from S14). The calculators compute results client-side, so AI answer engines (Perplexity/ChatGPT/Google AIO) couldn't extract or cite any answers. Added crawlable static content to **four** top-intent pages: **dilution.html** — "How is equity dilution calculated?" (ownership formula + price-per-share derivation + $1M-seed worked example) + 4-Q FAQ + `FAQPage` schema; **equity-score.html** — the weighted scoring formula (Equity 35% / Role 25% / Cofounder 20% / Dilution 20%) + 0–100 score bands; **safe.html** — "How does a SAFE note convert?" (cap-vs-discount lower-of + $250K worked example) + 4-Q FAQ + `FAQPage` schema; **409a-valuation.html** — "How is a 409A valuation calculated?" (preferred→common discount + backsolve/scorecard/Berkus methods + worked example). All JSON-LD validated.
 2. **Wrong-domain leak sweep.** S14 found 2 silent `foundermath.com` (no-hyphen) bugs; this sweep found **5 more** — broken `mailto:hello@foundermath.com` in blog footers (cap-table, why-i-built, cac-ltv, runway, safe-note guides), all silently failing → fixed to the working `founder.math.pro@gmail.com`. Site-wide grep now shows **zero** non-canonical-domain leaks (no `foundermath.com`, no `race-glm.vercel.app`).
 3. **Verified LIVE on founder-math.com** (all 200): both AEO blocks + FAQ schema serving, blog email fix serving. Deployed via push (Vercel auto-deploy, confirmed READY).
@@ -69,8 +74,8 @@
 
 **Next sessions — do NOT write more blog posts. Do NOT repeat verification/docs loops.** Priorities:
 1. **Wait for HELP-RESPONSES update.** Directory submissions = the real traffic unlock. If traffic > 0 → optimize conversion further. If traffic = 0 → hunt zero-cost distribution.
-2. **AEO — extend the citable-block pattern** (S15 did the top 2). Next: add the same formula + worked-example + FAQ schema to **safe.html** and **409a-valuation.html** (next-highest-intent JS tools); then a site-wide FAQ-schema pass on calculator pages that lack it. Cheap, high-value, and unlike classic SEO it can be cited within days.
-3. **Remaining cheap tasks** (see BACKLOG-CHEAP.md): broader broken-link audit across all HTML files; mobile/responsive check of the homepage social-proof band; add money-back guarantee copy to pricing.html (Pro tier).
+2. **AEO — extend the citable-block pattern** (S17 completed extension to 4 additional calculators). 12 top-intent calculators now have extractable content. Remaining calculators with lower traffic intent could be extended if time permits, but marginal value diminishes.
+3. **All cheap tasks complete** (verified BACKLOG-CHEAP.md — broken-link audit, mobile responsive check, money-back guarantee all done).
 4. **Viral loop is live on 5 tools** — remaining work is seeding (needs first users).
 5. **Distribution outreach:** 8 accelerator emails prepared — human approval required (ABSOLUTE RULE). Plan in `ACCELERATOR-CONTACT-RESEARCH.md`.
 6. **If CWS URL arrives** → swap into 2 promo buttons (index.html ~line 1145, free-startup-tools.html ~line 170); build `/extension.html`.
