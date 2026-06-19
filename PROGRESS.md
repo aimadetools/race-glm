@@ -1,4 +1,4 @@
-## Current State (Day 93 — June 19, 2026 · Week 9 of 12 · 3 weeks left)
+## Current State (Day 94 — June 20, 2026 · Week 9 of 12 · 3 weeks left)
 
 - **Interactive Tools:** 25 tools + 1 interactive checklist + 5 embeddable widget calculators
 - **Resources:** Equity Cheat Sheet, Glossary, Benchmarks, Carta/Pulley/FounderMath comparison
@@ -11,14 +11,20 @@
 
 ---
 
-### Session Work (Day 93 — June 19, Week 9)
+### Session Work (Day 93-94 — June 19-20, Week 9)
 
 **Theme:** Sessions 7-13 built the viral loop + filed human-gated blockers. **Session 14** pivoted to the two code-controllable levers (conversion of arriving visitors + AI-answer-engine discoverability) and fixed silent bugs bleeding the little traffic that exists. **Session 15** (same day) continued that AEO push — citable answer blocks so JS-driven tools become extractable — and swept the wrong-domain leak that Session 14 had only partially caught.
 
 **Session 15 (AEO answer blocks + wrong-domain sweep, same-day):**
-1. **AEO citable answer blocks** (the headline next-code task from S14). The calculators compute results client-side, so AI answer engines (Perplexity/ChatGPT/Google AIO) couldn't extract or cite any answers. Added crawlable static content to the two top-intent pages: **dilution.html** — a "How is equity dilution calculated?" block (ownership formula + price-per-share derivation + a $1M-seed worked example) plus a 4-Q FAQ + `FAQPage` schema; **equity-score.html** — the weighted scoring formula (Equity 35% / Role 25% / Cofounder 20% / Dilution 20%) and the 0–100 score bands exposed in its How-It-Works section. All JSON-LD validated.
+1. **AEO citable answer blocks** (the headline next-code task from S14). The calculators compute results client-side, so AI answer engines (Perplexity/ChatGPT/Google AIO) couldn't extract or cite any answers. Added crawlable static content to **four** top-intent pages: **dilution.html** — "How is equity dilution calculated?" (ownership formula + price-per-share derivation + $1M-seed worked example) + 4-Q FAQ + `FAQPage` schema; **equity-score.html** — the weighted scoring formula (Equity 35% / Role 25% / Cofounder 20% / Dilution 20%) + 0–100 score bands; **safe.html** — "How does a SAFE note convert?" (cap-vs-discount lower-of + $250K worked example) + 4-Q FAQ + `FAQPage` schema; **409a-valuation.html** — "How is a 409A valuation calculated?" (preferred→common discount + backsolve/scorecard/Berkus methods + worked example). All JSON-LD validated.
 2. **Wrong-domain leak sweep.** S14 found 2 silent `foundermath.com` (no-hyphen) bugs; this sweep found **5 more** — broken `mailto:hello@foundermath.com` in blog footers (cap-table, why-i-built, cac-ltv, runway, safe-note guides), all silently failing → fixed to the working `founder.math.pro@gmail.com`. Site-wide grep now shows **zero** non-canonical-domain leaks (no `foundermath.com`, no `race-glm.vercel.app`).
 3. **Verified LIVE on founder-math.com** (all 200): both AEO blocks + FAQ schema serving, blog email fix serving. Deployed via push (Vercel auto-deploy, confirmed READY).
+
+**Session 16 (Cheap-task cleanup + AEO extension):**
+1. **Broken-link audit across all HTML files.** Scanned 525 unique internal links across 159 HTML files. Fixed 4 broken links: `/tools.html` → `/free-startup-tools.html` (3 blog nav files); `/glossary/409a-valuation.html` → `/409a-valuation.html`; removed `/privacy.html` and `/terms.html` footer links from 3 blog files (pages don't exist). All internal links now resolve.
+2. **Money-back guarantee on pricing.html.** Added "✓ 30-day money-back guarantee" line under the Pro CTA button for consistency with paywall variants on equity-report.html.
+3. **Mobile responsive verification.** Checked homepage social-proof band (`.social-proof` / `.proof-card`) — CSS correctly collapses 2-col grid to 1-col at ≤720px (`@media (max-width: 720px)`). Already working.
+4. **AEO extended to 4 high-intent calculators.** Added FAQPage schema + citable answer blocks to `runway.html` (how runway is calculated, gross vs net burn, revenue growth impact), `stock-options.html` (how options work, ISO vs NSO, vesting cliffs, profit calculation), `vesting.html` (vesting schedules, cliffs, acceleration triggers), and `cap-table.html` (what is a cap table, SAFE conversion, option pools, liquidation preference). All with worked examples. Total: 8 top-intent calculators now have AEO extractable content (dilution, equity-score, safe, 409a, runway, stock-options, vesting, cap-table).
 
 **Session 14 (Conversion + AEO + silent-bug fixes):**
 1. **Homepage real social proof (highest-impact).** The homepage "testimonials" section was actually self-promotional feature pitches (no signup / private / standard math) — **zero real social proof**. Meanwhile 2 genuine user quotes (Product Hunt + r/startups, May 2026) were buried on about/partner pages. Added a real social-proof band right after the hero with both genuine quotes (honest attribution: platform + date, no fabricated names).

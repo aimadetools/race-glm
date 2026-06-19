@@ -73,6 +73,46 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do stock options work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Stock options give you the right to buy company shares at a fixed strike price. You earn (vest) the right to exercise options over time (typically 4 years with a 1-year cliff). Profit = (current share price - strike price) × options exercised. For example, 10,000 options at $2 strike with company valued at $10/share = ($10 - $2) × 10,000 = $80,000 gain."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between ISO and NSO?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ISOs (Incentive Stock Options) are for employees only, offer preferential tax treatment if held 1+ years after exercise and 2+ years after grant, and are limited to $100K/year in value. NSOs (Non-Qualified Stock Options) have no $100K limit, are taxed as ordinary income on exercise, and can go to employees/contractors/advisors."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much are my stock options worth?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Your stock option value depends on the company's current valuation, your strike price, and exit scenario. Use the formula: (share price - strike price) × number of options. For example, with 5,000 options at $1 strike and a $50M valuation on 10M shares: ($5 - $1) × 5,000 = $20,000 paper profit today. At a 5x exit ($25/share): ($25 - $1) × 5,000 = $120,000."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a vesting cliff?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A vesting cliff is a waiting period (typically 1 year) before you vest any options. If you leave before the cliff, you get nothing. After the cliff, you vest monthly (typically 48 months total vesting, so 1/48 monthly after year 1). The cliff protects the company from early departures."
+                }
+            }
+        ]
+    }
+    </script>
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -623,6 +663,32 @@
             <a href="partner.html" style="display:inline-block;background:transparent;color:var(--text-secondary);border:1px solid var(--border);padding:10px 22px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.9rem;">For Accelerators</a>
         </div>
     </section>
+
+    <!-- AEO Citable Answer Block -->
+    <section style="max-width:900px;margin:0 auto;padding:50px 24px;">
+        <h2 id="aeoStockOptionsTitle" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-bottom:10px;">How do startup stock options work?</h2>
+        <p style="color:var(--text-secondary);margin-bottom:14px;">
+            Stock options give you the right to buy company shares at a fixed <strong style="color:var(--text-primary);">strike price</strong>. You earn (vest) the right to exercise them over time. The value comes if the company's share price rises above your strike:
+        </p>
+        <ul style="color:var(--text-secondary);padding-left:22px;margin-bottom:14px;line-height:1.9;">
+            <li><strong style="color:var(--text-primary);">Grant</strong> &mdash; you receive N options at $X strike price (your exercise cost).</li>
+            <li><strong style="color:var(--text-primary);">Vesting</strong> &mdash; typically 4 years with a 1-year cliff (nothing vests until month 12, then 1/48 monthly).</li>
+            <li><strong style="color:var(--text-primary);">Exercise</strong> &mdash; pay strike price × options to own shares (pay taxes on gain for NSOs, or later for ISOs).</li>
+            <li><strong style="color:var(--text-primary);">Profit</strong> &mdash; (exit sale price &minus; strike price) × options exercised.</li>
+        </ul>
+        <p style="color:var(--text-secondary);margin-bottom:6px;">
+            <strong style="color:var(--text-primary);">Example:</strong> 10,000 options at $2 strike, company exits at $20/share:
+        </p>
+        <ul style="color:var(--text-secondary);padding-left:22px;margin-bottom:14px;line-height:1.9;">
+            <li>Exercise cost: $2 &times; 10,000 = $20,000 (pay this to get the shares)</li>
+            <li>Sale proceeds: $20 &times; 10,000 = $200,000</li>
+            <li>Net profit: $200,000 &minus; $20,000 = <strong>$180,000</strong> (minus taxes)</li>
+        </ul>
+        <p style="color:var(--text-secondary);margin-bottom:20px;">
+            Use the calculator above to model your specific grant, vesting, and exit scenarios.
+        </p>
+    </section>
+
     <!-- Related Calculators -->
         <div class="related">
             <h3>Related Calculators</h3>

@@ -73,6 +73,46 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How is startup runway calculated?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Startup runway is calculated as cash balance divided by monthly burn rate. If you have $500K in cash and burn $60K per month (expenses minus revenue), your runway is approximately 8.3 months. More sophisticated calculators factor in revenue growth, which extends runway as revenue increases over time."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between gross burn and net burn?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Gross burn is your total monthly expenses before revenue. Net burn subtracts monthly revenue from expenses. For example, if you spend $80K/month and make $20K/month, your gross burn is $80K and your net burn is $60K. Net burn is the more accurate metric for runway calculations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much runway should a startup have?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most investors recommend 12-18 months of runway for early-stage startups. This gives you enough time to iterate, hit milestones, and raise your next round without pressure. Less than 6 months is dangerous, as fundraising typically takes 3-6 months."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does revenue growth affect runway?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, revenue growth extends runway. If your revenue grows 10% per month, you'll burn less cash over time as revenue covers more of your expenses. Advanced runway calculators model this growth to show a more accurate runway estimate."
+                }
+            }
+        ]
+    }
+    </script>
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -1079,6 +1119,32 @@
             <a href="partner.html" style="display:inline-block;background:transparent;color:var(--text-secondary);border:1px solid var(--border);padding:10px 22px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.9rem;">For Accelerators</a>
         </div>
     </section>
+
+    <!-- AEO Citable Answer Block + FAQ Schema -->
+    <section style="max-width:900px;margin:0 auto;padding:50px 24px;">
+        <h2 id="aeoRunwayTitle" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-bottom:10px;">How is startup runway calculated?</h2>
+        <p style="color:var(--text-secondary);margin-bottom:14px;">
+            Startup runway is the number of months your startup can operate before running out of cash, assuming your current burn rate and revenue continue. The basic formula subtracts your monthly burn from cash on hand, then accounts for revenue growth:
+        </p>
+        <ul style="color:var(--text-secondary);padding-left:22px;margin-bottom:14px;line-height:1.9;">
+            <li><strong style="color:var(--text-primary);">Gross burn</strong> &mdash; total monthly expenses (payroll, rent, software, etc.).</li>
+            <li><strong style="color:var(--text-primary);">Net burn</strong> &mdash; gross burn minus monthly revenue (how much cash you actually lose each month).</li>
+            <li><strong style="color:var(--text-primary);">Basic runway</strong> &mdash; cash balance &divide; net burn (months until zero).</li>
+            <li><strong style="color:var(--text-primary);">Growth-adjusted runway</strong> &mdash; factors in monthly revenue growth to extend runway as revenue scales.</li>
+        </ul>
+        <p style="color:var(--text-secondary);margin-bottom:6px;">
+            <strong style="color:var(--text-primary);">Example:</strong> With $500K in the bank, $80K monthly expenses, and $20K monthly revenue growing at 10%/month:
+        </p>
+        <ul style="color:var(--text-secondary);padding-left:22px;margin-bottom:14px;line-height:1.9;">
+            <li>Net burn = $80K &minus; $20K = $60K/month</li>
+            <li>Basic runway = $500K &divide; $60K = ~8.3 months</li>
+            <li>With 10% monthly revenue growth, runway extends to ~10 months as revenue covers more of the burn over time.</li>
+        </ul>
+        <p style="color:var(--text-secondary);margin-bottom:20px;">
+            Use the calculator above to model your specific cash, burn, and growth assumptions.
+        </p>
+    </section>
+
     <!-- Related Calculators -->
     <section style="max-width:1200px;margin:0 auto;padding:60px 24px 40px;">
         <h2 style="text-align:center;font-size:1.75rem;font-weight:700;color:var(--text-primary);margin-bottom:12px;">Related Calculators</h2>

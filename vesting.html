@@ -73,6 +73,46 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a vesting schedule?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A vesting schedule determines when you earn ownership of your equity. Typically 4 years with a 1-year cliff: 0% vests until month 12, then 1/48 vests monthly. After 4 years, you're 100% vested. Cliff protects the company from early departures."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a vesting cliff?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A vesting cliff is a waiting period (usually 1 year) before any equity vests. If you leave before the cliff, you get 0%. After the cliff, you vest monthly. For example, 4-year vesting with 1-year cliff: at month 12 you jump from 0% to 25%, then ~2.08% monthly thereafter."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is vesting acceleration?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Vesting acceleration accelerates your vesting on certain events. Single-trigger accelerates on change of control (acquisition). Double-trigger requires both change of control + termination (without cause, or for good reason). Common: 50% or 100% of unvested equity accelerates."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much equity should I vest over 4 years?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For founders, vesting is typically 4 years to ensure long-term commitment. Common splits: 33% each for 3 co-founders (equal), or 50/50 for 2 co-founders. Your total grant vests over 4 years with monthly vesting after a 1-year cliff. Use the calculator to model your specific grant and timeline."
+                }
+            }
+        ]
+    }
+    </script>
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -928,6 +968,33 @@
             <a href="partner.html" style="display:inline-block;background:transparent;color:var(--text-secondary);border:1px solid var(--border);padding:10px 22px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.9rem;">For Accelerators</a>
         </div>
     </section>
+
+    <!-- AEO Citable Answer Block -->
+    <section style="max-width:900px;margin:0 auto;padding:50px 24px;">
+        <h2 id="aeoVestingTitle" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-bottom:10px;">How does equity vesting work?</h2>
+        <p style="color:var(--text-secondary);margin-bottom:14px;">
+            Equity vesting is the process of earning ownership of your equity over time. The standard is <strong style="color:var(--text-primary);">4 years with a 1-year cliff</strong>:
+        </p>
+        <ul style="color:var(--text-secondary);padding-left:22px;margin-bottom:14px;line-height:1.9;">
+            <li><strong style="color:var(--text-primary);">Cliff period (year 1)</strong> &mdash; nothing vests. If you leave before month 12, you get 0%.</li>
+            <li><strong style="color:var(--text-primary);">Monthly vesting (years 1-4)</strong> &mdash; after the cliff, 1/48 of your grant vests each month (~2.08% monthly).</li>
+            <li><strong style="color:var(--text-primary);">Fully vested (year 4)</strong> &mdash; 100% of your grant is earned and can be exercised.</li>
+            <li><strong style="color:var(--text-primary);">Acceleration</strong> &mdash; single-trigger accelerates on acquisition; double-trigger requires acquisition + termination.</li>
+        </ul>
+        <p style="color:var(--text-secondary);margin-bottom:6px;">
+            <strong style="color:var(--text-primary);">Example:</strong> 100,000 shares, 4-year vesting, 1-year cliff:
+        </p>
+        <ul style="color:var(--text-secondary);padding-left:22px;margin-bottom:14px;line-height:1.9;">
+            <li>Month 0-11: 0 shares vested</li>
+            <li>Month 12: 25,000 shares cliff (25%)</li>
+            <li>Month 13-48: ~2,083 shares/month</li>
+            <li>Month 48: 100,000 shares fully vested (100%)</li>
+        </ul>
+        <p style="color:var(--text-secondary);margin-bottom:20px;">
+            Use the calculator above to model your specific grant, cliff, and acceleration terms.
+        </p>
+    </section>
+
     <!-- Related Calculators -->
     <section style="max-width:1200px;margin:0 auto;padding:60px 24px 40px;">
         <h2 style="text-align:center;font-size:1.75rem;font-weight:700;color:var(--text-primary);margin-bottom:12px;">Related Calculators</h2>

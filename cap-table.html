@@ -73,6 +73,46 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a cap table?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A cap table (capitalization table) tracks who owns what percentage of your startup. It lists all shareholders (founders, investors, employees with options, SAFEs) and their ownership stakes. A clean cap table is essential for fundraising, hiring, and exit planning."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do SAFEs affect my cap table?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SAFEs (Simple Agreement for Future Equity) convert to equity at your next priced round. A SAFE increases the post-money valuation cap, which dilutes all existing shareholders. Use a cap table builder to model SAFE conversion and see how it affects your ownership."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does an option pool work in a cap table?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "An option pool is unissued equity reserved for future hires (typically 10-20%). Option pool dilution depends on whether it's pre-money (dilutes founders only) or post-money (dilutes everyone including investors). Most investors require an option pool as part of the investment."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is liquidation preference?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Liquidation preference determines payout order in an exit. Investors with 1x liquidation preference get their investment back before founders/employees get anything. Participating preferred lets investors get their preference AND share in the remaining proceeds (more founder-unfriendly). Use waterfall analysis to model exit scenarios."
+                }
+            }
+        ]
+    }
+    </script>
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -1358,6 +1398,33 @@
             <a href="partner.html" style="display:inline-block;background:transparent;color:var(--text-secondary);border:1px solid var(--border);padding:10px 22px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.9rem;">For Accelerators</a>
         </div>
     </section>
+
+    <!-- AEO Citable Answer Block -->
+    <section style="max-width:900px;margin:0 auto;padding:50px 24px;">
+        <h2 id="aeoCapTableTitle" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-bottom:10px;">What is a cap table and how does it work?</h2>
+        <p style="color:var(--text-secondary);margin-bottom:14px;">
+            A <strong style="color:var(--text-primary);">cap table</strong> (capitalization table) tracks who owns what percentage of your startup. It lists every shareholder (founders, investors, employees with options, SAFE holders) and calculates ownership stakes after each round:
+        </p>
+        <ul style="color:var(--text-secondary);padding-left:22px;margin-bottom:14px;line-height:1.9;">
+            <li><strong style="color:var(--text-primary);">Founders</strong> &mdash; initial split (typically 33/33/33 or 50/50), diluted by each subsequent round.</li>
+            <li><strong style="color:var(--text-primary);">SAFEs</strong> &mdash; convert to equity at your next priced round, diluting all existing shareholders.</li>
+            <li><strong style="color:var(--text-primary);">Option pool</strong> &mdash; unissued equity reserved for future hires (10-20%), dilutes founders pre-money or everyone post-money.</li>
+            <li><strong style="color:var(--text-primary);">Priced rounds</strong> &mdash; investors buy shares at a valuation, diluting founders/option pool/SAFEs.</li>
+        </ul>
+        <p style="color:var(--text-secondary);margin-bottom:6px;">
+            <strong style="color:var(--text-primary);">Example:</strong> 3 founders at 33% each raise $1M seed at $4M post-money with 10% option pool:
+        </p>
+        <ul style="color:var(--text-secondary);padding-left:22px;margin-bottom:14px;line-height:1.9;">
+            <li>Investors get 25% ($1M &divide; $4M post-money valuation)</li>
+            <li>Option pool adds 10% (pre-money or post-money depending on terms)</li>
+            <li>Founders diluted from 100% to ~65% total (~21.7% each)</li>
+            <li>SAFEs from earlier rounds would convert here and further dilute everyone</li>
+        </ul>
+        <p style="color:var(--text-secondary);margin-bottom:20px;">
+            Use the calculator above to model your specific cap table structure and exit waterfall.
+        </p>
+    </section>
+
     <!-- Related Calculators -->
     <section style="max-width:1200px;margin:0 auto;padding:60px 24px 40px;">
         <h2 style="text-align:center;font-size:1.75rem;font-weight:700;color:var(--text-primary);margin-bottom:12px;">Related Calculators</h2>

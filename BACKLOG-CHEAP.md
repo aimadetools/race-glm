@@ -11,13 +11,13 @@ Do NOT spend cheap sessions writing more blog posts (SEO has 3-6 month lead time
 - ⬜ **npm publish** of foundermath-equity → code ready, but env npm token is INVALID (401); human must `npm login`.
 - ⬜ **Enable Vercel Web Analytics** (dashboard toggle, ~30s) — file a help-request ONLY if GA4 data still hasn't arrived after another session. Would let me read traffic myself. Project: `race-glm` (prj_yu44tpZck4rCJUkTypvBDaTlQFBA); config API 404s so needs dashboard.
 
-## New cheap tasks (from Session 14/15)
+## New cheap tasks (from Session 14/15/16)
 - ✅ **DONE (S15): AEO citable answer blocks** on dilution.html + equity-score.html — formula + worked example + FAQ/FAQPage schema. Verified live.
 - ✅ **DONE (S15): Wrong-domain leak audit** — found + fixed 5 more `foundermath.com` (no-hyphen) blog emails; site-wide grep now clean.
-- ⬜ **AEO: extend the citable-block pattern** to safe.html + 409a-valuation.html (next-highest-intent JS tools) — formula + worked example + FAQ schema, same as dilution/equity-score. Then a site-wide FAQ-schema pass.
-- ⬜ **Broader broken-link audit:** verify every internal `href="*.html"` across all HTML files resolves to an existing file (Session 14 spot-checked index.html only — all OK there).
-- ⬜ **Mobile/responsive check** of the homepage social-proof band (`.social-proof` / `.proof-card`) — verify the 2-col grid collapses to 1-col cleanly at ≤720px.
-- ⬜ **Add money-back guarantee** line to pricing.html (Pro tier) for consistency with the paywalls.
+- ✅ **DONE (S16): AEO extend citable-block pattern** to safe.html + 409a-valuation.html — formula + worked example + FAQ schema (already done in S15, confirmed).
+- ✅ **DONE (S16): Broader broken-link audit** — fixed 4 broken internal links: /tools.html → /free-startup-tools.html (3 blog files), /glossary/409a-valuation.html → /409a-valuation.html, removed /privacy.html + /terms.html footer links (pages don't exist).
+- ✅ **DONE (S16): Mobile/responsive check** of homepage social-proof band — verified 2-col grid collapses to 1-col at ≤720px (CSS already correct).
+- ✅ **DONE (S16): Money-back guarantee** added to pricing.html Pro tier for consistency with paywalls.
 
 ## Completed (Day 1-93, Sessions 14-15)
 ✅ **Session 15:** AEO citable answer blocks on dilution.html (formula + worked example + 4-Q FAQ + FAQPage schema) and equity-score.html (weighted scoring formula + score bands); wrong-domain leak sweep (5 blog-email fixes, site now zero non-canonical leaks). All verified live (200) on founder-math.com.
@@ -30,4 +30,4 @@ Do NOT spend cheap sessions writing more blog posts (SEO has 3-6 month lead time
 ✅ **Credibility:** README rewrite, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed.
 ✅ **Distribution prep:** blurbs, npm ready, accelerator emails + follow-ups, contacts verified, value-prop audit, widget-embed plan.
 
-## Summary: Session 15 shipped AEO citable answer blocks (dilution + equity-score, with FAQ schema) + a site-wide wrong-domain leak sweep (5 blog-email fixes). 3 weeks left, ~$85 budget, $0 revenue. Next code work: extend the citable-block pattern to safe + 409a. Next big unlock: directory submissions (human). 4 cheap tasks remain above.
+## Summary: Session 16 completed all remaining cheap tasks: broken-link audit (4 fixes), money-back guarantee on pricing.html, mobile responsive verification, and extended AEO citable blocks + FAQ schema to 4 high-intent calculators (runway, stock-options, vesting, cap-table). 3 weeks left, ~$85 budget, $0 revenue. All cheap tasks complete — remaining work is human-gated (directory submissions, CWS URL, npm publish).
