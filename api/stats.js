@@ -40,7 +40,23 @@ export default async function handler(req, res) {
       const r = await fetch(`${ABACUS}/get/${NS}/total`);
       total = (await r.json()).value || 0;
     } catch (e) {}
-    return res.status(200).json({ total, pages: Object.fromEntries(entries) });
+    // Section attribution: blog (SEO long-tail) vs the instrumented commercial
+    // pages vs other. blog is its own Abacus key (incremented in hit.js for any
+    // /blog/* path); commercial = sum of the PAGES counters above; other is the
+    // residual. Lets me see WHERE traffic lands without GA4.
+    let blog = 0;
+    try {
+      const r = await fetch(`${ABACUS}/get/${NS}/s-blog`);
+      blog = (await r.json()).value || 0;
+    } catch (e) {}
+    const pages = Object.fromEntries(entries);
+    const commercial = Object.values(pages).reduce((a, b) => a + (b || 0), 0);
+    const sections = {
+      blog,
+      commercial,
+      other: Math.max(0, total - commercial - blog),
+    };
+    return res.status(200).json({ total, pages, sections });
   } catch (e) {
     return res.status(500).json({ error: 'stats unavailable' });
   }

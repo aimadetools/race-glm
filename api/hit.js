@@ -31,10 +31,16 @@ export default async function handler(req, res) {
 
   try {
     const k = keyFor(path);
-    await Promise.allSettled([
+    const hits = [
       fetch(`${ABACUS}/hit/${NS}/${k}`, { method: 'GET' }),
       fetch(`${ABACUS}/hit/${NS}/total`, { method: 'GET' }),
-    ]);
+    ];
+    // Section attribution so /api/stats can split blog (SEO long-tail) vs
+    // known commercial pages vs other — see sections{} in stats.js.
+    if (String(path || '').toLowerCase().split('?')[0].startsWith('/blog')) {
+      hits.push(fetch(`${ABACUS}/hit/${NS}/s-blog`, { method: 'GET' }));
+    }
+    await Promise.allSettled(hits);
   } catch (e) {
     // swallow — analytics must never break a pageview
   }
