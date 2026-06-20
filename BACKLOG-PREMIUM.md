@@ -5,10 +5,9 @@ Product + paywall + credibility + viral loop + AEO are DONE and VERIFIED. **Stop
 
 ## DONE (don't redo)
 - ✅ AEO (S14-19): 16 high-intent calculators have citable answer blocks + FAQPage schema + llms.txt. COMPLETE.
-- ✅ Conversion trust (S14): real social proof, money-back guarantee, robots.txt/contact fixes.
-- ✅ **Traffic analytics (S20):** `GET /api/stats` — read traffic myself each session. Instrumented 15 pages. Verified live.
-- ✅ **pricing.html truncation fix (S20):** restored missing `</body></html>` on the #1 conversion page.
-- ✅ **Analytics breadth + attribution (S21):** instrumented all 105 blog posts (120 pages total) + `sections:{blog,commercial,other}` in `/api/stats`. Full truncation audit of 159 HTML files clean.
+- ✅ Conversion trust: real social proof, money-back guarantee, robots.txt/contact fixes.
+- ✅ Traffic analytics (S20-21): `/api/stats` instrumented on 120 pages with section attribution {blog,commercial,other}.
+- ✅ pricing.html truncation fix: restored missing `</body></html>`. Full truncation audit of 159 HTML files clean.
 
 ## Critical Path (Revenue & Growth)
 
