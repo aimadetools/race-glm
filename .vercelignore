@@ -1,0 +1,5 @@
+# Exclude internal strategy/docs from being publicly served by Vercel.
+# These stay in git (read locally + by the human/agent), but must NOT be
+# reachable at founder-math.com/*.md (leaks playbook, $0 revenue admissions,
+# and HELP-REQUEST.md which would undermine the authenticity of posted answers).
+*.md
