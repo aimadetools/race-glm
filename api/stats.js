@@ -22,11 +22,36 @@ const PAGES = {
   '/free-startup-tools.html': 'p-free-startup-tools',
 };
 
+// Top 10 highest-value blog posts (S30: now that SEO is working, track which posts drive traffic)
+const BLOG_POSTS = {
+  '/blog/equity-dilution-guide.html': 'p-blog-equity-dilution-guide',
+  '/blog/compare-equity-offers.html': 'p-blog-compare-equity-offers',
+  '/blog/employee-equity-grants-guide.html': 'p-blog-employee-equity-grants-guide',
+  '/blog/analyze-startup-offer-letter.html': 'p-blog-analyze-startup-offer-letter',
+  '/blog/409a-valuation-guide.html': 'p-blog-409a-valuation-guide',
+  '/blog/anti-dilution-guide.html': 'p-blog-anti-dilution-guide',
+  '/blog/evaluate-equity-offer.html': 'p-blog-evaluate-equity-offer',
+  '/blog/how-to-negotiate-startup-job-offer.html': 'p-blog-how-to-negotiate-startup-job-offer',
+  '/blog/how-to-exercise-stock-options-without-cash.html': 'p-blog-how-to-exercise-stock-options-without-cash',
+  '/blog/negotiate-equity-offer.html': 'p-blog-negotiate-equity-offer',
+};
+
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Cache-Control', 'no-store');
   try {
-    const entries = await Promise.all(Object.entries(PAGES).map(async ([path, key]) => {
+    // Fetch commercial pages
+    const commercialEntries = await Promise.all(Object.entries(PAGES).map(async ([path, key]) => {
+      try {
+        const r = await fetch(`${ABACUS}/get/${NS}/${key}`);
+        const j = await r.json();
+        return [path, j.value || 0];
+      } catch (e) {
+        return [path, null];
+      }
+    }));
+    // Fetch top blog posts (S30: individual tracking now that SEO is working)
+    const blogEntries = await Promise.all(Object.entries(BLOG_POSTS).map(async ([path, key]) => {
       try {
         const r = await fetch(`${ABACUS}/get/${NS}/${key}`);
         const j = await r.json();
@@ -40,22 +65,25 @@ export default async function handler(req, res) {
       const r = await fetch(`${ABACUS}/get/${NS}/total`);
       total = (await r.json()).value || 0;
     } catch (e) {}
-    // Section attribution: blog (SEO long-tail) vs the instrumented commercial
-    // pages vs other. blog is its own Abacus key (incremented in hit.js for any
-    // /blog/* path); commercial = sum of the PAGES counters above; other is the
-    // residual. Lets me see WHERE traffic lands without GA4.
-    let blog = 0;
+    // Section attribution: blog (SEO long-tail) vs commercial vs other.
+    // blog = sum of BLOG_POSTS + s-blog (aggregate for remaining blog posts);
+    // commercial = sum of PAGES; other = residual.
+    let blogAggregate = 0;
     try {
       const r = await fetch(`${ABACUS}/get/${NS}/s-blog`);
-      blog = (await r.json()).value || 0;
+      blogAggregate = (await r.json()).value || 0;
     } catch (e) {}
-    const pages = Object.fromEntries(entries);
-    const commercial = Object.values(pages).reduce((a, b) => a + (b || 0), 0);
+    const commercialPages = Object.fromEntries(commercialEntries);
+    const blogPages = Object.fromEntries(blogEntries);
+    const commercial = Object.values(commercialPages).reduce((a, b) => a + (b || 0), 0);
+    const trackedBlog = Object.values(blogPages).reduce((a, b) => a + (b || 0), 0);
     const sections = {
-      blog,
+      blog: trackedBlog + blogAggregate,
       commercial,
-      other: Math.max(0, total - commercial - blog),
+      other: Math.max(0, total - commercial - trackedBlog - blogAggregate),
     };
+    // Combine all pages for output
+    const pages = { ...commercialPages, ...blogPages };
     return res.status(200).json({ total, pages, sections });
   } catch (e) {
     return res.status(500).json({ error: 'stats unavailable' });

@@ -6,6 +6,21 @@
 const ABACUS = 'https://abacus.jasoncameron.dev';
 const NS = 'foundermath';
 
+// Top 10 highest-value blog posts (S30: individual tracking now that SEO is working)
+// Keys must match keyFor() output and stats.js BLOG_POSTS.
+const BLOG_POSTS = [
+  '/blog/equity-dilution-guide.html',
+  '/blog/compare-equity-offers.html',
+  '/blog/employee-equity-grants-guide.html',
+  '/blog/analyze-startup-offer-letter.html',
+  '/blog/409a-valuation-guide.html',
+  '/blog/anti-dilution-guide.html',
+  '/blog/evaluate-equity-offer.html',
+  '/blog/how-to-negotiate-startup-job-offer.html',
+  '/blog/how-to-exercise-stock-options-without-cash.html',
+  '/blog/negotiate-equity-offer.html',
+];
+
 function keyFor(path) {
   let p = String(path || '/').split('?')[0].replace(/\.html$/i, '').replace(/^\/+|\/+$/g, '');
   if (!p) p = 'home';
@@ -35,10 +50,16 @@ export default async function handler(req, res) {
       fetch(`${ABACUS}/hit/${NS}/${k}`, { method: 'GET' }),
       fetch(`${ABACUS}/hit/${NS}/total`, { method: 'GET' }),
     ];
-    // Section attribution so /api/stats can split blog (SEO long-tail) vs
-    // known commercial pages vs other — see sections{} in stats.js.
-    if (String(path || '').toLowerCase().split('?')[0].startsWith('/blog')) {
-      hits.push(fetch(`${ABACUS}/hit/${NS}/s-blog`, { method: 'GET' }));
+    // Section attribution: blog (SEO long-tail) vs commercial vs other.
+    // S30: Track top blog posts individually, remaining posts go to s-blog aggregate.
+    const normalizedPath = String(path || '').toLowerCase().split('?')[0];
+    if (normalizedPath.startsWith('/blog')) {
+      const isTracked = BLOG_POSTS.some(bp => normalizedPath === bp.toLowerCase());
+      if (!isTracked) {
+        // Not tracked individually — goes to s-blog aggregate
+        hits.push(fetch(`${ABACUS}/hit/${NS}/s-blog`, { method: 'GET' }));
+      }
+      // Tracked posts are already counted via keyFor(path) above — no double-hit
     }
     await Promise.allSettled(hits);
   } catch (e) {
