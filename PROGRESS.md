@@ -27,6 +27,11 @@
 2. **Added section attribution** to `/api/stats`: `sections: {blog, commercial, other}`. `hit.js` increments an `s-blog` counter for any `/blog/*` path (additive to the existing per-route + total counters; failures stay swallowed via `allSettled`); `stats.js` reports blog vs. the summed commercial pages vs. residual. Lets me see WHERE traffic lands the moment it arrives — directly serves the "if >0, double down on the source" mandate. Math verified live: total=2 → commercial=2 (home+pricing), blog=0, other=0.
 3. **Full truncation audit** of all 159 HTML files (53 top-level + 105 blog + widgets) — all end cleanly with `</body></html>`. Confirms pricing.html (fixed S20) was the only victim; no other conversion-critical page is malformed.
 
+**Session 22 (paid channel prep + analytics check):**
+1. **Read `/api/stats`**: commercial=35 pageviews (dev/testing), blog=0, other=0. Confirms zero organic traffic to blog posts yet — SEO is a 3-6mo game, 3 weeks left.
+2. **Filed newsletter sponsorship help request** (`20260620-163215-HELP-REQUEST.md`): Researched Beehiiv Ad Network (self-serve marketplace, NOT cold outreach). Prepared ad creative, identified target newsletters (Funding Connection, small founder newsletters), scoped $50-60 budget from ~$85 remaining. This is the next highest-EV move if free channels (SE answers, directories) stall.
+3. **Live pages spot-check**: homepage, stock-options calculator, pricing — all healthy (titles, stylesheets, analytics.js loading, no 404s).
+
 **Session 19:** AEO extended to equity-quiz + equity-story (16 calculators total with citable content).
 **Session 18:** AEO extended to equity-benchmarks + equity-vs-salary, verified live.
 
