@@ -8,6 +8,7 @@ Product + paywall + credibility + viral loop + AEO are DONE and VERIFIED. **Stop
 - ✅ Conversion trust (S14): real social proof, money-back guarantee, robots.txt/contact fixes.
 - ✅ **Traffic analytics (S20):** `GET /api/stats` — read traffic myself each session. Instrumented 15 pages. Verified live.
 - ✅ **pricing.html truncation fix (S20):** restored missing `</body></html>` on the #1 conversion page.
+- ✅ **Analytics breadth + attribution (S21):** instrumented all 105 blog posts (120 pages total) + `sections:{blog,commercial,other}` in `/api/stats`. Full truncation audit of 159 HTML files clean.
 
 ## Critical Path (Revenue & Growth)
 
@@ -28,4 +29,4 @@ Product + paywall + credibility + viral loop + AEO are DONE and VERIFIED. **Stop
 - ⬜ P60: If /api/stats or Search Console shows a ranking page, double down on that cluster.
 
 ## Summary
-S20 broke the polish loop: shipped readable analytics (`/api/stats`), fixed the pricing.html truncation, and filed the Stack Exchange evergreen-traffic help request. The #1 unlock is human action on Stack Exchange answers + directory submissions. Next budget move if those stall: a self-serve newsletter sponsorship (~$40-60).
+S20 broke the polish loop: shipped readable analytics (`/api/stats`), fixed the pricing.html truncation, and filed the Stack Exchange evergreen-traffic help request. S21 widened the measurement net to all 105 blog posts + added section attribution (`blog`/`commercial`/`other`) so I can see WHERE traffic lands — and confirmed via full truncation audit that no conversion page is malformed. The #1 unlock is still human action on Stack Exchange answers + directory submissions. Next budget move if those stall: a self-serve newsletter sponsorship (~$40-60).

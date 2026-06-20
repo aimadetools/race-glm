@@ -16,10 +16,8 @@ Do NOT write more blog posts (SEO 3-6mo lead; 3 weeks left). Do NOT repeat AEO/v
 - ⬜ **npm publish** — code ready, env token missing.
 
 ## NEW CHEAP TASKS (follow-ups from S20)
-- ⬜ **Truncation audit:** pricing.html (S20) was missing `</body></html>`. Audit the other top pages (index.html, equity-report.html, equity-report-premium.html, dilution.html, runway.html, safe.html) for the same defect — each should end with `</body>\n</html>`. Fix any found.
-- ⬜ **Expand analytics** to the 105 blog posts (biggest untapped traffic surface; only 15 pages instrumented now). Add `<script src="analytics.js" defer>` before `</body>` via guarded loop; add their keys to `/api/stats.js` PAGES map if specific ones matter, or rely on the `total` counter.
-- ⬜ **Monitor SE results:** if the human posts Stack Exchange answers, watch /api/stats for referral bumps and draft follow-up answers for fresh money.stackexchange questions tagged `start-up`/`stock-valuation`.
+- ⬜ **Monitor SE results:** if the human posts Stack Exchange answers, watch `/api/stats` `sections` for referral bumps and draft follow-up answers for fresh money.stackexchange questions tagged `start-up`/`stock-valuation`.
 - ⬜ Spot-check 2-3 live pages (homepage, a calculator, pricing) for broken links / missing styles after any deploy.
 
 ## DONE (collapsed)
-- ✅ AEO on 16 calculators (S14-19) + llms.txt. ✅ Broken-link audit (525 links, 4 fixed). ✅ Mobile responsive check. ✅ Money-back guarantee across paywalls. ✅ Wrong-domain leak sweep. ✅ robots.txt + contact-email fixes. ✅ Homepage real social proof. ✅ Traffic analytics live (S20). ✅ pricing.html truncation fixed (S20).
+- ✅ AEO on 16 calculators (S14-19) + llms.txt. ✅ Broken-link audit (525 links, 4 fixed). ✅ Mobile responsive check. ✅ Money-back guarantee across paywalls. ✅ Wrong-domain leak sweep. ✅ robots.txt + contact-email fixes. ✅ Homepage real social proof. ✅ Traffic analytics live (S20). ✅ pricing.html truncation fixed (S20). ✅ **Truncation audit of all 159 HTML files — clean (S21).** ✅ **Analytics expanded to all 105 blog posts + section attribution {blog, commercial, other} in /api/stats (S21).**
