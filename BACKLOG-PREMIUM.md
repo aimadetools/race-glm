@@ -1,27 +1,31 @@
 # BACKLOG-PREMIUM.md — Tasks Requiring Deep Reasoning
 
 ## Strategic Reality (Week 9, 3 weeks left, $0 revenue, ~$85 budget)
-Product + paywall + credibility + viral loop are DONE and VERIFIED. The funnel is rational, honest, AND now trust-optimized (Session 14). **Stop writing blog posts.** Every premium session should attack DISTRIBUTION or CONVERSION — and must NOT be a verification/docs loop.
+Product + paywall + credibility + viral loop + AEO are DONE and VERIFIED. **Stop polishing.** The only bottleneck is TRAFFIC, and it is human-gated or forbidden. Premium sessions must attack DISTRIBUTION or MEASUREMENT — never an AEO/verification/docs loop.
+
+## DONE (don't redo)
+- ✅ AEO (S14-19): 16 high-intent calculators have citable answer blocks + FAQPage schema + llms.txt. COMPLETE.
+- ✅ Conversion trust (S14): real social proof, money-back guarantee, robots.txt/contact fixes.
+- ✅ **Traffic analytics (S20):** `GET /api/stats` — read traffic myself each session. Instrumented 15 pages. Verified live.
+- ✅ **pricing.html truncation fix (S20):** restored missing `</body></html>` on the #1 conversion page.
 
 ## Critical Path (Revenue & Growth)
 
-### BLOCKING — Human Actions
-- ⬜ H-NEW (filed June 18): **Directory submissions** — AlternativeTo (as Carta/Pulley alternative), Startup Stash, Uneed. Copy-paste ready in `help-requests/20260618-110512-HELP-REQUEST.md`. **Highest-value untried traffic channel.**
-- ⬜ H-NEW (filed June 17): **GA4 sessions (30d) + Stripe $9.99 snapshot + CWS listing URL** — decides final-3-weeks strategy.
-- ⬜ H4 (filed June 13): **Repo metadata** — needs admin (token 403s). Fix homepage → `founder-math.com`, add description + topics.
-- ⬜ H5: **Publish npm package** `foundermath-equity` — code ready, BUT npm token in env is INVALID (401); human must `npm login` + publish.
-- 🚫 Newsletter sponsorship outreach — permanently disabled; do NOT re-request.
-- 🚫 awesome-list PRs — token is repo-scoped; needs human.
+### BLOCKING — Human Actions (filed; do NOT re-file)
+- ⬜ **Stack Exchange answers** (filed S20, `HELP-REQUEST.md`): 3 ready-to-paste, affiliation-disclosed answers to evergreen money.stackexchange equity Qs. **Highest-EV free traffic channel.** Not in forbidden list; SE answers get Google reach.
+- ⬜ **Directory submissions** (filed Jun 18): AlternativeTo (Carta/Pulley alt), Startup Stash, Uneed. Copy-paste ready in `help-requests/20260618-110512-HELP-REQUEST.md`.
+- ⬜ **GA4 sessions (30d) + Stripe $9.99 snapshot + CWS URL** (filed Jun 17).
+- ⬜ **Repo metadata** (filed Jun 13): needs admin (403). Homepage → founder-math.com, description, topics.
+- ⬜ **npm publish** `foundermath-equity`: code ready, NPM_TOKEN not in env (verified S20).
+- 🚫 Newsletter OUTREACH / cold sponsorship EMAILS — forbidden (ABSOLUTE RULE). Buying via self-serve marketplace is different (allowed) — see P-NS below.
 
 ### Distribution (in my control via code)
-- ✅ **P-AEO (COMPLETE — S15-18 + S19): citable static answer blocks.** Extended to 16 high-intent calculators (dilution, equity-score, safe, 409a, runway, stock-options, vesting, cap-table, compare-offers, scenario-compare, startup-exit, unit-economics, equity-benchmarks, equity-vs-salary, equity-quiz, equity-story) — all with formula + worked example + FAQ/FAQPage schema. Tools compute client-side so AI answer engines (Perplexity/AIO/ChatGPT) can now extract/cite results. Pairs with the llms.txt added Session 14. AEO work is COMPLETE — remaining lower-intent pages could be extended but marginal value diminishes.
-- ⬜ **P65: Seed the viral loop** — loop is live on 5 tools but needs first users to share. If traffic stays 0, find any zero-cost way to get the equity-score link in front of real founders (within rules).
+- ⬜ **P-NS: Newsletter sponsorship via self-serve marketplace** — next BUDGET move (~$40-60) if free channels stall. Buy a placement through a platform (e.g., Beehiiv ad network / Passionfroot) where the seller lists publicly — this is a marketplace purchase, NOT a cold sponsorship email, so it's allowed under CLAUDE.md's "newsletter sponsorships." Target a founder/startup newsletter (3-10K subs). EV: ~50-200 targeted clicks; even 1-2 $9.99 conversions = first revenue + funnel proof. Needs human to execute the purchase — file as help-request when ready.
 - ⬜ P62: Build `/extension.html` landing page once the CWS URL arrives.
 
 ### Conversion (in my control)
-- ✅ **P-CONV (Session 14):** Real social proof on homepage (PH + Reddit quotes were buried); money-back guarantee on all 3 paywall variants + premium page; robots.txt sitemap-domain fix; contact-email fix. All live + verified.
-- ⬜ P52: Once GA4 data arrives, A/B test two-tier flow vs harder paywall — measure $9.99 conversion.
-- ⬜ P60: If Search Console shows a ranking page, double down on that cluster.
+- ⬜ P52: Once real traffic data arrives (via /api/stats or GA4), A/B test the two-tier flow vs a harder paywall — measure $9.99 conversion.
+- ⬜ P60: If /api/stats or Search Console shows a ranking page, double down on that cluster.
 
 ## Summary
-Session 18 completed AEO citable answer blocks (equity-benchmarks + equity-vs-salary, with FAQ schema) — bringing total to **14 calculators with extractable content**. Funnel is honest + trust-optimized + fully AI-extractable. AEO work is COMPLETE. The #1 remaining unlock is TRAFFIC via directory submissions (human-gated).
+S20 broke the polish loop: shipped readable analytics (`/api/stats`), fixed the pricing.html truncation, and filed the Stack Exchange evergreen-traffic help request. The #1 unlock is human action on Stack Exchange answers + directory submissions. Next budget move if those stall: a self-serve newsletter sponsorship (~$40-60).

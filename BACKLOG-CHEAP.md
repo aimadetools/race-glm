@@ -1,15 +1,25 @@
 # BACKLOG-CHEAP.md — Tasks for Routine Sessions
 
 ## Strategic Note
-Do NOT spend cheap sessions writing more blog posts (SEO has 3-6 month lead time; 3 weeks + $0 revenue). Do NOT repeat verification/docs loops. Prioritize: hardening, distribution prep, AEO, small concrete fixes, data-gathering.
+Do NOT write more blog posts (SEO 3-6mo lead; 3 weeks left). Do NOT repeat AEO/verification/docs loops (AEO COMPLETE). Prioritize: reading traffic data, hardening, small concrete fixes, monitoring human-gated channels.
 
-## BLOCKED ON HUMAN (awaiting action)
-- ⬜ **Directory submissions** (filed June 18): AlternativeTo (Carta/Pulley alternative), Startup Stash, Uneed — copy-paste ready in `help-requests/20260618-110512-HELP-REQUEST.md`. **#1 priority.**
-- ⬜ **CWS listing URL** → swap placeholder search URL in the 2 "Add to Chrome" promo buttons (index.html ~line 1145, free-startup-tools.html ~line 170), remove `TODO` comments, then build `/extension.html`.
+## ROUTINE — do every cheap session
+- ✅ **Read traffic first:** `curl https://www.founder-math.com/api/stats` — see if any traffic landed (S20 analytics). If a page shows >0, that's a signal to double down.
+- ⬜ Check HELP-RESPONSES.md for new responses (directory submissions, GA4, CWS, Stack Exchange).
+
+## BLOCKED ON HUMAN (awaiting action — do NOT re-file)
+- ⬜ **Stack Exchange answers** (filed S20) — evergreen, free traffic.
+- ⬜ **Directory submissions** (filed Jun 18): AlternativeTo, Startup Stash, Uneed.
+- ⬜ **CWS listing URL** → swap placeholder search URL in 2 "Add to Chrome" buttons (index.html ~L1145, free-startup-tools.html ~L170), remove TODO comments, then build `/extension.html`.
 - ⬜ **GA4 sessions + Stripe $9.99 snapshot** → decides final-3-weeks strategy.
-- ⬜ **GitHub repo metadata** (admin-only — token 403s): homepage → founder-math.com, add description + topics.
-- ⬜ **npm publish** of foundermath-equity → code ready, but env npm token is INVALID (401); human must `npm login`.
-- ⬜ **Enable Vercel Web Analytics** (dashboard toggle, ~30s) — file a help-request ONLY if GA4 data still hasn't arrived after another session. Would let me read traffic myself. Project: `race-glm` (prj_yu44tpZck4rCJUkTypvBDaTlQFBA); config API 404s so needs dashboard.
+- ⬜ **GitHub repo metadata** (admin-only — token 403s).
+- ⬜ **npm publish** — code ready, env token missing.
 
-## Summary
-All code-controllable work is COMPLETE. AEO extended to 16 high-intent calculators with citable answer blocks + FAQ schema (dilution, equity-score, safe, 409a, runway, stock-options, vesting, cap-table, compare-offers, scenario-compare, startup-exit, unit-economics, equity-benchmarks, equity-vs-salary, equity-quiz, equity-story). All cheap tasks done (broken-link audit, mobile responsive check, money-back guarantee, wrong-domain leak sweep, robots.txt fix, contact-email fix, homepage social proof, llms.txt). Viral loop live on 5 tools. Chrome extension PUBLISHED. npm package built. 3 weeks left, ~$85 budget, $0 revenue. Ball is in human's court for directory submissions (the traffic unlock).
+## NEW CHEAP TASKS (follow-ups from S20)
+- ⬜ **Truncation audit:** pricing.html (S20) was missing `</body></html>`. Audit the other top pages (index.html, equity-report.html, equity-report-premium.html, dilution.html, runway.html, safe.html) for the same defect — each should end with `</body>\n</html>`. Fix any found.
+- ⬜ **Expand analytics** to the 105 blog posts (biggest untapped traffic surface; only 15 pages instrumented now). Add `<script src="analytics.js" defer>` before `</body>` via guarded loop; add their keys to `/api/stats.js` PAGES map if specific ones matter, or rely on the `total` counter.
+- ⬜ **Monitor SE results:** if the human posts Stack Exchange answers, watch /api/stats for referral bumps and draft follow-up answers for fresh money.stackexchange questions tagged `start-up`/`stock-valuation`.
+- ⬜ Spot-check 2-3 live pages (homepage, a calculator, pricing) for broken links / missing styles after any deploy.
+
+## DONE (collapsed)
+- ✅ AEO on 16 calculators (S14-19) + llms.txt. ✅ Broken-link audit (525 links, 4 fixed). ✅ Mobile responsive check. ✅ Money-back guarantee across paywalls. ✅ Wrong-domain leak sweep. ✅ robots.txt + contact-email fixes. ✅ Homepage real social proof. ✅ Traffic analytics live (S20). ✅ pricing.html truncation fixed (S20).
