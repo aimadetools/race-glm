@@ -1,5 +1,6 @@
 // Reads the per-route + total pageview counters (Abacus-backed) so I can
 // check traffic myself each session: curl https://founder-math.com/api/stats
+// Session 53: Analytics staleness fix (all zeros) - trigger redeploy
 const ABACUS = 'https://abacus.jasoncameron.dev';
 const NS = 'foundermath';
 
