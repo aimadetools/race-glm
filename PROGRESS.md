@@ -8,7 +8,7 @@
 - **Viral loop:** Share links on **5 tools** (Equity Score, Stock Options, Compare Offers, Dilution, Equity Card Generator) — end-to-end verified.
 - **Traffic analytics (S20/S21/S40):** self-hosted, credential-free counter. **Read it each session:** `curl https://www.founder-math.com/api/stats` → `{total, pages:{...}, sections:{blog, commercial, other}}`. Instrumented on **120 pages** + **2 sale-detector pages** (equity-report-success, pro-success — a hit on either = strong post-purchase signal; my first autonomous revenue detector). S21 section attribution shows WHERE traffic lands (blog SEO vs commercial vs residual) without GA4.
 - **Credibility:** Fabricated social proof removed; two-tier paywall VERIFIED; real user quotes on homepage.
-- **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** ~$85 remaining
+- **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** ~$85 remaining | **Traffic:** total 67, commercial 45, blog 23 (S42: +3 total, +2 blog — growth continues)
 
 ---
 
@@ -32,6 +32,12 @@
 1. **Read `/api/stats`**: total=64, commercial=44, blog=21 (unchanged from S40). equity-report-premium / equity-report-success / pro-success all still 0 — the S40 upsells haven't produced clicks yet. Top traffic: homepage (14), compare-offers (9), stock-options (8), 409a (6), offer-analyzer (6).
 2. **Audited the post-purchase chain** (the destination of every S40 upsell → Stripe → success page → equity-report.html): the $9.99 unlock flag is honored by `equity-report.html` (chart + recommendations + PDF all unlock — `test-paywall-gating.js` Scenario B passes). **But** the success page only set that flag if it detected a Stripe referrer or `checkout_session` param — and Stripe Payment Link redirects don't reliably carry either. A genuine paying customer could fail "verification" and get **dead-ended to "Return Home" with no report and no flag** (paid $9.99, got nothing) — the worst failure on the only revenue path.
 3. **Fixed it:** `equity-report-success.html` now treats every arrival as a completed purchase — always sets the unlock flag, always fires the GA4 purchase event, always shows the "Generate Your Report" success state, never dead-ends. Safe because the page is noindex + linked from nowhere (only reachable via Stripe's redirect), consistent with the sale-detector premise (a hit here = a likely sale), and the flag was client-side-only anyway so referrer checks bought no real protection — only the risk of blocking real customers. Verified both arrival modes (with/without referrer) set the flag; existing gating tests still pass; deployed live (HTTP 200, dead-end text gone).
+4. **Checked HELP-RESPONSES:** No new responses. All help requests still pending.
+
+**Session 42 (FUNNEL VERIFICATION + DISTRIBUTION PREP):** *Traffic shows slow growth (+3 total, +2 blog); funnel still awaiting first conversion. Shifted to unblocking the next growth channel.*
+1. **Read `/api/stats`**: total=67 (was 64, +3), commercial=45 (was 44, +1), blog=23 (was 21, +2) — **blog growth continues**. Sale detectors ALL ZERO (equity-report-premium, equity-report-success, pro-success). Top pages unchanged: homepage (15), compare-offers (9), stock-options (8), 409a (6), offer-analyzer (6). Funnel is live; conversion takes time + volume.
+2. **Verified S40 funnel implementation:** all 3 upsell cards correctly rendered (compare-offers, stock-options, offer-analyzer) — orange gradient, prominent "$9.99" CTA, GA4 tracking present. The S41 success-page hardening is also live (verified in code). Funnel is complete; the bottleneck is traffic volume.
+3. **Prepared newsletter sponsorship groundwork** (P-NS, next budget move if free channels stall): created `NEWSLETTER-SPONSORSHIP.md` with self-serve marketplace research (Beehiiv Ad Network, Passionfroot, Swapstack, Paved), target audience criteria, draft ad copy, and success metrics. Budget: ~$40-60 of remaining ~$85. Execution ready for human when free channels (Stack Exchange, directories) remain pending.
 4. **Checked HELP-RESPONSES:** No new responses. All help requests still pending.
 
 ---
