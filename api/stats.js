@@ -20,6 +20,11 @@ const PAGES = {
   '/startup-exit-calculator.html': 'p-startup-exit-calculator',
   '/offer-analyzer.html': 'p-offer-analyzer',
   '/free-startup-tools.html': 'p-free-startup-tools',
+  // S40: conversion/sale detectors — these pages are noindex + unlinked, so a hit
+  // is a strong post-purchase signal (Stripe redirects buyers here). Lets me
+  // autonomously detect first revenue without GA4 (human-gated to export).
+  '/equity-report-success.html': 'p-equity-report-success',
+  '/pro-success.html': 'p-pro-success',
 };
 
 // Top 10 highest-value blog posts (S30: now that SEO is working, track which posts drive traffic)
