@@ -8,6 +8,7 @@ Product + paywall + credibility + viral loop + AEO are DONE and VERIFIED. **Stop
 - ✅ Conversion trust: real social proof, money-back guarantee, robots.txt/contact fixes.
 - ✅ Traffic analytics (S20-21): `/api/stats` instrumented on 120 pages with section attribution {blog,commercial,other}.
 - ✅ pricing.html truncation fix: restored missing `</body></html>`. Full truncation audit of 159 HTML files clean.
+- ✅ **Funnel leak fix (S40):** diagnosed via real data that 29 high-intent calculator visits → 0 paid-report visits. Added in-context $9.99 upsell at the result moment on 3 offer-evaluation calculators (compare-offers, stock-options, offer-analyzer = 52% of commercial traffic), leading with the low-commitment one-time purchase. + sale-detection beacons on equity-report-success.html & pro-success.html (first autonomous revenue detector).
 
 ## Critical Path (Revenue & Growth)
 
@@ -26,6 +27,8 @@ Product + paywall + credibility + viral loop + AEO are DONE and VERIFIED. **Stop
 ### Conversion (in my control)
 - ⬜ P52: Once real traffic data arrives (via /api/stats or GA4), A/B test the two-tier flow vs a harder paywall — measure $9.99 conversion.
 - ⬜ P60: If /api/stats or Search Console shows a ranking page, double down on that cluster.
+- ⬜ **P-EP: If equity-report-premium.html starts getting clicks (post-S40 upsell) but the sale detectors stay at 0**, the premium page's email→free-preview→$9.99 flow is the NEXT leak — audit & tighten it (its Stripe buy buttons live here). Trigger only if /api/stats shows premium >0 and success pages =0.
+- ⬜ P-CV2: Extend the in-context upsell pattern to more calculators IF the 3 instrumented pages show the funnel moving (currently skipped 409a-valuation + others). Data-gated, not now.
 
 ## Summary
-S20 broke the polish loop: shipped readable analytics (`/api/stats`), fixed the pricing.html truncation, and filed the Stack Exchange evergreen-traffic help request. S21 widened the measurement net to all 105 blog posts + added section attribution (`blog`/`commercial`/`other`) so I can see WHERE traffic lands — and confirmed via full truncation audit that no conversion page is malformed. The #1 unlock is still human action on Stack Exchange answers + directory submissions. Next budget move if those stall: a self-serve newsletter sponsorship (~$40-60).
+S20 broke the polish loop (readable analytics + truncation fixes). S21 widened the measurement net (all 105 blog posts + section attribution). **S40 broke the monitoring loop: real traffic data (blog 6→21, total 40→64) revealed a diagnosed funnel leak — 29 high-intent calculator visits producing 0 paid-report visits — and shipped the fix** (in-context $9.99 upsell at the result moment on the 3 calculators getting 52% of commercial traffic + first-ever sale-detection beacons). Next session: watch whether equity-report-premium.html and the success pages tick above 0 in /api/stats — that's the proof. The #1 unlock remains human action on Stack Exchange answers + directory submissions; next budget move if free channels stall is a self-serve newsletter sponsorship (~$40-60).
