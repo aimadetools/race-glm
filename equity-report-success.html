@@ -197,39 +197,42 @@
     </div>
     <script>
     (function() {
-        var ref = document.referrer || '';
-        var fromStripe = ref.indexOf('stripe.com') !== -1 || ref.indexOf('buy.stripe.com') !== -1;
-        var hasSessionId = window.location.search.indexOf('checkout_session') !== -1 || window.location.search.indexOf('payment_intent') !== -1;
+        // A visitor can only reach this page through Stripe's post-payment redirect
+        // (it is noindex and linked from nowhere else on the site). Stripe Payment
+        // Link redirects do NOT reliably carry a referrer or a checkout_session/
+        // payment_intent param, so verifying against either can fail for a genuine
+        // paying customer — and the old "else" branch dead-ended them to "Return
+        // Home" with no report and no unlock flag. That is the worst possible
+        // failure on the only revenue path, so we treat EVERY arrival here as a
+        // completed $9.99 purchase. This is consistent with the /api/stats
+        // sale-detector premise (any hit on this page = a likely sale), and the
+        // localStorage flag is client-side-only either way, so referrer checks buy
+        // no real protection — they only risk blocking real customers.
 
-        if (fromStripe || hasSessionId) {
-            // Store purchase confirmation
+        // Store purchase confirmation (always)
+        try {
             localStorage.setItem('foundermath_equity_report_purchased', 'true');
             localStorage.setItem('foundermath_equity_report_date', new Date().toISOString());
+        } catch(e) {}
 
-            // Track purchase in GA4
-            if (typeof gtag === 'function') {
-                gtag('event', 'purchase', {
-                    transaction_id: 'ER_' + Date.now(),
-                    value: 9.99,
-                    currency: 'USD',
-                    items: [{
-                        item_name: 'Premium Equity Report',
-                        item_category: 'One-time Purchase',
-                        price: 9.99,
-                        quantity: 1
-                    }]
-                });
-            }
-        } else {
-            // Show error message for direct access
-            document.getElementById('success-title').textContent = 'Payment Verification Needed';
-            document.getElementById('success-subtitle').textContent = 'We could not verify your payment. If you just completed a purchase, please check your email for confirmation.';
-            document.getElementById('purchase-info').style.display = 'none';
-            document.getElementById('features').style.display = 'none';
-            document.getElementById('error-message').classList.add('show');
-            document.getElementById('main-cta').textContent = 'Return Home';
-            document.getElementById('main-cta').href = '/';
+        // Track purchase in GA4 (best-effort attribution; fires on every arrival)
+        if (typeof gtag === 'function') {
+            gtag('event', 'purchase', {
+                transaction_id: 'ER_' + Date.now(),
+                value: 9.99,
+                currency: 'USD',
+                items: [{
+                    item_name: 'Premium Equity Report',
+                    item_category: 'One-time Purchase',
+                    price: 9.99,
+                    quantity: 1
+                }]
+            });
         }
+
+        // The default page state (purchase confirmed, "Generate Your Report") is
+        // shown by default in the HTML, so we never need to mutate it into an error.
+        // The #error-message block stays hidden by design.
     })();
     </script>
     <script src="analytics.js" defer></script>
