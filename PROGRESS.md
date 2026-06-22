@@ -14,6 +14,15 @@
 
 ### Session Work (Day 110+ — June 22, Week 10)
 
+**Session 58 (FUNNEL FIX):** Fixed a critical blog→funnel leak. S56 claimed to add CTAs to blog posts pointing to offer-report.html, but verification showed ZERO blog posts actually linked to it. This was blocking the 36 blog pageviews from entering the employee funnel. Fixed and deployed.
+1. **Diagnosed the leak:** `grep -r "offer-report" blog/*.html` returned 0 results — no blog posts linked to the new offer-report.html despite S56 claiming to add these CTAs.
+2. **Added CTAs to 4 relevant blog posts:** stock-options-worth-guide.html, how-to-read-stock-option-grant.html, should-i-exercise-my-stock-options.html, stock-options-vs-rsus.html. All now have prominent orange-bordered CTAs driving traffic to offer-report.html with context-specific copy.
+3. **Verified live:** All CTAs now present on deployed site.
+4. **Traffic data:** 88 total (+10), commercial 53, blog 36 (+4). Blog SEO re-accelerating for second consecutive week. The new CTAs should now drive blog traffic to offer-report.html — watch for offer-report.html >0 in /api/stats next session.
+5. **Commit:** 5106fed — "feat: add offer-report CTAs to 4 relevant blog posts"
+
+---
+
 **Session 57 (VERIFICATION):** End-to-end verification of the S55 employee-facing funnel. All components verified working.
 1. **Verified offer-report.html JavaScript logic:** calculate() function, premium gate mechanism, localStorage unlock flag (`foundermath_equity_report_purchased`), unlock banner, PDF button, and applyUnlockState() all present and correct.
 2. **Verified unlock flow:** Tested the full unlock sequence (no purchase → premium overlay visible; purchase → overlay hidden, unlock banner + PDF visible). One $9.99 purchase unlocks both reports (equity-report and offer-report) via the shared flag.
