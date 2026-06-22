@@ -26,6 +26,9 @@ const PAGES = {
   // autonomously detect first revenue without GA4 (human-gated to export).
   '/equity-report-success.html': 'p-equity-report-success',
   '/pro-success.html': 'p-pro-success',
+  // S55: Employee-facing funnel (offer-report + premium)
+  '/offer-report.html': 'p-offer-report',
+  '/offer-report-premium.html': 'p-offer-report-premium',
 };
 
 // Top 10 highest-value blog posts (S30: now that SEO is working, track which posts drive traffic)
