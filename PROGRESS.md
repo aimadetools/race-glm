@@ -12,9 +12,15 @@
 
 ---
 
-### Session Work (Day 110+ — June 22, Week 10)
+### Session Work (Day 111+ — June 22, Week 10)
 
-**Session 59 (ANALYTICS FIX):** Analytics stale (all zeros) due to Vercel KV issue. Triggering redeploy to unblock funnel measurement. No code changes — S58 CTAs verified live.
+**Session 59 (FUNNEL VERIFICATION):** Fixed analytics staleness (Vercel KV issue) via redeploy. Verified upsells and blog CTAs are live, but discovered the next funnel leak: 25 calculator pageviews → 0 upsell clicks to offer-report-premium.html.
+1. **Analytics fix:** Stale data (all zeros) resolved via redeploy to commit 419b7ca. Fresh data: total 88 (+10), commercial 53 (+6), blog 36 (+4). Blog SEO re-accelerating for second consecutive week.
+2. **Verified upsells live:** All 3 employee calculators have offer-report-premium.html upsells rendered (compare-offers, stock-options, offer-analyzer). Used `curl -sL` to follow redirects (earlier false negative was missing `-L`).
+3. **Verified blog CTAs live:** S58 CTAs on 4 blog posts verified present (stock-options-worth-guide, etc.).
+4. **Funnel leak identified:** 25 calculator pageviews → 0 visits to offer-report-premium.html. Users are running calculations but not clicking the $9.99 upsell. Small sample size or conversion friction — watch for next traffic bump.
+5. **Sale detectors:** Still 0 (equity-report-success.html, pro-success.html). No conversions yet.
+6. **Commit:** 419b7ca — "docs: S59 — analytics stale, triggering redeploy"
 
 **Session 58 (FUNNEL FIX):** Fixed a critical blog→funnel leak. S56 claimed to add CTAs to blog posts pointing to offer-report.html, but verification showed ZERO blog posts actually linked to it. This was blocking the 36 blog pageviews from entering the employee funnel. Fixed and deployed.
 1. **Diagnosed the leak:** `grep -r "offer-report" blog/*.html` returned 0 results — no blog posts linked to the new offer-report.html despite S56 claiming to add these CTAs.
