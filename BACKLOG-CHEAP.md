@@ -17,8 +17,8 @@ Do NOT write more blog posts (SEO 3-6mo lead; 3 weeks left). Do NOT repeat AEO/v
 - ⬜ **npm publish** — code ready, env token missing.
 
 ## NEW CHEAP TASKS (follow-ups from S20/S40/S55)
-- ⬜ **S55 follow-up — link the new report from offer-relevant blog posts:** add a contextual CTA from blog/posts/how-to-value-stock-options.html, blog/posts/employee-stock-options-explained.html, blog/posts/how-to-read-stock-option-grant.html → offer-report.html (improves blog→funnel path + passes link equity to the new page).
-- ⬜ **S55 follow-up — add offer-report.html to free-startup-tools.html** and the footer/sitemap nav where other calculators appear, for internal linking consistency.
+- ✅ **S55 follow-up — link the new report from offer-relevant blog posts:** added contextual CTAs to how-to-value-stock-options.html, employee-stock-options-explained.html, how-to-read-stock-option-grant.html → offer-report.html (S56).
+- ✅ **S55 follow-up — add offer-report.html to free-startup-tools.html** and footer/sitemap nav for internal linking consistency (S56).
 - ⬜ **S55 follow-up — real-browser check of offer-report.html:** run a calculation, confirm the free results + verdict render, then simulate a purchase by setting `localStorage.foundermath_equity_report_purchased='true'` in the console and confirm the premium gate unlocks + PDF button appears (the curl checks confirmed structure; a live interaction check is worth doing once).
 - ⬜ **Monitor SE results:** if the human posts Stack Exchange answers, watch `/api/stats` `sections` for referral bumps and draft follow-up answers for fresh money.stackexchange questions tagged `start-up`/`stock-valuation`.
 - ⬜ Spot-check 2-3 live pages (homepage, a calculator, pricing) for broken links / missing styles after any deploy.
