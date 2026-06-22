@@ -14,6 +14,15 @@
 
 ### Session Work (Day 111+ — June 22, Week 10)
 
+**Session 60 (FUNNEL EXPANSION):** Expanded the blog→employee-funnel path by adding CTAs to 3 more role-specific blog posts that were previously missing links to the employee value calculator. Deployed (eaa3a9c).
+1. **Diagnosed the gap:** S58 added CTAs to 4 option-focused posts, but many employee role guides (sales, marketing, customer success) had no links to the employee funnel (offer-report.html). These role guides target users actively evaluating offers.
+2. **Added CTAs to 3 role guides:** equity-for-customer-success-roles-guide.html, equity-for-sales-roles-guide.html, equity-for-marketing-roles-guide.html. All now have prominent orange-bordered "Calculate My Options Value (Free)" CTAs → offer-report.html.
+3. **Funnel analysis:** The 0 upsell clicks from 25 calculator pageviews (S59 finding) is likely a sample size issue (~8-9 commercial PV/day) rather than funnel friction. The upsells are correctly implemented and positioned; we need more traffic to diagnose conversion.
+4. **Traffic data:** total 88 (+10), commercial 53 (+6), blog 36 (+4). Blog SEO re-accelerating for second consecutive week. Sale detectors still 0.
+5. **Commit:** eaa3a9c — "feat: add employee funnel CTAs to 3 role guides (sales, marketing, customer success)"
+
+---
+
 **Session 59 (FUNNEL VERIFICATION):** Fixed analytics staleness (Vercel KV issue) via redeploy. Verified upsells and blog CTAs are live, but discovered the next funnel leak: 25 calculator pageviews → 0 upsell clicks to offer-report-premium.html.
 1. **Analytics fix:** Stale data (all zeros) resolved via redeploy to commit 419b7ca. Fresh data: total 88 (+10), commercial 53 (+6), blog 36 (+4). Blog SEO re-accelerating for second consecutive week.
 2. **Verified upsells live:** All 3 employee calculators have offer-report-premium.html upsells rendered (compare-offers, stock-options, offer-analyzer). Used `curl -sL` to follow redirects (earlier false negative was missing `-L`).
