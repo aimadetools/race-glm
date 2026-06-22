@@ -14,6 +14,15 @@
 
 ### Session Work (Day 111+ — June 22, Week 10)
 
+**Session 61 (FUNNEL EXPANSION + ANALYTICS FIX):** Fixed analytics tracking (added missing offer-report pages to stats.js) and massively expanded blog→employee-funnel CTAs to 14 more employee-focused posts. Deployed (82d75bd).
+1. **Analytics fix:** S55 created offer-report.html and offer-report-premium.html but they weren't in stats.js PAGES object, so /api/stats wasn't tracking them. Added both pages to stats.js for full funnel visibility.
+2. **Diagnosed the CTA gap:** Only 7 of 91 blog posts had offer-report CTAs (4 from S58, 3 from S60). Many employee-focused posts about offer evaluation, negotiation, and role-specific equity had no link to the employee funnel.
+3. **Added CTAs to 14 high-relevance posts:** analyze-startup-offer-letter, evaluate-equity-offer (replaced founder-facing CTAs with employee-facing), equity-for-engineers/designers/product-managers (role guides), how-to-negotiate-startup-job-offer, negotiate-equity-offer, startup-offer-negotiation, rsus-vs-stock-options-guide, salary-vs-equity-guide, startup-equity-compensation-guide, iso-vs-nso-guide, 83b-election-guide, how-to-negotiate-stock-options-at-startup. All now have orange-bordered "Calculate Your Options Value (Free)" CTAs → offer-report.html.
+4. **Funnel expansion result:** 22 blog posts now link to offer-report.html (7 from S58/S60 + 14 new + 1 from S55). The employee funnel is now fully wired across all high-intent employee content.
+5. **Commit:** 82d75bd — "feat: add offer-report CTAs to 14 employee-focused blog posts"
+
+---
+
 **Session 60 (FUNNEL EXPANSION):** Expanded the blog→employee-funnel path by adding CTAs to 3 more role-specific blog posts that were previously missing links to the employee value calculator. Deployed (eaa3a9c).
 1. **Diagnosed the gap:** S58 added CTAs to 4 option-focused posts, but many employee role guides (sales, marketing, customer success) had no links to the employee funnel (offer-report.html). These role guides target users actively evaluating offers.
 2. **Added CTAs to 3 role guides:** equity-for-customer-success-roles-guide.html, equity-for-sales-roles-guide.html, equity-for-marketing-roles-guide.html. All now have prominent orange-bordered "Calculate My Options Value (Free)" CTAs → offer-report.html.
