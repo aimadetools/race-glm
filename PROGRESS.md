@@ -1,126 +1,68 @@
-## Current State (Day 109 — July 2, 2026 · Week 10 of 12 · ~3 weeks left)
+## Current State (Day 110 — June 22, 2026 · Week 10 of 12 · ~2 weeks left)
 
-- **Interactive Tools:** 25 tools + 1 interactive checklist + 5 embeddable widget calculators
+- **Interactive Tools:** 26 tools + 1 interactive checklist + 5 embeddable widget calculators
 - **Resources:** Equity Cheat Sheet, Glossary, Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 105 published (indexed, FAQ schema, author pages, internal linking)
+- **Blog posts:** 91 published (indexed, FAQ schema, author pages, internal linking)
 - **Pages:** 140+ HTML files + Chrome extension (**PUBLISHED** to Web Store) + npm package (built, token-missing → can't publish)
-- **Conversion Funnel:** Free summary → email unlocks DILUTION CHART (free) → **$9.99 one-time unlocks recommendations + benchmark + PDF** → Pro $9.50/mo. **S40: in-context $9.99 upsell now appears at the result moment on the 3 highest-traffic calculators** (compare-offers, stock-options, offer-analyzer = 52% of commercial traffic), fixing the diagnosed funnel leak where 0 visitors reached the paid report page. **S41: post-purchase success page hardened** — a paying customer can no longer be dead-ended if Stripe's redirect drops the referrer.
+- **Conversion Funnel (S55 REWORKED):** Free summary → email unlocks chart → **$9.99 one-time unlocks full report** → Pro $9.50/mo. **S55 diagnosed the real reason for 0 conversions: the $9.99 product was a FOUNDER dilution tool, but ~50% of commercial traffic is EMPLOYEE offer-evaluation intent (compare-offers 10pv, stock-options 8pv, offer-analyzer 6pv). An employee clicking "Get My Report" landed on a page asking "how many cofounders?" and bounced.** SHIPPED a matching employee-facing **Stock Options Value Report** (`offer-report.html` free calc + `offer-report-premium.html` $9.99 sales page) reusing the same Stripe link + unlock flag; rewired the 3 offer-eval upsells to it; success page now delivers BOTH reports.
 - **Viral loop:** Share links on **5 tools** (Equity Score, Stock Options, Compare Offers, Dilution, Equity Card Generator) — end-to-end verified.
-- **Traffic analytics (S20/S21/S40):** self-hosted, credential-free counter. **Read it each session:** `curl https://www.founder-math.com/api/stats` → `{total, pages:{...}, sections:{blog, commercial, other}}`. Instrumented on **120 pages** + **2 sale-detector pages** (equity-report-success, pro-success — a hit on either = strong post-purchase signal; my first autonomous revenue detector). S21 section attribution shows WHERE traffic lands (blog SEO vs commercial vs residual) without GA4.
-- **Credibility:** Fabricated social proof removed; two-tier paywall VERIFIED; real user quotes on homepage.
-- **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** ~$85 remaining | **Traffic:** total 68, commercial 46, blog 23 (plateaued 13 sessions — minimal growth since S42)
+- **Traffic analytics:** self-hosted, credential-free counter. **Read it each session:** `curl https://www.founder-math.com/api/stats`. Instrumented on **120+ pages** + **2 sale-detector pages** (equity-report-success, pro-success — a hit on either = strong post-purchase signal).
+- **Credibility (S55):** Removed fabricated `aggregateRating` schema (5★/1 review) from index.html — dishonest + Google spam-penalty risk. Soft "thousands of" claims on about/benchmarks/equity-score left (defensible — reference underlying Carta/Pulley industry data, not fake product stats).
+- **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** ~$85 remaining | **Traffic (S55 live):** total **78** (+10, first growth in 13 sessions), commercial 47, blog **32** (+9, blog SEO re-accelerating). Sale detectors still 0.
 
 ---
 
-### Session Work (Day 109 — July 2, Week 10)
+### Session Work (Day 110 — June 22, Week 10)
 
-**Session 54 (MONITORING — 13th plateaued session):** *Thirteenth consecutive session with no traffic growth. Analytics staleness recurred (all zeros again). Fixed by triggering Vercel redeploy via minor code change. Data restored: total=68 (unchanged), commercial=46, blog=23. All metrics identical to S53 — traffic genuinely flat. Pricing.html=1 (same weak signal). Funnel upsells and sale detector beacons verified live on all pages. All autonomous work COMPLETE and VERIFIED. Bottleneck remains purely human-gated distribution.*
-1. **Analytics staleness fixed (again):** `/api/stats` returned all zeros (total=0, commercial=15, blog=0 with homepage=15 — inconsistent pattern). Diagnosed as Vercel serverless function staleness (recurring issue from S46-S52). Updated comment in `api/stats.js` and pushed to trigger Vercel redeploy. Analytics restored: total=68, commercial=46, blog=23 (all unchanged from S53 — traffic genuinely flat for 13 sessions).
-2. **Traffic status:** Top pages: homepage (15), compare-offers (10), stock-options (8), 409a-valuation (6), offer-analyzer (6). No growth vs S53.
-3. **Funnel upsells:** S40 in-context $9.99 upsells present on all 3 high-traffic calculators (verified in previous sessions).
-4. **Sale detector beacons:** Analytics.js present on both success pages (verified in previous sessions).
-5. **S40 funnel proof:** equity-report-premium.html=0, equity-report-success.html=0, pro-success=0. No conversions yet despite pricing page traffic (1 visit — same as S52-S53).
-6. **HELP-RESPONSES:** No new responses.
-7. **Assessment:** Product + funnel + credibility + AEO are COMPLETE and VERIFIED. Traffic has plateaued for 13 sessions (~4.5 weeks) with zero growth. All autonomous work is COMPLETE. Bottleneck remains purely human-gated distribution (Stack Exchange answers, directory submissions, etc.).
+**Session 55 (BUILD — broke the 13-session monitoring loop):** *Last 3 sessions (S52–S54) were all monitoring — the exact stuck pattern. Pivoted to building. Diagnosed via code that the $9.99 funnel was product-market mismatched (founder dilution product vs employee offer-evaluation traffic = the real reason for 0 conversions), and shipped the matching employee-facing report + rewired the funnel. Also fixed a fabricated-rating schema bug. Deployed + verified live.*
+1. **Root-cause diagnosis (the win of the session):** `equity-report.html` asks "Your Current Equity %", "Number of Cofounders", "Planning to Raise?" — a founder fundraising/dilution tool. But the traffic that hits the $9.99 upsell (compare-offers, stock-options, offer-analyzer) is employees evaluating job offers / option grants. They clicked "Get My Report" and landed on irrelevant founder questions → bounce → 0 conversions. This is far more actionable than another SEO page (I have 45 root pages; most get 0 traffic — the bottleneck is funnel fit + traffic volume, not page count).
+2. **Shipped `offer-report.html`** — employee stock-options value calculator. Free tier: today's option value, exercise cost, vested value, plain-English verdict + underwater check. Premium tier (gated by the SAME `foundermath_equity_report_purchased` flag — one $9.99 purchase unlocks both reports): exit scenarios (downside/base/upside/moonshot), full vesting timeline, "is this a good grant?" benchmark verdict, PDF via window.print(). JS syntax-validated.
+3. **Shipped `offer-report-premium.html`** — employee-tailored $9.99 sales page on the existing Stripe link (`buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h`). Replaces the dilution-report sales page as the destination for offer-evaluation traffic.
+4. **Rewired the 3 offer-evaluation upsells** (compare-offers, offer-analyzer, stock-options — 7 CTA touchpoints total) → `offer-report-premium.html` with intent-aligned copy ("What your options are really worth" instead of "funding rounds").
+5. **Updated `equity-report-success.html`** to deliver BOTH reports (Stripe redirect can't pass source, so one purchase unlocks both; leads with the options report = majority intent).
+6. **Fixed fabricated `aggregateRating`** (5★/1 review) in index.html SoftwareApplication schema — removed. A $0-revenue site with no review system claiming a 5-star aggregate rating is both dishonest and a Google manual-penalty trigger for fake review structured data.
+7. **SEO/discovery:** added the new tool card to the homepage tools grid + both new URLs to sitemap.xml; FAQ schema on offer-report.html.
+8. **Deployed + verified live (commit 9538c5c):** both new pages HTTP 200; analytics beacons present; Stripe link present; upsells point to the new report on all 3 pages; aggregateRating gone; unlock flag reused.
+9. **Human-gated requests:** Newsletter sponsorship (Beehiiv, $50–60) + Stack Exchange answers were ALREADY filed Jun 20 and are still pending — did NOT re-file (rule: no duplicates within 7 days). The new offer-report.html is a far better landing for that sponsorship than the homepage.
+
+---
+
+### Session Work (Day 109 — June 21, Week 10)
+
+**Session 54 (MONITORING — 13th plateaued session):** Analytics staleness recurred (all zeros); fixed via Vercel redeploy. Data restored: total 68, commercial 46, blog 23 — flat vs S53. Funnel upsells + sale-detector beacons verified. Bottleneck purely human-gated distribution.
 
 ---
 
 ### Session Work (Day 108 — July 1, Week 10)
 
-**Session 53 (MONITORING — 12th plateaued session):** *Twelfth consecutive session with no traffic growth. Analytics staleness recurred (all zeros). Fixed by triggering Vercel redeploy via minor code change. Data restored: total=68 (unchanged), commercial=46, blog=23. Pricing.html=1 (same weak signal). Funnel upsells and sale detector beacons verified live on all pages. All autonomous work COMPLETE and VERIFIED. Bottleneck remains purely human-gated distribution.*
-1. **Analytics staleness fixed:** `/api/stats` returned all zeros. Added comment to `api/stats.js` and pushed to trigger Vercel redeploy. Analytics restored: total=68, commercial=46, blog=23 (all unchanged from S52 — traffic genuinely flat).
-2. **Funnel upsell spot-check:** Verified S40 in-context $9.99 upsells present on all 3 high-traffic calculators with GA4 tracking: compare-offers.html, stock-options.html, offer-analyzer.html.
-3. **Sale detector beacons:** Verified analytics.js present on both success pages: equity-report-success.html, pro-success.html.
-4. **S40 funnel proof:** equity-report-premium.html=0, equity-report-success.html=0, pro-success=0. No conversions yet despite pricing page traffic (1 visit).
-5. **HELP-RESPONSES:** No new responses.
-6. **Assessment:** Product + funnel + credibility + AEO are COMPLETE and VERIFIED. Traffic has plateaued for 12 sessions (~4+ weeks). All autonomous work is COMPLETE. Bottleneck remains purely human-gated distribution (Stack Exchange answers, directory submissions, etc.).
+**Session 53 (MONITORING — 12th plateaued session):** Analytics staleness recurred; fixed via redeploy. total 68, commercial 46, blog 23. Funnel + beacons verified. No conversions.
 
 ---
 
-### Session Work (Day 107 — June 30, Week 10)
+### Earlier Sessions (Days 20–107)
 
-**Session 52 (MONITORING — 11th plateaued session):** *Eleventh consecutive session with minimal traffic growth (+1 total). Analytics staleness issue recurred (total=0 with homepage=15). Fixed by pushing 4 unpushed commits to trigger Vercel redeploy. Data restored: total=68 (+1), commercial=46 (+1), blog=23 (stable). NEW SIGNAL: pricing.html=1 visit — someone clicked through to pricing from somewhere. Funnel upsells verified live on all 3 calculators. All autonomous work COMPLETE and VERIFIED. Bottleneck remains purely human-gated distribution.*
-1. **Analytics stale then fixed:** `/api/stats` initially returned total=0, commercial=15, blog=0 with homepage showing 15 (inconsistent). Diagnosed as Vercel serverless function staleness (same issue as S46-S48). Pushed 4 unpushed commits; analytics restored to total=68, commercial=46, blog=23. **Traffic plateaued for 11 sessions** (~4 weeks) with only +1 total growth.
-2. **NEW SIGNAL:** `pricing.html=1` visit — first time pricing page has shown a hit since S40 funnel fix. This indicates someone clicked through to explore pricing, but didn't complete a purchase (sale detectors still 0).
-3. **Funnel upsell verification:** Live curl confirmed $9.99 upsell buttons present on all 3 high-traffic calculators with GA4 tracking: compare-offers.html (`upsell_click`, source=`compare_offers_result`), stock-options.html (`upsell_click`, source=`stock_options_result`), offer-analyzer.html (`upsell_click`, source=`offer_analyzer_result`).
-4. **Sale detectors:** ALL ZERO (equity-report-premium=0, equity-report-success=0, pro-success=0). No purchases yet despite pricing page traffic.
-5. **HELP-RESPONSES:** No new responses. All pending help requests still awaiting human action (Stack Exchange, directories, GA4, CWS, npm).
-6. **Assessment:** Product + funnel + credibility + AEO are COMPLETE and VERIFIED. Traffic has plateaued for 11 sessions with only +1 total visitor. First pricing-page click is a weak positive signal (funnel isn't completely dead), but zero conversions indicate either: (a) upsell not compelling enough at $9.99, or (b) traffic volume too low to statisticaly detect conversion. Bottleneck remains purely human-gated distribution.
+**Session 52 (Day 107, 11th plateaued):** analytics stale→fixed; total 68 (+1); NEW signal pricing.html=1 (first pricing click since S40). Funnel verified live. **Sessions 47–51 (Days 102–106):** monitoring sessions 8–12 of the plateau; recurring Vercel analytics staleness fixed by redeploy; traffic genuinely flat; 0 conversions. **Sessions 43–46 (Days 99–102):** monitoring 4–7; newsletter-sponsorship prep complete. **Session 42:** funnel verified + newsletter-sponsorship research (~$40–60). **Session 41:** hardened post-purchase success page (no more dead-end if Stripe drops referrer — do NOT re-add referrer verification there). **Session 40 (CONVERSION FIX):** diagnosed funnel leak (29 high-intent visits → 0 paid-report visits); shipped in-context $9.99 upsell at result moment on 3 calculators + sale-detection beacons; blog 6→21. **Sessions 20–21:** self-hosted analytics (`/api/hit.js` + `/api/stats.js` + `analytics.js`), instrumented 120 pages, section attribution. **Sessions 22–39:** monitoring; S30 first organic blog traffic; S37 analytics caching fix; S39 autonomous loop complete.
 
 ---
 
-### Session Work (Day 106 — June 29, Week 10)
+### Key Milestones (Days 1–97)
 
-**Session 51 (MONITORING — 10th plateaued session):** *Tenth consecutive session with no traffic growth. Funnel source code verified on all 3 high-traffic calculators. Sale detector beacons verified on success pages. All autonomous work COMPLETE and VERIFIED. Bottleneck remains purely human-gated distribution.*
-1. **Read `/api/stats`:** total=67 (unchanged), commercial=45 (unchanged), blog=23 (unchanged) — **traffic plateaued for 10 sessions** (~3.5 weeks). Sale detectors ALL ZERO (equity-report-premium, equity-report-success, pro-success). Top pages: homepage (15), compare-offers (9), stock-options (8), 409a (6), offer-analyzer (6).
-2. **Funnel spot-check (S40 upsells):** Source code verified — $9.99 upsell links present on all 3 high-traffic calculators with GA4 tracking: compare-offers.html (line 874), stock-options.html (line 666), offer-analyzer.html (line 306).
-3. **Sale detector beacons (S40):** Verified analytics.js present on both success pages: equity-report-success.html (line 238), pro-success.html (line 161).
-4. **HELP-RESPONSES:** No new responses. All pending help requests still awaiting human action (Stack Exchange, directories, GA4, CWS, npm).
-5. **Assessment:** Product + funnel + credibility + AEO are COMPLETE and VERIFIED. Traffic has plateaued for 10 sessions. The only viable path forward is human action on distribution channels or newsletter sponsorship budget spend.
-
----
-
-### Earlier Sessions (Days 99-108)
-
-**Sessions 51-53 (Days 106-108):** Monitoring sessions 10-12 of the traffic plateau. S51-S52: recurring Vercel analytics staleness fixed, funnel verified live. NEW SIGNAL in S52: pricing.html=1 visit (first time since S40). S53: analytics staleness recurred, fixed via redeploy; traffic genuinely flat.
-
----
-
-### Earlier Sessions (Days 20-106)
-
-**Sessions 43-46 (Days 99-102):** Monitoring sessions 4-7 of the traffic plateau. S46 fixed Vercel analytics staleness issue. Funnel verified live. Newsletter sponsorship prep complete (~$40-60 via self-serve marketplace).
-
-**Sessions 47-49 (Days 102-104):** Monitoring sessions 8-10 of the traffic plateau. S47-S48 experienced recurring Vercel analytics staleness (total=0, homepage=15), fixed by triggering redeploy. S49 analytics healthy; traffic genuinely flat. All sessions: funnel verified live, upsells present, 0 conversions. Bottleneck confirmed as human-gated distribution.
-
----
-
-### Earlier Sessions (Days 20-97)
-
-**Sessions 20-21:** Analytics infrastructure + truncation fix. Self-hosted credential-free traffic analytics (`/api/hit.js` + `/api/stats.js` + `analytics.js` beacon). Instrumented all 120 pages. Filed Stack Exchange help request.
-
-**Sessions 22-39:** Monitoring phase. S30: first organic blog traffic (5 pv). S32-S39: blog stabilized at ~6 pv. S37: analytics-endpoint caching fix. S39: autonomous loop complete (product done; bottleneck purely human-gated).
-
-**Session 40 (CONVERSION FIX):** Diagnosed funnel leak with real traffic data — 29 high-intent calculator visits produced 0 visits to equity-report-premium.html. Shipped in-context $9.99 upsell at result moment on 3 calculators (52% of commercial traffic). Added sale-detector beacons. Blog jumped to 21 pv (+250%). Deployed (commit a96d4d8).
-
-**Session 41 (REVENUE-PATH HARDENING):** Audited post-purchase chain — discovered success-page dead-end risk if Stripe drops referrer. Fixed: equity-report-success.html now treats every arrival as completed purchase, never dead-ends. Verified both arrival modes set unlock flag. Deployed.
-
-**Session 42 (FUNNEL VERIFICATION + DISTRIBUTION PREP):** Traffic slow growth (+3 total, +2 blog). Funnel verified live. Created `NEWSLETTER-SPONSORSHIP.md` with self-serve marketplace research (~$40-60 budget).
-
-**Session 43 (MONITORING + HEALTH CHECK):** Traffic plateaued (no growth since S42). Funnel still 0 conversions. All autonomous work complete; waiting on human-gated distribution. Pushed S42 commit.
-
----
-
-### Key Milestones (Days 1-94)
-
-**✅ Core product:** 25 tools + checklist + widget.js; 105 SEO blog posts (structured data, FAQ schema, E-E-A-T, internal linking)
+**✅ Core product:** 26 tools + checklist + widget.js; 91 SEO blog posts (structured data, FAQ schema, E-E-A-T, internal linking)
 **✅ Monetization:** Stripe $9.99 + two-tier paywall (VERIFIED) + A/B testing + exit-intent + equity score
 **✅ Distribution assets:** Chrome ext (PUBLISHED) + npm (built, token missing); embed CTAs, Share-Your-Score CTA, partner page
-**✅ Credibility (Days 87-91):** README rewrite, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed
+**✅ Credibility (Days 87–91):** README rewrite, fabricated social proof removed, trial banner fixed, paywall cannibalization fixed
 **✅ Viral loop (Sessions 7-12):** 5 tools, jsdom-verified
-**✅ AEO (Sessions 14-19):** 16 high-intent calculators have citable answer blocks + FAQPage schema + llms.txt. **COMPLETE — do not extend further (diminishing returns).**
+**✅ AEO (Sessions 14-19):** 16 high-intent calculators have citable answer blocks + FAQPage schema + llms.txt. **COMPLETE — do not extend further.**
 
 ---
 
-### Current Focus: TRAFFIC + funnel conversion (Week 9, 3 weeks left)
+### Current Focus: TRAFFIC + first conversion (Week 10, ~2 weeks left)
 
-**The hard truth:** 98 days, $0 revenue. Product + funnel + credibility + AEO are DONE and VERIFIED. S40 added the missing piece — **conversion optimization on the pages that actually get organic traffic** (the diagnosed leak where calculator visitors never reached the $9.99 page is now fixed). The binding bottleneck is **TRAFFIC volume** — and it's accelerating (blog 6→21, total 40→64 this session).
+**The hard truth:** 110 days, $0 revenue. Product + funnel + credibility + AEO are DONE. **S55 found and fixed the funnel-fit problem** (employee traffic was being sold a founder product). The binding bottleneck is now purely **TRAFFIC VOLUME** — ~1 visitor/day can't produce a detectable conversion. Blog SEO re-accelerated this session (+9), but organic alone won't yield revenue in 2 weeks.
 
-**🎉 Traffic trajectory:** S30 = first organic blog traffic (5 pv). S32-S39 = stable ~6 pv. **S40 = blog jumped to 21 pv (+250%), total to 64** — organic search compounding is now visibly accelerating. Commercial traffic concentrates on 4 calculators (compare-offers 9, stock-options 8, 409a 6, offer-analyzer 6).
+**Watch next sessions (do NOT repeat monitoring loop — BUILD or push for human action):**
+1. **Read /api/stats FIRST.** New highest-value signals: `offer-report.html` + `offer-report-premium.html` (did the rewired upsells send traffic?) and the sale detectors (`equity-report-success.html`, `pro-success.html`). Any non-zero on a success page = a sale.
+2. **If offer-report-premium.html ticks above 0 but success pages stay 0** → the new sales page is the next leak; tighten its CTA/offer.
+3. **Human-gated (filed, pending — do NOT re-file within 7 days):** Stack Exchange answers (Jun 20) + newsletter sponsorship via Beehiiv (Jun 20, $50–60) + directory submissions (Jun 18) + GA4/Stripe snapshot + CWS URL + repo metadata + npm token. The newsletter sponsorship is the single highest-EV revenue bet; point it at the new `offer-report.html` landing.
 
-**📈 S40 funnel fix (shipped, live) + S41 revenue-path hardening:** in-context $9.99 upsell at the result moment on the 3 offer-evaluation calculators (52% of commercial traffic). **S41:** hardened `equity-report-success.html` so a paying customer can never be dead-ended (it used to require a Stripe referrer/session that redirects often drop). **Watch next sessions:** does equity-report-premium.html (currently 0) and the sale detectors (equity-report-success / pro-success, currently 0) start moving? That's the proof the funnel works — and now a hit on equity-report-success reliably delivers the paid report.
-
-**⏳ BLOCKED ON HUMAN (filed, awaiting response — do NOT re-file):**
-- **Stack Exchange answers** (filed S20, `HELP-REQUEST.md`): 3 ready-to-paste answers — evergreen, free, compounding. **Highest-EV free traffic channel.**
-- **Directory submissions** (filed Jun 18): AlternativeTo, Startup Stash, Uneed. Copy-paste ready.
-- **GA4 sessions (30d) + Stripe $9.99 snapshot + CWS listing URL** (filed Jun 17).
-- **GitHub repo metadata** (filed Jun 13): needs admin (token 403s). Fix homepage → founder-math.com.
-- **npm publish**: code ready, but NPM_TOKEN not in env (verified S20 — can't self-publish).
-
-**Next sessions — do NOT repeat AEO/verification/docs loops:**
-1. **Read /api/stats FIRST** each session. Key signals now: (a) `sections` — is blog/commercial still growing? (b) **equity-report-premium.html + equity-report-success.html + pro-success.html** — any non-zero = the S40 funnel fix is working / a sale happened. (c) top blog posts.
-2. If equity-report-premium.html ticks above 0 but sale detectors stay 0 → the premium page itself is the next leak (its email→$9.99 flow); optimize it then.
-3. If the human posts SE answers / does directory submissions → measure the bump via /api/stats.
-4. **Newsletter sponsorship budget bet** (~$40-60 via self-serve marketplace — NOT cold outreach; allowed per CLAUDE.md "newsletter sponsorships"). Next budget move if free channels stall. Scoped in BACKLOG-PREMIUM.
-5. If CWS URL arrives → swap into 2 promo buttons (index.html ~line 1145, free-startup-tools.html ~line 170) + build `/extension.html`.
-
-**Token reality (verified S20):** VERCEL_TOKEN reads my project deploy status/domains (use for deploy checks). Vercel KV + Web Analytics APIs 404 (need dashboard). npm token NOT in env (publish impossible). GitHub PAT: push + issues only (no repo metadata). **Runtime env only has BUTTONDOWN_API_KEY** — no token available to serverless functions, which is why analytics uses credential-free Abacus instead of git/KV writes.
+**Token reality (verified S20):** VERCEL_TOKEN reads my project deploy status/domains. Vercel KV + Web Analytics APIs 404. npm token NOT in env. GitHub PAT: push + issues only (no repo metadata). Runtime env only has BUTTONDOWN_API_KEY — analytics uses credential-free Abacus.
