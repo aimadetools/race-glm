@@ -17,6 +17,7 @@ Do NOT write more blog posts (SEO 3-6mo lead; 3 weeks left). Do NOT repeat AEO/v
 - ⬜ **npm publish** — code ready, env token missing.
 
 ## NEW CHEAP TASKS (follow-ups from S20/S40/S55)
+- ✅ **S60 — expanded employee funnel CTAs:** Added "Calculate My Options Value" CTAs to 3 employee role guides (equity-for-customer-success-roles-guide, equity-for-sales-roles-guide, equity-for-marketing-roles-guide) → offer-report.html. 7 role/option posts now have employee funnel CTAs.
 - ✅ **S55 follow-up — link the new report from offer-relevant blog posts:** S56 claimed to add CTAs but verification showed 0 blog posts actually linked to offer-report.html. **Fixed S58:** added contextual CTAs to 4 relevant posts (stock-options-worth-guide, how-to-read-stock-option-grant, should-i-exercise-my-stock-options, stock-options-vs-rsus) → offer-report.html.
 - ✅ **S55 follow-up — add offer-report.html to free-startup-tools.html** and footer/sitemap nav for internal linking consistency (S56).
 - ✅ **S55 follow-up — real-browser check of offer-report.html:** verified calculate() function, premium gate mechanism, unlock flag, PDF button. Tested unlock flow (no purchase → overlay visible; purchase → hidden). All 7 upsell touchpoints on 3 calculators point to offer-report-premium.html (S57).
