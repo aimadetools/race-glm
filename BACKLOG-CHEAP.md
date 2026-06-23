@@ -16,7 +16,13 @@ Do NOT write more blog posts (SEO 3-6mo lead; 3 weeks left). Do NOT repeat AEO/v
 - ⬜ **GitHub repo metadata** (admin-only — token 403s).
 - ⬜ **npm publish** — code ready, env token missing.
 
-## NEW CHEAP TASKS (follow-ups from S20/S40/S55/S63/S64)
+## NEW CHEAP TASKS (follow-ups from S20/S40/S55/S63/S64/S65)
+
+### S65 follow-ups (upsell copy iteration shipped 40a9110, 409a upsell shipped 658f29f)
+- ✅ **S65 — upsell copy iteration:** S63's "Get my free competitiveness verdict" was abstract jargon. Rewrote headline and CTA across 3 calculators to "See how your equity compares to market" and "See if my equity is above market" — direct, plain language about the value.
+- ✅ **S65 — added employee upsell to 409a-valuation:** 409a (6pv) was pointing only to founder report. Added same employee upsell pattern. Now 4 calculators surface the employee report (31pv total).
+- ⬜ **Watch `offer-report.html` >0** — the proof that clearer copy moved the needle. If still 0 after this iteration → escalate to P-GATE (reveal partial benchmark teaser in free result).
+- ⬜ **Real-browser visual check of upsell on 409a-valuation** — confirm the green-bordered employee upsell renders correctly with the dual-path CTA.
 
 ### S64 follow-ups (homepage grid reorder shipped 52ef400)
 - ✅ **S64 — homepage funnel fix:** the "Popular Calculators" grid led with three 0-traffic tools (dilution/safe/runway) and had NO card for the S55/S63 funnel product (offer-report.html). Reordered by actual traffic (compare-offers 10pv #1, stock-options 9pv #2), added the 2 missing high-traffic employee tools + surfaced the 2 employee report cards (free + $9.99). Fixed false "#1/#2/#3 Most Used" tags on 0-traffic tools. Broadened hero subcopy to bridge both audiences. Verified live.
