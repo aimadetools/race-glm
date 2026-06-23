@@ -293,18 +293,16 @@
     <!-- Findings -->
     <div class="findings-grid" id="findingsGrid"></div>
 
-    <!-- S40 in-context upsell: appears right after the user sees their red flags / score. -->
-    <div class="result-upsell" style="margin:24px 0;padding:24px;background:linear-gradient(135deg,rgba(254,202,87,0.10),rgba(255,165,2,0.06));border:2px solid var(--orange);border-radius:14px;">
-        <h3 style="font-size:1.15rem;font-weight:700;margin:0 0 6px;color:var(--text-primary);">📊 Turn this scan into a negotiation action plan</h3>
-        <p style="color:var(--text-secondary);font-size:0.9rem;margin:0 0 12px;line-height:1.6;">You've spotted the red flags — now find out what your options are actually worth. Get exit-value scenarios, a benchmark verdict, and a PDF to bring to your negotiation.</p>
-        <ul style="list-style:none;padding:0;margin:0 0 14px;color:var(--text-secondary);font-size:0.88rem;line-height:1.9;">
-            <li>✓ What your options are worth today &amp; at exit</li>
-            <li>✓ "Is this a good grant?" benchmark verdict</li>
-            <li>✓ Full vesting timeline &amp; exercise cost</li>
-            <li>✓ Professional PDF, ready in 60 seconds</li>
-        </ul>
-        <a href="offer-report-premium.html" onclick="if(typeof gtag==='function')gtag('event','upsell_click',{source:'offer_analyzer_result'})" style="display:inline-block;background:var(--orange);color:white;padding:13px 30px;border-radius:9px;font-weight:700;text-decoration:none;font-size:1rem;">Get My Options Report — $9.99 &rarr;</a>
-        <span style="display:inline-block;margin-left:10px;color:var(--text-muted);font-size:0.8rem;">One-time · money-back guarantee</span>
+    <!-- S63 curiosity-gap upsell: you've scanned for red flags — now the bigger question, is the equity actually good. -->
+    <div class="result-upsell" style="margin:24px 0;padding:26px 28px;background:linear-gradient(135deg,rgba(16,185,129,0.10),rgba(254,202,87,0.07));border:2px solid var(--green);border-radius:16px;">
+        <h3 style="font-size:1.18rem;font-weight:800;margin:0 0 8px;color:var(--text-primary);">You've scanned for red flags. But is the equity <span style="color:var(--green);">good</span>?</h3>
+        <p style="color:var(--text-secondary);font-size:0.92rem;margin:0 0 6px;line-height:1.6;">A clean offer letter isn't the same as a generous one. The scan checks for traps — now see whether the equity itself is <strong>above or below market</strong>, with a verdict you can use to ask for more.</p>
+        <p style="color:var(--text-secondary);font-size:0.86rem;margin:0 0 14px;line-height:1.6;"><strong style="color:var(--text-primary);">Your report includes:</strong> a market benchmark verdict (strong&nbsp;/ fair&nbsp;/ below market), exit-value scenarios, the vesting schedule, and a PDF to back up your ask.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
+            <a href="offer-report.html" onclick="if(typeof gtag==='function')gtag('event','upsell_click',{source:'offer_analyzer_result',path:'free_verdict'})" style="display:inline-block;background:linear-gradient(135deg,#10b981,#059669);color:white;padding:14px 28px;border-radius:10px;font-weight:700;text-decoration:none;font-size:1rem;">Get my free competitiveness verdict &rarr;</a>
+            <a href="offer-report-premium.html" onclick="if(typeof gtag==='function')gtag('event','upsell_click',{source:'offer_analyzer_result',path:'buy_now'})" style="color:var(--text-secondary);font-size:0.9rem;text-decoration:underline;font-weight:600;">or buy the full report — $9.99</a>
+        </div>
+        <p style="margin:12px 0 0;color:var(--text-muted);font-size:0.78rem;">One-time · no subscription · 30-day money-back guarantee.</p>
     </div>
 
     <!-- Share CTA -->
