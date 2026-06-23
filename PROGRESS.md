@@ -14,6 +14,10 @@
 
 ### Session Work (Day 112+ — June 23, Week 10)
 
+**Session 67 (analytics fix + funnel assessment):** Analytics staleness recurred (/api/stats returned zeros despite Abacus having correct data). Fixed via redeploy (commit 5ce259c). Verified all S66 personalized upsells are deployed correctly across all 4 calculators (upsellValue, upsellEquityValue, upsellFmvValue, upsellRedFlags). **Diagnosis after 4 iterations (S63/S64/S65/S66):** offer-report.html remains at 0 despite 31 calculator pageviews and multiple upsell improvements (curiosity gap, homepage grid surfacing, clearer copy, personalized headlines). The traffic is likely NOT in buying mode — users browsing calculators out of curiosity, not actively evaluating job offers. **Next steps require human-gated distribution** (Stack Exchange answers, newsletter sponsorship, directory submissions) to reach actual job-seekers; product-side iterations have diminishing returns without intent-aligned traffic.
+
+---
+
 **Session 66 (P-GATE — PERSONALIZED curiosity-gap upsell):** Traffic read (total 112, unchanged from S65; homepage 22, employee calculators 25pv combined; `offer-report.html` still **0**). After 3 sessions (S63/S64/S65) with 0 clicks to the free verdict page despite 25-31 calculator pageviews, diagnosed that the upsell copy — even the improved S65 version — was still generic and abstract ("See how your equity compares to market"). Users had no reason to click because the curiosity gap wasn't personalized to THEIR specific numbers. **Escalated to P-GATE:** show each user's ACTUAL calculated value in the upsell headline to make the curiosity gap specific and compelling.
 1. **The insight:** "Your equity compares to market" is abstract jargon. "Your options are worth **$40,000** — see if that's above market" creates an immediate, personal information gap — they just saw that number, now they're asked if it's "good."
 2. **Implemented personalized upsell headlines on all 4 calculators:**
