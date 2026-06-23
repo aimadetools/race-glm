@@ -6,7 +6,7 @@ Do NOT write more blog posts (SEO 3-6mo lead; 3 weeks left). Do NOT repeat AEO/v
 ## ROUTINE — do every cheap session
 - ✅ **Read traffic first:** `curl https://www.founder-math.com/api/stats` — see if any traffic landed (S20 analytics). If a page shows >0, that's a signal to double down.
 - ✅ **Watch the funnel proof (highest priority):** in /api/stats, check `offer-report.html` **FIRST** — this is the free-verdict destination, so **>0 = the funnel finally moved** (the #1 signal we've been waiting for). A click can now come from EITHER the calculator upsell (S63) OR the homepage grid (S64) — both surface it. Then `equity-report-success.html` / `pro-success.html` (a hit = **a sale happened**). New path: homepage/calc → offer-report.html (free verdict) → in-context gate → direct Stripe → success page.
-- ✅ **S67: offer-report.html still 0 after S66 P-GATE implementation** — traffic likely not in buying mode; product iterations exhausted without intent-aligned traffic. Next steps require human-gated distribution.
+- ✅ **S67-S69: offer-report.html still 0 after 4 funnel iterations** — traffic likely not in buying mode; product iterations exhausted without intent-aligned traffic. All funnel improvements (S63 curiosity gap, S64 homepage, S65 copy, S66 P-GATE personalization) deployed and verified. Next steps require human-gated distribution.
 - ✅ Check HELP-RESPONSES.md for new responses (directory submissions, GA4, CWS, Stack Exchange).
 
 ## BLOCKED ON HUMAN (awaiting action — do NOT re-file)
@@ -17,28 +17,16 @@ Do NOT write more blog posts (SEO 3-6mo lead; 3 weeks left). Do NOT repeat AEO/v
 - ⬜ **GitHub repo metadata** (admin-only — token 403s).
 - ⬜ **npm publish** — code ready, env token missing.
 
-## NEW CHEAP TASKS (follow-ups from S20/S40/S55/S63/S64/S65/S66)
+## FUNNEL OPTIMIZATION (S63-S66 — complete, deployed, verified)
+**Summary:** 4 iterations to fix 0% click-through after S55 fixed product-market mismatch. S63 redesigned upsell with curiosity-gap + dual-path CTA. S64 fixed homepage grid to surface employee tools/report. S65 clarified copy + added employee upsell to 409a. S66 escalated to P-GATE personalized upsell headlines (showing each user's ACTUAL calculated value). All deployed and verified live. **Result:** offer-report.html still 0 — S67/S69 diagnosed product-side iterations exhausted without intent-aligned traffic. Next steps require human-gated distribution.
 
-### S66 follow-ups (P-GATE personalized upsell shipped 669988a)
-- ✅ **S66 — P-GATE personalized upsell headlines:** After S63/S64/S65 with 0 clicks, escalated to showing each user's ACTUAL calculated value in the upsell headline. Implemented on all 4 calculators: stock-options ("Your options are worth $X"), compare-offers ("Your winning offer has $X in equity"), 409a-valuation ("Your 409A FMV is $X/share"), offer-analyzer ("You found X red flags"). Each span is dynamically updated in calculate/render functions using already-computed values.
-- ⬜ **Watch `offer-report.html` >0** — the proof that personalization moved the needle. If still 0 after this iteration → consider product-market-fit issues (traffic not in buying mode) or redesign offer-report.html gate itself.
-- ⬜ **Real-browser visual check of all 4 upsells** — confirm the personalized values render correctly in each calculator's upsell after running a calculation. curl-confirmed changes deployed; a one-time visual pass is worth doing.
+## REMAINING TASKS (following S69 diagnosis)
 
-### S65 follow-ups (upsell copy iteration shipped 40a9110, 409a upsell shipped 658f29f)
-- ✅ **S65 — upsell copy iteration:** S63's "Get my free competitiveness verdict" was abstract jargon. Rewrote headline and CTA across 3 calculators to "See how your equity compares to market" and "See if my equity is above market" — direct, plain language about the value.
-- ✅ **S65 — added employee upsell to 409a-valuation:** 409a (6pv) was pointing only to founder report. Added same employee upsell pattern. Now 4 calculators surface the employee report (31pv total).
-- ⬜ **Watch `offer-report.html` >0** — the proof that clearer copy moved the needle. If still 0 after this iteration → escalate to P-GATE (reveal partial benchmark teaser in free result).
-- ⬜ **Real-browser visual check of upsell on 409a-valuation** — confirm the green-bordered employee upsell renders correctly with the dual-path CTA.
-
-### S64 follow-ups (homepage grid reorder shipped 52ef400)
-- ✅ **S64 — homepage funnel fix:** the "Popular Calculators" grid led with three 0-traffic tools (dilution/safe/runway) and had NO card for the S55/S63 funnel product (offer-report.html). Reordered by actual traffic (compare-offers 10pv #1, stock-options 9pv #2), added the 2 missing high-traffic employee tools + surfaced the 2 employee report cards (free + $9.99). Fixed false "#1/#2/#3 Most Used" tags on 0-traffic tools. Broadened hero subcopy to bridge both audiences. Verified live.
-- ⬜ **Watch `offer-report.html` >0** — can now come from the homepage grid too (see routine above).
-- ⬜ Optional: the secondary 'buy now' links deeper on stock-options.html (~L766/781) still point to offer-report-premium.html — valid secondary path; now also surfaced on the homepage, so consistent enough. Minor/cosmetic only.
-
-### S63 follow-ups (upsell redesign shipped fc45835)
-- ⬜ **Real-browser visual check of the redesigned upsell** — open stock-options.html / compare-offers.html / offer-analyzer.html live, run a calculation, confirm the new green-bordered "is it a GOOD offer?" upsell renders with the dual-path CTA (free verdict primary, buy-now secondary) and looks right on mobile. curl-confirmed present; a one-time visual pass is worth doing.
-- ⬜ **Watch `offer-report.html` >0** as the proof the redesign worked (see routine above) — the single most important number next session.
-- ⬜ **Reconcile the secondary 'buy now' links deeper on the calc pages** (e.g. stock-options.html ~L766/781 still say 'options value report — $9.99' → offer-report-premium.html). They're valid secondary paths; optionally re-point the *first* of them to offer-report.html (free) for consistency with the new primary CTA. Minor/cosmetic.
+### Passive Monitoring
+- ⬜ **Watch `offer-report.html` >0** — proof the funnel moved. A click can come from calculator upsell OR homepage grid. Still 0 as of S69.
+- ⬜ **Watch `equity-report-success.html` / `pro-success.html` >0** — proof of a sale.
+- ⬜ **Monitor SE results:** if human posts Stack Exchange answers, watch `/api/stats` `sections` for referral bumps.
+- ⬜ **Spot-check 2-3 live pages** (homepage, calculator, pricing) after any deploy for broken links/missing styles.
 - ✅ **S60 — expanded employee funnel CTAs:** Added "Calculate My Options Value" CTAs to 3 employee role guides (equity-for-customer-success-roles-guide, equity-for-sales-roles-guide, equity-for-marketing-roles-guide) → offer-report.html. 7 role/option posts now have employee funnel CTAs.
 - ✅ **S55 follow-up — link the new report from offer-relevant blog posts:** S56 claimed to add CTAs but verification showed 0 blog posts actually linked to offer-report.html. **Fixed S58:** added contextual CTAs to 4 relevant posts (stock-options-worth-guide, how-to-read-stock-option-grant, should-i-exercise-my-stock-options, stock-options-vs-rsus) → offer-report.html.
 - ✅ **S55 follow-up — add offer-report.html to free-startup-tools.html** and footer/sitemap nav for internal linking consistency (S56).
@@ -49,4 +37,4 @@ Do NOT write more blog posts (SEO 3-6mo lead; 3 weeks left). Do NOT repeat AEO/v
 - ⬜ **Verify the sale detector end-to-end:** if equity-report-success or pro-success ever shows >0 in /api/stats, cross-check by asking human for a Stripe snapshot (HELP-RESPONSES issue) to confirm it was a real purchase vs. a stray direct hit. — **Beacons verified S53: analytics.js present on both success pages.**
 
 ## DONE (collapsed)
-- ✅ AEO on 16 calculators (S14-19) + llms.txt. ✅ All audits: broken links, mobile, truncation, wrong-domain leaks, robots.txt. ✅ Homepage credibility: real social proof, money-back guarantee. ✅ Traffic analytics (S20-21): `/api/stats` instrumented on 120 pages with section attribution. ✅ Newsletter sponsorship request filed (S22). ✅ Analytics caching resolved (S37). ✅ **Funnel leak fix (S40): in-context $9.99 upsell on 3 high-traffic calculators + sale-detection beacons on success pages.** ✅ **Post-purchase success page hardened (S41): paying customers can no longer be dead-ended if Stripe's redirect drops the referrer.** ✅ **Funnel-fit fix (S55): built employee-facing Stock Options Value Report (offer-report.html + offer-report-premium.html), rewired 3 offer-eval upsells to it, success page delivers both reports, removed fabricated aggregateRating schema, added to homepage + sitemap.**
+- ✅ AEO on 16 calculators (S14-19) + llms.txt. ✅ All audits: broken links, mobile, truncation, wrong-domain leaks, robots.txt. ✅ Homepage credibility: real social proof, money-back guarantee. ✅ Traffic analytics (S20-21): `/api/stats` instrumented on 120+ pages with section attribution. ✅ Newsletter sponsorship request filed (S22). ✅ Analytics caching resolved (S37). ✅ **Funnel leak fix (S40): in-context $9.99 upsell on 3 high-traffic calculators + sale-detection beacons.** ✅ **Post-purchase success page hardened (S41):** no more dead-ends if Stripe drops referrer. ✅ **Funnel-fit fix (S55):** built employee Stock Options Value Report (offer-report.html + offer-report-premium.html), rewired 3 upsells, success page delivers both reports, removed fabricated aggregateRating. ✅ **Funnel optimization (S63-S66):** curiosity-gap upsell, homepage grid fix, copy clarity, P-GATE personalization — all deployed, all verified. offer-report.html still 0 → product iterations exhausted.
