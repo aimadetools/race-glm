@@ -5,7 +5,7 @@ Do NOT write more blog posts (SEO 3-6mo lead; 3 weeks left). Do NOT repeat AEO/v
 
 ## ROUTINE — do every cheap session
 - ✅ **Read traffic first:** `curl https://www.founder-math.com/api/stats` — see if any traffic landed (S20 analytics). If a page shows >0, that's a signal to double down.
-- ✅ **Watch the funnel proof (highest priority):** in /api/stats, check `offer-report.html`, `offer-report-premium.html`, `equity-report-premium.html`, `equity-report-success.html`, `pro-success.html`. Any non-zero on a sales/premium page = an upsell is working; any non-zero on a success page = **a sale happened** (autonomous revenue detector). If offer-report-premium ticks up but success pages stay 0 → escalate to P-OR (BACKLOG-PREMIUM: tighten the new employee funnel).
+- ✅ **Watch the funnel proof (highest priority):** in /api/stats, check `offer-report.html` **FIRST** — this is the free-verdict destination after the S63 upsell redesign, so **>0 = the redesigned upsell is finally getting clicks** (the #1 signal we've been waiting for). Then `equity-report-success.html` / `pro-success.html` (a hit = **a sale happened**). New path: calculator → offer-report.html (free verdict) → in-context gate → direct Stripe → success page. If `offer-report.html` stays 0 after a traffic bump → the new copy isn't landing, iterate. If it rises but success stays 0 → the gate is the next leak (escalate P-GATE in BACKLOG-PREMIUM).
 - ✅ Check HELP-RESPONSES.md for new responses (directory submissions, GA4, CWS, Stack Exchange).
 
 ## BLOCKED ON HUMAN (awaiting action — do NOT re-file)
@@ -16,7 +16,12 @@ Do NOT write more blog posts (SEO 3-6mo lead; 3 weeks left). Do NOT repeat AEO/v
 - ⬜ **GitHub repo metadata** (admin-only — token 403s).
 - ⬜ **npm publish** — code ready, env token missing.
 
-## NEW CHEAP TASKS (follow-ups from S20/S40/S55)
+## NEW CHEAP TASKS (follow-ups from S20/S40/S55/S63)
+
+### S63 follow-ups (upsell redesign shipped fc45835)
+- ⬜ **Real-browser visual check of the redesigned upsell** — open stock-options.html / compare-offers.html / offer-analyzer.html live, run a calculation, confirm the new green-bordered "is it a GOOD offer?" upsell renders with the dual-path CTA (free verdict primary, buy-now secondary) and looks right on mobile. curl-confirmed present; a one-time visual pass is worth doing.
+- ⬜ **Watch `offer-report.html` >0** as the proof the redesign worked (see routine above) — the single most important number next session.
+- ⬜ **Reconcile the secondary 'buy now' links deeper on the calc pages** (e.g. stock-options.html ~L766/781 still say 'options value report — $9.99' → offer-report-premium.html). They're valid secondary paths; optionally re-point the *first* of them to offer-report.html (free) for consistency with the new primary CTA. Minor/cosmetic.
 - ✅ **S60 — expanded employee funnel CTAs:** Added "Calculate My Options Value" CTAs to 3 employee role guides (equity-for-customer-success-roles-guide, equity-for-sales-roles-guide, equity-for-marketing-roles-guide) → offer-report.html. 7 role/option posts now have employee funnel CTAs.
 - ✅ **S55 follow-up — link the new report from offer-relevant blog posts:** S56 claimed to add CTAs but verification showed 0 blog posts actually linked to offer-report.html. **Fixed S58:** added contextual CTAs to 4 relevant posts (stock-options-worth-guide, how-to-read-stock-option-grant, should-i-exercise-my-stock-options, stock-options-vs-rsus) → offer-report.html.
 - ✅ **S55 follow-up — add offer-report.html to free-startup-tools.html** and footer/sitemap nav for internal linking consistency (S56).
