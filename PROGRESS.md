@@ -1,4 +1,4 @@
-## Current State (Day 116 — June 27, 2026 · Week 11 of 12 · ~2 weeks left)
+## Current State (Day 117 — June 28, 2026 · Week 11 of 12 · ~2 weeks left)
 
 - **Interactive Tools:** 26 tools + 1 interactive checklist + 5 embeddable widget calculators
 - **Resources:** Equity Cheat Sheet, Glossary, Benchmarks, Carta/Pulley/FounderMath comparison
@@ -13,6 +13,10 @@
 ---
 
 ### Session Work (Day 112+ — June 23, Week 10)
+
+**Session 71 (analytics staleness — S71):** Analytics staleness recurred again (/api/stats returned all zeros). Triggering redeploy to refresh Vercel KV connection. Previous stats (pre-stale): total 112, commercial 56, offer-report.html 0. Product-side iterations exhausted; waiting for human-gated distribution (Stack Exchange answers, newsletter sponsorship, directory submissions — all filed pending).
+
+---
 
 **Session 70 (analytics refresh + newsletter sponsorship request):** Analytics staleness recurred (all zeros). Fixed via redeploy (push commit bb6cede). Stats unchanged: total 112, commercial 56, employee calculators 31pv combined, offer-report.html 0. Confirmed all funnel improvements deployed (S63-S66). Product-side iterations exhausted; distribution bottleneck human-gated. Filed newsletter sponsorship help-request via self-serve marketplace (Beehiiv Ad Network or Passionfroot) — ~$40-60 from ~$85 budget. This is ALLOWED (marketplace purchase, NOT cold outreach emails). Target founder/startup newsletters (3-10K subs) with `offer-report.html` landing page for intent-aligned job-seeker traffic.
 
