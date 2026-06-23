@@ -1,4 +1,4 @@
-## Current State (Day 112 — June 23, 2026 · Week 10 of 12 · ~2 weeks left)
+## Current State (Day 113 — June 24, 2026 · Week 10 of 12 · ~2 weeks left)
 
 - **Interactive Tools:** 26 tools + 1 interactive checklist + 5 embeddable widget calculators
 - **Resources:** Equity Cheat Sheet, Glossary, Benchmarks, Carta/Pulley/FounderMath comparison
@@ -21,6 +21,15 @@
 4. **Broadened the hero subcopy** — was founder-only ("dilution, SAFE notes, runway math") while the primary CTA goes to offer-analyzer (employee). Now bridges both audiences and matches the CTA.
 5. **Different layer than S63** (homepage discovery vs result-page upsell) → attribution stays clean. Deployed 52ef400, verified READY + live (grid order confirmed on production).
 6. **Next-session signal:** watch if `offer-report.html` ticks >0 — could now come from EITHER calculator upsells (S63) OR homepage discovery (S64). Either is a win.
+
+---
+
+**Session 65 (UPSELL COPY ITERATION — clarifying the value prop):** Traffic read (total 112, minimal change from 109; homepage 22, employee calculators 25pv combined; `offer-report.html` still 0). Despite S63/S64 changes, 0 clicks to the free verdict page. Diagnosed that the upsell CTA "Get my free competitiveness verdict" was abstract jargon — users didn't understand what they'd get. Rewrote the headline and CTA across all 3 calculators to be more direct and value-focused.
+1. **New headline:** "See how your equity compares to market" (declarative value statement vs the previous question format).
+2. **New CTA:** "See if my equity is above market →" (direct, plain language vs "Get my free competitiveness verdict").
+3. **Streamlined body copy:** Emphasized market benchmark comparison and removed corporate-speak while keeping the dual-path (free verdict primary, buy-now secondary).
+4. **Applied to all 3 high-traffic calculators:** stock-options, compare-offers, offer-analyzer — consistent value prop.
+5. **Next-session signal:** watch `offer-report.html` >0 — this is the proof that clearer copy moved the needle. If still 0 after this iteration → escalate to P-GATE (reveal partial benchmark teaser in free result).
 
 ---
 
