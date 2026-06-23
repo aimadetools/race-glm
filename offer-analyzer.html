@@ -293,9 +293,9 @@
     <!-- Findings -->
     <div class="findings-grid" id="findingsGrid"></div>
 
-    <!-- S63 curiosity-gap upsell: you've scanned for red flags — now the bigger question, is the equity actually good. -->
+    <!-- S63/P-GATE curiosity-gap upsell: you've scanned for red flags — now the bigger question, is the equity actually good. Now PERSONALIZED with red flag count. -->
     <div class="result-upsell" style="margin:24px 0;padding:26px 28px;background:linear-gradient(135deg,rgba(16,185,129,0.10),rgba(254,202,87,0.07));border:2px solid var(--green);border-radius:16px;">
-        <h3 style="font-size:1.18rem;font-weight:800;margin:0 0 8px;color:var(--text-primary);">See how your equity <span style="color:var(--green);">compares to market</span></h3>
+        <h3 style="font-size:1.18rem;font-weight:800;margin:0 0 8px;color:var(--text-primary);">You found <span id="upsellRedFlags" style="color:var(--red);font-weight:900;">0</span> red flag(s) — see if the equity <span style="color:var(--green);">makes up for it</span></h3>
         <p style="color:var(--text-secondary);font-size:0.92rem;margin:0 0 6px;line-height:1.6;">A clean offer letter isn't the same as a generous one. You've checked for red flags — now see whether the equity is <strong>above or below market</strong>, with a verdict you can use to ask for more.</p>
         <p style="color:var(--text-secondary);font-size:0.86rem;margin:0 0 14px;line-height:1.6;"><strong style="color:var(--text-primary);">Your report includes:</strong> market benchmark comparison (above/fair/below market), exit-value scenarios, full vesting schedule, and PDF — personalized with your numbers.</p>
         <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
@@ -816,6 +816,9 @@ function renderScore(score, redFlags) {
 function renderStats(redFlags, warnings, good, missing) {
     document.getElementById('statsBar').style.display = 'grid';
     document.getElementById('statRedFlags').textContent = redFlags;
+    // P-GATE: Update upsell with red flag count
+    const upsellEl = document.getElementById('upsellRedFlags');
+    if (upsellEl) upsellEl.textContent = redFlags;
     document.getElementById('statWarnings').textContent = warnings;
     document.getElementById('statGood').textContent = good;
     document.getElementById('statMissing').textContent = missing;

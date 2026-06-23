@@ -653,9 +653,9 @@
             <p id="verdictText">Loading...</p>
         </div>
 
-        <!-- S63 curiosity-gap upsell: the calculator gives the MATH; the report answers the question that actually decides the offer. -->
+        <!-- S63/P-GATE curiosity-gap upsell: the calculator gives the MATH; the report answers the question that actually decides the offer. Now PERSONALIZED with their actual value. -->
         <div class="result-upsell" style="max-width:760px;margin:24px auto;padding:26px 28px;background:linear-gradient(135deg,rgba(16,185,129,0.10),rgba(254,202,87,0.07));border:2px solid var(--green);border-radius:16px;">
-            <h3 style="font-size:1.18rem;font-weight:800;margin:0 0 8px;color:var(--text-primary);">See how your equity <span style="color:var(--green);">compares to market</span></h3>
+            <h3 style="font-size:1.18rem;font-weight:800;margin:0 0 8px;color:var(--text-primary);">Your options are worth <span id="upsellValue" style="color:var(--green);font-weight:900;">$0</span> — see if that's <span style="color:var(--green);">above market</span></h3>
             <p style="color:var(--text-secondary);font-size:0.92rem;margin:0 0 6px;line-height:1.6;">You know what your options are worth. Now find out if that's <strong>above or below market</strong> for your role, company stage, and location — plus exact negotiation language if it's low.</p>
             <p style="color:var(--text-secondary);font-size:0.86rem;margin:0 0 14px;line-height:1.6;"><strong style="color:var(--text-primary);">Your report includes:</strong> market benchmark comparison (above/fair/below market), exit-value scenarios, full vesting schedule, and PDF — personalized with your numbers.</p>
             <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
@@ -1042,6 +1042,9 @@ function render(r) {
     // Summary cards
     document.getElementById('currentValue').textContent = fmtWhole(r.grossValue);
     document.getElementById('currentValue').style.color = r.grossValue > 0 ? 'var(--green)' : 'var(--red)';
+    // P-GATE: Update upsell with personalized value
+    const upsellEl = document.getElementById('upsellValue');
+    if (upsellEl) upsellEl.textContent = fmtWhole(r.grossValue);
     document.getElementById('vestedValue').textContent = fmtWhole(r.vestedValue);
     document.getElementById('vestedValue').style.color = r.vestedValue > 0 ? 'var(--green)' : 'var(--text-primary)';
     document.getElementById('pctVested').textContent = (r.vestedPct * 100).toFixed(1) + '%';
