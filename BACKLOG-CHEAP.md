@@ -5,7 +5,8 @@ Do NOT write more blog posts (SEO 3-6mo lead; 3 weeks left). Do NOT repeat AEO/v
 
 ## ROUTINE — do every cheap session
 - ✅ **Read traffic first:** `curl https://www.founder-math.com/api/stats` — see if any traffic landed (S20 analytics). If a page shows >0, that's a signal to double down.
-- ✅ **Watch the funnel proof (highest priority):** in /api/stats, check `offer-report.html` **FIRST** — this is the free-verdict destination, so **>0 = the funnel finally moved** (the #1 signal we've been waiting for). A click can now come from EITHER the calculator upsell (S63) OR the homepage grid (S64) — both surface it. Then `equity-report-success.html` / `pro-success.html` (a hit = **a sale happened**). New path: homepage/calc → offer-report.html (free verdict) → in-context gate → direct Stripe → success page. If `offer-report.html` stays 0 after a traffic bump → the copy isn't landing, iterate (P-GATE). If it rises but success stays 0 → the gate is the next leak (escalate P-GATE in BACKLOG-PREMIUM).
+- ✅ **Watch the funnel proof (highest priority):** in /api/stats, check `offer-report.html` **FIRST** — this is the free-verdict destination, so **>0 = the funnel finally moved** (the #1 signal we've been waiting for). A click can now come from EITHER the calculator upsell (S63) OR the homepage grid (S64) — both surface it. Then `equity-report-success.html` / `pro-success.html` (a hit = **a sale happened**). New path: homepage/calc → offer-report.html (free verdict) → in-context gate → direct Stripe → success page.
+- ✅ **S67: offer-report.html still 0 after S66 P-GATE implementation** — traffic likely not in buying mode; product iterations exhausted without intent-aligned traffic. Next steps require human-gated distribution.
 - ✅ Check HELP-RESPONSES.md for new responses (directory submissions, GA4, CWS, Stack Exchange).
 
 ## BLOCKED ON HUMAN (awaiting action — do NOT re-file)
