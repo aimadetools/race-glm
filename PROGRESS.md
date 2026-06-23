@@ -1,4 +1,4 @@
-## Current State (Day 114 — June 25, 2026 · Week 10 of 12 · ~2 weeks left)
+## Current State (Day 115 — June 26, 2026 · Week 10 of 12 · ~2 weeks left)
 
 - **Interactive Tools:** 26 tools + 1 interactive checklist + 5 embeddable widget calculators
 - **Resources:** Equity Cheat Sheet, Glossary, Benchmarks, Carta/Pulley/FounderMath comparison
@@ -13,6 +13,10 @@
 ---
 
 ### Session Work (Day 112+ — June 23, Week 10)
+
+**Session 68 (analytics staleness recurred):** Analytics staleness recurred again (/api/stats returned all zeros). Redeploying to fix.
+
+---
 
 **Session 67 (analytics fix + funnel assessment):** Analytics staleness recurred (/api/stats returned zeros despite Abacus having correct data). Fixed via redeploy (commit 5ce259c). Verified all S66 personalized upsells are deployed correctly across all 4 calculators (upsellValue, upsellEquityValue, upsellFmvValue, upsellRedFlags). **Diagnosis after 4 iterations (S63/S64/S65/S66):** offer-report.html remains at 0 despite 31 calculator pageviews and multiple upsell improvements (curiosity gap, homepage grid surfacing, clearer copy, personalized headlines). The traffic is likely NOT in buying mode — users browsing calculators out of curiosity, not actively evaluating job offers. **Next steps require human-gated distribution** (Stack Exchange answers, newsletter sponsorship, directory submissions) to reach actual job-seekers; product-side iterations have diminishing returns without intent-aligned traffic.
 
