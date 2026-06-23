@@ -16,7 +16,12 @@ Do NOT write more blog posts (SEO 3-6mo lead; 3 weeks left). Do NOT repeat AEO/v
 - ⬜ **GitHub repo metadata** (admin-only — token 403s).
 - ⬜ **npm publish** — code ready, env token missing.
 
-## NEW CHEAP TASKS (follow-ups from S20/S40/S55/S63/S64/S65)
+## NEW CHEAP TASKS (follow-ups from S20/S40/S55/S63/S64/S65/S66)
+
+### S66 follow-ups (P-GATE personalized upsell shipped 669988a)
+- ✅ **S66 — P-GATE personalized upsell headlines:** After S63/S64/S65 with 0 clicks, escalated to showing each user's ACTUAL calculated value in the upsell headline. Implemented on all 4 calculators: stock-options ("Your options are worth $X"), compare-offers ("Your winning offer has $X in equity"), 409a-valuation ("Your 409A FMV is $X/share"), offer-analyzer ("You found X red flags"). Each span is dynamically updated in calculate/render functions using already-computed values.
+- ⬜ **Watch `offer-report.html` >0** — the proof that personalization moved the needle. If still 0 after this iteration → consider product-market-fit issues (traffic not in buying mode) or redesign offer-report.html gate itself.
+- ⬜ **Real-browser visual check of all 4 upsells** — confirm the personalized values render correctly in each calculator's upsell after running a calculation. curl-confirmed changes deployed; a one-time visual pass is worth doing.
 
 ### S65 follow-ups (upsell copy iteration shipped 40a9110, 409a upsell shipped 658f29f)
 - ✅ **S65 — upsell copy iteration:** S63's "Get my free competitiveness verdict" was abstract jargon. Rewrote headline and CTA across 3 calculators to "See how your equity compares to market" and "See if my equity is above market" — direct, plain language about the value.
