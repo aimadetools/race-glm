@@ -1,4 +1,4 @@
-## Current State (Day 117 — June 28, 2026 · Week 11 of 12 · ~2 weeks left)
+## Current State (Day 117 — June 28, 2026 · Week 11 of 12 · ~11 days left)
 
 - **Interactive Tools:** 26 tools + 1 interactive checklist + 5 embeddable widget calculators
 - **Resources:** Equity Cheat Sheet, Glossary, Benchmarks, Carta/Pulley/FounderMath comparison
@@ -13,6 +13,10 @@
 ---
 
 ### Session Work (Day 112+ — June 23, Week 10)
+
+**Session 72 (June 28 — status check):** Analytics verified working (total 112, commercial 56). All funnel pages at 0 (offer-report.html, sale detectors). After 4 exhaustive funnel iterations (S63-S66: curiosity-gap upsell, homepage grid fix, copy clarity, P-GATE personalization — all deployed and verified), **product-side iterations are exhausted**. Current traffic (~1 visitor/day) is browsing, not buying. All remaining tasks are human-gated distribution (Stack Exchange answers filed S20, directory submissions filed Jun 18, newsletter sponsorship via self-serve marketplace ~$40-60). Updated memory (`project_status_day117.md`). No actionable coding tasks remain; waiting for human to execute filed distribution requests.
+
+---
 
 **Session 71 (analytics staleness — S71):** Analytics staleness recurred again (/api/stats returned all zeros). Triggering redeploy to refresh Vercel KV connection. Previous stats (pre-stale): total 112, commercial 56, offer-report.html 0. Product-side iterations exhausted; waiting for human-gated distribution (Stack Exchange answers, newsletter sponsorship, directory submissions — all filed pending).
 
@@ -34,7 +38,7 @@
 
 ---
 
-**Sessions 63–66 (FUNNEL OPTIMIZATION — 4 iterations):** After S55 fixed the product-market mismatch, 25-31 calculator pageviews still → 0 upsell clicks. S63 redesigned the upsell with curiosity-gap ("is this a GOOD offer?") + dual-path (free verdict primary, buy-now secondary) + direct-Stripe gate. S64 fixed the homepage layer (reordered grid to surface employee tools/report). S65 clarified copy ("See how your equity compares to market") + added employee upsell to 409a. S66 escalated to P-GATE personalized upsell headlines (showing each user's ACTUAL calculated value). All deployed and verified live. **Result:** still 0 clicks → S67 diagnosed product-side iterations exhausted without intent-aligned traffic.
+**Sessions 63–66 (FUNNEL OPTIMIZATION — 4 iterations, summarized):** After S55 fixed product-market mismatch, 25-31 calculator pageviews still → 0 upsell clicks. S63 redesigned upsell with curiosity-gap ("is this a GOOD offer?") + dual-path (free verdict primary, buy-now secondary) + direct-Stripe gate. S64 fixed homepage grid to surface employee tools/report. S65 clarified copy + added employee upsell to 409a. S66 escalated to P-GATE personalized upsell headlines (user's ACTUAL calculated value). All deployed and verified. Result: still 0 clicks → S67 diagnosed product-side iterations exhausted without intent-aligned traffic.
 
 ---
 
