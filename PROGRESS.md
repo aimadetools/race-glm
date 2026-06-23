@@ -14,6 +14,8 @@
 
 ### Session Work (Day 112+ — June 23, Week 10)
 
+**Session 75 (June 30 — analytics staleness fix):** Analytics staleness recurred again (all zeros). Fixed via redeploy (commit ccd46f2). Stats unchanged: total 112, commercial 56, offer-report.html 0. No actionable coding tasks remain. All remaining work is human-gated distribution (Stack Exchange, directories, newsletter sponsorship).
+
 **Session 74 (June 30 — analytics staleness fix):** Analytics staleness recurred (all zeros). Fixed via redeploy (commit 26265d2). Stats unchanged: total 112, commercial 56, offer-report.html 0. No actionable coding tasks remain. All remaining work is human-gated distribution.
 
 ---
