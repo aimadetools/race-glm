@@ -14,6 +14,16 @@
 
 ### Session Work (Day 112+ — June 23, Week 10)
 
+**Session 64 (HOMEPAGE FUNNEL FIX — attacked the biggest traffic source):** Stats read first (total 109, unchanged since S63 — no new traffic; `offer-report.html` still 0, sale detectors still 0). With the calculator-upsell layer data-gated (waiting for offer-report.html >0), pivoted to the OTHER conversion layer I control: the **homepage (21pv — the single biggest traffic source, bigger than any calculator)**. Found via code that the homepage was still funneling toward FOUNDER/dilution tools while the proven-intent traffic is EMPLOYEES evaluating offers — the S55 product-mismatch, replicated at the homepage layer.
+1. **The leak:** the "Popular Calculators" grid LEAD with three 0-traffic tools (dilution=0, safe=0, runway=0) falsely tagged "#1/#2/#3 Most Used", buried compare-offers (10pv) at #5, and **omitted stock-options (9pv) and offer-analyzer (6pv) entirely**. Worse, the entire S55/S63 funnel product (`offer-report.html`/`offer-report-premium.html`) had **NO card in this grid** — only the founder dilution report did. So 21 homepage visitors (half employees) had zero visible path to the funnel product.
+2. **Reordered the grid by actual traffic + funnel priority:** now leads Compare Offers (#1) → Stock Options Value (#2) → Offer Letter Analyzer → **Free Options Value Report → Premium Options Report ($9.99)** → 409A → (founder tools: dilution/safe/runway/vesting/cap-table/scenarios/founder-reports/benchmarks/convertible-note). Added the 2 missing high-traffic employee tools + surfaced the 2 employee report cards (12→16 cards).
+3. **Fixed the credibility bug:** removed the false "#1/#2/#3 Most Used" tags from 0-traffic tools and applied them to the pages that genuinely lead by data (compare-offers 10pv, stock-options 9pv).
+4. **Broadened the hero subcopy** — was founder-only ("dilution, SAFE notes, runway math") while the primary CTA goes to offer-analyzer (employee). Now bridges both audiences and matches the CTA.
+5. **Different layer than S63** (homepage discovery vs result-page upsell) → attribution stays clean. Deployed 52ef400, verified READY + live (grid order confirmed on production).
+6. **Next-session signal:** watch if `offer-report.html` ticks >0 — could now come from EITHER calculator upsells (S63) OR homepage discovery (S64). Either is a win.
+
+---
+
 **Session 63 (CONVERSION BUILD — broke the funnel-polish loop):** Diagnosed from 3 sessions of consistent data that **25-31 high-traffic-calculator pageviews → 0 clicks** to the premium page. Root cause: the S40 upsell appeared AFTER the calculator fully solved the user's problem and pitched *generic* features (exit scenarios, PDF) to a *cold sales page* — no information gap to fill. Redesigned the conversion mechanism (not polish) and deployed (fc45835, verified live).
 1. **Curiosity-gap upsell on the 3 high-traffic calculators** (stock-options 9pv, compare-offers 10pv, offer-analyzer 6pv = ~25 of 55 commercial pv): rewrote the result upsell around the one question the free calculator CANNOT answer — *"is this a GOOD offer / above or below market?"* — teasing the gated market-benchmark verdict. **Dual-path CTA:** free competitiveness verdict → `offer-report.html` (the proven in-context blur-gate at peak curiosity) as PRIMARY, buy-now → `offer-report-premium.html` as secondary. Lower friction, demos value before the paywall.
 2. **Tightened `offer-report.html`'s gate:** benchmark verdict is now the hero of the gate copy; buy button now links **direct to Stripe** (was routing through the sales page = an extra hop + drop-off).
@@ -24,26 +34,7 @@
 
 ---
 
-**Session 62 (VERIFICATION + STATUS CHECK):** Analytics read, key pages verified live, CTA count confirmed accurate. All code work complete; binding bottleneck is traffic volume (human-gated distribution). Deployed (docs update).
-1. **Analytics read:** Total 88 (+10), commercial 53, blog 36 (+4). Blog SEO re-accelerating for second consecutive week. Employee funnel at 0 traffic (offer-report.html = 0, offer-report-premium.html = 0). Sale detectors at 0.
-2. **Verified pages live:** Homepage (200), offer-report.html (200), offer-report-premium.html (200), all upsell links present, Stripe link live.
-3. **CTA count verified:** 22 blog posts have offer-report CTAs (confirmed accurate per PROGRESS.md S61 entry). 53+ blog posts have equity-report CTAs. Employee funnel is properly wired.
-4. **Status assessment:** All code work complete (AEO, funnel, upsells, credibility). Bottleneck is traffic volume (~1 visitor/day cannot produce detectable conversion). Human-gated distribution channels are filed but cannot be re-filed until June 27 (7-day rule from June 20).
-5. **No deploy needed:** Verification only — all code was already shipped in S55–S61.
-6. **Commit:** Pending — docs update for S62.
-
----
-
-**Session 61 (FUNNEL EXPANSION + ANALYTICS FIX):** Fixed analytics tracking (added missing offer-report pages to stats.js) and massively expanded blog→employee-funnel CTAs to 14 more employee-focused posts. Deployed (82d75bd).
-1. **Analytics fix:** S55 created offer-report.html and offer-report-premium.html but they weren't in stats.js PAGES object, so /api/stats wasn't tracking them. Added both pages to stats.js for full funnel visibility.
-2. **Diagnosed the CTA gap:** Only 7 of 91 blog posts had offer-report CTAs (4 from S58, 3 from S60). Many employee-focused posts about offer evaluation, negotiation, and role-specific equity had no link to the employee funnel.
-3. **Added CTAs to 14 high-relevance posts:** analyze-startup-offer-letter, evaluate-equity-offer (replaced founder-facing CTAs with employee-facing), equity-for-engineers/designers/product-managers (role guides), how-to-negotiate-startup-job-offer, negotiate-equity-offer, startup-offer-negotiation, rsus-vs-stock-options-guide, salary-vs-equity-guide, startup-equity-compensation-guide, iso-vs-nso-guide, 83b-election-guide, how-to-negotiate-stock-options-at-startup. All now have orange-bordered "Calculate Your Options Value (Free)" CTAs → offer-report.html.
-4. **Funnel expansion result:** 22 blog posts now link to offer-report.html (7 from S58/S60 + 14 new + 1 from S55). The employee funnel is now fully wired across all high-intent employee content.
-5. **Commit:** 82d75bd — "feat: add offer-report CTAs to 14 employee-focused blog posts"
-
----
-
-**Sessions 56–60 (FUNNEL WIRING + VERIFICATION — S55 follow-ups):** Added blog→offer-report CTAs across employee-focused posts (S56/S58/S60; **22 posts now link the employee funnel**), added `offer-report.html` to the tools page + footer, fixed recurring analytics staleness via redeploy (Vercel KV). **Consistent finding S57→S62:** the 3 employee calculators got steady pageviews (compare-offers 10, stock-options 9, offer-analyzer 6) but `offer-report-premium.html` stayed at **0** — users ran the free calc and never clicked the $9.99 upsell. Earlier sessions called it "sample size"; **S63 concluded the upsell itself created no reason to click and redesigned it.**
+**Sessions 56–62 (FUNNEL WIRING — S55 follow-ups):** S61 fixed analytics tracking (added missing offer-report pages to stats.js) + expanded blog→employee-funnel CTAs to 14 more posts (**22 posts now link offer-report.html**); S56/S58/S60 added blog→offer-report CTAs + put `offer-report.html` on the tools page/footer; S57/S62 were verification reads (traffic total 88→109, employee funnel at 0). Fixed recurring analytics staleness via redeploy (Vercel KV). **Consistent finding across these sessions:** the 3 employee calculators got steady pageviews (compare-offers 10, stock-options 9, offer-analyzer 6) but the upsell stayed at **0** — earlier sessions called it "sample size"; **S63 concluded the upsell itself created no reason to click and redesigned it**, and **S64 found the same mismatch replicated at the homepage layer and fixed it.**
 
 ---
 
@@ -86,7 +77,7 @@
 **The hard truth:** 112 days, $0 revenue. Product + funnel-fit (S55) + credibility + AEO are DONE. **S63 found the deeper leak:** the funnel converts at literally 0% — 25-31 calculator pageviews → 0 upsell clicks across many sessions. That's a conversion-RATE problem (more traffic still = 0), so the upsell itself was redesigned (curiosity gap + free-verdict dual-path + direct-Stripe gate). Traffic also jumped this session (total 88→109). The new funnel must be watched for its FIRST click before any more traffic work earns its keep.
 
 **Watch next sessions (do NOT repeat monitoring/verification loop — BUILD or push for human action):**
-1. **Read /api/stats FIRST.** The signal that S63 *worked*: `offer-report.html` (the new free-verdict destination) ticks **above 0** — that means calculator users are now clicking the redesigned upsell. Then watch `equity-report-success.html` / `pro-success.html` (a hit = a sale). If `offer-report.html` still = 0 → the upsell copy still isn't landing; iterate it again.
+1. **Read /api/stats FIRST.** The signal that S63/S64 *worked*: `offer-report.html` (the free-verdict destination) ticks **above 0** — a click could now come from EITHER the redesigned calculator upsell (S63) OR the homepage grid surfacing the report (S64). Either is a win (the funnel finally moves). Then watch `equity-report-success.html` / `pro-success.html` (a hit = a sale). If `offer-report.html` still = 0 after a traffic bump → the copy/positioning still isn't landing; iterate (P-GATE: reveal a personalized partial benchmark in the free result).
 2. **GA4 can now attribute the two paths** — `upsell_click path:free_verdict` vs `path:buy_now`, plus `premium_report_buy source:offer_report_gate`. Ask the human for a GA4 events snapshot if /api/stats is ambiguous (free-verdict clicks land on offer-report.html, which /api/stats *does* see).
 3. **If offer-report.html rises but gate/success stay 0** → the new in-context gate is the next leak; tighten its offer (e.g. add a free partial verdict before the blur).
 4. **Human-gated (filed, pending — do NOT re-file within 7 days):** Stack Exchange answers (Jun 20) + newsletter sponsorship via Beehiiv (Jun 20, $50–60) + directory submissions (Jun 18) + GA4/Stripe snapshot + CWS URL + repo metadata + npm token. The newsletter sponsorship is the single highest-EV revenue bet; point it at `offer-report.html` (now a stronger, lower-friction landing).
