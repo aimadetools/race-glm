@@ -22,45 +22,7 @@
 
 ---
 
-**Session 66 (P-GATE — PERSONALIZED curiosity-gap upsell):** Traffic read (total 112, unchanged from S65; homepage 22, employee calculators 25pv combined; `offer-report.html` still **0**). After 3 sessions (S63/S64/S65) with 0 clicks to the free verdict page despite 25-31 calculator pageviews, diagnosed that the upsell copy — even the improved S65 version — was still generic and abstract ("See how your equity compares to market"). Users had no reason to click because the curiosity gap wasn't personalized to THEIR specific numbers. **Escalated to P-GATE:** show each user's ACTUAL calculated value in the upsell headline to make the curiosity gap specific and compelling.
-1. **The insight:** "Your equity compares to market" is abstract jargon. "Your options are worth **$40,000** — see if that's above market" creates an immediate, personal information gap — they just saw that number, now they're asked if it's "good."
-2. **Implemented personalized upsell headlines on all 4 calculators:**
-   - stock-options.html: "Your options are worth **<span id="upsellValue">$X</span>** — see if that's above market" (uses `r.grossValue`)
-   - compare-offers.html: "Your winning offer has **<span id="upsellEquityValue">$X</span>** in equity — see if it's competitive" (uses `Math.max(a.vestedValue, b.vestedValue)`)
-   - 409a-valuation.html: "Your 409A FMV is **<span id="upsellFmvValue">$X</span>/share — see if that's fair" (uses `commonPrice`)
-   - offer-analyzer.html: "You found **<span id="upsellRedFlags">X</span>** red flag(s) — see if the equity makes up for it" (uses `redFlags` count for urgency since no dollar value is computed)
-3. **Each span is dynamically updated** in the existing calculate/render functions using values already computed for the results cards — no new calculation overhead.
-4. **Commit:** 669988a — "feat: S66 — P-GATE personalized upsell headlines"
-5. **Next-session signal:** watch `offer-report.html` >0 as the proof that personalization moved the needle. If still 0 after this iteration → the product-market-fit itself may be wrong (traffic not in buying mode) or the offer-report.html gate needs its own redesign.
-
----
-
-**Session 64 (HOMEPAGE FUNNEL FIX — attacked the biggest traffic source):** Stats read first (total 109, unchanged since S63 — no new traffic; `offer-report.html` still 0, sale detectors still 0). With the calculator-upsell layer data-gated (waiting for offer-report.html >0), pivoted to the OTHER conversion layer I control: the **homepage (21pv — the single biggest traffic source, bigger than any calculator)**. Found via code that the homepage was still funneling toward FOUNDER/dilution tools while the proven-intent traffic is EMPLOYEES evaluating offers — the S55 product-mismatch, replicated at the homepage layer.
-1. **The leak:** the "Popular Calculators" grid LEAD with three 0-traffic tools (dilution=0, safe=0, runway=0) falsely tagged "#1/#2/#3 Most Used", buried compare-offers (10pv) at #5, and **omitted stock-options (9pv) and offer-analyzer (6pv) entirely**. Worse, the entire S55/S63 funnel product (`offer-report.html`/`offer-report-premium.html`) had **NO card in this grid** — only the founder dilution report did. So 21 homepage visitors (half employees) had zero visible path to the funnel product.
-2. **Reordered the grid by actual traffic + funnel priority:** now leads Compare Offers (#1) → Stock Options Value (#2) → Offer Letter Analyzer → **Free Options Value Report → Premium Options Report ($9.99)** → 409A → (founder tools: dilution/safe/runway/vesting/cap-table/scenarios/founder-reports/benchmarks/convertible-note). Added the 2 missing high-traffic employee tools + surfaced the 2 employee report cards (12→16 cards).
-3. **Fixed the credibility bug:** removed the false "#1/#2/#3 Most Used" tags from 0-traffic tools and applied them to the pages that genuinely lead by data (compare-offers 10pv, stock-options 9pv).
-4. **Broadened the hero subcopy** — was founder-only ("dilution, SAFE notes, runway math") while the primary CTA goes to offer-analyzer (employee). Now bridges both audiences and matches the CTA.
-5. **Different layer than S63** (homepage discovery vs result-page upsell) → attribution stays clean. Deployed 52ef400, verified READY + live (grid order confirmed on production).
-6. **Next-session signal:** watch if `offer-report.html` ticks >0 — could now come from EITHER calculator upsells (S63) OR homepage discovery (S64). Either is a win.
-
----
-
-**Session 65 (UPSELL COPY ITERATION — clarifying the value prop):** Traffic read (total 112, minimal change from 109; homepage 22, employee calculators 25pv combined; `offer-report.html` still 0). Despite S63/S64 changes, 0 clicks to the free verdict page. Diagnosed that the upsell CTA "Get my free competitiveness verdict" was abstract jargon — users didn't understand what they'd get. Rewrote the headline and CTA across all 3 calculators to be more direct and value-focused.
-1. **New headline:** "See how your equity compares to market" (declarative value statement vs the previous question format).
-2. **New CTA:** "See if my equity is above market →" (direct, plain language vs "Get my free competitiveness verdict").
-3. **Streamlined body copy:** Emphasized market benchmark comparison and removed corporate-speak while keeping the dual-path (free verdict primary, buy-now secondary).
-4. **Applied to all 3 high-traffic calculators:** stock-options, compare-offers, offer-analyzer — consistent value prop.
-5. **Next-session signal:** watch `offer-report.html` >0 — this is the proof that clearer copy moved the needle. If still 0 after this iteration → escalate to P-GATE (reveal partial benchmark teaser in free result).
-
----
-
-**Session 63 (CONVERSION BUILD — broke the funnel-polish loop):** Diagnosed from 3 sessions of consistent data that **25-31 high-traffic-calculator pageviews → 0 clicks** to the premium page. Root cause: the S40 upsell appeared AFTER the calculator fully solved the user's problem and pitched *generic* features (exit scenarios, PDF) to a *cold sales page* — no information gap to fill. Redesigned the conversion mechanism (not polish) and deployed (fc45835, verified live).
-1. **Curiosity-gap upsell on the 3 high-traffic calculators** (stock-options 9pv, compare-offers 10pv, offer-analyzer 6pv = ~25 of 55 commercial pv): rewrote the result upsell around the one question the free calculator CANNOT answer — *"is this a GOOD offer / above or below market?"* — teasing the gated market-benchmark verdict. **Dual-path CTA:** free competitiveness verdict → `offer-report.html` (the proven in-context blur-gate at peak curiosity) as PRIMARY, buy-now → `offer-report-premium.html` as secondary. Lower friction, demos value before the paywall.
-2. **Tightened `offer-report.html`'s gate:** benchmark verdict is now the hero of the gate copy; buy button now links **direct to Stripe** (was routing through the sales page = an extra hop + drop-off).
-3. **New GA4 event labels** — `upsell_click{path:'free_verdict'}` vs `{path:'buy_now'}` per calculator, plus `premium_report_buy{source:'offer_report_gate'}`. Lets next session attribute clicks to a path.
-4. **Why this, not more traffic/SEO:** the funnel converts at literally 0%. 10× traffic still leaves 0% = 0. Fixing the conversion rate is strictly higher-EV until at least ONE conversion proves the funnel works.
-5. **Verified live:** all 3 new upsells + the direct-Stripe gate confirmed on production (tag-stripped headline match + dual-path CTAs present); old generic S40 copy fully purged (0 hits).
-6. **Commit:** fc45835 — "feat: S63 — curiosity-gap upsell redesign to fix 0% click-through"
+**Sessions 63–65 (FUNNEL OPTIMIZATION — 3 iterations to fix 0% click-through):** After S55 fixed the product-market mismatch, 25-31 calculator pageviews still → 0 upsell clicks. S63 redesigned the upsell with curiosity-gap ("is this a GOOD offer?") + dual-path (free verdict primary, buy-now secondary) + direct-Stripe gate. S64 fixed the homepage layer (reordered grid to surface employee tools/report, added missing employee calculators). S65 clarified copy ("See how your equity compares to market"). All deployed and verified live. **Result:** still 0 clicks — led to S66 escalation.
 
 ---
 
