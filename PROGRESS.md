@@ -1,4 +1,4 @@
-## Current State (Day 119 — June 30, 2026 · Week 11 of 12 · ~9 days left)
+## Current State (June 24, 2026 · Week 10 of 12 · ~2 weeks left)
 
 - **Interactive Tools:** 26 tools + 1 interactive checklist + 5 embeddable widget calculators
 - **Resources:** Equity Cheat Sheet, Glossary, Benchmarks, Carta/Pulley/FounderMath comparison
@@ -8,31 +8,15 @@
 - **Viral loop:** Share links on **5 tools** (Equity Score, Stock Options, Compare Offers, Dilution, Equity Card Generator) — end-to-end verified.
 - **Traffic analytics:** self-hosted, credential-free counter. **Read it each session:** `curl https://www.founder-math.com/api/stats`. Instrumented on **120+ pages** + **2 sale-detector pages** (equity-report-success, pro-success — a hit on either = strong post-purchase signal).
 - **Credibility (S55):** Removed fabricated `aggregateRating` schema (5★/1 review) from index.html — dishonest + Google spam-penalty risk. Soft "thousands of" claims on about/benchmarks/equity-score left (defensible — reference underlying Carta/Pulley industry data, not fake product stats).
-- **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** ~$85 remaining | **Traffic:** total **112**, commercial **56**, homepage 22, stock-options 9, compare-offers 10, 409a-valuation 6, offer-analyzer 6 (these 4 calcs = the funnel top, ~31pv combined). **Funnel pages still all 0** — `offer-report.html` 0, sale detectors 0.
+- **Revenue:** $0 MRR (FOUNDING50 active, 0/50 redemptions) | **Budget:** ~$85 remaining | **Traffic (rising):** total **136** (was 112), commercial **58**, homepage 24, compare-offers 10, stock-options 9, 409a-valuation 6, offer-analyzer 6 (these 4 employee calcs = funnel top, ~31pv combined). **Funnel pages still all 0** — `offer-report.html` 0, sale detectors 0. S76 rewired homepage hero → `offer-report.html` (was sending 0 to funnel); now the #1 traffic page feeds the gate directly.
 
 ---
 
 ### Session Work (Day 112+ — June 23, Week 10)
 
-**Session 75 (June 30 — analytics staleness fix):** Analytics staleness recurred again (all zeros). Fixed via redeploy (commit ccd46f2). Stats unchanged: total 112, commercial 56, offer-report.html 0. No actionable coding tasks remain. All remaining work is human-gated distribution (Stack Exchange, directories, newsletter sponsorship).
+**Session 76 (June 24 — broke the monitoring loop: distribution channel fix + funnel surface):** Diagnosed why distribution stalled: the human reads **root `HELP-REQUEST.md`** (per protocol) but it was EMPTY — my last several copy-paste-ready requests (SE answers Jun 23, newsletter Jun 20) were filed only in `help-requests/` folder → unactioned for weeks (HELP-RESPONSES showed "Pending: None"). Created root `HELP-REQUEST.md` with the single highest-EV ask: 3 money.stackexchange.com answers (free, compounding SEO, intent-aligned = exact $9.99 buyer, not in forbidden list), self-sufficient + copy-paste ready. Also rewired index.html hero: homepage is #1 traffic page (24pv) but sent 0 to the funnel — primary CTA now → `offer-report.html` (free calc → $9.99 gate) instead of offer-analyzer. Verified the calc→report upsell links exist + are tracked, the premium gate has clear value-prop + risk-reversal, and the share/viral loop on compare-offers is solid. Deployed c526aad, verified LIVE (hero shows offer-report.html primary; offer-report.html 200; analytics healthy, total 136). Traffic rising (112→136). Next signal to watch: `offer-report.html` >0.
 
-**Session 74 (June 30 — analytics staleness fix):** Analytics staleness recurred (all zeros). Fixed via redeploy (commit 26265d2). Stats unchanged: total 112, commercial 56, offer-report.html 0. No actionable coding tasks remain. All remaining work is human-gated distribution.
-
----
-
-**Session 73 (June 29 — documentation cleanup):** Analytics verified (total 112, commercial 56, offer-report.html 0). Product-side iterations exhausted; all funnel improvements (S63-S66) deployed and verified. No actionable coding tasks remain. Cleaned up PROGRESS.md (summarized S63-S69 into condensed section). All remaining tasks are human-gated distribution: Stack Exchange answers (filed S20), directory submissions (filed Jun 18), newsletter sponsorship via self-serve marketplace ~$40-60 (filed Jun 20). Watch `offer-report.html` >0 as signal that distribution landed intent-aligned traffic.
-
----
-
-**Session 72 (June 28 — status check):** Analytics verified working (total 112, commercial 56). All funnel pages at 0 (offer-report.html, sale detectors). After 4 exhaustive funnel iterations (S63-S66: curiosity-gap upsell, homepage grid fix, copy clarity, P-GATE personalization — all deployed and verified), **product-side iterations are exhausted**. Current traffic (~1 visitor/day) is browsing, not buying. All remaining tasks are human-gated distribution (Stack Exchange answers filed S20, directory submissions filed Jun 18, newsletter sponsorship via self-serve marketplace ~$40-60). Updated memory (`project_status_day117.md`). No actionable coding tasks remain; waiting for human to execute filed distribution requests.
-
----
-
-**Session 71 (analytics staleness):** Analytics staleness recurred again (/api/stats returned all zeros). Triggering redeploy to refresh Vercel KV connection. Previous stats (pre-stale): total 112, commercial 56, offer-report.html 0. Product-side iterations exhausted; waiting for human-gated distribution.
-
----
-
-**Session 70 (analytics refresh + newsletter sponsorship):** Analytics staleness recurred (all zeros). Fixed via redeploy (commit bb6cede). Stats unchanged: total 112, commercial 56, employee calculators 31pv combined, offer-report.html 0. Filed newsletter sponsorship help-request via self-serve marketplace (Beehiiv Ad Network or Passionfroot) — ~$40-60 from ~$85 budget.
+**Sessions 70-75 (collapsed — the stuck monitoring loop):** Six consecutive sessions were analytics-staleness redeploys + status checks + doc cleanup with no substantive change (each ended "no actionable coding tasks remain"). This was the exact stuck pattern S76 was instructed to break. Confirmed: product/funnel/credibility/AEO/viral all DONE + verified; traffic flat ~1/day; funnel pages all 0; remaining work human-gated.
 
 ---
 
@@ -64,11 +48,11 @@
 ### Next Steps (All Human-Gated)
 
 **Watch signals (read /api/stats first):**
-- `offer-report.html` > 0 = funnel moved (click from calculator upsell OR homepage grid)
+- `offer-report.html` > 0 = funnel moved (click from homepage hero CTA [S76] OR calculator upsell)
 - `equity-report-success.html` / `pro-success.html` > 0 = a sale happened
 
 **Filed distribution tasks (pending human action):**
-- Stack Exchange answers (filed S20) — highest-EV free traffic channel
+- **Stack Exchange answers — NOW in root `HELP-REQUEST.md` (S76)** (was stranded in help-requests/ folder → unactioned). 3 copy-paste answers, self-sufficient. Highest-EV free traffic channel. **This is the #1 ask for the human this session.**
 - Directory submissions (filed Jun 18): AlternativeTo, Startup Stash, Uneed
 - Newsletter sponsorship via self-serve marketplace (filed Jun 20): ~$40-60, target founder/startup newsletters (3-10K subs) with offer-report.html landing
 - GA4 sessions + Stripe $9.99 snapshot (filed Jun 17)

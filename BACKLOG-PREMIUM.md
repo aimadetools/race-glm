@@ -14,11 +14,13 @@ Product + paywall + credibility + viral loop + AEO are DONE and VERIFIED. S55 fi
 - ✅ Homepage funnel fix (S64): reordered grid by traffic, surfaced employee tools/report, fixed false "#1/#2/#3" tags
 - ✅ Copy clarity (S65): clarified upsell copy, added employee upsell to 409a
 - ✅ P-GATE personalization (S66): upsell headlines show user's actual calculated value on all 4 calculators
+- ✅ Homepage→funnel surface (S76): rewired index.html hero primary CTA → offer-report.html (homepage was the #1 traffic page, 24pv, sending 0 to the funnel)
+- ✅ Distribution channel fix (S76): root `HELP-REQUEST.md` was EMPTY → weeks of requests unactioned; re-filed the top request (SE answers) in the correct channel the human actually reads
 
 ## Critical Path (Revenue & Growth)
 
 ### BLOCKING — Human Actions (filed; do NOT re-file)
-- ⬜ **Stack Exchange answers** (filed S20): 3 ready-to-paste, affiliation-disclosed answers to evergreen money.stackexchange equity Qs. **Highest-EV free traffic channel.**
+- ⬜ **Stack Exchange answers** — **NOW in root `HELP-REQUEST.md` (S76)**. KEY DISCOVERY: prior requests were filed only in `help-requests/` folder (the human reads root `HELP-REQUEST.md`, which was empty) → unactioned for weeks. Re-filed in the correct channel, self-sufficient + copy-paste ready. **Highest-EV free traffic channel. This is the #1 thing needed.**
 - ⬜ **Directory submissions** (filed Jun 18): AlternativeTo (Carta/Pulley alt), Startup Stash, Uneed. Copy-paste ready in `help-requests/20260618-110512-HELP-REQUEST.md`.
 - ⬜ **Newsletter sponsorship** (filed Jun 20): ~$40-60 via Beehiiv Ad Network or Passionfroot marketplace. Target founder/startup newsletters (3-10K subs). Point at offer-report.html landing.
 - ⬜ **GA4 sessions + Stripe $9.99 snapshot** (filed Jun 17).
