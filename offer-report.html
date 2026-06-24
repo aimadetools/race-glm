@@ -179,6 +179,10 @@
         <p>Enter your grant details and instantly see your options' value today, your projected value at exit, and how the equity stacks up against your salary. Free instant result — full scenario analysis and PDF report available.</p>
     </div>
 
+    <div id="prefillBanner" style="display:none;max-width:680px;margin:14px auto 0;padding:14px 20px;background:linear-gradient(135deg,rgba(0,184,148,0.14),rgba(0,206,201,0.08));border:1px solid var(--green);border-radius:12px;color:var(--text-primary);font-size:0.92rem;line-height:1.5;">
+        &#10003; Your numbers carried over from <strong class="src">the calculator</strong> &mdash; here&rsquo;s what your options are worth, and whether that&rsquo;s <strong style="color:var(--green);">above market</strong>.
+    </div>
+
     <div class="card">
         <h2>Your stock option grant</h2>
         <p class="sub">Found in your offer letter or equity agreement. All math runs in your browser — nothing is stored or sent.</p>
@@ -476,8 +480,44 @@ function downloadPDF() {
     window.print();
 }
 
+// S77 — calc handoff: if the user just ran a calculator, carry their numbers in
+// (URL params or a stashed localStorage snapshot) so they don't re-enter them,
+// then auto-calculate so they see their value + the "above market?" gate instantly.
+function applyPrefill() {
+    var src = null, label = 'the calculator';
+    try {
+        var p = new URLSearchParams(location.search);
+        if (p.get('shares') || p.get('strike') || p.get('fmv')) {
+            src = p;
+        } else {
+            var raw = localStorage.getItem('offer_report_prefill');
+            if (raw) {
+                var snap = JSON.parse(raw);
+                // ignore snapshots older than 2 hours (avoid stale data on a later direct visit)
+                if (snap && snap.ts && (Date.now() - snap.ts < 2 * 60 * 60 * 1000)) {
+                    src = snap; if (snap.sourceLabel) label = snap.sourceLabel;
+                }
+            }
+        }
+    } catch (e) { return; }
+    if (!src) return;
+
+    function val(k) { var v = src.get ? src.get(k) : src[k]; v = parseFloat(v); return isFinite(v) ? v : null; }
+    var shareSet = false;
+    ['shares', 'strike', 'fmv', 'salary', 'monthsVested', 'vestYears', 'growth', 'yearsExit'].forEach(function (k) {
+        var v = val(k), el = document.getElementById(k);
+        if (el && v !== null && v >= 0) { el.value = v; if (k === 'shares' && v > 0) shareSet = true; }
+    });
+    if (!shareSet) return; // need the grant size to compute anything meaningful
+
+    var b = document.getElementById('prefillBanner');
+    if (b) { var s = b.querySelector('.src'); if (s) s.textContent = label; b.style.display = 'block'; }
+    try { calculate(); } catch (e) {} // reveal their result + gate without a second click
+}
+
 // On load: if already purchased, pre-unlock (in case user navigates back)
 applyUnlockState();
+applyPrefill();
 </script>
 </body>
 </html>

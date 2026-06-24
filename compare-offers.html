@@ -1209,6 +1209,18 @@ function compareOffers() {
     const a = getOfferData('A');
     const b = getOfferData('B');
 
+    // S77 — carry the stronger offer into the Value Report so the user doesn't re-enter it
+    try {
+        const w = (a.totalComp >= b.totalComp) ? a : b;
+        if (w.options > 0) {
+            localStorage.setItem('offer_report_prefill', JSON.stringify({
+                shares: w.options, strike: w.strike, fmv: w.fmv,
+                salary: w.salary, vestYears: w.vestingYears,
+                sourceLabel: 'Compare Offers (your stronger offer)', ts: Date.now()
+            }));
+        }
+    } catch (e) {}
+
     // Better error messaging with specific guidance
     var errors = [];
     if (!a.salary && !a.options) errors.push('Offer A: Add salary or stock options');

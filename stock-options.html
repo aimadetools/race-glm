@@ -1039,6 +1039,16 @@ var vestingChart = null;
 var exitChart = null;
 
 function render(r) {
+    // S77 — carry this grant into the Value Report so the user doesn't re-enter it
+    try {
+        const s = getState();
+        localStorage.setItem('offer_report_prefill', JSON.stringify({
+            shares: s.numOptions, strike: s.strikePrice, fmv: s.currentFMV,
+            vestYears: s.vestingYears, monthsVested: s.monthsVested,
+            sourceLabel: 'the Stock Options Calculator', ts: Date.now()
+        }));
+    } catch (e) {}
+
     // Summary cards
     document.getElementById('currentValue').textContent = fmtWhole(r.grossValue);
     document.getElementById('currentValue').style.color = r.grossValue > 0 ? 'var(--green)' : 'var(--red)';
