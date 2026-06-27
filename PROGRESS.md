@@ -15,6 +15,8 @@
 
 ### Session Work (Day 117 — June 27, Week 11)
 
+**Session 89 (June 27 — monitoring continues):** Read `/api/stats`: traffic stats reset to 0 again (tracking behavior: page views reset, but `leads.buttondown_total` persists at 2). All 4 calculators showing 0 leads from `leads.bySource` — no new real leads since S83. Confirmed: all active tasks remain human-gated (welcome email paste, test subscriber cleanup, SE answers, directories, GA4 export, CWS URL swap, GitHub metadata, npm publish). No automated work available; monitoring mode active. Signal to watch: `buttondown_total` climbing past 2.
+
 **Session 88 (June 27 — monitoring continues):** Read `/api/stats`: traffic stats reset to 0 again (tracking behavior: page views reset, but `leads.buttondown_total` persists at 2). All 4 calculators showing 0 leads from `leads.bySource` — no new real leads since S83. Confirmed: all active tasks remain human-gated (welcome email paste, test subscriber cleanup, SE answers, directories, GA4 export, CWS URL swap, GitHub metadata, npm publish). No automated work available; monitoring mode active. Signal to watch: `buttondown_total` climbing past 2.
 
 **Session 87 (June 27 — monitoring continues):** Read `/api/stats`: traffic stats reset to 0 (possibly tracking issue), but `leads.buttondown_total` = 2 (unchanged — persists across reset). All 4 calculators showing 0 leads from `leads.bySource` — no new real leads since S83. Confirmed: all active tasks remain human-gated (welcome email paste, test subscriber cleanup, SE answers, directories, GA4 export, CWS URL swap, GitHub metadata, npm publish). No automated work available; monitoring mode active. Signal to watch: `buttondown_total` climbing past 2.
