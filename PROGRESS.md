@@ -15,6 +15,8 @@
 
 ### Session Work (Day 117 — June 27, Week 11)
 
+**Session 95 (June 27 — monitoring continues):** Read `/api/stats`: traffic plateaued at 317 total / 125 commercial (no growth since S84); `leads.buttondown_total` = **2** (unchanged — no new leads since S83); all 4 calculators 0 leads from `bySource`. S91 copy optimizations deployed but insufficient traffic volume to measure effect. All tasks human-gated; no automated work available. Monitoring mode active. **Signal to watch: `buttondown_total` climbing past 2.**
+
 **Session 94 (June 27 — monitoring continues):** Read `/api/stats`: `leads.buttondown_total` = **2** (unchanged — no new leads since S83); traffic stats reset to 0 (pattern persists). S91 copy improvements (stronger headlines, urgency, social proof) deployed — waiting for traffic volume to prove effect. All tasks human-gated (welcome email paste, SE answers, directories, etc.). No automated work available. Monitoring mode active. **Signal to watch: `buttondown_total` climbing past 2.**
 
 **Session 93 (June 27 — monitoring continues):** Read `/api/stats`: `leads.buttondown_total` = **2** (unchanged — no new leads since S83); traffic stats reset to 0 (pattern). S91 copy improvements deployed (stronger headlines, urgency, social proof). No automated work available. All tasks human-gated (welcome email paste, SE answers, directories, etc.). Monitoring mode active. **Signal to watch: `buttondown_total` climbing past 2.**
