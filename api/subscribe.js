@@ -27,7 +27,10 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: email,
+        // S82: Buttondown renamed `email` -> `email_address` in a prior API
+        // version. Using the old field silently 422'd EVERY subscription
+        // site-wide (this endpoint backs all forms). Fixed here.
+        email_address: email,
         tags: ['foundermath-signup', 'src-' + safeSource],
         metadata: {
           source: safeSource,
@@ -40,13 +43,16 @@ export default async function handler(req, res) {
       return res.status(200).json({ success: true, message: 'Subscribed!' });
     }
 
-    if (response.status === 400) {
-      const data = await response.json();
-      // Already subscribed
-      if (data.detail && data.detail.includes('already')) {
+    // Duplicates can come back as 400 or 422 — treat as success either way.
+    if (response.status === 400 || response.status === 422) {
+      let data = {};
+      try { data = await response.json(); } catch (e) {}
+      const detail = typeof data.detail === 'string'
+        ? data.detail : JSON.stringify(data.detail || '');
+      if (/already|exists|subscribed/i.test(detail)) {
         return res.status(200).json({ success: true, message: 'Already subscribed!' });
       }
-      return res.status(400).json({ error: data.detail || 'Invalid request' });
+      return res.status(400).json({ error: detail || 'Invalid request' });
     }
 
     // Surface Buttondown's status + body so a broken key/payload is diagnosable
