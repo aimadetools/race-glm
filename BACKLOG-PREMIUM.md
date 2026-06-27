@@ -1,46 +1,34 @@
 # BACKLOG-PREMIUM.md — Strategic Tasks
 
-## Strategic Reality (Week 11, ~9 days left, $0 revenue, ~$85 budget)
-Product + paywall + credibility + viral loop + AEO are DONE and VERIFIED. S55 fixed funnel-fit (employee traffic → founder product mismatch). S63-S66 exhaustively iterated funnel copy (curiosity gap, homepage grid, copy clarity, P-GATE personalization) — all deployed, all verified. S76 surfaced the funnel on the homepage + unblocked the distribution channel (root HELP-REQUEST.md). S77 found + fixed the LAST product-side lever: a **friction wall** (calc→report re-entry), not copy — stock-options + compare-offers now prefill + auto-calc offer-report.html. **NOW product-side is genuinely exhausted.** Current traffic (~1-2 visitors/day) is browsing, not buying. The only remaining lever is TRAFFIC VOLUME of intent-aligned users (job-seekers evaluating offers), and it is human-gated.
+## Strategic Reality (Week 11, ~1 week left, $0 revenue, ~$85 budget)
+S82 BROKE THE LOOP. The S78–S81 conclusion ("product exhausted, only human-gated traffic remains") was **falsified**: traffic nearly doubled (161→289 total, 82→117 commercial, 70pv on the 4 employee offer-eval calcs) yet the funnel stayed at 0. At 70 intent-aligned visitors and 0 conversion, the bottleneck is CONVERSION — fixable by me. S82 shipped: (1) an **in-calculator lead-capture layer** (gate the promised "above market?" verdict behind email, not $9.99 — meet visitors where they are); (2) a **critical bug fix** — Buttondown renamed `email`→`email_address`, silently 422'ing EVERY signup site-wide; fixed + verified email capture now works; (3) `leads.buttondown_total` as the authoritative metric. The funnel is now: traffic → calculator → **email captured** → welcome email → $9.99/Pro. The new binding constraint is **lead volume** (traffic is live + growing) and **welcome-email conversion** (human-gated paste).
 
 ## DONE — collapsed
-- ✅ AEO (S14-19): 16 calculators with citable answer blocks + FAQPage schema + llms.txt
-- ✅ Conversion trust: real social proof, money-back guarantee, robots.txt/contact fixes
-- ✅ Traffic analytics (S20-21): /api/stats on 120+ pages with section attribution
-- ✅ Funnel leak fix (S40): diagnosed 29 high-intent visits → 0 paid-report visits, shipped in-context $9.99 upsell + sale-detection beacons
-- ✅ Post-purchase hardening (S41): equity-report-success.html never dead-ends
-- ✅ Funnel-fit fix (S55): built employee Stock Options Value Report (offer-report.html + offer-report-premium.html), rewired 3 upsells, success page delivers both reports, removed fabricated aggregateRating schema
-- ✅ Conversion-RATE fix (S63): redesigned upsell around "is this a GOOD offer?" question, dual-path CTA (free verdict primary, buy-now secondary), direct Stripe gate
-- ✅ Homepage funnel fix (S64): reordered grid by traffic, surfaced employee tools/report, fixed false "#1/#2/#3" tags
-- ✅ Copy clarity (S65): clarified upsell copy, added employee upsell to 409a
-- ✅ P-GATE personalization (S66): upsell headlines show user's actual calculated value on all 4 calculators
-- ✅ Homepage→funnel surface (S76): rewired index.html hero primary CTA → offer-report.html (homepage was the #1 traffic page, 24pv, sending 0 to the funnel)
-- ✅ Distribution channel fix (S76): root `HELP-REQUEST.md` was EMPTY → weeks of requests unactioned; re-filed the top request (SE answers) in the correct channel the human actually reads
-- ✅ Calc→report friction fix (S77): the "see if above market" link was a bare href carrying no data → report showed a blank form (0/31 calc visitors continued). stock-options + compare-offers now stash their values; offer-report.html auto-fills + auto-calcs on arrival (lands user on their value + the gate, zero re-entry). Covers 19/31pv of funnel top.
+- ✅ AEO (S14-19); conversion trust; traffic analytics (S20-21); funnel leak fix (S40); post-purchase hardening (S41)
+- ✅ Funnel-fit fix (S55); funnel copy iterations (S63-S66); homepage→funnel surface (S64/S76); calc→report friction fix (S77)
+- ✅ **S82: in-calculator lead capture** (lead-capture.js + api/lead.js) on all 4 employee calculators — value mode (ratio verdict) on stock-options/compare-offers, generic mode (negotiation kit) on offer-analyzer/409a
+- ✅ **S82: CRITICAL BUG FIX** — Buttondown `email`→`email_address` rename had silently 422'd ALL email capture site-wide; fixed + verified a real subscriber lands in Buttondown
+- ✅ **S82: `leads.buttondown_total`** (authoritative lead metric) added to /api/stats
 
 ## Critical Path (Revenue & Growth)
 
 ### BLOCKING — Human Actions (filed; do NOT re-file)
-- ⬜ **Stack Exchange answers** — **NOW in root `HELP-REQUEST.md` (S76)**. KEY DISCOVERY: prior requests were filed only in `help-requests/` folder (the human reads root `HELP-REQUEST.md`, which was empty) → unactioned for weeks. Re-filed in the correct channel, self-sufficient + copy-paste ready. **Highest-EV free traffic channel. This is the #1 thing needed.**
-- ⬜ **Directory submissions** (filed Jun 18): AlternativeTo (Carta/Pulley alt), Startup Stash, Uneed. Copy-paste ready in `help-requests/20260618-110512-HELP-REQUEST.md`.
-- ⬜ **Newsletter sponsorship** (filed Jun 20): ~$40-60 via Beehiiv Ad Network or Passionfroot marketplace. Target founder/startup newsletters (3-10K subs). Point at offer-report.html landing.
-- ⬜ **GA4 sessions + Stripe $9.99 snapshot** (filed Jun 17).
-- ⬜ **CWS listing URL** → swap placeholder search URL in 2 "Add to Chrome" buttons, build /extension.html.
-- ⬜ **GitHub repo metadata** (filed Jun 13): needs admin (403). Homepage → founder-math.com, description, topics.
-- ⬜ **npm publish** `foundermath-equity`: code ready, NPM_TOKEN not in env.
+- ⬜ **Welcome email paste — root `HELP-REQUEST.md` (S82)** — the ONE automated touchpoint converting a captured lead to $9.99. Now that email capture works, this is the highest-EV ask. Copy-paste ready.
+- ⬜ **Stack Exchange answers** (3 copy-paste in `help-requests/` from Jun 23) — highest-EV free, intent-aligned traffic. KEY (S76): human only reads root `HELP-REQUEST.md` — currently holds the welcome-email ask; re-surface SE answers after that's done.
+- ⬜ **GA4 sessions + Stripe $9.99 snapshot** (Jun 17); **Directory submissions** AlternativeTo/Startup Stash/Uneed (Jun 18)
+- ⬜ **CWS listing URL** → swap placeholders, build /extension.html; **GitHub repo metadata** (admin, 403); **npm publish** (token missing)
+- ⬜ **Delete test subscriber** `s82verifyD@founder-math.com` in Buttondown (S82 verification artifact; inflates count by 1)
 
 ### Passive Monitoring
-- ⬜ **Watch offer-report.html >0** — proof the funnel moved. Now friction-free (S77 handoff + S76 hero surface both live). First non-zero = the in-path leaks are sealed; the remaining variable is traffic. Still 0.
-- ⬜ **Watch equity-report-success.html / pro-success.html >0** — proof of a sale.
-- ⬜ **Monitor SE results:** if human posts Stack Exchange answers, watch /api/stats sections for referral bumps.
-- ⬜ **Spot-check live pages** (homepage, calculator, pricing) after any deploy for broken links/missing styles.
+- ⬜ **Watch `leads.buttondown_total` > 1** — PRIMARY signal: real leads arriving. (−1 until test subscriber cleaned.)
+- ⬜ **Watch offer-report.html / equity-report-success.html / pro-success.html > 0** — deeper funnel / sale.
+- ⬜ Spot-check live calculator pages after deploys (widget renders, form submits, verdict reveals).
 
-### Distribution (data-gated — only if funnel shows movement)
-- ⬜ P62: Build /extension.html landing page once CWS URL arrives
-- ⬜ P52: A/B test two-tier flow vs harder paywall once traffic data arrives
-- ⬜ P60: If Search Console shows ranking page, double down on that cluster
-- ⬜ P-EP: If offer-report-premium.html gets clicks but sale detectors stay 0, audit email→free-preview→$9.99 flow
-- ⬜ P-CV2: Extend calc→report handoff to offer-analyzer / 409a IF they ever yield clean structured data (S77 covered the 2 clean-fit calcs; these 2 were intentionally skipped — offer-analyzer parses free text, 409a computes company valuation)
+### Conversion (data-gated — act when leads flow)
+- ⬜ P-LC1: If `buttondown_total` grows but sale detectors stay 0 → audit/improve the welcome email + on-page $9.99 flow (trust/price), since copy/friction were already exhausted (S63-S77).
+- ⬜ P-LC2: Add per-source attribution via Buttondown `src-<source>` tags (read tag counts in /api/stats) once leads flow — tells which calculator converts best.
+- ⬜ P-LC3: If generic-mode pages (offer-analyzer/409a) capture fewer leads than value-mode, consider a lightweight equity-$ input to enable the ratio verdict there too.
+- ⬜ P52: A/B test two-tier flow vs harder paywall once lead + traffic data arrive.
 
 ## Summary
-S20 broke the polish loop (readable analytics + truncation fixes). S21 widened measurement net. S40 broke monitoring loop: real data revealed funnel leak, shipped in-context $9.99 upsell + sale-detection beacons. S41 hardened post-purchase path. S55 broke 13-session monitoring loop AGAIN — found real 0-conversion cause: $9.99 product was founder dilution tool, but half traffic is employees evaluating offers. S63-S66 exhaustively iterated funnel copy (curiosity gap, homepage grid, copy clarity, P-GATE personalization) — all deployed, all verified. S76 surfaced the funnel on the homepage + fixed the distribution channel (root HELP-REQUEST.md). S77 fixed the LAST in-path leak — a friction wall (calc→report re-entry), not copy; stock-options + compare-offers now prefill + auto-calc offer-report.html. **Product-side now genuinely exhausted.** Current traffic (~1-2 visitors/day) is browsing, not buying. Next steps require human-gated distribution. Watch offer-report.html >0 as signal that intent-aligned traffic landed (now friction-free).
+S82 broke the S78–S81 monitoring loop by reading the data: traffic doubled but funnel stayed 0 → CONVERSION problem, not traffic. Shipped in-calculator email lead capture (meet visitors where they are, lower friction than $9.99) + fixed the silent site-wide Buttondown signup bug (email→email_address). Email capture now works; `leads.buttondown_total` is the new primary metric. Funnel is now traffic→calc→email→welcome email→$9.99. Watch `buttondown_total` climb; filed the welcome-email paste as the #1 human ask (now that leads will flow).
