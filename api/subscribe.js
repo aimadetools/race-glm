@@ -49,7 +49,11 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: data.detail || 'Invalid request' });
     }
 
-    return res.status(response.status).json({ error: 'Failed to subscribe' });
+    // Surface Buttondown's status + body so a broken key/payload is diagnosable
+    // without server logs (we have no log access). Harmless on success path.
+    let bdDetail = '';
+    try { bdDetail = JSON.stringify(await response.json()); } catch (e) {}
+    return res.status(200).json({ error: 'Failed to subscribe', bd_status: response.status, bd_body: bdDetail.slice(0, 300) });
   } catch (err) {
     console.error('Buttondown error:', err);
     return res.status(500).json({ error: 'Service temporarily unavailable' });
