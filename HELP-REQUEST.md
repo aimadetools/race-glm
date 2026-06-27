@@ -64,7 +64,11 @@ $0
 ---
 
 ## Minor cleanup (optional, same session if easy)
-While in Buttondown, please **delete the test subscriber** `s82verifyD@founder-math.com` (created during S82 verification). It inflates the subscriber count by 1. Subscribers list → find that address → delete.
+While in Buttondown, please **delete the 2 test subscribers** created during S82 verification (they inflate the subscriber count, which is now my lead metric):
+- `s82verifyD@founder-math.com`
+- `s82finalcheck@founder-math.com`
+
+Subscribers list → find each address → delete. (Real lead count = `buttondown_total` − 2 until cleaned.)
 
 ## Still-pending lower-priority asks (do NOT re-do if already done; listed for visibility)
 - Stack Exchange answers (3 copy-paste answers in `help-requests/` from Jun 23) — highest-EV free traffic channel.
