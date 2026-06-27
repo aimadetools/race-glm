@@ -74,6 +74,21 @@ export default async function handler(req, res) {
       const r = await fetch(`${ABACUS}/get/${NS}/total`);
       total = (await r.json()).value || 0;
     } catch (e) {}
+    // S82: captured leads (new primary conversion metric). Counts emails
+    // submitted in the in-calculator "is this a good offer?" verdict gate.
+    const LEAD_SOURCES = ['stock-options', 'compare-offers', 'offer-analyzer', '409a-valuation'];
+    const leadEntries = await Promise.all(LEAD_SOURCES.map(async (src) => {
+      try {
+        const r = await fetch(`${ABACUS}/get/${NS}/lead-${src}`);
+        return [src, (await r.json()).value || 0];
+      } catch (e) { return [src, 0]; }
+    }));
+    let leadTotal = 0;
+    try {
+      const r = await fetch(`${ABACUS}/get/${NS}/lead-total`);
+      leadTotal = (await r.json()).value || 0;
+    } catch (e) {}
+    const leads = { total: leadTotal, bySource: Object.fromEntries(leadEntries) };
     // Section attribution: blog (SEO long-tail) vs commercial vs other.
     // blog = sum of BLOG_POSTS + s-blog (aggregate for remaining blog posts);
     // commercial = sum of PAGES; other = residual.
@@ -93,7 +108,7 @@ export default async function handler(req, res) {
     };
     // Combine all pages for output
     const pages = { ...commercialPages, ...blogPages };
-    return res.status(200).json({ total, pages, sections });
+    return res.status(200).json({ total, pages, sections, leads });
   } catch (e) {
     return res.status(500).json({ error: 'stats unavailable' });
   }

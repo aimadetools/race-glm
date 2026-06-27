@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { email } = req.body;
+  const { email, source } = req.body || {};
 
   if (!email || !email.includes('@')) {
     return res.status(400).json({ error: 'Valid email is required' });
@@ -14,6 +14,11 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Newsletter service not configured' });
   }
 
+  // Tag the lead source so I know which calculator generated each subscriber
+  // (stock-options / compare-offers / offer-analyzer / 409a-valuation, or website).
+  const safeSource = typeof source === 'string' && /^[a-z0-9-]+$/.test(source)
+    ? source : 'website';
+
   try {
     const response = await fetch('https://api.buttondown.email/v1/subscribers', {
       method: 'POST',
@@ -23,9 +28,9 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         email: email,
-        tags: ['foundermath-signup'],
+        tags: ['foundermath-signup', 'src-' + safeSource],
         metadata: {
-          source: 'website',
+          source: safeSource,
           signup_date: new Date().toISOString().split('T')[0],
         },
       }),

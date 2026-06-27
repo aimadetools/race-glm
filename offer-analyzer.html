@@ -293,6 +293,9 @@
     <!-- Findings -->
     <div class="findings-grid" id="findingsGrid"></div>
 
+    <!-- S82 — in-calculator lead capture (generic mode): negotiation script + checklist for email. -->
+    <div id="fm-lead-capture"></div>
+
     <!-- S63/P-GATE curiosity-gap upsell: you've scanned for red flags — now the bigger question, is the equity actually good. Now PERSONALIZED with red flag count. -->
     <div class="result-upsell" style="margin:24px 0;padding:26px 28px;background:linear-gradient(135deg,rgba(16,185,129,0.10),rgba(254,202,87,0.07));border:2px solid var(--green);border-radius:16px;">
         <h3 style="font-size:1.18rem;font-weight:800;margin:0 0 8px;color:var(--text-primary);">You found <span id="upsellRedFlags" style="color:var(--red);font-weight:900;">0</span> red flag(s) — see if the equity <span style="color:var(--green);">makes up for it</span></h3>
@@ -780,6 +783,11 @@ function runAnalysis(text) {
     renderStats(redFlags, warnings, good, missing);
     renderFindings(findings);
 
+    // S82 — activate the in-calculator lead capture (generic mode: this tool parses
+    // free text, so no clean equity $ value — offer the negotiation kit for email instead).
+    window.fmCalc = { source: 'offer-analyzer' };
+    if (window.fmLeadRefresh) window.fmLeadRefresh();
+
     // Setup share buttons
     const shareUrl = 'https://founder-math.com/offer-analyzer.html';
     const shareText = `I scanned my startup offer letter and found ${redFlags} red flags and ${good} positive terms. Check yours:`;
@@ -855,6 +863,7 @@ function copyLink() {
     });
 }
 </script>
+    <script src="lead-capture.js" defer></script>
     <script src="analytics.js" defer></script>
 </body>
 </html>

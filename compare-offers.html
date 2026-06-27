@@ -860,6 +860,9 @@
                 </div>
             </div>
 
+            <!-- S82 — in-calculator lead capture: "is the winning equity above market?" verdict gated by email. -->
+            <div id="fm-lead-capture"></div>
+
             <!-- S63/P-GATE curiosity-gap upsell: you've seen which offer wins — now find out if that equity is actually a good deal. Now PERSONALIZED with their winning equity value. -->
             <div class="result-upsell" style="margin:24px 0;padding:26px 28px;background:linear-gradient(135deg,rgba(16,185,129,0.10),rgba(254,202,87,0.07));border:2px solid var(--green);border-radius:16px;">
                 <h3 style="font-size:1.18rem;font-weight:800;margin:0 0 8px;color:var(--text-primary);">Your winning offer has <span id="upsellEquityValue" style="color:var(--green);font-weight:900;">$0</span> in equity — see if it's <span style="color:var(--green);">competitive</span></h3>
@@ -1272,6 +1275,17 @@ function compareOffers() {
     // P-GATE: Update upsell with winning equity value
     const upsellEl = document.getElementById('upsellEquityValue');
     if (upsellEl) upsellEl.textContent = fmt(Math.max(a.vestedValue, b.vestedValue));
+
+    // S82 — feed the in-calculator lead-capture widget. Use the winning offer's
+    // vested equity value (and ownership %) as the basis for the "above market?" verdict.
+    var winEquity = Math.max(a.vestedValue, b.vestedValue);
+    window.fmCalc = {
+        source: 'compare-offers',
+        currentValue: winEquity,
+        exitValue: winEquity,
+        ownershipPct: Math.max(a.equityPct || 0, b.equityPct || 0)
+    };
+    if (window.fmLeadRefresh) window.fmLeadRefresh();
     document.getElementById('compPctA').textContent = fmtPct(a.equityPct);
     document.getElementById('compPctB').textContent = fmtPct(b.equityPct);
     document.getElementById('compTotalA').textContent = fmt(a.totalComp);
@@ -1602,6 +1616,7 @@ function resetCalculator() {
 </script>
     <script src="ab-test-pricing.js"></script>
     <script src="save-reminder.js"></script>
+    <script src="lead-capture.js" defer></script>
     <script src="analytics.js" defer></script>
 </body>
 </html>
