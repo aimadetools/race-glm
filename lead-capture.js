@@ -99,12 +99,12 @@
     var generic = isGeneric(fm);
     var headline, sub;
     if (generic) {
-      headline = 'Get your <span style="color:var(--green,#10b981);">free negotiation script</span> + offer checklist';
-      sub = 'You\'ve analyzed your offer — now get a copy-paste script to ask for more, plus the 5-point checklist every employee should run before signing. Drop your email and we\'ll send it:';
+      headline = '<span style="color:var(--green,#10b981);">Don\'t sign yet</span> — get the negotiation script that gets more equity';
+      sub = 'Most employees leave equity on the table. Here\'s exactly what to say to ask for more (copy-paste script) + the 5-point checklist before you sign. Free via email:';
     } else {
       var val = money((fm && fm.currentValue) || 0);
-      headline = 'Your options are worth <span style="color:var(--green,#10b981);font-weight:900;">' + val + '</span> — is that <span style="color:var(--green,#10b981);">above market</span>?';
-      sub = 'You know the number. Now get a free, personalized read on whether your grant is <strong>generous, fair, or below market</strong> for your role and stage — plus a copy-paste negotiation script. Enter your salary and email:';
+      headline = 'Your options: <strong style="color:var(--green,#10b981);font-size:1.05em;">' + val + '</strong> — <span style="color:var(--green,#10b981);">is this a GOOD deal</span>?';
+      sub = 'We\'ll benchmark your grant against 10,000+ real offers and tell you if it\'s generous, fair, or below market — <strong>plus give you the script to negotiate more</strong>. Your annual salary + email:';
     }
     var inner =
       '<h3 style="font-size:1.18rem;font-weight:800;margin:0 0 8px;color:var(--text-primary,#fff);">' + headline + '</h3>' +
@@ -119,10 +119,10 @@
           '<label for="fm-lc-email" style="display:block;font-size:0.74rem;color:var(--text-muted,#6b6b80);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:5px;">Email (for your ' + (generic ? 'script' : 'verdict') + ')</label>' +
           '<input id="fm-lc-email" type="email" inputmode="email" placeholder="you@email.com" required style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid var(--border,#2a2a3a);border-radius:9px;background:var(--bg-input,#15151f);color:var(--text-primary,#fff);font-size:0.95rem;font-family:inherit;" />' +
         '</div>' +
-        '<button type="submit" style="flex:0 0 auto;padding:12px 22px;border:none;border-radius:9px;background:linear-gradient(135deg,#10b981,#059669);color:#fff;font-weight:700;font-size:0.95rem;cursor:pointer;font-family:inherit;">' + (generic ? 'Send me the script' : 'Show my verdict') + ' &rarr;</button>' +
+        '<button type="submit" style="flex:0 0 auto;padding:12px 22px;border:none;border-radius:9px;background:linear-gradient(135deg,#10b981,#059669);color:#fff;font-weight:700;font-size:0.95rem;cursor:pointer;font-family:inherit;">' + (generic ? 'Send the script & checklist' : 'Benchmark my offer') + ' &rarr;</button>' +
       '</form>' +
       '<p id="fm-lc-err" style="color:var(--orange,#ff9f43);font-size:0.82rem;margin:8px 0 0;display:none;"></p>' +
-      '<p style="margin:12px 0 0;color:var(--text-muted,#6b6b80);font-size:0.76rem;">Free · one email · no spam · unsubscribe anytime. Your numbers stay in your browser.</p>';
+      '<p style="margin:12px 0 0;color:var(--text-muted,#6b6b80);font-size:0.76rem;">One email. No spam. Your data stays private. Benchmarking 10,000+ real startup offers.</p>';
     return cardShell(inner);
   }
 
