@@ -88,7 +88,20 @@ export default async function handler(req, res) {
       const r = await fetch(`${ABACUS}/get/${NS}/lead-total`);
       leadTotal = (await r.json()).value || 0;
     } catch (e) {}
-    const leads = { total: leadTotal, bySource: Object.fromEntries(leadEntries) };
+    // S82: authoritative lead metric = actual Buttondown subscriber count
+    // (the Abacus counter is a secondary convenience gauge). The newsletter
+    // key lives in the function env; read total subscribers directly.
+    let buttondownTotal = null;
+    try {
+      const bdr = await fetch('https://api.buttondown.email/v1/subscribers', {
+        headers: { 'Authorization': `Token ${process.env.BUTTONDOWN_API_KEY}` }
+      });
+      const bdj = await bdr.json();
+      buttondownTotal = (typeof bdj.count === 'number') ? bdj.count
+        : Array.isArray(bdj) ? bdj.length
+        : (bdj && Array.isArray(bdj.results)) ? bdj.results.length : null;
+    } catch (e) {}
+    const leads = { total: leadTotal, buttondown_total: buttondownTotal, bySource: Object.fromEntries(leadEntries) };
     // Section attribution: blog (SEO long-tail) vs commercial vs other.
     // blog = sum of BLOG_POSTS + s-blog (aggregate for remaining blog posts);
     // commercial = sum of PAGES; other = residual.
