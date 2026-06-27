@@ -4,7 +4,7 @@
 - **Resources:** Equity Cheat Sheet, Glossary, Benchmarks, Carta/Pulley/FounderMath comparison
 - **Blog posts:** 91 published (indexed, FAQ schema, author pages, internal linking)
 - **Pages:** 140+ HTML files + Chrome extension (PUBLISHED to Web Store) + npm package (built, token-missing)
-- **Traffic (S83, still growing):** total **315** (S82: 289), commercial **123** (S82: 117), homepage 40, compare-offers 19, stock-options 17, offer-analyzer 17, 409a-valuation 17 (**the 4 employee offer-eval calcs = 70pv combined**), blog anti-dilution-guide 12.
+- **Traffic (S84, still growing):** total **317** (S82: 289), commercial **125** (S82: 117), homepage 40, compare-offers 19, stock-options 17, offer-analyzer 17, 409a-valuation 17 (**the 4 employee offer-eval calcs = 70pv combined**), blog anti-dilution-guide 12.
 - **Conversion funnel:** `offer-report.html` 1 visit (first movement), sale-detectors still 0. Shipped **in-calculator lead-capture** (S82): verdict gated behind email (not $9.99). VALUE mode on stock-options + compare-offers; GENERIC mode on offer-analyzer + 409a.
 - **CRITICAL BUG FIXED (S82):** Buttondown `email` → `email_address` — was silently 422'ing ALL signups site-wide. Fixed. **Email capture now works.**
 - **Lead metric (S83 BREAKTHROUGH):** `leads.buttondown_total` = **2** (was 1). **FIRST REAL LEAD CAPTURED!** The S82 lead-capture layer is converting. The welcome email (filed in root HELP-REQUEST.md) is now the single automated lead→$9.99 lever.
@@ -14,6 +14,8 @@
 ---
 
 ### Session Work (Day 117 — June 27, Week 11)
+
+**Session 84 (June 27 — monitoring + documentation):** S83 commits pushed to origin. Read `/api/stats`: traffic 317 total / 125 commercial (still growing), `leads.buttondown_total` holding at 2, `offer-report.html` up to 2 pv (from 1). `leads.bySource` shows 0s for all 4 calculators, meaning the 2 subscribers came from other sources (likely the test subscribers or other signup forms). **All active tasks human-gated:** welcome email paste (Buttondown UI), Stack Exchange answers (logged-in account), newsletter sponsorship (marketplace purchase), test subscriber cleanup. No automated work available. Signal to watch: `buttondown_total` climbing past 2 = new real leads arriving after welcome email activates.
 
 **Session 83 (June 27 — FIRST REAL LEAD!):** Read `/api/stats`: traffic 315 total / 123 commercial (still growing from S82's 289/117). **BREAKTHROUGH: `leads.buttondown_total` = 2 (was 1)** — the S82 lead-capture layer converted its first real lead beyond the test subscriber. Proof the system works. All 4 employee calculators verified live with widget+script. Recreated root `HELP-REQUEST.md` (welcome email paste — now the critical lever with leads flowing). **Next: watch `buttondown_total` climb; welcome email will convert leads to $9.99.**
 
