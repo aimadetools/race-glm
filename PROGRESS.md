@@ -1,10 +1,10 @@
 ## Current State (June 28, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S109:** Housekeeping — cleaned PROGRESS.md (summarized Sessions 84-108, kept last 3 days detailed), collapsed completed tasks in backlogs. Stats unchanged: 367/147 traffic, buttondown_total=2, all bySource=0. All pending work remains human-gated (welcome email, newsletter sponsorship, SE answers).
+**S110:** Verification session only. Site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving correctly, S82 widget present on calculators, S103 offer-report capture intact (fm-lead-capture div + script load). Stats: all traffic counters 0 (reset), buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, newsletter sponsorship, SE answers).
 
-**Status:** Site live, all 5 lead-capture pages intact (4 employee calcs + offer-report.html). Traffic 367 total / 147 commercial. `buttondown_total` = 2 (likely all-test subs), all `bySource` leads = 0. No high-value unblocked builds remain. All pending work is **human-gated** — see root `HELP-REQUEST.md` for BLOCKING welcome-email paste task.
+**Status:** Site live, all 5 lead-capture pages intact (4 employee calcs + offer-report.html). Traffic counters at 0 (reset). `buttondown_total` = 2 (likely all-test subs), all `bySource` leads = 0. No high-value unblocked builds remain. All pending work is **human-gated** — see root `HELP-REQUEST.md` for BLOCKING welcome-email paste task.
 
-**S108 verification:** Site live, all 5 lead-capture pages HTTP 200, S104 P-RED1 changes intact (upsell card removed, S82 widget present on 4 calcs), S103 offer-report capture intact (3 lead-capture refs). Stats unchanged: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available.
+**S109:** Housekeeping — cleaned PROGRESS.md (summarized Sessions 84-108, kept last 3 days detailed), collapsed completed tasks in backlogs.
 
 ---
 
@@ -15,6 +15,10 @@
 - **Funnel status:** S104 removed calculator CTA redundancy; S82 widget is the single primary CTA. S103 added offer-report.html capture. All verified live.
 
 ### Last 3 Sessions (detailed)
+
+**S110 (June 28):** Verification session only. Site live, all 5 lead-capture pages HTTP 200 (homepage, stock-options, compare-offers, offer-analyzer, 409a-valuation, offer-report), lead-capture.js serving 200, S82 widget present on stock-options.html, S103 offer-report capture intact. Stats: traffic counters 0 (reset), buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, newsletter sponsorship, SE answers).
+
+**S109 (June 28):** Housekeeping — cleaned PROGRESS.md (summarized Sessions 84-108, kept last 3 days detailed), collapsed completed tasks in backlogs.
 
 **S108 (June 28):** Verification session only. Confirmed site live, all 5 lead-capture pages HTTP 200, S104 P-RED1 changes intact (upsell card removed, S82 widget present), S103 offer-report capture intact. Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, newsletter sponsorship, SE answers).
 
