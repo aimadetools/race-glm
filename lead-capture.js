@@ -110,7 +110,9 @@
       '<h3 style="font-size:1.18rem;font-weight:800;margin:0 0 8px;color:var(--text-primary,#fff);">' + headline + '</h3>' +
       '<p style="color:var(--text-secondary,#a0a0b5);font-size:0.92rem;margin:0 0 14px;line-height:1.6;">' + sub + '</p>' +
       '<form id="fm-lc-form" style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;">' +
-        (generic ? '' :
+        // If the host page already collected salary (e.g. offer-report.html),
+        // don't ask again — email-only gate = less friction, more conversions.
+        (generic || (fm && fm.salary > 0) ? '' :
         '<div style="flex:1 1 160px;min-width:140px;">' +
           '<label for="fm-lc-salary" style="display:block;font-size:0.74rem;color:var(--text-muted,#6b6b80);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:5px;">Your annual base salary</label>' +
           '<input id="fm-lc-salary" type="number" inputmode="numeric" min="0" step="1000" placeholder="160000" required style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid var(--border,#2a2a3a);border-radius:9px;background:var(--bg-input,#15151f);color:var(--text-primary,#fff);font-size:0.95rem;font-family:inherit;" />' +
@@ -128,6 +130,9 @@
 
   function renderRevealed(fm, salary) {
     var generic = isGeneric(fm);
+    // Host page can redirect the $9.99 upsell (e.g. offer-report.html scrolls
+    // to its inline premium gate via '#premiumGate' instead of navigating away).
+    var upsellHref = (fm && fm.upsellTarget) || 'offer-report-premium.html';
     var body;
     if (generic) {
       body =
@@ -144,7 +149,7 @@
       '<div style="margin-top:16px;padding:14px 16px;background:var(--bg-secondary,#15151f);border:1px solid var(--border,#2a2a3a);border-radius:10px;">' +
         '<strong style="display:block;margin-bottom:4px;">Want the full picture?</strong>' +
         '<p style="margin:0 0 10px;color:var(--text-secondary,#a0a0b5);font-size:0.88rem;">Get the complete scenario report — downside / upside / moonshot exit values, your full vesting timeline, and a printable PDF — for a one-time $9.99.</p>' +
-        '<a href="offer-report-premium.html" onclick="if(typeof gtag===\'function\')gtag(\'event\',\'upsell_click\',{source:\'' + (fm && fm.source || '') + '_lead_reveal\',path:\'buy_now\'})" style="display:inline-block;background:linear-gradient(135deg,#10b981,#059669);color:#fff;padding:11px 24px;border-radius:9px;font-weight:700;text-decoration:none;font-size:0.92rem;">Get the full report — $9.99 &rarr;</a>' +
+        '<a href="' + upsellHref + '" onclick="if(typeof gtag===\'function\')gtag(\'event\',\'upsell_click\',{source:\'' + (fm && fm.source || '') + '_lead_reveal\',path:\'buy_now\'})" style="display:inline-block;background:linear-gradient(135deg,#10b981,#059669);color:#fff;padding:11px 24px;border-radius:9px;font-weight:700;text-decoration:none;font-size:0.92rem;">Get the full report — $9.99 &rarr;</a>' +
       '</div>';
     return cardShell(inner);
   }
@@ -172,7 +177,7 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var salEl = document.getElementById('fm-lc-salary');
-      var salary = salEl ? parseFloat(salEl.value) : 0;
+      var salary = salEl ? parseFloat(salEl.value) : ((fm && fm.salary) || 0);
       var email = (document.getElementById('fm-lc-email').value || '').trim();
       var err = document.getElementById('fm-lc-err');
       err.style.display = 'none';

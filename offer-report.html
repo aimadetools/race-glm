@@ -258,6 +258,12 @@
             </div>
         </div>
 
+        <!-- S103: lead capture — the same proven layer the calculators use. A
+             visitor who reaches this report page is the most-qualified in the
+             funnel; capture an email for the "is this a good offer?" verdict
+             instead of losing them at the $9.99 wall. -->
+        <div id="fm-lead-capture"></div>
+
         <!-- PREMIUM: scenario table + vesting + benchmark + verdict + PDF -->
         <div class="card premium-gate" id="premiumGate">
             <div class="premium-unlock-banner" id="unlockBanner">
@@ -265,7 +271,7 @@
                 <p>Your full scenario analysis, vesting schedule, benchmark, and PDF are ready below.</p>
             </div>
             <h2>Full scenario analysis &amp; report</h2>
-            <p class="sub">Downside / base / upside / moonshot exit values, your vesting timeline, a benchmark verdict, and a downloadable PDF.</p>
+            <p class="sub">Downside / base / upside / moonshot exit values, your full vesting timeline, and a downloadable PDF.</p>
 
             <div class="premium-content">
                 <h3 style="font-size:1.05rem;margin:10px 0 8px;">Exit value scenarios</h3>
@@ -295,15 +301,15 @@
 
             <div class="premium-overlay" id="premiumOverlay">
                 <div class="premium-card">
-                    <h3>Is this a good offer? <span style="color:var(--green);">Unlock your verdict.</span></h3>
-                    <p>You've got the value. Now get the answer that actually decides your offer — how your grant compares to market — plus exit scenarios, vesting, and a PDF.</p>
+                    <h3>Want the <span style="color:var(--green);">complete report?</span></h3>
+                    <p>You've got your value and your market verdict. Now get the full picture that decides your next move — every exit scenario, your complete vesting timeline, and a printable PDF.</p>
                     <ul>
-                        <li>&#10003; "Strong&nbsp;/ fair&nbsp;/ below market" benchmark verdict</li>
-                        <li>&#10003; Downside / base / upside / moonshot values</li>
-                        <li>&#10003; Full vesting schedule</li>
-                        <li>&#10003; Professional PDF, ready in 60 seconds</li>
+                        <li>&#10003; Downside / base / upside / moonshot exit values</li>
+                        <li>&#10003; Full year-by-year vesting schedule</li>
+                        <li>&#10003; Professional PDF report, ready in 60 seconds</li>
+                        <li>&#10003; Instant access — one-time $9.99</li>
                     </ul>
-                    <a href="https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h?utm_source=founder-math&amp;utm_medium=offer_report&amp;utm_campaign=gate" class="buy" onclick="if(typeof gtag==='function')gtag('event','premium_report_buy',{source:'offer_report_gate'})">Unlock My Verdict — $9.99 &rarr;</a>
+                    <a href="https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h?utm_source=founder-math&amp;utm_medium=offer_report&amp;utm_campaign=gate" class="buy" onclick="if(typeof gtag==='function')gtag('event','premium_report_buy',{source:'offer_report_gate'})">Get the Full Report — $9.99 &rarr;</a>
                     <span class="note">One-time &middot; instant access &middot; 30-day money-back guarantee</span>
                 </div>
             </div>
@@ -325,6 +331,7 @@
 </footer>
 
 <script src="analytics.js" defer></script>
+<script src="lead-capture.js" defer></script>
 <script>
 function fmt(n) {
     if (!isFinite(n)) n = 0;
@@ -442,6 +449,21 @@ function calculate() {
     else bench.push('The equity upside here is <strong style="color:var(--orange);">minimal relative to salary</strong>. Unless you expect the company to grow far faster than your assumption, prioritize guaranteed cash compensation.');
     bench.push('Rule of thumb: at early stage, a strong engineer grant is often 0.1–0.5% of the company; at Series A, 0.05–0.25%; later stages, smaller. Compare your ownership % (shares ÷ total shares outstanding) if you can find that number.');
     document.getElementById('benchmark').innerHTML = bench.map(function(p){ return '<p style="margin-bottom:8px;">' + p + '</p>'; }).join('');
+
+    // S103: this page is the deepest-intent step in the funnel (homepage hero +
+    // calculators route here), yet it had NO email capture — only a $9.99 wall
+    // that 0/12 visitors converted. Feed the proven lead-capture widget (same
+    // layer as the calculators) so a visitor who won't pay $9.99 still leaves an
+    // email → welcome email → eventual $9.99/Pro. salary is known here, so the
+    // gate is email-only (less friction than the calculator flow).
+    window.fmCalc = {
+      source: 'offer-report',
+      currentValue: valueTodayFull,
+      exitValue: futureValueBase,
+      salary: salary,
+      upsellTarget: '#premiumGate'
+    };
+    if (typeof window.fmLeadRefresh === 'function') window.fmLeadRefresh();
 
     // Reveal results
     document.getElementById('results').style.display = 'block';
