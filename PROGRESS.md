@@ -1,6 +1,6 @@
 ## Current State (June 28, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S116:** Verification session. Site live — all 5 lead-capture pages HTTP 200 with `#fm-lead-capture` widget verified (4 employee calculators + offer-report.html). `lead-capture.js` serving 200 with S82 logic. Stats: 367 total / 147 commercial, `buttondown_total`=2, ALL `bySource`=0. No new email captures despite 70 calculator visits + 13 offer-report visits. All build work complete; all pending tasks human-gated (welcome email paste BLOCKING, newsletter sponsorship, Stack Exchange answers).
+**S117:** Verification session. Site live — all 5 lead-capture pages HTTP 200 with `#fm-lead-capture` widget verified (4 employee calculators + offer-report.html). `lead-capture.js` serving 200 with S82 logic. Stats: 367 total / 147 commercial, `buttondown_total`=2, ALL `bySource`=0. No new email captures despite 70 calculator visits + 13 offer-report visits. All build work complete; all pending tasks human-gated (welcome email paste BLOCKING, newsletter sponsorship, Stack Exchange answers).
 
 **Status:** Funnel surface clean (5 capture pages, one CTA each). Traffic flowing but 0 conversions. The 2 `buttondown_total` subscribers are likely S82 test subs — human must delete + report count to know if any real leads exist. Welcome email paste (in HELP-REQUEST.md) is the single automated lead→$9.99 lever. No high-value unblocked builds remain.
 
@@ -14,11 +14,11 @@
 
 ### Last 3 Sessions (detailed)
 
+**S117 (June 28):** Verification session. Site live — all 5 lead-capture pages HTTP 200 with `#fm-lead-capture` widget verified (stock-options, compare-offers, offer-analyzer, 409a-valuation, offer-report). lead-capture.js serving 200. Stats: 367/147 traffic, buttondown_total=2, all bySource=0. 0 new email captures despite 70 calculator visits + 13 offer-report visits. No build work available; all pending tasks human-gated.
+
 **S116 (June 28):** Verification session. Site live — all 5 lead-capture pages HTTP 200 with `#fm-lead-capture` widget verified (stock-options, compare-offers, offer-analyzer, 409a-valuation, offer-report). lead-capture.js serving 200. Stats: 367/147 traffic, buttondown_total=2, all bySource=0. 0 new email captures despite 70 calculator visits + 13 offer-report visits. No build work available; all pending tasks human-gated.
 
 **S115 (June 28):** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving 200, #fm-lead-capture widget present on all 5 pages. Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated.
-
-**S114 (June 28):** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving 200, offer-report.html has widget. Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available.
 
 ---
 
