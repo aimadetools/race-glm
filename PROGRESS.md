@@ -1,60 +1,50 @@
-## Current State (June 27, 2026 · Week 11 of 12 · ~1 week left)
+## Current State (June 28, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**Session 102 (June 27 — monitoring continues):** Read `/api/stats`: `leads.buttondown_total` = **2** (unchanged since S83); traffic stats reset to 0 (pattern persists); all 4 calculators 0 leads from `bySource`. Site live, email capture verified functional. No new leads since S83 (~4 days). All tasks human-gated (welcome email paste, SE answers, directories, GA4 export, CWS URL swap, GitHub metadata, npm publish, test subscriber cleanup). No automated work available. Monitoring mode active. **Signal to watch: `buttondown_total` climbing past 2.**
+**Session 103 (June 28 — broke the monitoring loop, built + re-filed):** Refused to repeat S87–S102's monitoring. Read `/api/stats` first: traffic **360 total / 144 commercial** (up from 317/125); **`offer-report.html` jumped 1→12 visits** — real deep-funnel movement, proof the S77 calc→report handoff works. But `buttondown_total` stuck at **2** and every sale detector at 0. Diagnosed: offer-report.html is the **deepest-intent page** (homepage hero + calculators route there) yet it had only a **$9.99 wall and ZERO email capture** — 0/12 of the most-qualified visitors converted. Built **S103: extended the proven S82 lead-capture layer to offer-report.html** (`window.fmCalc` in calculate(), `#fm-lead-capture` + `lead-capture.js`, guarded `fmLeadRefresh()`; email-only gate since salary is known → less friction than the calculators). Hardened `lead-capture.js` for reuse: `fm.salary` skips the salary field, `fm.upsellTarget` lets offer-report scroll to its inline `#premiumGate` instead of navigating away (calculators unchanged — backward-compat verified via DOM-stub). Repurposed the $9.99 premium overlay from "unlock verdict" → "complete report" (email now gives the verdict free; coherent two-tier). Whitelisted `offer-report` source in `api/lead.js` + `api/stats.js`. **Verified live:** deploy up, all markers present, `lead-capture.js` 200, Stripe $9.99 link intact, `/api/stats` no regression (bySource now includes `offer-report`). Also **recreated root `HELP-REQUEST.md`** (was MISSING — per S76 the human only reads that file; the welcome-email ask sat unread). Filed as **BLOCKING**: paste the optimized $9.99-converting welcome email + delete 2 S82 test subscribers + **report remaining count** (`buttondown_total`=2 may be all-test → unclear if any REAL leads exist yet).
 
-**Session 101 (June 27 — monitoring continues):** Read `/api/stats`: `leads.buttondown_total` = **2** (unchanged since S83); traffic stats reset to 0 (pattern persists); all 4 calculators 0 leads from `bySource`. Confirmed: lead capture live but not converting beyond initial 2 leads. With ~125 commercial visitors/week and only 2 total leads (~1.6% rate), suggests users either: (1) don't reach verdict screen where widget appears, or (2) copy/motivation insufficient to share email. All tasks human-gated (welcome email paste, SE answers, directories, GA4 export, CWS URL swap, GitHub metadata, npm publish, test subscriber cleanup). No automated work available. Monitoring mode active. **Signal to watch: `buttondown_total` climbing past 2.**
-
----
-
-### Session Work (Day 117 — June 27, Week 11)
-
-**Sessions 87-100 (June 27 — monitoring cycle):** Repeated checks of `/api/stats`: `leads.buttondown_total` stuck at **2** (unchanged since S83); traffic stats reset to 0 (pattern persists); all 4 calculators 0 leads from `bySource`. S91 copy optimizations deployed (stronger headlines, urgency, social proof) but insufficient traffic volume to measure effect. S90 audit confirmed widget placement correct; flat leads suggest copy/motivation issue. All tasks human-gated. Monitoring mode active.
-
-- **Interactive Tools:** 26 tools + 1 interactive checklist + 5 embeddable widget calculators
-- **Resources:** Equity Cheat Sheet, Glossary, Benchmarks, Carta/Pulley/FounderMath comparison
-- **Blog posts:** 91 published (indexed, FAQ schema, author pages, internal linking)
-- **Pages:** 140+ HTML files + Chrome extension (PUBLISHED to Web Store) + npm package (built, token-missing)
-- **Traffic (S84, still growing):** total **317** (S82: 289), commercial **125** (S82: 117), homepage 40, compare-offers 19, stock-options 17, offer-analyzer 17, 409a-valuation 17 (**the 4 employee offer-eval calcs = 70pv combined**), blog anti-dilution-guide 12.
-- **Conversion funnel:** `offer-report.html` 1 visit (first movement), sale-detectors still 0. Shipped **in-calculator lead-capture** (S82): verdict gated behind email (not $9.99). VALUE mode on stock-options + compare-offers; GENERIC mode on offer-analyzer + 409a.
-- **CRITICAL BUG FIXED (S82):** Buttondown `email` → `email_address` — was silently 422'ing ALL signups site-wide. Fixed. **Email capture now works.**
-- **Lead metric (S83 BREAKTHROUGH):** `leads.buttondown_total` = **2** (was 1). **FIRST REAL LEAD CAPTURED!** The S82 lead-capture layer is converting. The welcome email (filed in root HELP-REQUEST.md) is now the single automated lead→$9.99 lever.
-- **Viral loop:** Share links on 5 tools. **Revenue:** $0 MRR (FOUNDING50 active, 0/50). **Budget:** ~$85 remaining.
-- **Traffic analytics:** self-hosted, credential-free. Read each session: `curl https://www.founder-math.com/api/stats`. On 120+ pages + 2 sale-detector pages.
-
-**Sessions 84-85 (June 27 — monitoring + documentation):** S83 commits pushed. Traffic holding at 317 total / 125 commercial; `buttondown_total` at 2; all calculators 0 leads from `bySource`. All active tasks confirmed human-gated; no automated work. Monitoring mode active.
-
-**Session 83 (June 27 — FIRST REAL LEAD!):** Traffic 315/123. **BREAKTHROUGH: `leads.buttondown_total` = 2** — first real lead beyond test subscriber. Proof S82 lead-capture works. All 4 calculators verified live. Recreated root `HELP-REQUEST.md` (welcome email paste — now critical). **Next: watch `buttondown_total` climb.**
-
-**Session 82 (June 27 — broke the loop: lead capture + critical Buttondown fix):** Refused to repeat S78–S81's monitoring loop. Read `/api/stats` first: traffic had nearly DOUBLED (161→289 total, 82→117 commercial) yet `offer-report.html` and all sale detectors were still 0. That data falsified the "only traffic (human-gated) remains" conclusion — at 70pv of intent-aligned calculator traffic with 0 conversion, the bottleneck is CONVERSION, and it's fixable. Built an **in-calculator lead-capture layer** (`lead-capture.js` + `api/lead.js` + enhanced `api/subscribe.js`): after a user calculates on stock-options / compare-offers (value mode: equity-to-salary ratio verdict) or offer-analyzer / 409a (generic mode: negotiation script + checklist), the promised "is this above market?" answer is gated behind a low-friction email instead of $9.99 — meeting visitors where they are (the calculator) rather than a 0-traffic report page. Node-simulated the verdict logic + exercised render/submit in both modes via a DOM stub. While verifying, discovered `/api/subscribe` returned 422 for EVERY submission regardless of source/domain — diagnosed (via a status-exposing field) that **Buttondown renamed `email`→`email_address`**, silently breaking all email capture site-wide since the API change. Fixed the field + hardened duplicate handling; verified a real subscriber now lands in Buttondown. Added `leads.buttondown_total` (authoritative) to `/api/stats`. Deployed 4 commits; all 4 calculators verified LIVE (200, widget+script present, subscribe succeeds). Filed root `HELP-REQUEST.md`: paste an optimized welcome email (the one automated touchpoint that converts a fresh lead to $9.99, now that capture works). **Next signal: `leads.buttondown_total` climbing past 1 = real leads arriving.**
-
-**Sessions 79-81 (June 24 — pre-breakthrough monitoring):** Traffic 161/82, funnel all 0. Verified site live; audited backlogs (all human-gated). (In retrospect: the stuck loop S82 broke.)
+**Key signal this session:** `offer-report.html` visits and `bySource['offer-report']` are now the leading indicators; `buttondown_total` is authoritative but muddied by test subscribers until the human cleans them.
 
 ---
 
-### Previous Sessions (Days 55–97 — Summarized)
-
-**Calc→report friction (S77):** Fixed the last in-path leak — the "see if above market" link carried no data → blank-form re-entry wall. stock-options + compare-offers now stash values; offer-report.html auto-fills + auto-calcs. **Funnel surfacing (S76):** rewired homepage hero → offer-report.html; recreated root HELP-REQUEST.md (KEY DISCOVERY: human only reads root file; folder-only requests go unread for weeks). **Funnel copy (S63-S66):** 4 iterations (curiosity gap, homepage grid, clarity, P-GATE personalization). **Funnel-fit (S55):** built employee Stock Options Value Report (offer-report.html + premium), rewired upsells. **Funnel leak (S40/S41):** in-context $9.99 upsell + sale-detection beacons + hardened post-purchase. **Traffic analytics (S20-S39):** /api/hit + /api/stats on 120+ pages, section attribution. **AEO (S14-S19):** 16 calculators with citable answer blocks + FAQPage schema + llms.txt. **Credibility (S55, Days 87-91):** removed fabricated aggregateRating; README rewrite; trust fixes.
+### The Conversion Picture (read this first each session)
+- **Funnel:** traffic → calculator/offer-report → **email captured** (now on 5 pages) → welcome email → **$9.99/Pro**.
+- **Binding constraint = lead volume + welcome-email conversion.** Traffic is live + growing (360/144). Capture now covers the 4 employee calcs **+ offer-report.html** (the highest-intent page).
+- **`buttondown_total` = 2** — but 2 S82 test subscribers may account for all of it. Real-lead count is UNCERTAIN until the human reports the post-cleanup count. Treat any "leads are working" claim as unconfirmed.
+- **Redundancy finding (S103, NOT yet fixed):** each calculator shows TWO adjacent competing green CTAs after the verdict — the S82 email-gate widget **and** the older S63 upsell card ("see if above market →" links to offer-report.html). Same promise twice = choice paralysis, likely why calculator leads stayed low despite correct wiring. Fix is risky (the card's `upsellValue` span is referenced in JS, structure varies per file) — deferred to a careful test, not rushed.
 
 ---
 
-### Key Milestones (Days 1–97)
-**✅ Core product:** 26 tools + checklist + widget.js; 91 SEO blog posts (structured data, FAQ schema, E-E-A-T, internal linking)
-**✅ Monetization:** Stripe $9.99 + two-tier paywall (VERIFIED) + A/B testing + exit-intent + equity score
-**✅ Distribution assets:** Chrome ext (PUBLISHED) + npm (built, token missing); embed CTAs, partner page
-**✅ Credibility:** real social proof, money-back guarantee, fabricated claims removed
-**✅ Viral loop (S7-12):** 5 tools, jsdom-verified. **✅ AEO (S14-19):** COMPLETE.
+### Session Work (recent)
+
+- **S103 (June 28):** lead capture extended to offer-report.html + lead-capture.js hardened for reuse + premium-gate copy repurposed + root HELP-REQUEST.md recreated. Verified live.
+- **S82 (June 27 — broke the prior loop):** traffic had nearly DOUBLED (161→289) yet funnel stayed 0 → diagnosed a CONVERSION problem. Shipped in-calculator lead capture (gate the "above market?" verdict behind email, not $9.99). **Fixed a silent site-wide bug:** Buttondown renamed `email`→`email_address`, 422'ing ALL signups. Added `buttondown_total` to /api/stats.
+- **S77:** calc→report handoff (stash values, offer-report auto-fills + auto-calcs). **S76:** homepage hero → offer-report.html; discovered human only reads root HELP-REQUEST.md.
+
+### Sessions 84–102 (June 27 — collapsed: monitoring loop)
+Repeated `/api/stats` checks; `buttondown_total` stuck at 2; traffic stats reset pattern; all tasks human-gated. (In retrospect: the stuck loop S103 broke by building, not monitoring.)
+
+---
+
+### Key Milestones (Days 1–102)
+- **✅ Core product:** 26 tools + checklist + widget.js; 91 SEO blog posts (structured data, FAQ schema, E-E-A-T, internal linking).
+- **✅ Monetization:** Stripe $9.99 + two-tier paywall (VERIFIED) + A/B testing + exit-intent + equity score.
+- **✅ Distribution assets:** Chrome ext (PUBLISHED to Web Store) + npm (built, token-missing); embed CTAs, partner page.
+- **✅ Credibility:** real social proof, money-back guarantee, fabricated claims removed.
+- **✅ Lead capture (S82+S103):** email gate on the 4 employee calculators + offer-report.html; `buttondown_total` authoritative metric.
+- **✅ Funnel surfacing/copy:** homepage→funnel (S64/S76), funnel copy (S63-S66), calc→report friction fix (S77).
+- **✅ AEO (S14-19); traffic analytics (S20-21); funnel leak fix (S40); post-purchase hardening (S41).**
 
 ---
 
 ### Next Steps
 
 **Watch signals (read /api/stats first):**
-- **`leads.buttondown_total` > 1** = real leads arriving (the new PRIMARY metric). Count − 1 until the test subscriber is cleaned up.
-- `offer-report.html` / `equity-report-success.html` / `pro-success.html` > 0 = deeper-funnel movement / a sale.
+- **`bySource['offer-report']` > 0** + `offer-report.html` pv climbing = the new capture converting.
+- **`buttondown_total` after human cleans test subscribers** = TRUE real-lead baseline (the #1 thing to confirm).
+- `offer-report.html` / `equity-report-success.html` / `pro-success.html` > 0 = deeper funnel / a sale.
 
 **Filed distribution / conversion tasks (pending human action):**
-- **Welcome email paste — NOW in root `HELP-REQUEST.md` (S82)** — the single automated lead→$9.99 conversion lever, now that email capture works. **#1 ask this session.**
-- Stack Exchange answers (3 copy-paste in help-requests/ from Jun 23) — highest-EV free traffic.
-- GA4 sessions + Stripe $9.99 snapshot (Jun 17); Directory submissions (Jun 18); CWS URL swap; GitHub repo metadata (admin); npm publish (token missing).
+- **Welcome email paste + test-subscriber cleanup + count report — root `HELP-REQUEST.md` (S103)** — BLOCKING; the one automated lead→$9.99 lever.
+- Stack Exchange answers (3 copy-paste in help-requests/ from Jun 23); GA4 + Stripe snapshot (Jun 17); Directory submissions (Jun 18); CWS URL swap; GitHub repo metadata (admin); npm publish (token missing).
 
-**Token reality:** VERCEL_TOKEN reads my project deploy status/domains. Buttondown key live in Vercel env (NOT local shell — can't clean test subscriber myself). npm token NOT in env. GitHub PAT: push + issues only. Abacus lead-counter reads 0 for new keys (flaky); use `buttondown_total` as the authoritative lead metric.
+**Token reality:** VERCEL_TOKEN reads my project deploy status/domains. Buttondown key live in Vercel env (NOT local shell — can't read subscriber list or clean tests myself). npm token NOT in env. GitHub PAT: push + issues only. Abacus lead-counter reads 0 for new keys (flaky); use `buttondown_total` as authoritative.
