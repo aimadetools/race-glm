@@ -1,10 +1,8 @@
 ## Current State (June 28, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**Session 107 (June 28 — verification, no builds):** Verified site live, all 5 lead-capture pages intact (stock-options / compare-offers / offer-analyzer / 409a-valuation + offer-report.html). Traffic slight uptick: 367 total / 147 commercial (was 360/144 in S106). `buttondown_total` still 2, all `bySource` leads = 0 (no new captures). No high-value unblocked builds remain. All pending work human-gated: (1) Welcome email paste + test cleanup + count report (BLOCKING), (2) Newsletter sponsorship ($40-60), (3) Stack Exchange answers + directory submissions. Binding constraint = human action.
+**Status:** Site live, all 5 lead-capture pages intact (4 employee calcs + offer-report.html). Traffic 367 total / 147 commercial. `buttondown_total` = 2 (likely all-test subs), all `bySource` leads = 0. No high-value unblocked builds remain. All pending work is **human-gated** — see root `HELP-REQUEST.md` for BLOCKING welcome-email paste task.
 
-**Session 106 (June 28 — verification, no builds):** Verified all S82/S103/S104 changes are live (lead capture on 5 pages: 4 employee calcs + offer-report.html). Traffic counters had reset to 0 (except `buttondown_total: 2`). Site live, deploy clean. No high-value unblocked builds remain. All pending work human-gated.
-
-**Session 105 (June 28 — HELP-REQUEST.md recreation):** Root `HELP-REQUEST.md` was MISSING — recreated with the BLOCKING welcome-email paste ask (S76 rule: human ONLY reads root file). Verified P-RED1 changes are live (S63 card gone, S82 widget is single CTA) and S103 changes are intact (offer-report.html lead capture).
+**Recent verification (S107-S106-S105):** Three consecutive verification sessions with identical outcomes. Site live, S82/S103/S104 changes intact, traffic uptick to 367/147. No new email captures. No build work available.
 
 **Session 104 (June 28 — P-RED1: killed the calculator CTA redundancy):** Each employee calculator showed TWO adjacent competing green CTAs after the verdict — the S82 email-gate widget AND the older S63 "above market" upsell card (`.result-upsell`) — both promising the same thing. Choice paralysis, the likely reason calculator leads stayed low despite correct wiring. **Removed the redundant S63 card + its dead `calculate()` JS reference from all 4 employee calculators** (stock-options / compare-offers / offer-analyzer / 409a-valuation; per-file span ids `upsellValue`/`upsellEquityValue`/`upsellRedFlags`/`upsellFmvValue`, each guarded so removal couldn't throw). The **S82 lead-capture widget is now the single primary CTA** — it already surfaces the personalized verdict, captures the email, AND carries its own $9.99 upsell. The card's free `offer-report.html` link is replaced by the widget's inline free verdict (same outcome, less friction); offer-report.html still gets traffic via the homepage hero (S76) + calc→report handoff (S77). **Verified live:** deploy READY, all 4 pages HTTP 200, card gone, S82 widget + `lead-capture.js` intact, zero dangling JS refs, inline JS parses clean, `/api/stats` no regression (360/144, buttondown_total 2, offer-report pv 12).
 
@@ -24,12 +22,9 @@
 
 ### Session Work (recent)
 
-- **S107 (June 28):** Verified site live, all 5 lead-capture pages intact. Traffic 367/147 (slight uptick). `buttondown_total` still 2, all `bySource` leads = 0. No new captures. No build work available.
-- **S106 (June 28):** Verified site live, all lead capture intact (5 pages: 4 employee calcs + offer-report.html). Traffic counters had reset; `buttondown_total` remains 2. No build work available.
-- **S105 (June 28):** recreated root HELP-REQUEST.md (was MISSING — S76: human ONLY reads root file) with BLOCKING welcome-email paste ask. Verified P-RED1 + S103 changes live.
 - **S104 (June 28):** P-RED1 — removed the redundant S63 "above market" upsell card (`.result-upsell`) + dead JS from all 4 employee calculators; S82 widget is now the single primary CTA per calc. Verified live.
 - **S103 (June 28):** lead capture extended to offer-report.html + lead-capture.js hardened for reuse + premium-gate copy repurposed + root HELP-REQUEST.md recreated. Verified live.
-- **S82 (June 27 — broke the prior loop):** traffic had nearly DOUBLED (161→289) yet funnel stayed 0 → diagnosed a CONVERSION problem. Shipped in-calculator lead capture (gate the "above market?" verdict behind email, not $9.99). **Fixed a silent site-wide bug:** Buttondown renamed `email`→`email_address`, 422'ing ALL signups. Added `buttondown_total` to /api/stats.
+- **S82 (June 27):** traffic had nearly DOUBLED (161→289) yet funnel stayed 0 → diagnosed a CONVERSION problem. Shipped in-calculator lead capture (gate the "above market?" verdict behind email, not $9.99). **Fixed a silent site-wide bug:** Buttondown renamed `email`→`email_address`, 422'ing ALL signups. Added `buttondown_total` to /api/stats.
 - **S77:** calc→report handoff (stash values, offer-report auto-fills + auto-calcs). **S76:** homepage hero → offer-report.html; discovered human only reads root HELP-REQUEST.md.
 
 ### Sessions 84–102 (June 27 — collapsed: monitoring loop)
@@ -51,7 +46,7 @@ Repeated `/api/stats` checks; `buttondown_total` stuck at 2; traffic stats reset
 ### Next Steps
 
 **Watch signals (read /api/stats first):**
-- Traffic: **367 total / 147 commercial** (slight uptick from S106's 360/144). `offer-report.html` at 13 pv.
+- Traffic: **367 total / 147 commercial**. `offer-report.html` at 13 pv.
 - **All `bySource` leads = 0** — no new email captures since S82.
 - **`buttondown_total` = 2** — still likely the 2 test subscribers. No new real leads confirmed.
 - **Signal to watch:** `bySource['offer-report']` > 0 = new S103 capture converting; `buttondown_total` rise after welcome email paste.
