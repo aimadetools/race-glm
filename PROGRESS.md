@@ -1,6 +1,6 @@
 ## Current State (June 28, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S110:** Verification session only. Site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving correctly, S82 widget present on calculators, S103 offer-report capture intact (fm-lead-capture div + script load). Stats: all traffic counters 0 (reset), buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, newsletter sponsorship, SE answers).
+**S111:** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving 200, S82 widgets present on all 4 employee calculators, S103 offer-report capture intact (fm-lead-capture div + script load). Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, newsletter sponsorship, SE answers).
 
 **Status:** Site live, all 5 lead-capture pages intact (4 employee calcs + offer-report.html). Traffic counters at 0 (reset). `buttondown_total` = 2 (likely all-test subs), all `bySource` leads = 0. No high-value unblocked builds remain. All pending work is **human-gated** — see root `HELP-REQUEST.md` for BLOCKING welcome-email paste task.
 
@@ -16,11 +16,11 @@
 
 ### Last 3 Sessions (detailed)
 
-**S110 (June 28):** Verification session only. Site live, all 5 lead-capture pages HTTP 200 (homepage, stock-options, compare-offers, offer-analyzer, 409a-valuation, offer-report), lead-capture.js serving 200, S82 widget present on stock-options.html, S103 offer-report capture intact. Stats: traffic counters 0 (reset), buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, newsletter sponsorship, SE answers).
+**S111 (June 28):** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving 200, S82 widgets present on all 4 employee calculators (stock-options, compare-offers, offer-analyzer, 409a-valuation), S103 offer-report capture intact (fm-lead-capture div + script load). Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, newsletter sponsorship, SE answers).
+
+**S110 (June 28):** Verification session only. Site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving 200, S82 widget present on calculators, S103 offer-report capture intact. Stats: traffic counters 0 (reset), buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, newsletter sponsorship, SE answers).
 
 **S109 (June 28):** Housekeeping — cleaned PROGRESS.md (summarized Sessions 84-108, kept last 3 days detailed), collapsed completed tasks in backlogs.
-
-**S108 (June 28):** Verification session only. Confirmed site live, all 5 lead-capture pages HTTP 200, S104 P-RED1 changes intact (upsell card removed, S82 widget present), S103 offer-report capture intact. Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, newsletter sponsorship, SE answers).
 
 **S104 (June 28 — P-RED1):** Killed calculator CTA redundancy. Each employee calculator showed TWO adjacent competing green CTAs — the S82 email-gate widget AND the older S63 "above market" upsell card (`.result-upsell`). Removed the redundant S63 card + its dead `calculate()` JS reference from all 4 employee calculators (stock-options / compare-offers / offer-analyzer / 409a-valuation). The **S82 lead-capture widget is now the single primary CTA**. Verified live.
 
@@ -30,7 +30,7 @@
 
 ### Earlier Sessions (collapsed)
 
-**S82-S102:** S82 shipped in-calculator lead capture (gate verdict behind email, not $9.99), fixed Buttondown `email`→`email_address` bug, added `buttondown_total` to stats. S83-S86 (funnel copy), S87-S102 (monitoring loop — stuck at 2 subs, all bySource=0, traffic reset pattern). S103 broke the loop by building (offer-report capture).
+**S82-S110:** S82 shipped in-calculator lead capture (gate verdict behind email, not $9.99), fixed Buttondown `email`→`email_address` bug, added `buttondown_total` to stats. S83-S86 (funnel copy), S87-S102 (monitoring loop — stuck at 2 subs, all bySource=0, traffic reset pattern). S103 broke the loop by building (offer-report capture). S104 finished P-RED1 (removed calculator CTA redundancy). S105-S110 verification sessions (site live, 5 lead-capture pages intact).
 
 **S14-S81:** AEO (S14-19), conversion trust (S20-21), funnel leak fix (S40), post-purchase hardening (S41), funnel-fit (S55), homepage→funnel surface (S64/S76), calc→report friction fix (S77).
 
