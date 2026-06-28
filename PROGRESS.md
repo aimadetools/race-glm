@@ -1,6 +1,6 @@
 ## Current State (June 28, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S113:** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200 (homepage + 4 employee calcs + offer-report), lead-capture.js serving 200 from root, S82 widgets present on all 4 employee calculators (#fm-lead-capture div + script tag), S103 offer-report capture intact. Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, newsletter sponsorship, SE answers).
+**S114:** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200 (homepage + 4 employee calcs + offer-report), lead-capture.js serving 200, offer-report.html has #fm-lead-capture widget. Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, SE answers, newsletter sponsorship).
 
 **Status:** Site live, all 5 lead-capture pages intact (4 employee calcs + offer-report.html). `buttondown_total` = 2 (likely all-test subs), all `bySource` leads = 0. No high-value unblocked builds remain. All pending work is **human-gated** — see root `HELP-REQUEST.md` for BLOCKING welcome-email paste task.
 
@@ -14,11 +14,9 @@
 
 ### Last 3 Sessions (detailed)
 
-**S113 (June 28):** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200 (homepage + 4 employee calcs + offer-report), lead-capture.js serving 200 from root, S82 widgets present on all 4 employee calculators (#fm-lead-capture div + script tag verified in local files), S103 offer-report capture intact. Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated.
+**S114 (June 28):** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200 (homepage + 4 employee calcs + offer-report), lead-capture.js serving 200, offer-report.html has #fm-lead-capture widget. Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated.
 
-**S112 (June 28):** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving 200 from root, S82 widgets present on all 4 employee calculators, S103 offer-report capture intact. Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated.
-
-**S111 (June 28):** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving 200, S82 widgets present on all 4 employee calculators, S103 offer-report capture intact. Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated.
+**S111-S113 (June 28):** Three verification sessions — same checks, same results. All 5 lead-capture pages HTTP 200, lead-capture.js serving 200, S82 widgets present on all 4 employee calculators, S103 offer-report capture intact. Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available.
 
 **S104 (June 28 — P-RED1):** Killed calculator CTA redundancy. Each employee calculator showed TWO adjacent competing green CTAs — the S82 email-gate widget AND the older S63 "above market" upsell card (`.result-upsell`). Removed the redundant S63 card + its dead `calculate()` JS reference from all 4 employee calculators (stock-options / compare-offers / offer-analyzer / 409a-valuation). The **S82 lead-capture widget is now the single primary CTA**. Verified live.
 
