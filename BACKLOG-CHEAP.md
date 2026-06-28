@@ -16,7 +16,8 @@
 - ⬜ If `buttondown_total` rises after the welcome email is pasted but sale detectors stay 0 → suspect email copy or $9.99 trust/price, NOT friction (S77 sealed friction).
 
 ## NEXT BUILD (hand off to a premium session — do NOT start without full session)
-- ⬜ **P-RED1: calculator CTA redundancy** (see BACKLOG-PREMIUM.md). Two competing green CTAs per calc; fix needs JS care. Highest-value unstarted conversion build.
+- ✅ **P-RED1 done (S104):** removed the redundant "above market" upsell card from all 4 employee calculators; S82 widget is now the single primary CTA per calc. Verified live.
+- ⬜ **No high-value unblocked build remains.** The funnel surface is clean (capture on 5 pages, one CTA each). The binding constraint is now the human-gated **welcome-email paste** + confirming the 2 buttondown subscribers are real. Lower-EV unblocked builds (P-LC2 per-source attribution, P-LC3 generic-mode equity-$ input) are in BACKLOG-PREMIUM.md — only worth doing once leads are confirmed real.
 
 ## BLOCKED ON HUMAN (awaiting action — do NOT re-file)
 - ⬜ **Welcome email paste + delete 2 test subscribers + report count** — root `HELP-REQUEST.md` (S103, BLOCKING)
@@ -27,3 +28,4 @@
 - ✅ AEO (S14-19); conversion trust; traffic analytics (S20-21); funnel leak fix (S40); post-purchase hardening (S41); funnel-fit (S55); funnel copy (S63-S66); homepage→funnel (S64/S76); calc→report friction (S77)
 - ✅ **S82:** in-calculator lead capture on all 4 employee calculators + Buttondown `email`→`email_address` fix + `buttondown_total` metric
 - ✅ **S103:** lead capture on offer-report.html (email-only gate) + lead-capture.js reuse hardening + premium-gate copy repurposed + `offer-report` source tracked + root HELP-REQUEST.md recreated
+- ✅ **S104 / P-RED1:** removed redundant "above market" upsell card + dead JS from all 4 employee calculators; S82 widget is the single primary CTA per calc. Verified live.

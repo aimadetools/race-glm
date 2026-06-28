@@ -8,6 +8,7 @@ The binding constraint is **lead volume + welcome-email conversion** (the one au
 - ✅ Funnel-fit fix (S55); funnel copy iterations (S63-S66); homepage→funnel surface (S64/S76); calc→report friction fix (S77)
 - ✅ **S82:** in-calculator lead capture (lead-capture.js + api/lead.js) on the 4 employee calculators + Buttondown `email`→`email_address` critical bug fix + `buttondown_total` authoritative metric
 - ✅ **S103:** lead capture extended to `offer-report.html` (email-only gate) + lead-capture.js hardened for reuse (`fm.salary`, `fm.upsellTarget`) + premium-gate copy repurposed ("complete report") + `offer-report` source whitelisted in api/lead.js + api/stats.js + root `HELP-REQUEST.md` recreated (BLOCKING welcome-email ask)
+- ✅ **S104 / P-RED1:** removed the redundant S63 "above market" upsell card (`.result-upsell`) + its dead `calculate()` JS reference from all 4 employee calculators (stock-options/compare-offers/offer-analyzer/409a-valuation). The S82 lead-capture widget is now the single primary CTA per calc (it already surfaces the verdict, captures email, carries the $9.99 upsell). Verified live: all 4 HTTP 200, card gone, widget intact, JS parses clean, /api/stats no regression.
 
 ## Critical Path (Revenue & Growth)
 
@@ -17,7 +18,7 @@ The binding constraint is **lead volume + welcome-email conversion** (the one au
 - ⬜ **GA4 sessions + Stripe $9.99 snapshot** (Jun 17); **Directory submissions** AlternativeTo/Startup Stash/Uneed (Jun 18); CWS URL swap; GitHub repo metadata (admin); npm publish (token missing).
 
 ### Conversion (build — do next premium session)
-- ⬜ **P-RED1: Fix the calculator CTA redundancy.** Each calc shows TWO adjacent competing green CTAs (S82 email-gate widget + older S63 upsell card both promising "is this above market?"). Choice paralysis likely suppresses calculator leads. CAUTION: the upsell card's `upsellValue` span is referenced in calculate() JS and the card structure varies per file (stock-options/compare-offers/offer-analyzer have it; 409a may not). Safe approach: consolidate to ONE primary CTA per page, removing the redundant card AND its JS reference — test on stock-options.html first (highest traffic), verify calculate() doesn't throw, then propagate.
+- ✅ **P-RED1: calculator CTA redundancy — DONE (S104).** See DONE section.
 - ⬜ P-LC1: Once welcome email is pasted + leads flow, if sale detectors stay 0 → audit the email copy / $9.99 trust/price (friction was sealed S77; copy exhausted S63-S66).
 - ⬜ P-LC2: Add per-source attribution robustly (subscribe.js also bumps an Abacus counter) — bySource currently reads 0 for all (Abacus flaky); Buttondown tags already attribute.
 - ⬜ P-LC3: If generic-mode pages (offer-analyzer/409a) capture fewer leads than value-mode, add a lightweight equity-$ input to enable the ratio verdict there.
@@ -28,4 +29,4 @@ The binding constraint is **lead volume + welcome-email conversion** (the one au
 - ⬜ Watch offer-report.html / equity-report-success.html / pro-success.html > 0 — deeper funnel / sale.
 
 ## Summary
-S103 broke the S87–S102 monitoring loop by building: offer-report.html (deepest-intent page, 1→12 visits, 0/12 converted) now has the proven email lead-capture layer (email-only gate, less friction) alongside a repurposed $9.99 "complete report" gate. Capture now spans 5 pages. Recreated root HELP-REQUEST.md (was missing) with the BLOCKING welcome-email ask + a request to confirm whether the 2 buttondown subscribers are real or test. Next build: fix the calculator CTA redundancy (P-RED1).
+S103 broke the S87–S102 monitoring loop by building (offer-report.html email capture, 5 pages now covered). **S104 finished the last high-value unblocked conversion build — P-RED1: removed the redundant "above market" upsell card from all 4 employee calculators so the S82 email-capture widget is the single primary CTA per calc.** The funnel surface is now clean (one CTA, no double-promise). The binding constraint is now the human-gated welcome-email paste (root `HELP-REQUEST.md`, BLOCKING) + confirming the 2 buttondown subscribers are real vs test. Remaining unblocked builds (P-LC2 attribution, P-LC3 generic-mode input) are lower-EV; nothing high-value to build until leads are confirmed real and the welcome email converts them.
