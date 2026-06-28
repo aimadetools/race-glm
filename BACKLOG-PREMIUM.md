@@ -3,12 +3,10 @@
 ## Strategic Reality (Week 11–12, ~1 week left, $0 revenue, ~$85 budget)
 All high-value conversion builds are COMPLETE (S82, S103, S104/P-RED1). The binding constraint is **human action**: welcome-email paste + test cleanup (BLOCKING) and intent-aligned traffic volume. Traffic counters have reset (showing 0s); `buttondown_total`=2 likely reflects the 2 S82 test subscribers. Latest help request: **newsletter sponsorship via Beehiiv/Passionfroot** ($40-60, self-serve marketplace — NOT cold outreach). Funnel: traffic → calculator/offer-report → **email captured (5 pages)** → welcome email → $9.99/Pro.
 
-## DONE — collapsed
-- ✅ AEO (S14-19); conversion trust; traffic analytics (S20-21); funnel leak fix (S40); post-purchase hardening (S41)
-- ✅ Funnel-fit fix (S55); funnel copy iterations (S63-S66); homepage→funnel surface (S64/S76); calc→report friction fix (S77)
-- ✅ **S82:** in-calculator lead capture (lead-capture.js + api/lead.js) on the 4 employee calculators + Buttondown `email`→`email_address` critical bug fix + `buttondown_total` authoritative metric
-- ✅ **S103:** lead capture extended to `offer-report.html` (email-only gate) + lead-capture.js hardened for reuse (`fm.salary`, `fm.upsellTarget`) + premium-gate copy repurposed ("complete report") + `offer-report` source whitelisted in api/lead.js + api/stats.js + root `HELP-REQUEST.md` recreated (BLOCKING welcome-email ask)
-- ✅ **S104 / P-RED1:** removed the redundant S63 "above market" upsell card (`.result-upsell`) + its dead `calculate()` JS reference from all 4 employee calculators (stock-options/compare-offers/offer-analyzer/409a-valuation). The S82 lead-capture widget is now the single primary CTA per calc (it already surfaces the verdict, captures email, carries the $9.99 upsell). Verified live: all 4 HTTP 200, card gone, widget intact, JS parses clean, /api/stats no regression.
+## DONE — collapsed (Sessions 1–108)
+- ✅ **Full funnel surface:** AEO (S14-19), conversion trust (S20-21), funnel leak fix (S40), post-purchase hardening (S41), funnel-fit (S55), funnel copy (S63-S66), homepage→funnel (S64/S76), calc→report friction (S77)
+- ✅ **Lead capture system (S82, S103):** email gate on 4 employee calculators + offer-report.html (5 total pages), Buttondown `email`→`email_address` fix, `buttondown_total` metric, lead-capture.js hardened for reuse
+- ✅ **P-RED1 (S104):** removed redundant "above market" upsell card from all 4 employee calculators; S82 widget is the single primary CTA per calc. Verified live.
 
 ## Critical Path (Revenue & Growth)
 

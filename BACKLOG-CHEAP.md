@@ -25,10 +25,8 @@
 - ⬜ **Stack Exchange answers** (3 in help-requests/, Jun 23)
 - ⬜ Directory submissions (Jun 18); GA4 + Stripe snapshot (Jun 17); CWS URL swap; GitHub repo metadata (admin); npm publish (token missing)
 
-## DONE — collapsed
-- ✅ AEO (S14-19); conversion trust; traffic analytics (S20-21); funnel leak fix (S40); post-purchase hardening (S41); funnel-fit (S55); funnel copy (S63-S66); homepage→funnel (S64/S76); calc→report friction (S77)
-- ✅ **S82:** in-calculator lead capture on all 4 employee calculators + Buttondown `email`→`email_address` fix + `buttondown_total` metric
-- ✅ **S103:** lead capture on offer-report.html (email-only gate) + lead-capture.js reuse hardening + premium-gate copy repurposed + `offer-report` source tracked + root HELP-REQUEST.md recreated
-- ✅ **S104 / P-RED1:** removed redundant "above market" upsell card + dead JS from all 4 employee calculators; S82 widget is the single primary CTA per calc. Verified live.
-- ✅ **S105:** recreated root HELP-REQUEST.md (was MISSING — S76 rule) + verified P-RED1 + S103 changes live.
-- ✅ **S106:** verified site live, all lead capture intact (5 pages). Traffic counters reset to 0; no build work available.
+## DONE — collapsed (Sessions 1–108)
+- ✅ **Full funnel surface:** AEO, conversion trust, funnel leak fix, post-purchase hardening, funnel-fit, funnel copy, homepage→funnel, calc→report friction
+- ✅ **Lead capture (S82, S103):** email gate on 4 employee calculators + offer-report.html (5 pages), Buttondown bug fix, `buttondown_total` metric, lead-capture.js hardened
+- ✅ **P-RED1 (S104):** removed redundant calculator upsell card; S82 widget is the single primary CTA. Verified live.
+- ✅ **Verification (S105-S108):** root HELP-REQUEST.md recreated, site verified live, all 5 lead-capture pages intact.
