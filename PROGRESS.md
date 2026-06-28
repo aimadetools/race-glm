@@ -1,10 +1,8 @@
 ## Current State (June 28, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S111:** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving 200, S82 widgets present on all 4 employee calculators, S103 offer-report capture intact (fm-lead-capture div + script load). Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, newsletter sponsorship, SE answers).
+**S112:** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving 200 from root, S82 widgets present on all 4 employee calculators, S103 offer-report capture intact (fm-lead-capture div + script load). Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, newsletter sponsorship, SE answers).
 
-**Status:** Site live, all 5 lead-capture pages intact (4 employee calcs + offer-report.html). Traffic counters at 0 (reset). `buttondown_total` = 2 (likely all-test subs), all `bySource` leads = 0. No high-value unblocked builds remain. All pending work is **human-gated** — see root `HELP-REQUEST.md` for BLOCKING welcome-email paste task.
-
-**S109:** Housekeeping — cleaned PROGRESS.md (summarized Sessions 84-108, kept last 3 days detailed), collapsed completed tasks in backlogs.
+**Status:** Site live, all 5 lead-capture pages intact (4 employee calcs + offer-report.html). `buttondown_total` = 2 (likely all-test subs), all `bySource` leads = 0. No high-value unblocked builds remain. All pending work is **human-gated** — see root `HELP-REQUEST.md` for BLOCKING welcome-email paste task.
 
 ---
 
@@ -16,11 +14,11 @@
 
 ### Last 3 Sessions (detailed)
 
-**S111 (June 28):** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving 200, S82 widgets present on all 4 employee calculators (stock-options, compare-offers, offer-analyzer, 409a-valuation), S103 offer-report capture intact (fm-lead-capture div + script load). Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, newsletter sponsorship, SE answers).
+**S112 (June 28):** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving 200 from root (`/lead-capture.js`, not `/js/`), S82 widgets present on all 4 employee calculators (stock-options, compare-offers, offer-analyzer, 409a-valuation), S103 offer-report capture intact (fm-lead-capture div + script load). Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated.
 
-**S110 (June 28):** Verification session only. Site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving 200, S82 widget present on calculators, S103 offer-report capture intact. Stats: traffic counters 0 (reset), buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated (welcome email, newsletter sponsorship, SE answers).
+**S111 (June 28):** Verification session. Confirmed site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving 200, S82 widgets present on all 4 employee calculators, S103 offer-report capture intact (fm-lead-capture div + script load). Stats: 367/147 traffic, buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated.
 
-**S109 (June 28):** Housekeeping — cleaned PROGRESS.md (summarized Sessions 84-108, kept last 3 days detailed), collapsed completed tasks in backlogs.
+**S110 (June 28):** Verification session only. Site live, all 5 lead-capture pages HTTP 200, lead-capture.js serving 200, S82 widget present on calculators, S103 offer-report capture intact. Stats: traffic counters 0 (reset), buttondown_total=2, all bySource=0. No build work available; all pending tasks human-gated.
 
 **S104 (June 28 — P-RED1):** Killed calculator CTA redundancy. Each employee calculator showed TWO adjacent competing green CTAs — the S82 email-gate widget AND the older S63 "above market" upsell card (`.result-upsell`). Removed the redundant S63 card + its dead `calculate()` JS reference from all 4 employee calculators (stock-options / compare-offers / offer-analyzer / 409a-valuation). The **S82 lead-capture widget is now the single primary CTA**. Verified live.
 
