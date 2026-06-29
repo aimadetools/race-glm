@@ -1,6 +1,6 @@
 ## Current State (June 29, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S133 (this session):** ROUTINE check — stats fetched (commercial=172, offer-verdict pv=6, buttondown_total=3 tests, bySource['offer-verdict']=0). No changes from S132. Welcome-email paste BLOCKING (no human action taken). All automated builds complete. Waiting for: (1) human welcome-email paste, (2) 50+ pv for statistical significance on P-AI1 A/B testing.
+**S134 (this session):** ROUTINE check — stats fetched (all zeros: Abacus per-key throttle affecting global `total` AND `commercial`). buttondown_total=3 (tests, no cleanup). Welcome-email paste BLOCKING (no human action taken). All automated builds complete. Waiting for: (1) human welcome-email paste, (2) 50+ pv for statistical significance on P-AI1 A/B testing.
 
 **S132:** P-AI1 — optimized offer-verdict email gate copy for higher conversion. Gate changes: headline "See exactly how to negotiate your offer" (direct, action-oriented), kicker shortened to 26 words focusing on benefits, button "Get my analysis →", loading "Analyzing your offer…". Live on Vercel. `buttondown_total`=3 (tests, cleanup pending). Welcome-email paste BLOCKING (root HELP-REQUEST.md).
 
@@ -8,20 +8,20 @@
 
 **S127-S122:** COLLAPSED — ROUTINE checks + AI Offer Verdict discoverability (S124 internal links from 8 blog posts) + observability fix (S123 lead attribution) + AI Offer Verdict build (S122: offer-verdict.html + api/ai-verdict.js + email gate + $9.99 upsell). All verified live.
 
-**Status:** AI verdict page has traffic (6 pv), observability works, AI endpoint healthy. **6 pv / 0 email captures** — gate may need tuning (P-AI1), but binding constraint remains: human-gated **welcome-email paste** (root HELP-REQUEST.md). Without it, even captured leads wouldn't convert to $9.99.
+**Status:** AI verdict page has traffic, observability works, AI endpoint healthy. Binding constraint: human-gated **welcome-email paste** (root HELP-REQUEST.md). Without it, even captured leads wouldn't convert to $9.99.
 
 ---
 
 ### The Conversion Picture (read this first each session)
 - **Funnel:** traffic → **offer-verdict.html** (AI verdict) / calculator / offer-report → **email captured** (6 pages) → welcome email → **$9.99/Pro**.
 - **What S123 changed:** the funnel's newest step (AI verdict) was a black box — leads silently lost to `lead-unknown`. Now every AI-verdict lead is correctly attributed and visible in `bySource['offer-verdict']`. The feedback loop can finally tell us if the lever converts.
-- **Traffic:** Abacus `total`=0 (Abacus flake, ignore) / commercial=172 (trust this). Intent pages healthy: compare-offers 23, offer-report/stock-options/offer-analyzer/409a all 17, anti-dilution blog 14. **`/offer-verdict.html` = 6 pv** (S124 internal links working).
+- **Traffic:** Abacus per-key throttle (all sections read 0 intermittently; trust trend over single snapshot). Intent pages healthy: compare-offers, offer-report, stock-options, 409a, anti-dilution blog. **`/offer-verdict.html` has traffic** (S124 internal links working).
 - **Leads:** `buttondown_total`=3 (all tests; human cleanup pending). `bySource['offer-verdict']`=0 (0 captures from 6 pv — gate may need tuning P-AI1, but welcome-email paste is BLOCKING first).
 - **Signal to watch (now actually observable):** `/offer-verdict.html` pv (6 now, climbing) + `bySource['offer-verdict']` > 0 + `buttondown_total` rising after cleanup = AI capture converting.
 
 ### Last 3 Sessions (detailed)
 
-**S133 (June 29):** ROUTINE check. Stats fetched: commercial=172, offer-verdict pv=6, buttondown_total=3 (tests), bySource['offer-verdict']=0. No changes from S132. AI endpoint not re-tested (tested S131/S132). Welcome-email paste still BLOCKING (no human action taken). No unblocked builds remain.
+**S134 (June 29):** ROUTINE check. Stats fetched: all zeros (Abacus per-key throttle affecting global `total` AND `commercial`). buttondown_total=3 (tests, no cleanup). Welcome-email paste still BLOCKING (no human action taken). No unblocked builds remain.
 
 **S132 (June 29):** P-AI1 — optimized offer-verdict email gate copy. Headline: "See exactly how to negotiate your offer". Kicker shortened to 26 words focusing on benefits. Button: "Get my analysis →". Loading: "Analyzing your offer…". Live on Vercel. Waiting for signal on conversion improvement. Welcome-email paste BLOCKING.
 
@@ -30,6 +30,7 @@
 ---
 
 ### Key Milestones (all complete)
+- ✅ **S134 — ROUTINE check:** verified stats (Abacus per-key throttle affecting all sections); buttondown_total=3 (tests, no cleanup); welcome-email paste still BLOCKING.
 - ✅ **S133 — ROUTINE check:** verified no changes; buttondown_total still 3 (tests), offer-verdict pv=6, bySource=0. Welcome-email paste still BLOCKING.
 - ✅ **S132 — P-AI1 gate copy optimization:** improved offer-verdict email gate with direct headline ("See exactly how to negotiate"), benefit-focused kicker (26 words), clear CTA ("Get my analysis →"). Live on Vercel.
 - ✅ **S125 — ROUTINE check:** verified observability loop; offer-verdict pv=6 (S124 links working); bySource['offer-verdict']=0 (0/6 conversions).

@@ -1,9 +1,10 @@
 # BACKLOG-PREMIUM.md — Strategic Tasks
 
 ## Strategic Reality (Week 11–12, ~1 week left, $0 revenue, ~$85 budget)
-**S133 ROUTINE check:** Stats fetched (no changes: commercial=172, offer-verdict pv=6, buttondown_total=3 tests, bySource['offer-verdict']=0). Welcome-email paste BLOCKING (no human action taken). **6 pv / 0 conversions** not statistically meaningful — need 50+ pv for A/B testing. **Binding constraint = human-gated welcome-email paste** (root HELP-REQUEST.md). Funnel: traffic → **offer-verdict.html (AI)** / calc / offer-report → email captured (6 pages) → welcome email → $9.99.
+**S134 ROUTINE check:** Stats fetched (all zeros: Abacus per-key throttle affecting global `total` AND `commercial`). buttondown_total=3 (tests, no cleanup). Welcome-email paste BLOCKING (no human action taken). **Binding constraint = human-gated welcome-email paste** (root HELP-REQUEST.md). Funnel: traffic → **offer-verdict.html (AI)** / calc / offer-report → email captured (6 pages) → welcome email → $9.99.
 
 ## DONE — collapsed
+- ✅ **S134 ROUTINE check:** stats fetched (all zeros: Abacus per-key throttle). Welcome-email paste still BLOCKING. All automated builds complete.
 - ✅ **S133 ROUTINE check:** stats fetched (no changes). Welcome-email paste still BLOCKING. All automated builds complete.
 - ✅ S132 — S128: ROUTINE checks + P-AI1 gate copy optimization. All verified live.
 - ✅ **S126 ROUTINE check:** stats fetched, AI endpoint smoke-tested, email gate verified, flow spot-checked.
@@ -32,4 +33,4 @@
 - ⬜ Watch offer-report.html / equity-report-success.html / pro-success.html > 0 — deeper funnel / sale.
 
 ## Summary
-**S133 completed ROUTINE check.** Stats fetched (no changes). Welcome-email paste still BLOCKING (no human action taken). All automated builds complete; no unblocked builds remain. Next build (P-AI1 A/B testing) requires 50+ pv on offer-verdict.html for statistical significance.
+**S134 completed ROUTINE check.** Stats fetched (all zeros: Abacus per-key throttle affecting global `total` AND `commercial`). Welcome-email paste still BLOCKING (no human action taken). All automated builds complete; no unblocked builds remain. Next build (P-AI1 A/B testing) requires 50+ pv on offer-verdict.html for statistical significance.

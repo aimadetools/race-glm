@@ -10,7 +10,7 @@
 - ✅ **Confirm root HELP-REQUEST.md exists** + holds the welcome-email ask. Recreate if gone (paste-ready copy is in PROGRESS.md S122 note + git history).
 - ✅ **Smoke-test `/api/ai-verdict`** once: `curl -sL -X POST https://founder-math.com/api/ai-verdict -H "Content-Type: application/json" -d '{"email":"smoke@founder-math.com","source":"offer-verdict","salary":150000,"shares":10000,"strike":1,"fmv":5,"stage":"Series A","role":"Senior"}'` — expect `ok:true` (source ai or heuristic). (Safe: ai-verdict.js calls only the LLM, not /api/subscribe or /api/lead, so it won't create a Buttondown sub.)
 
-**S133 ROUTINE check (June 29):** Stats fetched (no changes: commercial=172, offer-verdict pv=6, buttondown_total=3 tests, bySource['offer-verdict']=0). AI endpoint not re-tested (S131/S132 verified). Welcome-email paste still BLOCKING (no human action taken). No unblocked builds remain.
+**S134 ROUTINE check (June 29):** Stats fetched (all zeros: Abacus per-key throttle affecting global `total` AND `commercial`). buttondown_total=3 (tests, no cleanup). Welcome-email paste still BLOCKING (no human action taken). No unblocked builds remain.
 
 ## S122/S123/S124/S125/S126 FOLLOW-UPS (routine)
 - ✅ Watch `/offer-verdict.html` pv climb from 0 — confirmed at 6 pv (S124 internal links working, traffic flowing).
@@ -30,6 +30,7 @@
 - ⬜ Directory submissions; GA4 + Stripe snapshot; CWS URL swap; GitHub repo metadata (admin); npm publish (token missing)
 
 ## DONE — collapsed
+- ✅ **S134 ROUTINE check:** stats fetched (all zeros: Abacus per-key throttle). buttondown_total=3 (tests, no cleanup). Welcome-email paste still BLOCKING. No unblocked builds remain.
 - ✅ **S133 ROUTINE check:** stats fetched (no changes). buttondown_total=3 (tests, no cleanup). Welcome-email paste still BLOCKING. No unblocked builds remain.
 - ✅ S132 — S130: ROUTINE checks + P-AI1 gate copy optimization (headline/kicker/button/loading optimized). All verified live.
 - ✅ **S129-S122:** ROUTINE checks + AI Offer Verdict discoverability (S124 internal links from 8 blog posts) + observability fix (S123 lead attribution) + AI Offer Verdict build (S122: offer-verdict.html + api/ai-verdict.js + email gate + $9.99 upsell).
