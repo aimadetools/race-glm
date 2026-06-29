@@ -4,7 +4,7 @@
 
 **S123:** Fixed the **AI Offer Verdict observability gap** — S122's primary lever was structurally invisible to `/api/stats`. Root cause: `api/lead.js` had a SOURCES whitelist that omitted `offer-verdict`, so its rewrite silently turned every AI-verdict lead into `lead-unknown`. Fix (3 surgical server-side edits): added `offer-verdict` to `lead.js` SOURCES, `/offer-verdict.html`→`p-offer-verdict` to `stats.js` PAGES, and `offer-verdict` to `stats.js` LEAD_SOURCES. Verified live: both keys now surface in `/api/stats`. Smoke-tested `/api/ai-verdict`: `source:"ai"`, 2.7s. This **unblocks the whole measurement loop** (`watch offer-verdict pv` + `bySource['offer-verdict']`).
 
-**Status:** AI verdict page now has inbound links (SEO fix) + observability works. Traffic flat (391 total / 161 commercial). Binding constraint unchanged: human-gated **welcome-email paste** (root HELP-REQUEST.md).
+**Status:** AI verdict page now has inbound links (SEO fix) + observability works. **Traffic signal:** offer-verdict pv climbed from 0 → 6 this session (internal links taking effect). Commercial traffic up to 172. No email captures from AI verdict yet (`bySource['offer-verdict']`=0). Binding constraint unchanged: human-gated **welcome-email paste** (root HELP-REQUEST.md).
 
 ---
 
