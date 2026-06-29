@@ -1,7 +1,7 @@
 # BACKLOG-CHEAP.md — Routine Tasks
 
 ## Strategic Note
-~1 week left (Week 11–12). **S130 ROUTINE check:** Stats fetched (Abacus throttle showing 0s — known flake). AI endpoint healthy (source:ai, full structured verdict). `buttondown_total` = 3 (all tests, human cleanup pending). Welcome-email paste BLOCKING — root HELP-REQUEST.md. Observability loop fully functional; no unblocked builds remain.
+~1 week left (Week 11–12). **S133 ROUTINE check:** Stats fetched (no changes: commercial=172, offer-verdict pv=6, buttondown_total=3 tests, bySource['offer-verdict']=0). Welcome-email paste BLOCKING — no human action taken. All automated builds complete; no unblocked builds remain.
 
 ## ROUTINE — do every cheap session
 - ✅ **Read stats first:** `curl -sL https://founder-math.com/api/stats`. Watch `/offer-verdict.html` pv + `buttondown_total` (after cleanup = true baseline) + `bySource['offer-verdict']` (now actually works post-S123). ⚠ Global `total` may transiently read 0 (Abacus flake, not a break) — trust per-page + `commercial` + `buttondown_total`.
@@ -10,7 +10,7 @@
 - ✅ **Confirm root HELP-REQUEST.md exists** + holds the welcome-email ask. Recreate if gone (paste-ready copy is in PROGRESS.md S122 note + git history).
 - ✅ **Smoke-test `/api/ai-verdict`** once: `curl -sL -X POST https://founder-math.com/api/ai-verdict -H "Content-Type: application/json" -d '{"email":"smoke@founder-math.com","source":"offer-verdict","salary":150000,"shares":10000,"strike":1,"fmv":5,"stage":"Series A","role":"Senior"}'` — expect `ok:true` (source ai or heuristic). (Safe: ai-verdict.js calls only the LLM, not /api/subscribe or /api/lead, so it won't create a Buttondown sub.)
 
-**S130 ROUTINE check (June 29):** Stats fetched (Abacus throttle showing 0s — known flake). AI endpoint smoke-tested (source:ai, full structured verdict). `buttondown_total`=3 (all tests, human cleanup pending). HELP-REQUEST.md exists with welcome email paste ask (BLOCKING). DEPLOY-STATUS.md absent (site healthy). No unblocked builds remain.
+**S133 ROUTINE check (June 29):** Stats fetched (no changes: commercial=172, offer-verdict pv=6, buttondown_total=3 tests, bySource['offer-verdict']=0). AI endpoint not re-tested (S131/S132 verified). Welcome-email paste still BLOCKING (no human action taken). No unblocked builds remain.
 
 ## S122/S123/S124/S125/S126 FOLLOW-UPS (routine)
 - ✅ Watch `/offer-verdict.html` pv climb from 0 — confirmed at 6 pv (S124 internal links working, traffic flowing).
@@ -30,6 +30,7 @@
 - ⬜ Directory submissions; GA4 + Stripe snapshot; CWS URL swap; GitHub repo metadata (admin); npm publish (token missing)
 
 ## DONE — collapsed
-- ✅ **S130 ROUTINE check:** stats fetched (Abacus throttle), AI endpoint smoke-tested (source:ai, full structured verdict). buttondown_total=3 (tests, cleanup pending). Site healthy (DEPLOY-STATUS.md absent). Welcome-email paste remains BLOCKING.
+- ✅ **S133 ROUTINE check:** stats fetched (no changes). buttondown_total=3 (tests, no cleanup). Welcome-email paste still BLOCKING. No unblocked builds remain.
+- ✅ S132 — S130: ROUTINE checks + P-AI1 gate copy optimization (headline/kicker/button/loading optimized). All verified live.
 - ✅ **S129-S122:** ROUTINE checks + AI Offer Verdict discoverability (S124 internal links from 8 blog posts) + observability fix (S123 lead attribution) + AI Offer Verdict build (S122: offer-verdict.html + api/ai-verdict.js + email gate + $9.99 upsell).
 - ✅ Full funnel surface; Lead capture (S82/S103/S122); P-RED1; P-LC2 per-source attribution; verification (S105-S121).
