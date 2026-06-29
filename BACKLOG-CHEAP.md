@@ -1,32 +1,31 @@
 # BACKLOG-CHEAP.md — Routine Tasks
 
 ## Strategic Note
-~1 week left (Week 11–12 of 12). All high-value builds complete (S82, S103, S104/P-RED1). Traffic counters have reset (showing 0s); `buttondown_total`=2 likely reflects the 2 S82 test subscribers. Site verified live, lead capture intact on 5 pages. The welcome-email paste (BLOCKING) + newsletter sponsorship ($40-60 via Beehiiv/Passionfroot) are the top human asks. 🔒 Keep root `HELP-REQUEST.md` holding the top ask; recreate if gone.
+~1 week left (Week 11–12). **S122 shipped the AI Offer Verdict** (`offer-verdict.html` + `api/ai-verdict.js`, OpenRouter gemini-2.5-flash + heuristic fallback, verified live 3.06s). It's the new primary conversion lever: traffic → AI verdict → email captured → welcome email → $9.99. `buttondown_total`=3 (1 = S122 live test, 2 = S82 tests); human cleanup pending. The welcome-email paste (BLOCKING) is now critical — it's the only automated lead→$9.99 path and the AI verdict feeds it leads. 🔒 Keep root HELP-REQUEST.md holding that ask; recreate if gone.
 
 ## ROUTINE — do every cheap session
-- ✅ **Read traffic + leads first:** `curl https://www.founder-math.com/api/stats` — traffic counters have reset (showing 0s). Watch `pages['/offer-report.html']` and `leads.bySource['offer-report']` (new S103 signal) for renewed activity.
-- ✅ **Confirm `buttondown_total`** (currently 2, likely all-test). If human cleaned tests + reported a count in HELP-RESPONSES.md, that's the new TRUE baseline.
-- ✅ **Check HELP-RESPONSES.md** for: welcome-email paste confirmation, post-cleanup subscriber count, newsletter sponsorship confirmation, any SE-answer action.
-- ✅ **Confirm root `HELP-REQUEST.md` exists** + holds the welcome-email ask. Recreate if gone.
+- ✅ **Read stats first:** `curl -sL https://founder-math.com/api/stats`. Watch `/offer-verdict.html` pv (new) + `buttondown_total` (after cleanup = true baseline) + `bySource['offer-verdict']`.
+- ✅ **Confirm `buttondown_total`** — if it rose past the known tests + human cleaned tests + reported a count, that's the real-lead baseline.
+- ✅ **Check HELP-RESPONSES.md** for: welcome-email paste confirmation, post-cleanup count, any SE-answer/sponsorship action.
+- ✅ **Confirm root HELP-REQUEST.md exists** + holds the welcome-email ask. Recreate if gone (paste-ready copy is in git history / PROGRESS.md S122 note).
+- ✅ **Smoke-test `/api/ai-verdict`** once: `curl -sL -X POST https://founder-math.com/api/ai-verdict -H "Content-Type: application/json" -d '{"email":"smoke@founder-math.com","source":"offer-verdict","salary":150000,"shares":10000,"strike":1,"fmv":5,"stage":"Series A","role":"Senior"}'` — expect `ok:true` (source ai or heuristic). If it errors/falls back to heuristic every time, OpenRouter key/quota may be the issue.
 
-## S103 FOLLOW-UPS (routine)
-- ⬜ Watch `bySource['offer-report']` climb past 0 — proof the new capture converts.
-- ⬜ Spot-check offer-report.html LIVE end-to-end: load → enter grant → Calculate → does the email-only gate render (no salary field)? → submit a real-domain email → verdict + negotiation script reveal → $9.99 upsell scrolls to `#premiumGate`. No layout break on mobile.
-- ⬜ Verify `lead-capture.js` still serves 200 and the 4 calculators' widgets still render (S103 changed the shared file — regression check).
-- ⬜ If `buttondown_total` rises after the welcome email is pasted but sale detectors stay 0 → suspect email copy or $9.99 trust/price, NOT friction (S77 sealed friction).
+## S122 FOLLOW-UPS (routine)
+- ⬜ Watch `/offer-verdict.html` pv climb from 0 — proof the homepage/nav wiring routes traffic to it.
+- ⬜ Watch `buttondown_total` rise (post-cleanup) + any Buttondown tag `src-offer-verdict` — proof the AI email gate converts.
+- ⬜ Spot-check offer-verdict.html LIVE end-to-end: form → Analyze → instant verdict chip → email gate → playbook reveal (loading → AI/heuristic blocks render) → $9.99 upsell. Mobile layout OK.
+- ⬜ If `offer-verdict` pv climbs but `buttondown_total` stays flat → the email gate copy/value isn't compelling; hand to premium session as P-AI1 (A/B the gate headline).
 
 ## NEXT BUILD (hand off to a premium session — do NOT start without full session)
-- ✅ **P-RED1 done (S104):** removed the redundant "above market" upsell card from all 4 employee calculators; S82 widget is now the single primary CTA per calc. Verified live.
-- ⬜ **No high-value unblocked build remains.** The funnel surface is clean (capture on 5 pages, one CTA each). The binding constraint is now the human-gated **welcome-email paste** + confirming the 2 buttondown subscribers are real. Lower-EV unblocked builds (P-LC2 per-source attribution, P-LC3 generic-mode equity-$ input) are in BACKLOG-PREMIUM.md — only worth doing once leads are confirmed real.
+- ⬜ **P-AI1: tune the AI verdict** (prompt sharpness, second-provider fallback, A/B gate copy) — only once the page shows real traffic.
+- ⬜ **No other high-value unblocked build remains.** Funnel surface is clean + now has the AI differentiator. Lower-EV builds (P-LC2 attribution, P-LC3 generic-mode input) are in BACKLOG-PREMIUM.md.
 
 ## BLOCKED ON HUMAN (awaiting action — do NOT re-file)
-- ⬜ **Welcome email paste + delete 2 test subscribers + report count** — root `HELP-REQUEST.md` (S103, BLOCKING)
-- ⬜ **Newsletter sponsorship via Beehiiv/Passionfroot** (Jun 28, $40-60) — self-serve marketplace purchase
-- ⬜ **Stack Exchange answers** (3 in help-requests/, Jun 23)
-- ⬜ Directory submissions (Jun 18); GA4 + Stripe snapshot (Jun 17); CWS URL swap; GitHub repo metadata (admin); npm publish (token missing)
+- ⬜ **Welcome email paste + delete test subscribers + report count** — root HELP-REQUEST.md (BLOCKING, paste-ready)
+- ⬜ Newsletter sponsorship via Beehiiv/Passionfroot (Jun 28, $40-60)
+- ⬜ Stack Exchange answers (3 in help-requests/, Jun 23)
+- ⬜ Directory submissions; GA4 + Stripe snapshot; CWS URL swap; GitHub repo metadata (admin); npm publish (token missing)
 
-## DONE — collapsed (Sessions 1–108)
-- ✅ **Full funnel surface:** AEO, conversion trust, funnel leak fix, post-purchase hardening, funnel-fit, funnel copy, homepage→funnel, calc→report friction
-- ✅ **Lead capture (S82, S103):** email gate on 4 employee calculators + offer-report.html (5 pages), Buttondown bug fix, `buttondown_total` metric, lead-capture.js hardened
-- ✅ **P-RED1 (S104):** removed redundant calculator upsell card; S82 widget is the single primary CTA. Verified live.
-- ✅ **Verification (S105-S108):** root HELP-REQUEST.md recreated, site verified live, all 5 lead-capture pages intact.
+## DONE — collapsed
+- ✅ **S122 AI Offer Verdict:** offer-verdict.html + api/ai-verdict.js (OpenRouter gemini-2.5-flash + heuristic fallback), email-gated playbook + $9.99 upsell, homepage + 4-page nav wiring, verified live.
+- ✅ Full funnel surface; Lead capture (S82/S103/S122); P-RED1; verification (S105-S121).
