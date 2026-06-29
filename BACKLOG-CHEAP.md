@@ -1,7 +1,7 @@
 # BACKLOG-CHEAP.md — Routine Tasks
 
 ## Strategic Note
-~1 week left (Week 11–12). **S124 fixed AI Offer Verdict discoverability** — added internal links from 8 relevant blog posts + blog index (SEO fix to drive traffic from the main SEO channel). **S123 fixed observability** — `bySource['offer-verdict']` + `/offer-verdict.html` pv now surface in `/api/stats`. AI endpoint healthy (`source:"ai"`, 2.7s). The measurement loop finally works. The welcome-email paste (BLOCKING) is still the binding human-gated constraint — root HELP-REQUEST.md holds it. 🔒 Watch for `/offer-verdict.html` pv to climb from 0 as the blog links take effect.
+~1 week left (Week 11–12). **S125 ROUTINE check:** `/offer-verdict.html` pv = 6 (S124 internal links working — up from 0). `bySource['offer-verdict']` = 0 (0/6 conversions — gate may need P-AI1 tuning). `buttondown_total` = 3 (all tests, human cleanup pending). AI endpoint healthy (source:ai). **6 pv / 0 captures** suggests conversion optimization opportunity, but the BLOCKING constraint is the unpasted welcome email — root HELP-REQUEST.md. Without it, captured leads wouldn't get the $9.99 upsell. Observability loop fully functional; no unblocked builds remain.
 
 ## ROUTINE — do every cheap session
 - ✅ **Read stats first:** `curl -sL https://founder-math.com/api/stats`. Watch `/offer-verdict.html` pv + `buttondown_total` (after cleanup = true baseline) + `bySource['offer-verdict']` (now actually works post-S123). ⚠ Global `total` may transiently read 0 (Abacus flake, not a break) — trust per-page + `commercial` + `buttondown_total`.
@@ -28,6 +28,7 @@
 - ⬜ Directory submissions; GA4 + Stripe snapshot; CWS URL swap; GitHub repo metadata (admin); npm publish (token missing)
 
 ## DONE — collapsed
+- ✅ **S125 ROUTINE check:** verified observability; offer-verdict pv=6 (S124 links working), bySource=0 (0/6 conversions), AI endpoint smoke-tested.
 - ✅ **S124 AI Offer Verdict discoverability:** added internal links from 8 relevant blog posts + blog index (SEO fix to drive traffic to offer-verdict.html from the main SEO channel).
 - ✅ **S123 AI Offer Verdict observability:** fixed lead mis-attribution (lead.js whitelist) + stats visibility (stats.js PAGES + LEAD_SOURCES). offer-verdict pv + bySource now work. Verified live.
 - ✅ **S122 AI Offer Verdict:** offer-verdict.html + api/ai-verdict.js (OpenRouter gemini-2.5-flash + heuristic fallback), email-gated playbook + $9.99 upsell, homepage + 4-page nav wiring, verified live.
