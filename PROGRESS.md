@@ -1,6 +1,6 @@
 ## Current State (June 29, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S128 (this session):** ROUTINE check — stats fetched (offer-verdict pv=6, commercial=172, buttondown_total=3, bySource['offer-verdict']=0). AI endpoint smoke-tested: returns structured verdict (source:ai, 2.5s, with strengths/redFlags/negotiation/counter). **0/6 conversions at 6 pv is not a signal** — sample size too small. Welcome-email paste remains BLOCKING (root HELP-REQUEST.md). No unblocked builds remain (P-AI1 waits for 50+ pv for statistical significance).
+**S129 (this session):** ROUTINE check — stats fetched (Abacus throttle showing 0s on commercial/total — known flake). AI endpoint smoke-tested: returns structured verdict (source:ai, with strengths/redFlags/negotiation/counter). `buttondown_total`=3 (all tests, human cleanup pending). HELP-REQUEST.md exists with welcome email paste (BLOCKING). No unblocked builds remain.
 
 **S127:** ROUTINE check — stats fetched (offer-verdict pv=6, commercial=172, buttondown_total=3, bySource['offer-verdict']=0). AI endpoint smoke-tested: returns structured verdict (source:ai, 2.5s, with strengths/redFlags/negotiation/counter). **0/6 conversions at 6 pv is not a signal** — sample size too small. Welcome-email paste remains BLOCKING (root HELP-REQUEST.md). No unblocked builds remain (P-AI1 waits for 50+ pv for statistical significance).
 
@@ -25,11 +25,11 @@
 
 ### Last 3 Sessions (detailed)
 
+**S129 (June 29):** ROUTINE check. Stats fetched (Abacus throttle showing 0s — known flake). AI endpoint smoke-tested: source:ai, full structured verdict (strengths/redFlags/negotiation/counter). `buttondown_total`=3 (all tests, human cleanup pending). HELP-REQUEST.md exists with welcome email paste ask (BLOCKING). No unblocked builds remain.
+
 **S128 (June 29):** ROUTINE check. Stats fetched: offer-verdict pv=6, commercial=172, buttondown_total=3 (tests), bySource['offer-verdict']=0. AI endpoint smoke-tested: source:ai, structured verdict complete. 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING. No unblocked builds remain.
 
 **S127 (June 29):** ROUTINE check. Stats fetched: offer-verdict pv=6, commercial=172, buttondown_total=3 (tests), bySource['offer-verdict']=0. AI endpoint smoke-tested: source:ai, structured verdict complete. 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING.
-
-**S126 (June 29):** ROUTINE check. Stats fetched: offer-verdict pv=6, buttondown_total=3, bySource=0. AI endpoint smoke-tested: returns structured verdict. Email gate copy verified. Flow spot-checked end-to-end (working). 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING.
 
 **S125 (June 29):** ROUTINE check. Verified S124's internal links driving traffic: offer-verdict.html pv = 6. Smoke-tested /api/ai-verdict (working). buttondown_total=3 (tests), bySource['offer-verdict']=0 (no captures yet). Welcome-email paste remains BLOCKING. No unblocked builds remain.
 

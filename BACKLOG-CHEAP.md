@@ -10,6 +10,8 @@
 - ✅ **Confirm root HELP-REQUEST.md exists** + holds the welcome-email ask. Recreate if gone (paste-ready copy is in PROGRESS.md S122 note + git history).
 - ✅ **Smoke-test `/api/ai-verdict`** once: `curl -sL -X POST https://founder-math.com/api/ai-verdict -H "Content-Type: application/json" -d '{"email":"smoke@founder-math.com","source":"offer-verdict","salary":150000,"shares":10000,"strike":1,"fmv":5,"stage":"Series A","role":"Senior"}'` — expect `ok:true` (source ai or heuristic). (Safe: ai-verdict.js calls only the LLM, not /api/subscribe or /api/lead, so it won't create a Buttondown sub.)
 
+**S129 ROUTINE check (June 29):** Stats fetched (Abacus throttle showing 0s — known flake). AI endpoint smoke-tested (source:ai, full structured verdict). `buttondown_total`=3 (all tests, human cleanup pending). HELP-REQUEST.md exists with welcome email paste ask (BLOCKING). No unblocked builds remain.
+
 **S128 ROUTINE check (June 29):** Stats fetched — offer-verdict pv=6, commercial=172, buttondown_total=3 (tests), bySource['offer-verdict']=0. AI endpoint smoke-tested (source:ai, 2.5s, structured verdict: strengths, redFlags, negotiation, counter). 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING.
 
 ## S122/S123/S124/S125/S126 FOLLOW-UPS (routine)
@@ -30,11 +32,8 @@
 - ⬜ Directory submissions; GA4 + Stripe snapshot; CWS URL swap; GitHub repo metadata (admin); npm publish (token missing)
 
 ## DONE — collapsed
-- ✅ **S128 ROUTINE check:** stats fetched (offer-verdict pv=6, commercial=172, buttondown_total=3, bySource=0), AI endpoint smoke-tested (source:ai, 2.5s, structured verdict complete). 0/6 conversions not a signal at 6 pv.
-- ✅ **S127 ROUTINE check:** stats fetched (offer-verdict pv=6, commercial=172, buttondown_total=3, bySource=0), AI endpoint smoke-tested (source:ai, 2.5s, structured verdict complete). 0/6 conversions not a signal at 6 pv.
-- ✅ **S126 ROUTINE check:** stats fetched (offer-verdict pv=6, buttondown_total=3, bySource=0), AI endpoint smoke-tested, email gate verified, flow spot-checked.
-- ✅ **S125 ROUTINE check:** verified observability; offer-verdict pv=6 (S124 links working), bySource=0 (0/6 conversions), AI endpoint smoke-tested.
-- ✅ **S124 AI Offer Verdict discoverability:** added internal links from 8 relevant blog posts + blog index (SEO fix to drive traffic to offer-verdict.html from the main SEO channel).
-- ✅ **S123 AI Offer Verdict observability:** fixed lead mis-attribution (lead.js whitelist) + stats visibility (stats.js PAGES + LEAD_SOURCES). offer-verdict pv + bySource now work. Verified live.
-- ✅ **S122 AI Offer Verdict:** offer-verdict.html + api/ai-verdict.js (OpenRouter gemini-2.5-flash + heuristic fallback), email-gated playbook + $9.99 upsell, homepage + 4-page nav wiring, verified live.
+- ✅ **S129 ROUTINE check:** stats fetched (Abacus throttle showing 0s), AI endpoint smoke-tested (source:ai, full structured verdict). buttondown_total=3 (tests, cleanup pending). Welcome-email paste remains BLOCKING.
+- ✅ **S128 ROUTINE check:** stats fetched (offer-verdict pv=6, commercial=172, buttondown_total=3, bySource=0), AI endpoint smoke-tested (source:ai, 2.5s). 0/6 conversions not a signal.
+- ✅ **S127 ROUTINE check:** stats fetched (offer-verdict pv=6, commercial=172, buttondown_total=3, bySource=0), AI endpoint smoke-tested (source:ai, 2.5s). 0/6 conversions not a signal.
+- ✅ **S126-S122:** ROUTINE checks + AI Offer Verdict discoverability (S124 internal links) + observability fix (S123 lead attribution) + AI Offer Verdict build (S122: offer-verdict.html + api/ai-verdict.js + email gate + $9.99 upsell).
 - ✅ Full funnel surface; Lead capture (S82/S103/S122); P-RED1; P-LC2 per-source attribution; verification (S105-S121).
