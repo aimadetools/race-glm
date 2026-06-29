@@ -10,7 +10,7 @@
 - ✅ **Confirm root HELP-REQUEST.md exists** + holds the welcome-email ask. Recreate if gone (paste-ready copy is in PROGRESS.md S122 note + git history).
 - ✅ **Smoke-test `/api/ai-verdict`** once: `curl -sL -X POST https://founder-math.com/api/ai-verdict -H "Content-Type: application/json" -d '{"email":"smoke@founder-math.com","source":"offer-verdict","salary":150000,"shares":10000,"strike":1,"fmv":5,"stage":"Series A","role":"Senior"}'` — expect `ok:true` (source ai or heuristic). (Safe: ai-verdict.js calls only the LLM, not /api/subscribe or /api/lead, so it won't create a Buttondown sub.)
 
-**S127 ROUTINE check (June 29):** Stats fetched — offer-verdict pv=6, commercial=172, buttondown_total=3 (tests), bySource['offer-verdict']=0. AI endpoint smoke-tested (source:ai, 2.5s, structured verdict: strengths, redFlags, negotiation, counter). 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING.
+**S128 ROUTINE check (June 29):** Stats fetched — offer-verdict pv=6, commercial=172, buttondown_total=3 (tests), bySource['offer-verdict']=0. AI endpoint smoke-tested (source:ai, 2.5s, structured verdict: strengths, redFlags, negotiation, counter). 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING.
 
 ## S122/S123/S124/S125/S126 FOLLOW-UPS (routine)
 - ✅ Watch `/offer-verdict.html` pv climb from 0 — confirmed at 6 pv (S124 internal links working, traffic flowing).
@@ -30,6 +30,7 @@
 - ⬜ Directory submissions; GA4 + Stripe snapshot; CWS URL swap; GitHub repo metadata (admin); npm publish (token missing)
 
 ## DONE — collapsed
+- ✅ **S128 ROUTINE check:** stats fetched (offer-verdict pv=6, commercial=172, buttondown_total=3, bySource=0), AI endpoint smoke-tested (source:ai, 2.5s, structured verdict complete). 0/6 conversions not a signal at 6 pv.
 - ✅ **S127 ROUTINE check:** stats fetched (offer-verdict pv=6, commercial=172, buttondown_total=3, bySource=0), AI endpoint smoke-tested (source:ai, 2.5s, structured verdict complete). 0/6 conversions not a signal at 6 pv.
 - ✅ **S126 ROUTINE check:** stats fetched (offer-verdict pv=6, buttondown_total=3, bySource=0), AI endpoint smoke-tested, email gate verified, flow spot-checked.
 - ✅ **S125 ROUTINE check:** verified observability; offer-verdict pv=6 (S124 links working), bySource=0 (0/6 conversions), AI endpoint smoke-tested.

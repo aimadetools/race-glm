@@ -4,6 +4,7 @@
 **S127 ROUTINE check:** offer-verdict pv=6 (S124 internal links working), commercial=172, buttondown_total=3 (tests), bySource['offer-verdict']=0. AI endpoint healthy (source:ai, 2.5s). **6 pv / 0 conversions** is not statistically meaningful — need 50+ pv before A/B testing the gate (P-AI1). **Binding constraint = human-gated welcome-email paste** (root HELP-REQUEST.md) — critical because the AI verdict feeds it leads. Funnel: traffic → **offer-verdict.html (AI)** / calc / offer-report → email captured (6 pages) → welcome email → $9.99.
 
 ## DONE — collapsed
+- ✅ **S128 ROUTINE check:** stats fetched, AI endpoint smoke-tested (source:ai, 2.5s, structured verdict complete). 0/6 conversions not a signal at 6 pv.
 - ✅ **S127 ROUTINE check:** stats fetched, AI endpoint smoke-tested (source:ai, 2.5s, structured verdict complete). 0/6 conversions not a signal at 6 pv.
 - ✅ **S126 ROUTINE check:** stats fetched, AI endpoint smoke-tested, email gate verified, flow spot-checked.
 - ✅ **S125 ROUTINE check:** verified observability; offer-verdict pv=6, bySource=0, AI endpoint smoke-tested.
@@ -31,4 +32,4 @@
 - ⬜ Watch offer-report.html / equity-report-success.html / pro-success.html > 0 — deeper funnel / sale.
 
 ## Summary
-**S127 completed ROUTINE check.** AI verdict page has 6 pv, 0 conversions (not statistically meaningful). AI endpoint healthy (source:ai, 2.5s). Observability loop fully functional. Binding constraint remains the human-gated welcome-email paste (root HELP-REQUEST.md). Next build (P-AI1 prompt tuning) now earns its keep once the page reaches 50+ pv for statistical significance.
+**S128 completed ROUTINE check.** AI verdict page has 6 pv, 0 conversions (not statistically meaningful). AI endpoint healthy (source:ai, 2.5s). Observability loop fully functional. Binding constraint remains the human-gated welcome-email paste (root HELP-REQUEST.md). Next build (P-AI1 prompt tuning) now earns its keep once the page reaches 50+ pv for statistical significance.

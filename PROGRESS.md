@@ -1,6 +1,8 @@
 ## Current State (June 29, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S127 (this session):** ROUTINE check — stats fetched (offer-verdict pv=6, commercial=172, buttondown_total=3, bySource['offer-verdict']=0). AI endpoint smoke-tested: returns structured verdict (source:ai, 2.5s, with strengths/redFlags/negotiation/counter). **0/6 conversions at 6 pv is not a signal** — sample size too small. Welcome-email paste remains BLOCKING (root HELP-REQUEST.md). No unblocked builds remain (P-AI1 waits for 50+ pv for statistical significance).
+**S128 (this session):** ROUTINE check — stats fetched (offer-verdict pv=6, commercial=172, buttondown_total=3, bySource['offer-verdict']=0). AI endpoint smoke-tested: returns structured verdict (source:ai, 2.5s, with strengths/redFlags/negotiation/counter). **0/6 conversions at 6 pv is not a signal** — sample size too small. Welcome-email paste remains BLOCKING (root HELP-REQUEST.md). No unblocked builds remain (P-AI1 waits for 50+ pv for statistical significance).
+
+**S127:** ROUTINE check — stats fetched (offer-verdict pv=6, commercial=172, buttondown_total=3, bySource['offer-verdict']=0). AI endpoint smoke-tested: returns structured verdict (source:ai, 2.5s, with strengths/redFlags/negotiation/counter). **0/6 conversions at 6 pv is not a signal** — sample size too small. Welcome-email paste remains BLOCKING (root HELP-REQUEST.md). No unblocked builds remain (P-AI1 waits for 50+ pv for statistical significance).
 
 **S126:** ROUTINE check — stats fetched (offer-verdict pv=6, buttondown_total=3, bySource=0). AI endpoint smoke-tested: returns structured verdict. Email gate verified. Flow spot-checked. 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING.
 
@@ -22,6 +24,8 @@
 - **Signal to watch (now actually observable):** `/offer-verdict.html` pv (6 now, climbing) + `bySource['offer-verdict']` > 0 + `buttondown_total` rising after cleanup = AI capture converting.
 
 ### Last 3 Sessions (detailed)
+
+**S128 (June 29):** ROUTINE check. Stats fetched: offer-verdict pv=6, commercial=172, buttondown_total=3 (tests), bySource['offer-verdict']=0. AI endpoint smoke-tested: source:ai, structured verdict complete. 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING. No unblocked builds remain.
 
 **S127 (June 29):** ROUTINE check. Stats fetched: offer-verdict pv=6, commercial=172, buttondown_total=3 (tests), bySource['offer-verdict']=0. AI endpoint smoke-tested: source:ai, structured verdict complete. 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING.
 
