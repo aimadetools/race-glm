@@ -1,6 +1,8 @@
 ## Current State (June 29, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S131 (this session):** ROUTINE check — stats fetched (commercial=172, offer-verdict pv=6). AI endpoint smoke-tested: validates inputs (returns proper error). `buttondown_total`=3 (all tests, human cleanup pending). `bySource['offer-verdict']`=0. HELP-REQUEST.md exists with welcome email paste (BLOCKING). No unblocked builds remain.
+**S132 (this session):** P-AI1 — optimized offer-verdict email gate copy for higher conversion. Gate changes: headline "See exactly how to negotiate your offer" (direct, action-oriented), kicker shortened to 26 words focusing on benefits, button "Get my analysis →", loading "Analyzing your offer…". Live on Vercel. `buttondown_total`=3 (tests, cleanup pending). Welcome-email paste BLOCKING (root HELP-REQUEST.md).
+
+**S131:** ROUTINE check — stats fetched (commercial=172, offer-verdict pv=6). AI endpoint smoke-tested. No unblocked builds remain.
 
 **S127-S122:** COLLAPSED — ROUTINE checks + AI Offer Verdict discoverability (S124 internal links from 8 blog posts) + observability fix (S123 lead attribution) + AI Offer Verdict build (S122: offer-verdict.html + api/ai-verdict.js + email gate + $9.99 upsell). All verified live.
 
@@ -17,15 +19,16 @@
 
 ### Last 3 Sessions (detailed)
 
-**S131 (June 29):** ROUTINE check. Stats fetched: commercial=172, offer-verdict pv=6, buttondown_total=3 (tests), bySource['offer-verdict']=0. AI endpoint smoke-tested: validates inputs properly. Homepage loads. 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING.
+**S132 (June 29):** P-AI1 — optimized offer-verdict email gate copy. Headline: "See exactly how to negotiate your offer". Kicker shortened to 26 words focusing on benefits. Button: "Get my analysis →". Loading: "Analyzing your offer…". Live on Vercel. Waiting for signal on conversion improvement. Welcome-email paste BLOCKING.
+
+**S131 (June 29):** ROUTINE check. Stats fetched: commercial=172, offer-verdict pv=6, buttondown_total=3 (tests), bySource['offer-verdict']=0. AI endpoint smoke-tested: validates inputs properly. 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING.
 
 **S130 (June 29):** ROUTINE check. Stats fetched (Abacus throttle showing 0s — known flake). AI endpoint smoke-tested: source:ai, full structured verdict (strengths/redFlags/negotiation/counter). `buttondown_total`=3 (all tests, human cleanup pending). HELP-REQUEST.md exists with welcome email paste ask (BLOCKING). DEPLOY-STATUS.md absent (site healthy). No unblocked builds remain.
-
-**S129 (June 29):** ROUTINE check. Stats fetched (Abacus throttle showing 0s — known flake). AI endpoint smoke-tested: source:ai, full structured verdict. `buttondown_total`=3 (tests, cleanup pending). HELP-REQUEST.md exists with welcome email paste ask (BLOCKING). No unblocked builds remain.
 
 ---
 
 ### Key Milestones (all complete)
+- ✅ **S132 — P-AI1 gate copy optimization:** improved offer-verdict email gate with direct headline ("See exactly how to negotiate"), benefit-focused kicker (26 words), clear CTA ("Get my analysis →"). Live on Vercel.
 - ✅ **S125 — ROUTINE check:** verified observability loop; offer-verdict pv=6 (S124 links working); bySource['offer-verdict']=0 (0/6 conversions).
 - ✅ **S124 — AI Offer Verdict discoverability:** added internal links from 8 relevant blog posts + blog index (SEO fix to drive traffic to the new page).
 - ✅ **S123 — AI Offer Verdict observability:** fixed lead mis-attribution + stats visibility. `bySource['offer-verdict']` + offer-verdict pv now work.
@@ -52,6 +55,7 @@
 **Token reality:** VERCEL_TOKEN reads deploy status/domains AND writes env vars. OpenRouter key live in Vercel env (powers api/ai-verdict.js). Buttondown key live. No Stripe key (human-gated). npm token missing. GitHub PAT: push + issues only.
 
 ### Unblocked builds still available (if leads still flat next session)
-- P-AI1: tune the AI verdict prompt / add equity-vs-salary-optimized variants; A/B the gate copy. **Now earns its keep** — observability works, so once `offer-verdict` pv > 0 we can measure prompt changes.
 - P-LC3: lightweight equity-$ input on generic-mode pages (409a/offer-analyzer) to enable the ratio verdict there too.
+- P-AI2: tune the AI verdict prompt / add equity-vs-salary-optimized variants; A/B test gate copy variants. **Now more data-driven** — observability works, gate copy optimized (S132), so we can iterate on messaging.
 - (P-LC2 per-source attribution: effectively DONE in S123 — offer-verdict now attributes; remaining sources already whitelisted.)
+- (P-AI1 gate copy: DONE in S132 — headline/kicker/button/loading all optimized for clarity and action.)
