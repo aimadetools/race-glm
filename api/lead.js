@@ -7,8 +7,9 @@
 const ABACUS = 'https://abacus.jasoncameron.dev';
 const NS = 'foundermath';
 
-// Whitelist of sources that may record a lead (calculators + offer-report page).
-const SOURCES = ['stock-options', 'compare-offers', 'offer-analyzer', '409a-valuation', 'offer-report'];
+// Whitelist of sources that may record a lead (calculators + offer-report page +
+// the S122 AI Offer Verdict, the primary email-capture lever).
+const SOURCES = ['stock-options', 'compare-offers', 'offer-analyzer', '409a-valuation', 'offer-report', 'offer-verdict'];
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', 'https://founder-math.com');

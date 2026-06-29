@@ -29,6 +29,10 @@ const PAGES = {
   // S55: Employee-facing funnel (offer-report + premium)
   '/offer-report.html': 'p-offer-report',
   '/offer-report-premium.html': 'p-offer-report-premium',
+  // S123: AI Offer Verdict (S122) — primary email-capture lever. Must be here
+  // or its pageviews never surface in /api/stats (the page is wired but was
+  // invisible to the reader until this entry + the LEAD_SOURCES entry below).
+  '/offer-verdict.html': 'p-offer-verdict',
 };
 
 // Top 10 highest-value blog posts (S30: now that SEO is working, track which posts drive traffic)
@@ -76,7 +80,7 @@ export default async function handler(req, res) {
     } catch (e) {}
     // S82: captured leads (new primary conversion metric). Counts emails
     // submitted in the in-calculator "is this a good offer?" verdict gate.
-    const LEAD_SOURCES = ['stock-options', 'compare-offers', 'offer-analyzer', '409a-valuation', 'offer-report'];
+    const LEAD_SOURCES = ['stock-options', 'compare-offers', 'offer-analyzer', '409a-valuation', 'offer-report', 'offer-verdict'];
     const leadEntries = await Promise.all(LEAD_SOURCES.map(async (src) => {
       try {
         const r = await fetch(`${ABACUS}/get/${NS}/lead-${src}`);
