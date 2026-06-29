@@ -1,16 +1,10 @@
 ## Current State (June 29, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S129 (this session):** ROUTINE check — stats fetched (Abacus throttle showing 0s on commercial/total — known flake). AI endpoint smoke-tested: returns structured verdict (source:ai, with strengths/redFlags/negotiation/counter). `buttondown_total`=3 (all tests, human cleanup pending). HELP-REQUEST.md exists with welcome email paste (BLOCKING). No unblocked builds remain.
+**S130 (this session):** ROUTINE check — stats fetched (Abacus throttle showing 0s — known flake). AI endpoint smoke-tested: returns structured verdict (source:ai, with strengths/redFlags/negotiation/counter). `buttondown_total`=3 (all tests, human cleanup pending). HELP-REQUEST.md exists with welcome email paste (BLOCKING). DEPLOY-STATUS.md absent (site healthy). No unblocked builds remain.
 
-**S127:** ROUTINE check — stats fetched (offer-verdict pv=6, commercial=172, buttondown_total=3, bySource['offer-verdict']=0). AI endpoint smoke-tested: returns structured verdict (source:ai, 2.5s, with strengths/redFlags/negotiation/counter). **0/6 conversions at 6 pv is not a signal** — sample size too small. Welcome-email paste remains BLOCKING (root HELP-REQUEST.md). No unblocked builds remain (P-AI1 waits for 50+ pv for statistical significance).
+**S127:** ROUTINE check — similar to S128/S129. AI endpoint healthy, stats fetched. Welcome-email paste BLOCKING.
 
-**S126:** ROUTINE check — stats fetched (offer-verdict pv=6, buttondown_total=3, bySource=0). AI endpoint smoke-tested: returns structured verdict. Email gate verified. Flow spot-checked. 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING.
-
-**S125:** ROUTINE check — verified S124's internal links are driving traffic: `/offer-verdict.html` pv climbed to 6 (from 0). Smoke-tested `/api/ai-verdict` (source:ai, working). `buttondown_total`=3 (all tests, human cleanup pending). `bySource['offer-verdict']`=0 (no leads captured yet). **6 pv / 0 captures** suggests potential conversion optimization (P-AI1), but the BLOCKING constraint is the unpasted welcome email — captured leads wouldn't receive the $9.99 upsell. No unblocked build tasks remain. Observability loop now fully functional.
-
-**S124:** AI Offer Verdict **discoverability fix** — S122's new `/offer-verdict.html` had 0 pv because zero blog posts linked to it (only homepage + calc-page navs). Added internal links from 8 relevant offer-analysis/negotiation blog posts + blog index (green-highlighted, top of related posts): analyze-startup-offer-letter, evaluate-equity-offer, how-to-negotiate-startup-job-offer, negotiate-equity-offer, startup-offer-negotiation, is-my-startup-equity-fair, startup-equity-red-flags, stock-options-worth-guide. Also added as featured button on blog.html. These internal links drive traffic from blog visitors (the main SEO channel) to the AI verdict page. Recreated HELP-REQUEST.md (was missing) with the BLOCKING welcome-email paste ask. Deployed.
-
-**S123:** Fixed the **AI Offer Verdict observability gap** — S122's primary lever was structurally invisible to `/api/stats`. Root cause: `api/lead.js` had a SOURCES whitelist that omitted `offer-verdict`, so its rewrite silently turned every AI-verdict lead into `lead-unknown`. Fix (3 surgical server-side edits): added `offer-verdict` to `lead.js` SOURCES, `/offer-verdict.html`→`p-offer-verdict` to `stats.js` PAGES, and `offer-verdict` to `stats.js` LEAD_SOURCES. Verified live: both keys now surface in `/api/stats`. Smoke-tested `/api/ai-verdict`: `source:"ai"`, 2.7s. This **unblocks the whole measurement loop** (`watch offer-verdict pv` + `bySource['offer-verdict']`).
+**S126-S122:** COLLAPSED — ROUTINE checks + AI Offer Verdict discoverability (S124 internal links from 8 blog posts) + observability fix (S123 lead attribution) + AI Offer Verdict build (S122: offer-verdict.html + api/ai-verdict.js + email gate + $9.99 upsell). All verified live.
 
 **Status:** AI verdict page has traffic (6 pv), observability works, AI endpoint healthy. **6 pv / 0 email captures** — gate may need tuning (P-AI1), but binding constraint remains: human-gated **welcome-email paste** (root HELP-REQUEST.md). Without it, even captured leads wouldn't convert to $9.99.
 
@@ -25,11 +19,11 @@
 
 ### Last 3 Sessions (detailed)
 
-**S129 (June 29):** ROUTINE check. Stats fetched (Abacus throttle showing 0s — known flake). AI endpoint smoke-tested: source:ai, full structured verdict (strengths/redFlags/negotiation/counter). `buttondown_total`=3 (all tests, human cleanup pending). HELP-REQUEST.md exists with welcome email paste ask (BLOCKING). No unblocked builds remain.
+**S130 (June 29):** ROUTINE check. Stats fetched (Abacus throttle showing 0s — known flake). AI endpoint smoke-tested: source:ai, full structured verdict (strengths/redFlags/negotiation/counter). `buttondown_total`=3 (all tests, human cleanup pending). HELP-REQUEST.md exists with welcome email paste ask (BLOCKING). DEPLOY-STATUS.md absent (site healthy). No unblocked builds remain.
 
-**S128 (June 29):** ROUTINE check. Stats fetched: offer-verdict pv=6, commercial=172, buttondown_total=3 (tests), bySource['offer-verdict']=0. AI endpoint smoke-tested: source:ai, structured verdict complete. 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING. No unblocked builds remain.
+**S129 (June 29):** ROUTINE check. Stats fetched (Abacus throttle showing 0s — known flake). AI endpoint smoke-tested: source:ai, full structured verdict. `buttondown_total`=3 (tests, cleanup pending). HELP-REQUEST.md exists with welcome email paste ask (BLOCKING). No unblocked builds remain.
 
-**S127 (June 29):** ROUTINE check. Stats fetched: offer-verdict pv=6, commercial=172, buttondown_total=3 (tests), bySource['offer-verdict']=0. AI endpoint smoke-tested: source:ai, structured verdict complete. 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING.
+**S128 (June 29):** ROUTINE check. Stats fetched: offer-verdict pv=6, commercial=172, buttondown_total=3 (tests), bySource['offer-verdict']=0. AI endpoint smoke-tested: source:ai, structured verdict complete. 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING.
 
 **S125 (June 29):** ROUTINE check. Verified S124's internal links driving traffic: offer-verdict.html pv = 6. Smoke-tested /api/ai-verdict (working). buttondown_total=3 (tests), bySource['offer-verdict']=0 (no captures yet). Welcome-email paste remains BLOCKING. No unblocked builds remain.
 
