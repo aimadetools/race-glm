@@ -220,14 +220,14 @@
 
         <!-- Email gate → AI playbook -->
         <div class="gate" id="gate">
-            <h3>Now get your <span style="color:var(--green);">AI negotiation playbook</span></h3>
-            <p class="kicker">A personalized read on your grant &mdash; the strengths to lean on, the red flags to negotiate, three copy-paste talking points, and a concrete counter-offer. Generated for your exact numbers. Free &mdash; just drop your email:</p>
+            <h3>See <span style="color:var(--green);">exactly how to negotiate</span> your offer</h3>
+            <p class="kicker">Get a personalized AI analysis of your offer's strengths, red flags, and a copy-paste script to ask for more equity. Free, instant.</p>
             <form id="gateForm">
                 <input type="email" id="email" placeholder="you@email.com" required>
-                <button type="submit" id="gateBtn">Get my AI playbook &rarr;</button>
+                <button type="submit" id="gateBtn">Get my analysis &rarr;</button>
             </form>
             <p class="err" id="gateErr"></p>
-            <p class="fineprint">One email. No spam. We'll also send the negotiation script you can save. Your data stays private.</p>
+            <p class="fineprint">One email. Unsubscribe anytime. Your data stays private.</p>
         </div>
 
         <!-- AI playbook reveal -->
@@ -313,7 +313,7 @@ document.getElementById('gateForm').addEventListener('submit', function (e) {
     // Show loading state in the playbook area immediately.
     var pb = document.getElementById('playbook');
     pb.style.display='block';
-    pb.innerHTML = '<div class="pb-loading"><div class="spinner"></div><div>Reading your grant and writing your playbook…</div></div>';
+    pb.innerHTML = '<div class="pb-loading"><div class="spinner"></div><div>Analyzing your offer…</div></div>';
     document.getElementById('gate').scrollIntoView({behavior:'smooth',block:'center'});
 
     var payload = {
@@ -345,7 +345,7 @@ function renderPlaybook(d, p) {
     btn.disabled=false; btn.textContent='Get my AI playbook →';
 
     if (!d || !d.ok) {
-        pb.innerHTML = '<div class="pb-block"><h4>Verdict</h4><p style="color:var(--text-secondary);">We hit a snag building your playbook. Your email is captured and we’ll send the negotiation script. Try again in a moment, or use the calculators below.</p></div>';
+        pb.innerHTML = '<div class="pb-block"><h4>Verdict</h4><p style="color:var(--text-secondary);">We hit a snag generating your analysis. Your email is captured. Try again in a moment, or use the calculators below.</p></div>';
         return;
     }
     var chipCls = ({'Above market':'above','Fair':'fair','Below market':'below','Needs scrutiny':'scrutiny'})[d.market] || 'fair';
