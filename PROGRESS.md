@@ -23,9 +23,9 @@
 
 **S134 (June 29):** ROUTINE check. Stats fetched: all zeros (Abacus per-key throttle affecting global `total` AND `commercial`). buttondown_total=3 (tests, no cleanup). Welcome-email paste still BLOCKING (no human action taken). No unblocked builds remain.
 
-**S132 (June 29):** P-AI1 — optimized offer-verdict email gate copy. Headline: "See exactly how to negotiate your offer". Kicker shortened to 26 words focusing on benefits. Button: "Get my analysis →". Loading: "Analyzing your offer…". Live on Vercel. Waiting for signal on conversion improvement. Welcome-email paste BLOCKING.
+**S133 (June 29):** ROUTINE check. Stats fetched: commercial=172, offer-verdict pv=6, buttondown_total=3 (tests), bySource['offer-verdict']=0. No changes from S132. AI endpoint not re-tested (tested S131/S132). Welcome-email paste still BLOCKING.
 
-**S131 (June 29):** ROUTINE check. Stats fetched: commercial=172, offer-verdict pv=6, buttondown_total=3 (tests), bySource['offer-verdict']=0. AI endpoint smoke-tested: validates inputs properly. 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING.
+**S132 (June 29):** P-AI1 — optimized offer-verdict email gate copy. Headline: "See exactly how to negotiate your offer". Kicker shortened to 26 words focusing on benefits. Button: "Get my analysis →". Loading: "Analyzing your offer…". Live on Vercel. Waiting for signal on conversion improvement. Welcome-email paste BLOCKING.
 
 ---
 
