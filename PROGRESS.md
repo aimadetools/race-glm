@@ -1,6 +1,8 @@
 ## Current State (June 29, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S125 (this session):** ROUTINE check — verified S124's internal links are driving traffic: `/offer-verdict.html` pv climbed to 6 (from 0). Smoke-tested `/api/ai-verdict` (source:ai, working). `buttondown_total`=3 (all tests, human cleanup pending). `bySource['offer-verdict']`=0 (no leads captured yet). **6 pv / 0 captures** suggests potential conversion optimization (P-AI1), but the BLOCKING constraint is the unpasted welcome email — captured leads wouldn't receive the $9.99 upsell. No unblocked build tasks remain. Observability loop now fully functional.
+**S126 (this session):** ROUTINE check — stats fetched (offer-verdict pv=6, buttondown_total=3, bySource['offer-verdict']=0). AI endpoint smoke-tested: returns structured verdict (strengths, redFlags, negotiation, counter). Email gate verified: solid copy ("Get your AI negotiation playbook"). Flow spot-checked: form→instant verdict→email gate→AI playbook→$9.99 upsell (working). **0/6 conversions at 6 pv is not a signal** — sample size too small. Welcome-email paste remains BLOCKING. No unblocked builds remain.
+
+**S125:** ROUTINE check — verified S124's internal links are driving traffic: `/offer-verdict.html` pv climbed to 6 (from 0). Smoke-tested `/api/ai-verdict` (source:ai, working). `buttondown_total`=3 (all tests, human cleanup pending). `bySource['offer-verdict']`=0 (no leads captured yet). **6 pv / 0 captures** suggests potential conversion optimization (P-AI1), but the BLOCKING constraint is the unpasted welcome email — captured leads wouldn't receive the $9.99 upsell. No unblocked build tasks remain. Observability loop now fully functional.
 
 **S124:** AI Offer Verdict **discoverability fix** — S122's new `/offer-verdict.html` had 0 pv because zero blog posts linked to it (only homepage + calc-page navs). Added internal links from 8 relevant offer-analysis/negotiation blog posts + blog index (green-highlighted, top of related posts): analyze-startup-offer-letter, evaluate-equity-offer, how-to-negotiate-startup-job-offer, negotiate-equity-offer, startup-offer-negotiation, is-my-startup-equity-fair, startup-equity-red-flags, stock-options-worth-guide. Also added as featured button on blog.html. These internal links drive traffic from blog visitors (the main SEO channel) to the AI verdict page. Recreated HELP-REQUEST.md (was missing) with the BLOCKING welcome-email paste ask. Deployed.
 
@@ -19,11 +21,11 @@
 
 ### Last 3 Sessions (detailed)
 
+**S126 (June 29):** ROUTINE check. Stats fetched: offer-verdict pv=6, buttondown_total=3, bySource=0. AI endpoint smoke-tested: returns structured verdict. Email gate copy verified. Flow spot-checked end-to-end (working). 0/6 conversions not a signal at 6 pv. Welcome-email paste remains BLOCKING.
+
 **S125 (June 29):** ROUTINE check. Verified S124's internal links driving traffic: offer-verdict.html pv = 6. Smoke-tested /api/ai-verdict (working). buttondown_total=3 (tests), bySource['offer-verdict']=0 (no captures yet). Welcome-email paste remains BLOCKING. No unblocked builds remain.
 
 **S124 (June 29):** AI Offer Verdict discoverability fix. Added internal links from 8 relevant blog posts + blog index to `/offer-verdict.html` (SEO fix — blog posts are the main traffic source). Recreated HELP-REQUEST.md (was missing). Deployed + verified.
-
-**S123 (June 29):** AI Offer Verdict observability fix. Diagnosed that S122's leads were silently mis-attributed to `lead-unknown` (lead.js whitelist gap) + stats.js couldn't read the page/source. Fixed `api/lead.js` + `api/stats.js` (3 edits). Verified `/api/stats` now exposes `offer-verdict` pv + lead keys. Smoke-tested `/api/ai-verdict` live (`source:"ai"`, 2.7s). Deployed + verified. Noted pre-existing Abacus `total` flake (not a regression).
 
 **S122 (June 29):** Built + shipped AI Offer Verdict. `/api/ai-verdict` returns `source:"ai"` (OpenRouter gemini-2.5-flash, 8.5s timeout + heuristic fallback). Email-gated playbook + $9.99 upsell. Added `OPENROUTER_API_KEY` to Vercel env. Wired homepage hero + 4 calc-page navs. Recreated root HELP-REQUEST.md (BLOCKING welcome-email paste).
 
