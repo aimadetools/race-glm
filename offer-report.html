@@ -463,7 +463,10 @@ function calculate() {
       currentValue: valueTodayFull,
       exitValue: futureValueBase,
       salary: salary,
-      upsellTarget: '#premiumGate'
+      upsellTarget: '#premiumGate',
+      // S136 — raw inputs so lead-capture.js pre-fills offer-verdict on the
+      // handoff. basePrice is the current per-share value (≈ 409A FMV).
+      prefill: { salary: salary, shares: shares, strike: strike, fmv: basePrice }
     };
     if (typeof window.fmLeadRefresh === 'function') window.fmLeadRefresh();
 

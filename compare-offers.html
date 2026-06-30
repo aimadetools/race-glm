@@ -1271,11 +1271,15 @@ function compareOffers() {
     // S82 — feed the in-calculator lead-capture widget. Use the winning offer's
     // vested equity value (and ownership %) as the basis for the "above market?" verdict.
     var winEquity = Math.max(a.vestedValue, b.vestedValue);
+    var win = diff >= 0 ? a : b; // S136 — winning offer, for offer-verdict prefill
     window.fmCalc = {
         source: 'compare-offers',
         currentValue: winEquity,
         exitValue: winEquity,
-        ownershipPct: Math.max(a.equityPct || 0, b.equityPct || 0)
+        ownershipPct: Math.max(a.equityPct || 0, b.equityPct || 0),
+        // S136 — carry the winning offer's raw numbers so lead-capture.js
+        // pre-fills offer-verdict on the handoff (no re-entry).
+        prefill: { salary: win.salary, shares: win.options, strike: win.strike, fmv: win.fmv }
     };
     if (window.fmLeadRefresh) window.fmLeadRefresh();
     document.getElementById('compPctA').textContent = fmtPct(a.equityPct);

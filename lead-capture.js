@@ -128,11 +128,27 @@
     return cardShell(inner);
   }
 
+  // S136 — carry the visitor's already-entered numbers to offer-verdict so the
+  // calculator→AI-verdict handoff isn't a blank form. Reads the salary captured
+  // in this widget's gate + whatever raw inputs the host calculator stashed on
+  // fm.prefill ({shares, strike, fmv}). Missing values → no param → offer-verdict
+  // keeps its default. Graceful: if nothing to carry, returns the bare href.
+  function offerVerdictHref(fm, salary) {
+    var q = [];
+    var pf = (fm && fm.prefill) || {};
+    if (salary > 0) q.push('salary=' + Math.round(salary));
+    if (pf.shares > 0) q.push('shares=' + pf.shares);
+    if (pf.strike > 0) q.push('strike=' + pf.strike);
+    if (pf.fmv > 0) q.push('fmv=' + pf.fmv);
+    return 'offer-verdict.html' + (q.length ? '?' + q.join('&') : '');
+  }
+
   function renderRevealed(fm, salary) {
     var generic = isGeneric(fm);
     // Host page can redirect the $9.99 upsell (e.g. offer-report.html scrolls
     // to its inline premium gate via '#premiumGate' instead of navigating away).
     var upsellHref = (fm && fm.upsellTarget) || 'offer-report-premium.html';
+    var verdictHref = offerVerdictHref(fm, salary);
     var body;
     if (generic) {
       body =
@@ -154,7 +170,7 @@
       '<div style="margin-top:16px;padding:16px 18px;background:linear-gradient(135deg,rgba(108,92,231,0.14),rgba(162,155,254,0.06));border:1px solid var(--accent,#6c5ce7);border-radius:10px;">' +
         '<strong style="display:block;margin-bottom:4px;color:var(--text-primary,#fff);">Want the AI to draft your counter-offer?</strong>' +
         '<p style="margin:0 0 10px;color:var(--text-secondary,#a0a0b5);font-size:0.88rem;line-height:1.55;">Free next step: drop your full offer into our <strong style="color:var(--text-primary,#fff);">AI Offer Verdict</strong> for a personalized strengths &amp; red-flags read plus a copy-paste counter-offer you can send to the recruiter.</p>' +
-        '<a href="offer-verdict.html" onclick="if(typeof gtag===\'function\')gtag(\'event\',\'ai_verdict_cta\',{source:\'' + (fm && fm.source || '') + '_reveal\',path:\'lead_reveal\'})" style="display:inline-block;background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:#fff;padding:10px 22px;border-radius:9px;font-weight:700;text-decoration:none;font-size:0.9rem;">Get my AI offer verdict (free) &rarr;</a>' +
+        '<a href="' + verdictHref + '" onclick="if(typeof gtag===\'function\')gtag(\'event\',\'ai_verdict_cta\',{source:\'' + (fm && fm.source || '') + '_reveal\',path:\'lead_reveal\',prefilled:' + (verdictHref.indexOf('?') >= 0 ? 1 : 0) + '})" style="display:inline-block;background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:#fff;padding:10px 22px;border-radius:9px;font-weight:700;text-decoration:none;font-size:0.9rem;">Get my AI offer verdict (free) &rarr;</a>' +
       '</div>' +
       '<div style="margin-top:16px;padding:14px 16px;background:var(--bg-secondary,#15151f);border:1px solid var(--border,#2a2a3a);border-radius:10px;">' +
         '<strong style="display:block;margin-bottom:4px;">Want the full picture?</strong>' +

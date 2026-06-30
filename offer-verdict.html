@@ -370,6 +370,34 @@ function block(title, cls, items) {
     return '<div class="pb-block"><h4>'+title+'</h4><ul class="'+cls+'">'+items.map(function(i){return '<li>'+escapeTxt(i)+'</li>';}).join('')+'</ul></div>';
 }
 function escapeTxt(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+// S136 — calculator→offer-verdict handoff. Visitors routed here from a
+// calculator (lead-capture.js CTA) arrive with their numbers as query params.
+// Pre-fill the form and, if the key figures are present, auto-run the instant
+// verdict so they immediately see their market read + email gate (no blank
+// form, no re-entry). Direct visitors (no params) get the default-form UX.
+(function prefillFromQuery() {
+    var p;
+    try { p = new URLSearchParams(window.location.search); } catch (e) { return; }
+    function setNum(id, raw) {
+        var v = parseFloat(raw);
+        if (!isFinite(v) || v < 0) return;
+        var el = document.getElementById(id);
+        if (el) el.value = v;
+    }
+    setNum('salary', p.get('salary'));
+    setNum('shares', p.get('shares'));
+    setNum('strike', p.get('strike'));
+    setNum('fmv', p.get('fmv'));
+    setNum('own', p.get('own'));
+
+    var sh = parseFloat(p.get('shares')), sa = parseFloat(p.get('salary'));
+    if (sh > 0 && sa > 0) {
+        if (typeof gtag === 'function') gtag('event', 'offer_verdict_prefilled', { source: p.get('source') || 'calculator' });
+        // Defer so the instant-verdict section is laid out before we reveal it.
+        setTimeout(function () { try { analyze(); } catch (e) {} }, 0);
+    }
+})();
 </script>
 </body>
 </html>

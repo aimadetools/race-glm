@@ -1099,7 +1099,14 @@ function render(r) {
         source: 'stock-options',
         currentValue: r.grossValue,
         exitValue: (r.exitScenarios[2] && r.exitScenarios[2].netValue) || r.grossValue,
-        ownershipPct: r.ownershipPct
+        ownershipPct: r.ownershipPct,
+        // S136 — raw inputs so lead-capture.js can pre-fill offer-verdict on the
+        // handoff (visitor already entered these; no re-entry needed).
+        prefill: {
+            shares: parseFloat(document.getElementById('numOptions').value) || 0,
+            strike: parseFloat(document.getElementById('strikePrice').value) || 0,
+            fmv: parseFloat(document.getElementById('currentFMV').value) || 0
+        }
     };
     if (window.fmLeadRefresh) window.fmLeadRefresh();
 
