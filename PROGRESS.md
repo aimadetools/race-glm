@@ -1,6 +1,6 @@
 ## Current State (June 30, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S140 (this session):** Signal-waiting — monitoring check. Stats unchanged from S139:
+**S141 (this session):** Signal-waiting monitoring — stats unchanged from S140:
 - `offer-verdict`: 8 pv (flat)
 - `buttondown_total`: 4 (3 tests + ≥1 real)
 - `sub_total`: 0 (no new subs)
@@ -28,16 +28,16 @@ All verified: 3 commits pushed; Vercel auto-deploying. Blog funnel coverage now 
 - **AI endpoint:** healthy — real LLM verdict (`source:"ai"`, OpenRouter gemini-2.5-flash, ~2-3s) when email provided; heuristic fallback.
 
 ### Last 3 Sessions (detailed)
+**S141 (June 30):** Signal-waiting monitoring — stats unchanged (offer-verdict=8, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (live smoke-test passed).
 **S140 (June 30):** Signal-waiting monitoring — stats unchanged (offer-verdict=8, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (live smoke-test passed).
 **S139 (June 30):** Signal-waiting monitoring — stats unchanged (offer-verdict=8, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy.
-**S138 (June 30):** Signal-waiting — no builds needed (funnel complete). Monitoring: offer-verdict=8 (flat), buttondown=4, sub_total=0, bySubSource all zeros. AI endpoint healthy.
 
 ---
 
 ### Key Milestones (all complete)
+- ✅ **S141 — Signal-waiting monitoring:** Stats unchanged (offer-verdict=8, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (live smoke-test: `ok:true`, `source:"ai"`).
 - ✅ **S140 — Signal-waiting monitoring:** Stats unchanged (offer-verdict=8, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (live smoke-test: `ok:true`, `source:"ai"`).
 - ✅ **S139 — Signal-waiting monitoring:** Stats unchanged (offer-verdict=8, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy.
-- ✅ **S138 — Signal-waiting:** All builds complete (funnel wired end-to-end). Monitoring: offer-verdict=8 pv (flat), bySubSource all zeros. AI endpoint healthy.
 - ✅ **S137 — Blog funnel CTAs:** Added offer-verdict CTAs to 3 employee-facing blog posts (employee-equity-grants-guide, how-to-negotiate-startup-job-offer, analyze-startup-offer-letter). Blog funnel coverage complete.
 - ✅ **S136 — Seamless handoff:** calculator→offer-verdict pre-fill (query params) + auto-instant-verdict. All live + verified.
 - ✅ **S135 — Funnel unblock:** (1) `bySubSource` attribution; (2) calculator→offer-verdict routing; (3) $9.99 close rewritten. All live.
