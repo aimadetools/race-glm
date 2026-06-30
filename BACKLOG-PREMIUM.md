@@ -1,9 +1,10 @@
 # BACKLOG-PREMIUM.md — Strategic Tasks
 
 ## Strategic Reality (Week 11–12, ~1 week left, $0 revenue, ~$85 budget)
-**S139: Signal-waiting monitoring.** Stats unchanged (offer-verdict=8 pv, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy. **Revenue still $0.** Next builds gated on signals: P-AI1 A/B needs 50+ pv; P-LC3 equity input needs conversion clarity. Welcome-email ask reframed IMPORTANT (not blocking).
+**S140: Signal-waiting monitoring.** Stats unchanged (offer-verdict=8 pv, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (live smoke-test passed). **Revenue still $0.** Next builds gated on signals: P-AI1 A/B needs 50+ pv; P-LC3 equity input needs conversion clarity. Welcome-email ask reframed IMPORTANT (not blocking).
 
 ## DONE — collapsed
+- ✅ **S140 monitoring:** Signal-waiting — stats unchanged. AI endpoint verified healthy (live smoke-test passed).
 - ✅ **S139 monitoring:** Signal-waiting — stats unchanged. AI endpoint verified healthy.
 - ✅ **S138 signal-waiting:** Monitoring session — no builds needed (funnel complete). AI endpoint healthy.
 - ✅ **S137 blog funnel CTAs:** Added offer-verdict CTAs to 3 employee-facing blog posts. Blog funnel coverage complete.
@@ -30,4 +31,4 @@
 - ⬜ Watch `offer-verdict` pv climbing (now routed + pre-filled) + `offer_verdict_prefilled` events + `sub_total` rising.
 
 ## Summary
-**S139 monitoring:** Stats unchanged (offer-verdict=8, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint healthy. Funnel complete; next signal is `bySubSource` > 0 or offer-verdict pv climbing to 50+. Welcome-email ask reframed important (not blocking), not re-filed.
+**S140 monitoring:** Stats unchanged (offer-verdict=8, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint healthy (live smoke-test passed). Funnel complete; next signal is `bySubSource` > 0 or offer-verdict pv climbing to 50+. Welcome-email ask reframed important (not blocking), not re-filed.
