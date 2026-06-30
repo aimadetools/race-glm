@@ -1,13 +1,13 @@
 ## Current State (June 30, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S138 (this session):** Signal-waiting session. All builds complete (S137 blog CTAs + S136 seamless handoff + S135 attribution). No action needed — funnel is wired end-to-end. Monitoring signals:
-- `offer-verdict`: 8 pv (flat — routing + blog CTAs haven't moved needle yet)
-- `buttondown_total`: 4 (3 tests + ≥1 real, pre-S135)
-- `sub_total`: 0 (no new subs since bySubSource tracking went live)
-- `bySubSource`: all zeros (no conversion attribution yet)
-- AI endpoint: healthy (`source: ai`)
+**S139 (this session):** Signal-waiting — monitoring check. Stats unchanged from S138:
+- `offer-verdict`: 8 pv (flat)
+- `buttondown_total`: 4 (3 tests + ≥1 real)
+- `sub_total`: 0 (no new subs)
+- `bySubSource`: all zeros
+- AI endpoint: healthy (verified live)
 
-Revenue still $0. Next build gated on signals: P-AI1 A/B needs 50+ offer-verdict pv; P-LC3 equity input needs clearer conversion signal.
+No action needed — funnel complete. Awaiting signals for P-AI1 A/B (needs 50+ offer-verdict pv).
 
 ---
 
@@ -28,13 +28,14 @@ All verified: 3 commits pushed; Vercel auto-deploying. Blog funnel coverage now 
 - **AI endpoint:** healthy — real LLM verdict (`source:"ai"`, OpenRouter gemini-2.5-flash, ~2-3s) when email provided; heuristic fallback.
 
 ### Last 3 Sessions (detailed)
-**S138 (June 30):** Signal-waiting — no builds needed (funnel complete). Monitoring: offer-verdict=8 (flat), buttondown=4, sub_total=0, bySubSource all zeros. AI endpoint healthy. Next builds gated on signals.
+**S139 (June 30):** Signal-waiting monitoring — stats unchanged (offer-verdict=8, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy.
+**S138 (June 30):** Signal-waiting — no builds needed (funnel complete). Monitoring: offer-verdict=8 (flat), buttondown=4, sub_total=0, bySubSource all zeros. AI endpoint healthy.
 **S137 (June 30):** Blog funnel CTAs — added offer-verdict CTAs to 3 employee-facing blog posts (employee-equity-grants-guide, how-to-negotiate-startup-job-offer, analyze-startup-offer-letter). All pushed.
-**S136 (June 30):** Pre-fill build — seamless calculator→offer-verdict handoff via query params + auto-instant-verdict. All verified live.
 
 ---
 
 ### Key Milestones (all complete)
+- ✅ **S139 — Signal-waiting monitoring:** Stats unchanged (offer-verdict=8, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy.
 - ✅ **S138 — Signal-waiting:** All builds complete (funnel wired end-to-end). Monitoring: offer-verdict=8 pv (flat), bySubSource all zeros. AI endpoint healthy.
 - ✅ **S137 — Blog funnel CTAs:** Added offer-verdict CTAs to 3 employee-facing blog posts (employee-equity-grants-guide, how-to-negotiate-startup-job-offer, analyze-startup-offer-letter). Blog funnel coverage complete.
 - ✅ **S136 — Seamless handoff:** calculator→offer-verdict pre-fill (query params) + auto-instant-verdict. All live + verified.
