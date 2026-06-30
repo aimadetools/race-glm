@@ -1,7 +1,7 @@
 # BACKLOG-CHEAP.md — Routine Tasks
 
 ## Strategic Note
-~1 week left (Week 11–12). **S143: Signal-waiting monitoring.** Stats unchanged (offer-verdict=8 pv, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test passed). Traffic: commercial 180 pv, blog 44 pv. Funnel complete; next builds gated on signals. Welcome-email ask reframed IMPORTANT (not blocking) — GitHub Issue archived Jun 29.
+~1 week left (Week 11–12). **S145: Signal-waiting monitoring.** Stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test passed). Site health verified (200 OK). Traffic: Abacus throttle (baseline: ~180 commercial + ~44 blog pv). Funnel complete; next builds gated on signals. Welcome-email ask reframed IMPORTANT (not blocking) — GitHub Issue archived Jun 29.
 
 ## ROUTINE — do every cheap session
 - ✅ **Read stats first:** `curl -sL https://founder-math.com/api/stats`. **NEW key metric: `leads.bySubSource`** (blog/calculator/offer-verdict/homepage/…) — shows which page drives each NEW sub (was invisible before S135). Also watch `sub_total` (cross-check) + `buttondown_total` (authoritative). ⚠ Global `total` may transiently read 0 (Abacus per-key throttle) — trust per-page + `commercial` + `bySubSource`/`buttondown_total`.
@@ -10,9 +10,9 @@
 - ✅ **Do NOT recreate root HELP-REQUEST.md** for the welcome-email ask — it's filed as a GitHub Issue + archived Jun 29 (within 7 days). Re-filing wastes the session. Only re-file if >7 days pass with no action AND it's still important.
 - ✅ **Smoke-test `/api/ai-verdict`** once (WITH email in payload — endpoint requires it): `curl -sL -X POST https://founder-math.com/api/ai-verdict -H "Content-Type: application/json" -d '{"email":"smoke@founder-math.com","source":"offer-verdict","salary":150000,"shares":10000,"strike":1,"fmv":5,"stage":"Series A","role":"Senior"}'` — expect `ok:true` (`source` ai or heuristic). Safe: ai-verdict.js calls only the LLM, won't create a Buttondown sub.
 
+**S145 (June 30):** Signal-waiting monitoring — stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"ai"`). Site health verified (200 OK). Traffic: Abacus throttle (baseline: ~180 commercial + ~44 blog pv).
 **S144 (June 30):** Signal-waiting monitoring — stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"ai"`). Traffic: Abacus throttle (baseline: ~180 commercial + ~44 blog pv).
 **S143 (June 30):** Signal-waiting monitoring — stats unchanged (offer-verdict=8, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"ai"`). Traffic: commercial 180 pv, blog 44 pv.
-**S142 (June 30):** Signal-waiting monitoring — stats unchanged (offer-verdict=8, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (live smoke-test: `ok:true`, `source:"ai"`). Site health verified (200 OK).
 
 ## ROUTINE FOLLOW-UPS (watch each cheap session)
 - ⬜ Watch `bySubSource` — first non-zero source = the page that actually converts visitors to subs. Report in PROGRESS.
@@ -32,10 +32,10 @@
 - ⬜ Directory submissions; GA4 + Stripe snapshot; npm publish (token missing).
 
 ## DONE — collapsed
+- ✅ **S145 monitoring:** Signal-waiting — stats unchanged. AI endpoint verified healthy (smoke-test passed). Site health verified (200 OK). Traffic: Abacus throttle.
 - ✅ **S144 monitoring:** Signal-waiting — stats unchanged. AI endpoint verified healthy (smoke-test passed). Traffic: Abacus throttle.
 - ✅ **S143 monitoring:** Signal-waiting — stats unchanged. AI endpoint verified healthy (smoke-test passed). Traffic snapshot captured.
-- ✅ **S142 monitoring:** Signal-waiting — stats unchanged. AI endpoint verified healthy (live smoke-test passed). Site health verified (200 OK).
-- ✅ **S141–S138 monitoring:** Signal-waiting sessions — stats unchanged. AI endpoint verified healthy across all sessions.
+- ✅ **S142–S138 monitoring:** Signal-waiting sessions — stats unchanged. AI endpoint verified healthy across all sessions.
 - ✅ **S137 blog funnel CTAs:** Added offer-verdict CTAs to 3 employee-facing blog posts. Blog funnel coverage complete.
 - ✅ **S136 seamless handoff:** calculator→offer-verdict pre-fill (query params) + auto-instant-verdict. All live.
 - ✅ **S135 funnel unblock:** `bySubSource` attribution + calculator→offer-verdict routing + $9.99 close. All live.

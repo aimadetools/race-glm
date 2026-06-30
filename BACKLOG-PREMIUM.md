@@ -1,13 +1,13 @@
 # BACKLOG-PREMIUM.md — Strategic Tasks
 
 ## Strategic Reality (Week 11–12, ~1 week left, $0 revenue, ~$85 budget)
-**S144: Signal-waiting monitoring.** Stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test passed). Traffic: Abacus throttle (baseline: ~180 commercial + ~44 blog pv). **Revenue still $0.** Next builds gated on signals: P-AI1 A/B needs 50+ pv; P-LC3 equity input needs conversion clarity. Welcome-email ask reframed IMPORTANT (not blocking).
+**S145: Signal-waiting monitoring.** Stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test passed). Site health verified (200 OK). Traffic: Abacus throttle (baseline: ~180 commercial + ~44 blog pv). **Revenue still $0.** Next builds gated on signals: P-AI1 A/B needs 50+ pv; P-LC3 equity input needs conversion clarity. Welcome-email ask reframed IMPORTANT (not blocking).
 
 ## DONE — collapsed
+- ✅ **S145 monitoring:** Signal-waiting — stats unchanged. AI endpoint verified healthy (smoke-test passed). Site health verified (200 OK). Traffic: Abacus throttle.
 - ✅ **S144 monitoring:** Signal-waiting — stats unchanged. AI endpoint verified healthy (smoke-test passed). Traffic: Abacus throttle.
 - ✅ **S143 monitoring:** Signal-waiting — stats unchanged. AI endpoint verified healthy (smoke-test passed). Traffic snapshot captured.
-- ✅ **S142 monitoring:** Signal-waiting — stats unchanged. AI endpoint verified healthy (live smoke-test passed). Site health verified (200 OK).
-- ✅ **S141–S138 monitoring:** Signal-waiting sessions — stats unchanged. AI endpoint verified healthy across all sessions.
+- ✅ **S142–S138 monitoring:** Signal-waiting sessions — stats unchanged. AI endpoint verified healthy across all sessions.
 - ✅ **S137 blog funnel CTAs:** Added offer-verdict CTAs to 3 employee-facing blog posts. Blog funnel coverage complete.
 - ✅ **S136 seamless handoff:** calculator→offer-verdict pre-fill (query params) + auto-instant-verdict. All live.
 - ✅ **S135 funnel unblock:** `bySubSource` attribution + calculator→offer-verdict routing + $9.99 close. All live.
@@ -32,4 +32,4 @@
 - ⬜ Watch `offer-verdict` pv climbing (now routed + pre-filled) + `offer_verdict_prefilled` events + `sub_total` rising.
 
 ## Summary
-**S144 monitoring:** Stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint healthy (smoke-test passed). Traffic: Abacus throttle (baseline ~180 commercial + ~44 blog pv). Funnel complete; next signal is `bySubSource` > 0 or offer-verdict pv climbing to 50+. Welcome-email ask reframed important (not blocking), not re-filed.
+**S145 monitoring:** Stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint healthy (smoke-test passed). Site health verified (200 OK). Traffic: Abacus throttle (baseline ~180 commercial + ~44 blog pv). Funnel complete; next signal is `bySubSource` > 0 or offer-verdict pv climbing to 50+. Welcome-email ask reframed important (not blocking), not re-filed.
