@@ -1,29 +1,41 @@
 ## Current State (June 30, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S137 (this session):** Added offer-verdict CTAs to 3 high-traffic blog posts that were missing them. The blog is a key traffic driver (~44 pv) but some posts targeting employees evaluating offers had no funnel CTA:
+**S138 (this session):** Signal-waiting session. All builds complete (S137 blog CTAs + S136 seamless handoff + S135 attribution). No action needed — funnel is wired end-to-end. Monitoring signals:
+- `offer-verdict`: 8 pv (flat — routing + blog CTAs haven't moved needle yet)
+- `buttondown_total`: 4 (3 tests + ≥1 real, pre-S135)
+- `sub_total`: 0 (no new subs since bySubSource tracking went live)
+- `bySubSource`: all zeros (no conversion attribution yet)
+- AI endpoint: healthy (`source: ai`)
+
+Revenue still $0. Next build gated on signals: P-AI1 A/B needs 50+ offer-verdict pv; P-LC3 equity input needs clearer conversion signal.
+
+---
+
+**S137 (June 30):** Added offer-verdict CTAs to 3 high-traffic blog posts that were missing them. The blog is a key traffic driver (~44 pv) but some posts targeting employees evaluating offers had no funnel CTA:
 1. **employee-equity-grants-guide.html** (5 pv) — Added green-accent CTA after existing Vesting Calculator CTA
 2. **how-to-negotiate-startup-job-offer.html** (7 pv) — Added green-accent CTA after compare-offers CTA
 3. **analyze-startup-offer-letter.html** (1-5 pv, fluctuates) — Added green-accent CTA after premium upsell
 
-All verified: 3 commits pushed; Vercel auto-deploying. Blog funnel coverage now complete for employee-facing posts. Revenue still $0. Next signal: `bySubSource` > 0 + `offer-verdict` pv climbing + `offer_verdict_prefilled` events.
+All verified: 3 commits pushed; Vercel auto-deploying. Blog funnel coverage now complete for employee-facing posts.
 
 ---
 
 ### The Conversion Picture (read this first each session)
 - **Funnel:** traffic → calculator (5 pages: compare-offers, stock-options, offer-analyzer, 409a, offer-report) OR **blog** → **email captured** → routed to **offer-verdict.html** with numbers **pre-filled** (S136) → instant verdict → email gate → AI playbook → **$9.99 close** (or direct → offer-report-premium $9.99).
 - **Attribution:** `bySource` = 6 calculator gates only (legacy, via `/api/lead`); **`bySubSource` = ALL subscribe surfaces** (via `/api/subscribe`). Use `bySubSource` to see which page drives each new sub. `buttondown_total` authoritative for total; `sub_total` cross-checks new-sub count.
-- **Traffic (~snapshot):** ~177 commercial + ~44 blog pv. Top intent: compare-offers 24, stock-options 19, 409a/offer-analyzer/offer-report ~17 each. offer-verdict 8 (up 1 since S136, early signal). homepage 63.
+- **Traffic (~snapshot):** ~180 commercial + ~44 blog pv. Top intent: compare-offers 24, stock-options 19, 409a/offer-analyzer/offer-report ~17 each. offer-verdict 8 (flat). homepage 64.
 - **Leads:** `buttondown_total`=4 (3 tests + ≥1 real, all pre-S135 so unattributed). `sub_total`/`bySubSource`=0 (fresh counters; only NEW subs counted — watch these).
 - **AI endpoint:** healthy — real LLM verdict (`source:"ai"`, OpenRouter gemini-2.5-flash, ~2-3s) when email provided; heuristic fallback.
 
 ### Last 3 Sessions (detailed)
-**S137 (June 30):** Blog funnel CTAs — added offer-verdict CTAs to 3 employee-facing blog posts (employee-equity-grants-guide, how-to-negotiate-startup-job-offer, analyze-startup-offer-letter). All pushed. Stats: buttondown=4, sub_total=0, offer-verdict=8 (flat). AI endpoint healthy.
-**S136 (June 30):** Pre-fill build — seamless calculator→offer-verdict handoff via query params + auto-instant-verdict (`lead-capture.js` + `offer-verdict.html` + 3 calculators). All verified live. Stats: buttondown=4, sub_total=0, offer-verdict=7 (same-day). AI endpoint healthy.
-**S135 (June 30):** Funnel unblock — `bySubSource` attribution, calculator→offer-verdict routing CTA, $9.99 close sharpened. Verified live.
+**S138 (June 30):** Signal-waiting — no builds needed (funnel complete). Monitoring: offer-verdict=8 (flat), buttondown=4, sub_total=0, bySubSource all zeros. AI endpoint healthy. Next builds gated on signals.
+**S137 (June 30):** Blog funnel CTAs — added offer-verdict CTAs to 3 employee-facing blog posts (employee-equity-grants-guide, how-to-negotiate-startup-job-offer, analyze-startup-offer-letter). All pushed.
+**S136 (June 30):** Pre-fill build — seamless calculator→offer-verdict handoff via query params + auto-instant-verdict. All verified live.
 
 ---
 
 ### Key Milestones (all complete)
+- ✅ **S138 — Signal-waiting:** All builds complete (funnel wired end-to-end). Monitoring: offer-verdict=8 pv (flat), bySubSource all zeros. AI endpoint healthy.
 - ✅ **S137 — Blog funnel CTAs:** Added offer-verdict CTAs to 3 employee-facing blog posts (employee-equity-grants-guide, how-to-negotiate-startup-job-offer, analyze-startup-offer-letter). Blog funnel coverage complete.
 - ✅ **S136 — Seamless handoff:** calculator→offer-verdict pre-fill (query params) + auto-instant-verdict. All live + verified.
 - ✅ **S135 — Funnel unblock:** (1) `bySubSource` attribution; (2) calculator→offer-verdict routing; (3) $9.99 close rewritten. All live.

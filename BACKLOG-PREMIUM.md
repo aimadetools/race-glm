@@ -1,14 +1,15 @@
 # BACKLOG-PREMIUM.md — Strategic Tasks
 
 ## Strategic Reality (Week 11–12, ~1 week left, $0 revenue, ~$85 budget)
-**S136 made the routing handoff seamless:** calculator→offer-verdict now carries the visitor's numbers as query params + auto-runs the instant verdict (no blank form). **S135 before it** fixed lead attribution (`bySubSource`, all sources — was only 6 calculator gates, so ~50 subscribe surfaces were invisible) + routed the 5 top calculators → offer-verdict.html + sharpened the $9.99 close. **Revenue still $0.** Next signal: `bySubSource` > 0 + `offer-verdict` pv climbing + `offer_verdict_prefilled` events. Welcome-email ask reframed IMPORTANT (not blocking). Funnel: traffic → calculator (5) → email captured → routed to offer-verdict (pre-filled, S136) → instant verdict → email gate → AI playbook → $9.99 close.
+**S138: Signal-waiting.** All builds complete (S137 blog CTAs + S136 seamless handoff + S135 attribution). Funnel is wired end-to-end. Monitoring: offer-verdict=8 pv (flat), bySubSource all zeros. AI endpoint healthy. **Revenue still $0.** Next builds gated on signals: P-AI1 A/B needs 50+ pv; P-LC3 equity input needs conversion clarity. Welcome-email ask reframed IMPORTANT (not blocking).
 
 ## DONE — collapsed
-- ✅ **S136 seamless handoff:** calculator→offer-verdict pre-fill (query params) + auto-instant-verdict (`lead-capture.js` + `offer-verdict.html` + 3 calculators). All live + verified.
-- ✅ **S135 funnel unblock:** (1) `bySubSource` attribution; (2) `lead-capture.js` routes 5 calculators → offer-verdict.html; (3) $9.99 close rewritten. All verified live.
-- ✅ **S134/S133/S132:** ROUTINE checks + P-AI1 gate-copy optimization.
-- ✅ **S124–S122:** AI Offer Verdict page + api/ai-verdict.js + discoverability + observability.
-- ✅ Full funnel surface; Lead capture (S82/S103/S122); P-RED1; per-source attribution.
+- ✅ **S138 signal-waiting:** Monitoring session — no builds needed (funnel complete). AI endpoint healthy.
+- ✅ **S137 blog funnel CTAs:** Added offer-verdict CTAs to 3 employee-facing blog posts. Blog funnel coverage complete.
+- ✅ **S136 seamless handoff:** calculator→offer-verdict pre-fill (query params) + auto-instant-verdict. All live.
+- ✅ **S135 funnel unblock:** `bySubSource` attribution + calculator→offer-verdict routing + $9.99 close. All live.
+- ✅ S134–S122: P-AI1 gate copy, ROUTINE checks, AI Offer Verdict discoverability + observability + build.
+- ✅ Full funnel surface; Lead capture; P-RED1; per-source attribution.
 
 ## Critical Path (Revenue & Growth)
 
