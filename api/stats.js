@@ -92,6 +92,22 @@ export default async function handler(req, res) {
       const r = await fetch(`${ABACUS}/get/${NS}/lead-total`);
       leadTotal = (await r.json()).value || 0;
     } catch (e) {}
+    // S135: per-source attribution for ALL subscribe surfaces (fired by
+    // /api/subscribe). Unlike bySource (6 calculator gates only), this catches
+    // blog/footer/homepage/calculator subs too — so a rising buttondown_total
+    // can finally be traced to the page that drove it.
+    const SUB_SOURCES = ['blog', 'calculator', 'offer-verdict', 'offer-report', 'stock-options', 'compare-offers', 'offer-analyzer', '409a-valuation', 'homepage', 'valuation', 'cap-table', 'equity-report', 'equity-split', 'about', 'website'];
+    const subEntries = await Promise.all(SUB_SOURCES.map(async (src) => {
+      try {
+        const r = await fetch(`${ABACUS}/get/${NS}/sub-${src}`);
+        return [src, (await r.json()).value || 0];
+      } catch (e) { return [src, 0]; }
+    }));
+    let subTotal = 0;
+    try {
+      const r = await fetch(`${ABACUS}/get/${NS}/sub-total`);
+      subTotal = (await r.json()).value || 0;
+    } catch (e) {}
     // S82: authoritative lead metric = actual Buttondown subscriber count
     // (the Abacus counter is a secondary convenience gauge). The newsletter
     // key lives in the function env; read total subscribers directly.
@@ -105,7 +121,7 @@ export default async function handler(req, res) {
         : Array.isArray(bdj) ? bdj.length
         : (bdj && Array.isArray(bdj.results)) ? bdj.results.length : null;
     } catch (e) {}
-    const leads = { total: leadTotal, buttondown_total: buttondownTotal, bySource: Object.fromEntries(leadEntries) };
+    const leads = { total: leadTotal, buttondown_total: buttondownTotal, bySource: Object.fromEntries(leadEntries), sub_total: subTotal, bySubSource: Object.fromEntries(subEntries) };
     // Section attribution: blog (SEO long-tail) vs commercial vs other.
     // blog = sum of BLOG_POSTS + s-blog (aggregate for remaining blog posts);
     // commercial = sum of PAGES; other = residual.

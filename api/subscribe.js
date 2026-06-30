@@ -1,3 +1,15 @@
+// Attribution counter (S135). buttondown_total (in /api/stats) is authoritative
+// but has NO per-source breakdown — and `bySource` there only tracks the 6
+// in-calculator gates (/api/lead beacons). So ~50 other subscribe surfaces
+// (every blog footer, homepage, vesting/cap-table/valuation calculators) were
+// INVISIBLE: a sub incremented buttondown_total but read as "0 captures"
+// everywhere, which mis-led several sessions into thinking the funnel was dead.
+// This fires `sub-{source}` + `sub-total` on each NEW subscribe (201 only, so
+// duplicates/already-subscribed don't double-count), letting /api/stats finally
+// show which page drove each signup.
+const ABACUS = 'https://abacus.jasoncameron.dev';
+const NS = 'foundermath';
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -40,6 +52,13 @@ export default async function handler(req, res) {
     });
 
     if (response.status === 201) {
+      // S135: record per-source attribution for NEW subs (best-effort, never blocks).
+      try {
+        await Promise.allSettled([
+          fetch(`${ABACUS}/hit/${NS}/sub-${safeSource}`, { method: 'GET' }),
+          fetch(`${ABACUS}/hit/${NS}/sub-total`, { method: 'GET' }),
+        ]);
+      } catch (e) {}
       return res.status(200).json({ success: true, message: 'Subscribed!' });
     }
 

@@ -146,6 +146,16 @@
       '<h3 style="font-size:1.12rem;font-weight:800;margin:0 0 10px;color:var(--text-primary,#fff);">&#9989; ' + (generic ? 'Your negotiation kit' : 'Your market verdict') + '</h3>' +
       body +
       negotiationScript() +
+      // S135: route captured calculator leads to the differentiated AI page.
+      // offer-verdict.html gets little organic traffic (7 pv); the 5 calculators
+      // that use this widget get the most. This funnels qualified, already-warm
+      // traffic to the AI verdict (free, re-captures email, carries its own
+      // $9.99 close) — turning "got my number, bye" into a deeper engagement.
+      '<div style="margin-top:16px;padding:16px 18px;background:linear-gradient(135deg,rgba(108,92,231,0.14),rgba(162,155,254,0.06));border:1px solid var(--accent,#6c5ce7);border-radius:10px;">' +
+        '<strong style="display:block;margin-bottom:4px;color:var(--text-primary,#fff);">Want the AI to draft your counter-offer?</strong>' +
+        '<p style="margin:0 0 10px;color:var(--text-secondary,#a0a0b5);font-size:0.88rem;line-height:1.55;">Free next step: drop your full offer into our <strong style="color:var(--text-primary,#fff);">AI Offer Verdict</strong> for a personalized strengths &amp; red-flags read plus a copy-paste counter-offer you can send to the recruiter.</p>' +
+        '<a href="offer-verdict.html" onclick="if(typeof gtag===\'function\')gtag(\'event\',\'ai_verdict_cta\',{source:\'' + (fm && fm.source || '') + '_reveal\',path:\'lead_reveal\'})" style="display:inline-block;background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:#fff;padding:10px 22px;border-radius:9px;font-weight:700;text-decoration:none;font-size:0.9rem;">Get my AI offer verdict (free) &rarr;</a>' +
+      '</div>' +
       '<div style="margin-top:16px;padding:14px 16px;background:var(--bg-secondary,#15151f);border:1px solid var(--border,#2a2a3a);border-radius:10px;">' +
         '<strong style="display:block;margin-bottom:4px;">Want the full picture?</strong>' +
         '<p style="margin:0 0 10px;color:var(--text-secondary,#a0a0b5);font-size:0.88rem;">Get the complete scenario report — downside / upside / moonshot exit values, your full vesting timeline, and a printable PDF — for a one-time $9.99.</p>' +
