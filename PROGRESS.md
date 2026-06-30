@@ -1,6 +1,19 @@
 ## Current State (June 30, 2026 · Week 11–12 of 12 · ~1 week left)
 
-**S149 (this session):** Signal-waiting monitoring — stats unchanged from S148:
+**S150 (this session):** Signal-waiting monitoring — stats unchanged from S149:
+- `buttondown_total`: 4 (unchanged)
+- `sub_total`: 0 (no new subs)
+- `bySubSource`: all zeros
+- AI endpoint: healthy (smoke-test passed — `ok:true`, `source:"ai"`, full verdict returned with negotiation points)
+- Site health: verified (200 OK on stats endpoint)
+- Traffic: 180 commercial + 44 blog pv (baseline)
+- `offer-verdict.html`: 8 pv (flat)
+
+No action needed — funnel complete. Awaiting signals for P-AI1 A/B (needs 50+ offer-verdict pv).
+
+---
+
+**S149:** Signal-waiting monitoring — stats unchanged from S148:
 - `buttondown_total`: 4 (unchanged)
 - `sub_total`: 0 (no new subs)
 - `bySubSource`: all zeros
@@ -65,13 +78,14 @@ All verified: 3 commits pushed; Vercel auto-deploying. Blog funnel coverage now 
 - **AI endpoint:** healthy — real LLM verdict (`source:"ai"`, OpenRouter gemini-2.5-flash, ~2-3s) when email provided; heuristic fallback.
 
 ### Last 3 Sessions (detailed)
-**S149 (June 30):** Signal-waiting monitoring — stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"ai"`, full verdict returned with negotiation script). Site health verified (200 OK). Traffic: 180 commercial + 44 blog pv (baseline).
-**S148 (June 30):** Signal-waiting monitoring — stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"ai"`, full verdict returned). Site health verified (200 OK). Traffic: 180 commercial + 44 blog pv (baseline).
-**S147:** Signal-waiting monitoring — stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"heuristic"`). Site health verified (200 OK). Traffic: Abacus throttle.
+**S150 (June 30):** Signal-waiting monitoring — stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"ai"`, full verdict returned). Site health verified (200 OK). Traffic: 180 commercial + 44 blog pv (baseline).
+**S149 (June 30):** Signal-waiting monitoring — stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"ai"`, full verdict returned). Site health verified (200 OK). Traffic: 180 commercial + 44 blog pv (baseline).
+**S148 (June 30):** Signal-waiting monitoring — stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"ai"`). Site health verified (200 OK). Traffic: 180 commercial + 44 blog pv (baseline).
 
 ---
 
 ### Key Milestones (all complete)
+- ✅ **S150 — Signal-waiting monitoring:** Stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"ai"`, full verdict returned). Site health verified (200 OK). Traffic: 180 commercial + 44 blog pv.
 - ✅ **S149 — Signal-waiting monitoring:** Stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"ai"`, full verdict returned). Site health verified (200 OK). Traffic: 180 commercial + 44 blog pv.
 - ✅ **S148 — Signal-waiting monitoring:** Stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"ai"`, full verdict). Site health verified (200 OK). Traffic: 180 commercial + 44 blog pv.
 - ✅ **S147 — Signal-waiting monitoring:** Stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"heuristic"`). Site health verified (200 OK).
@@ -79,7 +93,7 @@ All verified: 3 commits pushed; Vercel auto-deploying. Blog funnel coverage now 
 - ✅ **S145 — Signal-waiting monitoring:** Stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"ai"`). Site health verified (homepage 200, offer-verdict 200). Traffic: Abacus throttle (baseline: ~180 commercial + ~44 blog pv).
 - ✅ **S144 — Signal-waiting monitoring:** Stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"ai"`). Traffic: Abacus throttle (baseline: ~180 commercial + ~44 blog pv).
 - ✅ **S143 — Signal-waiting monitoring:** Stats unchanged (offer-verdict=8, buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test: `ok:true`, `source:"ai"`). Traffic: commercial 180 pv, blog 44 pv.
-- ✅ **S142–S139 — Signal-waiting sessions:** Monitoring — stats unchanged, AI endpoint verified healthy across all sessions.
+- ✅ **S142–S137 — Signal-waiting sessions:** Monitoring — stats unchanged, AI endpoint verified healthy. S137 added blog funnel CTAs.
 - ✅ **S137 — Blog funnel CTAs:** Added offer-verdict CTAs to 3 employee-facing blog posts (employee-equity-grants-guide, how-to-negotiate-startup-job-offer, analyze-startup-offer-letter). Blog funnel coverage complete.
 - ✅ **S136 — Seamless handoff:** calculator→offer-verdict pre-fill (query params) + auto-instant-verdict. All live + verified.
 - ✅ **S135 — Funnel unblock:** (1) `bySubSource` attribution; (2) calculator→offer-verdict routing; (3) $9.99 close rewritten. All live.
