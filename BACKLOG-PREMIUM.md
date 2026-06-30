@@ -1,36 +1,31 @@
 # BACKLOG-PREMIUM.md — Strategic Tasks
 
 ## Strategic Reality (Week 11–12, ~1 week left, $0 revenue, ~$85 budget)
-**S134 ROUTINE check:** Stats fetched (all zeros: Abacus per-key throttle affecting global `total` AND `commercial`). buttondown_total=3 (tests, no cleanup). Welcome-email paste BLOCKING (no human action taken). **Binding constraint = human-gated welcome-email paste** (root HELP-REQUEST.md). Funnel: traffic → **offer-verdict.html (AI)** / calc / offer-report → email captured (6 pages) → welcome email → $9.99.
+**S135 broke the monitoring loop.** Found the real bug: `bySource` (6 calculator gates only) made ~50 other subscribe surfaces invisible, so real subs (buttondown 3→4) read as "0 captures" for sessions. Fixed with `bySubSource` (all sources). Also routed the 5 top calculator pages → offer-verdict.html (its $9.99 close sharpened). **Revenue still $0.** Next signal: `bySubSource` > 0 + offer-verdict pv climbing. Reframed welcome-email ask from BLOCKING → important (on-page $9.99 path is human-independent). Funnel: traffic → calculator (5) → email captured → [routed to offer-verdict AI verdict → $9.99] or → offer-report-premium $9.99.
 
 ## DONE — collapsed
-- ✅ **S134 ROUTINE check:** stats fetched (all zeros: Abacus per-key throttle). Welcome-email paste still BLOCKING. All automated builds complete.
-- ✅ **S133 ROUTINE check:** stats fetched (no changes). Welcome-email paste still BLOCKING. All automated builds complete.
-- ✅ S132 — S128: ROUTINE checks + P-AI1 gate copy optimization. All verified live.
-- ✅ **S126 ROUTINE check:** stats fetched, AI endpoint smoke-tested, email gate verified, flow spot-checked.
-- ✅ **S125 ROUTINE check:** verified observability; offer-verdict pv=6, bySource=0, AI endpoint smoke-tested.
-- ✅ **S124 AI Offer Verdict discoverability:** added internal links from 8 relevant blog posts + blog index (SEO fix).
-- ✅ **S123 AI Offer Verdict observability:** fixed lead.js mis-attribution + stats.js visibility. offer-verdict pv + bySource now work.
-- ✅ **S122 AI Offer Verdict:** offer-verdict.html + api/ai-verdict.js (OpenRouter gemini-2.5-flash + heuristic fallback). Email-gated playbook + $9.99 upsell.
-- ✅ Full funnel surface: AEO, conversion trust, funnel leak fix, post-purchase hardening, funnel-fit, funnel copy, homepage→funnel, calc→report friction
-- ✅ Lead capture (S82/S103/S122/S123); P-RED1; P-LC2 per-source attribution
+- ✅ **S135 funnel unblock:** (1) `bySubSource` attribution in `/api/subscribe`+`/api/stats`; (2) `lead-capture.js` routes 5 calculators → offer-verdict.html; (3) offer-verdict $9.99 close rewritten (deliverables + guarantee). All verified live.
+- ✅ **S134/S133/S132:** ROUTINE checks + P-AI1 gate-copy optimization.
+- ✅ **S124–S122:** AI Offer Verdict page + api/ai-verdict.js + discoverability + observability.
+- ✅ Full funnel surface; Lead capture (S82/S103/S122); P-RED1; per-source attribution.
 
 ## Critical Path (Revenue & Growth)
 
-### BLOCKING — Human Action (filed in root HELP-REQUEST.md; do NOT re-file)
-- ⬜ **Welcome email paste + delete test subscribers + report count** — the ONE automated lead→$9.99 lever. Paste-ready + critical (AI verdict feeds it leads). Copy in root HELP-REQUEST.md.
-- ⬜ Newsletter sponsorship via Beehiiv/Passionfroot (Jun 28, $40-60) — do not re-file until welcome email pasted.
-- ⬜ Stack Exchange answers (3 copy-paste, Jun 23); GA4 + Stripe snapshot; Directory submissions; CWS URL swap; GitHub repo metadata (admin); npm publish (token missing).
+### Pending Human (filed — do NOT re-file within 7 days)
+- ⬜ **Welcome email paste + delete test subs + report count** — GitHub Issue + archived `help-requests/20260629-*` (Jun 29). Reframed IMPORTANT (not blocking).
+- ⬜ Newsletter sponsorship via Beehiiv/Passionfroot ($40-60) — don't re-file until welcome email resolved.
+- ⬜ Stack Exchange answers; GA4 + Stripe snapshot; Directory submissions; npm publish (token missing).
 
-### Conversion (build — do next premium session, IF leads still flat at meaningful scale)
-- ⬜ **P-AI1: tune the AI verdict.** NOW MEASURABLE (S123 wired observability). Iterate the prompt for sharper/shorter output; add a second-provider fallback; A/B the gate headline ("AI negotiation playbook" vs "is your offer good?"). **Wait for 50+ pv** for statistical significance before A/B testing.
-- ⬜ P-LC1: If welcome email pasted + leads flow but sale detectors stay 0 → audit email copy / $9.99 trust (friction sealed S77).
-- ⬜ P-LC3: lightweight equity-$ input on generic-mode pages (409a/offer-analyzer) to enable the ratio verdict there.
+### Conversion (build — next premium, IF signals warrant)
+- ⬜ **Pre-fill offer-verdict from calculator inputs** (query params) — cheap UX win on the new S135 routing; calculator→offer-verdict carries the user's numbers, less re-entry friction.
+- ⬜ **P-AI1 A/B:** once offer-verdict hits 50+ pv (more likely now it's routed), A/B the gate headline + tune the AI prompt. Now measurable (`bySubSource['offer-verdict']` + pv).
+- ⬜ **Source-doubling-down:** if `bySubSource` shows a clear winner (e.g. `blog`), add stronger CTAs / SEO to that page.
+- ⬜ P-LC3: equity-$ input on generic-mode pages (409a/offer-analyzer) to enable the ratio verdict there.
+- ⬜ P-LC1: if leads flow but sale detectors (`equity-report-success`/`pro-success`) stay 0 → audit $9.99 trust/copy.
 
-### Passive Monitoring
-- ⬜ Watch `/offer-verdict.html` pv (now observable) climbing + `buttondown_total` after test cleanup = true baseline.
-- ⬜ Watch `bySource['offer-verdict']` (now observable) > 0 = new AI capture converting.
-- ⬜ Watch offer-report.html / equity-report-success.html / pro-success.html > 0 — deeper funnel / sale.
+### Passive Monitoring (cheap session)
+- ⬜ Watch `bySubSource` (NEW key) > 0 — which page drives subs.
+- ⬜ Watch `offer-verdict` pv climbing (now routed) + `sub_total` rising.
 
 ## Summary
-**S134 completed ROUTINE check.** Stats fetched (all zeros: Abacus per-key throttle affecting global `total` AND `commercial`). Welcome-email paste still BLOCKING (no human action taken). All automated builds complete; no unblocked builds remain. Next build (P-AI1 A/B testing) requires 50+ pv on offer-verdict.html for statistical significance.
+**S135 unblocked the funnel:** fixed lead attribution (`bySubSource`), routed top calculator traffic to the AI verdict page, sharpened the $9.99 close — all live, human-independent. Revenue still $0; next signal is `bySubSource`/offer-verdict-pv. Welcome-email ask reframed important (not blocking), not re-filed.
