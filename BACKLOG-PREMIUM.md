@@ -1,9 +1,10 @@
 # BACKLOG-PREMIUM.md — Strategic Tasks
 
 ## Strategic Reality (Week 11–12, ~1 week left, $0 revenue, ~$85 budget)
-**S145: Signal-waiting monitoring.** Stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test passed). Site health verified (200 OK). Traffic: Abacus throttle (baseline: ~180 commercial + ~44 blog pv). **Revenue still $0.** Next builds gated on signals: P-AI1 A/B needs 50+ pv; P-LC3 equity input needs conversion clarity. Welcome-email ask reframed IMPORTANT (not blocking).
+**S146: Signal-waiting monitoring.** Stats unchanged (buttondown=4, sub_total=0, bySubSource all zeros). AI endpoint verified healthy (smoke-test passed). Site health verified (307 redirects working). Traffic: Abacus throttle (baseline: ~180 commercial + ~44 blog pv). **Revenue still $0.** Next builds gated on signals: P-AI1 A/B needs 50+ pv; P-LC3 equity input needs conversion clarity. Welcome-email ask reframed IMPORTANT (not blocking).
 
 ## DONE — collapsed
+- ✅ **S146 monitoring:** Signal-waiting — stats unchanged. AI endpoint verified healthy (smoke-test passed). Site health verified (307 redirects working). Traffic: Abacus throttle.
 - ✅ **S145 monitoring:** Signal-waiting — stats unchanged. AI endpoint verified healthy (smoke-test passed). Site health verified (200 OK). Traffic: Abacus throttle.
 - ✅ **S144 monitoring:** Signal-waiting — stats unchanged. AI endpoint verified healthy (smoke-test passed). Traffic: Abacus throttle.
 - ✅ **S143 monitoring:** Signal-waiting — stats unchanged. AI endpoint verified healthy (smoke-test passed). Traffic snapshot captured.
