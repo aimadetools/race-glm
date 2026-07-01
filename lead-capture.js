@@ -95,37 +95,52 @@
     return !fm || !(fm.exitValue > 0);
   }
 
+  // S151 — conversion restructure. Root cause of 0% capture: the old gate asked
+  // for salary + email (2 fields) right after the visitor already got their free
+  // calculator answer — no compelling reason to fill two fields. The genuinely
+  // differentiated product (the AI Offer Verdict — a real LLM negotiation
+  // playbook) lived on a separate page getting ~8 pv while 184 pv of high-intent
+  // calculator traffic never reached it.
+  //
+  // FIX: make the PRIMARY action a one-click "Get free AI offer verdict" CTA that
+  // carries the visitor's numbers to offer-verdict.html (which auto-runs the
+  // instant verdict → email gate for the AI playbook). The email gate becomes
+  // SECONDARY and EMAIL-ONLY (no salary wall) for the negotiation script +
+  // checklist. One click or one field — never two.
   function renderForm(fm) {
     var generic = isGeneric(fm);
-    var headline, sub;
+    var src = (fm && fm.source) || '';
+    var verdictHref = generic ? 'offer-verdict.html' : offerVerdictHref(fm, (fm && fm.salary) || 0);
+    var prefilled = verdictHref.indexOf('?') >= 0 ? 1 : 0;
+
+    // PRIMARY: frictionless path to the AI verdict (carries their numbers).
+    var primary;
     if (generic) {
-      headline = '<span style="color:var(--green,#10b981);">Don\'t sign yet</span> — get the negotiation script that gets more equity';
-      sub = 'Most employees leave equity on the table. Here\'s exactly what to say to ask for more (copy-paste script) + the 5-point checklist before you sign. Free via email:';
+      primary =
+        '<h3 style="font-size:1.2rem;font-weight:800;margin:0 0 6px;color:var(--text-primary,#fff);"><span style="color:var(--green,#10b981);">Don\'t sign yet</span> — let AI review your offer</h3>' +
+        '<p style="color:var(--text-secondary,#a0a0b5);font-size:0.92rem;margin:0 0 14px;line-height:1.6;">Get an instant AI read of your offer\'s strengths and red flags plus a copy-paste counter-offer to send the recruiter. Free.</p>';
     } else {
       var val = money((fm && fm.currentValue) || 0);
-      headline = 'Your options: <strong style="color:var(--green,#10b981);font-size:1.05em;">' + val + '</strong> — <span style="color:var(--green,#10b981);">is this a GOOD deal</span>?';
-      sub = 'We\'ll benchmark your grant against 10,000+ real offers and tell you if it\'s generous, fair, or below market — <strong>plus give you the script to negotiate more</strong>. Your annual salary + email:';
+      primary =
+        '<h3 style="font-size:1.2rem;font-weight:800;margin:0 0 6px;color:var(--text-primary,#fff);">Your options: <strong style="color:var(--green,#10b981);">' + val + '</strong> — <span style="color:var(--green,#10b981);">is this a good deal?</span></h3>' +
+        '<p style="color:var(--text-secondary,#a0a0b5);font-size:0.92rem;margin:0 0 14px;line-height:1.6;">Drop your numbers into the AI Offer Verdict for an instant above/below-market read, the red flags, and a copy-paste counter-offer — free, using your figures.</p>';
     }
-    var inner =
-      '<h3 style="font-size:1.18rem;font-weight:800;margin:0 0 8px;color:var(--text-primary,#fff);">' + headline + '</h3>' +
-      '<p style="color:var(--text-secondary,#a0a0b5);font-size:0.92rem;margin:0 0 14px;line-height:1.6;">' + sub + '</p>' +
-      '<form id="fm-lc-form" style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;">' +
-        // If the host page already collected salary (e.g. offer-report.html),
-        // don't ask again — email-only gate = less friction, more conversions.
-        (generic || (fm && fm.salary > 0) ? '' :
-        '<div style="flex:1 1 160px;min-width:140px;">' +
-          '<label for="fm-lc-salary" style="display:block;font-size:0.74rem;color:var(--text-muted,#6b6b80);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:5px;">Your annual base salary</label>' +
-          '<input id="fm-lc-salary" type="number" inputmode="numeric" min="0" step="1000" placeholder="160000" required style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid var(--border,#2a2a3a);border-radius:9px;background:var(--bg-input,#15151f);color:var(--text-primary,#fff);font-size:0.95rem;font-family:inherit;" />' +
-        '</div>') +
-        '<div style="flex:1 1 220px;min-width:180px;">' +
-          '<label for="fm-lc-email" style="display:block;font-size:0.74rem;color:var(--text-muted,#6b6b80);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:5px;">Email (for your ' + (generic ? 'script' : 'verdict') + ')</label>' +
-          '<input id="fm-lc-email" type="email" inputmode="email" placeholder="you@email.com" required style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid var(--border,#2a2a3a);border-radius:9px;background:var(--bg-input,#15151f);color:var(--text-primary,#fff);font-size:0.95rem;font-family:inherit;" />' +
-        '</div>' +
-        '<button type="submit" style="flex:0 0 auto;padding:12px 22px;border:none;border-radius:9px;background:linear-gradient(135deg,#10b981,#059669);color:#fff;font-weight:700;font-size:0.95rem;cursor:pointer;font-family:inherit;">' + (generic ? 'Send the script & checklist' : 'Benchmark my offer') + ' &rarr;</button>' +
-      '</form>' +
-      '<p id="fm-lc-err" style="color:var(--orange,#ff9f43);font-size:0.82rem;margin:8px 0 0;display:none;"></p>' +
-      '<p style="margin:12px 0 0;color:var(--text-muted,#6b6b80);font-size:0.76rem;">One email. No spam. Your data stays private. Benchmarking 10,000+ real startup offers.</p>';
-    return cardShell(inner);
+    var cta =
+      '<a href="' + verdictHref + '" onclick="if(typeof gtag===\'function\')gtag(\'event\',\'ai_verdict_cta\',{source:\'' + src + '\',path:\'calc_primary\',prefilled:' + prefilled + '})" style="display:inline-block;background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:#fff;padding:14px 30px;border-radius:10px;font-weight:700;text-decoration:none;font-size:1rem;">&#9889; Get my free AI offer verdict &rarr;</a>';
+
+    // SECONDARY: email-only capture for the negotiation script (no salary wall).
+    var secondary =
+      '<div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--border,#2a2a3a);">' +
+        '<p style="color:var(--text-secondary,#a0a0b5);font-size:0.88rem;margin:0 0 10px;line-height:1.55;">Prefer to stay here? Get the <strong style="color:var(--text-primary,#fff);">copy-paste negotiation script + 5-point offer checklist</strong> by email:</p>' +
+        '<form id="fm-lc-form" style="display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;">' +
+          '<input id="fm-lc-email" type="email" inputmode="email" placeholder="you@email.com" required style="flex:1 1 220px;min-width:180px;padding:12px 14px;border:1px solid var(--border,#2a2a3a);border-radius:9px;background:var(--bg-input,#15151f);color:var(--text-primary,#fff);font-size:0.95rem;font-family:inherit;" />' +
+          '<button type="submit" style="flex:0 0 auto;padding:12px 22px;border:none;border-radius:9px;background:linear-gradient(135deg,#10b981,#059669);color:#fff;font-weight:700;font-size:0.95rem;cursor:pointer;font-family:inherit;">Send the script &rarr;</button>' +
+        '</form>' +
+        '<p id="fm-lc-err" style="color:var(--orange,#ff9f43);font-size:0.82rem;margin:8px 0 0;display:none;"></p>' +
+        '<p style="margin:10px 0 0;color:var(--text-muted,#6b6b80);font-size:0.74rem;">One email. No spam. Your data stays private.</p>' +
+      '</div>';
+
+    return cardShell(primary + cta + secondary);
   }
 
   // S136 — carry the visitor's already-entered numbers to offer-verdict so the
@@ -136,7 +151,11 @@
   function offerVerdictHref(fm, salary) {
     var q = [];
     var pf = (fm && fm.prefill) || {};
-    if (salary > 0) q.push('salary=' + Math.round(salary));
+    // S151 — fall back to prefill.salary: calculator pages rarely set fm.salary
+    // (the salary field was removed), but compare-offers/stock-options stash the
+    // offer salary on prefill. Carry it through so the AI verdict isn't blank.
+    var sal = salary > 0 ? salary : (pf.salary || 0);
+    if (sal > 0) q.push('salary=' + Math.round(sal));
     if (pf.shares > 0) q.push('shares=' + pf.shares);
     if (pf.strike > 0) q.push('strike=' + pf.strike);
     if (pf.fmv > 0) q.push('fmv=' + pf.fmv);
@@ -144,7 +163,9 @@
   }
 
   function renderRevealed(fm, salary) {
-    var generic = isGeneric(fm);
+    // S151 — without a salary (email-only gate) we can't compute the equity-to-
+    // salary ratio, so show the negotiation kit instead of a misleading "0×" read.
+    var generic = isGeneric(fm) || !(salary > 0);
     // Host page can redirect the $9.99 upsell (e.g. offer-report.html scrolls
     // to its inline premium gate via '#premiumGate' instead of navigating away).
     var upsellHref = (fm && fm.upsellTarget) || 'offer-report-premium.html';
@@ -202,16 +223,16 @@
     if (!form) return;
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var salEl = document.getElementById('fm-lc-salary');
-      var salary = salEl ? parseFloat(salEl.value) : ((fm && fm.salary) || 0);
+      // S151 — email-only gate (salary field removed). salary may still be known
+      // from the host calculator (fm.salary); used only to enrich the reveal.
+      var salary = (fm && fm.salary) || 0;
       var email = (document.getElementById('fm-lc-email').value || '').trim();
       var err = document.getElementById('fm-lc-err');
       err.style.display = 'none';
-      if (salEl && !(salary > 0)) { err.textContent = 'Please enter your annual salary.'; err.style.display = 'block'; return; }
       if (!email || email.indexOf('@') < 0) { err.textContent = 'Please enter a valid email.'; err.style.display = 'block'; return; }
 
       var btn = form.querySelector('button[type="submit"]');
-      if (btn) { btn.disabled = true; btn.textContent = 'Crunching numbers…'; }
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
       // 1) Subscribe (best-effort) with the calculator source as a tag.
       var subP = fetch('/api/subscribe', {
