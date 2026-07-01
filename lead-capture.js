@@ -110,7 +110,13 @@
   function renderForm(fm) {
     var generic = isGeneric(fm);
     var src = (fm && fm.source) || '';
-    var verdictHref = generic ? 'offer-verdict.html' : offerVerdictHref(fm, (fm && fm.salary) || 0);
+    // S152 — route EVERYTHING through offerVerdictHref. Generic pages used to pass
+    // a bare 'offer-verdict.html', which dropped any prefill the host page stashed on
+    // fm.prefill (offer-analyzer parses salary/shares/strike/409A from the pasted
+    // letter; 409a computes common FMV). offerVerdictHref returns the bare href when
+    // there's nothing to carry, so this is a safe no-op for pages with no prefill and
+    // makes the `prefilled` analytics flag accurate for generic pages too.
+    var verdictHref = offerVerdictHref(fm, (fm && fm.salary) || 0);
     var prefilled = verdictHref.indexOf('?') >= 0 ? 1 : 0;
 
     // PRIMARY: frictionless path to the AI verdict (carries their numbers).
