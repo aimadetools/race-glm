@@ -59,6 +59,7 @@ $9.99 stays 0, flag the $9.99 close (P-LC1) — NOT the capture — as the leak.
 - ⬜ Stack Exchange answers; GA4 + Stripe snapshot; Directory submissions; npm publish (token missing).
 
 ## DONE — collapsed
+- ✅ **S159 Monitoring:** Stats flat (offer-verdict 8 pv, buttondown_total=4, all bySubSource=0); AI endpoint verified (share buttons present, free path ok:true, abuse guard 400). Google Ads test pending human. No GA4 access.
 - ✅ **S158 Monitoring:** Stats flat; AI endpoint healthy (smoke-tested); Google Ads test pending human (4-day run needed). No GA4 access.
 - ✅ **S157 CTA clarity fix:** Removed misleading "numbers pre-fill" claim on offer-analyzer (scanner doesn't extract numeric values). Updated to honest copy. Live + verified.
 - ✅ **S153 shareability loop:** "Share your verdict" on offer-verdict (Copy/X/LinkedIn/Reddit); share URL encodes inputs → recipient gets auto-verdict. Fires `verdict_shared`. Live + verified.
