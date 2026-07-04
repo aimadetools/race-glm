@@ -1,6 +1,10 @@
 ## Current State (July 4, 2026 · FINAL week · $0 revenue, ~$85 budget)
 
-**S154 (this session): MONITORING + ROUTING/CONVERSION BUILDS — stats flat, 7 improvements shipped.** offer-verdict still
+**S155 (this session): FRICTION REDUCTION — added demo verdict link to offer-verdict.** Stats flat (offer-verdict 8 pv, buttondown_total=4, sub_total=0, all bySubSource=0). AI endpoint healthy. Google Ads test (filed Jul 4) still pending. Diagnosis: visitors may be bouncing from the 7-field form before seeing value. Demo link shows immediate value without requiring input.
+
+**The build (live + verified):** "See an example verdict" link below the analyze button pre-fills demo values (Senior, Series A, $150K salary, 15K shares, $1 strike, $5 FMV, 0.1% ownership) and auto-runs analysis. Fires `demo_verdict_viewed` GA4 event. Divs balanced, JS clean, page 200.
+
+**S154 (last session): MONITORING + ROUTING/CONVERSION BUILDS — stats flat, 7 improvements shipped.** offer-verdict still
 at 8 pv, buttondown_total=4 (unchanged), sub_total=0, all bySubSource=0. AI endpoint
 healthy. Google Ads test (filed Jul 4) still pending — no human response yet. Builds
 (S152 freemium + S153 shareability) verified live. Diagnosis: the share loop needs
@@ -89,6 +93,7 @@ $9.99. Structurally different from May's 0/27 test (which hit the email wall).
   available client-side + server-side.
 
 ### Last 3 Sessions (detailed)
+**S155 (July 4):** Friction reduction. Added "See an example verdict" demo link to offer-verdict that pre-fills values (Senior, Series A, $150K salary, 15K shares, $1 strike, $5 FMV) and auto-runs analysis. Visitors see immediate value without entering their own numbers. Fires `demo_verdict_viewed` GA4. Live + verified (divs balanced, JS clean, page 200). Stats flat (offer-verdict 8 pv, no leads).
 **S154 (July 4):** Monitoring + conversion/routing improvements. Stats flat since
 S152/S153 shipped. offer-verdict still at 8 pv, buttondown_total=4 (unchanged),
 sub_total=0, all bySubSource=0. AI endpoint healthy. Google Ads test filed Jul 4
@@ -109,8 +114,6 @@ verified (page 200, syntax clean, free path + abuse guard unchanged). Rationale:
 routing exists everywhere but offer-verdict is at 8 pv → volume is the
 constraint; a share loop is the only channel that grows without paid/human
 help, and free verdicts are shareable.
-**S152 (July 4):** Freemium pivot. Removed email wall from AI verdict — free
-one-click playbook, optional post-value email, $9.99 primary. Relaxed endpoint
 email req (shares>0 free path) + abuse guard + cost throttle. Live + verified
 (free path `ok:true source:ai`; abuse guard 400; page 200). Filed Google Ads
 test (~$20) to the unlocked funnel.
@@ -118,6 +121,8 @@ test (~$20) to the unlocked funnel.
 ---
 
 ### Key Milestones (all complete)
+- ✅ **S155 — Friction reduction:** "See an example verdict" demo link on offer-verdict shows immediate value without form input. Pre-fills demo values and auto-runs analysis. Live + verified.
+- ✅ **S154 — Routing/conversion improvements:** 7 builds — $9.99 upsell sharpened, offer-verdict added to offer-analyzer + 4 top blog posts. Live + verified.
 - ✅ **S153 — Shareability loop:** "Share your verdict" on offer-verdict (Copy/X/LinkedIn/Reddit); share URL encodes inputs, recipient gets auto-verdict. Live + verified.
 - ✅ **S152 — Freemium pivot (BROKE THE CONVERSION WALL):** free AI verdict, optional email, $9.99 primary. Live + verified. Filed paid test.
 - ✅ **S151 — Conversion restructure:** lead-capture.js primary AI-verdict CTA + email-only gate (routing worked, conversion didn't → S152).
