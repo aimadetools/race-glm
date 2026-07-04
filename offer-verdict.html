@@ -260,6 +260,24 @@
             <p style="margin:10px 0 0;color:var(--text-muted,#6b6b80);font-size:0.76rem;">Instant access. 30-day money-back guarantee &mdash; if it doesn't help you decide, email us for a full refund. No risk.</p>
         </div>
 
+        <!-- S153 — shareability: a free-verdict share loop. Each delighted visitor
+             can route fresh, qualified traffic to offer-verdict — the one
+             distribution channel that grows without paid/human help. The share URL
+             encodes the visitor's offer inputs; the recipient lands pre-filled and
+             the instant verdict auto-runs (see prefillFromQuery), so a share =
+             instant value, not a blank form. -->
+        <div id="shareRow" class="card" style="text-align:center;display:none;">
+            <h2 style="font-size:1.05rem;">Found this useful? Share your verdict</h2>
+            <p class="sub" style="margin-bottom:14px;">Send a friend straight to their own free AI offer verdict.</p>
+            <div id="shareBtns" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+                <button type="button" data-platform="copy" style="background:var(--bg-input);border:1px solid var(--border);color:var(--text-primary);padding:11px 18px;border-radius:9px;font-weight:600;cursor:pointer;font-size:0.9rem;font-family:inherit;">&#128279; Copy link</button>
+                <a data-platform="twitter" target="_blank" rel="noopener" style="background:#000;color:#fff;padding:11px 18px;border-radius:9px;font-weight:600;text-decoration:none;font-size:0.9rem;">Post on X</a>
+                <a data-platform="linkedin" target="_blank" rel="noopener" style="background:#0a66c2;color:#fff;padding:11px 18px;border-radius:9px;font-weight:600;text-decoration:none;font-size:0.9rem;">Share on LinkedIn</a>
+                <a data-platform="reddit" target="_blank" rel="noopener" style="background:#ff4500;color:#fff;padding:11px 18px;border-radius:9px;font-weight:600;text-decoration:none;font-size:0.9rem;">Share on Reddit</a>
+            </div>
+            <p id="shareCopyConfirm" style="margin:12px 0 0;color:var(--green,#00b894);font-size:0.82rem;display:none;">&check; Link copied &mdash; paste it anywhere.</p>
+        </div>
+
         <div class="related">
             <a href="stock-options.html">Stock Options Calculator</a>
             <a href="compare-offers.html">Compare Two Offers</a>
@@ -321,6 +339,9 @@ function analyze() {
     // Stash the computed verdict so the client-side fallback can render a useful
     // playbook even if the LLM call is throttled or fails (visitor always wins).
     window._lastVerdict = { market: label, ratio: ratio, exitValue: exitValue, underwater: underwater };
+    // S153 — reveal the share row now that there's a verdict worth sharing.
+    var shareRow = document.getElementById('shareRow');
+    if (shareRow) { shareRow.style.display = 'block'; wireShareButtons(); }
     document.getElementById('aiCta').scrollIntoView({ behavior:'smooth', block:'center' });
     if (typeof gtag==='function') gtag('event','offer_verdict_analyzed',{market:label,ratio_bucket: ratio>=1?'high':ratio>=0.3?'mid':'low'});
 }
@@ -451,6 +472,61 @@ function block(title, cls, items) {
 }
 function escapeTxt(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
+// S153 — shareability. Build a share URL that encodes the visitor's current
+// offer inputs; a recipient lands pre-filled and the instant verdict auto-runs
+// (prefillFromQuery), so every share delivers instant value + routes fresh,
+// qualified traffic into the free-verdict funnel — the one distribution channel
+// that grows without paid/human help.
+function buildShareUrl() {
+    var base = window.location.origin + window.location.pathname;
+    var params = {
+        salary: num('salary'), shares: num('shares'), strike: num('strike'),
+        fmv: num('fmv'), own: num('own'),
+        stage: document.getElementById('stage').value,
+        role: document.getElementById('role').value,
+        source: 'share'
+    };
+    var q = [];
+    for (var k in params) {
+        var v = params[k];
+        if (v !== '' && v !== 0 && v != null) q.push(k + '=' + encodeURIComponent(v));
+    }
+    return base + (q.length ? '?' + q.join('&') : '');
+}
+function shareText() {
+    var v = window._lastVerdict || {};
+    var market = v.market ? ('AI says my startup offer is ' + v.market.toLowerCase() + '.') : 'AI just read my startup offer.';
+    var ratio = (v.ratio && !v.underwater) ? (" It's worth about " + ratioTxt(v.ratio) + " my annual salary at a reasonable exit.") : '';
+    return market + ratio + " Get your own free AI verdict + counter-offer script:";
+}
+function wireShareButtons() {
+    var btns = document.getElementById('shareBtns');
+    if (!btns || btns.dataset.wired) return;
+    btns.dataset.wired = '1';
+    btns.addEventListener('click', function (e) {
+        var t = e.target.closest ? e.target.closest('[data-platform]') : null;
+        if (!t) return;
+        var platform = t.getAttribute('data-platform');
+        var url = buildShareUrl();
+        if (typeof gtag === 'function') gtag('event', 'verdict_shared', { source: 'offer-verdict', platform: platform });
+        if (platform === 'copy') {
+            var blob = url + ' ' + shareText();
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(blob);
+                else { var ta = document.createElement('textarea'); ta.value = blob; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); }
+            } catch (er) {}
+            var conf = document.getElementById('shareCopyConfirm');
+            if (conf) { conf.style.display = 'block'; setTimeout(function () { conf.style.display = 'none'; }, 2500); }
+            return;
+        }
+        var enc = encodeURIComponent(url), encT = encodeURIComponent(shareText()), dest = '';
+        if (platform === 'twitter') dest = 'https://twitter.com/intent/tweet?url=' + enc + '&text=' + encT;
+        else if (platform === 'linkedin') dest = 'https://www.linkedin.com/sharing/share-offsite/?url=' + enc;
+        else if (platform === 'reddit') dest = 'https://www.reddit.com/submit?url=' + enc + '&title=' + encT;
+        if (dest) window.open(dest, '_blank', 'noopener');
+    });
+}
+
 // S136 — calculator→offer-verdict handoff. Visitors routed here from a
 // calculator (lead-capture.js CTA) arrive with their numbers as query params.
 // Pre-fill the form and, if the key figures are present, auto-run the instant
@@ -470,6 +546,18 @@ function escapeTxt(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
     setNum('strike', p.get('strike'));
     setNum('fmv', p.get('fmv'));
     setNum('own', p.get('own'));
+    // S153 — share fidelity: a sharer can pass stage/role so the recipient's
+    // instant verdict reflects the same context, not just the raw numbers.
+    function setSel(id, raw) {
+        if (!raw) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        for (var i = 0; i < el.options.length; i++) {
+            if (el.options[i].value === raw || el.options[i].textContent === raw) { el.selectedIndex = i; break; }
+        }
+    }
+    setSel('stage', p.get('stage'));
+    setSel('role', p.get('role'));
 
     var sh = parseFloat(p.get('shares')), sa = parseFloat(p.get('salary'));
     if (sh > 0 && sa > 0) {
