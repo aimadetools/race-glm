@@ -89,14 +89,17 @@ $9.99. Structurally different from May's 0/27 test (which hit the email wall).
   available client-side + server-side.
 
 ### Last 3 Sessions (detailed)
-**S154 (July 4):** Monitoring + $9.99 upsell sharpen. Stats flat since S152/S153
-shipped. offer-verdict still at 8 pv (no climb), buttondown_total=4 (unchanged,
-all pre-S135), sub_total=0, all bySubSource=0. AI endpoint healthy. Google Ads
-test filed Jul 4 still pending. Diagnosis: share loop needs time to close; paid
-test results will determine next move. **Build:** sharpened $9.99 upsell copy
-(more urgent headline "Don't sign until you see the full math", stronger value
-anchor "worth potentially tens of thousands", green CTA button). If free verdicts
-start flowing but $9.99 stays 0 → ready to A/B test further.
+**S154 (July 4):** Monitoring + conversion/routing improvements. Stats flat since
+S152/S153 shipped. offer-verdict still at 8 pv, buttondown_total=4 (unchanged),
+sub_total=0, all bySubSource=0. AI endpoint healthy. Google Ads test filed Jul 4
+still pending. Diagnosis: share loop needs time to close; paid test results will
+determine next move. **Builds:** (1) sharpened $9.99 upsell copy (urgent headline
+"Don't sign until you see the full math", value anchor "worth potentially tens
+of thousands", green CTA button), (2) added offer-verdict to offer-analyzer
+Related Tools, (3-6) added offer-verdict to 4 top traffic blog posts (anti-dilution
+16pv, 409a 6pv, employee-equity 5pv, compare-offers 4pv). Total: 6 improvements
+to routing/conversion. Blog gets 50 pv; these links should funnel traffic to
+offer-verdict.
 **S153 (July 4):** Shareability BUILD. Added "Share your verdict" loop to
 offer-verdict — Copy/X/LinkedIn/Reddit buttons build a URL encoding the visitor's
 inputs; recipient lands pre-filled with the instant verdict auto-run. Fires
