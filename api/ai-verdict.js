@@ -10,8 +10,11 @@
 // ROBUSTNESS: Vercel Hobby caps serverless at 10s. The OpenRouter call is wrapped
 // in an 8.5s AbortController; on ANY failure we fall back to a deterministic
 // heuristic verdict so the visitor ALWAYS gets a useful answer (source:'heuristic').
-// COST / ABUSE: the client gates this call behind a real email submit (captured
-// via /api/subscribe first), and we bound max_tokens. Output is small + cheap.
+// COST / ABUSE (S152 freemium): the AI verdict is now FREE (email optional, not
+// required) — see the inline gate below. Abuse is bounded by requiring a real
+// offer (shares>0), a client-side per-browser throttle, the 8.5s AbortController,
+// and max_tokens. Output is small + cheap (~$0.001/call). Email, when given,
+// triggers the client's subscribe + lead beacon.
 //
 // Contract (POST, application/json):
 //   in : { email, source, salary, shares, strike, fmv, stage, role,
@@ -32,13 +35,22 @@ export default async function handler(req, res) {
   let body = req.body || {};
   try { body = typeof body === 'string' ? JSON.parse(body) : body; } catch (e) { body = {}; }
 
-  // Cheap gate: must look like a lead before we spend an LLM call.
+  // S152 — FREEMIUM: the email-first gate converted 0/12 weeks + 0/27 paid
+  // clicks. The differentiated value (real LLM reasoning about YOUR offer) was
+  // locked behind an email wall nobody crossed. Now the AI verdict is FREE
+  // upfront — the visitor sees value before we ever ask for an email. Email is
+  // still accepted (and, if present, the client subscribes + counts the lead),
+  // but it is no longer required. Abuse/cost is bounded by: (a) requiring a real
+  // offer (shares > 0) so empty curl spam gets nothing, (b) a client-side
+  // localStorage throttle (a few LLM calls per browser per day), (c) the existing
+  // 8.5s AbortController + heuristic fallback. At ~$0.001/call and ~8 pv/day the
+  // cost is negligible; the bet is that free value → trust → $9.99 conversions.
   const email = String(body.email || '').trim();
-  if (!email || email.indexOf('@') < 0) {
-    return res.status(400).json({ ok: false, error: 'Email is required.' });
-  }
-
+  const hasEmail = !!(email && email.indexOf('@') >= 0);
   const nums = parseNums(body);
+  if (!hasEmail && !(nums.shares > 0)) {
+    return res.status(400).json({ ok: false, error: 'Enter your offer numbers to get your verdict.' });
+  }
   const ctx = {
     ...nums,
     stage: clean(body.stage, STAGES, 'Series A'),

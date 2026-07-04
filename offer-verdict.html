@@ -218,20 +218,34 @@
             <p class="take" id="vTake"></p>
         </div>
 
-        <!-- Email gate → AI playbook -->
-        <div class="gate" id="gate">
-            <h3>See <span style="color:var(--green);">exactly how to negotiate</span> your offer</h3>
-            <p class="kicker">Get a personalized AI analysis of your offer's strengths, red flags, and a copy-paste script to ask for more equity. Free, instant.</p>
-            <form id="gateForm">
-                <input type="email" id="email" placeholder="you@email.com" required>
-                <button type="submit" id="gateBtn">Get my analysis &rarr;</button>
-            </form>
-            <p class="err" id="gateErr"></p>
-            <p class="fineprint">One email. Unsubscribe anytime. Your data stays private.</p>
+        <!-- S152 FREEMIUM: free AI playbook (no email wall) → optional email capture.
+             The email-first gate converted 0/12 weeks + 0/27 paid clicks. Now the
+             differentiated value (a real LLM reading YOUR exact numbers) is delivered
+             FREE and instantly; email is optional ("email me this") AFTER the value
+             is shown. The $9.99 Premium Report below is the primary monetization. -->
+        <div class="gate" id="aiCta">
+            <h3>Get your <span style="color:var(--green);">personalized AI negotiation playbook</span></h3>
+            <p class="kicker">A real AI reads your exact numbers and writes the strengths, the red flags to negotiate, and a copy-paste counter-offer to send the recruiter. Free &mdash; about 10 seconds, no signup.</p>
+            <div class="center" style="margin-top:10px;">
+                <button type="button" class="btn" id="aiBtn" onclick="getPlaybook()">&#129302; Generate my AI playbook &mdash; free &rarr;</button>
+            </div>
+            <p class="fineprint">No email needed. Your numbers stay in your browser &mdash; nothing is stored. Methodology grounded in our <a href="equity-benchmarks.html">stage-by-stage equity benchmarks</a>.</p>
         </div>
 
         <!-- AI playbook reveal -->
         <div id="playbook"></div>
+
+        <!-- Optional email capture — revealed AFTER the playbook delivers value -->
+        <div id="emailOpt" class="gate" style="display:none;">
+            <h3 style="font-size:1.05rem;">&#128231; Want this saved to your inbox?</h3>
+            <p class="kicker">Get a copy of your playbook plus a short negotiation-tip series. Optional &mdash; your playbook above is already yours, free.</p>
+            <form id="emailForm">
+                <input type="email" id="email" placeholder="you@email.com">
+                <button type="submit" id="emailBtn">Send me my playbook &rarr;</button>
+            </form>
+            <p class="err" id="emailErr"></p>
+            <p class="fineprint">One email. Unsubscribe anytime. Never shared.</p>
+        </div>
 
         <div class="upsell" style="margin-top:8px;border-color:var(--green,#10b981);background:linear-gradient(135deg,rgba(16,185,129,0.10),rgba(0,206,201,0.05));">
             <strong>Turn this verdict into your full negotiation report</strong>
@@ -304,57 +318,124 @@ function analyze() {
     }
 
     document.getElementById('instant').style.display = 'block';
-    document.getElementById('gate').scrollIntoView({ behavior:'smooth', block:'center' });
+    // Stash the computed verdict so the client-side fallback can render a useful
+    // playbook even if the LLM call is throttled or fails (visitor always wins).
+    window._lastVerdict = { market: label, ratio: ratio, exitValue: exitValue, underwater: underwater };
+    document.getElementById('aiCta').scrollIntoView({ behavior:'smooth', block:'center' });
     if (typeof gtag==='function') gtag('event','offer_verdict_analyzed',{market:label,ratio_bucket: ratio>=1?'high':ratio>=0.3?'mid':'low'});
 }
 
-// Email gate → capture lead → reveal AI playbook.
-document.getElementById('gateForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var email = (document.getElementById('email').value || '').trim();
-    var err = document.getElementById('gateErr'); err.style.display='none';
-    if (!email || email.indexOf('@') < 0) { err.textContent='Please enter a valid email.'; err.style.display='block'; return; }
+// S152 — FREE AI playbook (no email wall). Fires the LLM call directly; the
+// endpoint accepts the request without an email when real offer numbers are
+// present (shares > 0). A per-browser localStorage throttle bounds OpenRouter
+// cost; if throttled (or the call fails), a client-side fallback still renders a
+// full playbook so the visitor always gets value. Email capture is now OPTIONAL
+// and happens AFTER the playbook is shown (see #emailOpt).
+function getPlaybook() {
+    var shares = num('shares');
+    if (shares <= 0) { alert('Enter the number of options you were granted first.'); return; }
 
-    var btn = document.getElementById('gateBtn'); btn.disabled=true; btn.textContent='Analyzing your offer…';
+    // Per-browser daily throttle (bounds cost): a few LLM calls/day is more than
+    // any real visitor needs; beyond that we serve the client-side fallback.
+    var today = new Date().toISOString().slice(0, 10);
+    var k = 'fm_ai_pb_' + today;
+    var n = 0; try { n = parseInt(localStorage.getItem(k) || '0', 10) || 0; } catch (e) {}
+    var allowAI = n < 5;
+    try { localStorage.setItem(k, String(n + 1)); } catch (e) {}
 
-    // Show loading state in the playbook area immediately.
+    var aiBtn = document.getElementById('aiBtn');
+    if (aiBtn) { aiBtn.disabled = true; aiBtn.textContent = 'Analyzing your offer…'; }
+
     var pb = document.getElementById('playbook');
-    pb.style.display='block';
+    pb.style.display = 'block';
     pb.innerHTML = '<div class="pb-loading"><div class="spinner"></div><div>Analyzing your offer…</div></div>';
-    document.getElementById('gate').scrollIntoView({behavior:'smooth',block:'center'});
+    document.getElementById('aiCta').scrollIntoView({ behavior:'smooth', block:'center' });
 
     var payload = {
-        email: email, source: 'offer-verdict',
-        salary: num('salary'), shares: num('shares'), strike: num('strike'), fmv: num('fmv'),
+        source: 'offer-verdict',
+        salary: num('salary'), shares: shares, strike: num('strike'), fmv: num('fmv'),
         stage: document.getElementById('stage').value, role: document.getElementById('role').value,
         ownershipPct: num('own'), growth: 25, yearsExit: 5
     };
 
-    // 1) Capture the lead (best-effort) + beacon. Lead is recorded even if AI fails.
-    fetch('/api/subscribe', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'offer-verdict'})}).catch(function(){});
-    try {
-        if (navigator.sendBeacon) navigator.sendBeacon('/api/lead', new Blob([JSON.stringify({source:'offer-verdict'})],{type:'application/json'}));
-        else fetch('/api/lead',{method:'POST',body:JSON.stringify({source:'offer-verdict'}),headers:{'Content-Type':'application/json'},keepalive:true}).catch(function(){});
-    } catch (e2) {}
-    try { localStorage.setItem('fm_lead_offer-verdict','1'); } catch(e3) {}
+    if (typeof gtag === 'function') gtag('event', 'ai_playbook_generated', { source: 'offer-verdict', ai: allowAI ? 1 : 0 });
 
-    // 2) Get the AI playbook.
-    fetch('/api/ai-verdict', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-      .then(function(r){ return r.json(); })
-      .then(function(d){ renderPlaybook(d, payload); })
-      .catch(function(){ renderPlaybook(null, payload); });
-    if (typeof gtag==='function') gtag('event','lead_captured',{source:'offer-verdict'});
+    if (allowAI) {
+        fetch('/api/ai-verdict', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) })
+            .then(function (r) { return r.json(); })
+            .then(function (d) { renderPlaybook(d, payload); })
+            .catch(function () { renderPlaybook(clientFallback(), payload); });
+    } else {
+        renderPlaybook(clientFallback(), payload);
+    }
+}
+
+// Client-side fallback playbook — used if the LLM is throttled or fails. Built
+// from the instant verdict analyze() already computed (window._lastVerdict).
+function clientFallback() {
+    var v = window._lastVerdict || { ratio: 0, market: 'Fair', underwater: false };
+    var r = v.ratio || 0;
+    var verdict = v.underwater
+        ? 'Your options are currently underwater (strike at/above 409A) — upside depends on the company growing past your strike price.'
+        : (r >= 1 ? 'A strong grant — the equity could be worth about ' + ratioTxt(r) + ' your salary at a reasonable exit.'
+            : (r >= 0.5 ? 'A market-typical grant — equity is meaningful but not the main event (about ' + ratioTxt(r) + ' your salary at exit).'
+                : 'A smaller grant, more typical of later-stage companies — prioritize guaranteed cash unless you expect outsized growth.'));
+    var strengths = [];
+    if (r >= 0.5) strengths.push('Equity-to-salary ratio of ' + ratioTxt(r) + ' is on the healthy side for a growth-stage grant.');
+    strengths.push('Base salary is the reliable core of this offer — protect it.');
+    if (strengths.length < 2) strengths.push('You have a clear baseline to negotiate from.');
+    return {
+        ok: true, source: 'heuristic', market: v.market, verdict: verdict, strengths: strengths,
+        redFlags: [
+            'Confirm the vesting cliff (usually 1 year) and the exercise window if you leave.',
+            'Ask ISO vs NSO — ISOs can qualify for lower long-term capital-gains tax if you hold.',
+            v.underwater ? 'Strike is at/above the 409A — no exercisable value today.' : 'Check the strike-vs-409A spread and last 409A refresh date.'
+        ],
+        negotiation: [
+            'Ask for ~20% more shares: "Could we bring the option grant to [target]? Based on comparable grants for my level, that would make this competitive."',
+            'Request a one-year refresh grant so your equity keeps pace as the company grows.',
+            'Negotiate the cash too: "To make this work, can we meet at [base]?"'
+        ],
+        counter: 'Counter with ~20% more shares plus a modest base bump, and ask for a refresh grant after year one.'
+    };
+}
+
+// Optional email capture — fires AFTER the playbook has delivered value. The
+// visitor's playbook is already theirs (free); this is for those who want it
+// saved to their inbox. This is where leads now come from on this page.
+document.getElementById('emailForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = (document.getElementById('email').value || '').trim();
+    var err = document.getElementById('emailErr'); err.style.display = 'none';
+    if (!email || email.indexOf('@') < 0) { err.textContent = 'Please enter a valid email.'; err.style.display = 'block'; return; }
+
+    var btn = document.getElementById('emailBtn'); btn.disabled = true; btn.textContent = 'Sending…';
+    fetch('/api/subscribe', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ email: email, source: 'offer-verdict' }) })
+        .then(function () {
+            try {
+                if (navigator.sendBeacon) navigator.sendBeacon('/api/lead', new Blob([JSON.stringify({ source:'offer-verdict' })], { type:'application/json' }));
+                else fetch('/api/lead', { method:'POST', body:JSON.stringify({ source:'offer-verdict' }), headers:{'Content-Type':'application/json'}, keepalive:true }).catch(function () {});
+            } catch (e2) {}
+            try { localStorage.setItem('fm_lead_offer-verdict', '1'); } catch (e3) {}
+            if (typeof gtag === 'function') gtag('event', 'lead_captured', { source: 'offer-verdict' });
+            var opt = document.getElementById('emailOpt');
+            opt.innerHTML = '<p style="color:var(--green,#10b981);font-weight:700;margin:0;">&check; Done &mdash; check your inbox for your playbook.</p>';
+        })
+        .catch(function () {
+            btn.disabled = false; btn.textContent = 'Send me my playbook →';
+            err.textContent = 'Something went wrong — please try again.'; err.style.display = 'block';
+        });
 });
 
 function renderPlaybook(d, p) {
     var pb = document.getElementById('playbook');
-    var btn = document.getElementById('gateBtn');
-    btn.disabled=false; btn.textContent='Get my AI playbook →';
+    var aiCta = document.getElementById('aiCta');
+    if (aiCta) aiCta.style.display = 'none';        // playbook replaces the CTA
+    var emailOpt = document.getElementById('emailOpt');
+    if (emailOpt) emailOpt.style.display = 'block';  // offer optional email capture
 
-    if (!d || !d.ok) {
-        pb.innerHTML = '<div class="pb-block"><h4>Verdict</h4><p style="color:var(--text-secondary);">We hit a snag generating your analysis. Your email is captured. Try again in a moment, or use the calculators below.</p></div>';
-        return;
-    }
+    if (!d || !d.ok) d = clientFallback();
+
     var chipCls = ({'Above market':'above','Fair':'fair','Below market':'below','Needs scrutiny':'scrutiny'})[d.market] || 'fair';
     pb.innerHTML =
         '<div class="pb-source">'+(d.source==='ai'?'Generated by AI for your numbers':'Verdict')+'</div>' +
@@ -362,8 +443,7 @@ function renderPlaybook(d, p) {
         block('Strengths to lean on','pb-strengths', d.strengths) +
         block('Red flags to negotiate','pb-red', d.redFlags) +
         block('Exactly what to say (copy-paste)','pb-neg', d.negotiation) +
-        '<div class="pb-block pb-counter"><h4>Suggested counter-offer</h4><p style="color:var(--text-primary);margin:0;">'+escapeTxt(d.counter||'')+'</p></div>' +
-        '<div class="pb-source">&check; Your negotiation script is on its way to your inbox.</div>';
+        '<div class="pb-block pb-counter"><h4>Suggested counter-offer</h4><p style="color:var(--text-primary);margin:0;">'+escapeTxt(d.counter||'')+'</p></div>';
 }
 function block(title, cls, items) {
     if (!items || !items.length) return '';
