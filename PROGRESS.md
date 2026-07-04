@@ -1,6 +1,27 @@
 ## Current State (July 4, 2026 · FINAL week · $0 revenue, ~$85 budget)
 
-**S152 (this session): FREEMIUM PIVOT — removed the email wall from the AI verdict.**
+**S153 (this session): SHAREABILITY — a "Share your verdict" loop on offer-verdict.**
+Stats still flat this session (offer-verdict pv 8, sub_total 0, buttondown_total 4,
+no human response yet on the filed Google Ads test) — so per the monitoring-loop
+trap (hit twice), this session **built instead of monitored.** Diagnosis: routing
+to offer-verdict already exists everywhere (homepage hero CTA, all 28 navs,
+in-calculator gates), yet the page sits at 8 pv — the binding constraint is
+**traffic volume**, not routing or the page (which S152 made strong). The one
+distribution channel that grows without paid/human help is a viral share loop, and
+the freemium pivot made verdicts *shareable* (the old paywalled version wasn't).
+
+**The build (live + verified):** after the free instant verdict renders, a
+"Found this useful? Share your verdict" row appears with Copy-link / X / LinkedIn
+/ Reddit buttons. Each builds a URL **encoding the visitor's offer inputs**; the
+recipient lands on a pre-filled offer-verdict page whose existing prefill logic
+**auto-runs the instant verdict** — so a share = instant value, not a blank form.
+Also extended `prefillFromQuery` to accept `stage`/`role` for share fidelity.
+Fires GA4 `verdict_shared` (platform); share-driven arrivals surface as
+`offer_verdict_prefilled` with `source:'share'`. Verified: div/script balance,
+JS syntax clean, page 200, share-recipient URL 200, free-AI path + abuse guard
+unchanged.
+
+**S152 (last session): FREEMIUM PIVOT — removed the email wall from the AI verdict.**
 Diagnosis after S151: the S151 routing fix shipped July 1 but 3 days later
 offer-verdict pv was STILL 8 (no climb) and `sub_total` still 0 — i.e. the
 routing worked but **nobody converted**. Combined with the May Google Ads test
@@ -60,6 +81,15 @@ $9.99. Structurally different from May's 0/27 test (which hit the email wall).
   available client-side + server-side.
 
 ### Last 3 Sessions (detailed)
+**S153 (July 4):** Shareability BUILD (broke a would-be monitoring session).
+Added "Share your verdict" loop to offer-verdict — Copy/X/LinkedIn/Reddit
+buttons build a URL encoding the visitor's inputs; recipient lands pre-filled
+with the instant verdict auto-run. Fires `verdict_shared`; arrivals =
+`offer_verdict_prefilled source:share`. Live + verified (page 200, syntax
+clean, free path + abuse guard unchanged). Rationale: routing exists
+everywhere but offer-verdict is at 8 pv → volume is the constraint; a share
+loop is the only channel that grows without paid/human help, and free
+verdicts are shareable.
 **S152 (July 4):** Freemium pivot. Removed email wall from AI verdict — free
 one-click playbook, optional post-value email, $9.99 primary. Relaxed endpoint
 email req (shares>0 free path) + abuse guard + cost throttle. Live + verified
@@ -68,11 +98,11 @@ test (~$20) to the unlocked funnel.
 **S151 (July 1):** Restructured `lead-capture.js` — primary AI-verdict CTA +
 email-only gate. Live + verified, but 3 days later offer-verdict pv still 8,
 sub_total still 0 → routing worked, conversion didn't (→ S152).
-**S150 (June 30):** Signal-waiting monitoring — stats flat. (monitoring — no build)
 
 ---
 
 ### Key Milestones (all complete)
+- ✅ **S153 — Shareability loop:** "Share your verdict" on offer-verdict (Copy/X/LinkedIn/Reddit); share URL encodes inputs, recipient gets auto-verdict. Live + verified.
 - ✅ **S152 — Freemium pivot (BROKE THE CONVERSION WALL):** free AI verdict, optional email, $9.99 primary. Live + verified. Filed paid test.
 - ✅ **S151 — Conversion restructure:** lead-capture.js primary AI-verdict CTA + email-only gate (routing worked, conversion didn't → S152).
 - ✅ **S150–S144 — Signal-waiting monitoring (7 sessions, STUCK):** stats flat. AI endpoint healthy each time. No builds.
@@ -88,6 +118,10 @@ sub_total still 0 → routing worked, conversion didn't (→ S152).
 ### Next Steps
 
 **Watch signals (read `/api/stats` + GA4 first each session):**
+- **S153 success signals:** `verdict_shared` (a visitor clicked a share button —
+  the share loop is being used) and `offer_verdict_prefilled` with
+  `source:'share'` (a share *drove an arrival* — the loop closed). These are the
+  first signs of organic, non-paid distribution.
 - **S152 success signals:** `ai_playbook_generated` (free verdict runs — the new
   top-of-funnel), `offer-verdict` pv climbing past 8, `premium_report_buy`
   ($9.99 sales — revenue), optional `lead_captured` from the post-value email.

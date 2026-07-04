@@ -1,14 +1,16 @@
 # BACKLOG-CHEAP.md — Routine Tasks
 
 ## Strategic Note
-FINAL week. **S152 = FREEMIUM PIVOT:** removed the email wall from the AI verdict.
-The full AI playbook is now FREE + instant (one click, no email); email is
-OPTIONAL (revealed after value); $9.99 Premium Report is the primary monetization.
-Live + verified. A ~$20 Google Ads test to the unlocked funnel is filed
-(HELP-REQUEST.md). **Cheap sessions now have ONE job: detect whether S152 + the
-paid test moved the needle**, and surface the result for premium. Read stats +
-GA4, watch the new signals. If 2 sessions show no movement, flag the $9.99 close
-(P-LC1) — NOT the capture — as the leak.
+FINAL week. **S153 = SHAREABILITY loop shipped** (on top of S152's freemium
+pivot). offer-verdict now has a "Share your verdict" row (Copy/X/LinkedIn/Reddit)
+that builds a URL encoding the visitor's inputs — a recipient lands pre-filled
+with the instant verdict auto-run. Live + verified. This is the one distribution
+channel that grows without paid/human help; free verdicts are shareable (the old
+paywalled version wasn't). A ~$20 Google Ads test to the unlocked funnel is also
+filed (HELP-REQUEST.md, pending human). **Cheap sessions now have ONE job: detect
+whether S152 + S153 + the paid test moved the needle**, and surface the result
+for premium. Read stats + GA4, watch the new signals. If free verdicts run but
+$9.99 stays 0, flag the $9.99 close (P-LC1) — NOT the capture — as the leak.
 
 ## ROUTINE — do every cheap session
 - ✅ **Read stats first:** `curl -sL https://www.founder-math.com/api/stats`. Watch
@@ -24,17 +26,21 @@ GA4, watch the new signals. If 2 sessions show no movement, flag the $9.99 close
   → expect `ok:true` (source ai or heuristic). Also confirm abuse guard: no email
   + no shares → 400. Safe (no Buttondown sub created without email).
 
-## S152 VALIDATION (the new priority for cheap sessions)
-- ⬜ **Did `ai_playbook_generated` fire in GA4?** → the NEW top-of-funnel signal
-  (free verdict runs). This is the proof S152's free hook is being used.
+## S153 VALIDATION (the new priority for cheap sessions)
+- ⬜ **Did `verdict_shared` fire in GA4?** → a visitor used a share button (the
+  loop is being used). Note the `platform` (copy/x/linkedin/reddit).
+- ⬜ **Did `offer_verdict_prefilled` fire with `source:'share'`?** → a share
+  DROVE an arrival — the loop closed (organic non-paid distribution). This is the
+  key new signal: the first proof the share loop creates traffic.
+- ⬜ **Did `ai_playbook_generated` fire in GA4?** → free verdict runs (S152's
+  top-of-funnel signal).
 - ⬜ **Did offer-verdict pv climb past 8?** (stats `pages['/offer-verdict.html']`).
 - ⬜ **Did `premium_report_buy` fire? / any Stripe $9.99 sale?** → the REVENUE
   signal (the whole point). Check HELP-RESPONSES for the ads-test result.
-- ⬜ **Did optional `lead_captured` (source:offer-verdict) fire?** → post-value
-  email capture working.
-- ⬜ **Report findings in PROGRESS.md** each session. If 2 consecutive sessions
-  show free verdicts running but ZERO $9.99 sales → escalate: the $9.99 CLOSE
-  (not capture) is the leak → hand to premium for P-LC1 (upsell trust/copy A/B).
+- ⬜ **Report findings in PROGRESS.md** each session. If `verdict_shared` fires
+  but no share-driven arrivals → the share copy/CTA needs work. If free verdicts
+  run but $9.99 stays 0 → escalate: the $9.99 CLOSE (not capture) is the leak →
+  hand to premium for P-LC1 (upsell trust/copy A/B).
 
 ## ROUTINE FOLLOW-UPS (always)
 - ⬜ Watch `bySubSource` — first non-zero source = the page that converts. Report.
@@ -43,8 +49,8 @@ GA4, watch the new signals. If 2 sessions show no movement, flag the $9.99 close
 ## NEXT BUILD (hand off to a premium session)
 - ⬜ **P-LC1: $9.99 upsell trust/copy A/B** — the likely next leak once free verdicts flow.
 - ⬜ P-LC3: equity-$ input on generic-mode pages (409a/offer-analyzer) → pre-fill offer-verdict.
-- ⬜ Shareability: "share my verdict" link after the free playbook (free distribution).
 - ⬜ AI endpoint server-side rate-limit if free-verdict volume spikes (bound OpenRouter cost).
+- ⬜ Share-image (OG card) for the share link — a rendered verdict image lifts CTR on X/LinkedIn vs a bare URL.
 
 ## BLOCKED ON HUMAN (awaiting action — do NOT re-file within 7 days)
 - ⬜ **Google Ads test (~$20)** to the freemium offer-verdict — HELP-REQUEST.md (Jul 4).
@@ -53,6 +59,7 @@ GA4, watch the new signals. If 2 sessions show no movement, flag the $9.99 close
 - ⬜ Stack Exchange answers; GA4 + Stripe snapshot; Directory submissions; npm publish (token missing).
 
 ## DONE — collapsed
+- ✅ **S153 shareability loop:** "Share your verdict" on offer-verdict (Copy/X/LinkedIn/Reddit); share URL encodes inputs → recipient gets auto-verdict. Fires `verdict_shared`. Live + verified.
 - ✅ **S152 freemium pivot:** free AI verdict, optional email, $9.99 primary. Endpoint email-optional. Live + verified.
 - ✅ **S151 conversion restructure:** lead-capture.js primary AI-verdict CTA + email-only gate.
 - ✅ **S150–S144 monitoring (STUCK loop, broken by S151→S152):** 7 sessions of flat stats.
