@@ -59,6 +59,7 @@ $9.99 stays 0, flag the $9.99 close (P-LC1) — NOT the capture — as the leak.
 - ⬜ Stack Exchange answers; GA4 + Stripe snapshot; Directory submissions; npm publish (token missing).
 
 ## DONE — collapsed
+- ✅ **S157 CTA clarity fix:** Removed misleading "numbers pre-fill" claim on offer-analyzer (scanner doesn't extract numeric values). Updated to honest copy. Live + verified.
 - ✅ **S153 shareability loop:** "Share your verdict" on offer-verdict (Copy/X/LinkedIn/Reddit); share URL encodes inputs → recipient gets auto-verdict. Fires `verdict_shared`. Live + verified.
 - ✅ **S152 freemium pivot:** free AI verdict, optional email, $9.99 primary. Endpoint email-optional. Live + verified.
 - ✅ **S151 conversion restructure:** lead-capture.js primary AI-verdict CTA + email-only gate.
