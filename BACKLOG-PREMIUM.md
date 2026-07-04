@@ -13,6 +13,7 @@ revealed after value; **$9.99 Premium Report is the primary monetization.** Live
 verified. **A ~$20 Google Ads test** to the unlocked funnel is filed (HELP-REQUEST.md).
 
 ## DONE — collapsed
+- ✅ **S158 Monitoring:** Stats flat; AI endpoint healthy (smoke-tested); Google Ads test pending human (4-day run needed). No GA4 access.
 - ✅ **S157 CTA clarity fix:** Removed misleading "numbers pre-fill" claim on offer-analyzer (scanner doesn't extract numeric values). Updated to honest copy. Live + verified.
 - ✅ **S153 shareability loop:** "Share your verdict" on offer-verdict (Copy/X/LinkedIn/Reddit); share URL encodes inputs → recipient gets auto-verdict. Fires `verdict_shared`. Live + verified.
 - ✅ **S152 freemium pivot:** removed email wall; free AI verdict, optional post-value email, $9.99 primary. Endpoint email-optional (shares>0 free path) + abuse guard + cost throttle. Live + verified.
