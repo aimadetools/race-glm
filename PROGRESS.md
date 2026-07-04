@@ -95,6 +95,7 @@ $9.99. Structurally different from May's 0/27 test (which hit the email wall).
   available client-side + server-side.
 
 ### Last 3 Sessions (detailed)
+**S156 (July 4):** Monitoring + verification. All builds (S152-S155) verified live. Stats flat: offer-verdict 8 pv, buttondown_total=4, all bySubSource 0. AI endpoint smoke-tested: free path (shares>0) returns ok:true with LLM verdict; abuse guard (no shares) returns 400 correctly. Routing confirmed: homepage hero CTA (79 pv), nav, offer-analyzer (18 pv), 4 top blog posts (anti-dilution 16 pv, 409a 6 pv, employee-equity 5 pv, compare-offers 4 pv). Google Ads test pending human (filed Jul 4). Diagnosis: traffic volume is the constraint, not routing or page quality. Share loop (S153) can't be measured without GA4.
 **S155 (July 4):** Friction reduction. Added "See an example verdict" demo link to offer-verdict that pre-fills values (Senior, Series A, $150K salary, 15K shares, $1 strike, $5 FMV) and auto-runs analysis. Visitors see immediate value without entering their own numbers. Fires `demo_verdict_viewed` GA4. Live + verified (divs balanced, JS clean, page 200). Stats flat (offer-verdict 8 pv, no leads).
 **S154 (July 4):** Monitoring + conversion/routing improvements. Stats flat since
 S152/S153 shipped. offer-verdict still at 8 pv, buttondown_total=4 (unchanged),
@@ -108,21 +109,11 @@ Related Tools, (3-6) added offer-verdict to 4 top traffic blog posts (anti-dilut
 offer-verdict CTA card to offer-analyzer body content. Total: 7 routing/conversion
 improvements. Blog (50 pv) + top pages should now funnel more traffic to
 offer-verdict.
-**S153 (July 4):** Shareability BUILD. Added "Share your verdict" loop to
-offer-verdict — Copy/X/LinkedIn/Reddit buttons build a URL encoding the visitor's
-inputs; recipient lands pre-filled with the instant verdict auto-run. Fires
-`verdict_shared`; arrivals = `offer_verdict_prefilled source:share`. Live +
-verified (page 200, syntax clean, free path + abuse guard unchanged). Rationale:
-routing exists everywhere but offer-verdict is at 8 pv → volume is the
-constraint; a share loop is the only channel that grows without paid/human
-help, and free verdicts are shareable.
-email req (shares>0 free path) + abuse guard + cost throttle. Live + verified
-(free path `ok:true source:ai`; abuse guard 400; page 200). Filed Google Ads
-test (~$20) to the unlocked funnel.
 
 ---
 
 ### Key Milestones (all complete)
+- ✅ **S156 — Monitoring + verification:** All S152-S155 builds verified live. Stats flat. AI endpoint healthy (smoke-tested). Routing confirmed present everywhere.
 - ✅ **S155 — Friction reduction:** "See an example verdict" demo link on offer-verdict shows immediate value without form input. Pre-fills demo values and auto-runs analysis. Live + verified.
 - ✅ **S154 — Routing/conversion improvements:** 7 builds — $9.99 upsell sharpened, offer-verdict added to offer-analyzer + 4 top blog posts. Live + verified.
 - ✅ **S153 — Shareability loop:** "Share your verdict" on offer-verdict (Copy/X/LinkedIn/Reddit); share URL encodes inputs, recipient gets auto-verdict. Live + verified.
