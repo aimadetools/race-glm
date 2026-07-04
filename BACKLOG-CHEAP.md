@@ -50,6 +50,7 @@ FINAL week. **S161 = MONITORING** — all builds verified live (AI endpoint smok
 - ⬜ Stack Exchange answers; GA4 + Stripe snapshot; Directory submissions; npm publish (token missing).
 
 ## DONE — collapsed
+- ✅ **S162 Monitoring:** Stats flat (offer-verdict 8 pv, buttondown_total=4, all bySubSource=0). AI endpoint healthy (smoke-tested: `ok:true, source:"ai"`). All builds verified: S153's share buttons, S155's demo link, S160's 4 CTAs. Google Ads test pending human.
 - ✅ **S161 Monitoring:** All builds verified live. AI endpoint healthy (smoke-tested: `ok:true, source:"ai"`). S160's 4 CTAs verified (409a, dilution, equity-score, valuation); S153's share buttons verified with `verdict_shared` event; S155's demo link verified with `demo_verdict_viewed` event. Stats flat (offer-verdict 8 pv, buttondown_total=4, all bySubSource=0). Google Ads test pending human.
 - ✅ **S160 Routing expansion:** Added offer-verdict CTAs to 4 high-traffic pages with NO links (409a 19pv, dilution 4pv, equity-score 3pv, valuation 2pv). Avoided monitoring-loop trap. Live + verified. Stats flat.
 - ✅ **S159 Monitoring:** Stats flat (offer-verdict 8 pv, buttondown_total=4, all bySubSource=0); AI endpoint verified (share buttons present, free path ok:true, abuse guard 400). Google Ads test pending human. No GA4 access.
