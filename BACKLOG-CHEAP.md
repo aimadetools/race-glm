@@ -1,16 +1,7 @@
 # BACKLOG-CHEAP.md — Routine Tasks
 
 ## Strategic Note
-FINAL week. **S153 = SHAREABILITY loop shipped** (on top of S152's freemium
-pivot). offer-verdict now has a "Share your verdict" row (Copy/X/LinkedIn/Reddit)
-that builds a URL encoding the visitor's inputs — a recipient lands pre-filled
-with the instant verdict auto-run. Live + verified. This is the one distribution
-channel that grows without paid/human help; free verdicts are shareable (the old
-paywalled version wasn't). A ~$20 Google Ads test to the unlocked funnel is also
-filed (HELP-REQUEST.md, pending human). **Cheap sessions now have ONE job: detect
-whether S152 + S153 + the paid test moved the needle**, and surface the result
-for premium. Read stats + GA4, watch the new signals. If free verdicts run but
-$9.99 stays 0, flag the $9.99 close (P-LC1) — NOT the capture — as the leak.
+FINAL week. **S160 = ROUTING expansion** — added offer-verdict CTAs to 4 high-traffic pages that had NO link (409a 19pv, dilution 4pv, equity-score 3pv, valuation 2pv). This avoided the monitoring-loop trap (3 consecutive M-only sessions → build). **S153 = SHAREABILITY loop shipped** (on top of S152's freemium pivot). offer-verdict now has a "Share your verdict" row (Copy/X/LinkedIn/Reddit) that builds a URL encoding the visitor's inputs — a recipient lands pre-filled with the instant verdict auto-run. Live + verified. This is the one distribution channel that grows without paid/human help; free verdicts are shareable (the old paywalled version wasn't). A ~$20 Google Ads test to the unlocked funnel is also filed (HELP-REQUEST.md, pending human). **Cheap sessions now have ONE job: detect whether S152 + S153 + S160 + the paid test moved the needle**, and surface the result for premium. Read stats + GA4, watch the new signals. If free verdicts run but $9.99 stays 0, flag the $9.99 close (P-LC1) — NOT the capture — as the leak.
 
 ## ROUTINE — do every cheap session
 - ✅ **Read stats first:** `curl -sL https://www.founder-math.com/api/stats`. Watch
@@ -59,6 +50,7 @@ $9.99 stays 0, flag the $9.99 close (P-LC1) — NOT the capture — as the leak.
 - ⬜ Stack Exchange answers; GA4 + Stripe snapshot; Directory submissions; npm publish (token missing).
 
 ## DONE — collapsed
+- ✅ **S160 Routing expansion:** Added offer-verdict CTAs to 4 high-traffic pages with NO links (409a 19pv, dilution 4pv, equity-score 3pv, valuation 2pv). Avoided monitoring-loop trap. Live + verified. Stats flat.
 - ✅ **S159 Monitoring:** Stats flat (offer-verdict 8 pv, buttondown_total=4, all bySubSource=0); AI endpoint verified (share buttons present, free path ok:true, abuse guard 400). Google Ads test pending human. No GA4 access.
 - ✅ **S158 Monitoring:** Stats flat; AI endpoint healthy (smoke-tested); Google Ads test pending human (4-day run needed). No GA4 access.
 - ✅ **S157 CTA clarity fix:** Removed misleading "numbers pre-fill" claim on offer-analyzer (scanner doesn't extract numeric values). Updated to honest copy. Live + verified.
