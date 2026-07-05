@@ -207,6 +207,7 @@ async function callLLM(c) {
     'The "market" verdict MUST follow the equity-to-salary ratio at exit given in the facts: ' +
     '2.0× or more = "Above market"; 0.5–2.0× = "Fair"; under 0.5× = "Below market". ' +
     'Reserve "Needs scrutiny" ONLY for underwater options (strike ≥ 409A, no spread); a low-but-positive ratio is "Below market", not "Needs scrutiny". ' +
+    '"Underwater" is STRICTLY when the strike price ≥ the current 409A value (both are stated in the facts). If strike < 409A, the grant is NOT underwater even if its exit value is small — never call a non-underwater grant "underwater" or "Needs scrutiny". ' +
     'Use known benchmarks (early-stage engineer grants often 0.1–0.5% of company; Series A 0.05–0.25%; later stages smaller) only as supporting color in strengths/redFlags, not to override the ratio. ' +
     'Return ONLY valid minified JSON — no markdown, no prose outside the JSON — with EXACTLY these keys: ' +
     '"verdict" (one sharp sentence on whether the equity is generous/fair/below market for this stage+role, consistent with the ratio), ' +
