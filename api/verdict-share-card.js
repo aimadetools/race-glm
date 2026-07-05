@@ -3,16 +3,16 @@
 // When a verdict is shared on X/LinkedIn, this provides a rich preview with the actual verdict
 
 export default async function handler(req, res) {
-    const url = new URL(req.url, `http://${req.headers.host}`);
-    const params = url.searchParams;
+    // Vercel provides query parameters in req.query
+    const q = req.query || {};
 
     // Extract verdict parameters
-    const salary = parseFloat(params.get('salary') || '0');
-    const shares = parseFloat(params.get('shares') || '0');
-    const strike = parseFloat(params.get('strike') || '0');
-    const fmv = parseFloat(params.get('fmv') || '0');
-    const stage = params.get('stage') || '';
-    const role = params.get('role') || '';
+    const salary = parseFloat(q.salary || '0');
+    const shares = parseFloat(q.shares || '0');
+    const strike = parseFloat(q.strike || '0');
+    const fmv = parseFloat(q.fmv || '0');
+    const stage = q.stage || '';
+    const role = q.role || '';
 
     // Calculate verdict (same logic as offer-verdict.html)
     const growth = 25, yearsExit = 5;
@@ -79,7 +79,12 @@ export default async function handler(req, res) {
     `.replace(/\n/g, '').replace(/\s+/g, ' ');
 
     const ogImageUrl = `data:image/svg+xml;base64,${btoa(svgCard)}`;
-    const paramsStr = params.toString();
+
+    // Build query string for links
+    const paramsStr = Object.entries({ salary, shares, strike, fmv, stage, role, source: 'share' })
+        .filter(([k, v]) => v !== '' && v !== 0 && v != null)
+        .map(([k, v]) => `${k}=${encodeURIComponent(v)}`)
+        .join('&');
 
     // Generate HTML with OG meta tags
     const html = `<!DOCTYPE html>
