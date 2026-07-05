@@ -172,7 +172,21 @@ async function callLLM(c) {
   const key = process.env.OPENROUTER_API_KEY;
   if (!key) throw new Error('no key');
 
+  // S163 — compute the same exit-value ratio the page's instant (heuristic)
+  // verdict uses, and hand it to the LLM as a grounding fact. Without this the
+  // LLM judges "market" on raw share-count gut feel (it can't know shares
+  // outstanding) and contradicts the headline verdict the visitor already saw —
+  // e.g. calling a 2.7×-salary grant "below market." Anchoring the LLM on the
+  // computed ratio keeps the instant verdict and the AI playbook consistent.
+  const futurePrice = c.fmv * Math.pow(1 + c.growth / 100, c.yearsExit) * 0.75; // 25% dilution haircut
+  const exitValue = Math.max(0, futurePrice - c.strike) * c.shares;
+  const ratio = c.salary > 0 ? exitValue / c.salary : 0;
+  const underwater = c.fmv <= c.strike;
+
   const facts = [
+    'Equity-to-salary ratio at a reasonable exit: ' + ratioTxt(ratio) + ' salary (' + ratio.toFixed(2) + ')',
+    'Estimated potential exit value: ' + money(exitValue) + ' (409A grown ' + c.growth + '%/yr for ' + c.yearsExit + 'y, minus a 25% dilution haircut, minus the strike)',
+    underwater ? 'NOTE: strike is at/above the 409A — options are currently underwater (no exercisable spread).' : '',
     'Role: ' + c.role,
     'Company stage: ' + c.stage,
     'Annual base salary: ' + money(c.salary),
@@ -180,15 +194,23 @@ async function callLLM(c) {
     'Strike price: ' + (c.strike > 0 ? '$' + c.strike.toFixed(2) + '/share' : 'not specified'),
     'Current 409A value: ' + (c.fmv > 0 ? '$' + c.fmv.toFixed(2) + '/share' : 'not specified'),
     c.ownershipPct > 0 ? 'Ownership stake: ~' + c.ownershipPct.toFixed(3) + '%' : '',
-    'Assumed growth to exit: ' + c.growth + '%/yr over ' + c.yearsExit + ' years',
   ].filter(Boolean).join('\n');
 
   const system = 'You are an expert startup equity and compensation advisor. ' +
     'You give blunt, specific, practical advice about startup job offers. ' +
-    'Using the candidate\'s numbers and known benchmarks (early-stage engineer grants are often 0.1–0.5% of company; Series A 0.05–0.25%; later stages smaller), ' +
-    'return ONLY valid minified JSON — no markdown, no prose outside the JSON — with EXACTLY these keys: ' +
-    '"verdict" (one sharp sentence on whether the equity is generous/fair/below market for this stage+role), ' +
-    '"market" (one of: "Above market" | "Fair" | "Below market" | "Needs scrutiny"), ' +
+    // S163 — the equity-to-salary ratio at exit (provided in the facts) is the
+    // PRIMARY signal for the market verdict, computed the same way the instant
+    // verdict the visitor already saw uses. Anchoring on it keeps the two
+    // verdicts consistent. Ownership % and stage benchmarks are supporting
+    // context only — never let a "low share count" override a strong ratio
+    // (share counts are meaningless without total shares outstanding).
+    'The "market" verdict MUST follow the equity-to-salary ratio at exit given in the facts: ' +
+    '2.0× or more = "Above market"; 0.5–2.0× = "Fair"; under 0.5× = "Below market"; ' +
+    'and if the options are underwater (strike ≥ 409A), use "Needs scrutiny". ' +
+    'Use known benchmarks (early-stage engineer grants often 0.1–0.5% of company; Series A 0.05–0.25%; later stages smaller) only as supporting color in strengths/redFlags, not to override the ratio. ' +
+    'Return ONLY valid minified JSON — no markdown, no prose outside the JSON — with EXACTLY these keys: ' +
+    '"verdict" (one sharp sentence on whether the equity is generous/fair/below market for this stage+role, consistent with the ratio), ' +
+    '"market" (one of: "Above market" | "Fair" | "Below market" | "Needs scrutiny", matching the ratio rule above), ' +
     '"strengths" (array of 2-3 short strings), ' +
     '"redFlags" (array of 2-3 short strings: things to watch or negotiate), ' +
     '"negotiation" (array of 3 specific copy-paste-ready talking points tailored to their numbers), ' +
