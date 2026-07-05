@@ -57,6 +57,19 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Cache-Control', 'no-store');
   try {
+    // S164 — free-verdict telemetry. Fired CONCURRENTLY with the page burst below
+    // (not awaited inline after it) because Abacus throttles by request position in
+    // the invocation: reads issued after ~25 page GETs get starved and read 0 even
+    // when the key has a real value. Starting it here lets it grab an early slot
+    // alongside the page reads. ai_playbook_generated is a GA4 event I can't read
+    // without human GA4, so this server-side counter is the autonomous read path.
+    const aiVerdictGenP = (async () => {
+      try {
+        const r = await fetch(`${ABACUS}/get/${NS}/ai-verdict-generated`);
+        if (!r.ok) return 0;
+        return (await r.json()).value || 0;
+      } catch (e) { return 0; }
+    })();
     // Fetch commercial pages
     const commercialEntries = await Promise.all(Object.entries(PAGES).map(async ([path, key]) => {
       try {
@@ -134,21 +147,7 @@ export default async function handler(req, res) {
       const r = await fetch(`${ABACUS}/get/${NS}/s-blog`);
       blogAggregate = (await r.json()).value || 0;
     } catch (e) {}
-    // S164 — free-verdict telemetry (incremented server-side in api/ai-verdict.js,
-    // since ai_playbook_generated is a GA4 event I can't read without human GA4).
-    // Answers the freemium loop's existence question: are free verdicts firing?
-    // Per-key isolated try/catch (NOT Promise.all shared-fate): a throttled/missing
-    // key (Abacus returns 404 {error:"Key not found"} or 429 under burst) must not
-    // zero its siblings — mirrors the per-page pattern above.
-    const aiVerdictRaw = { generated: 0, ai: 0, heuristic: 0 };
-    const AI_KEYS = [['generated', 'ai-verdict-generated'], ['ai', 'ai-verdict-ai'], ['heuristic', 'ai-verdict-heuristic']];
-    await Promise.allSettled(AI_KEYS.map(async ([field, key]) => {
-      try {
-        const r = await fetch(`${ABACUS}/get/${NS}/${key}`);
-        if (!r.ok) return;
-        aiVerdictRaw[field] = (await r.json()).value || 0;
-      } catch (e) { /* missing/throttled key stays at default 0 */ }
-    }));
+    const aiVerdictGenerated = await aiVerdictGenP; // S164 — see early-concurrent note above
     const commercialPages = Object.fromEntries(commercialEntries);
     const blogPages = Object.fromEntries(blogEntries);
     const commercial = Object.values(commercialPages).reduce((a, b) => a + (b || 0), 0);
@@ -162,7 +161,7 @@ export default async function handler(req, res) {
     const pages = { ...commercialPages, ...blogPages };
     return res.status(200).json({
       total, pages, sections, leads,
-      aiVerdict: { generated: aiVerdictRaw.generated, bySource: { ai: aiVerdictRaw.ai, heuristic: aiVerdictRaw.heuristic } },
+      aiVerdict: { generated: aiVerdictGenerated },
     });
   } catch (e) {
     return res.status(500).json({ error: 'stats unavailable' });
