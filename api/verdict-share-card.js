@@ -16,7 +16,6 @@ export default async function handler(req, res) {
 
     // Calculate verdict (same logic as offer-verdict.html)
     const growth = 25, yearsExit = 5;
-    const spread = Math.max(0, fmv - strike);
     const underwater = fmv <= strike;
     const futurePrice = fmv * Math.pow(1 + growth/100, yearsExit) * 0.75;
     const exitValue = Math.max(0, futurePrice - strike) * shares;
@@ -32,9 +31,6 @@ export default async function handler(req, res) {
     } else if (ratio >= 0.5) {
         marketLabel = 'Fair / on-market';
         marketColor = '#6c5ce7';
-    } else if (ratio >= 0.1) {
-        marketLabel = 'Below market';
-        marketColor = '#ffa502';
     } else {
         marketLabel = 'Below market';
         marketColor = '#ffa502';
@@ -48,37 +44,9 @@ export default async function handler(req, res) {
         return '$' + n.toLocaleString();
     };
 
-    const exitValueText = underwater ? 'Underwater' : money(exitValue);
     const takeText = underwater
         ? `Your strike ($${strike.toFixed(2)}) is at/above today's value ($${fmv.toFixed(2)})`
         : `At a reasonable exit, worth about ${ratioTxt} your annual salary (${money(exitValue)})`;
-
-    // Build OG card image URL (using a simple SVG data URI approach)
-    const svgCard = `
-        <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#0a0a0f"/>
-                    <stop offset="100%" style="stop-color:#1a1a2e"/>
-                </linearGradient>
-                <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#6c5ce7"/>
-                    <stop offset="100%" style="stop-color:#00b894"/>
-                </linearGradient>
-            </defs>
-            <rect width="1200" height="630" fill="url(#bg)"/>
-            <rect x="60" y="60" width="1080" height="510" rx="24" fill="#12121a" stroke="#2a2a40" stroke-width="2"/>
-            <text x="100" y="140" font-family="system-ui, sans-serif" font-size="36" fill="#a0a0b5">AI Startup Offer Verdict</text>
-            <rect x="100" y="180" width="280" height="70" rx="35" fill="${marketColor}20" stroke="${marketColor}" stroke-width="2"/>
-            <text x="240" y="225" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="${marketColor}" text-anchor="middle">${marketLabel}</text>
-            <text x="100" y="310" font-family="SF Mono, Fira Code, monospace" font-size="72" font-weight="800" fill="url(#accent)">${ratioTxt} salary</text>
-            <text x="100" y="380" font-family="system-ui, sans-serif" font-size="24" fill="#a0a0b5">${takeText}</text>
-            <text x="100" y="480" font-family="system-ui, sans-serif" font-size="20" fill="#666680">Get your free AI verdict + negotiation script →</text>
-            <text x="1140" y="560" font-family="system-ui, sans-serif" font-size="18" fill="#6c5ce7" text-anchor="end">founder-math.com</text>
-        </svg>
-    `.replace(/\n/g, '').replace(/\s+/g, ' ');
-
-    const ogImageUrl = `data:image/svg+xml;base64,${btoa(svgCard)}`;
 
     // Build query string for links
     const paramsStr = Object.entries({ salary, shares, strike, fmv, stage, role, source: 'share' })
@@ -87,6 +55,7 @@ export default async function handler(req, res) {
         .join('&');
 
     // Generate HTML with OG meta tags
+    // S169: Using a static OG image for now - SVG data URIs can be too large for some crawlers
     const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,17 +70,16 @@ export default async function handler(req, res) {
     <meta property="og:url" content="https://founder-math.com/offer-verdict.html">
     <meta property="og:title" content="AI Offer Verdict: ${marketLabel} — ${ratioTxt} Salary">
     <meta property="og:description" content="${takeText}. Get your free AI startup offer verdict and negotiation script.">
-    <meta property="og:image" content="${ogImageUrl}">
+    <meta property="og:image" content="https://founder-math.com/og-home.svg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/svg+xml">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://founder-math.com/offer-verdict.html">
     <meta name="twitter:title" content="AI Offer Verdict: ${marketLabel} — ${ratioTxt} Salary">
     <meta name="twitter:description" content="${takeText}. Get your free AI startup offer verdict and negotiation script.">
-    <meta name="twitter:image" content="${ogImageUrl}">
+    <meta name="twitter:image" content="https://founder-math.com/og-home.svg">
 
     <!-- Auto-redirect to main verdict page after 3 seconds -->
     <meta http-equiv="refresh" content="3;url=https://founder-math.com/offer-verdict.html?${paramsStr}">
