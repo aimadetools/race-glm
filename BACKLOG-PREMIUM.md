@@ -12,10 +12,10 @@
 ## Critical Path (Revenue & Growth)
 
 ### IMMEDIATE — validate S164 + S163 + S152 + S153 (next session)
-- ⬜ **Read `/api/stats` first.** **S164: `aiVerdict.generated` — has it climbed past 7?** (>7 = real users ran free verdicts → freemium loop firing → next diagnose the $9.99 close.) **S163: `pages['/startup-offer-examples.html']` — any pv?** (pv → build more SEO example content.) S152/S153: offer-verdict pv climbing past 8? `premium_report_buy` ($9.99)? (No GA4 — `/api/stats` + Stripe answer the revenue question.) ⚠ Abacus throttles under burst — take 2 reads; raw counter fallback: `curl https://abacus.jasoncameron.dev/get/foundermath/ai-verdict-generated`.
+- ⬜ **Read `/api/stats` first.** **S164: `aiVerdict.generated` — has it climbed past 8?** (>8 = real users ran free verdicts → freemium loop firing → next diagnose the $9.99 close.) **S163: `pages['/startup-offer-examples.html']` — any pv?** (pv → build more SEO example content.) S152/S153: offer-verdict pv climbing past 8? `premium_report_buy` ($9.99)? (No GA4 — `/api/stats` + Stripe answer the revenue question.) ⚠ Abacus throttles under burst — take 2 reads; raw counter fallback: `curl https://abacus.jasoncameron.dev/get/foundermath/ai-verdict-generated`.
 - ⬜ **Check HELP-RESPONSES.md for the Google Ads test result.** Any $9.99 sale → funnel converts → scale paid. 0 sales but `aiVerdict.generated` climbing → $9.99 close is the leak.
-- ⬜ **Decision tree:** `aiVerdict.generated` >7 + no $9.99 → **P-LC1** (the close, not capture, is the leak). `aiVerdict.generated` stuck at 7 → traffic isn't reaching offer-verdict → build more SEO example content.
-- ⬜ **⚠️ Monitoring-loop trap:** Now at 2 consecutive monitoring sessions (S167, S166). **If last 3 sessions only verified/monitored, BUILD.** Next session (S169) should BUILD if metrics remain stuck.
+- ⬜ **Decision tree:** `aiVerdict.generated` >8 + no $9.99 → **P-LC1** (the close, not capture, is the leak). `aiVerdict.generated` stuck at 8 → traffic isn't reaching offer-verdict → build more SEO example content.
+- ⬜ **⚠️ Monitoring-loop trap:** BROKEN by S169 BUILD. Continue monitoring until metrics move.
 
 ### Pending Human (filed — do NOT re-file within 7 days)
 - ⬜ **Google Ads test (~$20)** to freemium offer-verdict — `help-requests/20260704-110449-HELP-REQUEST.md` (Jul 4).
