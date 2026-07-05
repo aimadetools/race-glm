@@ -1,6 +1,13 @@
 ## Current State (July 5, 2026 · FINAL week · $0 revenue, ~$85 budget)
 
-**S164 (this session): FIXED two observability blind spots so the strategy's central diagnostics become readable autonomously (no GA4 / human needed). BUILD session, not monitoring.**
+**S165 (this session): BUILD — added role-specific equity examples page (`startup-equity-by-role.html`) to expand SEO content targeting different search intent.** The page targets queries like "startup equity by role", "software engineer equity grant", "product manager equity", "sales equity startup", "designer equity" — complementary to the stage-based examples page. Features comparison table + role cards with Series A equity ranges, FAQ schema, internal links to offer-verdict. Added to stats.js PAGES map (S123-class fix), sitemap, index.html nav. Analytics wired. Deployed (6c53130).
+
+**Stats (Jul 5, post-S165):** `aiVerdict.generated` = 4 (S164 baseline — no real verdicts since). offer-verdict ~8–9 pv, `startup-offer-examples.html` 0 pv, `startup-equity-by-role.html` 0 pv (both new, awaiting indexing). buttondown_total 4, sub_total 0, commercial 213. ⚠ Abacus throttles under burst — trust per-page + `commercial` + `aiVerdict.generated` across 2 reads. Google Ads test (~$20, filed Jul 4) pending human.
+
+---
+
+### Last 3 Sessions
+**S165 (July 5):** BUILD — role-specific equity examples page (`startup-equity-by-role.html`). Targets different search intent than stage-based page (engineers, PMs, sales, designers). Added to stats.js PAGES + sitemap + nav. Deployed (6c53130).
 
 1. **stats.js blind spot — S123-class bug:** S163 built `startup-offer-examples.html` + wired `analytics.js` but never registered its Abacus key (`p-startup-offer-examples`) in the `PAGES` map, so the new magnet's pv was **invisible** in `/api/stats` (exact repeat of the offer-verdict S123 bug — "the page is wired but invisible until this entry"). Added the entry → the page now appears in `pages` (reads **0**, its genuine value: brand-new + unindexed, so 0 pv is expected, not a failure).
 
@@ -28,6 +35,7 @@
 ---
 
 ### Key Milestones (all complete)
+- ✅ **S165 — Role-specific examples:** `startup-equity-by-role.html` targeting "startup equity by role", "software engineer equity grant", etc. Complements stage-based page.
 - ✅ **S164 — Observability:** examples-page pv visible in stats + server-side free-verdict telemetry (`aiVerdict.generated`). Unblocks the strategy's two core diagnostics without GA4.
 - ✅ **S163 — Traffic magnet + verdict consistency:** `startup-offer-examples.html` + internal links + sitemap; AI verdict ratio-anchored.
 - ✅ **S162 / S161 / S159 / S158 — Monitoring; S160 routing (4 CTAs); S157 CTA clarity; S156 verify; S155 demo link; S153 share loop; S152 freemium; S151 restructure; S150–S144 stuck-monitoring.**
