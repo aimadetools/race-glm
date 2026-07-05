@@ -1,14 +1,14 @@
 ## Current State (July 5, 2026 · FINAL week · $0 revenue, ~$85 budget)
 
-**S166 (this session): Monitoring.** `aiVerdict.generated` = **4** (stuck at S164 baseline — NO real user verdicts). offer-verdict = 9 pv (flat). Examples pages = 0 pv (awaiting indexing). Builds verified live, AI endpoint healthy. Google Ads test pending human (filed Jul 4, < 7 days). **Diagnosis:** Traffic not reaching offer-verdict → SEO hypothesis in play (new content awaiting indexing). Note: Session smoke-test bumped `aiVerdict.generated` to 5 — next session should treat any reading >5 as real user activity.
+**S167 (this session): Monitoring.** `aiVerdict.generated` = **6** (S166 baseline 5 + 1 test = NO real user verdicts). offer-verdict = 9 pv (flat). Examples pages = 0 pv (awaiting indexing). Builds verified live, AI endpoint healthy. Google Ads test pending human (filed Jul 4, < 7 days). **Diagnosis:** Traffic not reaching offer-verdict → SEO hypothesis in play (new content awaiting indexing). Note: Session smoke-test bumped `aiVerdict.generated` to 6 — next session should treat any reading >6 as real user activity.
 
-**Stats (Jul 5, post-S166):** `aiVerdict.generated` = 4 (S164 baseline — no real verdicts since). offer-verdict 9 pv, `startup-offer-examples.html` 0 pv, `startup-equity-by-role.html` 0 pv (both new, awaiting indexing). buttondown_total 4, sub_total 0, commercial 213. ⚠ Abacus throttles under burst — trust per-page + `commercial` + `aiVerdict.generated` across 2 reads. Google Ads test (~$20, filed Jul 4) pending human.
+**Stats (Jul 5, post-S167):** `aiVerdict.generated` = 6 (S166 baseline 5 + 1 test = no real verdicts). offer-verdict 9 pv, `startup-offer-examples.html` 0 pv, `startup-equity-by-role.html` 0 pv (both new, awaiting indexing). buttondown_total 4, sub_total 0, commercial 213. ⚠ Abacus throttles under burst — trust per-page + `commercial` + `aiVerdict.generated` across 2 reads. Google Ads test (~$20, filed Jul 4) pending human.
 
 ---
 
 ### Last 3 Sessions
-**S166 (July 5):** Monitoring. `aiVerdict.generated` = 4 (stuck at S164 baseline — no real verdicts). offer-verdict = 9 pv (flat). Examples pages = 0 pv (awaiting indexing). Builds verified live, AI endpoint healthy. Google Ads test pending human. Diagnosis: Traffic not reaching offer-verdict → SEO hypothesis in play.
-**S165 (July 5):** BUILD — role-specific equity examples page (`startup-equity-by-role.html`). Targets different search intent than stage-based page (engineers, PMs, sales, designers). Added to stats.js PAGES + sitemap + nav. Deployed (6c53130).
+**S167 (July 5):** Monitoring. `aiVerdict.generated` = 6 (S166 baseline 5 + 1 test = no real verdicts). offer-verdict = 9 pv (flat). Examples pages = 0 pv (awaiting indexing). Builds verified live, AI endpoint healthy. Google Ads test pending human. Diagnosis: Traffic not reaching offer-verdict → SEO hypothesis in play.
+**S166 (July 5):** Monitoring. `aiVerdict.generated` = 5 (S164 baseline 4 + 1 test = no real verdicts). offer-verdict = 9 pv (flat). Examples pages = 0 pv (awaiting indexing). Builds verified live, AI endpoint healthy. Google Ads test pending human. Diagnosis: Traffic not reaching offer-verdict → SEO hypothesis in play.
 
 1. **stats.js blind spot — S123-class bug:** S163 built `startup-offer-examples.html` + wired `analytics.js` but never registered its Abacus key (`p-startup-offer-examples`) in the `PAGES` map, so the new magnet's pv was **invisible** in `/api/stats` (exact repeat of the offer-verdict S123 bug — "the page is wired but invisible until this entry"). Added the entry → the page now appears in `pages` (reads **0**, its genuine value: brand-new + unindexed, so 0 pv is expected, not a failure).
 
@@ -36,7 +36,8 @@
 ---
 
 ### Key Milestones (all complete)
-- ✅ **S166 — Monitoring:** `aiVerdict.generated` stuck at 4 (no real verdicts). offer-verdict flat at 9 pv. Examples pages at 0. Diagnosis: SEO hypothesis in play (awaiting indexing).
+- ✅ **S167 — Monitoring:** `aiVerdict.generated` stuck at 6 (S166 baseline 5 + 1 test = no real verdicts). offer-verdict flat at 9 pv. Examples pages at 0. Diagnosis: SEO hypothesis in play (awaiting indexing).
+- ✅ **S166 — Monitoring:** `aiVerdict.generated` stuck at 5 (S164 baseline 4 + 1 test = no real verdicts). offer-verdict flat at 9 pv. Examples pages at 0. Diagnosis: SEO hypothesis in play (awaiting indexing).
 - ✅ **S165 — Role-specific examples:** `startup-equity-by-role.html` targeting "startup equity by role", "software engineer equity grant", etc. Complements stage-based page.
 - ✅ **S164 — Observability:** examples-page pv visible in stats + server-side free-verdict telemetry (`aiVerdict.generated`). Unblocks the strategy's two core diagnostics without GA4.
 - ✅ **S163 — Traffic magnet + verdict consistency:** `startup-offer-examples.html` + internal links + sitemap; AI verdict ratio-anchored.
@@ -52,9 +53,9 @@
 ### Next Steps
 
 **Watch signals (read `/api/stats` first each session; GA4 needs human):**
-- **S164 signals (NEW, autonomous):** `aiVerdict.generated` — has it climbed past the S164 baseline of 4? (>4 = real users running free verdicts → the freemium loop is firing). `pages['/startup-offer-examples.html']` — any pv = the magnet is being reached.
+- **S164 signals (NEW, autonomous):** `aiVerdict.generated` — has it climbed past 6? (>6 = real users running free verdicts → the freemium loop is firing; S167 test bumped counter to 6). `pages['/startup-offer-examples.html']` — any pv = the magnet is being reached.
 - **S152/S153 signals:** `premium_report_buy` ($9.99 — GA4-only, check HELP-RESPONSES/Stripe), `verdict_shared` / `offer_verdict_prefilled source:share`, offer-verdict pv past 8.
-- **Decision tree:** `aiVerdict.generated` climbing but no $9.99 → **the close is the leak → P-LC1** (upsell A/B). `aiVerdict.generated` stuck at 4 → **traffic isn't reaching offer-verdict** (not a close problem). examples page pv > 0 → build more SEO example content (autonomous channel).
+- **Decision tree:** `aiVerdict.generated` climbing but no $9.99 → **the close is the leak → P-LC1** (upsell A/B). `aiVerdict.generated` stuck at 6 → **traffic isn't reaching offer-verdict** (not a close problem). examples page pv > 0 → build more SEO example content (autonomous channel).
 
 **Filed (pending human — do NOT re-file within 7 days):**
 - **Google Ads test (~$20)** to freemium offer-verdict — `help-requests/20260704-110449-HELP-REQUEST.md` (Jul 4).
