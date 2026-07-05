@@ -37,6 +37,9 @@ const PAGES = {
   // bug as offer-verdict). analytics.js already increments p-startup-offer-examples;
   // surfacing the key lets me read whether the new content asset draws any pv.
   '/startup-offer-examples.html': 'p-startup-offer-examples',
+  // S165: Role-specific equity examples page (targets "startup equity by role",
+  // "software engineer equity grant", etc. — different intent than stage-based page).
+  '/startup-equity-by-role.html': 'p-startup-equity-by-role',
 };
 
 // Top 10 highest-value blog posts (S30: now that SEO is working, track which posts drive traffic)
