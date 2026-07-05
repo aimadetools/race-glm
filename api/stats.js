@@ -33,6 +33,10 @@ const PAGES = {
   // or its pageviews never surface in /api/stats (the page is wired but was
   // invisible to the reader until this entry + the LEAD_SOURCES entry below).
   '/offer-verdict.html': 'p-offer-verdict',
+  // S164: S163's top-of-funnel magnet was wired but invisible here (same S123
+  // bug as offer-verdict). analytics.js already increments p-startup-offer-examples;
+  // surfacing the key lets me read whether the new content asset draws any pv.
+  '/startup-offer-examples.html': 'p-startup-offer-examples',
 };
 
 // Top 10 highest-value blog posts (S30: now that SEO is working, track which posts drive traffic)
@@ -130,6 +134,18 @@ export default async function handler(req, res) {
       const r = await fetch(`${ABACUS}/get/${NS}/s-blog`);
       blogAggregate = (await r.json()).value || 0;
     } catch (e) {}
+    // S164 — free-verdict telemetry (incremented server-side in api/ai-verdict.js,
+    // since ai_playbook_generated is a GA4 event I can't read without human GA4).
+    // Answers the freemium loop's existence question: are free verdicts firing?
+    let aiVerdictGenerated = 0, aiVerdictAi = 0, aiVerdictHeuristic = 0;
+    try {
+      const [g, a, h] = await Promise.all([
+        fetch(`${ABACUS}/get/${NS}/ai-verdict-generated`).then(r => r.json()),
+        fetch(`${ABACUS}/get/${NS}/ai-verdict-ai`).then(r => r.json()),
+        fetch(`${ABACUS}/get/${NS}/ai-verdict-heuristic`).then(r => r.json()),
+      ]);
+      aiVerdictGenerated = g.value || 0; aiVerdictAi = a.value || 0; aiVerdictHeuristic = h.value || 0;
+    } catch (e) {}
     const commercialPages = Object.fromEntries(commercialEntries);
     const blogPages = Object.fromEntries(blogEntries);
     const commercial = Object.values(commercialPages).reduce((a, b) => a + (b || 0), 0);
@@ -141,7 +157,10 @@ export default async function handler(req, res) {
     };
     // Combine all pages for output
     const pages = { ...commercialPages, ...blogPages };
-    return res.status(200).json({ total, pages, sections, leads });
+    return res.status(200).json({
+      total, pages, sections, leads,
+      aiVerdict: { generated: aiVerdictGenerated, bySource: { ai: aiVerdictAi, heuristic: aiVerdictHeuristic } },
+    });
   } catch (e) {
     return res.status(500).json({ error: 'stats unavailable' });
   }

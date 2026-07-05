@@ -70,6 +70,20 @@ export default async function handler(req, res) {
   }
 
   const out = (ai && ai.verdict) ? { ok: true, source: 'ai', ...ai } : { ok: true, source: 'heuristic', ...heuristic };
+  // S164 — server-side telemetry for the core freemium loop. ai_playbook_generated
+  // is a GA4 event I can't read without human GA4 access, so the strategy's central
+  // diagnostic ("are free verdicts running? if yes but $9.99=0, the CLOSE is the
+  // leak") was blind. Best-effort Abacus counter (never blocks/throws on failure);
+  // awaited because the LLM call already dominates latency and we want the hit to
+  // land before the function is frozen. Read via /api/stats → aiVerdict.
+  try {
+    const ABACUS = 'https://abacus.jasoncameron.dev';
+    const k = out.source === 'ai' ? 'ai-verdict-ai' : 'ai-verdict-heuristic';
+    await Promise.allSettled([
+      fetch(`${ABACUS}/hit/foundermath/ai-verdict-generated`),
+      fetch(`${ABACUS}/hit/foundermath/${k}`),
+    ]);
+  } catch (e) { /* telemetry must never break a verdict */ }
   return res.status(200).json(out);
 }
 
