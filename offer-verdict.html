@@ -494,8 +494,8 @@ function escapeTxt(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
 // (prefillFromQuery), so every share delivers instant value + routes fresh,
 // qualified traffic into the free-verdict funnel — the one distribution channel
 // that grows without paid/human help.
+// S169 — now uses the share card endpoint for rich OG preview on social platforms.
 function buildShareUrl() {
-    var base = window.location.origin + window.location.pathname;
     var params = {
         salary: num('salary'), shares: num('shares'), strike: num('strike'),
         fmv: num('fmv'), own: num('own'),
@@ -508,7 +508,8 @@ function buildShareUrl() {
         var v = params[k];
         if (v !== '' && v !== 0 && v != null) q.push(k + '=' + encodeURIComponent(v));
     }
-    return base + (q.length ? '?' + q.join('&') : '');
+    // S169: Use share card endpoint for rich OG preview
+    return window.location.origin + '/api/verdict-share-card' + (q.length ? '?' + q.join('&') : '');
 }
 function shareText() {
     var v = window._lastVerdict || {};
