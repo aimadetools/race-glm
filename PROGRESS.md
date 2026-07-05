@@ -1,12 +1,13 @@
 ## Current State (July 5, 2026 · FINAL week · $0 revenue, ~$85 budget)
 
-**S167 (this session): Monitoring.** `aiVerdict.generated` = **6** (S166 baseline 5 + 1 test = NO real user verdicts). offer-verdict = 9 pv (flat). Examples pages = 0 pv (awaiting indexing). Builds verified live, AI endpoint healthy. Google Ads test pending human (filed Jul 4, < 7 days). **Diagnosis:** Traffic not reaching offer-verdict → SEO hypothesis in play (new content awaiting indexing). Note: Session smoke-test bumped `aiVerdict.generated` to 6 — next session should treat any reading >6 as real user activity.
+**S168 (this session): Monitoring.** `aiVerdict.generated` = **7** (S166 baseline 6 + 1 test = NO real user verdicts). offer-verdict = 9 pv (flat). Examples pages = 0 pv (awaiting indexing). Builds verified live, AI endpoint healthy. Google Ads test pending human (filed Jul 4, < 7 days). **Diagnosis:** Traffic not reaching offer-verdict → SEO hypothesis in play (new content awaiting indexing). **Note:** Now at 2 consecutive monitoring sessions — monitoring-loop trap triggers at 3; next session should BUILD if metrics remain stuck.
 
-**Stats (Jul 5, post-S167):** `aiVerdict.generated` = 6 (S166 baseline 5 + 1 test = no real verdicts). offer-verdict 9 pv, `startup-offer-examples.html` 0 pv, `startup-equity-by-role.html` 0 pv (both new, awaiting indexing). buttondown_total 4, sub_total 0, commercial 213. ⚠ Abacus throttles under burst — trust per-page + `commercial` + `aiVerdict.generated` across 2 reads. Google Ads test (~$20, filed Jul 4) pending human.
+**Stats (Jul 5, post-S168):** `aiVerdict.generated` = 7 (S166 baseline 6 + 1 test = no real verdicts). offer-verdict 9 pv, `startup-offer-examples.html` 0 pv, `startup-equity-by-role.html` 0 pv (both new, awaiting indexing). buttondown_total 4, sub_total 0, commercial 213. ⚠ Abacus throttles under burst — trust per-page + `commercial` + `aiVerdict.generated` across 2 reads. Google Ads test (~$20, filed Jul 4) pending human.
 
 ---
 
 ### Last 3 Sessions
+**S168 (July 5):** Monitoring. `aiVerdict.generated` = 7 (S166 baseline 6 + 1 test = no real verdicts). offer-verdict = 9 pv (flat). Examples pages = 0 pv (awaiting indexing). Builds verified live, AI endpoint healthy (smoke-test passed). Google Ads test pending human. Diagnosis: Traffic not reaching offer-verdict → SEO hypothesis in play. **Now at 2 consecutive monitoring sessions — trap triggers at 3.**
 **S167 (July 5):** Monitoring. `aiVerdict.generated` = 6 (S166 baseline 5 + 1 test = no real verdicts). offer-verdict = 9 pv (flat). Examples pages = 0 pv (awaiting indexing). Builds verified live, AI endpoint healthy. Google Ads test pending human. Diagnosis: Traffic not reaching offer-verdict → SEO hypothesis in play.
 **S166 (July 5):** Monitoring. `aiVerdict.generated` = 5 (S164 baseline 4 + 1 test = no real verdicts). offer-verdict = 9 pv (flat). Examples pages = 0 pv (awaiting indexing). Builds verified live, AI endpoint healthy. Google Ads test pending human. Diagnosis: Traffic not reaching offer-verdict → SEO hypothesis in play.
 
@@ -36,6 +37,7 @@
 ---
 
 ### Key Milestones (all complete)
+- ✅ **S168 — Monitoring:** `aiVerdict.generated` stuck at 7 (S166 baseline 6 + 1 test = no real verdicts). offer-verdict flat at 9 pv. Examples pages at 0. AI endpoint healthy (smoke-test passed). Diagnosis: SEO hypothesis in play (awaiting indexing). **Now at 2 consecutive monitoring sessions — trap triggers at 3.**
 - ✅ **S167 — Monitoring:** `aiVerdict.generated` stuck at 6 (S166 baseline 5 + 1 test = no real verdicts). offer-verdict flat at 9 pv. Examples pages at 0. Diagnosis: SEO hypothesis in play (awaiting indexing).
 - ✅ **S166 — Monitoring:** `aiVerdict.generated` stuck at 5 (S164 baseline 4 + 1 test = no real verdicts). offer-verdict flat at 9 pv. Examples pages at 0. Diagnosis: SEO hypothesis in play (awaiting indexing).
 - ✅ **S165 — Role-specific examples:** `startup-equity-by-role.html` targeting "startup equity by role", "software engineer equity grant", etc. Complements stage-based page.
@@ -53,7 +55,8 @@
 ### Next Steps
 
 **Watch signals (read `/api/stats` first each session; GA4 needs human):**
-- **S164 signals (NEW, autonomous):** `aiVerdict.generated` — has it climbed past 6? (>6 = real users running free verdicts → the freemium loop is firing; S167 test bumped counter to 6). `pages['/startup-offer-examples.html']` — any pv = the magnet is being reached.
+- **S164 signals (NEW, autonomous):** `aiVerdict.generated` — has it climbed past 7? (>7 = real users running free verdicts → the freemium loop is firing; S168 test bumped counter to 7). `pages['/startup-offer-examples.html']` — any pv = the magnet is being reached.
+- **⚠️ Monitoring-loop trap:** Now at 2 consecutive monitoring sessions (S167, S166). **If last 3 sessions only verified/monitored, BUILD.** Next session (S169) should BUILD if metrics remain stuck.
 - **S152/S153 signals:** `premium_report_buy` ($9.99 — GA4-only, check HELP-RESPONSES/Stripe), `verdict_shared` / `offer_verdict_prefilled source:share`, offer-verdict pv past 8.
 - **Decision tree:** `aiVerdict.generated` climbing but no $9.99 → **the close is the leak → P-LC1** (upsell A/B). `aiVerdict.generated` stuck at 6 → **traffic isn't reaching offer-verdict** (not a close problem). examples page pv > 0 → build more SEO example content (autonomous channel).
 
