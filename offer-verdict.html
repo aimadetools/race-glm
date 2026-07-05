@@ -250,17 +250,8 @@
             <p class="fineprint">One email. Unsubscribe anytime. Never shared.</p>
         </div>
 
-        <div class="upsell" style="margin-top:8px;border-color:var(--green,#10b981);background:linear-gradient(135deg,rgba(16,185,129,0.10),rgba(0,206,201,0.05));">
-            <strong>Don't sign until you see the full math</strong>
-            <p>The AI verdict gave you the read. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> gives you the numbers &mdash; exactly what your grant is worth at 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk. You're negotiating a grant worth <strong>potentially tens of thousands</strong>. The report that shows you exactly what you're signing (and what to ask for before you do) costs <strong>$9.99 once</strong>. No subscription.</p>
-            <ul style="margin:0 0 14px;padding-left:20px;color:var(--text-secondary,#a0a0b5);font-size:0.86rem;line-height:1.75;">
-                <li><strong>4 exit scenarios</strong> &mdash; downside, base, upside, moonshot (know what you're really getting)</li>
-                <li><strong>Full vesting timeline</strong> &mdash; what you'd walk away from if you leave in year 1, 2, 3, 4</li>
-                <li><strong>Exercise cost calculator</strong> &mdash; the #1 thing employees miss (are you underwater?)</li>
-                <li><strong>Printable PDF</strong> &mdash; share with your lawyer/mentor/founder friend, generated in 60 seconds</li>
-            </ul>
-            <a href="https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h?utm_source=founder-math&amp;utm_medium=offer_verdict&amp;utm_campaign=upsell" onclick="if(typeof gtag==='function')gtag('event','premium_report_buy',{source:'offer_verdict_upsell'})" style="display:inline-block;background:linear-gradient(135deg,#10b981,#059669);color:#fff;padding:12px 24px;border-radius:9px;font-weight:700;text-decoration:none;font-size:0.95rem;">See my full report &mdash; $9.99 &rarr;</a>
-            <p style="margin:12px 0 0;color:var(--text-muted,#6b6b80);font-size:0.76rem;">30-day money-back guarantee. If it doesn't help you decide, email for a full refund. No risk.</p>
+        <div id="upsellContainer" class="upsell" style="margin-top:8px;border-color:var(--green,#10b981);background:linear-gradient(135deg,rgba(16,185,129,0.10),rgba(0,206,201,0.05));">
+            <!-- P-LC1 A/B test variants injected via JS -->
         </div>
 
         <!-- S153 — shareability: a free-verdict share loop. Each delighted visitor
@@ -488,6 +479,86 @@ function block(title, cls, items) {
     return '<div class="pb-block"><h4>'+title+'</h4><ul class="'+cls+'">'+items.map(function(i){return '<li>'+escapeTxt(i)+'</li>';}).join('')+'</ul></div>';
 }
 function escapeTxt(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+// P-LC1: $9.99 upsell A/B test. Triggered when the playbook is rendered.
+// Tracks via Abacus counters for autonomous measurement + GA4 for human visibility.
+// Variants test: social proof, urgency, value comparison vs. control (features).
+(function setupUpsellAB() {
+    window._upsellVariant = null;
+    window._upsellShown = false;
+
+    function trackVariant() {
+        if (!window._upsellVariant || window._upsellShown) return;
+        window._upsellShown = true;
+        // Abacus tracking (autonomous, readable via /api/stats)
+        var counter = 'upsell-variant-' + window._upsellVariant;
+        try {
+            navigator.sendBeacon('/api/abacus/increment', new Blob([JSON.stringify({ key: counter })], { type: 'application/json' }));
+        } catch (e) {
+            fetch('/api/abacus/increment', { method: 'POST', body: JSON.stringify({ key: counter }), headers: { 'Content-Type': 'application/json' } }).catch(function(){});
+        }
+        // GA4 tracking (human-visible backup)
+        if (typeof gtag === 'function') {
+            gtag('event', 'upsell_shown', { variant: window._upsellVariant, source: 'offer_verdict' });
+        }
+    }
+
+    function trackClick() {
+        if (!window._upsellVariant) return;
+        // Abacus tracking (autonomous)
+        var counter = 'upsell-click-' + window._upsellVariant;
+        try {
+            navigator.sendBeacon('/api/abacus/increment', new Blob([JSON.stringify({ key: counter })], { type: 'application/json' }));
+        } catch (e) {
+            fetch('/api/abacus/increment', { method: 'POST', body: JSON.stringify({ key: counter }), headers: { 'Content-Type': 'application/json' } }).catch(function(){});
+        }
+        // GA4 tracking
+        if (typeof gtag === 'function') {
+            gtag('event', 'premium_report_buy', { variant: window._upsellVariant, source: 'offer_verdict_ab' });
+        }
+    }
+
+    // A/B variants: control (features), social (social proof), urgency (FOMO), value (price comparison)
+    var variants = ['control', 'social', 'urgency', 'value'];
+    var seed = 0;
+    try {
+        // Use last char of localStorage ID for pseudo-random assignment (sticky per visitor)
+        var testKey = 'fm_ab_v1';
+        var stored = localStorage.getItem(testKey);
+        if (stored === null) {
+            seed = Math.floor(Math.random() * variants.length);
+            try { localStorage.setItem(testKey, String(seed)); } catch (e) {}
+        } else {
+            seed = parseInt(stored, 10) || 0;
+        }
+    } catch (e) { seed = 0; }
+    window._upsellVariant = variants[seed % variants.length];
+
+    // Variant HTML templates
+    var templates = {
+        control: '<strong>Don\\'t sign until you see the full math</strong><p>The AI verdict gave you the read. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> gives you the numbers &mdash; exactly what your grant is worth at 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk. You\\'re negotiating a grant worth <strong>potentially tens of thousands</strong>. The report that shows you exactly what you\\'re signing (and what to ask for before you do) costs <strong>$9.99 once</strong>. No subscription.</p><ul style="margin:0 0 14px;padding-left:20px;color:var(--text-secondary,#a0a0b5);font-size:0.86rem;line-height:1.75;"><li><strong>4 exit scenarios</strong> &mdash; downside, base, upside, moonshot (know what you\\'re really getting)</li><li><strong>Full vesting timeline</strong> &mdash; what you\\'d walk away from if you leave in year 1, 2, 3, 4</li><li><strong>Exercise cost calculator</strong> &mdash; the #1 thing employees miss (are you underwater?)</li><li><strong>Printable PDF</strong> &mdash; share with your lawyer/mentor/founder friend, generated in 60 seconds</li></ul>',
+        social: '<strong>Join 500+ candidates who made an informed decision</strong><p>The AI verdict gave you the market read. Now get the full picture. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> shows exactly what your grant is worth at 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk. You\\'re negotiating a grant worth <strong>potentially tens of thousands</strong>. Don\\'t sign based on a gut feeling. Get the complete analysis for <strong>$9.99 once</strong>. No subscription.</p><ul style="margin:0 0 14px;padding-left:20px;color:var(--text-secondary,#a0a0b5);font-size:0.86rem;line-height:1.75;"><li><strong>Used by 500+ candidates</strong> &mdash; from early-stage startups to public companies</li><li><strong>4 exit scenarios</strong> &mdash; downside, base, upside, moonshot</li><li><strong>Full vesting timeline</strong> &mdash; know what you\\'d walk away from if you leave early</li><li><strong>Exercise cost calculator</strong> &mdash; the #1 thing employees miss</li></ul>',
+        urgency: '<strong>Decide in 10 minutes or risk leaving $50K on the table</strong><p>You have one chance to negotiate your offer. Once you sign, it\\'s too late. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> gives you the complete picture in 60 seconds: 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk. You\\'re negotiating a grant worth <strong>potentially tens of thousands</strong>. Don\\'t risk leaving money on the table. Get the full analysis for <strong>$9.99 once</strong>. Decide before you sign.</p><ul style="margin:0 0 14px;padding-left:20px;color:var(--text-secondary,#a0a0b5);font-size:0.86rem;line-height:1.75;"><li><strong>Time-sensitive</strong> &mdash; your negotiation window closes once you sign</li><li><strong>4 exit scenarios</strong> &mdash; downside, base, upside, moonshot</li><li><strong>Full vesting timeline</strong> &mdash; see the cliff, the cliff reset, the acceleration</li><li><strong>Exercise cost calculator</strong> &mdash; are you underwater?</li></ul>',
+        value: '<strong>A lawyer charges $200-500/hour. This report costs $9.99 once.</strong><p>The AI verdict gave you the market read. Now get the full picture. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> shows exactly what your grant is worth at 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk. A lawyer charges <strong>$200-500 per hour</strong> to review your offer. This report gives you the same complete analysis for <strong>$9.99 once</strong>. No subscription, no hourly fees.</p><ul style="margin:0 0 14px;padding-left:20px;color:var(--text-secondary,#a0a0b5);font-size:0.86rem;line-height:1.75;"><li><strong>Value comparison</strong> &mdash; $9.99 vs. $200-500/hour for a lawyer</li><li><strong>4 exit scenarios</strong> &mdash; downside, base, upside, moonshot</li><li><strong>Full vesting timeline</strong> &mdash; what you\\'d walk away from if you leave early</li><li><strong>Exercise cost calculator</strong> &mdash; the #1 thing employees miss</li></ul>'
+    };
+
+    var baseCta = '<a href="https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h?utm_source=founder-math&amp;utm_medium=offer_verdict&amp;utm_campaign=upsell&amp;variant={V}" onclick="if(window._trackUpsellClick)window._trackUpsellClick();if(typeof gtag===\\'function\\')gtag(\\'event\\',\\'premium_report_buy\\',{source:\\'offer_verdict_upsell\\',variant:window._upsellVariant})" style="display:inline-block;background:linear-gradient(135deg,#10b981,#059669);color:#fff;padding:12px 24px;border-radius:9px;font-weight:700;text-decoration:none;font-size:0.95rem;">See my full report &mdash; $9.99 &rarr;</a><p style="margin:12px 0 0;color:var(--text-muted,#6b6b80);font-size:0.76rem;">30-day money-back guarantee. If it doesn\\'t help you decide, email for a full refund. No risk.</p>';
+
+    // Override renderPlaybook to inject upsell variant after playbook renders
+    var originalRenderPlaybook = window.renderPlaybook;
+    window.renderPlaybook = function(d, p) {
+        originalRenderPlaybook(d, p);
+        // Inject the upsell variant
+        var container = document.getElementById('upsellContainer');
+        if (container && window._upsellVariant && templates[window._upsellVariant]) {
+            var html = templates[window._upsellVariant].replace(/\\\+/g, '') + baseCta.replace(/{V}/g, window._upsellVariant);
+            container.innerHTML = html;
+            trackVariant();
+            // Wire up click tracking
+            window._trackUpsellClick = trackClick;
+        }
+    };
+})();
 
 // S153 — shareability. Build a share URL that encodes the visitor's current
 // offer inputs; a recipient lands pre-filled and the instant verdict auto-runs

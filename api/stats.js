@@ -73,6 +73,28 @@ export default async function handler(req, res) {
         return (await r.json()).value || 0;
       } catch (e) { return 0; }
     })();
+    // P-LC1: A/B test variant counters (impressions and clicks)
+    const abVariants = ['control', 'social', 'urgency', 'value'];
+    const upsellVariantP = (async () => {
+      const results = {};
+      await Promise.all(abVariants.map(async (v) => {
+        try {
+          const r = await fetch(`${ABACUS}/get/${NS}/upsell-variant-${v}`);
+          results[v] = (await r.json()).value || 0;
+        } catch (e) { results[v] = 0; }
+      }));
+      return results;
+    })();
+    const upsellClickP = (async () => {
+      const results = {};
+      await Promise.all(abVariants.map(async (v) => {
+        try {
+          const r = await fetch(`${ABACUS}/get/${NS}/upsell-click-${v}`);
+          results[v] = (await r.json()).value || 0;
+        } catch (e) { results[v] = 0; }
+      }));
+      return results;
+    })();
     // Fetch commercial pages
     const commercialEntries = await Promise.all(Object.entries(PAGES).map(async ([path, key]) => {
       try {
@@ -151,6 +173,8 @@ export default async function handler(req, res) {
       blogAggregate = (await r.json()).value || 0;
     } catch (e) {}
     const aiVerdictGenerated = await aiVerdictGenP; // S164 — see early-concurrent note above
+    const upsellVariant = await upsellVariantP; // P-LC1 A/B test impressions
+    const upsellClick = await upsellClickP; // P-LC1 A/B test clicks
     const commercialPages = Object.fromEntries(commercialEntries);
     const blogPages = Object.fromEntries(blogEntries);
     const commercial = Object.values(commercialPages).reduce((a, b) => a + (b || 0), 0);
@@ -165,6 +189,7 @@ export default async function handler(req, res) {
     return res.status(200).json({
       total, pages, sections, leads,
       aiVerdict: { generated: aiVerdictGenerated },
+      upsellAB: { impressions: upsellVariant, clicks: upsellClick },
     });
   } catch (e) {
     return res.status(500).json({ error: 'stats unavailable' });
