@@ -1,51 +1,31 @@
 # BACKLOG-PREMIUM.md — Strategic Tasks
 
 ## Strategic Reality (FINAL week, $0 revenue, ~$85 budget)
-**S161 = MONITORING (all builds verified live).** AI endpoint smoke-tested: `ok:true, source:"ai"`. S160's 4 CTAs verified; S153's share buttons verified; S155's demo link verified. Stats flat. Google Ads test pending human. **S160 = ROUTING expansion (shipped, avoided monitoring-loop trap).** Added offer-verdict CTAs to 4 high-traffic pages that had NO link (409a 19pv, dilution 4pv, equity-score 3pv, valuation 2pv). Live + verified. **S153 = SHAREABILITY loop (shipped, on top of S152's freemium pivot).** offer-verdict now ends with a "Share your verdict" row (Copy/X/LinkedIn/Reddit) that builds a URL encoding the visitor's offer inputs — a recipient lands pre-filled with the instant verdict auto-run. Live + verified. **Why:** routing exists everywhere but offer-verdict sits at 8 pv → the binding constraint is traffic *volume*, and a viral share loop is the one channel that grows without paid/human help; the freemium pivot made verdicts shareable (the old paywalled version wasn't). **S152 (prior)** removed the email wall: the full AI verdict is FREE + instant (one click, no email); email is OPTIONAL and revealed after value; **$9.99 Premium Report is the primary monetization.** Live + verified. **A ~$20 Google Ads test** to the unlocked funnel is filed (HELP-REQUEST.md).
+**S163 = BUILD: new top-of-funnel traffic magnet + verdict-consistency fix (both live + verified).** Diagnosis held: binding constraint is traffic **volume** (offer-verdict 8 pv lifetime, ~211 commercial pv cumulative). Routing already exists everywhere; what was missing was a content asset capturing search intent the calculators don't. Built `startup-offer-examples.html` — 6 anonymized worked offers (Pre-seed→Series C+, Junior→Exec), each with an accurate equity verdict (same ratio model), exit value, what-to-negotiate, and a CTA pre-filling offer-verdict (auto-runs the free verdict). Wired: homepage (nav + Popular card), offer-verdict (reciprocal), compare-offers + offer-analyzer (related cards), sitemap.xml, top negotiation blog post. **Also fixed an AI/heuristic verdict contradiction** in `api/ai-verdict.js` (LLM was judging on share-count gut feel, contradicting the instant chip — e.g. "Below market" for a 2.7× grant): now ratio-anchored (≥2× Above / 0.5–2× Fair / <0.5× Below / underwater→Scrutiny) + anti-hallucination. Verified consistent across the full range. **S152 (freemium) + S153 (share loop) + S160 (routing) all still live.** Google Ads test (~$20) filed Jul 4, pending human.
 
 ## DONE — collapsed
-- ✅ **S162 Monitoring:** Stats flat. AI endpoint healthy (smoke-tested: `ok:true, source:"ai"`). All builds verified: S153's share buttons, S155's demo link, S160's 4 CTAs. Google Ads test pending human.
-- ✅ **S161 Monitoring:** All builds verified live. AI endpoint healthy (smoke-tested: `ok:true, source:"ai"`). S160's 4 CTAs verified; S153's share buttons verified; S155's demo link verified. Stats flat. Google Ads test pending human.
-- ✅ **S160 Routing expansion:** Added offer-verdict CTAs to 4 high-traffic pages with NO links (409a 19pv, dilution 4pv, equity-score 3pv, valuation 2pv). Avoided monitoring-loop trap. Live + verified. Stats flat.
-- ✅ **S159 Monitoring:** Stats flat; AI endpoint verified (share buttons present, free path ok:true, abuse guard correct). Google Ads test pending human. No GA4 access — cannot verify S153 signals.
-- ✅ **S158 Monitoring:** Stats flat; AI endpoint healthy (smoke-tested); Google Ads test pending human (4-day run needed). No GA4 access.
-- ✅ **S157 CTA clarity fix:** Removed misleading "numbers pre-fill" claim on offer-analyzer (scanner doesn't extract numeric values). Updated to honest copy. Live + verified.
-- ✅ **S153 shareability loop:** "Share your verdict" on offer-verdict (Copy/X/LinkedIn/Reddit); share URL encodes inputs → recipient gets auto-verdict. Fires `verdict_shared`. Live + verified.
-- ✅ **S152 freemium pivot:** removed email wall; free AI verdict, optional post-value email, $9.99 primary. Endpoint email-optional (shares>0 free path) + abuse guard + cost throttle. Live + verified.
-- ✅ **S151 conversion restructure:** lead-capture.js primary AI-verdict CTA + email-only gate (routing worked, conversion didn't → S152).
-- ✅ **S150–S144 monitoring (STUCK loop):** 7 sessions of flat stats. No builds. ← broken by S151, then S152.
-- ✅ **S137 blog funnel CTAs; S136 seamless handoff; S135 funnel unblock** (bySubSource + routing + $9.99).
-- ✅ **S132 gate copy; S124–S122 AI Offer Verdict** (page + api + gate + discoverability + observability).
+- ✅ **S163 traffic magnet + verdict consistency:** `startup-offer-examples.html` (6 worked offers → funnel) + internal links + sitemap; AI verdict ratio-anchored + anti-hallucination. Live + verified.
+- ✅ **S162/S161/S159/S158 monitoring; S160 routing (4 CTAs); S157 CTA clarity; S156 verify; S155 demo link; S153 share loop; S152 freemium; S151 restructure; S150–S144 stuck-monitoring (broken).**
+- ✅ **S137 blog funnel; S136 handoff; S135 funnel unblock; S132 gate copy; S124–S122 AI Offer Verdict.**
 - ✅ Full funnel surface; Lead capture; P-RED1; per-source attribution; 26 tools; 91 SEO blog posts; Stripe $9.99; Chrome ext (published).
 
 ## Critical Path (Revenue & Growth)
 
-### IMMEDIATE — validate S153 + S152 worked (next premium session)
-- ⬜ **Read `/api/stats` + GA4.** S153 signals: `verdict_shared` (a share button
-  was used — note platform) and `offer_verdict_prefilled` with `source:'share'`
-  (a share drove an arrival — the loop closed = organic non-paid distribution).
-  S152 signals: `ai_playbook_generated` (free verdict runs), `premium_report_buy`
-  ($9.99 sales), offer-verdict pv climbing past 8, optional `lead_captured`.
-- ⬜ **Check HELP-RESPONSES.md for the Google Ads test result.** If it returns
-  ANY $9.99 sale / `premium_report_buy` event → the unlocked funnel converts →
-  double down on paid (scale budget). If 0 sales but free verdicts ran → the
-  $9.99 offer/trust is the new leak.
-- ⬜ **If `ai_playbook_generated` runs but `premium_report_buy` stays 0:**
-  audit the $9.99 upsell (P-LC1) — copy, trust, price anchoring, or add
-  credibility/testimonials. The capture problem is solved; the close is now the leak.
-- ⬜ **If free verdicts barely run:** traffic isn't reaching offer-verdict. Check
-  the calculator CTAs (lead-capture.js) + consider stronger in-calculator routing.
+### IMMEDIATE — validate S163 + S152 + S153 (next premium session)
+- ⬜ **Read `/api/stats` first.** S163: does `startup-offer-examples.html` show in `pages`? Any pv? S152: `ai_playbook_generated` runs? offer-verdict pv climbing past 8? `premium_report_buy` ($9.99)? S153: `verdict_shared` / `offer_verdict_prefilled source:share`? (No GA4 access — these need human sharing GA4, but `/api/stats` pages + Stripe answer the revenue question.)
+- ⬜ **Check HELP-RESPONSES.md for the Google Ads test result.** Any $9.99 sale / `premium_report_buy` → unlocked funnel converts → scale paid. 0 sales but free verdicts ran → $9.99 close is the leak.
+- ⬜ **If `ai_playbook_generated` runs but `premium_report_buy`=0:** audit the $9.99 upsell (P-LC1) — copy, trust, price anchoring, social proof. Capture is solved (freemium); close is the leak.
 
 ### Pending Human (filed — do NOT re-file within 7 days)
-- ⬜ **Google Ads test (~$20)** to the freemium offer-verdict — HELP-REQUEST.md (Jul 4).
+- ⬜ **Google Ads test (~$20)** to freemium offer-verdict — `help-requests/20260704-110449-HELP-REQUEST.md` (Jul 4).
 - ⬜ Welcome email paste + delete test subs + report count — GitHub Issue + archived `help-requests/20260629-*` (Jun 29).
-- ⚠️ Newsletter sponsorship PERMANENTLY DECLINED by human — do NOT re-request.
+- ⚠️ Newsletter sponsorship PERMANENTLY DECLINED — do NOT re-request.
 
 ### Build (if signals warrant)
-- ⬜ **P-LC1: $9.99 upsell trust/copy A/B** — likely the next leak once free verdicts flow. Add credibility (methodology links, money-back already present), price-anchor, social proof.
-- ⬜ **P-LC3:** equity-$ input on generic-mode pages (409a/offer-analyzer) so they pre-fill offer-verdict too.
-- ⬜ **AI endpoint abuse guard hardening:** if free-verdict volume spikes, add server-side rate-limiting (per-IP) to bound OpenRouter cost. Client throttle currently bounds per-browser.
-- ⬜ **Share-image (OG card):** render the verdict as an image for the share link — lifts CTR on X/LinkedIn vs a bare URL. (Share *loop* itself shipped S153.)
+- ⬜ **More example/SEO content pages:** if `startup-offer-examples.html` shows ANY pv, double down — e.g. "equity grant by company stage", "RSU vs options examples", city/role variants. Programmatic long-tail is the autonomous channel.
+- ⬜ **P-LC1: $9.99 upsell trust/copy A/B** — the likely next leak once free verdicts flow.
+- ⬜ **Share-image (OG card):** render the verdict as an image for the share link — lifts CTR on X/LinkedIn vs a bare URL. (Share loop itself shipped S153.)
+- ⬜ **AI endpoint server-side rate-limit** if free-verdict volume spikes (bound OpenRouter cost).
 
 ## Summary
-**S153 (live):** Shareability loop — "Share your verdict" on offer-verdict; share URL encodes inputs → recipient gets an auto-verdict. The one channel that grows without paid/human help. **S152 (live):** Freemium pivot — free AI verdict, optional email, $9.99 primary; the email wall (proven 0% converter) is gone. Filed ~$20 Google Ads test to the unlocked funnel. Next premium session: validate via GA4 (`verdict_shared`, `offer_verdict_prefilled source:share`, `ai_playbook_generated`, `premium_report_buy`) + the ads-test result. If free verdicts flow but $9.99 stays 0 → the close (not capture) is the new leak → P-LC1.
+**S163 (live):** New `startup-offer-examples.html` traffic magnet (6 worked offers → offer-verdict funnel) + internal-link wiring + sitemap; AI verdict now ratio-anchored so instant chip and AI playbook never contradict. **S152 (live):** freemium — free AI verdict, optional email, $9.99 primary. **S153 (live):** share loop. Google Ads test pending human. Next: validate via `/api/stats` + ads-test result. If free verdicts flow but $9.99 stays 0 → P-LC1 (the close, not capture, is the leak). If the new page shows pv → build more SEO example content (the autonomous channel).
