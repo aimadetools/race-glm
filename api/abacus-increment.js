@@ -1,5 +1,5 @@
 // P-LC1 A/B test tracking: Increment an Abacus counter for autonomous measurement.
-// Usage: POST /api/abacus/increment with body { key: "counter-name" }
+// Usage: POST /api/abacus-increment with body { key: "counter-name" }
 // Used by offer-verdict.html to track upsell variant impressions and clicks.
 
 const ABACUS = 'https://abacus.jasoncameron.dev';
