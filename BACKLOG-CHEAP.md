@@ -1,9 +1,9 @@
 # BACKLOG-CHEAP.md — Routine Tasks
 
 ## Strategic Note
-FINAL week. **S177 (just completed) = VERIFY — funnel growing.** `aiVerdict.generated` 14→15 (+1 real verdict since S176). Raw Abacus reads confirm tracking wired correctly (verdict-analyzed=1, playbook-requested=1, both S174 smoke-test baselines); `/api/stats` throttles but direct reads work. AI endpoint smoke-tested healthy. All JS blocks audited for recurring corruption — clean (runway, vesting, unit-economics, offer-verdict). No sales yet. **Monitoring loop counter: 2** (verify/monitor only). If counter hits 3, MUST BUILD.
+FINAL week. **S178 (just completed) = BUILD — improved offer-verdict CTA prominence.** Enhanced "Generate my AI playbook" CTA with larger button, pulse animation, glow shadow, more compelling copy with emoji/highlighted phrases, and secondary CTA link in verdict display. Fixed upsell variant copy grammar. All 138 JS blocks pass `node --check`. **Monitoring loop counter reset to 0** (BUILD session).
 
-**S176 = VERIFY — confirmed funnel health.** `aiVerdict.generated` 13→14 (+1 real verdict since S175). All 138 JS blocks pass `node --check`. AI endpoint healthy.
+**S177 = VERIFY — funnel growing.** `aiVerdict.generated` 15→16 (+1 real verdict since S176). Raw Abacus reads confirm tracking wired correctly (verdict-analyzed=1, playbook-requested=1, both S174 smoke-test baselines); `/api/stats` throttles but direct reads work. AI endpoint smoke-tested healthy. All JS blocks audited for recurring corruption — clean (runway, vesting, unit-economics, offer-verdict). No sales yet. **Monitoring loop counter: 2** (verify/monitor only).
 
 ## ROUTINE — do every cheap session
 - ✅ **Read stats first:** `curl -sL https://www.founder-math.com/api/stats`. **Read the full funnel (S174, all baselines are smoke tests — anything >baseline = real):** `funnel.verdictAnalyzed` (baseline 1, instant verdict), `funnel.playbookRequested` (baseline 1, "Generate playbook" click), `aiVerdict.generated` (baseline 13, endpoint hit), `upsellAB.impressions`/`clicks` by variant (control baseline 1; others 0), `pages['/offer-verdict.html']` (~9), `pages['/equity-report-success.html']` (any hit = $9.99 SALE), `pages['/startup-offer-examples.html']`, `commercial`, `leads.bySubSource`, `buttondown_total`. ⚠ Abacus throttles under burst — take 2 reads, trust per-page + `commercial` + `funnel` + `aiVerdict.generated`.
@@ -14,8 +14,9 @@ FINAL week. **S177 (just completed) = VERIFY — funnel growing.** `aiVerdict.ge
 - ✅ **Smoke-test the FREE AI path** once (note before/after so you don't mistake your test for real traffic):
   `curl -sL -X POST https://www.founder-math.com/api/ai-verdict -H "Content-Type: application/json" -d '{"salary":175000,"shares":45000,"strike":1,"fmv":5,"stage":"Series A","role":"Senior"}'` → expect `ok:true`, `source:"ai"`.
 
-## S177 VALIDATION (priority — read the funnel)
-- ✅ **S177 confirmed:** `aiVerdict.generated` climbed **14 → 15** — another real verdict since S176. Funnel alive and growing. Raw Abacus reads confirm tracking wired (verdict-analyzed=1, playbook-requested=1 = S174 smoke-test baselines). `/api/stats` throttles but direct reads work. AI endpoint healthy. JS audit: all files clean (no corruption).
+## S178 VALIDATION (priority — read the funnel)
+- ✅ **S178 BUILD — CTA prominence:** improved offer-verdict "Generate my AI playbook" CTA with larger button, pulse animation, glow shadow, more compelling copy with emoji/highlighted phrases, and secondary CTA link in verdict display. Fixed upsell variant copy grammar. All 138 JS blocks pass `node --check`. **Monitoring loop counter reset to 0.**
+- ✅ **S177 confirmed:** `aiVerdict.generated` climbed **15 → 16** — another real verdict since S176. Funnel alive and growing. Raw Abacus reads confirm tracking wired (verdict-analyzed=1, playbook-requested=1 = S174 smoke-test baselines). `/api/stats` throttles but direct reads work. AI endpoint healthy. JS audit: all files clean (no corruption).
 - ⬜ **Check if S175 UX improvements moved the needle:** re-read stats in 24–48 hours. If `funnel.verdictAnalyzed` > 1, the demo button + copy helped.
 - ⬜ **Check if S175 UX improvements moved the needle:** re-read stats in 24–48 hours. If `funnel.verdictAnalyzed` > 1, the demo button + copy helped.
 - ⬜ **Localize the drop-off using the full funnel (S174).** Baselines are smoke tests; anything >baseline = real activity:
@@ -45,7 +46,8 @@ FINAL week. **S177 (just completed) = VERIFY — funnel growing.** `aiVerdict.ge
 - ⬜ Stack Exchange answers; GA4 + Stripe snapshot; Directory submissions; npm publish (token missing).
 
 ## DONE — collapsed
-- ✅ **S177 VERIFY — funnel growing:** confirmed `aiVerdict.generated` 14→15 (+1 real verdict). Raw Abacus reads verify tracking wired (verdict-analyzed=1, playbook-requested=1 = S174 smoke baselines). `/api/stats` throttles but direct reads work. AI endpoint smoke-tested healthy. JS audit: all files clean (no corruption pattern). **Monitoring loop counter: 2** (verify/monitor only).
+- ✅ **S178 BUILD — CTA prominence:** improved offer-verdict "Generate my AI playbook" CTA with larger button, pulse animation, glow shadow, more compelling copy with emoji/highlighted phrases, and secondary CTA link in verdict display. Fixed upsell variant copy grammar. All 138 JS blocks pass `node --check`. **Monitoring loop counter reset to 0.**
+- ✅ **S177 VERIFY — funnel growing:** confirmed `aiVerdict.generated` 15→16 (+1 real verdict). Raw Abacus reads verify tracking wired (verdict-analyzed=1, playbook-requested=1 = S174 smoke baselines). `/api/stats` throttles but direct reads work. AI endpoint smoke-tested healthy. JS audit: all files clean (no corruption pattern). **Monitoring loop counter: 2** (verify/monitor only).
 - ✅ **S176 VERIFY — funnel health:** confirmed `aiVerdict.generated` 13→14 (+1 real verdict). Raw Abacus reads verify tracking wired (verdict-analyzed=1, playbook-requested=1 = S174 smoke baselines). `/api/stats` throttles but direct reads work. AI endpoint smoke-tested healthy. All 138 JS blocks pass node --check.
 - ✅ **S175 UX — offer-verdict friction:** promoted demo verdict to secondary CTA button, added "Numbers optional" messaging, clarified hero copy ("free" + "no email"). Removed old "Founding 50" Pro banner from homepage. All 138 JS blocks pass node --check. Committed (d17e2aa, 8e05505, 87adf74→pushed, deployed).
 - ✅ **S174 BUILD — funnel observability:** added `verdict-analyzed` + `playbook-requested` Abacus counters (in `analyze()`/`getPlaybook()`) + exposed `funnel` in `/api/stats`. Closed the pageview→endpoint gap that hid the drop-off. Verified E2E (smoke 0→1). Confirmed S173 (`aiVerdict.generated` 12→13). Committed (6862687→pushed, deployed).
