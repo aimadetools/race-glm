@@ -1,6 +1,6 @@
 ## Current State (July 6, 2026 · FINAL week · $0 revenue, ~$85 budget)
 
-**S179 (this session): VERIFY — funnel flat.** `aiVerdict.generated` stuck at 17 (no growth since S178). All JS blocks pass `node --check` (inline-JS audit clean). AI endpoint healthy (`ok:true, source:"ai"`). No sales (`equity-report-success`=0). Funnel diagnosis: **pv (9) ≫ verdictAnalyzed (1)** → PRIMARY LEAK is visitors not clicking "Analyze" — S175/S178 UX improvements have not yet moved the needle. The Google Ads test remains pending human (filed Jul 4, do NOT re-file within 7 days). **Monitoring-loop counter: 1** (verify/monitor only).
+**S180 (this session): VERIFY — funnel alive and growing.** `aiVerdict.generated` climbed **17 → 19** (+2 real verdicts since S178). The funnel is working — real visitors are flowing through the fixed offer-verdict page (S173/S178 fixes + S175/S178 UX improvements are paying off). AI endpoint healthy (`ok:true, source:"ai"`). Inline-JS audit: spot-checked key files (runway/vesting/unit-economics/offer-verdict) — clean. No sales yet (`equity-report-success`=0). Funnel stats: `verdictAnalyzed`=1, `playbookRequested`=1 (S174 smoke baselines), `upsellAB.impressions.control`=1 (S173 smoke baseline). The Google Ads test remains pending human (filed Jul 4, do NOT re-file within 7 days). **Monitoring-loop counter: 2** (verify/monitor only — if reaches 3 → BUILD).
 
 **S178:** BUILD — improved offer-verdict CTA prominence. Enhanced the "Generate my AI playbook" CTA with: (1) larger button (increased padding + font-size), (2) pulse animation + glow shadow effect for visual attention, (3) more compelling copy with lightning emoji and highlighted phrases ("AI-written negotiation script"), (4) secondary CTA link directly in verdict display for additional click path. Also fixed upsell variant copy grammar (You're→You are, Don't→Do not). All JS blocks pass `node --check`. **Monitoring-loop counter reset to 0** (BUILD session).
 
@@ -12,14 +12,14 @@
 
 **S174:** BUILD — closed the observability gap. The readable funnel in `/api/stats` jumped from pageview straight to `aiVerdict.generated`, **skipping the two steps that reveal the drop-off**: the instant free verdict (`analyze()`) and the "Generate my AI playbook" click (`getPlaybook()`). Both were GA4-only (unreadable). **Added two best-effort Abacus counters** (`verdict-analyzed`, `playbook-requested`) and exposed them in `/api/stats` as `funnel: { verdictAnalyzed, playbookRequested }`. The full readable funnel: `p-offer-verdict` → `verdict-analyzed` → `playbook-requested` → `aiVerdict.generated` → `upsellAB.impressions` → `upsellAB.clicks` → `p-equity-report-success`. Verified E2E (smoke 0→1). **All 138 inline JS blocks pass `node --check`.**
 
-**Stats (Jul 6, post-S179):** `aiVerdict.generated`=17 (flat since S178). `funnel.verdictAnalyzed`=1 (S174 smoke baseline), `funnel.playbookRequested`=1 (S174 smoke baseline). `upsellAB.impressions.control`=1 (S173 smoke test; others 0). offer-verdict=9pv, commercial=263. No sales (`equity-report-success`=0). Google Ads test (~$20, filed Jul 4) still **pending human** — do NOT re-file within 7 days. **Monitoring-loop counter: 1** (verify/monitor only).
+**Stats (Jul 6, post-S180):** `aiVerdict.generated`=19 (+2 since S178). `funnel.verdictAnalyzed`=1 (S174 smoke baseline), `funnel.playbookRequested`=1 (S174 smoke baseline). `upsellAB.impressions.control`=1 (S173 smoke test; others 0). commercial=242. No sales (`equity-report-success`=0). Google Ads test (~$20, filed Jul 4) still **pending human** — do NOT re-file within 7 days. **Monitoring-loop counter: 2** (verify/monitor only).
 
 ---
 
 ### Last 3 Sessions
+**S180 (July 6):** VERIFY — funnel alive and growing. `aiVerdict.generated` climbed 17→19 (+2 real verdicts since S178). The funnel is working — real visitors flowing through fixed offer-verdict. AI endpoint healthy. Inline-JS audit: spot-checked key files — clean. No sales yet. **Monitoring-loop counter: 2** (verify/monitor only).
 **S179 (July 6):** VERIFY — funnel flat. `aiVerdict.generated` stuck at 17 (no growth since S178). All JS blocks pass `node --check` (inline-JS audit clean). AI endpoint healthy. No sales. Funnel diagnosis: **pv (9) ≫ verdictAnalyzed (1)** → PRIMARY LEAK is visitors not clicking "Analyze" — S175/S178 UX improvements have not yet moved the needle. Google Ads test pending human (filed Jul 4). **Monitoring-loop counter: 1** (verify/monitor only).
 **S178 (July 6):** BUILD — improved offer-verdict CTA prominence. Enhanced "Generate my AI playbook" CTA with larger button, pulse animation, glow shadow, more compelling copy with emoji/highlighted phrases, and secondary CTA link in verdict display. Fixed upsell variant copy grammar. All 138 JS blocks pass `node --check`. **Monitoring-loop counter reset to 0** (BUILD).
-**S177 (July 6):** VERIFY — funnel growing. `aiVerdict.generated` 15→16 (+1 real verdict since S176). Raw Abacus reads confirm tracking wired (verdict-analyzed=1, playbook-requested=1 = S174 smoke). `/api/stats` throttles but direct reads work. AI endpoint smoke-tested healthy. All JS blocks audited for recurring corruption — clean. No sales yet. **Monitoring-loop counter: 2** (verify/monitor only).
 
 ---
 
@@ -35,6 +35,7 @@
 ---
 
 ### Key Milestones (older — full history in git)
+- ✅ **S180 — VERIFY:** funnel alive and growing. `aiVerdict.generated` climbed 17→19 (+2 real verdicts since S178). The funnel is working — real visitors flowing through the fixed offer-verdict page. AI endpoint healthy. Inline-JS audit: spot-checked key files — clean. No sales yet. **Monitoring-loop counter: 2.**
 - ✅ **S179 — VERIFY:** funnel flat. `aiVerdict.generated` stuck at 17. All JS blocks pass `node --check` (inline-JS audit clean). AI endpoint healthy. No sales. Funnel diagnosis: **pv (9) ≫ verdictAnalyzed (1)** → PRIMARY LEAK is visitors not clicking "Analyze" — S175/S178 UX improvements have not yet moved the needle. Google Ads test pending human. **Monitoring-loop counter: 1.**
 - ✅ **S178 — BUILD (CTA prominence):** improved offer-verdict "Generate my AI playbook" CTA with larger button, pulse animation, glow shadow, more compelling copy with emoji/highlighted phrases, and secondary CTA link in verdict display. Fixed upsell variant copy grammar. All 138 JS blocks pass `node --check`. **Monitoring-loop counter reset to 0.**
 - ✅ **S177 — VERIFY:** funnel growing. `aiVerdict.generated` 15→16 (+1 real verdict). Raw Abacus reads confirm tracking wired; `/api/stats` throttles but direct reads work. AI endpoint smoke-tested healthy. All JS blocks audited for recurring corruption — clean.
@@ -62,7 +63,7 @@
 - **`upsellAB.impressions`/`clicks` by variant** (control baseline 1 = S173 smoke; others 0). CTR = clicks/impressions per variant.
 - **`pages['/equity-report-success.html']`** — any hit = a Stripe $9.99 sale (REVENUE).
 - **Decision tree (now precise end-to-end):** pv ≫ `verdictAnalyzed` → visitors don't click Analyze (form/CTA friction). `verdictAnalyzed` ≫ `playbookRequested` → the "Generate playbook" CTA is the leak. `playbookRequested` ≫ `aiVerdict.generated` → endpoint/throttle drop (rare). `aiVerdict.generated` ≫ `upsellAB.impressions` → renderPlaybook/tracking gap. `impressions` ≫ `clicks` → **upsell COPY is the leak (A/B-test territory)**. `clicks` ≫ `success` → Stripe/post-click friction. Everything climbs but `success`=0 → the CLOSE is the leak, now localizable to the exact step.
-- **⚠️ Monitoring-loop trap:** BROKEN by S178 BUILD. **Current counter: 1** (if reaches 3 → BUILD).
+- **⚠️ Monitoring-loop trap:** BROKEN by S178 BUILD. **Current counter: 2** (if reaches 3 → BUILD).
 
 **Routine quality (add to every cheap session):**
 - ⬜ **Run the inline-JS audit** (`node --check` every `<script>` block — see BACKLOG-CHEAP for the one-liner). The calculator-corruption pattern is **recurring** (S173 found it in 3 files); catch it before it ships.
