@@ -87,15 +87,20 @@
         .ratio-big { font-size: clamp(1.6rem,5vw,2.4rem); font-weight: 800; font-family: var(--font-mono); margin: 6px 0; background: linear-gradient(135deg, var(--accent-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
         /* Email gate → AI playbook */
-        .gate { background: linear-gradient(135deg, rgba(0,184,148,0.10), rgba(0,206,201,0.06)); border: 2px solid var(--green); border-radius: 16px; padding: 28px; margin-bottom: 24px; }
-        .gate h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
-        .gate p.kicker { color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 16px; }
-        .gate form { display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch; }
+        .gate { background: linear-gradient(135deg, rgba(0,184,148,0.10), rgba(0,206,201,0.06)); border: 2px solid var(--green); border-radius: 16px; padding: 28px; margin-bottom: 24px; position: relative; overflow: hidden; }
+        .gate::before { content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%); animation: pulse 4s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.05); } }
+        .gate h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 8px; position: relative; }
+        .gate p.kicker { color: var(--text-secondary); font-size: 0.94rem; margin-bottom: 18px; line-height: 1.6; position: relative; }
+        .gate .cta-highlight { color: var(--green); font-weight: 700; }
+        .gate form { display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch; position: relative; }
         .gate input[type=email] { flex: 1 1 220px; min-width: 180px; padding: 13px 15px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-input); color: var(--text-primary); font-size: 0.98rem; font-family: inherit; }
         .gate input[type=email]:focus { outline: none; border-color: var(--green); }
-        .gate button { flex: 0 0 auto; padding: 13px 26px; border: none; border-radius: 10px; background: linear-gradient(135deg, #10b981, #059669); color: #fff; font-weight: 700; font-size: 0.98rem; cursor: pointer; font-family: inherit; }
-        .gate button:disabled { opacity: 0.6; cursor: wait; }
-        .gate .fineprint { margin: 12px 0 0; color: var(--text-muted); font-size: 0.76rem; }
+        .gate button { flex: 0 0 auto; padding: 15px 32px; border: none; border-radius: 10px; background: linear-gradient(135deg, #10b981, #059669); color: #fff; font-weight: 700; font-size: 1.05rem; cursor: pointer; font-family: inherit; box-shadow: 0 4px 20px rgba(16,185,129,0.3); transition: all 0.2s ease; }
+        .gate button:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16,185,129,0.4); }
+        .gate button:active { transform: translateY(0); }
+        .gate button:disabled { opacity: 0.6; cursor: wait; transform: none; box-shadow: none; }
+        .gate .fineprint { margin: 12px 0 0; color: var(--text-muted); font-size: 0.76rem; position: relative; }
         .gate .err { color: var(--orange); font-size: 0.84rem; margin: 10px 0 0; display: none; }
 
         /* Playbook reveal */
@@ -220,6 +225,7 @@
             <div class="chip" id="vChip"></div>
             <div class="ratio-big" id="vRatio"></div>
             <p class="take" id="vTake"></p>
+            <p style="margin-top:16px;font-size:0.88rem;"><a href="#aiCta" onclick="getPlaybook();return false;" style="color:var(--green);font-weight:700;text-decoration:none;border-bottom:1px dashed var(--green);">&#8594; Get your AI negotiation script (10 seconds, free)</a></p>
         </div>
 
         <!-- S152 FREEMIUM: free AI playbook (no email wall) → optional email capture.
@@ -228,12 +234,12 @@
              FREE and instantly; email is optional ("email me this") AFTER the value
              is shown. The $9.99 Premium Report below is the primary monetization. -->
         <div class="gate" id="aiCta">
-            <h3>Get your <span style="color:var(--green);">personalized AI negotiation playbook</span></h3>
-            <p class="kicker">A real AI reads your exact numbers and writes the strengths, the red flags to negotiate, and a copy-paste counter-offer to send the recruiter. Free &mdash; about 10 seconds, no signup.</p>
-            <div class="center" style="margin-top:10px;">
-                <button type="button" class="btn" id="aiBtn" onclick="getPlaybook()">&#129302; Generate my AI playbook &mdash; free &rarr;</button>
+            <h3><span class="cta-highlight">&#9889;</span> Get your <span style="color:var(--green);">personalized AI negotiation playbook</span></h3>
+            <p class="kicker">In 10 seconds, get a <span class="cta-highlight">real AI-written negotiation script</span> tailored to your exact offer — the strengths to emphasize, the red flags to fix, and the exact counter-offer to send the recruiter. <strong style="color:var(--text-primary,#fff);">Free, no signup, no email required.</strong></p>
+            <div class="center" style="margin-top:16px;">
+                <button type="button" class="btn" id="aiBtn" onclick="getPlaybook()" style="font-size:1.1rem;padding:16px 36px;">&#129302; Generate my AI playbook &mdash; free &rarr;</button>
             </div>
-            <p class="fineprint">No email needed. Your numbers stay in your browser &mdash; nothing is stored. Methodology grounded in our <a href="equity-benchmarks.html">stage-by-stage equity benchmarks</a>.</p>
+            <p class="fineprint">Your numbers stay in your browser — nothing is stored. Methodology grounded in our <a href="equity-benchmarks.html" style="color:var(--accent-light);">stage-by-stage equity benchmarks</a>.</p>
         </div>
 
         <!-- AI playbook reveal -->
@@ -555,15 +561,15 @@ function escapeTxt(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
     // Variant copy (backtick strings — apostrophes/quotes need no escaping).
     var headline = {
         control: `<strong>Don't sign until you see the full math</strong>`,
-        social: `<strong>Join 500+ candidates who made an informed decision</strong>`,
+        social: `<strong>Join 500+ candidates who negotiated with confidence</strong>`,
         urgency: `<strong>Decide in 10 minutes or risk leaving $50K on the table</strong>`,
         value: `<strong>A lawyer charges $200&ndash;500/hour. This report costs $9.99 once.</strong>`
     };
     var lede = {
-        control: `The AI verdict gave you the read. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> gives you the numbers &mdash; exactly what your grant is worth at 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk. You're negotiating a grant worth <strong>potentially tens of thousands</strong>. The report that shows you what you're signing costs <strong>$9.99 once</strong>. No subscription.`,
-        social: `The AI verdict gave you the market read. Now get the full picture. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> shows exactly what your grant is worth at 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk. Don't sign on a gut feeling. Get the complete analysis for <strong>$9.99 once</strong>. No subscription.`,
-        urgency: `You have one chance to negotiate. Once you sign, it's too late. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> gives you the complete picture in 60 seconds: 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk. Don't risk leaving money on the table. Get the full analysis for <strong>$9.99 once</strong>. Decide before you sign.`,
-        value: `A lawyer charges <strong>$200&ndash;500/hour</strong> to review your offer. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> shows exactly what your grant is worth at 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk &mdash; the same complete analysis for <strong>$9.99 once</strong>. No subscription, no hourly fees.`
+        control: `The AI verdict gave you the read. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> gives you the numbers — exactly what your grant is worth at 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk. You are negotiating a grant worth <strong>potentially tens of thousands</strong>. The report that shows you what you are signing costs <strong>$9.99 once</strong>. No subscription.`,
+        social: `The AI verdict gave you the market read. Now get the full picture. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> shows exactly what your grant is worth at 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk. Do not sign on a gut feeling. Get the complete analysis for <strong>$9.99 once</strong>. No subscription.`,
+        urgency: `You have one chance to negotiate. Once you sign, it is too late. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> gives you the complete picture in 60 seconds: 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk. Do not risk leaving money on the table. Get the full analysis for <strong>$9.99 once</strong>. Decide before you sign.`,
+        value: `A lawyer charges <strong>$200&ndash;500/hour</strong> to review your offer. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> shows exactly what your grant is worth at 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk — the same complete analysis for <strong>$9.99 once</strong>. No subscription, no hourly fees.`
     };
     var bullets = [
         `<li><strong>4 exit scenarios</strong> &mdash; downside, base, upside, moonshot</li>`,
