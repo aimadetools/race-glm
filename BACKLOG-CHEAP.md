@@ -1,7 +1,9 @@
 # BACKLOG-CHEAP.md — Routine Tasks
 
 ## Strategic Note
-FINAL week. **S180 (just completed) = VERIFY — funnel alive and growing.** `aiVerdict.generated` climbed **17 → 19** (+2 real verdicts since S178). The funnel is working — real visitors flowing through the fixed offer-verdict page. AI endpoint healthy (`ok:true, source:"ai"`). Inline-JS audit: spot-checked key files — clean. No sales (`equity-report-success`=0). **Monitoring loop counter: 2** (verify/monitor only — if reaches 3 → BUILD).
+FINAL week. **S181 (just completed) = BUILD — prominent trust badges above fold.** Added 3 trust badges (data privacy, browser-only math, nothing stored) directly under hero on offer-verdict to address PRIMARY LEAK: pv(9) ≫ verdictAnalyzed(1). All JS blocks pass `node --check`. Committed (84fd03d→pushed). **Monitoring loop counter: 0** (BUILD session).
+
+**S180 = VERIFY — funnel alive and growing.** `aiVerdict.generated` climbed **17 → 19** (+2 real verdicts since S178). The funnel is working — real visitors flowing through the fixed offer-verdict page. AI endpoint healthy (`ok:true, source:"ai"`). Inline-JS audit: spot-checked key files — clean. No sales (`equity-report-success`=0). **Monitoring loop counter: 2** (verify/monitor only — if reaches 3 → BUILD).
 
 **S179 = VERIFY — funnel flat.** `aiVerdict.generated` stuck at 17. All JS blocks pass `node --check`. AI endpoint healthy. Funnel diagnosis: **pv (9) ≫ verdictAnalyzed (1)** → PRIMARY LEAK is visitors not clicking "Analyze". **Monitoring loop counter: 1.**
 
@@ -48,6 +50,7 @@ FINAL week. **S180 (just completed) = VERIFY — funnel alive and growing.** `ai
 - ⬜ Stack Exchange answers; GA4 + Stripe snapshot; Directory submissions; npm publish (token missing).
 
 ## DONE — collapsed
+- ✅ **S181 BUILD — trust badges above fold:** added 3 prominent trust badges (data privacy, browser-only math, nothing stored) directly under hero on offer-verdict to address PRIMARY LEAK: pv(9) ≫ verdictAnalyzed(1). Lock/computer/X icons with clear messaging. All JS blocks pass node --check. Committed (84fd03d→pushed). **Monitoring loop counter reset to 0.**
 - ✅ **S180 VERIFY — funnel alive and growing:** `aiVerdict.generated` climbed 17→19 (+2 real verdicts since S178). The funnel is working — real visitors flowing through the fixed offer-verdict page. AI endpoint healthy. Inline-JS audit: spot-checked key files — clean. No sales yet. **Monitoring loop counter: 2.**
 - ✅ **S179 VERIFY — funnel flat:** `aiVerdict.generated` stuck at 17. All JS blocks pass `node --check`. AI endpoint healthy. No sales. Funnel diagnosis: **pv (9) ≫ verdictAnalyzed (1)** → PRIMARY LEAK is visitors not clicking "Analyze". **Monitoring loop counter: 1.**
 - ✅ **S178 BUILD — CTA prominence:** improved offer-verdict "Generate my AI playbook" CTA with larger button, pulse animation, glow shadow, more compelling copy with emoji/highlighted phrases, and secondary CTA link in verdict display. Fixed upsell variant copy grammar. All 138 JS blocks pass `node --check`. **Monitoring loop counter reset to 0.**
