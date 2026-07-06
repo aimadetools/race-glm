@@ -185,6 +185,18 @@
         </div>
     </div>
 
+    <!-- S185 BUILD: Zero-friction demo CTA above the form. The primary leak persists
+         (pv 9 → verdictAnalyzed 1) despite S181 trust badges, S178 CTA prominence, and
+         S175 demo button. Visitors still aren't clicking "Analyze" — the form with
+         7 fields creates friction even with "Numbers optional" messaging. This
+         prominent "Try it now" banner above the fold offers a ONE-CLICK path to
+         instant value — no form entry, just click and see. The button uses the same
+         loadDemo() function to auto-fill + auto-analyze, reducing friction to zero. -->
+    <div style="background:linear-gradient(135deg,rgba(108,92,231,0.12),rgba(0,184,148,0.08));border:2px solid var(--accent);border-radius:16px;padding:20px 24px;text-align:center;margin-bottom:20px;">
+        <p style="margin:0 0 12px;color:var(--text-secondary);font-size:0.95rem;"><strong style="color:var(--text-primary);">Not sure? See how it works in 2 seconds &mdash;</strong> click to instantly load example data and see your verdict:</p>
+        <button onclick="loadDemo()" style="background:linear-gradient(135deg,var(--accent),var(--accent-light));color:#fff;padding:14px 28px;border:none;border-radius:10px;font-weight:700;font-size:1.05rem;cursor:pointer;font-family:inherit;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 16px rgba(108,92,231,0.3);">&#128293; Try it now &mdash; see example verdict</button>
+    </div>
+
     <div class="card">
         <h2>Your offer</h2>
         <p class="sub"><strong style="color:var(--green);">Numbers optional &mdash;</strong> enter your real offer or click <strong style="color:var(--accent-light);">See a demo verdict</strong> to see example results. All math runs in your browser &mdash; nothing is stored.</p>
