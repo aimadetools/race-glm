@@ -95,6 +95,27 @@ export default async function handler(req, res) {
       }));
       return results;
     })();
+    // S174 — full-funnel observability. The readable funnel previously jumped
+    // from pageview → aiVerdict.generated (the endpoint hit), skipping the two
+    // steps that reveal the actual drop-off: the instant free verdict (analyze)
+    // and the "Generate playbook" click (purchase intent). Both were GA4-only
+    // (unreadable), so "where's the leak?" was guesswork. These counters (fired
+    // by trackAbacus in offer-verdict.html) fill the gap. Read concurrently here
+    // because Abacus starves late reads. Full readable funnel:
+    //   p-offer-verdict → verdict-analyzed → playbook-requested
+    //     → aiVerdict.generated → upsellAB.impressions → upsellAB.clicks
+    //     → p-equity-report-success (sale)
+    const funnelP = (async () => {
+      const keys = { verdictAnalyzed: 'verdict-analyzed', playbookRequested: 'playbook-requested' };
+      const out = {};
+      await Promise.all(Object.entries(keys).map(async ([k, abacusKey]) => {
+        try {
+          const r = await fetch(`${ABACUS}/get/${NS}/${abacusKey}`);
+          out[k] = (await r.json()).value || 0;
+        } catch (e) { out[k] = 0; }
+      }));
+      return out;
+    })();
     // Fetch commercial pages
     const commercialEntries = await Promise.all(Object.entries(PAGES).map(async ([path, key]) => {
       try {
@@ -175,6 +196,7 @@ export default async function handler(req, res) {
     const aiVerdictGenerated = await aiVerdictGenP; // S164 — see early-concurrent note above
     const upsellVariant = await upsellVariantP; // P-LC1 A/B test impressions
     const upsellClick = await upsellClickP; // P-LC1 A/B test clicks
+    const funnel = await funnelP; // S174 — top-of-funnel steps (verdict + playbook)
     const commercialPages = Object.fromEntries(commercialEntries);
     const blogPages = Object.fromEntries(blogEntries);
     const commercial = Object.values(commercialPages).reduce((a, b) => a + (b || 0), 0);
@@ -190,6 +212,7 @@ export default async function handler(req, res) {
       total, pages, sections, leads,
       aiVerdict: { generated: aiVerdictGenerated },
       upsellAB: { impressions: upsellVariant, clicks: upsellClick },
+      funnel, // S174 — { verdictAnalyzed, playbookRequested }
     });
   } catch (e) {
     return res.status(500).json({ error: 'stats unavailable' });

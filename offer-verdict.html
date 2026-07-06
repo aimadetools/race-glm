@@ -301,6 +301,25 @@ function num(id, dflt) { var v = parseFloat(document.getElementById(id).value); 
 function money(n) { n = Math.max(0, Math.round(n||0)); if (n>=1e9) return '$'+(n/1e9).toFixed(1)+'B'; if (n>=1e6) return '$'+(n/1e6).toFixed(2)+'M'; return '$'+n.toLocaleString(); }
 function ratioTxt(r) { return (Math.round(r*10)/10)+'×'; }
 
+// S174 — full-funnel observability. The readable funnel in /api/stats jumped
+// from pageview → aiVerdict.generated (endpoint hit), skipping the two steps
+// that actually reveal the drop-off: the instant free verdict (analyze) and the
+// "Generate playbook" click (purchase intent). Both were GA4-only (unreadable),
+// so every session's "where's the leak?" was guesswork. These best-effort Abacus
+// counters (same sendBeacon pattern as the upsell IIFE) close the gap:
+//   pv → verdict-analyzed → playbook-requested → aiVerdict.generated
+//        → upsellAB.impressions → upsellAB.clicks → p-equity-report-success
+// Never blocks/throws — telemetry must not break the page.
+function trackAbacus(key) {
+    var body = JSON.stringify({ key: key });
+    try {
+        if (navigator.sendBeacon) navigator.sendBeacon('/api/abacus-increment', new Blob([body], { type: 'application/json' }));
+        else fetch('/api/abacus-increment', { method: 'POST', body: body, headers: { 'Content-Type': 'application/json' }, keepalive: true }).catch(function () {});
+    } catch (e) {
+        try { fetch('/api/abacus-increment', { method: 'POST', body: body, headers: { 'Content-Type': 'application/json' }, keepalive: true }).catch(function () {}); } catch (e2) {}
+    }
+}
+
 // Demo mode — load example values and auto-analyze so visitors see value immediately.
 function loadDemo() {
     document.getElementById('role').selectedIndex = 2; // Senior
@@ -344,6 +363,7 @@ function analyze() {
     }
 
     document.getElementById('instant').style.display = 'block';
+    trackAbacus('verdict-analyzed'); // S174 — top of the readable funnel
     // Stash the computed verdict so the client-side fallback can render a useful
     // playbook even if the LLM call is throttled or fails (visitor always wins).
     window._lastVerdict = { market: label, ratio: ratio, exitValue: exitValue, underwater: underwater };
@@ -363,6 +383,7 @@ function analyze() {
 function getPlaybook() {
     var shares = num('shares');
     if (shares <= 0) { alert('Enter the number of options you were granted first.'); return; }
+    trackAbacus('playbook-requested'); // S174 — purchase-intent step (fires before throttle)
 
     // Per-browser daily throttle (bounds cost): a few LLM calls/day is more than
     // any real visitor needs; beyond that we serve the client-side fallback.
