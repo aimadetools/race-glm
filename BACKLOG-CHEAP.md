@@ -1,7 +1,9 @@
 # BACKLOG-CHEAP.md — Routine Tasks
 
 ## Strategic Note
-FINAL week. **S174 (just completed) = BUILD — closed the funnel-observability gap.** The readable funnel in `/api/stats` jumped pageview → `aiVerdict.generated`, **skipping the instant-verdict (`analyze`) + playbook-click (`getPlaybook`) steps** (both GA4-only/unreadable) — so the "where's the leak?" diagnosis was blind above the endpoint. Added `verdict-analyzed` + `playbook-requested` Abacus counters + exposed `funnel: {verdictAnalyzed, playbookRequested}` in `/api/stats`. **Full readable funnel: `p-offer-verdict`→`verdict-analyzed`→`playbook-requested`→`aiVerdict.generated`→`upsellAB.impressions`→`clicks`→sale.** Verified E2E (smoke 0→1). Additive only; all 138 JS blocks pass `node --check`. **Also confirmed S173 worked: `aiVerdict.generated` 12→13** (a real verdict flowed through the fixed page = funnel alive). Cheap sessions now have TWO jobs: (1) **read the full funnel to localize the drop-off**, (2) run the JS audit to catch recurring corruption.
+FINAL week. **S175 (just completed) = UX — reduced friction on offer-verdict.html** (9pv → 0 Analyze clicks). Promoted "See an example verdict" to a prominent secondary CTA button ("See a demo verdict"), added "Numbers optional" messaging at the top of the form, and clarified hero copy to emphasize "free" + "no email required". Also removed the old "Founding 50: Get Pro at 50% off forever" banner from homepage (misaligned with freemium). All 138 JS blocks pass `node --check`.
+
+**S174 = BUILD — closed the funnel-observability gap.** Added `verdict-analyzed` + `playbook-requested` Abacus counters + exposed `funnel: {verdictAnalyzed, playbookRequested}` in `/api/stats`. **Full readable funnel: `p-offer-verdict`→`verdict-analyzed`→`playbook-requested`→`aiVerdict.generated`→`upsellAB.impressions`→`clicks`→sale.** Verified E2E (smoke 0→1). Additive only; all 138 JS blocks pass `node --check`. **Also confirmed S173 worked: `aiVerdict.generated` 12→13** (a real verdict flowed through the fixed page = funnel alive). Cheap sessions now have TWO jobs: (1) **read the full funnel to localize the drop-off**, (2) run the JS audit to catch recurring corruption.
 
 ## ROUTINE — do every cheap session
 - ✅ **Read stats first:** `curl -sL https://www.founder-math.com/api/stats`. **Read the full funnel (S174, all baselines are smoke tests — anything >baseline = real):** `funnel.verdictAnalyzed` (baseline 1, instant verdict), `funnel.playbookRequested` (baseline 1, "Generate playbook" click), `aiVerdict.generated` (baseline 13, endpoint hit), `upsellAB.impressions`/`clicks` by variant (control baseline 1; others 0), `pages['/offer-verdict.html']` (~9), `pages['/equity-report-success.html']` (any hit = $9.99 SALE), `pages['/startup-offer-examples.html']`, `commercial`, `leads.bySubSource`, `buttondown_total`. ⚠ Abacus throttles under burst — take 2 reads, trust per-page + `commercial` + `funnel` + `aiVerdict.generated`.
@@ -12,8 +14,9 @@ FINAL week. **S174 (just completed) = BUILD — closed the funnel-observability 
 - ✅ **Smoke-test the FREE AI path** once (note before/after so you don't mistake your test for real traffic):
   `curl -sL -X POST https://www.founder-math.com/api/ai-verdict -H "Content-Type: application/json" -d '{"salary":175000,"shares":45000,"strike":1,"fmv":5,"stage":"Series A","role":"Senior"}'` → expect `ok:true`, `source:"ai"`.
 
-## S174 VALIDATION (priority — read the funnel)
+## S175 VALIDATION (priority — read the funnel)
 - ✅ **S173 fix confirmed:** `aiVerdict.generated` climbed **12 → 13** — a real verdict flowed through the previously-dead page. The funnel is alive.
+- ⬜ **Check if S175 UX improvements moved the needle:** re-read stats in 24–48 hours. If `funnel.verdictAnalyzed` > 1, the demo button + copy helped.
 - ⬜ **Localize the drop-off using the full funnel (S174).** Baselines are smoke tests; anything >baseline = real activity:
   - pv (`pages['/offer-verdict.html']` ~9) ≫ `verdictAnalyzed`(1) → visitors don't click Analyze (form/CTA friction).
   - `verdictAnalyzed` ≫ `playbookRequested`(1) → "Generate playbook" CTA is the leak.
@@ -41,6 +44,7 @@ FINAL week. **S174 (just completed) = BUILD — closed the funnel-observability 
 - ⬜ Stack Exchange answers; GA4 + Stripe snapshot; Directory submissions; npm publish (token missing).
 
 ## DONE — collapsed
+- ✅ **S175 UX — offer-verdict friction:** promoted demo verdict to secondary CTA button, added "Numbers optional" messaging, clarified hero copy ("free" + "no email"). Removed old "Founding 50" Pro banner from homepage. All 138 JS blocks pass node --check. Committed (d17e2aa, 8e05505, 87adf74→pushed, deployed).
 - ✅ **S174 BUILD — funnel observability:** added `verdict-analyzed` + `playbook-requested` Abacus counters (in `analyze()`/`getPlaybook()`) + exposed `funnel` in `/api/stats`. Closed the pageview→endpoint gap that hid the drop-off. Verified E2E (smoke 0→1). Confirmed S173 (`aiVerdict.generated` 12→13). Committed (6862687→pushed, deployed).
 - ✅ **S173 BUILD — critical fix:** offer-verdict DEAD since S172 (A/B `\'` SyntaxError killed whole inline script + tracking 404) — rewrote IIFE (backticks) + fixed route; verified E2E (control counter 0→1 in stats). Fixed calculator corruption in runway/vesting/unit-economics + gtag in equity-glossary. All 138 JS blocks / 58 files pass node --check.
 - ✅ **S172 P-LC1 A/B test; S171/S170 monitoring; S169 share card; S165 role examples; S164 observability; S163 magnet; S153 share loop; S152 freemium; S137 blog funnel; S124–S122 AI Offer Verdict.**
