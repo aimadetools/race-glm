@@ -159,7 +159,7 @@
 
     <div class="card">
         <h2>Your offer</h2>
-        <p class="sub">Found in your offer letter or equity agreement. All math runs in your browser &mdash; nothing is stored.</p>
+        <p class="sub"><strong style="color:var(--green);">Numbers optional &mdash;</strong> enter your real offer or click <strong style="color:var(--accent-light);">See a demo verdict</strong> to see example results. All math runs in your browser &mdash; nothing is stored.</p>
         <div class="grid">
             <div class="field">
                 <label for="role">Your level</label>
@@ -207,8 +207,9 @@
         </div>
         <div class="center" style="margin-top:24px;">
             <button class="btn" onclick="analyze()">Analyze my offer &rarr;</button>
-            <p style="margin-top:12px;font-size:0.85rem;color:var(--text-secondary,#a0a0b5);">
-                Not sure? <a href="#" onclick="loadDemo();return false;" style="color:var(--green,#10b981);font-weight:600;text-decoration:underline;">See an example verdict</a> (demo numbers)
+            <button class="btn" onclick="loadDemo()" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);margin-left:10px;font-weight:600;">See a demo verdict</button>
+            <p style="margin-top:12px;font-size:0.85rem;color:var(--text-muted,#666680);">
+                Numbers optional &mdash; click <strong style="color:var(--text-secondary);">See a demo verdict</strong> to see how it works with example data.
             </p>
         </div>
     </div>
