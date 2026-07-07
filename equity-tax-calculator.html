@@ -621,15 +621,13 @@
     <p><strong>Tax Disclaimer:</strong> This calculator provides estimates for educational purposes only. Tax laws are complex and change frequently. These calculations use simplified assumptions (2025 federal tax brackets, standard deduction, no state tax). Your actual tax liability depends on many factors including state taxes, other income, deductions, and IRS rule changes. Always consult a qualified tax professional (CPA or tax attorney) before making exercise or 83(b) election decisions. FounderMath is not a tax advisor.</p>
 </div>
 
-<!-- Pro Upsell Banner -->
-<div class="pro-upsell-banner">
-    <div class="urgency-tag">Limited Time Offer</div>
-    <h3>Master Your Equity & Tax Strategy</h3>
-    <p>Upgrade to FounderMath Pro and unlock 25+ tools including dilution modeling, SAFE conversion, vesting scenarios, and exit planning. Save unlimited scenarios and export investor-ready PDFs.</p>
-    <div class="spots-remaining" id="proSpotsRemaining">Founding 50 — limited spots</div>
-    <div class="spots-label">Founding 50 — 50% off Pro forever ($9.50/mo instead of $19/mo)</div>
-    <a href="https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06?prefilled_promo_code=FOUNDING50&utm_source=founder-math&utm_medium=equity_tax&utm_campaign=founding50" class="btn-pro" onclick="if(typeof gtag==='function')gtag('event','pro_click',{source:'equity_tax'})">Lock in 50% Off Pro Forever &rarr;</a>
-    <div style="margin-top:12px;font-size:0.85rem;color:var(--text-secondary);">Or get a <a href="equity-report-premium.html" style="color:var(--accent);text-decoration:underline;font-weight:600;">professional equity report — $9.99 one-time</a></div>
+<!-- Funnel CTA (S187): replaced the dead "FounderMath Pro" subscription banner with the
+     live $9.99 one-time equity report + free-tools cross-sell. -->
+<div class="cta-banner" style="background:linear-gradient(135deg,rgba(16,185,129,0.10),rgba(108,92,231,0.06));border:1px solid var(--green);">
+    <h3 style="color:var(--green);">See Your Full Equity Picture</h3>
+    <p>Get a professional equity report with visual charts, personalized recommendations, and an investor-ready PDF — covering dilution, vesting, and exit scenarios. $9.99 one-time, no subscription.</p>
+    <a href="equity-report.html" class="btn-primary" style="background:var(--green);" onclick="if(typeof gtag==='function')gtag('event','cta_click',{source:'equity_tax',target:'equity_report'})">Get My Equity Report — $9.99 &rarr;</a>
+    <div style="margin-top:12px;font-size:0.85rem;color:var(--text-secondary);">Or <a href="free-startup-tools.html" style="color:var(--accent);text-decoration:underline;font-weight:600;">explore all free calculators</a></div>
 </div>
 
 
@@ -1015,12 +1013,6 @@ document.addEventListener('keydown', function(e) {
         }
     }
 });
-
-// Honest Founding 50 urgency (no fabricated "claimed" count)
-setTimeout(function() {
-    const spotsEl = document.getElementById('proSpotsRemaining');
-    if (spotsEl) spotsEl.textContent = 'Founding 50 — limited spots';
-}, 500);
 </script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script>
 </body>

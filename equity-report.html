@@ -44,7 +44,7 @@
                 "name": "What's the difference between the $9.99 one-time report and Pro?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "The $9.99 one-time purchase gives you a single professional equity report with PDF download. Pro ($9.50/mo with FOUNDING50) gives you unlimited PDF reports across all 25 tools, scenario saving, and side-by-side comparisons. Choose Pro if you're actively fundraising and modeling multiple scenarios."
+                    "text": "A one-time $9.99 payment unlocks your full professional equity dilution report — visual charts, personalized recommendations, cap-table health score, negotiation talking points, and an investor-ready PDF download. No subscription, no recurring charges, lifetime access to this report."
                 }
             },
             {
@@ -1089,7 +1089,6 @@
                         <button type="submit" class="paywall-cta" style="border:none;cursor:pointer;width:100%;font-family:var(--font-sans);background:var(--accent);color:white;">Unlock Dilution Chart — Free</button>
                     </form>
                     <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">Unlocks your dilution chart + weekly insights (unsubscribe anytime). Recommendations &amp; PDF need the $9.99 report.</p>
-                    <a href="pricing.html" class="paywall-alt" style="margin-top:8px;display:block;text-align:center;" onclick="if(typeof gtag==='function')gtag('event','paywall_click',{source:'equity_report',action:'pro',variant:'control'})">Or get unlimited reports with Pro — $9.50/mo &rarr;</a>
                 </div>
 
                 <!-- VARIANT B: Social Proof -->
@@ -1133,7 +1132,6 @@
                         <button type="submit" class="paywall-cta" style="border:none;cursor:pointer;width:100%;font-family:var(--font-sans);background:var(--accent);color:white;">Unlock My Dilution Chart — Free</button>
                     </form>
                     <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">Unlocks your dilution chart + weekly insights (unsubscribe anytime). Recommendations &amp; PDF need the $9.99 report.</p>
-                    <a href="pricing.html" class="paywall-alt" style="margin-top:8px;display:block;text-align:center;" onclick="if(typeof gtag==='function')gtag('event','paywall_click',{source:'equity_report',action:'pro',variant:'b'})">Or get unlimited reports with Pro — $9.50/mo &rarr;</a>
                 </div>
 
                 <!-- VARIANT C: Urgency -->
@@ -1177,7 +1175,6 @@
                         <button type="submit" class="paywall-cta" style="border:none;cursor:pointer;width:100%;font-family:var(--font-sans);">See My Dilution Chart — Free</button>
                     </form>
                     <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">Unlocks your dilution chart + weekly insights (unsubscribe anytime). Recommendations &amp; PDF need the $9.99 report.</p>
-                    <a href="pricing.html" class="paywall-alt" style="margin-top:8px;display:block;text-align:center;" onclick="if(typeof gtag==='function')gtag('event','paywall_click',{source:'equity_report',action:'pro',variant:'c'})">Or get unlimited reports with Pro — $9.50/mo &rarr;</a>
                 </div>
 
                 <!-- VARIANT D: Value-Focused -->
@@ -1221,7 +1218,6 @@
                         <button type="submit" class="paywall-cta" style="border:none;cursor:pointer;width:100%;font-family:var(--font-sans);background:var(--accent);color:white;">Unlock Chart Free with Email</button>
                     </form>
                     <p class="paywall-alt" style="font-size:0.75rem;text-align:center;">Unlocks your dilution chart + weekly insights (unsubscribe anytime). Recommendations &amp; PDF need the $9.99 report.</p>
-                    <a href="pricing.html" class="paywall-alt" style="margin-top:8px;display:block;text-align:center;" onclick="if(typeof gtag==='function')gtag('event','paywall_click',{source:'equity_report',action:'pro',variant:'d'})">Need unlimited reports? Try Pro — $9.50/mo &rarr;</a>
                 </div>
 
                 <!-- Variant selector script -->
@@ -1309,29 +1305,13 @@
             </div>
         </div>
 
-        <!-- Pro CTA -->
-        <div class="pro-cta">
-            <h3>Want unlimited reports + scenario comparison?</h3>
-            <p>Get FounderMath Pro for unlimited PDF reports across all 25+ tools, side-by-side scenario comparison, and multi-round simulation.</p>
-            <div class="features-list">
-                <span class="feat">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-                    Unlimited PDF reports
-                </span>
-                <span class="feat">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-                    Side-by-side comparison
-                </span>
-                <span class="feat">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-                    Multi-round simulation
-                </span>
-                <span class="feat">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-                    Save unlimited scenarios
-                </span>
-            </div>
-            <a href="https://buy.stripe.com/8x26oH3Gw4KW2ZY0xNeEo06?prefilled_promo_code=FOUNDING50&utm_source=founder-math&utm_medium=report&utm_campaign=pro_upgrade" class="cta-btn" onclick="if(typeof gtag==='function')gtag('event','pricing_click',{tier:'pro',source:'equity_report'})">Upgrade to Pro — $9.50/mo (Founding 50)</a>
+        <!-- Funnel CTA (S187): replaced the dead "Upgrade to Pro" subscription pitch with a
+             cross-sell to the free toolkit. The $9.99 one-time report is the only paid offer
+             on this page; no competing subscription dead-end. -->
+        <div class="cta-banner" style="background:linear-gradient(135deg,rgba(16,185,129,0.10),rgba(108,92,231,0.06));border:1px solid var(--green);text-align:center;padding:28px;border-radius:12px;">
+            <h3 style="color:var(--green);">Want the full picture?</h3>
+            <p>Model funding-round dilution, stack SAFE notes, and project your runway — all free, no signup.</p>
+            <a href="free-startup-tools.html" style="display:inline-block;background:var(--green);color:#fff;font-size:0.95rem;font-weight:700;padding:12px 28px;border-radius:8px;text-decoration:none;" onclick="if(typeof gtag==='function')gtag('event','cta_click',{source:'equity_report',target:'free_tools'})">Explore all free calculators &rarr;</a>
         </div>
 
         <!-- Share -->
@@ -1353,8 +1333,8 @@
         <h2 style="font-size:1.8rem;font-weight:800;text-align:center;margin-bottom:32px;letter-spacing:-0.03em;">Frequently Asked Questions</h2>
         <div style="max-width:700px;margin:0 auto;display:grid;gap:20px;">
             <div class="faq-item" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;" onclick="this.classList.toggle('open')">
-                <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">What's the difference between $9.99 one-time and Pro? <span style="color:var(--accent);">+</span></h3>
-                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0;display:none;">The $9.99 one-time purchase gives you a single professional equity report with PDF download. Pro ($9.50/mo with FOUNDING50) gives you unlimited PDF reports across all 25 tools, scenario saving, and side-by-side comparisons. Choose Pro if you're actively fundraising and modeling multiple scenarios.</p>
+                <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">What do I get for $9.99? <span style="color:var(--accent);">+</span></h3>
+                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0;display:none;">A one-time $9.99 payment unlocks your full professional equity dilution report — visual charts, personalized recommendations, cap-table health score, negotiation talking points, and an investor-ready PDF download. No subscription, no recurring charges, lifetime access to this report.</p>
             </div>
             <div class="faq-item" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;" onclick="this.classList.toggle('open')">
                 <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">Can I unlock the report for free? <span style="color:var(--accent);">+</span></h3>
@@ -1362,7 +1342,7 @@
             </div>
             <div class="faq-item" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;" onclick="this.classList.toggle('open')">
                 <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">Is the $9.99 a subscription? <span style="color:var(--accent);">+</span></h3>
-                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0;display:none;">No. $9.99 is a one-time payment for your full equity report with PDF download. No recurring charges. Pro is the only subscription option, and it's optional.</p>
+                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0;display:none;">No. $9.99 is a one-time payment for your full equity report with PDF download. No recurring charges, no subscription — you pay once and the report is yours.</p>
             </div>
             <div class="faq-item" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;" onclick="this.classList.toggle('open')">
                 <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">How accurate are the calculations? <span style="color:var(--accent);">+</span></h3>
