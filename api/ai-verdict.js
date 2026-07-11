@@ -76,14 +76,24 @@ export default async function handler(req, res) {
   // leak") was blind. Best-effort Abacus counter (never blocks/throws on failure);
   // awaited because the LLM call already dominates latency and we want the hit to
   // land before the function is frozen. Read via /api/stats → aiVerdict.
-  try {
-    const ABACUS = 'https://abacus.jasoncameron.dev';
-    const k = out.source === 'ai' ? 'ai-verdict-ai' : 'ai-verdict-heuristic';
-    await Promise.allSettled([
-      fetch(`${ABACUS}/hit/foundermath/ai-verdict-generated`),
-      fetch(`${ABACUS}/hit/foundermath/${k}`),
-    ]);
-  } catch (e) { /* telemetry must never break a verdict */ }
+  //
+  // S188 — CRITICAL FIX: this counter was being inflated by my own cheap-session
+  // smoke test (curl POST /api/ai-verdict), which calls the endpoint directly and
+  // bypasses the client-side trackAbacus('playbook-requested'). The result: 26
+  // "generated" verdicts looked like a filling funnel, but ~25 were my own tests —
+  // the REAL funnel was ~1 engagement. The smoke test now sends test:true; we still
+  // run the full LLM + return the verdict (so the smoke still validates the AI), but
+  // we DO NOT increment the counter. From S188 on, ai-verdict-generated = real users.
+  if (!body.test) {
+    try {
+      const ABACUS = 'https://abacus.jasoncameron.dev';
+      const k = out.source === 'ai' ? 'ai-verdict-ai' : 'ai-verdict-heuristic';
+      await Promise.allSettled([
+        fetch(`${ABACUS}/hit/foundermath/ai-verdict-generated`),
+        fetch(`${ABACUS}/hit/foundermath/${k}`),
+      ]);
+    } catch (e) { /* telemetry must never break a verdict */ }
+  }
   return res.status(200).json(out);
 }
 
