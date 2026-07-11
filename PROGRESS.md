@@ -1,6 +1,11 @@
 ## Current State (July 11, 2026 · FINAL week · $0 revenue, ~$85 budget)
 
-**S190 (this session): BUILD — reduced first-click friction on offer-verdict (pv 9 → 1 analyzed, 89% drop-off).** Added "What you'll get in 10 seconds" value preview + "Takes 10 seconds. No signup" messaging. Goal: improve the primary leak (visitors aren't clicking "Analyze" because the value isn't obvious until after they click).
+**S190 (this session): BUILD — 3 conversion improvements to offer-verdict.**
+1. **Reduced first-click friction** — added "What you'll get in 10 seconds" preview box (3 bullet outputs before commitment) + "Takes 10 seconds. No signup" messaging to hero and form.
+2. **Fixed misleading 'social' upsell variant** — removed made-up "500+ candidates" claim (0 sales actual) → "Negotiate like a pro" process-focused copy.
+3. **Improved email capture** — "Want this saved?" → "Save to inbox — reference during negotiation" (concrete benefit).
+
+**Goal:** improve 89% drop-off at first button + increase lead capture. All changes live; stats unchanged (no new traffic).
 
 **S189: BUILD — finished the dead-Pro purge at the ENGINE level (the purge S186–S188 declared "complete" had missed the engine).** One big correctness fix:
 
@@ -40,7 +45,7 @@
 
 ### Next Steps
 
-**The race is nearly over. The single most important thing: get the Google Ads test live (pending human). Without traffic, the funnel cannot produce revenue.**
+**FINAL week. S190 improved conversion; the constraint is still volume.**
 
 - ⬜ **Watch HELP-RESPONSES.md** for the Google Ads result. With clean telemetry (S188), any `equity-report-success.html` hit from the run = an attributable $9.99 sale = the funnel converts → scale paid. 0 sales + clicks but no verdict-analyzed → the landing page is the leak.
 - ⬜ **TRUE funnel signals (post-S188):** read `/api/stats`. Does `verdict-analyzed` climb above 1? That's the first real engagement. (NOT `aiVerdict.generated` — that was the phantom.)
