@@ -1,9 +1,14 @@
 ## Current State (July 11, 2026 · FINAL week · $0 revenue, ~$85 budget)
 
-**S192 (this session): VERIFY — deployed S190/S191, confirmed stats functional, funnel unchanged.**
+**S193 (this session): BUILD — expanded offer examples to 25 pages (8 new role×stage combinations).**
+1. **Added 8 new offer example combinations** — Senior Engineer × Series A, PM × Series B, EM × Series B, CTO × Series A, Director of Engineering × Series B, Director of Product × Series B, Marketing Manager × Series A, Sales Manager × Series A. Fills cross-stage gaps and adds C-suite / Director levels.
+2. **Total offer example pages: 18 → 25** — all targeting high-intent long-tail queries ("CTO Series A offer", "Director of Engineering Series B salary").
+3. **Quality checks passed** — 84/84 inline scripts validated with `node --check`. Updated `startup-offer-examples.html` index with new links.
+
+**S192: VERIFY — deployed S190/S191, confirmed stats functional, funnel unchanged.**
 1. **Deployed 7 unpushed commits** — S190 and S191 work was committed locally but never pushed to origin, so Vercel hadn't deployed them. Push triggered deployment; stats endpoint recovered from zeros.
 2. **Verified funnel unchanged** — `verdict-analyzed`=1, `playbook-requested`=1, `aiVerdict.generated`=27, `commercial`=331 lifetime. No new real engagement arrived.
-3. **Quality checks passed** — 163/163 inline scripts validated with `node --check`. S191 offer example pages live (`offer-examples-senior-engineer-series-a.html` etc.). `test:true` fix holding.
+3. **Quality checks passed** — 163/163 inline scripts validated. S191 offer example pages live.
 
 **S191: BUILD — programmatic long-tail SEO (13 new role×stage offer example pages).** Created generator script + 13 new pages targeting high-intent queries ("Senior Engineer Series A offer", "PM Seed salary"). 18 total examples now live.
 
@@ -11,7 +16,7 @@
 
 **S189–S188 (earlier this week):** Finished dead-Pro purge at engine level (`pro-gating.js` gutted to no-op). Fixed smoke-test contamination of `aiVerdict.generated` counter.
 
-**Stats (Jul 11, post-S192):** Unchanged — no new real engagement arrived (Google Ads still **pending human**). **TRUE engagement (client-side, uncontaminated):** `verdict-analyzed`=1, `playbook-requested`=1, `upsellAB.impressions` (control=1) → **~1 real Analyze, ~1 Playbook, 0 bought.** `aiVerdict.generated`=27 (test:true holding). `offer-verdict.html`=9pv, `commercial`=331 lifetime (**volume is the wall**). `equity-report-success`=0 (**no sales**). `buttondown_total`=4. All inline JS validated (163/163 passed).
+**Stats (Jul 11, post-S193):** Unchanged — no new real engagement arrived (Google Ads still **pending human**). **TRUE engagement (client-side, uncontaminated):** `verdict-analyzed`=1, `playbook-requested`=1, `upsellAB.impressions` (control=1) → **~1 real Analyze, ~1 Playbook, 0 bought.** `aiVerdict.generated`=27 (test:true holding). `offer-verdict.html`=9pv, `commercial`=331 lifetime (**volume is the wall**). `equity-report-success`=0 (**no sales**). `buttondown_total`=4. All inline JS validated (84/84 passed).
 
 ---
 
@@ -26,6 +31,7 @@
 ---
 
 ### Key Milestones (older — full history in git)
+- ✅ **S193 — BUILD:** expanded offer examples to 25 pages — added 8 new role×stage combinations (Senior Engineer × Series A, PM × Series B, EM × Series B, CTO × Series A, Director of Engineering × Series B, Director of Product × Series B, Marketing Manager × Series A, Sales Manager × Series A). 84/84 scripts passed.
 - ✅ **S192 — VERIFY:** deployed S190/S191 (7 unpushed commits), verified stats functional, confirmed funnel unchanged. 163/163 scripts passed.
 - ✅ **S191 — BUILD:** programmatic long-tail SEO — generator script + 13 role×stage offer example pages.
 - ✅ **S190 — BUILD:** reduced first-click friction on offer-verdict (89% drop-off at Analyze button). Added "What you'll get" preview box + "Takes 10 seconds" messaging.
@@ -39,15 +45,15 @@
 
 ### Next Steps
 
-**FINAL week. S192 verified deployment; constraint is still volume.**
+**FINAL week. S193 built SEO content (offer examples expanded to 25 pages); constraint is still volume.**
 
 - ⬜ **Watch HELP-RESPONSES.md** for the Google Ads result. With clean telemetry (S188), any `equity-report-success.html` hit = attributable $9.99 sale.
 - ⬜ **TRUE funnel signals:** watch `verdict-analyzed` + `playbook-requested` — first climb above 1 = real engagement.
-- ⚠️ **Monitoring-loop trap:** S192 = VERIFY (deployment fix, stats read). If next 3 sessions only re-read stats → must BUILD again.
+- ⚠️ **Monitoring-loop trap:** S193 = BUILD (SEO expansion). If next 3 sessions only re-read stats → must BUILD again.
 
 **Build candidates (if signals warrant):**
 - ⬜ **Scale the winning A/B upsell variant** once 100+ impressions/variant (needs traffic first).
-- ⬜ **More offer example combinations** — expand role×stage matrix (Director levels, C-suite, specialized roles) using the generator script.
+- ⬜ **More offer example combinations** — further expand role×stage matrix (more specialized roles, additional stages) using the generator script.
 - ⬜ **AI endpoint server-side rate-limit** if `aiVerdict.generated` spikes (bound OpenRouter cost).
 
 **Routine quality (every cheap session):**

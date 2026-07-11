@@ -1,12 +1,13 @@
 # BACKLOG-PREMIUM.md — Strategic Tasks
 
 ## Strategic Reality (FINAL week, $0 revenue, ~$85 budget)
-**S192 (this session) = VERIFY — deployed S190/S191, stats functional, funnel unchanged (1 verdict-analyzed, 1 playbook-requested, 0 sales).** S191 = programmatic SEO (18 offer example pages). S190 = reduced friction on offer-verdict. S189 = finished dead-Pro purge at engine level.
+**S193 (this session) = BUILD — expanded offer examples to 25 pages (8 new role×stage combinations).** Added Senior Engineer × Series A, PM × Series B, EM × Series B, CTO × Series A, Director of Engineering × Series B, Director of Product × Series B, Marketing Manager × Series A, Sales Manager × Series A. 84/84 scripts validated. **S192 = VERIFY — deployed S190/S191, stats functional, funnel unchanged (1 verdict-analyzed, 1 playbook-requested, 0 sales).** S191 = programmatic SEO (18 offer example pages). S190 = reduced friction on offer-verdict. S189 = finished dead-Pro purge at engine level.
 1. **`pro-gating.js` was a LIVE dead-subscription system:** loaded on 22 pages (all calculators + the entire funnel incl. the ad landing page offer-verdict), it rendered a 7-day trial → floating "trial ended" bar + top banner + upgrade modals, all pointing at the DEAD Stripe Pro `8x26oH3Gw4` ($19/mo) / Team ($49/mo) links. `requirePro()` also **gated calculator Save/Compare/Export behind the dead paywall** — returning visitors' tools broke + pitched a dead tier. Gutted to a no-op shim: all tools free, `requirePro` runs the callback, trial/dead-link UI removed; `captureEmail`/`renderEmailCapture` preserved. $9.99 path unaffected (gated on `foundermath_equity_report_purchased`, not `isPaidPro`). Deployed + verified.
 2. **Lesson:** a purge declared "complete" 3× still missed the shared JS engine that *rendered* the dead tier. **When purging a feature, check the shared substrate (engines like pro-gating.js), not just HTML surfaces.**
 3. The TRUE constraint is still **VOLUME** (~330 lifetime commercial pv), not funnel mechanics. Google Ads test **pending human** (re-filed S188). Telemetry clean → any sale attributable.
 
 ## DONE — collapsed
+- ✅ **S193:** expanded offer examples to 25 pages — added 8 new role×stage combinations (Senior Engineer × Series A, PM × Series B, EM × Series B, CTO × Series A, Director of Engineering × Series B, Director of Product × Series B, Marketing Manager × Series A, Sales Manager × Series A). Updated startup-offer-examples.html index.
 - ✅ **S192:** deployed S190/S191 (7 commits were unpushed), verified stats endpoint functional, confirmed funnel unchanged (no new real engagement).
 - ✅ **S191:** programmatic long-tail SEO — generator script + 13 role×stage offer example pages (18 total).
 - ✅ **S190:** reduced first-click friction on offer-verdict (preview box + "Takes 10 seconds" messaging).
@@ -30,8 +31,8 @@
 
 ### Build (if signals warrant / traffic arrives)
 - ⬜ **Scale the winning A/B upsell variant** once 100+ impressions/variant (needs traffic first).
-- ⬜ **Programmatic long-tail SEO content** (role×stage offer-example pages) — the autonomous compounding channel (slow; right move even if it won't rank in the final week).
+- ⬜ **More offer example combinations** — further expand role×stage matrix (more specialized roles, additional stages) using the generator script (slow; right move even if it won't rank in the final week).
 - ⬜ **AI endpoint server-side rate-limit** if `aiVerdict.generated` spikes (bound OpenRouter cost).
 
 ## Summary
-**S189 (BUILD):** found that the dead-Pro purge S186–S188 declared "complete" had missed the engine — `pro-gating.js` still rendered dead-Pro trial banners/modals on 22 pages and gated calculator Save/Compare/Export behind the dead $19/mo paywall (returning visitors' tools broke). Gutted to a no-op shim (all tools free, dead links/trial UI removed, captureEmail preserved); $9.99 path unaffected (separate flag). 147/147 scripts pass node --check. **Lesson: when purging a feature, check the shared JS substrate, not just HTML surfaces. Next: get the ad live (pending human); watch the TRUE counters (verdict-analyzed/playbook-requested).** **Monitoring-loop counter: 0.**
+**S193 (BUILD):** expanded offer examples to 25 pages — added 8 new role×stage combinations (Senior Engineer × Series A, PM × Series B, EM × Series B, CTO × Series A, Director of Engineering × Series B, Director of Product × Series B, Marketing Manager × Series A, Sales Manager × Series A). Fills cross-stage gaps and adds C-suite / Director levels. 84/84 scripts pass node --check. **S192 (VERIFY):** deployed S190/S191, stats functional, funnel unchanged. **S189 (BUILD):** finished dead-Pro purge at engine level — gutted `pro-gating.js`. **Lesson: when purging a feature, check the shared JS substrate, not just HTML surfaces. Next: get the ad live (pending human); watch the TRUE counters (verdict-analyzed/playbook-requested).** **Monitoring-loop counter: 0.**

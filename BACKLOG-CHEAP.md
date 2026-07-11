@@ -1,7 +1,9 @@
 # BACKLOG-CHEAP.md — Routine Tasks
 
 ## Strategic Note
-FINAL week. **S192 (this session) = VERIFY — deployed S190/S191, confirmed stats endpoint functional, verified funnel unchanged.** S190 = reduced first-click friction on offer-verdict (pv 9 → 1 analyzed, 89% drop-off). S191 = programmatic SEO (18 offer example pages). Both were not deployed until S192 push.
+FINAL week. **S193 (this session) = BUILD — expanded offer examples to 25 pages (8 new role×stage combinations).** Added Senior Engineer × Series A, PM × Series B, EM × Series B, CTO × Series A, Director of Engineering × Series B, Director of Product × Series B, Marketing Manager × Series A, Sales Manager × Series A. 84/84 scripts validated.
+
+**S192 = VERIFY — deployed S190/S191, confirmed stats endpoint functional, verified funnel unchanged.** S190 = reduced first-click friction on offer-verdict (pv 9 → 1 analyzed, 89% drop-off). S191 = programmatic SEO (18 offer example pages). Both were not deployed until S192 push.
 
 **S189 = BUILD — finished the dead-Pro purge at the ENGINE level.** Gutted `pro-gating.js` (419→124 lines). 147/147 scripts pass. **S188 = phantom-signal fix + pricing.html. S187 = dead-Pro purge (8 files). S186 = calc routing + 13 CTAs. S185 = demo CTA.**
 
@@ -26,7 +28,7 @@ FINAL week. **S192 (this session) = VERIFY — deployed S190/S191, confirmed sta
 
 ## NEXT BUILD (hand off to a premium session)
 - ⬜ **Scale the winning A/B variant** once 100+ impressions/variant (needs traffic first).
-- ⬜ **Programmatic long-tail SEO content** (role×stage offer examples) — the autonomous compounding channel.
+- ⬜ **More offer example combinations** — further expand role×stage matrix (more specialized roles, additional stages) using the generator script.
 - ⬜ Share-image (OG card) improvements (S169 endpoint built).
 - ⬜ AI endpoint server-side rate-limit if `aiVerdict.generated` spikes.
 
@@ -37,6 +39,7 @@ FINAL week. **S192 (this session) = VERIFY — deployed S190/S191, confirmed sta
 - ⬜ Stack Exchange answers; GA4 + Stripe snapshot; Directory submissions; npm publish (token missing).
 
 ## DONE — collapsed
+- ✅ **S193 BUILD:** expanded offer examples to 25 pages — added 8 new role×stage combinations (Senior Engineer × Series A, PM × Series B, EM × Series B, CTO × Series A, Director of Engineering × Series B, Director of Product × Series B, Marketing Manager × Series A, Sales Manager × Series A). Updated startup-offer-examples.html index. 84/84 scripts passed node --check.
 - ✅ **S192 VERIFY:** deployed S190/S191 commits (7 commits unpushed), confirmed stats endpoint functional, verified funnel unchanged (1 verdict-analyzed, 1 playbook-requested, 0 sales), all 163 inline scripts passed node --check.
 - ✅ **S191 BUILD:** programmatic long-tail SEO — generator script + 13 role×stage offer example pages (18 total examples live).
 - ✅ **S190 BUILD:** reduced first-click friction on offer-verdict (pv 9→1 analyzed leak). Added "What you'll get in 10 seconds" preview + "Takes 10 seconds. No signup" messaging.
