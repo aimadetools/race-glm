@@ -607,15 +607,17 @@ function escapeTxt(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
     window._upsellVariant = variants[seed % variants.length];
 
     // Variant copy (backtick strings — apostrophes/quotes need no escaping).
+    // S190: Fixed 'social' variant to remove made-up "500+" claim (0 sales actual).
+    // Replaced with process-focused copy emphasizing what the report delivers.
     var headline = {
         control: `<strong>Don't sign until you see the full math</strong>`,
-        social: `<strong>Join 500+ candidates who negotiated with confidence</strong>`,
+        social: `<strong>Negotiate like a pro — get the complete picture in 60 seconds</strong>`,
         urgency: `<strong>Decide in 10 minutes or risk leaving $50K on the table</strong>`,
         value: `<strong>A lawyer charges $200&ndash;500/hour. This report costs $9.99 once.</strong>`
     };
     var lede = {
         control: `The AI verdict gave you the read. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> gives you the numbers — exactly what your grant is worth at 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk. You are negotiating a grant worth <strong>potentially tens of thousands</strong>. The report that shows you what you are signing costs <strong>$9.99 once</strong>. No subscription.`,
-        social: `The AI verdict gave you the market read. Now get the full picture. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> shows exactly what your grant is worth at 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk. Do not sign on a gut feeling. Get the complete analysis for <strong>$9.99 once</strong>. No subscription.`,
+        social: `The AI verdict gave you the market read. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> gives you leverage — the exact numbers to justify your ask. See 4 exit scenarios, vesting breakdown, exercise cost, and underwater risk. Walk into negotiations with the full picture for <strong>$9.99 once</strong>.`,
         urgency: `You have one chance to negotiate. Once you sign, it is too late. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> gives you the complete picture in 60 seconds: 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk. Do not risk leaving money on the table. Get the full analysis for <strong>$9.99 once</strong>. Decide before you sign.`,
         value: `A lawyer charges <strong>$200&ndash;500/hour</strong> to review your offer. The <strong style="color:var(--text-primary,#fff);">Premium Equity Report</strong> shows exactly what your grant is worth at 4 exit scenarios, year-by-year vesting, exercise cost, and underwater risk — the same complete analysis for <strong>$9.99 once</strong>. No subscription, no hourly fees.`
     };
