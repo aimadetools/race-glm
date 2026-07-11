@@ -163,7 +163,7 @@
     <div class="hero">
         <span class="badge">&#9889; AI-powered &middot; instant verdict &middot; free</span>
         <h1>Is your startup offer <span class="gradient">actually good?</span></h1>
-        <p>Enter your numbers. Get an instant market read, red flags, and a <strong style="color:var(--text-primary);">copy-paste negotiation script</strong> to ask for more. Free, no email required.</p>
+        <p>Enter your numbers. Get an instant market read + <strong style="color:var(--text-primary);">AI-written negotiation script</strong> to ask for more. <strong style="color:var(--green);">Takes 10 seconds. Free, no signup.</strong></p>
     </div>
 
     <!-- S181 BUILD: Prominent trust badges above the fold. The primary leak is
@@ -185,6 +185,19 @@
         </div>
     </div>
 
+    <!-- S190 BUILD: Add "What you'll get" value preview to reduce first-click friction.
+         Funnel leak: pv 9 → verdictAnalyzed 1 (89% drop-off). Visitors aren't clicking "Analyze"
+         because the value isn't obvious until AFTER they click. This preview shows the 3
+         concrete outputs BEFORE commitment, making the button feel like the obvious next step. -->
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:18px 22px;margin-bottom:20px;">
+        <p style="margin:0 0 10px;color:var(--text-secondary);font-size:0.88rem;"><strong style="color:var(--text-primary);">In 10 seconds you'll know:</strong></p>
+        <ul style="margin:0;padding-left:20px;color:var(--text-secondary);font-size:0.85rem;line-height:1.6;list-style:none;">
+            <li style="margin-bottom:4px;">&#10003; <strong>Market rating:</strong> above/below/fair vs your role & stage</li>
+            <li style="margin-bottom:4px;">&#10003; <strong>Exit value:</strong> what your equity could be worth at a reasonable exit</li>
+            <li style="margin-bottom:4px;">&#10003; <strong>Negotiation script:</strong> exact wording to ask for more (AI-generated)</li>
+        </ul>
+    </div>
+
     <!-- S185 BUILD: Zero-friction demo CTA above the form. The primary leak persists
          (pv 9 → verdictAnalyzed 1) despite S181 trust badges, S178 CTA prominence, and
          S175 demo button. Visitors still aren't clicking "Analyze" — the form with
@@ -199,7 +212,7 @@
 
     <div class="card">
         <h2>Your offer</h2>
-        <p class="sub"><strong style="color:var(--green);">Numbers optional &mdash;</strong> enter your real offer or click <strong style="color:var(--accent-light);">See a demo verdict</strong> to see example results. All math runs in your browser &mdash; nothing is stored.</p>
+        <p class="sub"><strong style="color:var(--green);">Numbers optional &mdash;</strong> enter your real offer or click <strong style="color:var(--accent-light);">See a demo verdict</strong> to see example results. <strong style="color:var(--text-primary);">Takes 10 seconds. No signup.</strong></p>
         <div class="grid">
             <div class="field">
                 <label for="role">Your level</label>
