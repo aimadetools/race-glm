@@ -571,6 +571,358 @@
           "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. At pre-seed, exit projections are highly uncertain. If the company reaches $0.50/share in 5 years and your strike is $0.05, your 75,000 shares are worth ~$34,000 before taxes."
         }
       ]
+    },
+    {
+      "id": "senior-engineer-series-a",
+      "filename": "offer-examples-senior-engineer-series-a.html",
+      "role": "Senior Engineer",
+      "roleDisplay": "Senior Software Engineer",
+      "stage": "Series A",
+      "salary": 180000,
+      "shares": 45000,
+      "strike": 1.50,
+      "fmv": 5.00,
+      "ownership": "0.08%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 1.7,
+      "exitPrice": 10.00,
+      "exitValue": 382500,
+      "salaryRange": "$165K - $195K",
+      "equityRange": "0.05% - 0.15%",
+      "analysis": {
+        "salary": "competitive for Series A",
+        "equity": "standard for Senior at this stage",
+        "overall": "solid Series A package"
+      },
+      "negotiationTips": [
+        "Negotiate equity: 'Could we bring the grant to ~54,000 shares? That would align with top Senior Engineer grants at Series A.'",
+        "Ask about growth: 'I'd like to understand the path to Staff Engineer and the timeline.'",
+        "Discuss refresh: 'Is there a refresh grant policy as we approach Series B?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.08% equity good for a Senior Engineer at Series A?",
+          "answer": "0.08% ownership is fair for a Senior Engineer at Series A. Typical grants range from 0.05% to 0.15%. Series A is a sweet spot where the company has proven traction but still offers meaningful equity."
+        },
+        {
+          "question": "What is a good salary for Senior Engineer at Series A startup?",
+          "answer": "Senior Engineer base salary at Series A startups typically ranges from $165K to $195K in major tech hubs. $180K is competitive. Series A companies pay closer to market rate than early-stage startups."
+        },
+        {
+          "question": "How much is 45,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $10/share in 5 years and your strike is $1.50, your 45,000 shares are worth ~$382,500 before taxes. That's about 2.1× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "pm-series-b",
+      "filename": "offer-examples-pm-series-b.html",
+      "role": "Product Manager",
+      "roleDisplay": "Senior Product Manager",
+      "stage": "Series B",
+      "salary": 190000,
+      "shares": 28000,
+      "strike": 3.50,
+      "fmv": 10.00,
+      "ownership": "0.04%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 0.9,
+      "exitPrice": 20.00,
+      "exitValue": 460000,
+      "salaryRange": "$175K - $205K",
+      "equityRange": "0.02% - 0.08%",
+      "analysis": {
+        "salary": "strong for Series B PM",
+        "equity": "typical for this stage",
+        "overall": "cash-heavy with modest equity"
+      },
+      "negotiationTips": [
+        "Focus on salary: 'At Series B, cash compensation is more certain than equity. Can we meet at $200K?'",
+        "Ask about scope: 'I'd like clarity on product ownership and decision-making authority.'",
+        "Discuss bonus: 'Is there a performance bonus structure in addition to base salary?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.04% equity good for a Product Manager at Series B?",
+          "answer": "0.04% ownership is typical for a Senior Product Manager at Series B. Typical grants range from 0.02% to 0.08%. At later stages, equity grants are smaller but the risk is lower."
+        },
+        {
+          "question": "What is a good salary for Product Manager at Series B startup?",
+          "answer": "Senior PM base salary at Series B startups typically ranges from $175K to $205K in major tech hubs. $190K is strong. Series B companies pay market-rate salaries."
+        },
+        {
+          "question": "How much is 28,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $20/share in 5 years and your strike is $3.50, your 28,000 shares are worth ~$460,000 before taxes. That's about 2.4× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "eng-manager-series-b",
+      "filename": "offer-examples-eng-manager-series-b.html",
+      "role": "Engineering Manager",
+      "roleDisplay": "Senior Engineering Manager",
+      "stage": "Series B",
+      "salary": 215000,
+      "shares": 35000,
+      "strike": 3.50,
+      "fmv": 10.00,
+      "ownership": "0.05%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 1.1,
+      "exitPrice": 20.00,
+      "exitValue": 577500,
+      "salaryRange": "$200K - $230K",
+      "equityRange": "0.03% - 0.10%",
+      "analysis": {
+        "salary": "competitive for Series B EM",
+        "equity": "reasonable for management",
+        "overall": "solid management package"
+      },
+      "negotiationTips": [
+        "Discuss scope: 'I'd like clarity on team size and scope of products I'll manage.'",
+        "Negotiate equity: 'Could we bring the grant to ~42,000 shares given the management scope?'",
+        "Ask about growth: 'What does the career progression look like to Director level?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.05% equity good for Engineering Manager at Series B?",
+          "answer": "0.05% ownership is fair for a Senior Engineering Manager at Series B. Typical grants range from 0.03% to 0.10%. Series B managers get smaller grants than early-stage but the company is more stable."
+        },
+        {
+          "question": "What is a good salary for Engineering Manager at Series B startup?",
+          "answer": "Senior Engineering Manager base salary at Series B startups typically ranges from $200K to $230K in major tech hubs. $215K is competitive. Management roles command premium compensation."
+        },
+        {
+          "question": "How much is 35,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $20/share in 5 years and your strike is $3.50, your 35,000 shares are worth ~$577,500 before taxes. That's about 2.7× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "cto-series-a",
+      "filename": "offer-examples-cto-series-a.html",
+      "role": "CTO",
+      "roleDisplay": "Chief Technology Officer",
+      "stage": "Series A",
+      "salary": 240000,
+      "shares": 350000,
+      "strike": 1.50,
+      "fmv": 5.00,
+      "ownership": "0.60%",
+      "location": "San Francisco, CA",
+      "verdict": "above",
+      "verdictDisplay": "Above Market",
+      "equityRatio": 5.2,
+      "exitPrice": 10.00,
+      "exitValue": 2975000,
+      "salaryRange": "$200K - $280K",
+      "equityRange": "0.40% - 1.00%",
+      "analysis": {
+        "salary": "below big-tech but strong for startup CTO",
+        "equity": "excellent executive grant",
+        "overall": "strong CTO package with meaningful ownership"
+      },
+      "negotiationTips": [
+        "Negotiate acceleration: 'I'd like double-trigger acceleration on change of control with 12-month runway.'",
+        "Discuss board seat: 'As CTO, I'd like a board seat or observer rights.'",
+        "Clarify scope: 'I need clarity on reporting structure, technical decision authority, and budget control.'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.60% equity good for CTO at Series A?",
+          "answer": "0.60% ownership is strong for a CTO at Series A. Typical grants range from 0.40% to 1.00%. C-level roles receive meaningful ownership stakes, though co-founder CTOs typically receive more."
+        },
+        {
+          "question": "What is a good salary for CTO at Series A startup?",
+          "answer": "CTO base salary at Series A startups typically ranges from $200K to $280K in major tech hubs. $240K is fair. Executive salaries at Series A are below big-tech but compensated with equity."
+        },
+        {
+          "question": "How much is 350,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $10/share in 5 years and your strike is $1.50, your 350,000 shares are worth ~$3M before taxes. That's about 12× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "director-eng-series-b",
+      "filename": "offer-examples-director-eng-series-b.html",
+      "role": "Director of Engineering",
+      "roleDisplay": "Director of Engineering",
+      "stage": "Series B",
+      "salary": 250000,
+      "shares": 150000,
+      "strike": 3.00,
+      "fmv": 10.00,
+      "ownership": "0.25%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 2.1,
+      "exitPrice": 20.00,
+      "exitValue": 2550000,
+      "salaryRange": "$230K - $270K",
+      "equityRange": "0.15% - 0.40%",
+      "analysis": {
+        "salary": "competitive for Director level",
+        "equity": "good for leadership role",
+        "overall": "solid Director package"
+      },
+      "negotiationTips": [
+        "Discuss scope: 'I'd like clarity on org scope, number of teams, and reporting structure.'",
+        "Negotiate equity: 'Could we bring the grant to ~180,000 shares given the Director scope?'",
+        "Ask about growth: 'What does the path to VP look like and the timeline?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.25% equity good for Director of Engineering at Series B?",
+          "answer": "0.25% ownership is fair for a Director of Engineering at Series B. Typical grants range from 0.15% to 0.40%. Director roles bridge the gap between manager and VP."
+        },
+        {
+          "question": "What is a good salary for Director of Engineering at Series B startup?",
+          "answer": "Director of Engineering base salary at Series B startups typically ranges from $230K to $270K in major tech hubs. $250K is competitive. Director roles command premium compensation."
+        },
+        {
+          "question": "How much is 150,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $20/share in 5 years and your strike is $3, your 150,000 shares are worth ~$2.55M before taxes. That's about 10× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "director-product-series-b",
+      "filename": "offer-examples-director-product-series-b.html",
+      "role": "Director of Product",
+      "roleDisplay": "Director of Product",
+      "stage": "Series B",
+      "salary": 235000,
+      "shares": 100000,
+      "strike": 3.00,
+      "fmv": 10.00,
+      "ownership": "0.17%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 1.9,
+      "exitPrice": 20.00,
+      "exitValue": 1700000,
+      "salaryRange": "$215K - $255K",
+      "equityRange": "0.10% - 0.30%",
+      "analysis": {
+        "salary": "competitive for Director Product",
+        "equity": "reasonable for product leadership",
+        "overall": "solid product leadership package"
+      },
+      "negotiationTips": [
+        "Discuss scope: 'I'd like clarity on product scope, team size, and strategic influence.'",
+        "Negotiate equity: 'Could we bring the grant to ~120,000 shares given the Director scope?'",
+        "Ask about growth: 'What does the path to Head of Product or VP look like?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.17% equity good for Director of Product at Series B?",
+          "answer": "0.17% ownership is fair for a Director of Product at Series B. Typical grants range from 0.10% to 0.30%. Product leadership roles receive meaningful equity."
+        },
+        {
+          "question": "What is a good salary for Director of Product at Series B startup?",
+          "answer": "Director of Product base salary at Series B startups typically ranges from $215K to $255K in major tech hubs. $235K is competitive. Product leadership roles command premium compensation."
+        },
+        {
+          "question": "How much is 100,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $20/share in 5 years and your strike is $3, your 100,000 shares are worth ~$1.7M before taxes. That's about 7.2× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "marketing-manager-series-a",
+      "filename": "offer-examples-marketing-manager-series-a.html",
+      "role": "Marketing Manager",
+      "roleDisplay": "Senior Marketing Manager",
+      "stage": "Series A",
+      "salary": 145000,
+      "shares": 25000,
+      "strike": 1.50,
+      "fmv": 5.00,
+      "ownership": "0.04%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 0.9,
+      "exitPrice": 10.00,
+      "exitValue": 212500,
+      "salaryRange": "$130K - $160K",
+      "equityRange": "0.02% - 0.08%",
+      "analysis": {
+        "salary": "competitive for marketing role",
+        "equity": "typical for non-technical roles",
+        "overall": "fair package for marketing leadership"
+      },
+      "negotiationTips": [
+        "Discuss scope: 'I'd like clarity on marketing channels, budget, and growth targets.'",
+        "Negotiate equity: 'Could we bring the grant to ~30,000 shares given the marketing scope?'",
+        "Ask about growth: 'What does the career path look like to Head of Marketing?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.04% equity good for Marketing Manager at Series A?",
+          "answer": "0.04% ownership is fair for a Senior Marketing Manager at Series A. Typical grants range from 0.02% to 0.08%. Marketing roles typically receive less equity than engineering."
+        },
+        {
+          "question": "What is a good salary for Marketing Manager at Series A startup?",
+          "answer": "Senior Marketing Manager base salary at Series A startups typically ranges from $130K to $160K in major tech hubs. $145K is competitive. Marketing salaries are typically lower than engineering."
+        },
+        {
+          "question": "How much is 25,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $10/share in 5 years and your strike is $1.50, your 25,000 shares are worth ~$212,500 before taxes. That's about 1.5× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "sales-manager-series-a",
+      "filename": "offer-examples-sales-manager-series-a.html",
+      "role": "Sales Manager",
+      "roleDisplay": "Senior Sales Manager",
+      "stage": "Series A",
+      "salary": 140000,
+      "shares": 28000,
+      "strike": 1.50,
+      "fmv": 5.00,
+      "ownership": "0.05%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 1.0,
+      "exitPrice": 10.00,
+      "exitValue": 238000,
+      "salaryRange": "$125K - $155K",
+      "equityRange": "0.03% - 0.10%",
+      "analysis": {
+        "salary": "competitive with commission potential",
+        "equity": "standard for sales leadership",
+        "overall": "fair package with commission upside"
+      },
+      "negotiationTips": [
+        "Clarify commission structure: 'I'd like details on the commission structure, quotas, and accelerators.'",
+        "Discuss scope: 'I'd like clarity on team size, territories, and target accounts.'",
+        "Ask about growth: 'What does the career path look like to Head of Sales?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.05% equity good for Sales Manager at Series A?",
+          "answer": "0.05% ownership is fair for a Senior Sales Manager at Series A. Typical grants range from 0.03% to 0.10%. Sales leadership roles receive meaningful equity tied to revenue impact."
+        },
+        {
+          "question": "What is a good salary for Sales Manager at Series A startup?",
+          "answer": "Senior Sales Manager base salary at Series A startups typically ranges from $125K to $155K plus commission. $140K is competitive. Total compensation with commission can be significantly higher."
+        },
+        {
+          "question": "How much is 28,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $10/share in 5 years and your strike is $1.50, your 28,000 shares are worth ~$238,000 before taxes. That's about 1.7× your annual salary before commission."
+        }
+      ]
     }
   ]
 }
