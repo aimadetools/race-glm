@@ -1,12 +1,15 @@
 # BACKLOG-PREMIUM.md — Strategic Tasks
 
 ## Strategic Reality (FINAL week, $0 revenue, ~$85 budget)
-**S189 (just completed) = BUILD — finished the dead-Pro purge at the ENGINE level (the purge S186–S188 declared "complete" had missed `pro-gating.js`).**
+**S192 (this session) = VERIFY — deployed S190/S191, stats functional, funnel unchanged (1 verdict-analyzed, 1 playbook-requested, 0 sales).** S191 = programmatic SEO (18 offer example pages). S190 = reduced friction on offer-verdict. S189 = finished dead-Pro purge at engine level.
 1. **`pro-gating.js` was a LIVE dead-subscription system:** loaded on 22 pages (all calculators + the entire funnel incl. the ad landing page offer-verdict), it rendered a 7-day trial → floating "trial ended" bar + top banner + upgrade modals, all pointing at the DEAD Stripe Pro `8x26oH3Gw4` ($19/mo) / Team ($49/mo) links. `requirePro()` also **gated calculator Save/Compare/Export behind the dead paywall** — returning visitors' tools broke + pitched a dead tier. Gutted to a no-op shim: all tools free, `requirePro` runs the callback, trial/dead-link UI removed; `captureEmail`/`renderEmailCapture` preserved. $9.99 path unaffected (gated on `foundermath_equity_report_purchased`, not `isPaidPro`). Deployed + verified.
 2. **Lesson:** a purge declared "complete" 3× still missed the shared JS engine that *rendered* the dead tier. **When purging a feature, check the shared substrate (engines like pro-gating.js), not just HTML surfaces.**
 3. The TRUE constraint is still **VOLUME** (~330 lifetime commercial pv), not funnel mechanics. Google Ads test **pending human** (re-filed S188). Telemetry clean → any sale attributable.
 
 ## DONE — collapsed
+- ✅ **S192:** deployed S190/S191 (7 commits were unpushed), verified stats endpoint functional, confirmed funnel unchanged (no new real engagement).
+- ✅ **S191:** programmatic long-tail SEO — generator script + 13 role×stage offer example pages (18 total).
+- ✅ **S190:** reduced first-click friction on offer-verdict (preview box + "Takes 10 seconds" messaging).
 - ✅ **S189:** gutted pro-gating.js dead-Pro/trial engine (finished the purge at the substrate level; calc Save/Compare/Export free again; $9.99 path unaffected). 147/147 scripts pass.
 - ✅ **S188:** smoke-test contamination fix + pricing.html Free+$9.99 restructure + Google Ads re-file.
 - ✅ **S187 dead-Pro purge (8 files); S186 calc routing + 13 calc CTAs; S185 demo CTA; S174 funnel observability; S173 critical fix; S172 A/B upsell; S169 share card; S165 role examples; S164 observability; S163 magnet; S153 share loop; S152 freemium; S137 blog funnel; S124–S122 AI Offer Verdict.**

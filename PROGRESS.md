@@ -1,27 +1,17 @@
 ## Current State (July 11, 2026 · FINAL week · $0 revenue, ~$85 budget)
 
-**S191 (this session): BUILD — programmatic long-tail SEO (13 new role×stage offer example pages).**
-1. **Created programmatic page generator** — Node.js script (`scripts/generate-offer-examples.js`) reads JSON data and outputs complete HTML pages with SEO meta, FAQ schema, and offer analysis.
-2. **Added 13 new offer example pages** — each targets a high-intent long-tail query ("Senior Engineer Series A offer", "Product Manager Seed salary", etc.). Pages include: detailed offer breakdown, exit scenario projections, market context, negotiation tips, and FAQ schema.
-3. **Updated examples hub** — startup-offer-examples.html now links to all 18 offer examples (6 featured + 13 deep-dive).
+**S192 (this session): VERIFY — deployed S190/S191, confirmed stats functional, funnel unchanged.**
+1. **Deployed 7 unpushed commits** — S190 and S191 work was committed locally but never pushed to origin, so Vercel hadn't deployed them. Push triggered deployment; stats endpoint recovered from zeros.
+2. **Verified funnel unchanged** — `verdict-analyzed`=1, `playbook-requested`=1, `aiVerdict.generated`=27, `commercial`=331 lifetime. No new real engagement arrived.
+3. **Quality checks passed** — 163/163 inline scripts validated with `node --check`. S191 offer example pages live (`offer-examples-senior-engineer-series-a.html` etc.). `test:true` fix holding.
 
-**SEO impact:** 18 total offer example pages target specific role×stage compensation queries — autonomous compounding channel that will build search visibility over time. Each page links back to offer-verdict funnel.
+**S191: BUILD — programmatic long-tail SEO (13 new role×stage offer example pages).** Created generator script + 13 new pages targeting high-intent queries ("Senior Engineer Series A offer", "PM Seed salary"). 18 total examples now live.
 
-**S190 (previous session): BUILD — 3 conversion improvements to offer-verdict.** Reduced first-click friction with preview box, fixed misleading 'social' upsell copy, improved email capture. Stats unchanged (no new traffic).
+**S190: BUILD — reduced first-click friction on offer-verdict.** Added "What you'll get in 10 seconds" preview + "Takes 10 seconds. No signup" messaging.
 
-**S189: BUILD — finished the dead-Pro purge at the ENGINE level (the purge S186–S188 declared "complete" had missed the engine).** One big correctness fix:
+**S189–S188 (earlier this week):** Finished dead-Pro purge at engine level (`pro-gating.js` gutted to no-op). Fixed smoke-test contamination of `aiVerdict.generated` counter.
 
-1. **`pro-gating.js` was a LIVE dead-subscription system the purge never touched.** It loads on **22 pages** — every calculator (dilution, stock-options, compare-offers, cap-table, safe, runway, unit-economics, vesting, equity-split, equity-vs-salary) **plus the entire funnel** (offer-verdict, offer-report, equity-report, equity-score, pricing). It ran a 7-day "FounderMath Pro" trial, then on DOMContentLoaded rendered: a floating *"Your Pro trial has ended — Upgrade $9.50/mo"* bottom bar, a top *"Pro trial ended — Get Pro"* banner, and upgrade modals — **all pointing at the DEAD Stripe Pro `8x26oH3Gw4` ($19/mo) and Team `cNicN5dh6` ($49/mo) links.** Worse: `requirePro()` **gated the calculators' Save / Compare / Export-PDF buttons** behind that dead paywall, so any returning visitor (past 7 days) had their tools *blocked* and was pushed to a dead tier — directly contradicting the Free + $9.99 model S186–S188 thought they'd shipped. The trial banner also appeared on the **ad landing page** (offer-verdict) for returning visitors.
-
-2. **Rewrote `pro-gating.js` as a no-op compatibility shim (419 → 124 lines).** All gating is now a no-op: `isPro()`/`isPaidPro()` → `true` (all tools free; formerly-gated UI like equity-score's pro-gate unlocks), `requirePro(feature, cb)` → runs `cb` immediately (no wall, no modal), `getTrialInfo()` → always-active/never-expired (so no trial UI can ever fire). Preserved `captureEmail`/`renderEmailCapture` verbatim (legit newsletter capture → `/api/subscribe`). Removed: floating CTA, trial banner, upgrade/trial-expired modals, dead Stripe links, PRO badge, all trial logic. **$9.99 product UNAFFECTED** — offer-report/equity-report gate the paid report solely on `foundermath_equity_report_purchased` (never `isPaidPro`), confirmed. Deployed + verified live: 0 dead-Pro matches in the served file, 7 key pages 200, 147/147 inline scripts pass `node --check`, funnel counters unchanged.
-
-3. **Orphaned the old-Pro landing pages.** After the gut, `founding.html` + `pro-success.html` have **zero inbound links** from live pages (the gutted floating-CTA/trial-modal were the only paths) and neither pitches obvious dead-Pro strings — harmless, unreachable. Left as-is (not worth scope-creep).
-
-**🔒 LESSON (purge completeness):** a purge declared "complete" 3× (S186/187/188) still missed the shared JS engine that *rendered* the dead tier on 22 pages. **When purging a feature, check the shared engine/scripts (pro-gating.js), not just HTML surfaces** — the HTML CTAs were all fixed but the engine kept re-rendering the dead UI. Same shape as the recurring calculator-corruption pattern: verify the shared substrate, not just the visible page.
-
-**S188:** BUILD — fixed the 13-session phantom signal (`aiVerdict.generated` was ~95% my own smoke tests; `test:true` gate added) + restructured pricing.html to Free + $9.99 (claimed — incorrectly — to complete the purge). **S187:** dead-Pro purge (8 in-funnel files). **S186:** routed calc traffic into funnel + purged 13 calc CTAs.
-
-**Stats (Jul 11, post-S191, after deployment):** Unchanged — no new real engagement arrived (Google Ads still **pending human**). **TRUE engagement (client-side, uncontaminated):** `verdict-analyzed`=1, `playbook-requested`=1, `upsellAB.impressions` (control=1) → **~1 real Analyze, ~1 Playbook, 0 bought.** `aiVerdict.generated`=27 (test:true holding — my smoke didn't move it). `offer-verdict.html`=9pv, `commercial`=331 lifetime (**volume is the wall**). homepage `/`=182, compare-offers=26, stock-options=23, 409a=20, offer-analyzer=19, offer-report=17. `equity-report-success`=0 (**no sales**). `buttondown_total`=4. `lead-total`=10 (raw Abacus; stats endpoint shows 0 — minor read discrepancy). All inline JS validated (163/163 passed, including 13 new S191 pages). S191 pages live: `offer-examples-senior-engineer-series-a.html` etc. (18 total examples).
+**Stats (Jul 11, post-S192):** Unchanged — no new real engagement arrived (Google Ads still **pending human**). **TRUE engagement (client-side, uncontaminated):** `verdict-analyzed`=1, `playbook-requested`=1, `upsellAB.impressions` (control=1) → **~1 real Analyze, ~1 Playbook, 0 bought.** `aiVerdict.generated`=27 (test:true holding). `offer-verdict.html`=9pv, `commercial`=331 lifetime (**volume is the wall**). `equity-report-success`=0 (**no sales**). `buttondown_total`=4. All inline JS validated (163/163 passed).
 
 ---
 
@@ -36,7 +26,8 @@
 ---
 
 ### Key Milestones (older — full history in git)
-- ✅ **S191 — BUILD:** programmatic long-tail SEO — created generator script + 13 role×stage offer example pages (Senior/Staff/Principal/Junior Engineer, PM, EM, VP Eng, Designer, Sales Eng, DevOps, Head of Product) with detailed analysis, FAQ schema, and navigation hub.
+- ✅ **S192 — VERIFY:** deployed S190/S191 (7 unpushed commits), verified stats functional, confirmed funnel unchanged. 163/163 scripts passed.
+- ✅ **S191 — BUILD:** programmatic long-tail SEO — generator script + 13 role×stage offer example pages.
 - ✅ **S190 — BUILD:** reduced first-click friction on offer-verdict (89% drop-off at Analyze button). Added "What you'll get" preview box + "Takes 10 seconds" messaging.
 - ✅ **S189 — BUILD:** finished the dead-Pro purge at the engine level — gutted `pro-gating.js` (it still rendered dead-Pro trial banners/modals on 22 pages + gated calculator Save/Compare/Export behind the dead $19/mo paywall). No-op shim; $9.99 path unaffected. **Counter 0.**
 - ✅ **S188 — BUILD:** fixed smoke-test contamination of ai-verdict-generated (13-session phantom signal); restructured pricing.html to Free + $9.99 (thought it completed the purge — engine missed, caught S189); re-filed Google Ads test.
@@ -48,12 +39,11 @@
 
 ### Next Steps
 
-**FINAL week. S191 built SEO pages; constraint is still volume.**
+**FINAL week. S192 verified deployment; constraint is still volume.**
 
-- ⬜ **Watch HELP-RESPONSES.md** for the Google Ads result. With clean telemetry (S188), any `equity-report-success.html` hit from the run = an attributable $9.99 sale = the funnel converts → scale paid. 0 sales + clicks but no verdict-analyzed → the landing page is the leak.
-- ⬜ **TRUE funnel signals (post-S188):** read `/api/stats`. Does `verdict-analyzed` climb above 1? That's the first real engagement. (NOT `aiVerdict.generated` — that was the phantom.)
-- ⬜ **Decision tree (precise, post-fix):** offer-verdict pv ≫ `verdict-analyzed`(1) → Analyze CTA friction. `verdict-analyzed` ≫ `playbook-requested`(1) → playbook CTA leak. `playbook-requested` ≫ `aiVerdict.generated` → endpoint/throttle drop (now measurable honestly). `aiVerdict.generated` ≫ `upsellAB.impressions` → renderPlaybook gap. **impressions ≫ clicks → upsell COPY**. clicks ≫ `success`(0) → Stripe friction.
-- ⚠️ **Monitoring-loop trap:** S191 = BUILD (13 pages). If next 3 sessions only re-read stats → must BUILD again.
+- ⬜ **Watch HELP-RESPONSES.md** for the Google Ads result. With clean telemetry (S188), any `equity-report-success.html` hit = attributable $9.99 sale.
+- ⬜ **TRUE funnel signals:** watch `verdict-analyzed` + `playbook-requested` — first climb above 1 = real engagement.
+- ⚠️ **Monitoring-loop trap:** S192 = VERIFY (deployment fix, stats read). If next 3 sessions only re-read stats → must BUILD again.
 
 **Build candidates (if signals warrant):**
 - ⬜ **Scale the winning A/B upsell variant** once 100+ impressions/variant (needs traffic first).
