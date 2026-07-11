@@ -1,0 +1,576 @@
+{
+  "examples": [
+    {
+      "id": "senior-engineer-seed",
+      "filename": "offer-examples-senior-engineer-seed.html",
+      "role": "Senior Engineer",
+      "roleDisplay": "Senior Software Engineer",
+      "stage": "Seed",
+      "salary": 155000,
+      "shares": 65000,
+      "strike": 0.80,
+      "fmv": 2.50,
+      "ownership": "0.18%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 1.2,
+      "exitPrice": 6.50,
+      "exitValue": 369500,
+      "salaryRange": "$140K - $170K",
+      "equityRange": "0.10% - 0.30%",
+      "analysis": {
+        "salary": "within normal range",
+        "equity": "fair, with room to negotiate",
+        "overall": "healthy equity-to-salary ratio for Seed stage"
+      },
+      "negotiationTips": [
+        "Ask for 20% more equity: 'Could we bring the option grant to ~78,000 shares? That would put this offer more in line with Senior Engineer grants at Seed stage.'",
+        "Request a refresh grant: 'I'd like a one-year refresh grant so my equity keeps pace with the company's growth.'",
+        "Negotiate salary if needed: 'Can we meet at $165K base? I'd also like to discuss equity at my first review.'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.18% equity good for a Senior Engineer at Seed?",
+          "answer": "0.18% ownership is fair for a Senior Engineer at Seed stage. Typical grants range from 0.10% to 0.30%, with the average around 0.20%. Seed stage grants are larger than later stages to compensate for higher risk."
+        },
+        {
+          "question": "What is a good salary for Senior Engineer at Seed startup?",
+          "answer": "Senior Engineer base salary at Seed startups typically ranges from $140K to $170K in major tech hubs. $155K is within the normal range. Seed companies often pay below market but make up for it with larger equity grants."
+        },
+        {
+          "question": "How much is 65,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $6.50/share in 5 years and your strike is $0.80, your 65,000 shares are worth ~$370,000 before taxes. That's about 2.4× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "senior-engineer-series-b",
+      "filename": "offer-examples-senior-engineer-series-b.html",
+      "role": "Senior Engineer",
+      "roleDisplay": "Senior Software Engineer",
+      "stage": "Series B",
+      "salary": 195000,
+      "shares": 25000,
+      "strike": 3.00,
+      "fmv": 8.00,
+      "ownership": "0.05%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 0.8,
+      "exitPrice": 15.00,
+      "exitValue": 300000,
+      "salaryRange": "$180K - $210K",
+      "equityRange": "0.03% - 0.10%",
+      "analysis": {
+        "salary": "competitive for Series B",
+        "equity": "typical for this stage",
+        "overall": "lower equity multiple but higher base salary"
+      },
+      "negotiationTips": [
+        "Negotiate base salary: 'Can we meet at $205K? At Series B, cash compensation is more important than equity.'",
+        "Ask about refresh grants: 'Is there a refresh grant policy as we approach Series C?'",
+        "Consider RSUs: 'Since the strike ($3) is close to FMV ($8), would RSUs be a better fit?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.05% equity good for a Senior Engineer at Series B?",
+          "answer": "0.05% ownership is typical for a Senior Engineer at Series B. Typical grants range from 0.03% to 0.10%. Series B companies are more established, so grants are smaller but the risk is lower."
+        },
+        {
+          "question": "What is a good salary for Senior Engineer at Series B startup?",
+          "answer": "Senior Engineer base salary at Series B startups typically ranges from $180K to $210K in major tech hubs. $195K is competitive. At this stage, salary is closer to market rate."
+        },
+        {
+          "question": "How much is 25,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $15/share in 5 years and your strike is $3, your 25,000 shares are worth ~$300,000 before taxes. That's about 1.5× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "junior-engineer-seed",
+      "filename": "offer-examples-junior-engineer-seed.html",
+      "role": "Junior Engineer",
+      "roleDisplay": "Junior Software Engineer",
+      "stage": "Seed",
+      "salary": 110000,
+      "shares": 40000,
+      "strike": 0.80,
+      "fmv": 2.50,
+      "ownership": "0.11%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 0.5,
+      "exitPrice": 6.50,
+      "exitValue": 228000,
+      "salaryRange": "$95K - $130K",
+      "equityRange": "0.05% - 0.15%",
+      "analysis": {
+        "salary": "below big-tech market but fair for Seed",
+        "equity": "meaningful for Junior level",
+        "overall": "good learning opportunity with some upside"
+      },
+      "negotiationTips": [
+        "Focus on learning: 'At this stage, I'm most interested in the learning opportunity. Can we discuss mentorship and growth?'",
+        "Ask for equity review: 'I'd like to revisit equity after my first year based on performance.'",
+        "Consider total package: 'Can we discuss the overall package including benefits and remote work?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.11% equity good for a Junior Engineer at Seed?",
+          "answer": "0.11% ownership is fair for a Junior Engineer at Seed stage. Junior engineers typically receive 0.05% to 0.15%. The focus at this level is on learning and growth rather than maximum equity."
+        },
+        {
+          "question": "What is a good salary for Junior Engineer at Seed startup?",
+          "answer": "Junior Engineer base salary at Seed startups typically ranges from $95K to $130K. $110K is fair. Seed startups pay less than big tech but offer more responsibility and growth."
+        },
+        {
+          "question": "How much is 40,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $6.50/share in 5 years and your strike is $0.80, your 40,000 shares are worth ~$228,000 before taxes. That's about 2× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "staff-engineer-series-a",
+      "filename": "offer-examples-staff-engineer-series-a.html",
+      "role": "Staff Engineer",
+      "roleDisplay": "Staff Software Engineer",
+      "stage": "Series A",
+      "salary": 210000,
+      "shares": 70000,
+      "strike": 1.00,
+      "fmv": 5.00,
+      "ownership": "0.12%",
+      "location": "San Francisco, CA",
+      "verdict": "above",
+      "verdictDisplay": "Above Market",
+      "equityRatio": 2.5,
+      "exitPrice": 8.00,
+      "exitValue": 490000,
+      "salaryRange": "$190K - $230K",
+      "equityRange": "0.08% - 0.20%",
+      "analysis": {
+        "salary": "strong for Series A",
+        "equity": "generous for Staff level",
+        "overall": "excellent package with meaningful upside"
+      },
+      "negotiationTips": [
+        "This is already a strong offer: 'This is a compelling offer. I'd like to discuss how my role evolves as we scale.'",
+        "Ask about impact: 'Can we define clear milestones for my first 6 months?'",
+        "Discuss long-term equity: 'I'd like to understand the refresh grant policy for Staff engineers.'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.12% equity good for a Staff Engineer at Series A?",
+          "answer": "0.12% ownership is above market for a Staff Engineer at Series A. Typical grants range from 0.08% to 0.20%, with 0.12% being generous. Staff engineers at Series A are rare and valuable."
+        },
+        {
+          "question": "What is a good salary for Staff Engineer at Series A startup?",
+          "answer": "Staff Engineer base salary at Series A startups typically ranges from $190K to $230K in major tech hubs. $210K is strong. Staff engineers are senior individual contributors with significant impact."
+        },
+        {
+          "question": "How much is 70,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $8/share in 5 years and your strike is $1, your 70,000 shares are worth ~$490,000 before taxes. That's about 2.3× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "pm-series-a",
+      "filename": "offer-examples-pm-series-a.html",
+      "role": "Product Manager",
+      "roleDisplay": "Senior Product Manager",
+      "stage": "Series A",
+      "salary": 165000,
+      "shares": 42000,
+      "strike": 1.00,
+      "fmv": 5.00,
+      "ownership": "0.07%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 1.3,
+      "exitPrice": 8.00,
+      "exitValue": 294000,
+      "salaryRange": "$150K - $180K",
+      "equityRange": "0.04% - 0.12%",
+      "analysis": {
+        "salary": "within normal range for PM",
+        "equity": "fair for Series A PM",
+        "overall": "solid offer with good upside potential"
+      },
+      "negotiationTips": [
+        "Negotiate equity: 'Could we bring the option grant to ~50,000 shares? That would align with Senior PM grants at Series A.'",
+        "Discuss product ownership: 'I'd like clarity on which products I'll own and the decision-making authority.'",
+        "Ask about growth: 'What does the PM career path look like as we scale?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.07% equity good for a Product Manager at Series A?",
+          "answer": "0.07% ownership is fair for a Senior Product Manager at Series A. Typical grants range from 0.04% to 0.12%. PM equity is typically lower than engineering due to smaller team size impact."
+        },
+        {
+          "question": "What is a good salary for Product Manager at Series A startup?",
+          "answer": "Senior PM base salary at Series A startups typically ranges from $150K to $180K in major tech hubs. $165K is fair. PM compensation is closer to market than engineering at most startups."
+        },
+        {
+          "question": "How much is 42,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $8/share in 5 years and your strike is $1, your 42,000 shares are worth ~$294,000 before taxes. That's about 1.8× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "eng-manager-series-a",
+      "filename": "offer-examples-eng-manager-series-a.html",
+      "role": "Engineering Manager",
+      "roleDisplay": "Engineering Manager",
+      "stage": "Series A",
+      "salary": 185000,
+      "shares": 55000,
+      "strike": 1.00,
+      "fmv": 5.00,
+      "ownership": "0.10%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 1.6,
+      "exitPrice": 8.00,
+      "exitValue": 385000,
+      "salaryRange": "$170K - $200K",
+      "equityRange": "0.06% - 0.15%",
+      "analysis": {
+        "salary": "strong for Series A EM",
+        "equity": "good for management role",
+        "overall": "solid package with management upside"
+      },
+      "negotiationTips": [
+        "Discuss scope: 'I'd like clarity on team size and scope of products I'll manage.'",
+        "Negotiate equity: 'Could we discuss bringing the grant to ~65,000 shares given the management scope?'",
+        "Ask about growth: 'What does the career progression look like for EM roles at the company?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.10% equity good for Engineering Manager at Series A?",
+          "answer": "0.10% ownership is fair for an Engineering Manager at Series A. Typical grants range from 0.06% to 0.15%. Managers typically get slightly more than senior ICs due to broader impact."
+        },
+        {
+          "question": "What is a good salary for Engineering Manager at Series A startup?",
+          "answer": "Engineering Manager base salary at Series A startups typically ranges from $170K to $200K in major tech hubs. $185K is competitive. Management roles command a premium over senior ICs."
+        },
+        {
+          "question": "How much is 55,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $8/share in 5 years and your strike is $1, your 55,000 shares are worth ~$385,000 before taxes. That's about 2.1× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "vp-engineering-series-b",
+      "filename": "offer-examples-vp-engineering-series-b.html",
+      "role": "VP Engineering",
+      "roleDisplay": "VP of Engineering",
+      "stage": "Series B",
+      "salary": 275000,
+      "shares": 200000,
+      "strike": 2.50,
+      "fmv": 8.00,
+      "ownership": "0.40%",
+      "location": "San Francisco, CA",
+      "verdict": "above",
+      "verdictDisplay": "Above Market",
+      "equityRatio": 3.8,
+      "exitPrice": 15.00,
+      "exitValue": 2500000,
+      "salaryRange": "$250K - $300K",
+      "equityRange": "0.25% - 0.60%",
+      "analysis": {
+        "salary": "competitive for VP at Series B",
+        "equity": "strong executive-level grant",
+        "overall": "excellent executive package"
+      },
+      "negotiationTips": [
+        "Negotiate acceleration: 'I'd like single-trigger acceleration on change of control.'",
+        "Discuss refresh commitment: 'Can we commit to refresh grants at each funding round?'",
+        "Clarify scope: 'I'd like to understand the reporting structure and board involvement.'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.40% equity good for VP Engineering at Series B?",
+          "answer": "0.40% ownership is strong for a VP Engineering at Series B. Typical grants range from 0.25% to 0.60%. VP-level grants are meaningful ownership stakes."
+        },
+        {
+          "question": "What is a good salary for VP Engineering at Series B startup?",
+          "answer": "VP Engineering base salary at Series B startups typically ranges from $250K to $300K in major tech hubs. $275K is competitive. Executive salaries at Series B are closer to market rate."
+        },
+        {
+          "question": "How much is 200,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $15/share in 5 years and your strike is $2.50, your 200,000 shares are worth ~$2.5M before taxes. That's about 9× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "product-designer-series-a",
+      "filename": "offer-examples-product-designer-series-a.html",
+      "role": "Product Designer",
+      "roleDisplay": "Senior Product Designer",
+      "stage": "Series A",
+      "salary": 155000,
+      "shares": 38000,
+      "strike": 1.00,
+      "fmv": 5.00,
+      "ownership": "0.06%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 1.1,
+      "exitPrice": 8.00,
+      "exitValue": 266000,
+      "salaryRange": "$140K - $170K",
+      "equityRange": "0.04% - 0.10%",
+      "analysis": {
+        "salary": "within range for designer",
+        "equity": "typical for design roles",
+        "overall": "fair offer for senior designer"
+      },
+      "negotiationTips": [
+        "Discuss design ownership: 'I'd like clarity on which products and design systems I'll own.'",
+        "Negotiate equity: 'Could we bring the grant to ~45,000 shares? That would align with senior design grants at Series A.'",
+        "Ask about design team: 'What does the design team structure look like and how will it grow?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.06% equity good for Product Designer at Series A?",
+          "answer": "0.06% ownership is fair for a Senior Product Designer at Series A. Typical grants range from 0.04% to 0.10%. Design roles typically receive slightly less equity than engineering."
+        },
+        {
+          "question": "What is a good salary for Product Designer at Series A startup?",
+          "answer": "Senior Product Designer base salary at Series A startups typically ranges from $140K to $170K in major tech hubs. $155K is fair. Design salaries are typically slightly lower than engineering at startups."
+        },
+        {
+          "question": "How much is 38,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $8/share in 5 years and your strike is $1, your 38,000 shares are worth ~$266,000 before taxes. That's about 1.7× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "sales-engineer-series-a",
+      "filename": "offer-examples-sales-engineer-series-a.html",
+      "role": "Sales Engineer",
+      "roleDisplay": "Senior Sales Engineer",
+      "stage": "Series A",
+      "salary": 160000,
+      "shares": 35000,
+      "strike": 1.00,
+      "fmv": 5.00,
+      "ownership": "0.06%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 1.0,
+      "exitPrice": 8.00,
+      "exitValue": 245000,
+      "salaryRange": "$145K - $175K",
+      "equityRange": "0.04% - 0.10%",
+      "analysis": {
+        "salary": "competitive with commission potential",
+        "equity": "standard for sales roles",
+        "overall": "fair package with commission upside"
+      },
+      "negotiationTips": [
+        "Clarify commission structure: 'I'd like details on the commission structure and quotas.'",
+        "Discuss equity: 'Could we bring the grant to ~42,000 shares? That would align with SE grants at Series A.'",
+        "Ask about sales cycle: 'What's the typical sales cycle and average deal size?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.06% equity good for Sales Engineer at Series A?",
+          "answer": "0.06% ownership is fair for a Senior Sales Engineer at Series A. Typical grants range from 0.04% to 0.10%. Sales roles often have commission structures that supplement base compensation."
+        },
+        {
+          "question": "What is a good salary for Sales Engineer at Series A startup?",
+          "answer": "Senior Sales Engineer base salary at Series A startups typically ranges from $145K to $175K plus commission. $160K is competitive. Total compensation with commission can be significantly higher."
+        },
+        {
+          "question": "How much is 35,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $8/share in 5 years and your strike is $1, your 35,000 shares are worth ~$245,000 before taxes. That's about 1.5× your annual salary before commission."
+        }
+      ]
+    },
+    {
+      "id": "devops-engineer-series-a",
+      "filename": "offer-examples-devops-engineer-series-a.html",
+      "role": "DevOps Engineer",
+      "roleDisplay": "Senior DevOps Engineer",
+      "stage": "Series A",
+      "salary": 170000,
+      "shares": 48000,
+      "strike": 1.00,
+      "fmv": 5.00,
+      "ownership": "0.08%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 1.5,
+      "exitPrice": 8.00,
+      "exitValue": 336000,
+      "salaryRange": "$155K - $185K",
+      "equityRange": "0.05% - 0.12%",
+      "analysis": {
+        "salary": "strong for DevOps role",
+        "equity": "good for infrastructure engineering",
+        "overall": "solid offer with growing demand for DevOps"
+      },
+      "negotiationTips": [
+        "Discuss infrastructure scope: 'I'd like clarity on the infrastructure stack and team size.'",
+        "Negotiate equity: 'Could we bring the grant to ~58,000 shares given the DevOps market demand?'",
+        "Ask about on-call: 'What does the on-call rotation and incident response structure look like?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.08% equity good for DevOps Engineer at Series A?",
+          "answer": "0.08% ownership is fair for a Senior DevOps Engineer at Series A. Typical grants range from 0.05% to 0.12%. DevOps roles are in high demand, which can provide negotiation leverage."
+        },
+        {
+          "question": "What is a good salary for DevOps Engineer at Series A startup?",
+          "answer": "Senior DevOps Engineer base salary at Series A startups typically ranges from $155K to $185K in major tech hubs. $170K is competitive. DevOps engineers are increasingly valuable as infrastructure complexity grows."
+        },
+        {
+          "question": "How much is 48,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $8/share in 5 years and your strike is $1, your 48,000 shares are worth ~$336,000 before taxes. That's about 2× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "head-of-product-series-b",
+      "filename": "offer-examples-head-of-product-series-b.html",
+      "role": "Head of Product",
+      "roleDisplay": "Head of Product",
+      "stage": "Series B",
+      "salary": 230000,
+      "shares": 120000,
+      "strike": 2.50,
+      "fmv": 8.00,
+      "ownership": "0.25%",
+      "location": "San Francisco, CA",
+      "verdict": "above",
+      "verdictDisplay": "Above Market",
+      "equityRatio": 2.7,
+      "exitPrice": 15.00,
+      "exitValue": 1500000,
+      "salaryRange": "$210K - $250K",
+      "equityRange": "0.15% - 0.40%",
+      "analysis": {
+        "salary": "strong for Head of Product",
+        "equity": "generous leadership grant",
+        "overall": "excellent leadership package"
+      },
+      "negotiationTips": [
+        "Discuss product vision: 'I'd like clarity on product vision, strategy, and decision-making authority.'",
+        "Negotiate acceleration: 'I'd like single-trigger acceleration on change of control.'",
+        "Ask about team: 'What does the current product team structure look like and hiring plans?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.25% equity good for Head of Product at Series B?",
+          "answer": "0.25% ownership is strong for a Head of Product at Series B. Typical grants range from 0.15% to 0.40%. Leadership roles receive meaningful ownership stakes."
+        },
+        {
+          "question": "What is a good salary for Head of Product at Series B startup?",
+          "answer": "Head of Product base salary at Series B startups typically ranges from $210K to $250K in major tech hubs. $230K is competitive. Leadership roles command premium compensation."
+        },
+        {
+          "question": "How much is 120,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $15/share in 5 years and your strike is $2.50, your 120,000 shares are worth ~$1.5M before taxes. That's about 6.5× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "principal-engineer-series-b",
+      "filename": "offer-examples-principal-engineer-series-b.html",
+      "role": "Principal Engineer",
+      "roleDisplay": "Principal Engineer",
+      "stage": "Series B",
+      "salary": 245000,
+      "shares": 90000,
+      "strike": 2.50,
+      "fmv": 8.00,
+      "ownership": "0.18%",
+      "location": "San Francisco, CA",
+      "verdict": "above",
+      "verdictDisplay": "Above Market",
+      "equityRatio": 2.9,
+      "exitPrice": 15.00,
+      "exitValue": 1125000,
+      "salaryRange": "$225K - $265K",
+      "equityRange": "0.12% - 0.25%",
+      "analysis": {
+        "salary": "excellent for Principal level",
+        "equity": "generous for senior IC",
+        "overall": "top-tier package for Principal Engineer"
+      },
+      "negotiationTips": [
+        "This is already a strong offer: 'This is a compelling offer. I'd like to discuss technical leadership scope.'",
+        "Clarify impact: 'What are the key technical problems I'll own and the decision-making authority?'",
+        "Discuss refresh: 'I'd like to understand the refresh grant policy for Principal engineers.'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.18% equity good for Principal Engineer at Series B?",
+          "answer": "0.18% ownership is above market for a Principal Engineer at Series B. Typical grants range from 0.12% to 0.25%. Principal engineers are rare and command premium grants."
+        },
+        {
+          "question": "What is a good salary for Principal Engineer at Series B startup?",
+          "answer": "Principal Engineer base salary at Series B startups typically ranges from $225K to $265K in major tech hubs. $245K is excellent. Principal engineers are among the highest-paid individual contributors."
+        },
+        {
+          "question": "How much is 90,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $15/share in 5 years and your strike is $2.50, your 90,000 shares are worth ~$1.1M before taxes. That's about 4.6× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "mid-engineer-pre-seed",
+      "filename": "offer-examples-mid-engineer-pre-seed.html",
+      "role": "Mid-level Engineer",
+      "roleDisplay": "Mid-level Software Engineer",
+      "stage": "Pre-seed",
+      "salary": 125000,
+      "shares": 75000,
+      "strike": 0.05,
+      "fmv": 0.15,
+      "ownership": "0.50%",
+      "location": "San Francisco, CA",
+      "verdict": "below",
+      "verdictDisplay": "High Risk / Low Cash",
+      "equityRatio": 0.15,
+      "exitPrice": 0.50,
+      "exitValue": 33750,
+      "salaryRange": "$110K - $140K",
+      "equityRange": "0.30% - 0.80%",
+      "analysis": {
+        "salary": "below market",
+        "equity": "large grant but high risk",
+        "overall": "pre-seed is lottery ticket territory"
+      },
+      "negotiationTips": [
+        "Understand the risk: 'Pre-seed has high failure rate. I'd like to understand the team and market fit.'",
+        "Negotiate heavily: 'At pre-seed, can we double the equity grant to ~150,000 shares?'",
+        "Discuss salary: 'Can we bring base closer to $140K to reduce personal risk?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.50% equity good for Mid-level Engineer at Pre-seed?",
+          "answer": "0.50% ownership is large for a Mid-level Engineer at Pre-seed. Typical grants range from 0.30% to 0.80%. Pre-seed grants are the largest but come with the highest risk."
+        },
+        {
+          "question": "What is a good salary for Mid-level Engineer at Pre-seed startup?",
+          "answer": "Mid-level Engineer base salary at Pre-seed startups typically ranges from $110K to $140K. $125K is below big-tech market but typical for pre-seed. The tradeoff is larger equity with higher risk."
+        },
+        {
+          "question": "How much is 75,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. At pre-seed, exit projections are highly uncertain. If the company reaches $0.50/share in 5 years and your strike is $0.05, your 75,000 shares are worth ~$34,000 before taxes."
+        }
+      ]
+    }
+  ]
+}
