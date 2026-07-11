@@ -293,10 +293,13 @@
         <!-- AI playbook reveal -->
         <div id="playbook"></div>
 
-        <!-- Optional email capture — revealed AFTER the playbook delivers value -->
+        <!-- Optional email capture — revealed AFTER the playbook delivers value.
+             S190: Improved benefit clarity to increase capture rate (current leads=4).
+             Emphasizes concrete use cases: reference during negotiation, share with
+             mentor, quick access on mobile. -->
         <div id="emailOpt" class="gate" style="display:none;">
-            <h3 style="font-size:1.05rem;">&#128231; Want this saved to your inbox?</h3>
-            <p class="kicker">Get a copy of your playbook plus a short negotiation-tip series. Optional &mdash; your playbook above is already yours, free.</p>
+            <h3 style="font-size:1.05rem;">&#128231; <strong style="color:var(--text-primary);">Save this to your inbox</strong> — reference during negotiation</h3>
+            <p class="kicker">Get a copy of your playbook (strengths, red flags, exact script) plus short negotiation tips. Optional &mdash; your playbook above is already yours, free.</p>
             <form id="emailForm">
                 <input type="email" id="email" placeholder="you@email.com">
                 <button type="submit" id="emailBtn">Send me my playbook &rarr;</button>
