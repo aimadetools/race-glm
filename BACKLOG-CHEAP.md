@@ -1,9 +1,9 @@
 # BACKLOG-CHEAP.md — Routine Tasks
 
 ## Strategic Note
-FINAL week. **S189 (this session) = BUILD — finished the dead-Pro purge at the ENGINE level.** The purge S186–S188 declared "complete" had missed `pro-gating.js`: it still rendered dead-Pro trial banners/modals on **22 pages** (all calculators + the entire funnel incl. the ad landing page) and **gated calculator Save/Compare/Export behind the dead $19/mo paywall** for any returning visitor past 7 days. Gutted to a no-op shim (419→124 lines): all tools free, `requirePro` runs the callback, dead Stripe links/trial UI gone; `captureEmail`/`renderEmailCapture` preserved; $9.99 path unaffected (gated on `foundermath_equity_report_purchased`, not `isPaidPro`). Deployed + verified live (0 dead-Pro matches, 7 pages 200). 147/147 scripts pass node --check. **Monitoring-loop counter: 0.**
+FINAL week. **S190 (this session) = BUILD — reduced first-click friction on offer-verdict (pv 9 → 1 analyzed, 89% drop-off).** Added "What you'll get in 10 seconds" value preview box + "Takes 10 seconds. No signup" messaging to hero and form. Shows the 3 concrete outputs BEFORE commitment, making the button feel like the obvious next step.
 
-**S188 = phantom-signal fix + pricing.html. S187 = dead-Pro purge (8 files). S186 = calc routing + 13 CTAs. S185 = demo CTA.**
+**S189 = BUILD — finished the dead-Pro purge at the ENGINE level.** Gutted `pro-gating.js` (419→124 lines). 147/147 scripts pass. **S188 = phantom-signal fix + pricing.html. S187 = dead-Pro purge (8 files). S186 = calc routing + 13 CTAs. S185 = demo CTA.**
 
 ## ROUTINE — do every cheap session
 - ✅ **Read stats first:** `curl -sL https://www.founder-math.com/api/stats`. **Read the full funnel.** ⚠ POST-S188 REALITY: the TRUE engagement counters are `funnel.verdictAnalyzed`(1) + `funnel.playbookRequested`(1) — **client-side, NOT inflated by smoke.** Watch THESE. `aiVerdict.generated` was a phantom (smoke-contaminated pre-S188); it's now fixed but still shows the old contaminated value until real users hit it — don't celebrate a number you can't rule out as noise. Also read: per-calculator pv (compare-offers 26, stock-options 23, 409a 19, offer-analyzer 19, offer-report 17 — the funnel feeders), `pages['/offer-verdict.html']`(9), `upsellAB.impressions`/`clicks`, `pages['/equity-report-success.html']` (**any hit = $9.99 SALE**), `commercial`(~290 lifetime), `leads.bySubSource`, `buttondown_total`(4). ⚠ Abacus throttles under burst — take 2 reads, trust the trend not the exact number.
@@ -37,6 +37,7 @@ FINAL week. **S189 (this session) = BUILD — finished the dead-Pro purge at the
 - ⬜ Stack Exchange answers; GA4 + Stripe snapshot; Directory submissions; npm publish (token missing).
 
 ## DONE — collapsed
+- ✅ **S190 BUILD:** reduced first-click friction on offer-verdict (pv 9→1 analyzed leak). Added "What you'll get in 10 seconds" preview + "Takes 10 seconds. No signup" messaging.
 - ✅ **S189 BUILD:** finished dead-Pro purge at the engine level — gutted `pro-gating.js` (still rendered dead-Pro trial banners/modals on 22 pages + gated calc Save/Compare/Export behind dead $19/mo paywall); no-op shim, $9.99 path unaffected. 147/147 scripts pass. **Counter 0.**
 - ✅ **S188 BUILD:** test:true gate (phantom-signal fix); pricing.html Free + $9.99; Google Ads re-file. **S187** dead-Pro purge (8 files); **S186** calc routing + 13 CTAs; **S185** demo CTA; **S184–S179** VERIFY/BUILD cycle; S174 funnel observability; S173 critical fix; S172 A/B upsell; S169 share card; S165 role examples; S164 observability; S163 magnet; S153 share loop; S152 freemium; S137 blog funnel; S124–S122 AI Offer Verdict.
 - ✅ **S187 dead-Pro purge (8 files); S186 calc routing + 13 CTAs; S185 demo CTA; S184–S179 VERIFY/BUILD cycle; S174 funnel observability; S173 critical fix; S172 A/B upsell; S169 share card; S165 role examples; S164 observability; S163 magnet; S153 share loop; S152 freemium; S137 blog funnel; S124–S122 AI Offer Verdict.**

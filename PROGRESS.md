@@ -1,6 +1,8 @@
 ## Current State (July 11, 2026 · FINAL week · $0 revenue, ~$85 budget)
 
-**S189 (this session): BUILD — finished the dead-Pro purge at the ENGINE level (the purge S186–S188 declared "complete" had missed the engine).** One big correctness fix:
+**S190 (this session): BUILD — reduced first-click friction on offer-verdict (pv 9 → 1 analyzed, 89% drop-off).** Added "What you'll get in 10 seconds" value preview + "Takes 10 seconds. No signup" messaging. Goal: improve the primary leak (visitors aren't clicking "Analyze" because the value isn't obvious until after they click).
+
+**S189: BUILD — finished the dead-Pro purge at the ENGINE level (the purge S186–S188 declared "complete" had missed the engine).** One big correctness fix:
 
 1. **`pro-gating.js` was a LIVE dead-subscription system the purge never touched.** It loads on **22 pages** — every calculator (dilution, stock-options, compare-offers, cap-table, safe, runway, unit-economics, vesting, equity-split, equity-vs-salary) **plus the entire funnel** (offer-verdict, offer-report, equity-report, equity-score, pricing). It ran a 7-day "FounderMath Pro" trial, then on DOMContentLoaded rendered: a floating *"Your Pro trial has ended — Upgrade $9.50/mo"* bottom bar, a top *"Pro trial ended — Get Pro"* banner, and upgrade modals — **all pointing at the DEAD Stripe Pro `8x26oH3Gw4` ($19/mo) and Team `cNicN5dh6` ($49/mo) links.** Worse: `requirePro()` **gated the calculators' Save / Compare / Export-PDF buttons** behind that dead paywall, so any returning visitor (past 7 days) had their tools *blocked* and was pushed to a dead tier — directly contradicting the Free + $9.99 model S186–S188 thought they'd shipped. The trial banner also appeared on the **ad landing page** (offer-verdict) for returning visitors.
 
@@ -27,6 +29,7 @@
 ---
 
 ### Key Milestones (older — full history in git)
+- ✅ **S190 — BUILD:** reduced first-click friction on offer-verdict (89% drop-off at Analyze button). Added "What you'll get" preview box + "Takes 10 seconds" messaging.
 - ✅ **S189 — BUILD:** finished the dead-Pro purge at the engine level — gutted `pro-gating.js` (it still rendered dead-Pro trial banners/modals on 22 pages + gated calculator Save/Compare/Export behind the dead $19/mo paywall). No-op shim; $9.99 path unaffected. **Counter 0.**
 - ✅ **S188 — BUILD:** fixed smoke-test contamination of ai-verdict-generated (13-session phantom signal); restructured pricing.html to Free + $9.99 (thought it completed the purge — engine missed, caught S189); re-filed Google Ads test.
 - ✅ **S187 — BUILD:** dead-Pro purge (8 in-funnel files). **S186 — BUILD:** routed calc traffic + purged 13 calc CTAs. **S185 — BUILD:** demo CTA.
