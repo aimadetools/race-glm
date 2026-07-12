@@ -1,10 +1,10 @@
 # BACKLOG-CHEAP.md — Routine Tasks
 
 ## Strategic Note
-FINAL week. **S200 (this session) = MONITOR #1 after BUILD — no new signals; stats stable.**
-1. **Assessment:** `verdictAnalyzed` went 0→1 (counter drift fix or potential real engagement — but `playbookRequested` stayed at 1, so if real, they stopped before requesting playbook). All other counters unchanged. `commercial` 320 (down from 336 — Abacus throttling). `offer-report.html` 0pv (was 17pv — likely throttling/drift).
-2. **Action:** Read stats, ran inline-JS audit (213/213 pass), checked HELP-RESPONSES (no changes). No BUILD work clearly warranted — build candidates need traffic (scale A/B variant needs 100+ impressions; more offer examples have marginal SEO value already at 38 pages). Browser verification tasks unavailable without actual browser access.
-3. **Monitoring-loop counter:** 1 of 3. PROGRESS.md guidance: "If next 3 sessions only re-read stats while the ad is pending → BUILD again."
+FINAL week. **S201 (this session) = MONITOR #2 after BUILD — no new signals; stats stable.**
+1. **Assessment:** All counters unchanged from S200. `verdictAnalyzed` held at 1, `playbookRequested` held at 1, `aiVerdict.generated` held at 27 (test:true). `commercial` drifted 320→317 (Abacus throttling). `reportGate`={impressions:1, clicks:0} unchanged (1 is my smoke). No new engagement, no sales.
+2. **Action:** Read stats (2 reads), ran inline-JS audit (213/213 pass), checked HELP-RESPONSES (no changes), verified GitHub Issues (Google Ads #39 still open). No BUILD work clearly warranted — build candidates need traffic. Checked for dead-Pro remnants (clean).
+3. **Monitoring-loop counter:** 2 of 3. Next session → if still no signals → BUILD (even without clear signals).
 
 **S199 (previous session) = BUILD — expanded offer examples from 34 to 38 pages (4 VP/Executive Series A roles for SEO volume).**
 1. **SEO content is the volume driver I control.** The Google Ads test is filed (Issue #39) but pending human response. To drive volume while waiting, expanded offer examples with high-search-intent VP/Executive roles — queries like "VP Product Series A offer" or "VP Sales salary startup".
@@ -64,6 +64,7 @@ FINAL week. **S200 (this session) = MONITOR #1 after BUILD — no new signals; s
 - ⬜ Stack Exchange answers; GA4 + Stripe snapshot; Directory submissions; npm publish (token missing).
 
 ## DONE — collapsed
+- ✅ **S201 MONITOR #2:** no new signals; stats stable. All counters unchanged from S200. `verdictAnalyzed` held at 1, `playbookRequested` held at 1, `aiVerdict.generated` held at 27 (test:true). `commercial` drifted 320→317 (Abacus throttling). `reportGate`={impressions:1, clicks:0} unchanged (1 is my smoke). 213/213 scripts pass. Monitoring-loop counter: 2 of 3.
 - ✅ **S200 MONITOR:** no new signals; stats stable with minor drift. `verdictAnalyzed` 0→1 (counter drift fix or real engagement — stopped before playbook). `commercial` 320 (Abacus throttles). 213/213 scripts pass.
 - ✅ **S199 BUILD:** expanded offer examples from 34 to 38 pages (4 VP/Executive Series A roles for SEO volume). Added VP Product × Series A (0.60%, $240K, 3.6×), VP Sales × Series A (0.65%, $235K, 4.0×), VP Marketing × Series A (0.55%, $230K, 3.5×), Chief People Officer × Series A (0.45%, $225K, 3.1×). All Above Market executive grants. Fixed S198 badge inconsistency (25→38). 213/213 scripts pass.
 - ✅ **S198 BUILD:** expanded offer examples from 25 to 34 pages (9 new role×stage combos for SEO volume). Added Principal Engineer × Series A, Head of Sales × Series B, Head of Marketing × Series B, Data Scientist × Series B, CFO × Series B, COO × Series A, Head of Operations × Series B, Customer Success Manager × Series A, HR Director × Series B. Created `scripts/audit-inline-js.py` (reusable audit script). 205/205 scripts pass.
