@@ -1143,6 +1143,226 @@
           "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $20/share in 5 years and your strike is $3.50, your 30,000 shares are worth ~$495,000 before taxes. That's about 2.5× your annual salary."
         }
       ]
+    },
+    {
+      "id": "cfo-series-b",
+      "filename": "offer-examples-cfo-series-b.html",
+      "role": "CFO",
+      "roleDisplay": "Chief Financial Officer",
+      "stage": "Series B",
+      "salary": 280000,
+      "shares": 250000,
+      "strike": 3.00,
+      "fmv": 10.00,
+      "ownership": "0.45%",
+      "location": "San Francisco, CA",
+      "verdict": "above",
+      "verdictDisplay": "Above Market",
+      "equityRatio": 4.5,
+      "exitPrice": 25.00,
+      "exitValue": 5500000,
+      "salaryRange": "$260K - $300K",
+      "equityRange": "0.30% - 0.70%",
+      "analysis": {
+        "salary": "competitive for CFO at Series B",
+        "equity": "strong executive ownership stake",
+        "overall": "excellent executive package"
+      },
+      "negotiationTips": [
+        "Negotiate acceleration: 'I'd like double-trigger acceleration on change of control with 12-month runway.'",
+        "Discuss board seat: 'As CFO, I'd like a board seat or observer rights plus audit committee involvement.'",
+        "Clarify scope: 'I need clarity on financial controls, fundraising strategy, and exit planning authority.'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.45% equity good for CFO at Series B?",
+          "answer": "0.45% ownership is strong for a CFO at Series B. Typical grants range from 0.30% to 0.70%. C-level finance roles receive meaningful ownership stakes."
+        },
+        {
+          "question": "What is a good salary for CFO at Series B startup?",
+          "answer": "CFO base salary at Series B startups typically ranges from $260K to $300K in major tech hubs. $280K is competitive. Executive salaries at Series B are closer to market rate."
+        },
+        {
+          "question": "How much is 250,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $25/share in 5 years and your strike is $3, your 250,000 shares are worth ~$5.5M before taxes. That's about 20× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "coo-series-a",
+      "filename": "offer-examples-coo-series-a.html",
+      "role": "COO",
+      "roleDisplay": "Chief Operating Officer",
+      "stage": "Series A",
+      "salary": 250000,
+      "shares": 400000,
+      "strike": 1.50,
+      "fmv": 5.00,
+      "ownership": "0.70%",
+      "location": "San Francisco, CA",
+      "verdict": "above",
+      "verdictDisplay": "Above Market",
+      "equityRatio": 6.5,
+      "exitPrice": 12.00,
+      "exitValue": 4200000,
+      "salaryRange": "$220K - $280K",
+      "equityRange": "0.50% - 1.20%",
+      "analysis": {
+        "salary": "competitive for Series A COO",
+        "equity": "excellent executive-level grant",
+        "overall": "strong executive package with significant ownership"
+      },
+      "negotiationTips": [
+        "Discuss scope: 'I'd like clarity on operational scope, team size, and decision-making authority.'",
+        "Negotiate acceleration: 'I'd like single-trigger acceleration on change of control with 12-month runway.'",
+        "Ask about equity structure: 'I'd like to understand the option pool and how future funding affects my stake.'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.70% equity good for COO at Series A?",
+          "answer": "0.70% ownership is strong for a COO at Series A. Typical grants range from 0.50% to 1.20%. COO roles receive significant ownership as the operational leader."
+        },
+        {
+          "question": "What is a good salary for COO at Series A startup?",
+          "answer": "COO base salary at Series A startups typically ranges from $220K to $280K in major tech hubs. $250K is competitive. Executive salaries at Series A are below big-tech but compensated with equity."
+        },
+        {
+          "question": "How much is 400,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $12/share in 5 years and your strike is $1.50, your 400,000 shares are worth ~$4.2M before taxes. That's about 17× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "head-of-operations-series-b",
+      "filename": "offer-examples-head-of-operations-series-b.html",
+      "role": "Head of Operations",
+      "roleDisplay": "Head of Operations",
+      "stage": "Series B",
+      "salary": 210000,
+      "shares": 110000,
+      "strike": 3.00,
+      "fmv": 10.00,
+      "ownership": "0.18%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 2.2,
+      "exitPrice": 22.00,
+      "exitValue": 2090000,
+      "salaryRange": "$195K - $225K",
+      "equityRange": "0.12% - 0.28%",
+      "analysis": {
+        "salary": "competitive for ops leadership",
+        "equity": "good for operations role",
+        "overall": "solid package with operational scope"
+      },
+      "negotiationTips": [
+        "Discuss scope: 'I'd like clarity on operational scope, team size, and process ownership.'",
+        "Negotiate equity: 'Could we bring the grant to ~130,000 shares given the operational complexity?'",
+        "Ask about growth: 'What does the path to COO or VP Operations look like?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.18% equity good for Head of Operations at Series B?",
+          "answer": "0.18% ownership is fair for a Head of Operations at Series B. Typical grants range from 0.12% to 0.28%. Operations leadership roles receive meaningful equity tied to operational efficiency."
+        },
+        {
+          "question": "What is a good salary for Head of Operations at Series B startup?",
+          "answer": "Head of Operations base salary at Series B startups typically ranges from $195K to $225K in major tech hubs. $210K is competitive. Operations roles command premium compensation."
+        },
+        {
+          "question": "How much is 110,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $22/share in 5 years and your strike is $3, your 110,000 shares are worth ~$2.1M before taxes. That's about 10× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "customer-success-manager-series-a",
+      "filename": "offer-examples-customer-success-manager-series-a.html",
+      "role": "Customer Success Manager",
+      "roleDisplay": "Senior Customer Success Manager",
+      "stage": "Series A",
+      "salary": 125000,
+      "shares": 28000,
+      "strike": 1.50,
+      "fmv": 5.00,
+      "ownership": "0.05%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 1.0,
+      "exitPrice": 10.00,
+      "exitValue": 238000,
+      "salaryRange": "$110K - $140K",
+      "equityRange": "0.03% - 0.10%",
+      "analysis": {
+        "salary": "competitive for CS role",
+        "equity": "standard for customer success",
+        "overall": "fair package with retention upside"
+      },
+      "negotiationTips": [
+        "Discuss book of business: 'I'd like clarity on account size, retention targets, and upsell opportunities.'",
+        "Negotiate equity: 'Could we bring the grant to ~34,000 shares given the retention impact?'",
+        "Ask about career path: 'What does the path to Head of Customer Success look like?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.05% equity good for Customer Success Manager at Series A?",
+          "answer": "0.05% ownership is fair for a Senior Customer Success Manager at Series A. Typical grants range from 0.03% to 0.10%. CS roles receive equity tied to retention and revenue impact."
+        },
+        {
+          "question": "What is a good salary for Customer Success Manager at Series A startup?",
+          "answer": "Senior Customer Success Manager base salary at Series A startups typically ranges from $110K to $140K. $125K is competitive. CS roles are increasingly valuable as SaaS companies focus on retention."
+        },
+        {
+          "question": "How much is 28,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $10/share in 5 years and your strike is $1.50, your 28,000 shares are worth ~$238,000 before taxes. That's about 1.9× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "hr-director-series-b",
+      "filename": "offer-examples-hr-director-series-b.html",
+      "role": "HR Director",
+      "roleDisplay": "Director of HR",
+      "stage": "Series B",
+      "salary": 175000,
+      "shares": 60000,
+      "strike": 3.50,
+      "fmv": 10.00,
+      "ownership": "0.10%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 1.5,
+      "exitPrice": 20.00,
+      "exitValue": 990000,
+      "salaryRange": "$160K - $190K",
+      "equityRange": "0.06% - 0.15%",
+      "analysis": {
+        "salary": "competitive for HR leadership",
+        "equity": "reasonable for people operations",
+        "overall": "solid package with culture scope"
+      },
+      "negotiationTips": [
+        "Discuss scope: 'I'd like clarity on HR scope, team size, and culture-building authority.'",
+        "Negotiate equity: 'Could we bring the grant to ~72,000 shares given the people ops scope?'",
+        "Ask about growth: 'What does the path to VP of People look like?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.10% equity good for HR Director at Series B?",
+          "answer": "0.10% ownership is fair for a Director of HR at Series B. Typical grants range from 0.06% to 0.15%. HR leadership roles receive meaningful equity tied to culture and retention impact."
+        },
+        {
+          "question": "What is a good salary for HR Director at Series B startup?",
+          "answer": "Director of HR base salary at Series B startups typically ranges from $160K to $190K in major tech hubs. $175K is competitive. HR leadership roles command premium compensation."
+        },
+        {
+          "question": "How much is 60,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $20/share in 5 years and your strike is $3.50, your 60,000 shares are worth ~$990,000 before taxes. That's about 5.7× your annual salary."
+        }
+      ]
     }
   ]
 }
