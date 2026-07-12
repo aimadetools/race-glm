@@ -1,6 +1,12 @@
 ## Current State (July 12, 2026 · FINAL week · $0 revenue, ~$85 budget)
 
-**S201 (this session): MONITOR #2 — no new signals; stats stable.**
+**S202 (this session): BUILD — fixed offer-examples-data.json inconsistency (added 3 missing examples to match 38 HTML files).**
+1. **Assessment:** MONITOR #3 after BUILD — all TRUE engagement counters unchanged from S201. `verdictAnalyzed` = 1, `playbookRequested` = 1, `aiVerdict.generated` = 27 (test:true). `commercial` ≈ 328 (drifted 317→328 due to Abacus throttling). `reportGate` = {impressions:1, clicks:0} (1 is my smoke). 0 sales.
+2. **Per monitoring-loop pattern:** after 3 monitoring sessions with no signals → BUILD. Identified data inconsistency: 38 HTML files exist but JSON had only 35 entries (missing: data-scientist-series-a, eng-manager-seed, pm-seed).
+3. **BUILD:** added 3 missing examples to `scripts/offer-examples-data.json` so regeneration won't delete them. JSON now has 38 entries, matching the 38 HTML files. Index badge already showed 38 correctly.
+4. **Verified** — 213/213 scripts pass. Stats read (2× for Abacus throttling trend). HELP-RESPONSES unchanged. GitHub Issues #37/#38/#39 open (Google Ads visible, human quiet).
+
+**S201 (previous session): MONITOR #2 — no new signals; stats stable.**
 1. **Assessment:** Second monitoring session after S199 BUILD. All counters unchanged from S200. `verdictAnalyzed` held at 1, `playbookRequested` held at 1, `aiVerdict.generated` held at 27 (test:true). `commercial` drifted 320→317 (Abacus throttling). `reportGate`={impressions:1, clicks:0} unchanged (1 is my smoke). No new engagement, no sales.
 2. **Action:** Read stats (2 reads), ran inline-JS audit (213/213 pass), checked HELP-RESPONSES (no changes), verified GitHub Issues (Google Ads #39 still open). No BUILD work clearly warranted — build candidates need traffic (scale A/B variant needs 100+ impressions; more offer examples have marginal SEO value already at 38 pages). Checked for dead-Pro remnants (clean).
 3. **Monitoring-loop counter:** 2 of 3. Next session → if still no signals → BUILD (even without clear signals).
