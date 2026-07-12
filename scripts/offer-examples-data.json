@@ -923,6 +923,226 @@
           "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $10/share in 5 years and your strike is $1.50, your 28,000 shares are worth ~$238,000 before taxes. That's about 1.7× your annual salary before commission."
         }
       ]
+    },
+    {
+      "id": "staff-engineer-series-b",
+      "filename": "offer-examples-staff-engineer-series-b.html",
+      "role": "Staff Engineer",
+      "roleDisplay": "Staff Software Engineer",
+      "stage": "Series B",
+      "salary": 235000,
+      "shares": 55000,
+      "strike": 3.00,
+      "fmv": 8.00,
+      "ownership": "0.10%",
+      "location": "San Francisco, CA",
+      "verdict": "above",
+      "verdictDisplay": "Above Market",
+      "equityRatio": 2.0,
+      "exitPrice": 18.00,
+      "exitValue": 825000,
+      "salaryRange": "$220K - $255K",
+      "equityRange": "0.07% - 0.15%",
+      "analysis": {
+        "salary": "excellent for Series B",
+        "equity": "generous for Staff level",
+        "overall": "strong package for senior IC"
+      },
+      "negotiationTips": [
+        "This is already strong: 'This is a compelling offer. I'd like to discuss technical leadership scope and mentorship expectations.'",
+        "Ask about refresh: 'I'd like to understand the refresh grant policy as we approach Series C.'",
+        "Discuss impact: 'What are the key technical problems I'll own and the decision-making authority?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.10% equity good for Staff Engineer at Series B?",
+          "answer": "0.10% ownership is above market for a Staff Engineer at Series B. Typical grants range from 0.07% to 0.15%. Staff engineers at Series B are rare and valuable technical leaders."
+        },
+        {
+          "question": "What is a good salary for Staff Engineer at Series B startup?",
+          "answer": "Staff Engineer base salary at Series B startups typically ranges from $220K to $255K in major tech hubs. $235K is excellent. Staff engineers are among the highest-paid individual contributors."
+        },
+        {
+          "question": "How much is 55,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $18/share in 5 years and your strike is $3, your 55,000 shares are worth ~$825,000 before taxes. That's about 3.5× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "principal-engineer-series-a",
+      "filename": "offer-examples-principal-engineer-series-a.html",
+      "role": "Principal Engineer",
+      "roleDisplay": "Principal Engineer",
+      "stage": "Series A",
+      "salary": 225000,
+      "shares": 110000,
+      "strike": 1.50,
+      "fmv": 5.00,
+      "ownership": "0.20%",
+      "location": "San Francisco, CA",
+      "verdict": "above",
+      "verdictDisplay": "Above Market",
+      "equityRatio": 3.1,
+      "exitPrice": 10.00,
+      "exitValue": 935000,
+      "salaryRange": "$205K - $245K",
+      "equityRange": "0.14% - 0.28%",
+      "analysis": {
+        "salary": "top-tier for Series A",
+        "equity": "excellent for Principal level",
+        "overall": "outstanding package for technical leader"
+      },
+      "negotiationTips": [
+        "This is already strong: 'This is a compelling offer. I'd like to discuss technical strategy and architecture influence.'",
+        "Clarify scope: 'What are the key technical problems I'll own and the decision-making authority?'",
+        "Discuss team growth: 'I'd like to understand the engineering organization structure and my role in scaling it.'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.20% equity good for Principal Engineer at Series A?",
+          "answer": "0.20% ownership is above market for a Principal Engineer at Series A. Typical grants range from 0.14% to 0.28%. Principal engineers are rare and command premium grants."
+        },
+        {
+          "question": "What is a good salary for Principal Engineer at Series A startup?",
+          "answer": "Principal Engineer base salary at Series A startups typically ranges from $205K to $245K in major tech hubs. $225K is excellent. Principal engineers are among the highest-paid individual contributors."
+        },
+        {
+          "question": "How much is 110,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $10/share in 5 years and your strike is $1.50, your 110,000 shares are worth ~$935,000 before taxes. That's about 4.2× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "head-of-sales-series-b",
+      "filename": "offer-examples-head-of-sales-series-b.html",
+      "role": "Head of Sales",
+      "roleDisplay": "Head of Sales",
+      "stage": "Series B",
+      "salary": 245000,
+      "shares": 180000,
+      "strike": 3.00,
+      "fmv": 10.00,
+      "ownership": "0.35%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 3.2,
+      "exitPrice": 25.00,
+      "exitValue": 3960000,
+      "salaryRange": "$220K - $270K",
+      "equityRange": "0.20% - 0.50%",
+      "analysis": {
+        "salary": "competitive for sales leadership",
+        "equity": "meaningful ownership stake",
+        "overall": "strong package with revenue upside"
+      },
+      "negotiationTips": [
+        "Discuss quota: 'I'd like clarity on revenue targets, quotas, and how they're calculated.'",
+        "Negotiate commission: 'Can we discuss the commission structure and accelerators for exceeding quota?'",
+        "Ask about team: 'What does the current sales team structure look like and the hiring plan?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.35% equity good for Head of Sales at Series B?",
+          "answer": "0.35% ownership is fair for a Head of Sales at Series B. Typical grants range from 0.20% to 0.50%. Sales leadership roles receive meaningful equity tied to revenue impact."
+        },
+        {
+          "question": "What is a good salary for Head of Sales at Series B startup?",
+          "answer": "Head of Sales base salary at Series B startups typically ranges from $220K to $270K plus commission. $245K is competitive. Total compensation with commission can be significantly higher."
+        },
+        {
+          "question": "How much is 180,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $25/share in 5 years and your strike is $3, your 180,000 shares are worth ~$4M before taxes. That's about 16× your annual salary before commission."
+        }
+      ]
+    },
+    {
+      "id": "head-of-marketing-series-b",
+      "filename": "offer-examples-head-of-marketing-series-b.html",
+      "role": "Head of Marketing",
+      "roleDisplay": "Head of Marketing",
+      "stage": "Series B",
+      "salary": 230000,
+      "shares": 140000,
+      "strike": 3.00,
+      "fmv": 10.00,
+      "ownership": "0.25%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 2.6,
+      "exitPrice": 22.00,
+      "exitValue": 2660000,
+      "salaryRange": "$210K - $250K",
+      "equityRange": "0.15% - 0.40%",
+      "analysis": {
+        "salary": "competitive for marketing leadership",
+        "equity": "good for go-to-market role",
+        "overall": "solid package with growth potential"
+      },
+      "negotiationTips": [
+        "Discuss budget: 'I'd like clarity on marketing budget, channels, and growth KPIs.'",
+        "Negotiate equity: 'Could we bring the grant to ~170,000 shares given the growth scope?'",
+        "Ask about brand: 'What is the brand strategy and my role in shaping it?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.25% equity good for Head of Marketing at Series B?",
+          "answer": "0.25% ownership is fair for a Head of Marketing at Series B. Typical grants range from 0.15% to 0.40%. Marketing leadership roles receive meaningful equity tied to growth impact."
+        },
+        {
+          "question": "What is a good salary for Head of Marketing at Series B startup?",
+          "answer": "Head of Marketing base salary at Series B startups typically ranges from $210K to $250K in major tech hubs. $230K is competitive. Marketing leadership roles command premium compensation."
+        },
+        {
+          "question": "How much is 140,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $22/share in 5 years and your strike is $3, your 140,000 shares are worth ~$2.7M before taxes. That's about 11.5× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "data-scientist-series-b",
+      "filename": "offer-examples-data-scientist-series-b.html",
+      "role": "Data Scientist",
+      "roleDisplay": "Senior Data Scientist",
+      "stage": "Series B",
+      "salary": 195000,
+      "shares": 30000,
+      "strike": 3.50,
+      "fmv": 10.00,
+      "ownership": "0.05%",
+      "location": "San Francisco, CA",
+      "verdict": "fair",
+      "verdictDisplay": "Fair Market",
+      "equityRatio": 1.0,
+      "exitPrice": 20.00,
+      "exitValue": 495000,
+      "salaryRange": "$175K - $215K",
+      "equityRange": "0.03% - 0.10%",
+      "analysis": {
+        "salary": "competitive for Series B DS",
+        "equity": "typical for data science roles",
+        "overall": "solid package with data upside"
+      },
+      "negotiationTips": [
+        "Discuss data access: 'I'd like clarity on data infrastructure, model ownership, and experimentation scope.'",
+        "Negotiate equity: 'Could we bring the grant to ~36,000 shares given the DS market demand?'",
+        "Ask about impact: 'What's the expected impact of DS work on revenue and product decisions?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.05% equity good for Data Scientist at Series B?",
+          "answer": "0.05% ownership is fair for a Senior Data Scientist at Series B. Typical grants range from 0.03% to 0.10%. Data science roles are increasingly valuable but grants remain similar to engineering."
+        },
+        {
+          "question": "What is a good salary for Data Scientist at Series B startup?",
+          "answer": "Senior Data Scientist base salary at Series B startups typically ranges from $175K to $215K in major tech hubs. $195K is competitive. DS roles are in high demand with market-rate salaries."
+        },
+        {
+          "question": "How much is 30,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $20/share in 5 years and your strike is $3.50, your 30,000 shares are worth ~$495,000 before taxes. That's about 2.5× your annual salary."
+        }
+      ]
     }
   ]
 }
