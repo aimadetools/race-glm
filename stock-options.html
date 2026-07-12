@@ -773,11 +773,16 @@
     <a href="equity-report.html" style="display:inline-block;background:var(--accent);color:white;padding:12px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:0.95rem;">Generate Free Report &rarr;</a>
 </div>
 
-<!-- Premium Report CTA -->
+<!-- Premium Report CTA (S197): repointed from the static offer-report-premium.html
+     sales page (1pv) to offer-report.html — the interactive gated deliverable surface
+     (17pv, S196 teaser/gate). The visitor's numbers are carried over by calculate()
+     via offer_report_prefill, so they land pre-filled and see their own value behind
+     the premium gate in one click. -->
 <div style="max-width:700px;margin:0 auto 40px;padding:28px;background:linear-gradient(135deg,rgba(254,202,87,0.12),rgba(255,165,2,0.08));border:2px solid var(--orange);border-radius:12px;text-align:center;">
-    <h3 style="font-size:1.15rem;margin-bottom:6px;">💼 Want Your Full Options Value Report?</h3>
-    <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:16px;">Exit scenarios, vesting timeline, a "is this a good grant?" benchmark verdict, and a downloadable PDF. $9.99 one-time, ready in 60 seconds.</p>
-    <a href="offer-report-premium.html" style="display:inline-block;background:var(--orange);color:white;padding:12px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:0.95rem;">Get My Options Report — $9.99 &rarr;</a>
+    <h3 style="font-size:1.15rem;margin-bottom:6px;">💼 Turn this into your full Options Value Report</h3>
+    <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:16px;">Your numbers carry over automatically. See your exit scenarios (downside → moonshot), vesting timeline, a "is this a good grant?" benchmark, and a downloadable PDF. $9.99 one-time.</p>
+    <a href="offer-report.html" style="display:inline-block;background:var(--orange);color:white;padding:12px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:0.95rem;" onclick="if(typeof gtag==='function')gtag('event','cta_click',{source:'stock_options',target:'offer_report'})">Build My Options Report — $9.99 &rarr;</a>
+    <div style="margin-top:10px;font-size:0.8rem;color:var(--text-secondary);">Free preview first — you'll see your own value before paying.</div>
 </div>
 
 <footer>
@@ -916,6 +921,21 @@ function getState() {
 // ============================================================
 function calculate() {
     const s = getState();
+
+    // S197 — carry these numbers to offer-report.html (the gated $9.99 deliverable
+    // surface, S196) so the visitor lands pre-filled and sees their OWN value behind
+    // the premium gate in one click. Matches the offer_report_prefill contract
+    // offer-report.html reads on load (shares/strike/fmv/monthsVested/vestYears).
+    try {
+        if (s.numOptions > 0) {
+            localStorage.setItem('offer_report_prefill', JSON.stringify({
+                shares: s.numOptions, strike: s.strikePrice, fmv: s.currentFMV,
+                monthsVested: s.monthsVested, vestYears: s.vestingYears,
+                sourceLabel: 'the stock options calculator', ts: Date.now()
+            }));
+        }
+    } catch (e) {}
+
     const totalMonths = s.vestingYears * 12;
 
     // Derived values
