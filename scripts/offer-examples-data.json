@@ -1363,6 +1363,182 @@
           "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $20/share in 5 years and your strike is $3.50, your 60,000 shares are worth ~$990,000 before taxes. That's about 5.7× your annual salary."
         }
       ]
+    },
+    {
+      "id": "vp-product-series-a",
+      "filename": "offer-examples-vp-product-series-a.html",
+      "role": "VP Product",
+      "roleDisplay": "Vice President of Product",
+      "stage": "Series A",
+      "salary": 240000,
+      "shares": 180000,
+      "strike": 1.00,
+      "fmv": 5.00,
+      "ownership": "0.60%",
+      "location": "San Francisco, CA",
+      "verdict": "above",
+      "verdictDisplay": "Above Market",
+      "equityRatio": 3.6,
+      "exitPrice": 12.00,
+      "exitValue": 1980000,
+      "salaryRange": "$220K - $270K",
+      "equityRange": "0.40% - 1.00%",
+      "analysis": {
+        "salary": "competitive for VP Product at Series A",
+        "equity": "strong ownership for product leadership",
+        "overall": "excellent package with high upside"
+      },
+      "negotiationTips": [
+        "Discuss product scope: 'I'd like clarity on product roadmap scope, team size, and strategic authority.'",
+        "Negotiate refresh grants: 'I'd like a refresh grant after Series B to protect against dilution.'",
+        "Ask about board seat: 'Will I have a board seat or board observer role for product strategy?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.60% equity good for VP Product at Series A?",
+          "answer": "0.60% ownership is strong for a VP Product at Series A. Typical grants range from 0.40% to 1.00%. VP Product roles receive meaningful equity given product strategy impact."
+        },
+        {
+          "question": "What is a good salary for VP Product at Series A startup?",
+          "answer": "VP Product base salary at Series A startups typically ranges from $220K to $270K in major tech hubs. $240K is competitive. Executive roles command premium compensation."
+        },
+        {
+          "question": "How much is 180,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $12/share in 5 years and your strike is $1, your 180,000 shares are worth ~$2.0M before taxes. That's about 8.3× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "vp-sales-series-a",
+      "filename": "offer-examples-vp-sales-series-a.html",
+      "role": "VP Sales",
+      "roleDisplay": "Vice President of Sales",
+      "stage": "Series A",
+      "salary": 235000,
+      "shares": 200000,
+      "strike": 1.00,
+      "fmv": 5.00,
+      "ownership": "0.65%",
+      "location": "San Francisco, CA",
+      "verdict": "above",
+      "verdictDisplay": "Above Market",
+      "equityRatio": 4.0,
+      "exitPrice": 12.00,
+      "exitValue": 2200000,
+      "salaryRange": "$215K - $265K",
+      "equityRange": "0.50% - 1.20%",
+      "analysis": {
+        "salary": "competitive for VP Sales at Series A",
+        "equity": "strong ownership for revenue leadership",
+        "overall": "excellent package with revenue impact"
+      },
+      "negotiationTips": [
+        "Discuss revenue targets: 'I'd like clarity on revenue targets, commission structure, and quota authority.'",
+        "Negotiate refresh grants: 'I'd like a refresh grant after Series B to protect against dilution.'",
+        "Ask about commission: 'What's the OTE structure and how does it scale with revenue?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.65% equity good for VP Sales at Series A?",
+          "answer": "0.65% ownership is strong for a VP Sales at Series A. Typical grants range from 0.50% to 1.20%. VP Sales roles receive meaningful equity given direct revenue impact."
+        },
+        {
+          "question": "What is a good salary for VP Sales at Series A startup?",
+          "answer": "VP Sales base salary at Series A startups typically ranges from $215K to $265K in major tech hubs. $235K is competitive. Sales leaders often have significant OTE."
+        },
+        {
+          "question": "How much is 200,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $12/share in 5 years and your strike is $1, your 200,000 shares are worth ~$2.2M before taxes. That's about 9.4× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "vp-marketing-series-a",
+      "filename": "offer-examples-vp-marketing-series-a.html",
+      "role": "VP Marketing",
+      "roleDisplay": "Vice President of Marketing",
+      "stage": "Series A",
+      "salary": 230000,
+      "shares": 160000,
+      "strike": 1.00,
+      "fmv": 5.00,
+      "ownership": "0.55%",
+      "location": "San Francisco, CA",
+      "verdict": "above",
+      "verdictDisplay": "Above Market",
+      "equityRatio": 3.5,
+      "exitPrice": 12.00,
+      "exitValue": 1760000,
+      "salaryRange": "$210K - $260K",
+      "equityRange": "0.40% - 0.90%",
+      "analysis": {
+        "salary": "competitive for VP Marketing at Series A",
+        "equity": "strong ownership for growth leadership",
+        "overall": "excellent package with growth impact"
+      },
+      "negotiationTips": [
+        "Discuss marketing scope: 'I'd like clarity on marketing budget, team scope, and growth KPIs.'",
+        "Negotiate refresh grants: 'I'd like a refresh grant after Series B to protect against dilution.'",
+        "Ask about brand authority: 'What level of brand and positioning authority will I have?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.55% equity good for VP Marketing at Series A?",
+          "answer": "0.55% ownership is strong for a VP Marketing at Series A. Typical grants range from 0.40% to 0.90%. VP Marketing roles receive meaningful equity given growth and brand impact."
+        },
+        {
+          "question": "What is a good salary for VP Marketing at Series A startup?",
+          "answer": "VP Marketing base salary at Series A startups typically ranges from $210K to $260K in major tech hubs. $230K is competitive. Marketing leadership roles command premium compensation."
+        },
+        {
+          "question": "How much is 160,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $12/share in 5 years and your strike is $1, your 160,000 shares are worth ~$1.76M before taxes. That's about 7.7× your annual salary."
+        }
+      ]
+    },
+    {
+      "id": "chief-people-officer-series-a",
+      "filename": "offer-examples-chief-people-officer-series-a.html",
+      "role": "Chief People Officer",
+      "roleDisplay": "Chief People Officer (CPO)",
+      "stage": "Series A",
+      "salary": 225000,
+      "shares": 140000,
+      "strike": 1.00,
+      "fmv": 5.00,
+      "ownership": "0.45%",
+      "location": "San Francisco, CA",
+      "verdict": "above",
+      "verdictDisplay": "Above Market",
+      "equityRatio": 3.1,
+      "exitPrice": 12.00,
+      "exitValue": 1540000,
+      "salaryRange": "$205K - $255K",
+      "equityRange": "0.30% - 0.80%",
+      "analysis": {
+        "salary": "competitive for CPO at Series A",
+        "equity": "strong ownership for people leadership",
+        "overall": "excellent package with culture scope"
+      },
+      "negotiationTips": [
+        "Discuss HR scope: 'I'd like clarity on HR scope, team size, and culture-building authority.'",
+        "Negotiate refresh grants: 'I'd like a refresh grant after Series B to protect against dilution.'",
+        "Ask about executive team: 'Will I have a seat on the executive leadership team?'"
+      ],
+      "faq": [
+        {
+          "question": "Is 0.45% equity good for Chief People Officer at Series A?",
+          "answer": "0.45% ownership is strong for a Chief People Officer at Series A. Typical grants range from 0.30% to 0.80%. CPO roles receive meaningful equity given culture and retention impact."
+        },
+        {
+          "question": "What is a good salary for Chief People Officer at Series A startup?",
+          "answer": "Chief People Officer base salary at Series A startups typically ranges from $205K to $255K in major tech hubs. $225K is competitive. C-level roles command premium compensation."
+        },
+        {
+          "question": "How much is 140,000 startup shares worth?",
+          "answer": "Your equity value = (Exit Share Price - Strike Price) × Shares. If the company exits at $12/share in 5 years and your strike is $1, your 140,000 shares are worth ~$1.54M before taxes. That's about 6.8× your annual salary."
+        }
+      ]
     }
   ]
 }
