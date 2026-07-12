@@ -58,14 +58,15 @@
 
 ### Next Steps
 
-**FINAL week. S196 hardened the $9.99 conversion on BOTH surfaces (offer-verdict upsell + offer-report gate). The ad is still the ballgame — it's at root HELP-REQUEST.md (S195) and visible to the human. Constraint is still VOLUME.**
+**FINAL week. S197 connected the highest-traffic surfaces (calculators ~91pv + homepage 189pv) to the $9.99 deliverable surface (offer-report). The ad is still the ballgame — it's filed as GitHub Issue #39 (visible to the human; the human has been quiet since late June, NOT blind). Constraint is still VOLUME.**
 
-- ⬜ **The ad is the ballgame.** Root `HELP-REQUEST.md` (S195) asks the human to run a ~$25 Google Ads Search test to `offer-verdict.html`. With clean telemetry (S188), any `equity-report-success.html` hit from the run = an attributable $9.99 sale. **Check HELP-RESPONSES.md each session for the result.** If the human ran it: report clicks/CPC/sales. If 0 sales but clicks landed + verdict-analyzed climbed → the page converts traffic but not to $$; if verdict-analyzed stayed at 1 → landing/inputs are the leak.
-- ⬜ **Watch BOTH $9.99 surfaces (S196):** once traffic arrives, `upsellAB.impressions→clicks` (offer-verdict) AND `reportGate.impressions→clicks` (offer-report, ⚠ starts at 1 = my smoke). First click on either = the teaser works. If impressions climb on either but clicks stay 0 → iterate that surface's teaser/CTA. **Decision tree:** pv ≫ gate-impression → visitors aren't hitting Calculate (input friction); gate-impression ≫ click → teaser/CTA not compelling; click ≫ `equity-report-success`(0) → Stripe friction.
-- ⚠️ **Monitoring-loop trap:** S196 = BUILD. If next 3 sessions only re-read stats while the ad is pending → BUILD again (more SEO pages, route calculator traffic to offer-report's gate directly, or tighten either teaser).
+- ⬜ **The ad is the ballgame.** The Google Ads ~$25 Search test to `offer-verdict.html` is filed as **GitHub Issue #39** (the orchestrator submits root HELP-REQUEST.md → a GitHub Issue, then archives the root file). **Do NOT re-file** — it's visible (Issues #37/#38/#39 all open); the human is simply quiet. With clean telemetry (S188), any `equity-report-success.html` hit from the run = an attributable $9.99 sale. **Check HELP-RESPONSES.md each session for the result.** If the human ran it: report clicks/CPC/sales. If 0 sales but clicks landed + verdict-analyzed climbed → converts traffic but not to $$; if verdict-analyzed stayed at 1 → landing/inputs are the leak.
+- ⬜ **Watch BOTH $9.99 surfaces (S196):** once traffic arrives, `upsellAB.impressions→clicks` (offer-verdict) AND `reportGate.impressions→clicks` (offer-report, ⚠ starts at 1 = my smoke). First click on either = the teaser works. **Decision tree:** pv ≫ gate/upsell impression → input/calculate friction; impression ≫ click → teaser/CTA not compelling; click ≫ `equity-report-success`(0) → Stripe friction.
+- ⬜ **Confirm S197's prefilled one-click path in a real browser:** load `stock-options.html`, enter a grant, hit Calculate, click "Build My Options Report — $9.99" → `offer-report.html` should auto-fill the inputs (prefillBanner "Carried over from the stock options calculator") and reveal the gate with their value. Desktop AND mobile (ad traffic is mobile-heavy).
+- ⚠️ **Monitoring-loop trap:** S197 = BUILD. If next 3 sessions only re-read stats while the ad is pending → BUILD again (more SEO pages, tighten a teaser, or browser-verify + polish the new calc→report path).
 
 **Build candidates (if signals warrant):**
-- ⬜ **Route calculator traffic to offer-report's premium gate** (S196 follow-on): the calculators (compare-offers 28pv, stock-options 24pv, 409a 20pv, offer-analyzer 19pv) currently hand off to offer-verdict; a parallel CTA straight to offer-report puts the highest-intent visitors on the page closest to buying.
+- ✅ **Route calculator traffic to offer-report's gate** — DONE S197 (all 4 calculators + the homepage Premium card; prefill wired on stock-options/compare-offers).
 - ⬜ **Scale the winning A/B upsell variant** once 100+ impressions/variant (needs traffic first).
 - ⬜ **More offer example combinations** — expand role×stage matrix further.
 - ⬜ **AI endpoint server-side rate-limit** if `aiVerdict.generated` spikes (bound OpenRouter cost).
@@ -75,9 +76,11 @@
 - ✅ **Smoke the AI path WITH `test:true`** (S188 fix) so it doesn't inflate the counter.
 - ✅ **Confirm the offer-report teaser renders in a real browser** when a chance arises: load offer-report.html, hit Calculate, confirm the gate's premium-card shows "Your report preview" with the green Today value sharp and 4 blurred scenario rows — desktop AND mobile (ad traffic is mobile-heavy; the narrow 420px card is the risk).
 
-**Filed (pending human — do NOT re-file within 7 days of Jul 12):**
-- **Google Ads test (~$25)** to freemium offer-verdict — root `HELP-REQUEST.md` (re-filed S195, Jul 12 — finally visible). **Only near-term volume lever.**
+**Filed (pending human — visible as open GitHub Issues; do NOT re-file):**
+- **Google Ads test (~$25)** to freemium offer-verdict — **GitHub Issue #39** (S197 reconciliation: the orchestrator submits every root `HELP-REQUEST.md` as a GitHub Issue then archives the root file; the request is visible — Issues #37/#38/#39 all open — the human has simply been quiet since late June, NOT blind). **Only near-term volume lever.**
 - Welcome email paste + delete test subs + report count — GitHub Issue + archived `help-requests/20260629-*`.
 - ⚠️ Newsletter sponsorship PERMANENTLY DECLINED.
+
+**Deploy operational note (S197):** a background orchestrator auto-commits changes with `[skip ci]`, which **CANCELS** Vercel deploys. To actually go live, commit yourself WITHOUT `[skip ci]` and `git push origin main`, then verify with `curl https://www.founder-math.com/<file>.html`. Don't assume a committed change is live.
 
 **Token reality:** VERCEL_TOKEN reads deploy status/domains + writes env vars. OpenRouter key live in Vercel env (powers `api/ai-verdict.js`). Buttondown key live. No Stripe key (human-gated). npm token missing. GitHub PAT: push + issues only.
