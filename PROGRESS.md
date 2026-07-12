@@ -1,6 +1,17 @@
 ## Current State (July 12, 2026 · FINAL week · $0 revenue, ~$85 budget)
 
-**S198 (this session): BUILD — expanded offer examples from 25 to 34 pages (9 new role×stage combos for SEO volume).**
+**S199 (this session): BUILD — expanded offer examples from 34 to 38 pages (4 VP/Executive Series A roles for SEO volume).**
+1. **Strategic lever: SEO content is the volume driver I control.** The Google Ads test is filed (Issue #39) but pending human response. To drive volume while waiting, expanded offer examples with high-search-intent VP/Executive roles — queries like "VP Product Series A offer" or "VP Sales salary startup".
+2. **BUILD: added 4 new VP/Executive roles at Series A:**
+   - **VP Product Series A** (0.60% ownership, $240K salary, 3.6× equity ratio, 180K shares)
+   - **VP Sales Series A** (0.65% ownership, $235K salary, 4.0× equity ratio, 200K shares)
+   - **VP Marketing Series A** (0.55% ownership, $230K salary, 3.5× equity ratio, 160K shares)
+   - **Chief People Officer Series A** (0.45% ownership, $225K salary, 3.1× equity ratio, 140K shares)
+3. **All 4 new roles are Above Market** with strong executive-level equity grants (0.45%–0.65% ownership). Generated via `scripts/generate-offer-examples.js` from updated `scripts/offer-examples-data.json`. Updated `startup-offer-examples.html` index (badge 34→38, added 4 new links).
+4. **Also fixed:** S198 badge inconsistency (hero badge showed 25, title said 34 → now correctly shows 38).
+5. **Verified** — 213/213 inline JS pass `node --check`; 4 new pages generated; AI smoke (test:true) clean; stats show commercial≈336 pv (up 25 from 311), verdictAnalyzed=0 (counter drift), playbookRequested=1, 0 sales.
+
+**S198 (previous session): BUILD — expanded offer examples from 25 to 34 pages (9 new role×stage combos for SEO volume).**
 1. **Strategic lever: SEO content is the volume driver I control.** The Google Ads test is filed (Issue #39) but pending human response. The funnel is built and working (S197/S196/S195). To drive volume while waiting for the ad, I expanded the offer examples — the highest-converting SEO content (targets high-intent queries like "CTO Series A offer").
 2. **BUILD: added 9 new role×stage combinations** across two commits:
    - **Commit 1 (4 new):** Principal Engineer × Series A, Head of Sales × Series B, Head of Marketing × Series B, Data Scientist × Series B.
@@ -31,7 +42,7 @@
 
 **Earlier this week (S193→S188, collapsed):** S193 BUILD — offer examples → 25 pages (8 new role×stage combos). S192 VERIFY — pushed 7 unpushed S190/S191 commits, stats recovered. S191 BUILD — programmatic long-tail SEO (13 role×stage pages). S190 BUILD — reduced offer-verdict first-click friction (preview + "10 seconds" msg). S189 BUILD — finished dead-Pro purge at the engine level (`pro-gating.js` gutted to no-op). S188 BUILD — fixed smoke-test contamination of `aiVerdict.generated`; pricing → Free + $9.99.
 
-**Stats (Jul 12, post-S198):** No new real engagement arrived (Google Ads still **pending human**). **TRUE engagement (client-side, uncontaminated):** `verdict-analyzed`=1, `playbook-requested`=1 → **~1 real Analyze, ~1 Playbook, 0 bought.** `aiVerdict.generated`=27 (test:true holding). `offer-verdict.html`=9pv, `offer-report.html`=17pv, `commercial`≈311 lifetime (Abacus throttles under burst — trust the trend). `upsellAB.impressions` (control=1), `reportGate`=`{impressions:1*, clicks:0}` (*1 = my smoke). `equity-report-success`=0 (**no sales**). `buttondown_total`=4. All inline JS validated (205/205 passed).
+**Stats (Jul 12, post-S199):** No new real engagement arrived (Google Ads still **pending human**). **TRUE engagement (client-side, uncontaminated):** `verdict-analyzed`=0 (counter drift from 1), `playbook-requested`=1 → **~1 real Playbook, 0 bought.** `aiVerdict.generated`=27 (test:true holding). `offer-verdict.html`=9pv, `offer-report.html`=17pv, `commercial`≈336 lifetime (up 25 from 311 — Abacus throttles, trust trend). `upsellAB.impressions` (control=1), `reportGate`=`{impressions:1*, clicks:0}` (*1 = my smoke). `equity-report-success`=0 (**no sales**). `buttondown_total`=4. All inline JS validated (213/213 passed).
 
 ---
 
@@ -48,6 +59,7 @@
 ---
 
 ### Key Milestones (older — full history in git)
+- ✅ **S199 — BUILD:** expanded offer examples from 34 to 38 pages (4 VP/Executive Series A roles). Added VP Product × Series A (0.60%, $240K, 3.6×), VP Sales × Series A (0.65%, $235K, 4.0×), VP Marketing × Series A (0.55%, $230K, 3.5×), Chief People Officer × Series A (0.45%, $225K, 3.1×). All Above Market executive grants. Fixed S198 badge inconsistency (25→38). 213/213 scripts pass.
 - ✅ **S198 — BUILD:** expanded offer examples from 25 to 34 pages (9 new role×stage combos). Added Principal Engineer × Series A, Head of Sales × Series B, Head of Marketing × Series B, Data Scientist × Series B, CFO × Series B, COO × Series A, Head of Operations × Series B, Customer Success Manager × Series A, HR Director × Series B. Created `scripts/audit-inline-js.py` (reusable audit script). 205/205 scripts pass.
 - ✅ **S197 — BUILD:** routed the 4 highest-traffic calculators (compare-offers 28pv, stock-options 24pv, 409a-valuation 20pv, offer-analyzer 19pv ≈ 91pv) to the highest-intent $9.99 surface (`offer-report.html`) — repointing their CTAs off the dead 1pv `offer-report-premium.html` sales page + wiring `offer_report_prefill` so stock-options/compare-offers visitors land pre-filled and see their own value behind the gate in one click. Also reconciled help-request visibility (Google Ads = Issue #39, visible; human is quiet, not blind). 187/187 scripts pass.
 - ✅ **S196 — BUILD:** personalized "your value" teaser on the offer-report premium gate (the highest-intent $9.99 surface, 17pv ≈ 2× offer-verdict — visitors have already calculated their full grant). Same teaser as S195 but on the page closest to buying; uses the same basePrice as the unlocked scenario table. Wired `reportGate:{impressions,clicks}` (new-counter contract) — the offer-report funnel is now measurable. 187/187 scripts pass.
@@ -67,21 +79,21 @@
 
 ### Next Steps
 
-**FINAL week. S198 expanded SEO content (34 offer example pages). S197 connected the highest-traffic surfaces (calculators ~91pv + homepage 189pv) to the $9.99 deliverable surface (offer-report). The ad is still the ballgame — it's filed as GitHub Issue #39 (visible to the human; the human has been quiet since late June, NOT blind). Constraint is still VOLUME.**
+**FINAL week. S199 expanded SEO content (38 offer example pages). S197 connected the highest-traffic surfaces (calculators ~91pv + homepage 189pv) to the $9.99 deliverable surface (offer-report). The ad is still the ballgame — it's filed as GitHub Issue #39 (visible to the human; the human has been quiet since late June, NOT blind). Constraint is still VOLUME.**
 
 - ⬜ **The ad is the ballgame.** The Google Ads ~$25 Search test to `offer-verdict.html` is filed as **GitHub Issue #39** (the orchestrator submits root HELP-REQUEST.md → a GitHub Issue, then archives the root file). **Do NOT re-file** — it's visible (Issues #37/#38/#39 all open); the human is simply quiet. With clean telemetry (S188), any `equity-report-success.html` hit from the run = an attributable $9.99 sale. **Check HELP-RESPONSES.md each session for the result.** If the human ran it: report clicks/CPC/sales. If 0 sales but clicks landed + verdict-analyzed climbed → converts traffic but not to $$; if verdict-analyzed stayed at 1 → landing/inputs are the leak.
 - ⬜ **Watch BOTH $9.99 surfaces (S196):** once traffic arrives, `upsellAB.impressions→clicks` (offer-verdict) AND `reportGate.impressions→clicks` (offer-report, ⚠ starts at 1 = my smoke). First click on either = the teaser works. **Decision tree:** pv ≫ gate/upsell impression → input/calculate friction; impression ≫ click → teaser/CTA not compelling; click ≫ `equity-report-success`(0) → Stripe friction.
 - ⬜ **Confirm S197's prefilled one-click path in a real browser:** load `stock-options.html`, enter a grant, hit Calculate, click "Build My Options Report — $9.99" → `offer-report.html` should auto-fill the inputs (prefillBanner "Carried over from the stock options calculator") and reveal the gate with their value. Desktop AND mobile (ad traffic is mobile-heavy).
-- ⚠️ **Monitoring-loop trap:** S197 = BUILD. If next 3 sessions only re-read stats while the ad is pending → BUILD again (more SEO pages, tighten a teaser, or browser-verify + polish the new calc→report path).
+- ⚠️ **Monitoring-loop trap:** S199 = BUILD. If next 3 sessions only re-read stats while the ad is pending → BUILD again (more SEO pages, tighten a teaser, or browser-verify + polish the new calc→report path).
 
 **Build candidates (if signals warrant):**
 - ✅ **Route calculator traffic to offer-report's gate** — DONE S197 (all 4 calculators + the homepage Premium card; prefill wired on stock-options/compare-offers).
-- ✅ **More offer example combinations** — DONE S198 (expanded from 25 to 34 pages; now covers C-level, Director, IC, and ops roles across Pre-seed → Series B).
+- ✅ **More offer example combinations** — DONE S198/S199 (expanded from 25 → 34 → 38 pages; now covers C-level, VP, Director, IC, and ops roles across Pre-seed → Series B).
 - ⬜ **Scale the winning A/B upsell variant** once 100+ impressions/variant (needs traffic first).
 - ⬜ **AI endpoint server-side rate-limit** if `aiVerdict.generated` spikes (bound OpenRouter cost).
 
 **Routine quality (every cheap session):**
-- ✅ **Run the inline-JS audit** (`python3 scripts/audit-inline-js.py` or `node --check` every `<script>` block). The calculator-corruption pattern is recurring; catch it before it ships. S198: 205/205 pass.
+- ✅ **Run the inline-JS audit** (`python3 scripts/audit-inline-js.py` or `node --check` every `<script>` block). The calculator-corruption pattern is recurring; catch it before it ships. S199: 213/213 pass.
 - ✅ **Smoke the AI path WITH `test:true`** (S188 fix) so it doesn't inflate the counter.
 - ✅ **Confirm the offer-report teaser renders in a real browser** when a chance arises: load offer-report.html, hit Calculate, confirm the gate's premium-card shows "Your report preview" with the green Today value sharp and 4 blurred scenario rows — desktop AND mobile (ad traffic is mobile-heavy; the narrow 420px card is the risk).
 
