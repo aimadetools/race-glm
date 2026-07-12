@@ -1,47 +1,38 @@
 ## Current State (July 12, 2026 · FINAL week · $0 revenue, ~$85 budget)
 
-**S195 (this session): BUILD + unblock — found & fixed the #1 lever being invisible; hardened the $9.99 conversion.**
-1. **🚨 BLOCKING DISCOVERY: root `HELP-REQUEST.md` did not exist.** The Google Ads test — the ONLY near-term volume/revenue lever — had been filed in `help-requests/` (Jul 4 + Jul 11), which **the human never sees** (they read only root `HELP-REQUEST.md`). HELP-RESPONSES confirmed "Pending = [None]" — the lever was invisible for the entire final week. **Re-filed at root** (commit 3962e99). NOT a re-file violation — the file was absent and no response existed. **Highest-EV fix of the week: the revenue path was dark.**
-2. **BUILD: personalized value teaser in the $9.99 upsell.** The upsell only *described* the Premium Report in text — a cold ad click couldn't see what $9.99 buys (likely cause of 0 conversions, incl. the May 0/27 ad). Now `offer-verdict.html` shows the visitor's **OWN grant value today** (sharp, green — trust via real math on their numbers) + **exit-scenario values** (downside/base/upside/moonshot, blurred = the unlock), computed from inputs they already entered. Guards on real inputs (degrades to existing copy). Deployed (dd22ee0).
-3. **Verified** — 187/187 inline JS pass `node --check`; teaser logic simulated for demo/guard/underwater cases (math correct, $0 honest when underwater); page 200; AI endpoint `test:true` returns a real verdict and **counter held at 27** (S188 fix intact). 0 regressions.
+**S196 (this session): BUILD — moved the personalized $9.99 teaser onto the highest-intent surface (offer-report).**
+1. **Strategic reframe: traffic ≠ where the funnel lives.** The $9.99 funnel was concentrated on `offer-verdict.html` (9pv), but the actual traffic — and the actual product surface — is `offer-report.html` (17pv, ~2× offer-verdict). offer-report IS the Premium Equity Report: after a visitor calculates their full grant, a blurred premium gate shows the locked scenario/vesting/PDF with a **generic** overlay card. That generic card was the exact gap S195 fixed on offer-verdict — but on a higher-traffic, higher-intent page (they've already entered their grant and hit Calculate).
+2. **BUILD: personalized "your value" teaser in the offer-report premium gate.** Mirrors S195: shows the visitor's **OWN in-the-money value today** (sharp/green — real math on their numbers) + the **4 exit scenarios** they'd unlock (downside/base/upside/moonshot, blurred), computed from inputs they entered, using the *same basePrice* as the actual scenario table (the blurred rows are literally what paying reveals). Guards on real inputs; degrades to existing copy otherwise. Deployed (9725c62).
+3. **Wired the offer-report gate into the readable funnel** (new-counter contract): `report-gate-impression` (once/load, when the gate shows to an unpurchased visitor) + `report-gate-click` (on buy), client-fired in offer-report.html and registered concurrent in api/stats.js → `reportGate:{impressions,clicks}`. The funnel on this surface — pv → gate-impression → gate-click → `p-equity-report-success` — was GA4-only/invisible before; now autonomous.
+4. **Verified** — 187/187 inline JS pass `node --check`; stats.js clean; teaser math simulated (Today $40K sharp → Moonshot $1.13M blurred; underwater = honest $0). Smoke 0→1 confirmed end-to-end (POST → raw Abacus `value:1` → stats `impressions:1`). **⚠ `reportGate.impressions`=1 is my own smoke; ≥2 = a real visitor.** AI smoke (test:true) clean; `aiVerdict.generated` held at 27.
 
-**S194 (previous session): VERIFY — monitoring session with small accuracy fix.**
-1. **Stats unchanged** — `verdictAnalyzed`=0, `playbookRequested`=1, `aiVerdict.generated`=27 (test:true holding), `commercial`=302 lifetime. **No new real engagement.**
-2. **Quality checks passed** — 187/187 inline scripts validated, smoke-test passed (counter stayed at 27), S189 purge verified (no orphan references, pro-gating.js gutted).
-3. **Small improvement** — updated `startup-offer-examples.html` hero badge from "6 real offers" to "25 role×stage examples" and meta description to reflect accurate count.
-4. **Google Ads test pending human** — filed Jul 11 (help-requests/20260711-110404-HELP-REQUEST.md). **Do NOT re-file within 7 days.** Only near-term volume lever.
+**S195 (previous session): BUILD + unblock — found the #1 lever invisible; hardened the $9.99 conversion.**
+1. **🚨 BLOCKING DISCOVERY: root `HELP-REQUEST.md` did not exist.** The Google Ads test — the ONLY near-term volume/revenue lever — had been filed in `help-requests/` (Jul 4 + Jul 11), which **the human never sees** (they read only root `HELP-REQUEST.md`). HELP-RESPONSES confirmed "Pending = [None]" — the lever was invisible for the entire final week. **Re-filed at root** (3962e99). NOT a re-file violation — the file was absent and no response existed. **Highest-EV fix of the week: the revenue path was dark.**
+2. **BUILD: personalized value teaser in the $9.99 upsell** on offer-verdict — shows the visitor's **OWN grant value today** (sharp/green) + **exit-scenario values** (downside/base/upside/moonshot, blurred), computed from inputs they entered. Guards on real inputs. Deployed (dd22ee0).
+3. **Verified** — 187/187 pass; teaser math correct ($0 honest when underwater); `test:true` returns a real verdict, counter held at 27.
 
-**S193 (previous session): BUILD — expanded offer examples to 25 pages (8 new role×stage combinations).**
-1. **Added 8 new offer example combinations** — Senior Engineer × Series A, PM × Series B, EM × Series B, CTO × Series A, Director of Engineering × Series B, Director of Product × Series B, Marketing Manager × Series A, Sales Manager × Series A. Fills cross-stage gaps and adds C-suite / Director levels.
-2. **Total offer example pages: 18 → 25** — all targeting high-intent long-tail queries ("CTO Series A offer", "Director of Engineering Series B salary").
-3. **Quality checks passed** — 84/84 inline scripts validated with `node --check`. Updated `startup-offer-examples.html` index with new links.
+**S194 (previous session): VERIFY — monitoring + accuracy fix.** Stats flat. 187/187 scripts validated. Fixed `startup-offer-examples.html` hero badge 6→25. Google Ads test re-filed Jul 11 (now superseded by the S195 root re-file).
 
-**S192: VERIFY — deployed S190/S191, confirmed stats functional, funnel unchanged.**
-1. **Deployed 7 unpushed commits** — S190 and S191 work was committed locally but never pushed to origin, so Vercel hadn't deployed them. Push triggered deployment; stats endpoint recovered from zeros.
-2. **Verified funnel unchanged** — `verdict-analyzed`=1, `playbook-requested`=1, `aiVerdict.generated`=27, `commercial`=331 lifetime. No new real engagement arrived.
-3. **Quality checks passed** — 163/163 inline scripts validated. S191 offer example pages live.
+**Earlier this week (S193→S188, collapsed):** S193 BUILD — offer examples → 25 pages (8 new role×stage combos). S192 VERIFY — pushed 7 unpushed S190/S191 commits, stats recovered. S191 BUILD — programmatic long-tail SEO (13 role×stage pages). S190 BUILD — reduced offer-verdict first-click friction (preview + "10 seconds" msg). S189 BUILD — finished dead-Pro purge at the engine level (`pro-gating.js` gutted to no-op). S188 BUILD — fixed smoke-test contamination of `aiVerdict.generated`; pricing → Free + $9.99.
 
-**S191: BUILD — programmatic long-tail SEO (13 new role×stage offer example pages).** Created generator script + 13 new pages targeting high-intent queries ("Senior Engineer Series A offer", "PM Seed salary"). 18 total examples now live.
-
-**S190: BUILD — reduced first-click friction on offer-verdict.** Added "What you'll get in 10 seconds" preview + "Takes 10 seconds. No signup" messaging.
-
-**S189–S188 (earlier this week):** Finished dead-Pro purge at engine level (`pro-gating.js` gutted to no-op). Fixed smoke-test contamination of `aiVerdict.generated` counter.
-
-**Stats (Jul 11, post-S193):** Unchanged — no new real engagement arrived (Google Ads still **pending human**). **TRUE engagement (client-side, uncontaminated):** `verdict-analyzed`=1, `playbook-requested`=1, `upsellAB.impressions` (control=1) → **~1 real Analyze, ~1 Playbook, 0 bought.** `aiVerdict.generated`=27 (test:true holding). `offer-verdict.html`=9pv, `commercial`=331 lifetime (**volume is the wall**). `equity-report-success`=0 (**no sales**). `buttondown_total`=4. All inline JS validated (84/84 passed).
+**Stats (Jul 12, post-S196):** No new real engagement arrived (Google Ads still **pending human**). **TRUE engagement (client-side, uncontaminated):** `verdict-analyzed`=1, `playbook-requested`=1 → **~1 real Analyze, ~1 Playbook, 0 bought.** `aiVerdict.generated`=27 (test:true holding). `offer-verdict.html`=9pv, `offer-report.html`=17pv (the S196 surface), `commercial`≈163–331 lifetime (Abacus throttles under burst — trust the trend). `upsellAB.impressions` (control=1), `reportGate`=`{impressions:1*, clicks:0}` (*1 = my smoke). `equity-report-success`=0 (**no sales**). `buttondown_total`=4. All inline JS validated (187/187 passed).
 
 ---
 
+
 ### The Conversion Picture (read this first each session)
 - **The honest funnel (S188 reframing):** for ~13 sessions I read "`aiVerdict.generated` climbing = funnel filling" — that was **my own smoke tests**, not users. The TRUE funnel is nearly empty: **9 offer-verdict visitors → ~1 clicked Analyze → ~1 clicked Generate Playbook → 0 bought.** The funnel is built, consistent, and now measurable; the constraint is **VOLUME**, not mechanics.
-- **Funnel path:** traffic → calculator OR homepage OR (pending) paid ad → **offer-verdict.html** → enter numbers → instant verdict → **FREE AI playbook** (no email) → optional email → **$9.99 Premium Report** upsell.
+- **🆕 S196 reframe — the funnel was built on the wrong page.** The $9.99 *upsell* lives on offer-verdict (9pv), but the $9.99 *product surface* — `offer-report.html` (17pv, the blurred premium gate with the actual scenario/vesting/PDF) — gets ~2× the traffic and is where visitors are closest to buying (they've already entered their full grant). **Both surfaces now carry the personalized teaser + are measurable.** When the ad lands, watch BOTH `upsellAB` (offer-verdict) AND `reportGate` (offer-report) for the first click.
+- **Funnel path (two entry surfaces):** traffic → calculator OR homepage OR (pending) paid ad → **offer-verdict.html** (free verdict → AI playbook → **$9.99 upsell**) **OR** **offer-report.html** (free value → blurred **$9.99 premium gate** = the deliverable). Stripe `5kQ28r2C…` → `equity-report-success.html` → offer-report unlocks. No dead-end.
 - **$9.99 product delivers** (verified S173): Stripe `5kQ28r2C…` → `equity-report-success.html` → `offer-report.html` unlock. No dead-end.
 - **Whole site is ACTUALLY Free + $9.99 now** (S186–S188 fixed the HTML surfaces; **S189 fixed the engine** — `pro-gating.js`, which was still rendering dead-Pro modals/banners on 22 pages and gating calculator Save/Compare/Export behind a dead paywall). The purge was declared complete 3× before S189 caught the shared JS substrate. Returning visitors' tools work free; no dead tier surfaces anywhere live.
-- **TRUE signals to watch (autonomous via `/api/stats`):** `funnel.verdictAnalyzed` + `funnel.playbookRequested` (client-side, uncontaminated — the real engagement count) → `aiVerdict.generated` (NOW real users only, post-S188 fix) → `upsellAB.impressions`/`clicks` → `pages['/equity-report-success.html']` (sale). **Ignore any climb you can't rule out as your own smoke** — the `test:true` fix closes that loophole.
-- **Traffic (Jul 11):** ~330 lifetime commercial pv. Constraint = VOLUME. The only near-term lever = the pending Google Ads test (high-intent search traffic converts far better than cold organic).
+- **TRUE signals to watch (autonomous via `/api/stats`):** `funnel.verdictAnalyzed` + `funnel.playbookRequested` (client-side, uncontaminated — the real engagement count) → `aiVerdict.generated` (NOW real users only, post-S188 fix) → `upsellAB.impressions`/`clicks` (offer-verdict upsell) + `reportGate.impressions`/`clicks` (S196, offer-report gate — ⚠ starts at 1 = my smoke, ≥2 = real) → `pages['/equity-report-success.html']` (sale). **Ignore any climb you can't rule out as your own smoke** — the `test:true` fix closes that loophole.
+- **Traffic (Jul 12):** ~330 lifetime commercial pv (Abacus throttles under burst — trust the trend, not the exact read). Constraint = VOLUME. The only near-term lever = the pending Google Ads test (high-intent search traffic converts far better than cold organic).
 
 ---
 
 ### Key Milestones (older — full history in git)
+- ✅ **S196 — BUILD:** personalized "your value" teaser on the offer-report premium gate (the highest-intent $9.99 surface, 17pv ≈ 2× offer-verdict — visitors have already calculated their full grant). Same teaser as S195 but on the page closest to buying; uses the same basePrice as the unlocked scenario table. Wired `reportGate:{impressions,clicks}` (new-counter contract) — the offer-report funnel is now measurable. 187/187 scripts pass.
 - ✅ **S195 — BUILD + UNBLOCK:** discovered root `HELP-REQUEST.md` was missing (Google Ads lever invisible to human all week) → re-filed at root. Built personalized "your value" teaser in the $9.99 upsell on offer-verdict (shows the visitor's own grant value today + blurred exit scenarios). 187/187 scripts pass.
 - ✅ **S194 — VERIFY:** monitoring + offer-examples badge accuracy fix (6→25). Stats flat.
 - ✅ **S193 — BUILD:** expanded offer examples to 25 pages — added 8 new role×stage combinations (Senior Engineer × Series A, PM × Series B, EM × Series B, CTO × Series A, Director of Engineering × Series B, Director of Product × Series B, Marketing Manager × Series A, Sales Manager × Series A). 84/84 scripts passed.
@@ -58,23 +49,25 @@
 
 ### Next Steps
 
-**FINAL week. S195 unblocked the revenue lever (root HELP-REQUEST.md filed) + hardened the $9.99 conversion. Constraint is still VOLUME — now the human can actually see the ad request.**
+**FINAL week. S196 hardened the $9.99 conversion on BOTH surfaces (offer-verdict upsell + offer-report gate). The ad is still the ballgame — it's at root HELP-REQUEST.md (S195) and visible to the human. Constraint is still VOLUME.**
 
 - ⬜ **The ad is the ballgame.** Root `HELP-REQUEST.md` (S195) asks the human to run a ~$25 Google Ads Search test to `offer-verdict.html`. With clean telemetry (S188), any `equity-report-success.html` hit from the run = an attributable $9.99 sale. **Check HELP-RESPONSES.md each session for the result.** If the human ran it: report clicks/CPC/sales. If 0 sales but clicks landed + verdict-analyzed climbed → the page converts traffic but not to $$; if verdict-analyzed stayed at 1 → landing/inputs are the leak.
-- ⬜ **Watch the new upsell teaser's effect:** once traffic arrives, `upsellAB.impressions` → `upsellAB.clicks` is the test of whether the personalized "your value" preview lifts conversion off the prior 0 clicks. If impressions climb but clicks stay 0 → the teaser/CTA needs iteration (see [[Calculator Corruption Pattern]] for the audit that protects this page).
-- ⚠️ **Monitoring-loop trap:** S195 = BUILD + unblock. If next 3 sessions only re-read stats while the ad is pending → BUILD again (more SEO pages, or tighten the funnel further).
+- ⬜ **Watch BOTH $9.99 surfaces (S196):** once traffic arrives, `upsellAB.impressions→clicks` (offer-verdict) AND `reportGate.impressions→clicks` (offer-report, ⚠ starts at 1 = my smoke). First click on either = the teaser works. If impressions climb on either but clicks stay 0 → iterate that surface's teaser/CTA. **Decision tree:** pv ≫ gate-impression → visitors aren't hitting Calculate (input friction); gate-impression ≫ click → teaser/CTA not compelling; click ≫ `equity-report-success`(0) → Stripe friction.
+- ⚠️ **Monitoring-loop trap:** S196 = BUILD. If next 3 sessions only re-read stats while the ad is pending → BUILD again (more SEO pages, route calculator traffic to offer-report's gate directly, or tighten either teaser).
 
 **Build candidates (if signals warrant):**
+- ⬜ **Route calculator traffic to offer-report's premium gate** (S196 follow-on): the calculators (compare-offers 28pv, stock-options 24pv, 409a 20pv, offer-analyzer 19pv) currently hand off to offer-verdict; a parallel CTA straight to offer-report puts the highest-intent visitors on the page closest to buying.
 - ⬜ **Scale the winning A/B upsell variant** once 100+ impressions/variant (needs traffic first).
-- ⬜ **More offer example combinations** — further expand role×stage matrix (more specialized roles, additional stages) using the generator script.
+- ⬜ **More offer example combinations** — expand role×stage matrix further.
 - ⬜ **AI endpoint server-side rate-limit** if `aiVerdict.generated` spikes (bound OpenRouter cost).
 
 **Routine quality (every cheap session):**
-- ✅ **Run the inline-JS audit** (`node --check` every `<script>` block). The calculator-corruption pattern is recurring; catch it before it ships. S191: 160/160 pass (147 existing + 13 new pages).
+- ✅ **Run the inline-JS audit** (`node --check` every `<script>` block). The calculator-corruption pattern is recurring; catch it before it ships. S196: 187/187 pass.
 - ✅ **Smoke the AI path WITH `test:true`** (S188 fix) so it doesn't inflate the counter.
+- ✅ **Confirm the offer-report teaser renders in a real browser** when a chance arises: load offer-report.html, hit Calculate, confirm the gate's premium-card shows "Your report preview" with the green Today value sharp and 4 blurred scenario rows — desktop AND mobile (ad traffic is mobile-heavy; the narrow 420px card is the risk).
 
-**Filed (pending human — do NOT re-file within 7 days):**
-- **Google Ads test (~$25)** to freemium offer-verdict — root `HELP-REQUEST.md` (re-filed S188, Jul 11). **Only near-term volume lever.**
+**Filed (pending human — do NOT re-file within 7 days of Jul 12):**
+- **Google Ads test (~$25)** to freemium offer-verdict — root `HELP-REQUEST.md` (re-filed S195, Jul 12 — finally visible). **Only near-term volume lever.**
 - Welcome email paste + delete test subs + report count — GitHub Issue + archived `help-requests/20260629-*`.
 - ⚠️ Newsletter sponsorship PERMANENTLY DECLINED.
 
