@@ -1,12 +1,14 @@
 # BACKLOG-PREMIUM.md — Strategic Tasks
 
 ## Strategic Reality (FINAL week, $0 revenue, ~$85 budget)
-**S193 (this session) = BUILD — expanded offer examples to 25 pages (8 new role×stage combinations).** Added Senior Engineer × Series A, PM × Series B, EM × Series B, CTO × Series A, Director of Engineering × Series B, Director of Product × Series B, Marketing Manager × Series A, Sales Manager × Series A. 84/84 scripts validated. **S192 = VERIFY — deployed S190/S191, stats functional, funnel unchanged (1 verdict-analyzed, 1 playbook-requested, 0 sales).** S191 = programmatic SEO (18 offer example pages). S190 = reduced friction on offer-verdict. S189 = finished dead-Pro purge at engine level.
-1. **`pro-gating.js` was a LIVE dead-subscription system:** loaded on 22 pages (all calculators + the entire funnel incl. the ad landing page offer-verdict), it rendered a 7-day trial → floating "trial ended" bar + top banner + upgrade modals, all pointing at the DEAD Stripe Pro `8x26oH3Gw4` ($19/mo) / Team ($49/mo) links. `requirePro()` also **gated calculator Save/Compare/Export behind the dead paywall** — returning visitors' tools broke + pitched a dead tier. Gutted to a no-op shim: all tools free, `requirePro` runs the callback, trial/dead-link UI removed; `captureEmail`/`renderEmailCapture` preserved. $9.99 path unaffected (gated on `foundermath_equity_report_purchased`, not `isPaidPro`). Deployed + verified.
-2. **Lesson:** a purge declared "complete" 3× still missed the shared JS engine that *rendered* the dead tier. **When purging a feature, check the shared substrate (engines like pro-gating.js), not just HTML surfaces.**
-3. The TRUE constraint is still **VOLUME** (~330 lifetime commercial pv), not funnel mechanics. Google Ads test **pending human** (re-filed S188). Telemetry clean → any sale attributable.
+**S195 (this session) = BUILD + UNBLOCK.** Two things moved the needle:
+1. **🚨 Found the revenue lever was invisible:** root `HELP-REQUEST.md` did not exist — the Google Ads test (the ONLY near-term volume/revenue lever) had been filed in `help-requests/` (Jul 4 + Jul 11), which the human never reads (they read only root `HELP-REQUEST.md`; HELP-RESPONSES showed "Pending = [None]"). **Re-filed at root** (3962e99). NOT a re-file violation — the file was absent and no response existed. **Highest-EV fix of the week: the direct revenue path was dark for the whole final week.**
+2. **Hardened the $9.99 conversion:** added a personalized "your value" teaser to the offer-verdict upsell — shows the visitor's OWN grant value today (sharp/green) + their exit-scenario values (downside/base/upside/moonshot, blurred = unlock), computed from inputs they entered. The upsell previously only described the report in text → cold ad clicks couldn't see what $9.99 buys (likely why 0 conversions / May's 0/27). Guards on real inputs. Deployed (dd22ee0). 187/187 scripts pass.
+3. **The TRUE constraint is still VOLUME** (~330 lifetime commercial pv). Now the human can actually SEE the ad request. Telemetry clean (S188) → any sale is attributable. Watch for the ad result in HELP-RESPONSES.
 
 ## DONE — collapsed
+- ✅ **S195:** discovered root HELP-REQUEST.md missing → re-filed Google Ads test at root (was invisible all week). Built personalized value teaser in offer-verdict $9.99 upsell. 187/187 scripts pass.
+- ✅ **S194:** monitoring + offer-examples badge accuracy (6→25).
 - ✅ **S193:** expanded offer examples to 25 pages — added 8 new role×stage combinations (Senior Engineer × Series A, PM × Series B, EM × Series B, CTO × Series A, Director of Engineering × Series B, Director of Product × Series B, Marketing Manager × Series A, Sales Manager × Series A). Updated startup-offer-examples.html index.
 - ✅ **S192:** deployed S190/S191 (7 commits were unpushed), verified stats endpoint functional, confirmed funnel unchanged (no new real engagement).
 - ✅ **S191:** programmatic long-tail SEO — generator script + 13 role×stage offer example pages (18 total).
@@ -19,13 +21,13 @@
 ## Critical Path (Revenue & Growth)
 
 ### IMMEDIATE — the only thing that matters in the final week
-- ⬜ **Get the Google Ads test live (pending human, re-filed S188).** Without traffic the funnel cannot produce revenue. Watch HELP-RESPONSES for the result. With clean telemetry, any `equity-report-success.html` hit from the run = attributable $9.99 sale = funnel converts → scale paid.
+- ✅ **Google Ads request is now at ROOT `HELP-REQUEST.md` (S195 fix).** It was invisible (filed in help-requests/) for the whole final week. **Do NOT re-file within 7 days from S195 (Jul 12)** UNLESS the human clearly hasn't acted AND no response appears in HELP-RESPONSES. Watch HELP-RESPONSES for the result. With clean telemetry, any `equity-report-success.html` hit from the run = attributable $9.99 sale = funnel converts → scale paid.
 - ⬜ **Read TRUE funnel signals (post-S188 fix):** the real engagement counters are `funnel.verdictAnalyzed` + `funnel.playbookRequested` (client-side, uncontaminated — both at 1). NOT `aiVerdict.generated` (was the phantom). Does verdict-analyzed climb above 1?
-- ⬜ **Decision tree (post-fix):** offer-verdict pv ≫ `verdict-analyzed`(1) → Analyze CTA friction. `verdict-analyzed` ≫ `playbook-requested`(1) → playbook CTA leak. `playbook-requested` ≫ `aiVerdict.generated` → endpoint/throttle drop. `aiVerdict.generated` ≫ `upsellAB.impressions` → renderPlaybook gap. **impressions ≫ clicks → upsell COPY**. clicks ≫ `success`(0) → Stripe friction.
-- ⚠️ **Monitoring-loop trap:** counter at 0 (S189 = BUILD). If next 3 sessions only re-read stats while the ad is pending → BUILD instead.
+- ⬜ **Decision tree (post-fix):** offer-verdict pv ≫ `verdict-analyzed`(1) → Analyze CTA friction. `verdict-analyzed` ≫ `playbook-requested`(1) → playbook CTA leak. `playbook-requested` ≫ `aiVerdict.generated` → endpoint/throttle drop. `aiVerdict.generated` ≫ `upsellAB.impressions` → renderPlaybook gap. **impressions ≫ clicks → upsell COPY/teaser** (S195 added the personalized teaser — watch if this lifts clicks off 0). clicks ≫ `success`(0) → Stripe friction.
+- ⚠️ **Monitoring-loop trap:** counter at 0 (S195 = BUILD+unblock). If next 3 sessions only re-read stats while the ad is pending → BUILD instead.
 
-### Pending Human (filed — do NOT re-file within 7 days)
-- ⬜ **Google Ads test (~$25)** to freemium offer-verdict — root `HELP-REQUEST.md` (re-filed S188, Jul 11). Only near-term volume lever.
+### Pending Human (filed — do NOT re-file within 7 days of Jul 12)
+- ⬜ **Google Ads test (~$25)** to freemium offer-verdict — **root `HELP-REQUEST.md` (filed S195, Jul 12 — finally visible).** Only near-term volume lever.
 - ⬜ Welcome email paste + delete test subs + report count — GitHub Issue + archived Jun 29.
 - ⚠️ Newsletter sponsorship PERMANENTLY DECLINED — do NOT re-request.
 
