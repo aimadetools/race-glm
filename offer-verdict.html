@@ -631,9 +631,45 @@ function escapeTxt(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
         `<li><strong>Printable PDF</strong> &mdash; share with your lawyer/mentor, generated in 60 seconds</li>`
     ].join('');
 
+    // S195 — personalized "your value" teaser. The free verdict shows a ratio;
+    // this surfaces the DOLLAR value of the visitor's OWN grant so $9.99 buys
+    // something concrete and personal, not a vague feature list. "Today" is
+    // shown sharp (trust: real math on your real numbers); the exit rows are
+    // blurred = the unlock. Guards on real inputs; returns '' if unavailable
+    // so the upsell degrades gracefully to the existing copy.
+    function fmtPrice(p) { var r = Math.round(p * 100) / 100; return (r % 1 === 0) ? ('' + r) : r.toFixed(2); }
+    function personalizedTeaserHtml() {
+        var shares = num('shares'), strike = num('strike'), fmv = num('fmv');
+        if (shares <= 0 || fmv <= 0) return '';
+        function row(label, price, locked) {
+            var val = Math.max(0, (price - strike) * shares);
+            var cell = locked
+                ? '<span style="filter:blur(6px);opacity:0.45;user-select:none;">' + money(val) + '</span>'
+                : '<strong style="color:var(--green,#00b894);">' + money(val) + '</strong>';
+            return '<tr><td style="padding:5px 10px 5px 0;color:var(--text-secondary,#a0a0b5);">' + label + '</td>'
+                + '<td style="padding:5px 10px;text-align:right;font-family:var(--font-mono,monospace);color:var(--text-muted,#6b6b80);">$' + fmtPrice(price) + '</td>'
+                + '<td style="padding:5px 0;text-align:right;font-family:var(--font-mono,monospace);">' + cell + '</td></tr>';
+        }
+        return '<div style="margin:0 0 14px;padding:14px 16px;background:var(--bg-card,#1a1a2e);border:1px solid var(--border,#2a2a40);border-radius:10px;">'
+            + '<div style="font-size:0.66rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted,#6b6b80);margin-bottom:8px;">&#128196; Premium report preview &mdash; <span style="color:var(--accent-light,#a29bfe);">your numbers, your grant</span></div>'
+            + '<table style="width:100%;border-collapse:collapse;font-size:0.82rem;">'
+            + '<thead><tr><th style="text-align:left;font-weight:600;color:var(--text-muted,#6b6b80);font-size:0.68rem;padding:0 10px 6px 0;">Exit scenario</th><th style="text-align:right;font-weight:600;color:var(--text-muted,#6b6b80);font-size:0.68rem;padding:0 10px 6px;">$/share</th><th style="text-align:right;font-weight:600;color:var(--text-muted,#6b6b80);font-size:0.68rem;padding:0 0 6px;">Your value</th></tr></thead>'
+            + '<tbody>'
+            + row('Today (current value)', fmv, false)
+            + row('Downside (0.5&times;)', fmv * 0.5, true)
+            + row('Base case (3&times;)', fmv * 3, true)
+            + row('Upside (6&times;)', fmv * 6, true)
+            + row('Moonshot (10&times;)', fmv * 10, true)
+            + '</tbody></table>'
+            + '<div style="margin-top:10px;font-size:0.72rem;color:var(--text-muted,#6b6b80);">&#128274; Unlock every scenario + your <strong style="color:var(--text-secondary,#a0a0b5);">year-by-year vesting timeline</strong>, <strong style="color:var(--text-secondary,#a0a0b5);">exercise cost</strong> &amp; underwater risk, and a printable PDF.</div>'
+            + '</div>';
+    }
+
     function upsellHtml() {
         var v = window._upsellVariant;
-        return '<div style="margin-bottom:10px;">' + headline[v] + '</div>'
+        var teaser = personalizedTeaserHtml();
+        return (teaser ? teaser : '')
+            + '<div style="margin-bottom:10px;">' + headline[v] + '</div>'
             + '<p style="color:var(--text-secondary,#a0a0b5);font-size:0.9rem;margin:0 0 12px;">' + lede[v] + '</p>'
             + '<ul style="margin:0 0 14px;padding-left:20px;color:var(--text-secondary,#a0a0b5);font-size:0.86rem;line-height:1.75;">' + bullets + '</ul>'
             + '<a href="https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h?utm_source=founder-math&amp;utm_medium=offer_verdict&amp;utm_campaign=upsell&amp;variant=' + v + '" onclick="if(window._trackUpsellClick)window._trackUpsellClick()" style="display:inline-block;background:linear-gradient(135deg,#10b981,#059669);color:#fff;padding:12px 24px;border-radius:9px;font-weight:700;text-decoration:none;font-size:0.95rem;">See my full report &mdash; $9.99 &rarr;</a>'
