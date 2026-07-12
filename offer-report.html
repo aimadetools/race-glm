@@ -304,6 +304,14 @@
             <div class="premium-overlay" id="premiumOverlay">
                 <div class="premium-card">
                     <h3>Want the <span style="color:var(--green);">complete report?</span></h3>
+                    <!-- S196 — personalized "your value" teaser (mirrors the offer-verdict
+                         upsell teaser, but here the visitor has already calculated their
+                         full grant, so they are the closest to buying in the funnel). Shows
+                         their OWN in-the-money value today (sharp/green = trust: real math
+                         on their numbers) and the 4 exit scenarios blurred = the unlock.
+                         Populated by calculate(); stays empty (degrades to the copy below)
+                         if inputs are missing. -->
+                    <div id="premiumTeaser"></div>
                     <p>You've got your value and your market verdict. Now get the full picture that decides your next move — every exit scenario, your complete vesting timeline, and a printable PDF.</p>
                     <ul>
                         <li>&#10003; Downside / base / upside / moonshot exit values</li>
@@ -311,7 +319,7 @@
                         <li>&#10003; Professional PDF report, ready in 60 seconds</li>
                         <li>&#10003; Instant access — one-time $9.99</li>
                     </ul>
-                    <a href="https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h?utm_source=founder-math&amp;utm_medium=offer_report&amp;utm_campaign=gate" class="buy" onclick="if(typeof gtag==='function')gtag('event','premium_report_buy',{source:'offer_report_gate'})">Get the Full Report — $9.99 &rarr;</a>
+                    <a href="https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h?utm_source=founder-math&amp;utm_medium=offer_report&amp;utm_campaign=gate" class="buy" onclick="if(typeof gtag==='function')gtag('event','premium_report_buy',{source:'offer_report_gate'});if(typeof trackAbacus==='function')trackAbacus('report-gate-click')">Get the Full Report — $9.99 &rarr;</a>
                     <span class="note">One-time &middot; instant access &middot; 30-day money-back guarantee</span>
                 </div>
             </div>
@@ -344,6 +352,50 @@ function fmt(n) {
     return '$' + (Math.round(n*100)/100).toLocaleString();
 }
 function num(id) { var v = parseFloat(document.getElementById(id).value); return isFinite(v) ? v : 0; }
+
+// S196 — fire an Abacus counter (best-effort, never throws). Same sendBeacon
+// pattern as offer-verdict.html; powers the report-gate funnel counters read in
+// /api/stats (report-gate-impression / report-gate-click).
+function trackAbacus(key) {
+    var body = JSON.stringify({ key: key });
+    try {
+        if (navigator.sendBeacon) navigator.sendBeacon('/api/abacus-increment', new Blob([body], { type: 'application/json' }));
+        else fetch('/api/abacus-increment', { method: 'POST', body: body, headers: { 'Content-Type': 'application/json' }, keepalive: true }).catch(function () {});
+    } catch (e) {
+        try { fetch('/api/abacus-increment', { method: 'POST', body: body, headers: { 'Content-Type': 'application/json' }, keepalive: true }).catch(function () {}); } catch (e2) {}
+    }
+}
+
+// S196 — personalized "your value" teaser for the premium gate. Surfaces the
+// visitor's OWN in-the-money value today (sharp/green = trust: real math on
+// their numbers) and the 4 exit scenarios they would unlock (blurred), so $9.99
+// buys something concrete on THEIR numbers. Uses the SAME basePrice + factors as
+// the scenario table they'll unlock (consistency: the blurred rows are exactly
+// what paying reveals). Returns '' when inputs are missing so the gate degrades
+// to its generic copy below.
+function reportTeaserHtml(shares, strike, fmv, basePrice) {
+    if (!(shares > 0) || !(fmv > 0)) return '';
+    function row(label, price, locked) {
+        var val = Math.max(0, (price - strike) * shares);
+        var cell = locked
+            ? '<span style="filter:blur(5px);opacity:0.4;user-select:none;">' + fmt(val) + '</span>'
+            : '<strong style="color:var(--green,#00b894);">' + fmt(val) + '</strong>';
+        return '<tr><td style="padding:4px 8px 4px 0;color:var(--text-secondary,#a0a0b5);font-size:0.82rem;">' + label + '</td>'
+            + '<td style="padding:4px 0;text-align:right;font-family:var(--font-mono,monospace);font-size:0.82rem;">' + cell + '</td></tr>';
+    }
+    return '<div style="margin:0 0 14px;padding:12px 14px;background:var(--bg-card,#1a1a2e);border:1px solid var(--border,#2a2a40);border-radius:10px;">'
+        + '<div style="font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted,#6b6b80);margin-bottom:8px;">&#128196; Your report preview &mdash; <span style="color:var(--accent-light,#a29bfe);">your numbers</span></div>'
+        + '<table style="width:100%;border-collapse:collapse;">'
+        + '<tbody>'
+        + row('Today (current value)', fmv, false)
+        + row('Downside (0.5&times;)', basePrice * 0.5, true)
+        + row('Base case', basePrice, true)
+        + row('Upside (2&times;)', basePrice * 2, true)
+        + row('Moonshot (10&times;)', basePrice * 10, true)
+        + '</tbody></table>'
+        + '<div style="margin-top:8px;font-size:0.68rem;color:var(--text-muted,#6b6b80);">&#128274; Unlock every scenario + your <strong style="color:var(--text-secondary,#a0a0b5);">vesting timeline</strong>, <strong style="color:var(--text-secondary,#a0a0b5);">benchmark verdict</strong> &amp; printable PDF.</div>'
+        + '</div>';
+}
 
 function vestedFraction(monthsVested, vestYears, cliffMonths) {
     cliffMonths = cliffMonths || 12;
@@ -470,11 +522,29 @@ function calculate() {
     };
     if (typeof window.fmLeadRefresh === 'function') window.fmLeadRefresh();
 
+    // S196 — populate the personalized premium-gate teaser with the visitor's
+    // own value today + blurred exit scenarios (uses the same basePrice as the
+    // scenario table above). Stays empty if inputs are missing.
+    var teaserEl = document.getElementById('premiumTeaser');
+    if (teaserEl) teaserEl.innerHTML = reportTeaserHtml(shares, strike, fmv, basePrice);
+
     // Reveal results
     document.getElementById('results').style.display = 'block';
 
     // Restore unlock state (same flag as the dilution report — one $9.99 purchase unlocks both)
     applyUnlockState();
+
+    // S196 — fire the gate-impression counter once per load, only when the gate
+    // is shown to an unpurchased visitor. Lets /api/stats read how many of the
+    // page's visitors actually reach the buy surface (pv → gate-impression →
+    // gate-click → p-equity-report-success).
+    if (!window._reportGateTracked) {
+        var gateEl = document.getElementById('premiumGate');
+        if (!gateEl || !gateEl.classList.contains('unlocked')) {
+            window._reportGateTracked = true;
+            trackAbacus('report-gate-impression');
+        }
+    }
 
     document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
