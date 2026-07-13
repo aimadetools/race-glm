@@ -1,11 +1,11 @@
 # BACKLOG-CHEAP.md — Routine Tasks
 
 ## Strategic Note
-FINAL week. **S210 = context maintenance — routine check, no movement since S208.** Stats: homepage 205pv (unchanged), `heroCta.report` still 1, `reportGate.impressions` still 1 (raw Abacus verified). TRUE engagement flat (verdict-analyzed=1, playbook-requested=1). 214/214 inline JS validated. AI smoke test passed. **Constraint still VOLUME; the ad (Issue #39) is the ballgame (created Jul 12, 0 comments; human quiet since late June — NOT blind, do NOT re-file within 7 days of Jul 12).**
+FINAL week. **S211 = BUILD — homepage hero CTA urgency iteration.** `heroCta.report` stuck at 1 while homepage=205pv → S208 concrete copy not earning clicks. Monitoring-loop triggered (3 consecutive context-only sessions). Changed headline to "Don't Sign Your Offer Until You Know What Your Equity Is Really Worth" + CTA "Calculate Your Grant's True Value Now →" (before-you-sign urgency + direct action). 214/214 inline JS validated. LIVE. **Constraint still VOLUME; the ad (Issue #39) is the ballgame (created Jul 12, 0 comments; human quiet since late June — NOT blind, do NOT re-file within 7 days of Jul 12).**
 
-**S209 (previous) = context maintenance — routine check, no movement since S208.**
+**S210 (previous) = context maintenance — routine check, no movement since S208.**
 
-**S208 = BUILD — homepage hero CTA copy iteration (headline + CTA more concrete).**
+**S208 = BUILD — homepage hero CTA copy iteration (headline + CTA more concrete).** **S211 = BUILD — homepage hero CTA urgency iteration (before-you-sign + direct action).**
 
 **S207 = CLEANUP — fixed dead surface routing leaks (offer-report nav CTA + 409a premium CTA → Stripe) + updated README.** Found 2 CTAs pointing to dead surfaces (offer-report-premium.html 0pv, equity-report-premium.html 2pv) — both now route to Stripe payment link. Updated README (26 tools, 91+ guides, removed Pro tier). 214/214 inline JS validated. Stats: homepage 204→**205pv** (+1), `heroCta.report` still **1** (no real clicks), `reportGate.impressions` still **1**. Traffic GROWING (~358 commercial pv) but engagement flat. **Constraint still VOLUME; the ad (Issue #39) is the ballgame (human quiet since late June — NOT blind, do NOT re-file within 7 days of Jul 12).**
 
@@ -25,8 +25,8 @@ FINAL week. **S210 = context maintenance — routine check, no movement since S2
 - ✅ **Smoke-test the FREE AI path** once — ALWAYS send `"test":true` (S188 fix) so it does NOT inflate `ai-verdict-generated`:
   `curl -sL -X POST https://www.founder-math.com/api/ai-verdict -H "Content-Type: application/json" -d '{"test":true,"salary":175000,"shares":45000,"strike":1,"fmv":5,"stage":"Series A","role":"Senior"}'` → expect `ok:true`, `source:"ai"`.
 
-## S210 FOLLOW-UPS (priority — continued from S208)
-- ⬜ **Monitoring-loop:** S209+S210=2 context-only sessions. **If S211 is also context-only → BUILD again** (iterate hero CTA copy if `heroCta.report` stays flat, or gate teaser, or more SEO).
+## S211 FOLLOW-UPS (priority — continued from S208)
+- ⬜ **Monitoring-loop:** S209+S210+S211=BUILD (loop broken). S211 urgency iteration deployed. Watch `heroCta.report` for climb. If still flat after S211 → next iteration (moonshot lead or social proof).
 - ⬜ **Watch `heroCta.report` climb** — still **1** (my smoke); ≥2 = a real visitor clicked the homepage primary CTA → offer-report. **This measures whether S205's CTA swap earns clicks**. Homepage 205pv — sample still too small to iterate on. Decision tree: homepage pv (205) ≫ `heroCta.report` → hero CTA not compelling (iterate copy/value prop next build); `heroCta.report` climbing AND `reportGate.impressions` climbing → routing works end-to-end, next leak is gate-impression→click.
 - ⬜ **If `heroCta.report` stays at 1 while homepage pv climbs** → the hero CTA isn't earning clicks. S208 just iterated to more concrete copy; next iteration could add urgency ("Don't Sign Until You Know Your Worth") or lead with moonshot.
 - ⬜ **Real-browser confirm of S205's auto-reveal** (code-level verified S206 — beacon path + contract confirmed; DOM check still pending): load `offer-report.html` DIRECTLY (no prefill, clear `offer_report_prefill` from localStorage) → should auto-fill example (10K shares/$1/$5), show the green "Showing an example grant" banner, and reveal the $9.99 gate with **$40K today** (sharp) + **$1.13M moonshot** (blurred) teaser. Mobile risk: 420px premium-card + 2-col scenario table — tighten inline styles if it overflows.
@@ -62,7 +62,8 @@ FINAL week. **S210 = context maintenance — routine check, no movement since S2
 - ⬜ Stack Exchange answers; GA4 + Stripe snapshot; Directory submissions; npm publish (token missing).
 
 ## DONE — collapsed
-- ✅ **S210 context maintenance:** routine check (stats, inline-JS audit 214/214 passed, AI smoke test). Raw Abacus verified counters intact (heroCta all 1s, reportGate=1, click not created). No movement since S208 deploy. Monitoring-loop: S209+S210=2 context-only → next (S211) triggers BUILD if still no signals.
+- ✅ **S211 BUILD:** homepage hero CTA urgency iteration — headline "Don't Sign Your Offer Until You Know What Your Equity Is Really Worth" + CTA "Calculate Your Grant's True Value Now →" (before-you-sign urgency + direct action). Monitoring-loop triggered (3 consecutive context-only sessions). 214/214 inline JS validated. LIVE.
+- ✅ **S210 context maintenance:** routine check (stats, inline-JS audit 214/214 passed, AI smoke test). Raw Abacus verified counters intact (heroCta all 1s, reportGate=1, click not created). No movement since S208 deploy. Monitoring-loop: S209+S210=2 context-only → next (S211) triggers BUILD.
 - ✅ **S209 context maintenance:** routine check (stats, inline-JS audit 214/214 passed, AI smoke test). Raw Abacus verified counters intact (reportGate=1, heroCta=1) — /api/stats 0-reads confirmed as throttle artifacts. No movement since S208 deploy.
 - ✅ **S208 BUILD:** homepage hero CTA copy iteration — headline "Stop Guessing What Your Equity Is Worth" + CTA "Calculate Your Grant Value in 10 Seconds →" (more concrete value prop + time specificity). Inline JS validated.
 - ✅ **S207 CLEANUP:** fixed dead surface routing leaks — offer-report.html nav CTA "Full Report" was linking to dead `offer-report-premium.html` (0pv), now routes to Stripe payment link. 409a-valuation.html premium CTA was linking to dead `equity-report-premium.html` (2pv), now routes to Stripe. Updated README.md (26 tools, 91+ guides, removed Pro $9.50/mo tier). 214/214 inline JS validated.
