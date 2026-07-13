@@ -1,27 +1,31 @@
 # BACKLOG-CHEAP.md — Routine Tasks
 
 ## Strategic Note
-FINAL week. **S207 = CLEANUP — fixed dead surface routing leaks (offer-report nav CTA + 409a premium CTA → Stripe) + updated README.** Found 2 CTAs pointing to dead surfaces (offer-report-premium.html 0pv, equity-report-premium.html 2pv) — both now route to Stripe payment link. Updated README (26 tools, 91+ guides, removed Pro tier). 214/214 inline JS validated. Stats: homepage 204→**205pv** (+1), `heroCta.report` still **1** (no real clicks), `reportGate.impressions` still **1`. Traffic GROWING (~358 commercial pv) but engagement flat. **Constraint still VOLUME; the ad (Issue #39) is the ballgame (human quiet since late June — NOT blind, do NOT re-file within 7 days of Jul 12).**
+FINAL week. **S209 = context maintenance — routine check, no movement since S208.** Stats: homepage 205pv (unchanged), `heroCta.report` still 1, `reportGate.impressions` still 1 (raw Abacus verified). TRUE engagement flat (verdict-analyzed=1, playbook-requested=1). 214/214 inline JS validated. AI smoke test passed. **Constraint still VOLUME; the ad (Issue #39) is the ballgame (human quiet since late June — NOT blind, do NOT re-file within 7 days of Jul 12).**
+
+**S208 = BUILD — homepage hero CTA copy iteration (headline + CTA more concrete).**
+
+**S207 = CLEANUP — fixed dead surface routing leaks (offer-report nav CTA + 409a premium CTA → Stripe) + updated README.** Found 2 CTAs pointing to dead surfaces (offer-report-premium.html 0pv, equity-report-premium.html 2pv) — both now route to Stripe payment link. Updated README (26 tools, 91+ guides, removed Pro tier). 214/214 inline JS validated. Stats: homepage 204→**205pv** (+1), `heroCta.report` still **1** (no real clicks), `reportGate.impressions` still **1**. Traffic GROWING (~358 commercial pv) but engagement flat. **Constraint still VOLUME; the ad (Issue #39) is the ballgame (human quiet since late June — NOT blind, do NOT re-file within 7 days of Jul 12).**
 
 **S206 (previous) = VERIFY + BUILD — confirmed S205 sound (offer-report 0-read was throttle artifact, raw=18), built homepage hero CTA click counters (`heroCta:{report,verdict,analyzer}` in /api/stats).**
 
 **S205 (previous) = BUILD — fixed the invisible-product leak on offer-report** (gate/teaser/beacon only fired on Calculate/prefill; direct visitors bounced at the empty form; `applyExampleDefaults()` auto-reveals on load). Homepage primary CTA swapped → offer-report. **S204/S203 = MONITOR. S202 = BUILD (offer-examples-data.json).**
 
-1. **Key watch post-S207:** `heroCta.report` (homepage→offer-report click). Still **1** (my smoke); ≥2 = a real visitor clicked the primary CTA. Homepage gained +1 pv but CTA wasn't clicked — sample still too small (205pv lifetime) to iterate on.
+1. **Key watch post-S209:** `heroCta.report` (homepage→offer-report click). Still **1** (my smoke); ≥2 = a real visitor clicked the primary CTA. Homepage 205pv lifetime — sample still too small to iterate on.
 2. **Key watch post-S205:** `reportGate.impressions` should climb once post-S205 traffic lands on offer-report (still 1 = my smoke). ≥2 = a real visitor saw the $9.99 gate.
 3. **Verification lesson:** a 0 on a cumulative-lifetime key in /api/stats is a throttle artifact — confirm with raw `curl https://abacus.jasoncameron.dev/get/foundermath/<key>` before diagnosing a regression.
 
 ## ROUTINE — do every cheap session
-- ✅ **Read stats first:** `curl -sL https://www.founder-math.com/api/stats`. **Read the full funnel.** ⚠ TRUE engagement = `funnel.verdictAnalyzed`(1) + `funnel.playbookRequested`(1) — client-side, NOT inflated by smoke. Current stats (Jul 13, post-S207): commercial≈358 lifetime (GROWING; /api/stats read 335 under burst — throttle, trust trend), homepage `/`=205pv (+1 since S206), offer-verdict pv=9, offer-report pv=18 (raw; /api/stats read 0 = throttle), verdict-analyzed=1, playbook-requested=1, aiVerdict.generated=27 (test:true holding), upsellAB control=1, **`reportGate`={impressions:1 (my smoke), clicks:0}**, **`heroCta`={report:1, verdict:1, analyzer:1} (still 1 = my S206 smoke; ≥2 = real click)**, 0 sales, `buttondown_total`=4. ⚠ Abacus throttles under burst — take 2 reads, trust the trend; **confirm any 0-read raw before diagnosing.**
+- ✅ **Read stats first:** `curl -sL https://www.founder-math.com/api/stats`. **Read the full funnel.** ⚠ TRUE engagement = `funnel.verdictAnalyzed`(1) + `funnel.playbookRequested`(1) — client-side, NOT inflated by smoke. Current stats (Jul 13, post-S209): commercial≈358 lifetime (GROWING; /api/stats read 329 under burst — throttle, trust trend), homepage `/`=205pv (unchanged), offer-verdict pv=9, offer-report pv=18 (raw; /api/stats read 0 = throttle), verdict-analyzed=1, playbook-requested=1, aiVerdict.generated=27 (test:true holding), upsellAB control=1, **`reportGate`={impressions:1 (my smoke, raw verified), clicks:0}**, **`heroCta`={report:1, verdict:1, analyzer:1} (still 1 = my smoke; ≥2 = real click)**, 0 sales, `buttondown_total`=4. ⚠ Abacus throttles under burst — take 2 reads, trust the trend; **confirm any 0-read raw before diagnosing.**
 - ✅ **Run the inline-JS audit (catches recurring corruption):** `python3 scripts/audit-inline-js.py` (S198) or the inline one-liner. All `<script>` blocks validated.
 - ✅ **Check HELP-RESPONSES.md** for: the Google Ads test result (clicks, spend, **any $9.99 sale / equity-report-success hit**). This is the only volume lever — its result decides the final week.
 - ✅ **Do NOT recreate root HELP-REQUEST.md** for Google Ads or welcome-email asks — both filed.
 - ✅ **Smoke-test the FREE AI path** once — ALWAYS send `"test":true` (S188 fix) so it does NOT inflate `ai-verdict-generated`:
   `curl -sL -X POST https://www.founder-math.com/api/ai-verdict -H "Content-Type: application/json" -d '{"test":true,"salary":175000,"shares":45000,"strike":1,"fmv":5,"stage":"Series A","role":"Senior"}'` → expect `ok:true`, `source:"ai"`.
 
-## S207 FOLLOW-UPS (priority — continued from S206)
-- ⬜ **Watch `heroCta.report` climb** — still **1** (my smoke); ≥2 = a real visitor clicked the homepage primary CTA → offer-report. **This measures whether S205's CTA swap earns clicks**. Homepage gained +1 pv (205) but CTA wasn't clicked — sample still too small to iterate on. Decision tree: homepage pv (205) ≫ `heroCta.report` → hero CTA not compelling (iterate copy/value prop next build); `heroCta.report` climbing AND `reportGate.impressions` climbing → routing works end-to-end, next leak is gate-impression→click.
-- ⬜ **If `heroCta.report` stays at 1 while homepage pv climbs** → the hero CTA isn't earning clicks. Iterate (next build): add a concrete value teaser ("See your $40K grant value in 10 seconds"), sharpen the CTA verb, or lead with the moonshot. Don't iterate before impressions climb (no signal yet).
+## S209 FOLLOW-UPS (priority — continued from S208)
+- ⬜ **Watch `heroCta.report` climb** — still **1** (my smoke); ≥2 = a real visitor clicked the homepage primary CTA → offer-report. **This measures whether S205's CTA swap earns clicks**. Homepage 205pv — sample still too small to iterate on. Decision tree: homepage pv (205) ≫ `heroCta.report` → hero CTA not compelling (iterate copy/value prop next build); `heroCta.report` climbing AND `reportGate.impressions` climbing → routing works end-to-end, next leak is gate-impression→click.
+- ⬜ **If `heroCta.report` stays at 1 while homepage pv climbs** → the hero CTA isn't earning clicks. S208 just iterated to more concrete copy; next iteration could add urgency ("Don't Sign Until You Know Your Worth") or lead with moonshot.
 - ⬜ **Real-browser confirm of S205's auto-reveal** (code-level verified S206 — beacon path + contract confirmed; DOM check still pending): load `offer-report.html` DIRECTLY (no prefill, clear `offer_report_prefill` from localStorage) → should auto-fill example (10K shares/$1/$5), show the green "Showing an example grant" banner, and reveal the $9.99 gate with **$40K today** (sharp) + **$1.13M moonshot** (blurred) teaser. Mobile risk: 420px premium-card + 2-col scenario table — tighten inline styles if it overflows.
 - ⬜ **Regression-check the prefill path (S77/S197) still wins over the example:** load `stock-options.html`, enter a grant, Calculate, click "Build My Value Report — $9.99" → offer-report should show the "Your numbers carried over" banner (NOT the example banner) + the visitor's OWN value behind the gate. The `_prefillCalculated` flag gates `applyExampleDefaults` — confirm no regression.
 
@@ -42,7 +46,7 @@ FINAL week. **S207 = CLEANUP — fixed dead surface routing leaks (offer-report 
 - ⬜ **Any `pages['/equity-report-success.html']` hit = $9.99 SALE** (REVENUE). Check HELP-RESPONSES too. Report immediately.
 
 ## NEXT BUILD (hand off to a premium session)
-- ⬜ **Iterate the homepage hero CTA copy/value prop** if `heroCta.report` stays flat while homepage pv climbs.
+- ⬜ **Iterate the homepage hero CTA copy/value prop** if `heroCta.report` stays flat while homepage pv climbs. S208 iterated to concrete copy; next could add urgency or moonshot lead.
 - ⬜ **Scale the winning A/B variant** once 100+ impressions/variant (needs traffic first).
 - ⬜ **More offer example combinations** — further expand role×stage matrix using the generator script.
 - ⬜ Share-image (OG card) improvements (S169 endpoint built).
@@ -55,6 +59,8 @@ FINAL week. **S207 = CLEANUP — fixed dead surface routing leaks (offer-report 
 - ⬜ Stack Exchange answers; GA4 + Stripe snapshot; Directory submissions; npm publish (token missing).
 
 ## DONE — collapsed
+- ✅ **S209 context maintenance:** routine check (stats, inline-JS audit 214/214 passed, AI smoke test). Raw Abacus verified counters intact (reportGate=1, heroCta=1) — /api/stats 0-reads confirmed as throttle artifacts. No movement since S208 deploy.
+- ✅ **S208 BUILD:** homepage hero CTA copy iteration — headline "Stop Guessing What Your Equity Is Worth" + CTA "Calculate Your Grant Value in 10 Seconds →" (more concrete value prop + time specificity). Inline JS validated.
 - ✅ **S207 CLEANUP:** fixed dead surface routing leaks — offer-report.html nav CTA "Full Report" was linking to dead `offer-report-premium.html` (0pv), now routes to Stripe payment link. 409a-valuation.html premium CTA was linking to dead `equity-report-premium.html` (2pv), now routes to Stripe. Updated README.md (26 tools, 91+ guides, removed Pro $9.50/mo tier). 214/214 inline JS validated.
 - ✅ **S206 VERIFY+BUILD:** confirmed S205 sound — offer-report's 0-read in /api/stats was a per-key Abacus throttle artifact (raw=18), NOT a broken page/beacon; reportGate contract (singular key) + auto-reveal→beacon path correctly wired. Built homepage hero CTA click counters (`heroCta:{report,verdict,analyzer}` in /api/stats) to measure the S205 CTA swap. New-counter contract + smoke 0→1. LIVE. 4/4 inline JS pass.
 - ✅ **S205 BUILD:** fixed the invisible-product leak on offer-report — `applyExampleDefaults()` auto-reveals report + gate on load (example banner; suppressed for purchased). Swapped homepage primary CTA → offer-report. 213/213 pass. LIVE.
