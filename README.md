@@ -8,8 +8,8 @@ Interactive equity, dilution, SAFE-note, runway, and cap-table calculators — b
 
 [![Live Site](https://img.shields.io/badge/live-founder--math.com-6c5ce7?style=flat-square)](https://founder-math.com)
 [![License](https://img.shields.io/badge/license-MIT-00b894?style=flat-square)](#license)
-[![Tools](https://img.shields.io/badge/tools-25%20calculators-ff6b6b?style=flat-square)](#calculators)
-[![Guides](https://img.shields.io/badge/guides-90%2B%20articles-a29bfe?style=flat-square)](#guides)
+[![Tools](https://img.shields.io/badge/tools-26%20calculators-ff6b6b?style=flat-square)](#calculators)
+[![Guides](https://img.shields.io/badge/guides-91%2B%20articles-a29bfe?style=flat-square)](#guides)
 
 **[🌐 Launch the free calculators →](https://founder-math.com)**
 
@@ -36,7 +36,7 @@ built for the person signing the term sheet, not their accountant.
 
 ## Calculators
 
-All 25 tools are free and run entirely in the browser.
+All 26 tools are free and run entirely in the browser.
 
 | Category | Tools |
 |----------|-------|
@@ -44,11 +44,11 @@ All 25 tools are free and run entirely in the browser.
 | **Fundraising** | SAFE Note Converter, Convertible Note Calculator, 409A Valuation Estimator, Startup Valuation, Runway Calculator |
 | **Compensation** | Stock Options Analyzer, Equity vs Salary, Offer Analyzer, Offer Trap Detector, Compare Offers, Equity Tax Calculator, Liquidation Preference |
 | **Founder math** | Equity Split, Vesting Visualizer, Unit Economics (CAC/LTV), Equity Score, Startup Exit Calculator |
-| **Resources** | Equity Report, Equity Cheat Sheet, Glossary (54 terms), Benchmarks, Startup Equity Checklist, Free Tools Directory |
+| **Resources** | Equity Report, Equity Cheat Sheet, Glossary (54 terms), Benchmarks, Startup Equity Checklist, Offer Verdict |
 
 ## Guides
 
-90+ founder-written guides covering the questions people actually Google:
+91+ founder-written guides covering the questions people actually Google:
 "How much is my startup equity worth?", "Stock options vs RSUs", "What is a
 409A valuation?", "Should I exercise my stock options?", "How to negotiate
 stock options at a startup." Browse them all at **[founder-math.com/blog](https://founder-math.com/blog.html)**.
@@ -65,7 +65,6 @@ FounderMath is built to be embedded and reused, not just visited:
 
 - **Free** — every calculator, every chart, no signup. That's the whole product for most people.
 - **Premium Equity Report ($9.99 one-time)** — a polished, investor-ready PDF of your full dilution analysis with personalized recommendations and benchmark comparison.
-- **Pro ($9.50/mo, founding pricing)** — unlimited PDF reports, saved scenarios, and side-by-side comparisons across all tools.
 
 ## Tech stack
 
