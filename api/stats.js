@@ -132,6 +132,23 @@ export default async function handler(req, res) {
       }));
       return out;
     })();
+    // S206 — homepage hero CTA click-through. The homepage is the #1 traffic
+    // surface (~204pv, ~57% of commercial); S205 rerouted its primary CTA to
+    // offer-report (the $9.99 surface). These counters (fired by trackAbacus on
+    // click in index.html) attribute hero clicks to each revenue path, so a flat
+    // offer-report pv can be split into "CTA not earning clicks" vs "no traffic".
+    // Read concurrently because Abacus starves late reads.
+    const heroCtaP = (async () => {
+      const keys = { report: 'hero-cta-report', verdict: 'hero-cta-verdict', analyzer: 'hero-cta-analyzer' };
+      const out = {};
+      await Promise.all(Object.entries(keys).map(async ([k, abacusKey]) => {
+        try {
+          const r = await fetch(`${ABACUS}/get/${NS}/${abacusKey}`);
+          out[k] = (await r.json()).value || 0;
+        } catch (e) { out[k] = 0; }
+      }));
+      return out;
+    })();
     // Fetch commercial pages
     const commercialEntries = await Promise.all(Object.entries(PAGES).map(async ([path, key]) => {
       try {
@@ -214,6 +231,7 @@ export default async function handler(req, res) {
     const upsellClick = await upsellClickP; // P-LC1 A/B test clicks
     const funnel = await funnelP; // S174 — top-of-funnel steps (verdict + playbook)
     const reportGate = await reportGateP; // S196 — offer-report gate impressions/clicks
+    const heroCta = await heroCtaP; // S206 — homepage hero CTA clicks (which revenue path)
     const commercialPages = Object.fromEntries(commercialEntries);
     const blogPages = Object.fromEntries(blogEntries);
     const commercial = Object.values(commercialPages).reduce((a, b) => a + (b || 0), 0);
@@ -230,6 +248,7 @@ export default async function handler(req, res) {
       aiVerdict: { generated: aiVerdictGenerated },
       upsellAB: { impressions: upsellVariant, clicks: upsellClick },
       reportGate, // S196 — offer-report premium-gate { impressions, clicks }
+      heroCta, // S206 — homepage hero CTA clicks { report, verdict, analyzer }
       funnel, // S174 — { verdictAnalyzed, playbookRequested }
     });
   } catch (e) {
