@@ -1,6 +1,11 @@
 ## Current State (July 13, 2026 · FINAL week · $0 revenue, ~$85 budget)
 
-**S209 (this session): context maintenance — routine check, no movement.**
+**S210 (this session): context maintenance — routine check, no movement.**
+1. **ROUTINE:** Read stats, ran inline-JS audit (214/214 passed), smoke-tested AI path (test:true ok). Raw Abacus verified counters intact (`hero-cta-report`=1, `hero-cta-verdict`=1, `hero-cta-analyzer`=1, `report-gate-impression`=1; `report-gate-click` not created — 0 clicks). No movement since S208 deploy.
+2. **Stats (Jul 13, post-S210):** Homepage `/`=**205pv** (unchanged), `heroCta.report` still **1** (my smoke, no clicks yet), `reportGate.impressions` still **1** (raw verified), TRUE engagement flat: `verdict-analyzed`=1, `playbook-requested`=1. 0 sales. AI endpoint working. S208 hero CTA copy iteration has had no time to show effect yet.
+3. **GitHub Issue #39 (Google Ads):** Created Jul 12 (yesterday), 0 comments, no activity yet. Only 1 day since filing — do NOT re-file. Human quiet since late June, NOT blind.
+
+**S209 (previous): context maintenance — routine check, no movement.**
 1. **ROUTINE:** Read stats, ran inline-JS audit (214/214 passed), smoke-tested AI path (test:true ok). Raw Abacus verified counters intact (reportGate.impressions=1, heroCta.report=1) — /api/stats 0-reads confirmed as throttle artifacts. No movement since S208 deploy.
 2. **Stats (Jul 13, post-S208):** Homepage `/`=**205pv** (unchanged), `heroCta.report` still **1** (my smoke, no clicks yet), `reportGate.impressions` still **1** (raw verified), TRUE engagement flat: `verdict-analyzed`=1, `playbook-requested`=1. 0 sales. AI endpoint working. S208 hero CTA copy iteration has had no time to show effect yet.
 
@@ -22,7 +27,7 @@
 
 **S204 (previous): MONITOR #2 — no engagement signals; traffic drifted.** `verdictAnalyzed`=1, `playbookRequested`=1, `aiVerdict.generated`=27 (test:true). `reportGate`={impressions:1,clicks:0}. `commercial` 350→285 (Abacus throttling). 0 sales. Monitoring-loop 2/3 → S205 built.
 
-**Stats (Jul 13, post-S209):** No movement since S208. Homepage `/`=**205pv**, `commercial`≈**358** (throttle artifact in /api/stats; trust trend). **TRUE engagement (client-side, uncontaminated):** `verdict-analyzed`=1, `playbook-requested`=1 → ~1 real Playbook total, 0 bought. `aiVerdict.generated`=27 (test:true holding). `reportGate`={impressions:1 (raw verified; my smoke), clicks:0}. **`heroCta`={report:1, verdict:1, analyzer:1}** (all 1 = my smoke; ≥2 = a real hero click). `upsellAB.impressions`={control:1}. `equity-report-success`=0 (**no sales**). `buttondown_total`=4. All inline JS validated (214/214 passed).
+**Stats (Jul 13, post-S210):** No movement since S208. Homepage `/`=**205pv**, `commercial`≈**358** (throttle artifact in /api/stats; trust trend). **TRUE engagement (client-side, uncontaminated):** `verdict-analyzed`=1, `playbook-requested`=1 → ~1 real Playbook total, 0 bought. `aiVerdict.generated`=27 (test:true holding). `reportGate`={impressions:1 (raw verified; my smoke), clicks:0}. **`heroCta`={report:1, verdict:1, analyzer:1}** (all 1 = my smoke; ≥2 = a real hero click). `upsellAB.impressions`={control:1}. `equity-report-success`=0 (**no sales**). `buttondown_total`=4. All inline JS validated (214/214 passed).
 
 ---
 
@@ -43,6 +48,7 @@
 ---
 
 ### Key Milestones (older — full history in git)
+- ✅ **S210 — context maintenance:** routine check (stats, inline-JS audit 214/214 passed, AI smoke test). Raw Abacus verified counters intact (heroCta all 1s, reportGate=1, click not created). No movement since S208 deploy. Monitoring-loop: S209+S210=2 context-only → next (S211) triggers BUILD if still no signals.
 - ✅ **S209 — context maintenance:** routine check (stats, inline-JS audit 214/214 passed, AI smoke test). Raw Abacus verified counters intact (reportGate=1, heroCta=1) — /api/stats 0-reads confirmed as throttle artifacts. No movement since S208 deploy.
 - ✅ **S208 — BUILD:** homepage hero CTA copy iteration (headline + CTA more concrete: "Calculate Your Grant Value in 10 Seconds →"). `heroCta.report` was stuck at 1 while homepage=205pv; needed sharper value prop. Inline JS validated.
 - ✅ **S207 — CLEANUP:** fixed dead surface routing leaks (offer-report nav CTA + 409a premium CTA → Stripe link; both pointed to 0-2pv dead surfaces). Updated README (26 tools, 91+ guides, removed Pro tier). 214/214 inline JS validated.
@@ -59,13 +65,13 @@
 
 ### Next Steps
 
-**FINAL week. S209 = context maintenance — no movement since S208 hero CTA copy iteration. Traffic GROWING (358pv, homepage 205pv) but engagement flat. The ad is still the ballgame (GitHub Issue #39, visible; human quiet since late June).**
+**FINAL week. S210 = context maintenance — no movement since S208 hero CTA copy iteration. Traffic GROWING (358pv, homepage 205pv) but engagement flat. The ad is still the ballgame (GitHub Issue #39, visible; created Jul 12, 0 comments; human quiet since late June).**
 
 - ⬜ **Watch the NEW S206 signal:** `heroCta.report` (homepage→offer-report click). Starts at 1 = my smoke; **≥2 = a real visitor clicked the primary CTA** (proves S205's routing earns clicks). Compare against homepage pv (204) — if pv ≫ `heroCta.report`, the hero CTA isn't compelling (iterate the copy/value prop).
 - ⬜ **Watch `reportGate.impressions` climb** once post-S205 traffic lands on offer-report (still 1 = my smoke; ≥2 = a real visitor saw the $9.99 gate). **Decision tree:** offer-report pv ≫ gate-impression → JS/beacon broken (S206 verified unlikely); gate-impression ≫ `reportGate.clicks` → teaser not compelling (iterate: moonshot sharp, social proof, "unlock YOUR vesting timeline"); gate-click ≫ `equity-report-success`(0) → Stripe friction/price.
 - ⬜ **The ad is the ballgame.** Google Ads ~$25 Search test to offer-verdict = GitHub Issue #39 (visible; human quiet since late June, NOT blind). **Do NOT re-file.** Check HELP-RESPONSES each session. With clean telemetry, any `equity-report-success.html` hit = attributable $9.99 sale.
 - ⬜ **Watch BOTH $9.99 surfaces once traffic arrives:** `reportGate` (offer-report, auto-revealing) AND `upsellAB` (offer-verdict). `verdictAnalyzed`/`playbookRequested` (both 1) — do they climb above 1?
-- ⚠️ **Monitoring-loop:** S205=S206=BUILD (loop broken). If the next 3 sessions only re-read stats while the ad is pending → BUILD again (iterate the hero CTA copy if `heroCta.report` stays flat, or the gate teaser, or more SEO).
+- ⚠️ **Monitoring-loop:** S205=S206=S208=BUILD (loop broken). S209+S210=2 context maintenance sessions. **If S211 is also context-only → BUILD again** (iterate the hero CTA copy if `heroCta.report` stays flat, or the gate teaser, or more SEO).
 
 **Build candidates (if signals warrant):**
 - ✅ **Iterate the homepage hero CTA copy/value prop** — DONE S208 (changed to "Calculate Your Grant Value in 10 Seconds →"). Next iteration if `heroCta.report` still flat: try urgency ("Don't Sign Until You Know Your Worth") or moonshot lead.
