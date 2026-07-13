@@ -609,12 +609,35 @@ function applyPrefill() {
 
     var b = document.getElementById('prefillBanner');
     if (b) { var s = b.querySelector('.src'); if (s) s.textContent = label; b.style.display = 'block'; }
+    window._prefillCalculated = true; // S205: a calculator handoff already drove the calc
     try { calculate(); } catch (e) {} // reveal their result + gate without a second click
+}
+
+// S205 — direct visitors (no calculator handoff) landed on a form that never
+// calculated, so they bounced before the $9.99 gate/teaser ever appeared:
+// reportGate fired just 1× (my own smoke) across 18 pv — the highest-intent
+// $9.99 surface was invisible to its own traffic. The form already ships with
+// example defaults, so reveal the full report + the personalized $9.99 gate on
+// load, with an honest banner marking it as an example. Converts a bounce into
+// a measured gate impression and a real chance to buy. Suppressed when a
+// handoff already applied (above) or the visitor already owns the report.
+function applyExampleDefaults() {
+    var purchased = false;
+    try { purchased = localStorage.getItem('foundermath_equity_report_purchased') === 'true'; } catch(e){}
+    if (!purchased) {
+        var b = document.getElementById('prefillBanner');
+        if (b) {
+            b.innerHTML = '&#128064; <strong>Showing an example grant.</strong> Change the numbers above to see <em>your</em> report &mdash; below is what the full report looks like.';
+            b.style.display = 'block';
+        }
+    }
+    try { calculate(); } catch (e) {}
 }
 
 // On load: if already purchased, pre-unlock (in case user navigates back)
 applyUnlockState();
 applyPrefill();
+if (!window._prefillCalculated) applyExampleDefaults();
 </script>
 </body>
 </html>
