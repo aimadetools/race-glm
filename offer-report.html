@@ -303,7 +303,12 @@
 
             <div class="premium-overlay" id="premiumOverlay">
                 <div class="premium-card">
-                    <h3>Want the <span style="color:var(--green);">complete report?</span></h3>
+                    <!-- S214 — moonshot-lead iteration: gate-impressions(2) ≫ clicks(0) →
+                         teaser not compelling. Reframe from "Want the complete report?"
+                         to lead with the VALUE GAP (today vs moonshot) to make $9.99 feel
+                         like a no-brainer. Headline creates urgency by showing what they're
+                         missing; copy emphasizes this is THEIR specific numbers. -->
+                    <h3>You're seeing <span style="color:var(--green);">today's value</span>.<br>Here's what you're missing.</h3>
                     <!-- S196 — personalized "your value" teaser (mirrors the offer-verdict
                          upsell teaser, but here the visitor has already calculated their
                          full grant, so they are the closest to buying in the funnel). Shows
@@ -312,14 +317,14 @@
                          Populated by calculate(); stays empty (degrades to the copy below)
                          if inputs are missing. -->
                     <div id="premiumTeaser"></div>
-                    <p>You've got your value and your market verdict. Now get the full picture that decides your next move — every exit scenario, your complete vesting timeline, and a printable PDF.</p>
+                    <p>Your equity could be worth <strong>$XXX,XXX at exit</strong> — but you're only seeing today's value. Unlock your <strong>full exit scenarios</strong>, <strong>complete vesting timeline</strong>, and a <strong>printable PDF</strong> to make the right decision.</p>
                     <ul>
-                        <li>&#10003; Downside / base / upside / moonshot exit values</li>
-                        <li>&#10003; Full year-by-year vesting schedule</li>
-                        <li>&#10003; Professional PDF report, ready in 60 seconds</li>
-                        <li>&#10003; Instant access — one-time $9.99</li>
+                        <li>&#10003; <strong>Your 4 exit scenarios</strong> — downside to moonshot, on YOUR numbers</li>
+                        <li>&#10003; <strong>Full vesting timeline</strong> — year-by-year, see what you've earned</li>
+                        <li>&#10003; <strong>Professional PDF</strong> — share with family/advisors in 60 seconds</li>
+                        <li>&#10003; <strong>Instant access</strong> — one-time $9.99, no subscription</li>
                     </ul>
-                    <a href="https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h?utm_source=founder-math&amp;utm_medium=offer_report&amp;utm_campaign=gate" class="buy" onclick="if(typeof gtag==='function')gtag('event','premium_report_buy',{source:'offer_report_gate'});if(typeof trackAbacus==='function')trackAbacus('report-gate-click')">Get the Full Report — $9.99 &rarr;</a>
+                    <a href="https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h?utm_source=founder-math&amp;utm_medium=offer_report&amp;utm_campaign=gate" class="buy" onclick="if(typeof gtag==='function')gtag('event','premium_report_buy',{source:'offer_report_gate'});if(typeof trackAbacus==='function')trackAbacus('report-gate-click')">Unlock Your Full Equity Picture — $9.99 &rarr;</a>
                     <span class="note">One-time &middot; instant access &middot; 30-day money-back guarantee</span>
                 </div>
             </div>
