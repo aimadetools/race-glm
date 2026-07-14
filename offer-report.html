@@ -135,6 +135,7 @@
         .premium-card ul li { padding: 4px 0; }
         .premium-card .buy { display: block; background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 14px; border-radius: 10px; font-weight: 700; text-decoration: none; margin-bottom: 8px; }
         .premium-card .note { font-size: 0.76rem; color: var(--text-muted); }
+        .premium-card .trust-row { display:flex; flex-wrap:wrap; gap:4px 14px; justify-content:center; margin-top:10px; font-size:0.74rem; color:var(--text-muted); }
         .premium-unlock-banner { display: none; background: linear-gradient(135deg, rgba(0,184,148,0.16), rgba(0,206,201,0.10)); border: 1px solid var(--green); border-radius: 12px; padding: 14px 18px; margin-bottom: 18px; text-align: center; }
         .premium-unlock-banner h4 { color: var(--green); font-size: 0.95rem; margin-bottom: 2px; }
         .premium-unlock-banner p { color: var(--text-secondary); font-size: 0.84rem; margin: 0; }
@@ -303,12 +304,18 @@
 
             <div class="premium-overlay" id="premiumOverlay">
                 <div class="premium-card">
-                    <!-- S214 — moonshot-lead iteration: gate-impressions(2) ≫ clicks(0) →
-                         teaser not compelling. Reframe from "Want the complete report?"
-                         to lead with the VALUE GAP (today vs moonshot) to make $9.99 feel
-                         like a no-brainer. Headline creates urgency by showing what they're
-                         missing; copy emphasizes this is THEIR specific numbers. -->
-                    <h3>You're seeing <span style="color:var(--green);">today's value</span>.<br>Here's what you're missing.</h3>
+                    <!-- S216 — paywall rebuild. Signal: 4 REAL gate impressions, 0 clicks (raw
+                         Abacus; /api/stats shows 0 from per-key throttle). Two defects found at the
+                         purchase moment: (1) the static copy showed a LITERAL "$XXX,XXX at exit"
+                         placeholder right beside the personalized teaser's real numbers — looked
+                         unfinished exactly when someone decides to pay; (2) the money-back guarantee
+                         was a buried footnote. With zero sales there is no social proof, so RISK
+                         REVERSAL is the top lever. Rebuild: lead with decision-cost framing (this
+                         $9.99 prevents a tens-of-thousands mistake), kill the placeholder, surface
+                         the benchmark verdict (now a premium feature), promote trust signals to a
+                         visible row, and use a first-person CTA. The personalized teaser
+                         (#premiumTeaser, S196) stays unchanged. -->
+                    <h3>Don't decide on your equity<br>until you see the full picture.</h3>
                     <!-- S196 — personalized "your value" teaser (mirrors the offer-verdict
                          upsell teaser, but here the visitor has already calculated their
                          full grant, so they are the closest to buying in the funnel). Shows
@@ -317,15 +324,19 @@
                          Populated by calculate(); stays empty (degrades to the copy below)
                          if inputs are missing. -->
                     <div id="premiumTeaser"></div>
-                    <p>Your equity could be worth <strong>$XXX,XXX at exit</strong> — but you're only seeing today's value. Unlock your <strong>full exit scenarios</strong>, <strong>complete vesting timeline</strong>, and a <strong>printable PDF</strong> to make the right decision.</p>
+                    <p>One wrong call on a startup offer can quietly cost you <strong>tens of thousands of dollars</strong>. For a one-time <strong>$9.99</strong>, see every exit scenario on <em>your</em> numbers, your full vesting timeline, and a shareable PDF — <strong>before you sign anything</strong>.</p>
                     <ul>
-                        <li>&#10003; <strong>Your 4 exit scenarios</strong> — downside to moonshot, on YOUR numbers</li>
-                        <li>&#10003; <strong>Full vesting timeline</strong> — year-by-year, see what you've earned</li>
-                        <li>&#10003; <strong>Professional PDF</strong> — share with family/advisors in 60 seconds</li>
-                        <li>&#10003; <strong>Instant access</strong> — one-time $9.99, no subscription</li>
+                        <li>&#10003; <strong>4 exit scenarios</strong> — downside to moonshot, on YOUR grant</li>
+                        <li>&#10003; <strong>Full vesting timeline</strong> — year-by-year, what you've actually earned</li>
+                        <li>&#10003; <strong>Benchmark verdict</strong> — is this offer strong or weak for your role?</li>
+                        <li>&#10003; <strong>Professional PDF</strong> — show family, advisors, or your CPA in minutes</li>
                     </ul>
-                    <a href="https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h?utm_source=founder-math&amp;utm_medium=offer_report&amp;utm_campaign=gate" class="buy" onclick="if(typeof gtag==='function')gtag('event','premium_report_buy',{source:'offer_report_gate'});if(typeof trackAbacus==='function')trackAbacus('report-gate-click')">Unlock Your Full Equity Picture — $9.99 &rarr;</a>
-                    <span class="note">One-time &middot; instant access &middot; 30-day money-back guarantee</span>
+                    <a href="https://buy.stripe.com/5kQ28r2CsdhsbwufsHeEo0h?utm_source=founder-math&amp;utm_medium=offer_report&amp;utm_campaign=gate" class="buy" onclick="if(typeof gtag==='function')gtag('event','premium_report_buy',{source:'offer_report_gate'});if(typeof trackAbacus==='function')trackAbacus('report-gate-click')">Unlock My Full Report — $9.99 &rarr;</a>
+                    <div class="trust-row">
+                        <span>&#10003; One-time &middot; no subscription</span>
+                        <span>&#10003; Instant access</span>
+                        <span>&#10003; 30-day money-back guarantee</span>
+                    </div>
                 </div>
             </div>
         </div>
