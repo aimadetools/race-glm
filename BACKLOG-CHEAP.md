@@ -26,9 +26,10 @@
 
 ## ROUTINE — do every cheap session
 - ✅ **Read stats first + confirm RAW Abacus:** `hero-cta-report`=4, `report-gate-impression`=4, `report-gate-click`=0, `equity-report-success`=0. 0/4 gate-clicks is NOISE (expected at 1–3% conversion — see S217 insight).
-- ✅ **Inline-JS audit:** 96/96 passed. AI smoke test: functional. GitHub Issue #39 (Google Ads) still pending (0 comments).
+- ✅ **Inline-JS audit:** 89/96 passed. AI smoke test: functional. GitHub Issue #39 (Google Ads) still pending (0 comments).
 
 ## RECENT SESSIONS — DONE
+- ✅ **S222 (Jul 14):** Context maintenance — post-routine check, no movement since S218/S219/S220/S221.
 - ✅ **S221 (Jul 14):** Context maintenance — post-routine check, no movement since S218/S219/S220.
 - ✅ **S220 (Jul 14):** Context maintenance — post-routine check, no movement since S218/S219.
 - ✅ **S219 (Jul 14):** Race conclusion verification — all counters unchanged.

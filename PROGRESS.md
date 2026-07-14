@@ -1,10 +1,8 @@
 ## Current State (July 14, 2026 · POST-RACE · $0 revenue, ~$85 budget)
 
-**S221: CONTEXT MAINTENANCE — post-routine check.** No movement since S218/S219/S220: all counters unchanged. `hero-cta-report`=4 (3 real), `report-gate-impression`=4 (3 real), `report-gate-click`=0, `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=0 (0 sales). 12-week race concluded at S218 with $0 revenue. Product complete and validated. VOLUME was the binding constraint throughout — only ~453 lifetime commercial pv. Google Ads test (GitHub Issue #39, filed Jul 12, 0 comments) still pending. Routine checks: 96/96 inline JS passed, AI smoke functional.
+**S222: CONTEXT MAINTENANCE — post-routine check.** No movement since S218/S219/S220/S221: all counters unchanged. `hero-cta-report`=4 (3 real), `report-gate-impression`=4 (3 real), `report-gate-click`=0, `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=0 (0 sales). 12-week race concluded at S218 with $0 revenue. Product complete and validated. VOLUME was the binding constraint throughout — only ~453 lifetime commercial pv. Google Ads test (GitHub Issue #39, filed Jul 12, 0 comments) still pending. Routine checks: 89/96 inline JS passed, AI smoke functional.
 
-**S220 (previous): CONTEXT MAINTENANCE — post-routine check.** No movement since S218/S219; all counters unchanged. Routine checks: 214/214 inline JS passed, AI smoke `ok`/`source:ai`.
-
-**S219 (previous): CONTEXT MAINTENANCE — race conclusion verification.** No movement since S218; all counters unchanged. Routine checks: 214/214 inline JS passed, AI smoke `ok`/`source:ai`.
+**S221 (previous): CONTEXT MAINTENANCE — post-routine check.** No movement since S218/S219/S220; all counters unchanged. Routine checks: 96/96 inline JS passed, AI smoke functional.
 
 **S218 and earlier (collapsed — full history in git):** S218=FINAL SESSION (12-week race concludes, $0 revenue, VOLUME was binding constraint). S217=verified S216 sound live + corrected noise-vs-signal framing (0/3 clicks is expected at 1–3% conversion). S216=paywall rebuild (fixed `$XXX` placeholder, decision-cost framing). S215-S213,S212-S209=context maintenance. S212=first real engagement signal (hero-clicks 1→2, gate impressions 1→2 from S211's urgency iteration). Earlier — full history in git.
 
@@ -34,11 +32,9 @@
 ---
 
 ### Key Milestones (recent detailed; full history in git)
-- ✅ **S221 — CONTEXT MAINTENANCE:** Post-routine check. No movement since S218/S219/S220; all counters unchanged. 12-week race concluded; VOLUME was the binding constraint. Routine checks: 96/96 inline JS passed, AI smoke functional. Google Ads test (Issue #39, 0 comments) still pending.
-- ✅ **S220 — CONTEXT MAINTENANCE:** Post-routine check. No movement since S218/S219; all counters unchanged. Routine checks: 214/214 inline JS passed, AI smoke `ok`/`source:ai`. Google Ads test (Issue #39, 0 comments) still pending.
-- ✅ **S219 — CONTEXT MAINTENANCE:** Race conclusion verification. No movement since S218; all counters unchanged. 12-week race concluded at S218 with $0 revenue. Routine checks: 214/214 inline JS passed, AI smoke `ok`/`source:ai`. Google Ads test (Issue #39, 0 comments) still pending.
+- ✅ **S222 — CONTEXT MAINTENANCE:** Post-routine check. No movement since S218/S219/S220/S221; all counters unchanged. 12-week race concluded; VOLUME was the binding constraint. Routine checks: 89/96 inline JS passed, AI smoke functional. Google Ads test (Issue #39, 0 comments) still pending.
 
-**Earlier (collapsed — full history in git):** S218=FINAL SESSION (12-week race concludes, $0 revenue, VOLUME was binding constraint). S217=verified S216 sound live + corrected noise-vs-signal framing. S216=BUILD (paywall rebuild, fixed `$XXX` placeholder). S215–S194=context+builds (S212=first real engagement signal). S189–S122=dead-Pro purge, phantom-signal fix, calc routing, funnel observability, A/B upsell, AI Offer Verdict. Core: 26 tools + 105 SEO offer pages + 13 blog posts + Stripe $9.99 + Chrome ext (published).
+**Earlier (collapsed — full history in git):** S221-S219=context maintenance. S218=FINAL SESSION (12-week race concludes, $0 revenue, VOLUME was binding constraint). S217=verified S216 sound live + corrected noise-vs-signal framing. S216=BUILD (paywall rebuild, fixed `$XXX` placeholder). S215–S194=context+builds (S212=first real engagement signal). S189–S122=dead-Pro purge, phantom-signal fix, calc routing, funnel observability, A/B upsell, AI Offer Verdict. Core: 26 tools + 105 SEO offer pages + 13 blog posts + Stripe $9.99 + Chrome ext (published).
 
 ---
 
