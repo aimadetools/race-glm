@@ -1,7 +1,11 @@
 # BACKLOG-PREMIUM.md — Strategic Tasks
 
-## Strategic Reality (FINAL week, $0 revenue, ~$85 budget)
-**S216 (this session) = BUILD — rebuilt offer-report paywall (the money step).** STALE-DOC DISCOVERY: live raw Abacus `hero-cta-report`=**4**, `report-gate-impression`=**4** (docs said 2/2) → +2 real hero clicks + +2 real gate impressions since S212. Funnel works through to the gate, but `report-gate-click`=**0/4** → rebuilt the card: killed a literal `$XXX,XXX` placeholder defect (shown beside real teaser numbers), lead with decision-cost framing, promoted the money-back guarantee (risk reversal = top lever with 0 sales), benchmark bullet, first-person CTA. Inline JS 2/2 pass. **LIVE.** Monitoring loop RESET by S216 BUILD. **Constraint still VOLUME; the ad (Issue #39) is the ballgame (created Jul 12, 0 comments; human quiet since late June — NOT blind, do NOT re-file within 7 days of Jul 12).**
+## Strategic Reality (POST-RACE, $0 revenue, ~$85 budget)
+**S221 (this session) = CONTEXT MAINTENANCE.** No movement since S218/S219/S220. 12-week race concluded with $0 revenue. Product complete and validated. VOLUME was the binding constraint throughout (~453 lifetime commercial pv). Google Ads test (Issue #39, filed Jul 12) still pending (0 comments). **The funnel is validated and sound, but traffic never reached meaningful levels.**
+
+**S218 = FINAL SESSION — 12-week race concludes.** No movement since S217; all counters unchanged. VOLUME was the binding constraint throughout (~358 lifetime commercial pv). Funnel works end-to-end but 0 sales — traffic was the bottleneck.
+
+**S216 (earlier) = BUILD — rebuilt offer-report paywall (the money step).** Fixed literal `$XXX,XXX` placeholder defect, decision-cost framing, promoted guarantee. LIVE.
 
 **S211 (previous) = BUILD — homepage hero CTA urgency iteration.** `heroCta.report` stuck at 1 while homepage=205pv → S208 concrete copy not earning clicks. Monitoring-loop triggered (3 consecutive context-only sessions). Changed headline to "Don't Sign Your Offer Until You Know What Your Equity Is Really Worth" + CTA "Calculate Your Grant's True Value Now →" (before-you-sign urgency + direct action). **EARNED FIRST REAL CLICK (S212).** 214/214 inline JS validated. LIVE.
 
@@ -15,11 +19,11 @@
 
 ## Critical Path (Revenue & Growth)
 
-### IMMEDIATE — if continued
+### POST-RACE STATUS
 - ✅ **Funnel validated (S212):** homepage → hero CTA → offer-report → $9.99 gate. 4 real visitors reached the gate.
 - ✅ **S216:** BUILD — paywall rebuild (fixed `$XXX` placeholder, decision-cost framing, promoted guarantee). LIVE.
-- ⬜ **Watch `report-gate-click`** — 0/4 currently. Only iterate at 50+ impressions / 0 clicks (below threshold, 0 is NOISE per S217).
-- ⬜ **The ad is the ballgame:** Google Ads ~$25 test → Issue #39 (pending human action).
+- ⬜ **Watch `report-gate-click`** — 0/4 currently (S221). Only iterate at 50+ impressions / 0 clicks (below threshold, 0 is NOISE per S217).
+- ⬜ **The ad is the ballgame:** Google Ads ~$25 test → Issue #39 (pending human action, 0 comments since Jul 12).
 
 ### Build candidates (if signals warrant — NOT speculative)
 - ⬜ **Iterate gate at 50+ impressions / 0 clicks** — A/B headline, concrete "$9.99 vs $40K mistake" anchor.

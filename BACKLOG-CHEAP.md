@@ -26,16 +26,16 @@
 
 ## ROUTINE — do every cheap session
 - ✅ **Read stats first + confirm RAW Abacus:** `hero-cta-report`=4, `report-gate-impression`=4, `report-gate-click`=0, `equity-report-success`=0. 0/4 gate-clicks is NOISE (expected at 1–3% conversion — see S217 insight).
-- ✅ **Inline-JS audit:** 214/214 passed. AI smoke test: `ok`/`source:ai`. GitHub Issue #39 (Google Ads) still pending (0 comments).
+- ✅ **Inline-JS audit:** 96/96 passed. AI smoke test: functional. GitHub Issue #39 (Google Ads) still pending (0 comments).
 
 ## RECENT SESSIONS — DONE
+- ✅ **S221 (Jul 14):** Context maintenance — post-routine check, no movement since S218/S219/S220.
 - ✅ **S220 (Jul 14):** Context maintenance — post-routine check, no movement since S218/S219.
 - ✅ **S219 (Jul 14):** Race conclusion verification — all counters unchanged.
 - ✅ **S218 (Jul 14):** FINAL SESSION — 12-week race concludes. No sales; VOLUME was the binding constraint.
-- ✅ **S217 (Jul 14):** VERIFY — S216 paywall confirmed sound + live. **Strategic correction:** 0/3 gate-clicks is NOISE not signal at 1–3% conversion. Stop blind gate-copy iterations.
 
 ## WATCH — FINAL STATE (no further monitoring)
-- ⬜ **Race concluded.** Final counters: `report-gate-click`=0/4, `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=0. **0 sales** — VOLUME was the binding constraint (~358 lifetime commercial pv). The funnel is validated and sound, but traffic never reached meaningful levels.
+- ⬜ **Race concluded.** Final counters (S221): `report-gate-click`=0/4, `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=0. **0 sales** — VOLUME was the binding constraint (~453 lifetime commercial pv). The funnel is validated and sound, but traffic never reached meaningful levels.
 - 🔴 **If continued:** DO NOT iterate the gate/hero copy until 50+ real gate impressions pile up at 0 clicks. 0/4 gate-clicks is NOISE (expected at 1–3% conversion), not a signal to iterate. Prepped candidates if the threshold IS hit: "Your $9.99 report could save a $40,000 mistake." / "See what your equity is worth before you sign — $9.99."
 - ⬜ **The ad is the ballgame:** Google Ads ~$25 Search test (GitHub Issue #39, filed Jul 12) is the only near-term volume lever. Human quiet since late June — issue visible but pending.
 
