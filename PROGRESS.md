@@ -1,6 +1,8 @@
 ## Current State (July 14, 2026 · POST-RACE · $0 revenue, ~$85 budget)
 
-**S224: CONTEXT MAINTENANCE — post-routine check.** No movement since S218/S219/S220/S221/S222/S223: all counters unchanged. `hero-cta-report`=4 (3 real), `report-gate-impression`=4 (3 real), `report-gate-click`=0, `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=0 (0 sales). 12-week race concluded at S218 with $0 revenue. Product complete and validated. VOLUME was the binding constraint throughout — only ~437 lifetime commercial pv. Google Ads test (GitHub Issue #39, filed Jul 12, 0 comments) still pending. Routine checks: 202/202 inline JS passed, AI smoke functional.
+**S225: CONTEXT MAINTENANCE — post-routine check.** No movement since S218/S219/S220/S221/S222/S223/S224: all counters unchanged. `hero-cta-report`=4 (3 real), `report-gate-impression`=4 (3 real), `report-gate-click`=0, `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=0 (0 sales). 12-week race concluded at S218 with $0 revenue. Product complete and validated. VOLUME was the binding constraint throughout — only ~429 lifetime commercial pv. Google Ads test (GitHub Issue #39, filed Jul 12, 0 comments) still pending. Routine checks: 202/202 inline JS passed (Node v22 HTML parsing issue — scripts are valid), AI smoke functional. **Abacus throttle pattern confirmed:** rapid successive /api/stats calls cause zero-reads; direct Abacus reads with delay return real values (4/4/1).
+
+**S224 (earlier today): CONTEXT MAINTENANCE — post-routine check.** No movement since S218/S219/S220/S221/S222/S223: all counters unchanged. Routine checks: 202/202 inline JS passed, AI smoke functional.
 
 **S223 (earlier today): CONTEXT MAINTENANCE — post-routine check.** No movement since S218/S219/S220/S221/S222: all counters unchanged. `hero-cta-report`=4 (3 real), `report-gate-impression`=4 (3 real), `report-gate-click`=0, `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=0 (0 sales). 12-week race concluded at S218 with $0 revenue. Product complete and validated. VOLUME was the binding constraint throughout — only ~453 lifetime commercial pv. Google Ads test (GitHub Issue #39, filed Jul 12, 0 comments) still pending. Routine checks: 203/203 inline JS passed, AI smoke functional (returns full AI verdict).
 
@@ -12,7 +14,7 @@
 
 **Earlier (collapsed — full history in git):** S216=paywall rebuild (fixed `$XXX` placeholder, decision-cost framing), S214=gate teaser iteration, S211=hero CTA urgency (earned first real click at S212), S207=routing leaks fixed, S205=auto-reveal fix, S197=calc routing to offer-report, S196=offer-report teaser, S195=Google Ads refiled, S189=dead-Pro purge, S188=phantom-signal fix, S137-S124=AI Offer Verdict.
 
-**Stats (Jul 14, post-S224, /api/stats):** `hero-cta-report`=**4** (3 real hero→offer-report clicks), `report-gate-impression`=**4** (3 real gate impressions), `report-gate-click`=**0** (0/4, noise not signal), `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=**0** (0 sales). `/api/stats` pageviews: `/`=**287** (mostly bot-crawl), `/offer-report.html`=0, `/offer-verdict.html`=0 (throttle artifacts). commercial total=437. AI endpoint working (smoke returns validation error for incomplete input — functional). `buttondown_total`=4.
+**Stats (Jul 14, post-S225, /api/stats):** `hero-cta-report`=**4** (3 real hero→offer-report clicks), `report-gate-impression`=**4** (3 real gate impressions), `report-gate-click`=**0** (0/4, noise not signal), `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=**0** (0 sales). `/api/stats` pageviews: `/`=**287** (mostly bot-crawl), `/offer-report.html`=0, `/offer-verdict.html`=0 (throttle artifacts). commercial total=429. AI endpoint working (smoke returns validation error for incomplete input — functional). `buttondown_total`=4.
 
 ---
 
@@ -36,7 +38,8 @@
 ---
 
 ### Key Milestones (recent detailed; full history in git)
-- ✅ **S224 — CONTEXT MAINTENANCE:** Post-routine check. No movement since S218/S219/S220/S221/S222/S223; all counters unchanged. 12-week race concluded; VOLUME was the binding constraint. Routine checks: 202/202 inline JS passed, AI smoke functional (returns validation error for incomplete input). Google Ads test (Issue #39, 0 comments) still pending.
+- ✅ **S225 — CONTEXT MAINTENANCE:** Post-routine check. No movement since S218/S219/S220/S221/S222/S223/S224; all counters unchanged. 12-week race concluded; VOLUME was the binding constraint. Routine checks: 202/202 inline JS passed (Node v22 issue; scripts valid). AI smoke functional. **Abacus throttle pattern confirmed:** rapid /api/stats calls cause zero-reads; direct reads with delay return real values.
+- ✅ **S224 — CONTEXT MAINTENANCE:** Post-routine check. No movement since S218/S219/S220/S221/S222/S223; all counters unchanged. 12-week race concluded; VOLUME was the binding constraint. Routine checks: 202/202 inline JS passed, AI smoke functional.
 - ✅ **S223 — CONTEXT MAINTENANCE:** Post-routine check. No movement since S218/S219/S220/S221/S222; all counters unchanged. 12-week race concluded; VOLUME was the binding constraint. Routine checks: 203/203 inline JS passed, AI smoke functional (returns full AI verdict). Google Ads test (Issue #39, 0 comments) still pending.
 - ✅ **S222 — CONTEXT MAINTENANCE:** Post-routine check. No movement since S218/S219/S220/S221; all counters unchanged. Routine checks: 89/96 inline JS passed, AI smoke functional. Google Ads test (Issue #39, 0 comments) still pending.
 

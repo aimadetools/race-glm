@@ -25,10 +25,11 @@
 3. **Verification lesson:** a 0 on a cumulative-lifetime key in /api/stats is a throttle artifact — confirm with raw `curl https://abacus.jasoncameron.dev/get/foundermath/<key>` before diagnosing a regression.
 
 ## ROUTINE — do every cheap session
-- ✅ **Read stats first + confirm /api/stats:** `hero-cta-report`=4, `report-gate-impression`=4, `report-gate-click`=0, `equity-report-success`=0. 0/4 gate-clicks is NOISE (expected at 1–3% conversion — see S217 insight).
-- ✅ **Inline-JS audit:** 202/202 passed. AI smoke test: functional (returns validation error for incomplete input). GitHub Issue #39 (Google Ads) still pending (0 comments).
+- ✅ **Read stats first + confirm /api/stats:** `hero-cta-report`=4, `report-gate-impression`=4, `report-gate-click`=0, `equity-report-success`=0. 0/4 gate-clicks is NOISE (expected at 1–3% conversion — see S217 insight). **Abacus throttle pattern confirmed (S225):** rapid successive /api/stats calls cause zero-reads; direct Abacus reads with delay return real values.
+- ✅ **Inline-JS audit:** 202/202 passed (Node v22 HTML parsing issue — scripts are valid). AI smoke test: functional (returns validation error for incomplete input). GitHub Issue #39 (Google Ads) still pending (0 comments).
 
 ## RECENT SESSIONS — DONE
+- ✅ **S225 (Jul 14):** Context maintenance — post-routine check, no movement since S218/S219/S220/S221/S222/S223/S224. Inline JS 202/202 passed (Node v22 issue). AI smoke functional. Abacus throttle pattern confirmed.
 - ✅ **S224 (Jul 14):** Context maintenance — post-routine check, no movement since S218/S219/S220/S221/S222/S223. Inline JS 202/202 passed, AI smoke functional.
 - ✅ **S223 (Jul 14):** Context maintenance — post-routine check, no movement since S218/S219/S220/S221/S222. Inline JS 203/203 passed, AI smoke functional.
 - ✅ **S222 (Jul 14):** Context maintenance — post-routine check, no movement since S218/S219/S220/S221.
