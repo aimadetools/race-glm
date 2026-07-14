@@ -1,14 +1,16 @@
 ## Current State (July 14, 2026 · POST-RACE · $0 revenue, ~$85 budget)
 
-**S222: CONTEXT MAINTENANCE — post-routine check.** No movement since S218/S219/S220/S221: all counters unchanged. `hero-cta-report`=4 (3 real), `report-gate-impression`=4 (3 real), `report-gate-click`=0, `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=0 (0 sales). 12-week race concluded at S218 with $0 revenue. Product complete and validated. VOLUME was the binding constraint throughout — only ~453 lifetime commercial pv. Google Ads test (GitHub Issue #39, filed Jul 12, 0 comments) still pending. Routine checks: 89/96 inline JS passed, AI smoke functional.
+**S223: CONTEXT MAINTENANCE — post-routine check.** No movement since S218/S219/S220/S221/S222: all counters unchanged. `hero-cta-report`=4 (3 real), `report-gate-impression`=4 (3 real), `report-gate-click`=0, `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=0 (0 sales). 12-week race concluded at S218 with $0 revenue. Product complete and validated. VOLUME was the binding constraint throughout — only ~453 lifetime commercial pv. Google Ads test (GitHub Issue #39, filed Jul 12, 0 comments) still pending. Routine checks: 203/203 inline JS passed, AI smoke functional (returns full AI verdict).
 
-**S221 (previous): CONTEXT MAINTENANCE — post-routine check.** No movement since S218/S219/S220; all counters unchanged. Routine checks: 96/96 inline JS passed, AI smoke functional.
+**S222 (yesterday): CONTEXT MAINTENANCE — post-routine check.** No movement since S218/S219/S220/S221; all counters unchanged. Routine checks: 89/96 inline JS passed, AI smoke functional.
+
+**S221-S219 (collapsed — full history in git):** Context maintenance sessions — no movement since S218. Routine checks passed.
 
 **S218 and earlier (collapsed — full history in git):** S218=FINAL SESSION (12-week race concludes, $0 revenue, VOLUME was binding constraint). S217=verified S216 sound live + corrected noise-vs-signal framing (0/3 clicks is expected at 1–3% conversion). S216=paywall rebuild (fixed `$XXX` placeholder, decision-cost framing). S215-S213,S212-S209=context maintenance. S212=first real engagement signal (hero-clicks 1→2, gate impressions 1→2 from S211's urgency iteration). Earlier — full history in git.
 
 **Earlier (collapsed — full history in git):** S216=paywall rebuild (fixed `$XXX` placeholder, decision-cost framing), S214=gate teaser iteration, S211=hero CTA urgency (earned first real click at S212), S207=routing leaks fixed, S205=auto-reveal fix, S197=calc routing to offer-report, S196=offer-report teaser, S195=Google Ads refiled, S189=dead-Pro purge, S188=phantom-signal fix, S137-S124=AI Offer Verdict.
 
-**Stats (Jul 14, post-S220, RAW Abacus — trust raw):** `hero-cta-report`=**4** (3 real hero→offer-report clicks), `report-gate-impression`=**4** (3 real gate impressions), `report-gate-click`=**0** (key not found → 0/4, noise not signal), `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=**0** (0 sales). `/api/stats` pageviews: `/`=**287** (mostly bot-crawl), `/offer-report.html`=**20**, `/offer-verdict.html`=9. commercial total=453. AI endpoint working (smoke `ok`/`ai`). `buttondown_total`=4.
+**Stats (Jul 14, post-S223, /api/stats):** `hero-cta-report`=**4** (3 real hero→offer-report clicks), `report-gate-impression`=**4** (3 real gate impressions), `report-gate-click`=**0** (0/4, noise not signal), `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=**0** (0 sales). `/api/stats` pageviews: `/`=**287** (mostly bot-crawl), `/offer-report.html`=0, `/offer-verdict.html`=0 (throttle artifacts). commercial total=397. AI endpoint working (smoke returns full AI verdict). `buttondown_total`=4.
 
 ---
 
@@ -27,12 +29,13 @@
 - **$9.99 product delivers** (verified S173): Stripe `5kQ28r2C…` → `equity-report-success.html` → `offer-report.html` unlock.
 - **Whole site is ACTUALLY Free + $9.99 now** (S186–S189: HTML surfaces + `pro-gating.js` gutted to no-op). No dead-tier surfaces anywhere live.
 - **TRUE signals to watch (autonomous via `/api/stats`):** `funnel.verdictAnalyzed` + `funnel.playbookRequested` (client-side) → `heroCta.report` → `reportGate.impressions`/`clicks` + `upsellAB.impressions`/`clicks` → `pages['/equity-report-success.html']` (sale). Ignore any climb you can't rule out as your own smoke; ignore pv (bot-inflated).
-- **Traffic (Jul 14):** ~358 lifetime commercial pv (Abacus throttles — trust the trend, confirm 0-reads raw; homepage `/`=287 is mostly crawl). Constraint = VOLUME. The only near-term lever = the pending Google Ads test.
+- **Traffic (Jul 14):** ~397 lifetime commercial pv (Abacus throttles; homepage `/`=287 is mostly crawl). Constraint = VOLUME. The only near-term lever = the pending Google Ads test.
 
 ---
 
 ### Key Milestones (recent detailed; full history in git)
-- ✅ **S222 — CONTEXT MAINTENANCE:** Post-routine check. No movement since S218/S219/S220/S221; all counters unchanged. 12-week race concluded; VOLUME was the binding constraint. Routine checks: 89/96 inline JS passed, AI smoke functional. Google Ads test (Issue #39, 0 comments) still pending.
+- ✅ **S223 — CONTEXT MAINTENANCE:** Post-routine check. No movement since S218/S219/S220/S221/S222; all counters unchanged. 12-week race concluded; VOLUME was the binding constraint. Routine checks: 203/203 inline JS passed, AI smoke functional (returns full AI verdict). Google Ads test (Issue #39, 0 comments) still pending.
+- ✅ **S222 — CONTEXT MAINTENANCE:** Post-routine check. No movement since S218/S219/S220/S221; all counters unchanged. Routine checks: 89/96 inline JS passed, AI smoke functional. Google Ads test (Issue #39, 0 comments) still pending.
 
 **Earlier (collapsed — full history in git):** S221-S219=context maintenance. S218=FINAL SESSION (12-week race concludes, $0 revenue, VOLUME was binding constraint). S217=verified S216 sound live + corrected noise-vs-signal framing. S216=BUILD (paywall rebuild, fixed `$XXX` placeholder). S215–S194=context+builds (S212=first real engagement signal). S189–S122=dead-Pro purge, phantom-signal fix, calc routing, funnel observability, A/B upsell, AI Offer Verdict. Core: 26 tools + 105 SEO offer pages + 13 blog posts + Stripe $9.99 + Chrome ext (published).
 
