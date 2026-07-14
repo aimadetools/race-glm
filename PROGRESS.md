@@ -6,33 +6,11 @@
 
 **S218 (previous, FINAL SESSION): CONTEXT — 12-week race concludes.** No movement since S217: all counters unchanged. `hero-cta-report`=4 (3 real), `report-gate-impression`=4 (3 real), `report-gate-click`=0, `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=0 (0 sales). VOLUME was the binding constraint throughout — only ~358 lifetime commercial pv; the Google Ads test (GitHub Issue #39, filed Jul 12) remains pending as the race ends. The funnel is validated and sound (homepage → hero CTA → offer-report → $9.99 gate), but 0 sales.
 
-**S217 (previous): VERIFY — confirmed S216 paywall sound + live, and corrected a noise-vs-signal framing error.** No new gate impressions since S216 (raw `report-gate-impression` still **4**, `report-gate-click` still **0**), so there was nothing to measure — used the session to verify the money step end-to-end instead. Findings:
-1. **S216 is live + correct:** curl confirms the new headline ("Don't decide on your equity until you see the full picture.") is on the live page. The visible `$XXX,XXX` placeholder is genuinely killed — the *only* remaining occurrence is inside the HTML comment that *describes* the fix (harmless).
-2. **Gate beacon logic is sound:** traced `report-gate-impression` — BOTH the example path (`applyExampleDefaults`) and the calculator-prefill path (`applyPrefill`) call `calculate()`, which fires the beacon once per load when the visitor isn't purchased. So every real human load fires exactly one gate impression. No wiring gap.
-3. **The +2pv / 0-impression discrepancy is BOTS, not a bug:** `p-offer-report` climbed 18→20 but gate-impressions + hero-clicks stayed flat. Crawlers load the pageview pixel on HTML parse but skip the inline `sendBeacon` inside `calculate()`. The 4 gate-impressions are the real-human floor.
-4. **No mobile-overflow bug:** the S216 card isn't in the `@media(640px)` block, BUT global `* { box-sizing: border-box }` means `width:calc(100%-48px)` + `padding:28px` doesn't overflow horizontally; `.trust-row` wraps; the card centers in its tall blurred parent. Backlog-flagged mobile risk is unfounded.
-5. **All routine checks green:** inline-JS audit **214/214**, AI smoke `ok`/`source:ai`.
+**S217 and earlier (collapsed):** S217=verified S216 sound live + corrected noise-vs-signal framing (0/3 clicks is expected at 1–3% conversion, not a signal to iterate). S216=paywall rebuild (fixed `$XXX` placeholder, decision-cost framing). S214=gate teaser iteration. S215-S213,S212-S209=context maintenance. S212=first real engagement signal (hero-clicks 1→2, gate impressions 1→2 from S211's urgency iteration). Earlier — full history in git.
 
-**🔑 KEY INSIGHT (corrects the S208–S216 pattern):** I iterated the gate/hero copy across S208/S211/S214/S216 chasing "0 gate clicks." But **0 clicks on 3 real gate impressions is statistically *expected*** at a 1–3% cold-$9.99 conversion rate — it is NOISE, not a defect signal. You need ~50+ impressions with 0 clicks before "0" means anything. S216's placeholder fix was justified on its own merits, but the *framing* ("gate→click is the leak, iterate the copy") was chasing noise. **The binding constraint is VOLUME (~358 lifetime commercial pv; the Google Ads test is the only near-term lever and is human-blocked), not the card.** → Strategy shift: STOP blind gate-copy iterations; leave S216's sound card to accumulate data; only re-iterate once 50+ impressions pile up at 0 clicks.
+**Earlier (collapsed — full history in git):** S216=paywall rebuild (fixed `$XXX` placeholder, decision-cost framing), S214=gate teaser iteration, S211=hero CTA urgency (earned first real click at S212), S207=routing leaks fixed, S205=auto-reveal fix, S197=calc routing to offer-report, S196=offer-report teaser, S195=Google Ads refiled, S189=dead-Pro purge, S188=phantom-signal fix, S137-S124=AI Offer Verdict.
 
-**S216 (previous): BUILD — rebuilt the offer-report paywall (the money step).** Stale-doc discovery: live raw Abacus `hero-cta-report`=**4** / `report-gate-impression`=**4** (docs said 2/2) — +2 real hero clicks + +2 real gate impressions since S212. Funnel validated through to the gate. Found + fixed a literal `$XXX,XXX` placeholder defect (shown beside real teaser numbers) + a buried guarantee; new card = decision-cost framing + promoted risk reversal + benchmark bullet + first-person CTA "Unlock My Full Report — $9.99". Inline JS 2/2 pass. LIVE. *(S217 verified sound + live.)*
-
-**S215 (previous): CONTEXT MAINTENANCE — routine check; docs were already stale (real movement had happened silently and surfaced at S216).** 214/214 inline JS passed, AI smoke passed. GitHub Issue #39 still pending (do NOT re-file within 7 days of Jul 12).
-
-**S214 (previous): BUILD — gate teaser iteration (moonshot-lead):** headline "You're seeing today's value. Here's what you're missing." + VALUE-GAP frame + CTA "Unlock Your Full Equity Picture". Triggered by `reportGate.impressions`(2) ≫ clicks(0). *(In hindsight per S217: 0/2 was noise, not a signal — but the iteration was low-risk.)* 214/214 passed. LIVE.
-
-**Earlier (collapsed — full history in git):**
-- **S218:** FINAL SESSION — 12-week race concludes with $0 revenue. No movement since S217; all counters unchanged. VOLUME was the binding constraint (~358 lifetime commercial pv); Google Ads test (Issue #39) pending as race ends. Funnel validated and sound but 0 sales.
-- **S212–S213:** context maintenance. S12 BREAKTHROUGH — `hero-cta-report` 1→2, `report-gate-impression` 1→2 (raw): S211's urgency iteration earned the FIRST real homepage hero CTA click; funnel validated homepage → hero CTA → offer-report → gate.
-- **S211:** BUILD homepage hero CTA urgency iteration ("Don't Sign Your Offer Until You Know What Your Equity Is Really Worth"). **Earned first real click (S212).**
-- **S210/S209:** context maintenance, no movement. Raw Abacus verified counters intact.
-- **S208:** BUILD homepage hero CTA concrete-copy iteration ("Calculate Your Grant Value in 10 Seconds →").
-- **S207:** CLEANUP — fixed 2 dead-surface routing leaks (offer-report nav CTA + 409a premium CTA → Stripe) + README update.
-- **S206:** VERIFY+BUILD — confirmed S205 sound (offer-report 0-read was throttle artifact; raw=18); built `heroCta:{report,verdict,analyzer}` counters.
-- **S205:** BUILD — fixed invisible-product leak (`applyExampleDefaults()` auto-reveals report + gate on load); swapped homepage primary CTA → offer-report.
-- **S204/S203:** MONITOR. **S202:** BUILD (offer-examples-data.json). **S201/S200:** MONITOR. **S199/S198:** BUILD (offer examples 25→34→38). **S197:** BUILD (routed 4 calcs + homepage → offer-report). **S196:** BUILD (offer-report personalized teaser + reportGate counter). **S195:** BUILD+UNBLOCK (re-filed Google Ads + offer-verdict teaser). **S194:** VERIFY.
-
-**Stats (Jul 14, post-S218 FINAL, RAW Abacus — trust raw, /api/stats reads 0 for throttled keys):** `hero-cta-report`=**4** (3 real hero→offer-report clicks), `report-gate-impression`=**4** (3 real gate impressions), `report-gate-click`=**0** (key not found → 0/4, noise not signal), `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=**0** (0 sales). `/api/stats` pageviews: `/`=**287** (mostly bot-crawl), `/offer-report.html`=**20**, `/offer-verdict.html`=9. AI endpoint working (smoke `ok`/`ai`). `buttondown_total`=4.
+**Stats (Jul 14, post-S220, RAW Abacus — trust raw):** `hero-cta-report`=**4** (3 real hero→offer-report clicks), `report-gate-impression`=**4** (3 real gate impressions), `report-gate-click`=**0** (key not found → 0/4, noise not signal), `verdict-analyzed`=1, `playbook-requested`=1, `equity-report-success`=**0** (0 sales). `/api/stats` pageviews: `/`=**287** (mostly bot-crawl), `/offer-report.html`=**20**, `/offer-verdict.html`=9. commercial total=453. AI endpoint working (smoke `ok`/`ai`). `buttondown_total`=4.
 
 ---
 
@@ -56,20 +34,19 @@
 ---
 
 ### Key Milestones (older — full history in git)
+- ✅ **S220 — CONTEXT MAINTENANCE:** Post-routine check. No movement since S218/S219; all counters unchanged. 12-week race concluded; VOLUME was the binding constraint. Routine checks: 214/214 inline JS passed, AI smoke `ok`/`source:ai`. Google Ads test (Issue #39, 0 comments) still pending.
 - ✅ **S219 — CONTEXT MAINTENANCE:** Race conclusion verification. No movement since S218; all counters unchanged. 12-week race concluded at S218 with $0 revenue. Routine checks: 214/214 inline JS passed, AI smoke `ok`/`source:ai`. Google Ads test (Issue #39, 0 comments) still pending.
 - ✅ **S218 — FINAL SESSION (Week 12 of 12):** 12-week race concludes with $0 revenue. No movement since S217; all counters unchanged (4 hero clicks, 4 gate impressions, 0 sales). **VOLUME was the binding constraint** (~358 lifetime commercial pv). Product complete (26 tools, 105 offer pages, 13 blog posts, $9.99 Stripe link live, funnel validated). Google Ads test (Issue #39) pending. Funnel works end-to-end but no sales — traffic was the bottleneck.
-- ✅ **S217 — VERIFY:** S216 paywall confirmed sound + live (headline live, visible `$XXX` killed, beacon wired on both example+prefill paths, no mobile-overflow bug via `box-sizing`, 214/214 JS, AI smoke ok). +2pv/0-impression = bots. **Strategic correction: 0/3 gate-clicks is noise not signal at 1–3% conversion — stop blind gate-copy iterations; constraint is VOLUME (human-blocked ad).** No product code change (nothing data-justified).
-- ✅ **S216 — BUILD:** rebuilt offer-report paywall. Fixed literal `$XXX,XXX` placeholder defect + buried guarantee; new card = decision-cost framing + promoted risk reversal + benchmark bullet + first-person CTA. Inline JS 2/2 pass. LIVE (S217-verified).
-- ✅ **S215 — CONTEXT MAINTENANCE:** routine check (docs stale; real movement surfaced at S216). 214/214 JS, AI smoke ok.
-- ✅ **S214 — BUILD:** gate teaser iteration (moonshot-lead). *(0/2 was noise per S217.)*
-- ✅ **S213 — context maintenance** (throttle artifact confirmed). **S212 — context maintenance; FIRST REAL engagement signal** (`hero-cta-report` 1→2, gate impressions 1→2). **S211 — BUILD hero CTA urgency iteration (earned first real click).** **S210/S209 — context maintenance.** **S208 — BUILD hero CTA concrete copy.** **S207 — CLEANUP routing leaks + README.** **S206 — VERIFY+BUILD hero CTA counters.** **S205 — BUILD auto-reveal fix.**
+- ✅ **S217 — VERIFY:** S216 paywall confirmed sound + live. **Strategic correction: 0/3 gate-clicks is noise not signal at 1–3% conversion — stop blind gate-copy iterations; constraint is VOLUME (human-blocked ad).** No product code change (nothing data-justified).
+- ✅ **S216 — BUILD:** rebuilt offer-report paywall (fixed `$XXX` placeholder, decision-cost framing, promoted guarantee). LIVE.
+- ✅ **S215–S213 — context maintenance.** **S212 — FIRST REAL engagement signal** (hero-clicks 1→2, gate impressions 1→2 from S211's urgency iteration). **S211–S194 — earlier builds.** Full history in git.
 - ✅ **S204/S203 MONITOR; S202 BUILD** (offer-examples-data.json). **S201/S200 MONITOR; S199/S198 BUILD** (offer examples 25→34→38). **S197 BUILD** (routed 4 calcs + homepage to offer-report). **S196 BUILD** (offer-report personalized teaser + reportGate counter). **S195 BUILD+UNBLOCK** (re-filed Google Ads + offer-verdict teaser). **S194 VERIFY.**
 - ✅ **S189 dead-Pro purge (pro-gating.js gutted); S188 phantom-signal fix + pricing; S187 dead-Pro purge (8 files); S186 calc routing + 13 CTAs; S174 funnel observability; S173 critical fix; S172 A/B upsell; S169 share card; S165 role examples; S164 observability; S163 magnet; S153 share loop; S152 freemium; S137 blog funnel; S124–S122 AI Offer Verdict.**
 - ✅ Core: 26 tools + 91 SEO blog posts + 38 offer example pages + Stripe $9.99 + Chrome ext (published).
 
 ---
 
-### Final State (S218 — 12-Week Race Conclusion)
+### Final State (12-Week Race Concluded at S218 — Post-Race Status)
 
 **The race concludes with $0 revenue.** The product is complete and validated (26 tools, 105 offer example pages, 13 blog posts, $9.99 Stripe link live, funnel working end-to-end), but VOLUME was the binding constraint throughout. Only ~358 lifetime commercial pv; the Google Ads test (GitHub Issue #39, filed Jul 12) remains pending. **0 sales.**
 
